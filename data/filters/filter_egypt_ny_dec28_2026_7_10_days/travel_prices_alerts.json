@@ -2,310 +2,268 @@
   "version": 2,
   "alerts": [
     {
-      "hotel_name": "Rewaya Luxury Resort Egipt, Hurghada",
-      "duration_bucket": "",
-      "old_price": 10977.0,
-      "new_price": 10977.0,
-      "price_change": 0.0,
-      "price_change_pct": 0.0,
-      "timestamp": "2026-09-28 08:51:13.799610+00:00",
-      "alert_type": "zone_exit",
-      "created_at": "2026-09-28T08:51:27.608015+00:00",
-      "threshold_percent": 8.0,
-      "unique_key": "Rewaya Luxury Resort Egipt, Hurghada_2026-09-28_08-51_zone_out_gone"
-    },
-    {
-      "hotel_name": "Sentido Oriental Dream Resort Egipt, Marsa Alam",
-      "duration_bucket": "",
-      "old_price": 10705.0,
-      "new_price": 10705.0,
-      "price_change": 0.0,
-      "price_change_pct": 0.0,
-      "timestamp": "2026-09-28 08:51:13.799610+00:00",
-      "alert_type": "zone_exit",
-      "created_at": "2026-09-28T08:51:27.608037+00:00",
-      "threshold_percent": 8.0,
-      "unique_key": "Sentido Oriental Dream Resort Egipt, Marsa Alam_2026-09-28_08-51_zone_out_gone"
-    },
-    {
-      "hotel_name": "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna",
-      "duration_bucket": "",
-      "old_price": 10971.0,
-      "new_price": 10971.0,
-      "price_change": 0.0,
-      "price_change_pct": 0.0,
-      "timestamp": "2026-09-28 23:26:29.667013+00:00",
-      "alert_type": "zone_exit",
-      "created_at": "2026-09-28T23:26:49.955313+00:00",
-      "threshold_percent": 8.0,
-      "unique_key": "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna_2026-09-28_23-26_zone_out_gone"
-    },
-    {
       "hotel_name": "Bellagio Beach Resort & Spa (ex. Panorama Bungalows Hurghada) Egipt, Hurghada",
       "duration_bucket": "",
-      "old_price": 10768.0,
-      "new_price": 10768.0,
+      "old_price": 10575.0,
+      "new_price": 10575.0,
       "price_change": 0.0,
       "price_change_pct": 0.0,
-      "timestamp": "2026-09-29 18:45:56.626037+00:00",
+      "timestamp": "2026-08-26 10:27:47.270457+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-09-29T18:46:11.364199+00:00",
+      "created_at": "2026-08-26T10:28:02.894423+00:00",
       "threshold_percent": 8.0,
-      "unique_key": "Bellagio Beach Resort & Spa (ex. Panorama Bungalows Hurghada) Egipt, Hurghada_2026-09-29_18-45_zone_out_gone"
-    },
-    {
-      "hotel_name": "Radisson Blu Resort (El Quseir) Egipt, Marsa Alam, Al-Kusajr",
-      "duration_bucket": "",
-      "old_price": 10754.0,
-      "new_price": 10754.0,
-      "price_change": 0.0,
-      "price_change_pct": 0.0,
-      "timestamp": "2026-09-29 18:45:56.626037+00:00",
-      "alert_type": "zone_exit",
-      "created_at": "2026-09-29T18:46:11.364230+00:00",
-      "threshold_percent": 8.0,
-      "unique_key": "Radisson Blu Resort (El Quseir) Egipt, Marsa Alam, Al-Kusajr_2026-09-29_18-45_zone_out_gone"
-    },
-    {
-      "hotel_name": "Amarina Queen Resort Egipt, Marsa Alam",
-      "duration_bucket": "",
-      "old_price": 9871.0,
-      "new_price": 10771.0,
-      "price_change": 900.0,
-      "price_change_pct": 9.117617262688684,
-      "timestamp": "2026-09-30 02:15:18.498891+00:00",
-      "alert_type": "price_increase",
-      "created_at": "2026-09-30T02:15:33.268320+00:00",
-      "threshold_percent": 8.0,
-      "unique_key": "Amarina Queen Resort Egipt, Marsa Alam_2026-09-30_02-15_+9.1"
-    },
-    {
-      "hotel_name": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada",
-      "duration_bucket": "",
-      "old_price": 9695.0,
-      "new_price": 9695.0,
-      "price_change": 0.0,
-      "price_change_pct": 0.0,
-      "timestamp": "2026-09-30 02:15:18.498891+00:00",
-      "alert_type": "zone_exit",
-      "created_at": "2026-09-30T02:15:33.268357+00:00",
-      "threshold_percent": 8.0,
-      "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada_2026-09-30_02-15_zone_out_gone"
-    },
-    {
-      "hotel_name": "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna",
-      "duration_bucket": "",
-      "old_price": 9953.0,
-      "new_price": 9953.0,
-      "price_change": 0.0,
-      "price_change_pct": 0.0,
-      "timestamp": "2026-09-30 02:15:18.498891+00:00",
-      "alert_type": "zone_exit",
-      "created_at": "2026-09-30T02:15:33.268381+00:00",
-      "threshold_percent": 8.0,
-      "unique_key": "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna_2026-09-30_02-15_zone_out_gone"
-    },
-    {
-      "hotel_name": "Fantazia Resort Egipt, Marsa Alam",
-      "duration_bucket": "",
-      "old_price": 10627.0,
-      "new_price": 10627.0,
-      "price_change": 0.0,
-      "price_change_pct": 0.0,
-      "timestamp": "2026-09-30 02:15:18.498891+00:00",
-      "alert_type": "zone_exit",
-      "created_at": "2026-09-30T02:15:33.268395+00:00",
-      "threshold_percent": 8.0,
-      "unique_key": "Fantazia Resort Egipt, Marsa Alam_2026-09-30_02-15_zone_out_gone"
-    },
-    {
-      "hotel_name": "Movenpick Sirena Beach Egipt, Marsa Alam, Al-Kusajr",
-      "duration_bucket": "",
-      "old_price": 10967.0,
-      "new_price": 10967.0,
-      "price_change": 0.0,
-      "price_change_pct": 0.0,
-      "timestamp": "2026-09-30 02:15:18.498891+00:00",
-      "alert_type": "zone_exit",
-      "created_at": "2026-09-30T02:15:33.268408+00:00",
-      "threshold_percent": 8.0,
-      "unique_key": "Movenpick Sirena Beach Egipt, Marsa Alam, Al-Kusajr_2026-09-30_02-15_zone_out_gone"
-    },
-    {
-      "hotel_name": "Amarina Queen Resort Egipt, Marsa Alam",
-      "duration_bucket": "",
-      "old_price": 10771.0,
-      "new_price": 10771.0,
-      "price_change": 0.0,
-      "price_change_pct": 0.0,
-      "timestamp": "2026-09-30 08:11:58.932250+00:00",
-      "alert_type": "zone_exit",
-      "created_at": "2026-09-30T08:12:12.816902+00:00",
-      "threshold_percent": 8.0,
-      "unique_key": "Amarina Queen Resort Egipt, Marsa Alam_2026-09-30_08-11_zone_out_gone"
-    },
-    {
-      "hotel_name": "Marriott Hurghada Beach Resort Egipt, Hurghada",
-      "duration_bucket": "",
-      "old_price": 10607.0,
-      "new_price": 10607.0,
-      "price_change": 0.0,
-      "price_change_pct": 0.0,
-      "timestamp": "2026-09-30 08:11:58.932250+00:00",
-      "alert_type": "zone_exit",
-      "created_at": "2026-09-30T08:12:12.816926+00:00",
-      "threshold_percent": 8.0,
-      "unique_key": "Marriott Hurghada Beach Resort Egipt, Hurghada_2026-09-30_08-11_zone_out_gone"
-    },
-    {
-      "hotel_name": "Novotel Marsa Alam Egipt, Marsa Alam",
-      "duration_bucket": "",
-      "old_price": 10897.0,
-      "new_price": 10897.0,
-      "price_change": 0.0,
-      "price_change_pct": 0.0,
-      "timestamp": "2026-09-30 08:11:58.932250+00:00",
-      "alert_type": "zone_exit",
-      "created_at": "2026-09-30T08:12:12.816933+00:00",
-      "threshold_percent": 8.0,
-      "unique_key": "Novotel Marsa Alam Egipt, Marsa Alam_2026-09-30_08-11_zone_out_gone"
+      "unique_key": "Bellagio Beach Resort & Spa (ex. Panorama Bungalows Hurghada) Egipt, Hurghada_2026-08-26_10-27_zone_out_gone"
     },
     {
       "hotel_name": "Rewaya Majestic Resort Egipt, Hurghada",
       "duration_bucket": "",
-      "old_price": 10564.0,
-      "new_price": 10564.0,
+      "old_price": 10624.0,
+      "new_price": 10624.0,
       "price_change": 0.0,
       "price_change_pct": 0.0,
-      "timestamp": "2026-09-30 08:11:58.932250+00:00",
+      "timestamp": "2026-08-26 10:27:47.270457+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-09-30T08:12:12.816940+00:00",
+      "created_at": "2026-08-26T10:28:02.894443+00:00",
       "threshold_percent": 8.0,
-      "unique_key": "Rewaya Majestic Resort Egipt, Hurghada_2026-09-30_08-11_zone_out_gone"
-    },
-    {
-      "hotel_name": "Parrotel Lagoon Resort Egipt, Sharm El Sheikh, Szarm el-Szejk",
-      "duration_bucket": "",
-      "old_price": 10427.0,
-      "new_price": 10427.0,
-      "price_change": 0.0,
-      "price_change_pct": 0.0,
-      "timestamp": "2026-09-30 20:56:29.743853+00:00",
-      "alert_type": "zone_exit",
-      "created_at": "2026-09-30T20:56:44.722823+00:00",
-      "threshold_percent": 8.0,
-      "unique_key": "Parrotel Lagoon Resort Egipt, Sharm El Sheikh, Szarm el-Szejk_2026-09-30_20-56_zone_out_gone"
-    },
-    {
-      "hotel_name": "Sentido Oriental Dream Resort Egipt, Marsa Alam",
-      "duration_bucket": "",
-      "old_price": 10380.0,
-      "new_price": 10380.0,
-      "price_change": 0.0,
-      "price_change_pct": 0.0,
-      "timestamp": "2026-10-01 00:40:40.610868+00:00",
-      "alert_type": "zone_exit",
-      "created_at": "2026-10-01T00:40:54.925960+00:00",
-      "threshold_percent": 8.0,
-      "unique_key": "Sentido Oriental Dream Resort Egipt, Marsa Alam_2026-10-01_00-40_zone_out_gone"
+      "unique_key": "Rewaya Majestic Resort Egipt, Hurghada_2026-08-26_10-27_zone_out_gone"
     },
     {
       "hotel_name": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada",
       "duration_bucket": "",
-      "old_price": 9908.0,
-      "new_price": 9908.0,
+      "old_price": 10223.0,
+      "new_price": 10223.0,
       "price_change": 0.0,
       "price_change_pct": 0.0,
-      "timestamp": "2026-10-01 20:27:25.094768+00:00",
+      "timestamp": "2026-08-26 10:58:18.592503+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-01T20:27:39.071505+00:00",
+      "created_at": "2026-08-26T10:58:37.144002+00:00",
       "threshold_percent": 8.0,
-      "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada_2026-10-01_20-27_zone_out_gone"
+      "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada_2026-08-26_10-58_zone_out_gone"
     },
     {
-      "hotel_name": "Sea Star Beau Rivage Egipt, Hurghada",
+      "hotel_name": "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna",
       "duration_bucket": "",
-      "old_price": 10752.0,
-      "new_price": 10752.0,
+      "old_price": 10196.0,
+      "new_price": 10196.0,
       "price_change": 0.0,
       "price_change_pct": 0.0,
-      "timestamp": "2026-10-01 20:27:25.094768+00:00",
+      "timestamp": "2026-08-26 10:58:18.592503+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-01T20:27:39.071536+00:00",
+      "created_at": "2026-08-26T10:58:37.144030+00:00",
       "threshold_percent": 8.0,
-      "unique_key": "Sea Star Beau Rivage Egipt, Hurghada_2026-10-01_20-27_zone_out_gone"
+      "unique_key": "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna_2026-08-26_10-58_zone_out_gone"
     },
     {
-      "hotel_name": "Sentido Oriental Dream Resort Egipt, Marsa Alam",
+      "hotel_name": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada",
       "duration_bucket": "",
-      "old_price": 10676.0,
-      "new_price": 10676.0,
+      "old_price": 10223.0,
+      "new_price": 10223.0,
       "price_change": 0.0,
       "price_change_pct": 0.0,
-      "timestamp": "2026-10-03 05:30:58.667089+00:00",
+      "timestamp": "2026-08-26 13:48:46.724475+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-03T05:31:12.318125+00:00",
+      "created_at": "2026-08-26T13:49:01.935340+00:00",
       "threshold_percent": 8.0,
-      "unique_key": "Sentido Oriental Dream Resort Egipt, Marsa Alam_2026-10-03_05-30_zone_out_gone"
+      "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada_2026-08-26_13-48_zone_out_gone"
+    },
+    {
+      "hotel_name": "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna",
+      "duration_bucket": "",
+      "old_price": 10196.0,
+      "new_price": 10196.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-08-26 13:48:46.724475+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-08-26T13:49:01.935371+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna_2026-08-26_13-48_zone_out_gone"
+    },
+    {
+      "hotel_name": "Rewaya Majestic Resort Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 10598.0,
+      "new_price": 10598.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-08-26 13:48:46.724475+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-08-26T13:49:01.935389+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Majestic Resort Egipt, Hurghada_2026-08-26_13-48_zone_out_gone"
+    },
+    {
+      "hotel_name": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 9843.0,
+      "new_price": 9843.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-08-26 18:53:11.511622+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-08-26T18:53:25.798152+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada_2026-08-26_18-53_zone_out_gone"
+    },
+    {
+      "hotel_name": "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna",
+      "duration_bucket": "",
+      "old_price": 9816.0,
+      "new_price": 9816.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-08-26 18:53:11.511622+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-08-26T18:53:25.798181+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna_2026-08-26_18-53_zone_out_gone"
+    },
+    {
+      "hotel_name": "Rewaya Majestic Resort Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 10218.0,
+      "new_price": 10218.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-08-26 18:53:11.511622+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-08-26T18:53:25.798195+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Majestic Resort Egipt, Hurghada_2026-08-26_18-53_zone_out_gone"
+    },
+    {
+      "hotel_name": "Movenpick Sirena Beach Egipt, Marsa Alam, Al-Kusajr",
+      "duration_bucket": "",
+      "old_price": 10857.0,
+      "new_price": 10857.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-08-27 13:06:22.263123+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-08-27T13:06:37.227230+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Movenpick Sirena Beach Egipt, Marsa Alam, Al-Kusajr_2026-08-27_13-06_zone_out_gone"
+    },
+    {
+      "hotel_name": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 10223.0,
+      "new_price": 10223.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-08-27 15:41:41.517302+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-08-27T15:41:55.828577+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada_2026-08-27_15-41_zone_out_gone"
+    },
+    {
+      "hotel_name": "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna",
+      "duration_bucket": "",
+      "old_price": 10196.0,
+      "new_price": 10196.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-08-27 15:41:41.517302+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-08-27T15:41:55.828606+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna_2026-08-27_15-41_zone_out_gone"
+    },
+    {
+      "hotel_name": "Rewaya Majestic Resort Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 10556.0,
+      "new_price": 10556.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-08-27 15:41:41.517302+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-08-27T15:41:55.828621+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Majestic Resort Egipt, Hurghada_2026-08-27_15-41_zone_out_gone"
+    },
+    {
+      "hotel_name": "Novotel Marsa Alam Egipt, Marsa Alam",
+      "duration_bucket": "",
+      "old_price": 10033.0,
+      "new_price": 10033.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-08-27 23:24:56.997060+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-08-27T23:25:11.568000+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Novotel Marsa Alam Egipt, Marsa Alam_2026-08-27_23-24_zone_out_gone"
+    },
+    {
+      "hotel_name": "Three Corners Fayrouz Plaza Beach Resort Egipt, Marsa Alam",
+      "duration_bucket": "",
+      "old_price": 10417.0,
+      "new_price": 10417.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-08-27 23:24:56.997060+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-08-27T23:25:11.568039+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Three Corners Fayrouz Plaza Beach Resort Egipt, Marsa Alam_2026-08-27_23-24_zone_out_gone"
+    },
+    {
+      "hotel_name": "Utopia Blue Resort Egipt, Marsa Alam",
+      "duration_bucket": "",
+      "old_price": 10127.0,
+      "new_price": 10127.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-08-28 05:44:18.314283+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-08-28T05:44:34.493617+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Utopia Blue Resort Egipt, Marsa Alam_2026-08-28_05-44_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-03T05:30:58.667089+00:00",
+    "last_processed_run": "2026-08-28T05:44:18.314283+00:00",
     "premium_state": {
-      "Fantazia Resort Egipt, Marsa Alam": {
-        "history_max": 10627.0,
+      "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
+        "history_max": 10223.0,
         "premium_peak": null
       },
-      "Marriott Hurghada Beach Resort Egipt, Hurghada": {
-        "history_max": 10607.0,
-        "premium_peak": null
-      },
-      "Movenpick Sirena Beach Egipt, Marsa Alam, Al-Kusajr": {
-        "history_max": 10967.0,
-        "premium_peak": null
-      },
-      "Novotel Marsa Alam Egipt, Marsa Alam": {
-        "history_max": 10897.0,
-        "premium_peak": null
-      },
-      "Radisson Blu Resort (El Quseir) Egipt, Marsa Alam, Al-Kusajr": {
-        "history_max": 10754.0,
-        "premium_peak": null
-      },
-      "Rewaya Luxury Resort Egipt, Hurghada": {
-        "history_max": 10977.0,
-        "premium_peak": null
-      },
-      "Sea Star Beau Rivage Egipt, Hurghada": {
-        "history_max": 10752.0,
-        "premium_peak": null
-      },
-      "Sentido Oriental Dream Resort Egipt, Marsa Alam": {
-        "history_max": 10705.0,
+      "Amarina Jannah Resort Aquapark Egipt, Marsa Alam, Port Ghalib": {
+        "history_max": 10327.0,
         "premium_peak": null
       },
       "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna": {
-        "history_max": 10971.0,
+        "history_max": 10196.0,
         "premium_peak": null
       },
-      "Rewaya Majestic Resort Egipt, Hurghada": {
-        "history_max": 10964.0,
+      "Movenpick Sirena Beach Egipt, Marsa Alam, Al-Kusajr": {
+        "history_max": 10857.0,
         "premium_peak": null
       },
-      "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
-        "history_max": 10703.0,
+      "Utopia Blue Resort Egipt, Marsa Alam": {
+        "history_max": 10127.0,
         "premium_peak": null
       },
       "Bellagio Beach Resort & Spa (ex. Panorama Bungalows Hurghada) Egipt, Hurghada": {
-        "history_max": 10768.0,
+        "history_max": 10575.0,
         "premium_peak": null
       },
-      "Amarina Queen Resort Egipt, Marsa Alam": {
-        "history_max": 10771.0,
+      "Rewaya Majestic Resort Egipt, Hurghada": {
+        "history_max": 10624.0,
+        "premium_peak": null
+      },
+      "Novotel Marsa Alam Egipt, Marsa Alam": {
+        "history_max": 10033.0,
+        "premium_peak": null
+      },
+      "Three Corners Fayrouz Plaza Beach Resort Egipt, Marsa Alam": {
+        "history_max": 10417.0,
         "premium_peak": null
       },
       "Parrotel Lagoon Resort Egipt, Sharm El Sheikh, Szarm el-Szejk": {
-        "history_max": 10427.0,
+        "history_max": 9572.0,
         "premium_peak": null
       }
     }
