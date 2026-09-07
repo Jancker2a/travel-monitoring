@@ -26,10 +26,75 @@
       "created_at": "2026-09-07T06:29:55.162770+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Dreams Vacation Sharm Resort_2026-09-07_06-29_+15.4"
+    },
+    {
+      "hotel_name": "Pickalbatros Laguna Club Resort",
+      "duration_bucket": "",
+      "old_price": 8710.0,
+      "new_price": 9847.0,
+      "price_change": 1137.0,
+      "price_change_pct": 13.053960964408725,
+      "timestamp": "2026-09-07 10:31:20.129635+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-07T10:32:01.156055+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Laguna Club Resort_2026-09-07_10-31_+13.1"
+    },
+    {
+      "hotel_name": "Gravity Sahl Hasheesh (Ex. Ocean Breeze)",
+      "duration_bucket": "",
+      "old_price": 9175.0,
+      "new_price": 8357.0,
+      "price_change": -818.0,
+      "price_change_pct": -8.915531335149863,
+      "timestamp": "2026-09-07 10:31:20.129635+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-07T10:32:01.156091+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Gravity Sahl Hasheesh (Ex. Ocean Breeze)_2026-09-07_10-31_-8.9"
+    },
+    {
+      "hotel_name": "Park Regency Resort (ex. Hyatt)",
+      "duration_bucket": "",
+      "old_price": 10653.0,
+      "new_price": 9377.0,
+      "price_change": -1276.0,
+      "price_change_pct": -11.97784661597672,
+      "timestamp": "2026-09-07 10:31:20.129635+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-07T10:32:01.156111+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Park Regency Resort (ex. Hyatt)_2026-09-07_10-31_-12.0"
+    },
+    {
+      "hotel_name": "Cleopatra Luxury Resort",
+      "duration_bucket": "",
+      "old_price": 8020.0,
+      "new_price": 8020.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-07 10:31:20.129635+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-07T10:32:01.156140+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Cleopatra Luxury Resort_2026-09-07_10-31_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sea Star Beau Rivage Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 7578.0,
+      "new_price": 7578.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-07 10:31:20.129635+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-07T10:32:01.156151+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sea Star Beau Rivage Egipt, Hurghada_2026-09-07_10-31_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-07T06:29:19.275845+00:00",
+    "last_processed_run": "2026-09-07T10:31:20.129635+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 6314.0,
@@ -120,7 +185,7 @@
         "premium_peak": null
       },
       "Gemma Resort (ex. Labranda Gemma Premium Resort) Egipt, Marsa Alam": {
-        "history_max": 6358.0,
+        "history_max": 6426.0,
         "premium_peak": null
       },
       "Sirena Beach Resort & Spa": {
@@ -184,7 +249,7 @@
         "premium_peak": null
       },
       "Serenity Alpha Beach (ex. Serenity Makadi Beach)": {
-        "history_max": 8091.0,
+        "history_max": 8483.0,
         "premium_peak": null
       },
       "Jaz Aquaviva": {
@@ -196,7 +261,7 @@
         "premium_peak": null
       },
       "Movenpick Resort Soma Bay Egipt, Hurghada": {
-        "history_max": 7164.0,
+        "history_max": 7259.0,
         "premium_peak": null
       },
       "Naama Bay Hotel & Resort": {
@@ -212,7 +277,7 @@
         "premium_peak": null
       },
       "Pickalbatros Laguna Club Resort": {
-        "history_max": 8710.0,
+        "history_max": 9847.0,
         "premium_peak": null
       },
       "Renaissance Golden View Beach Resort by Marriott": {
@@ -244,7 +309,7 @@
         "premium_peak": null
       },
       "Pickalbatros Sands Port Ghalib (ex. Red Sea Siva Sands)": {
-        "history_max": 8710.0,
+        "history_max": 9010.0,
         "premium_peak": null
       },
       "Pickalbatros Villaggio Resort Portofino Egipt, Marsa Alam": {
@@ -292,7 +357,7 @@
         "premium_peak": null
       },
       "Safir Dahab Resort": {
-        "history_max": 9973.0,
+        "history_max": 10275.0,
         "premium_peak": null
       },
       "Naama Bay Promenade Mountain Resort Egipt, Sharm El Sheikh, Szarm el-Szejk": {
@@ -300,7 +365,7 @@
         "premium_peak": null
       },
       "Xperience Sea Breeze Egipt, Sharm El Sheikh": {
-        "history_max": 6838.0,
+        "history_max": 6938.0,
         "premium_peak": null
       },
       "Novotel Marsa Alam Egipt, Marsa Alam": {
@@ -308,7 +373,7 @@
         "premium_peak": null
       },
       "Nubian Island": {
-        "history_max": 8899.0,
+        "history_max": 9049.0,
         "premium_peak": null
       },
       "Royal Regency Club Egipt, Sharm El Sheikh, Szarm el-Szejk": {
@@ -316,7 +381,7 @@
         "premium_peak": null
       },
       "Nubian Village": {
-        "history_max": 8899.0,
+        "history_max": 9049.0,
         "premium_peak": null
       },
       "Old Palace Resort Egipt, Hurghada": {
@@ -344,7 +409,7 @@
         "premium_peak": null
       },
       "Parrotel Lagoon Resort Egipt, Sharm El Sheikh, Szarm el-Szejk": {
-        "history_max": 5344.0,
+        "history_max": 5494.0,
         "premium_peak": null
       },
       "Rewaya Majestic Resort Egipt, Hurghada": {
@@ -432,7 +497,7 @@
         "premium_peak": null
       },
       "Cleopatra Luxury Resort (Makadi Bay)": {
-        "history_max": 8753.0,
+        "history_max": 8987.0,
         "premium_peak": null
       },
       "Three Corners Fayrouz Plaza Beach Resort": {
@@ -448,7 +513,7 @@
         "premium_peak": null
       },
       "Amwaj Oyoun Resort & Spa (ex AA Amwaj Resort) Egipt, Sharm El Sheikh": {
-        "history_max": 6174.0,
+        "history_max": 6325.0,
         "premium_peak": null
       },
       "Calimera Blend Paradise Resort": {
@@ -476,7 +541,7 @@
         "premium_peak": null
       },
       "Charmillion Club Resort (ex. Sea Club Resort) Egipt, Sharm El Sheikh": {
-        "history_max": 7656.0,
+        "history_max": 7719.0,
         "premium_peak": null
       },
       "Titanic Beach Spa & Aqua Park": {
@@ -504,7 +569,7 @@
         "premium_peak": null
       },
       "Amarina Jannah Resort Aquapark Egipt, Marsa Alam, Port Ghalib": {
-        "history_max": 6066.0,
+        "history_max": 6184.0,
         "premium_peak": null
       },
       "Albatros Sea World Resort Marsa Alam Egipt, Marsa Alam, Al-Kusajr": {
@@ -532,7 +597,7 @@
         "premium_peak": null
       },
       "Stella Beach Resort & Spa": {
-        "history_max": 8069.0,
+        "history_max": 8375.0,
         "premium_peak": null
       },
       "Xperience Kiroseiz Premier Egipt, Sharm El Sheikh": {
@@ -560,7 +625,7 @@
         "premium_peak": null
       },
       "V Hotel Sharm": {
-        "history_max": 10690.0,
+        "history_max": 10825.0,
         "premium_peak": null
       },
       "Albatros Oasis Port Ghalib (ex. Red Sea Port Ghalib Resort) Egipt, Marsa Alam, Port Ghalib": {
@@ -588,7 +653,7 @@
         "premium_peak": null
       },
       "Xperience Kiroseiz Parkland Egipt, Sharm El Sheikh": {
-        "history_max": 6523.0,
+        "history_max": 6673.0,
         "premium_peak": null
       },
       "Domina Coral Bay Harem": {
@@ -596,7 +661,7 @@
         "premium_peak": null
       },
       "Sunrise Royal Makadi Aqua Resort": {
-        "history_max": 10607.0,
+        "history_max": 10665.0,
         "premium_peak": null
       },
       "Albatros Palace Port Ghalib (ex. Red Sea The Palace) Egipt, Marsa Alam, Port Ghalib": {
@@ -613,6 +678,18 @@
       },
       "Domina Coral Bay Aquamarine": {
         "history_max": 10326.0,
+        "premium_peak": null
+      },
+      "The Cleopatra Luxury Resort Collection Egipt, Sharm El Sheikh, Nabq Bay": {
+        "history_max": 7920.0,
+        "premium_peak": null
+      },
+      "Movenpick Resort Sharm el Sheikh": {
+        "history_max": 10930.0,
+        "premium_peak": null
+      },
+      "Sea Star Beau Rivage": {
+        "history_max": 8190.0,
         "premium_peak": null
       }
     }
