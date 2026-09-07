@@ -247,10 +247,75 @@
       "created_at": "2026-09-07T16:36:06.572272+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Safir Sharm Waterfalls Resort (ex Hilton Waterfalls Resort) Egipt, Sharm El Sheikh_2026-09-07_16-35_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sunrise Select Garden Beach Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 8689.0,
+      "new_price": 9477.0,
+      "price_change": 788.0,
+      "price_change_pct": 9.068937737369087,
+      "timestamp": "2026-09-07 20:42:11.568605+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-07T20:42:47.555471+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sunrise Select Garden Beach Resort & Spa_2026-09-07_20-42_+9.1"
+    },
+    {
+      "hotel_name": "Charmillion Club Resort",
+      "duration_bucket": "",
+      "old_price": 7806.0,
+      "new_price": 7806.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-07 20:42:11.568605+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-07T20:42:47.555535+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Charmillion Club Resort_2026-09-07_20-42_zone_out_gone"
+    },
+    {
+      "hotel_name": "Domina Coral Bay Oasis",
+      "duration_bucket": "",
+      "old_price": 7806.0,
+      "new_price": 7806.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-07 20:42:11.568605+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-07T20:42:47.555546+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Domina Coral Bay Oasis_2026-09-07_20-42_zone_out_gone"
+    },
+    {
+      "hotel_name": "Old Palace Resort Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 7795.0,
+      "new_price": 7795.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-07 20:42:11.568605+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-07T20:42:47.555553+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Old Palace Resort Egipt, Hurghada_2026-09-07_20-42_zone_out_gone"
+    },
+    {
+      "hotel_name": "Royal Lagoons Aqua (ex. Premium Blue) Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 7565.0,
+      "new_price": 7565.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-07 20:42:11.568605+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-07T20:42:47.555560+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Royal Lagoons Aqua (ex. Premium Blue) Egipt, Hurghada_2026-09-07_20-42_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-07T16:35:31.558739+00:00",
+    "last_processed_run": "2026-09-07T20:42:11.568605+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 6615.0,
@@ -285,7 +350,7 @@
         "premium_peak": null
       },
       "Pickalbatros Aqua Park Resort (Sharm El Sheikh)": {
-        "history_max": 10400.0,
+        "history_max": 10550.0,
         "premium_peak": null
       },
       "Pickalbatros Citadel Sahl Hasheesh (ex. Citadel Azur Resort)": {
@@ -301,11 +366,11 @@
         "premium_peak": null
       },
       "Pickalbatros Golf Beach Resort": {
-        "history_max": 8277.0,
+        "history_max": 8424.0,
         "premium_peak": null
       },
       "Pickalbatros Laguna Vista Beach": {
-        "history_max": 9930.0,
+        "history_max": 10080.0,
         "premium_peak": null
       },
       "Pickalbatros Luxury Suites": {
@@ -317,7 +382,7 @@
         "premium_peak": null
       },
       "Pickalbatros Royal Moderna": {
-        "history_max": 9402.0,
+        "history_max": 9552.0,
         "premium_peak": null
       },
       "Pickalbatros Sands Port Ghalib (ex. Red Sea Siva Sands)": {
@@ -357,7 +422,7 @@
         "premium_peak": null
       },
       "Naama Bay Promenade Beach Resort": {
-        "history_max": 9212.0,
+        "history_max": 9362.0,
         "premium_peak": null
       },
       "Hilton Plaza (Hurghada)": {
@@ -385,7 +450,7 @@
         "premium_peak": null
       },
       "Jaz Belvedere": {
-        "history_max": 8514.0,
+        "history_max": 8664.0,
         "premium_peak": null
       },
       "Jaz Elite Asteria (Hurghada)": {
@@ -409,7 +474,7 @@
         "premium_peak": null
       },
       "Jaz Mirabel Park": {
-        "history_max": 9131.0,
+        "history_max": 9160.0,
         "premium_peak": null
       },
       "Jaz Neo Naama Bay": {
@@ -433,11 +498,11 @@
         "premium_peak": null
       },
       "Monte Carlo Resort Spa": {
-        "history_max": 8958.0,
+        "history_max": 9073.0,
         "premium_peak": null
       },
       "Movenpick Resort Sharm el Sheikh": {
-        "history_max": 10949.0,
+        "history_max": 10964.0,
         "premium_peak": null
       },
       "Movenpick Resort Soma Bay Egipt, Hurghada": {
@@ -445,7 +510,7 @@
         "premium_peak": null
       },
       "Naama Bay Hotel & Resort": {
-        "history_max": 8667.0,
+        "history_max": 8801.0,
         "premium_peak": null
       },
       "Jaz Mirabel Beach Resort": {
@@ -461,11 +526,11 @@
         "premium_peak": null
       },
       "Regency Plaza Aqua Park Spa Egipt, Sharm El Sheikh, Szarm el-Szejk": {
-        "history_max": 6268.0,
+        "history_max": 6418.0,
         "premium_peak": null
       },
       "Stella Di Mare Beach & Spa": {
-        "history_max": 8643.0,
+        "history_max": 8793.0,
         "premium_peak": null
       },
       "Stella Gardens Resort & Spa (ex Stella Di Mare Gardens)": {
@@ -473,7 +538,7 @@
         "premium_peak": null
       },
       "Strand Taba Heights Resort (ex. InterContinental)": {
-        "history_max": 10751.0,
+        "history_max": 10885.0,
         "premium_peak": null
       },
       "Sunrise Alora Aqua Park Resort": {
@@ -481,7 +546,7 @@
         "premium_peak": null
       },
       "Sunrise Royal Makadi Aqua Resort": {
-        "history_max": 10665.0,
+        "history_max": 10710.0,
         "premium_peak": null
       },
       "Sunrise Select Garden Beach Resort & Spa": {
@@ -489,7 +554,7 @@
         "premium_peak": null
       },
       "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort)": {
-        "history_max": 8309.0,
+        "history_max": 8381.0,
         "premium_peak": null
       },
       "Swissotel Resort El Quseir": {
@@ -501,7 +566,7 @@
         "premium_peak": null
       },
       "The Cascades Golf Resort Spa & Thalasso (ex Westin Soma Bay)": {
-        "history_max": 10033.0,
+        "history_max": 10175.0,
         "premium_peak": null
       },
       "Stella Beach Resort & Spa": {
@@ -537,7 +602,7 @@
         "premium_peak": null
       },
       "Utopia Blue Resort": {
-        "history_max": 10247.0,
+        "history_max": 10867.0,
         "premium_peak": null
       },
       "V Hotel Sharm": {
@@ -597,7 +662,7 @@
         "premium_peak": null
       },
       "Royal Regency Club Egipt, Sharm El Sheikh, Szarm el-Szejk": {
-        "history_max": 6970.0,
+        "history_max": 7120.0,
         "premium_peak": null
       },
       "Safir Dahab Resort": {
@@ -665,7 +730,7 @@
         "premium_peak": null
       },
       "Naama Bay Promenade Mountain Resort Egipt, Sharm El Sheikh, Szarm el-Szejk": {
-        "history_max": 7676.0,
+        "history_max": 7807.0,
         "premium_peak": null
       },
       "Gravity Sahl Hasheesh (Ex. Ocean Breeze)": {
@@ -753,7 +818,7 @@
         "premium_peak": null
       },
       "Concorde El Salam Sport": {
-        "history_max": 8464.0,
+        "history_max": 8614.0,
         "premium_peak": null
       },
       "Charmillion Garden Aqua Park": {
@@ -765,11 +830,11 @@
         "premium_peak": null
       },
       "Charmillion Club Resort (ex. Sea Club Resort) Egipt, Sharm El Sheikh": {
-        "history_max": 7719.0,
+        "history_max": 7806.0,
         "premium_peak": null
       },
       "Bellagio Beach Resort & Spa (ex. Panorama Bungalows Hurghada)": {
-        "history_max": 8603.0,
+        "history_max": 8753.0,
         "premium_peak": null
       },
       "Concorde Sport": {
@@ -857,7 +922,7 @@
         "premium_peak": null
       },
       "Golf Villas And Suites Sharm": {
-        "history_max": 8576.0,
+        "history_max": 8726.0,
         "premium_peak": null
       },
       "Ecotel Dahab Bay View Resort": {
@@ -873,7 +938,7 @@
         "premium_peak": null
       },
       "Old Palace Resort": {
-        "history_max": 7795.0,
+        "history_max": 7895.0,
         "premium_peak": null
       },
       "Jaz Aquamarine (ex. Iberotel Aquamarine) Egipt, Hurghada": {
@@ -885,7 +950,7 @@
         "premium_peak": null
       },
       "Cleopatra Luxury Resort": {
-        "history_max": 7887.0,
+        "history_max": 7987.0,
         "premium_peak": null
       },
       "Sunrise Montemare Resort": {
@@ -893,7 +958,7 @@
         "premium_peak": null
       },
       "Safir Sharm Waterfalls Resort (ex Hilton Waterfalls Resort)": {
-        "history_max": 8793.0,
+        "history_max": 8816.0,
         "premium_peak": null
       },
       "Charmillion Club Resort": {
@@ -905,7 +970,15 @@
         "premium_peak": null
       },
       "Sunrise Diamond Beach Resort Grand Select": {
-        "history_max": 10682.0,
+        "history_max": 10689.0,
+        "premium_peak": null
+      },
+      "Domina Coral Bay Harem Egipt, Sharm El Sheikh": {
+        "history_max": 7806.0,
+        "premium_peak": null
+      },
+      "Royal Lagoons Aqua (ex. Premium Blue)": {
+        "history_max": 8197.0,
         "premium_peak": null
       }
     }
