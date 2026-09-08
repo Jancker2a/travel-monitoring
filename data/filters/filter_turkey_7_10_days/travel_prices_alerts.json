@@ -1261,13 +1261,65 @@
       "created_at": "2026-09-08T07:43:05.772230+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Lonicera Resort & Spa_2026-09-08_07-42_comeback_12.5"
+    },
+    {
+      "hotel_name": "Sultan of Side",
+      "duration_bucket": "",
+      "old_price": 7425.0,
+      "new_price": 8047.0,
+      "price_change": 622.0,
+      "price_change_pct": 8.377104377104377,
+      "timestamp": "2026-09-08 09:52:46.092573+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-08T09:53:48.239460+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sultan of Side_2026-09-08_09-52_+8.4"
+    },
+    {
+      "hotel_name": "Campus Hill Turcja, Alanya",
+      "duration_bucket": "",
+      "old_price": 6567.0,
+      "new_price": 6567.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-08 09:52:46.092573+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-08T09:53:48.239513+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Campus Hill Turcja, Alanya_2026-09-08_09-52_zone_out_gone"
+    },
+    {
+      "hotel_name": "Dream Water World",
+      "duration_bucket": "",
+      "old_price": 9357.0,
+      "new_price": 10157.0,
+      "price_change": 800.0,
+      "price_change_pct": 8.549748851127498,
+      "timestamp": "2026-09-08 09:52:46.092573+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-08T09:53:48.239523+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Dream Water World_2026-09-08_09-52_zone_out_+8.5"
+    },
+    {
+      "hotel_name": "Green Nature Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 7157.0,
+      "new_price": 7157.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-08 09:52:46.092573+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-08T09:53:48.239530+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Green Nature Resort & Spa_2026-09-08_09-52_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-08T07:42:05.086666+00:00",
+    "last_processed_run": "2026-09-08T09:52:46.092573+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
-        "history_max": 8783.0,
+        "history_max": 8876.0,
         "premium_peak": null
       },
       "Miarosa Incekum Beach (ex Alara Kum) Turcja, Alanya, Avsallar": {
@@ -1383,7 +1435,7 @@
         "premium_peak": null
       },
       "Ozkaymak Marina (Kemer)": {
-        "history_max": 8435.0,
+        "history_max": 8668.0,
         "premium_peak": null
       },
       "Ozkaymak Incekum": {
@@ -1451,7 +1503,7 @@
         "premium_peak": null
       },
       "Narcia Resort Side": {
-        "history_max": 8157.0,
+        "history_max": 8557.0,
         "premium_peak": null
       },
       "Movenpick": {
@@ -1479,7 +1531,7 @@
         "premium_peak": null
       },
       "Greenwood Suites Resort (ex. Sherwood Suites Resort)": {
-        "history_max": 8232.0,
+        "history_max": 8515.0,
         "premium_peak": null
       },
       "Greenwood Kemer Resort (ex. Sherwood Greenwood Resort)": {
@@ -1559,7 +1611,7 @@
         "premium_peak": 10922.0
       },
       "Lake River Side Spa": {
-        "history_max": 7557.0,
+        "history_max": 7757.0,
         "premium_peak": null
       },
       "Holiday Garden Resort (Okurcalar) Turcja, Alanya, Okurcalar": {
@@ -1595,8 +1647,8 @@
         "premium_peak": null
       },
       "Kremlin Palace": {
-        "history_max": 10539.0,
-        "premium_peak": 10539.0
+        "history_max": 10998.0,
+        "premium_peak": 10998.0
       },
       "Korumar Deluxe": {
         "history_max": 9757.0,
@@ -1815,7 +1867,7 @@
         "premium_peak": null
       },
       "Victory Volare": {
-        "history_max": 9205.0,
+        "history_max": 9487.0,
         "premium_peak": null
       },
       "Victory Resort": {
@@ -1823,7 +1875,7 @@
         "premium_peak": null
       },
       "Victory Be Mine": {
-        "history_max": 9220.0,
+        "history_max": 9487.0,
         "premium_peak": null
       },
       "VONResort Golden Beach": {
@@ -1855,7 +1907,7 @@
         "premium_peak": null
       },
       "Turunc": {
-        "history_max": 9677.0,
+        "history_max": 9755.0,
         "premium_peak": null
       },
       "Perre La Mer Resort & Spa (ex. La Mer)": {
@@ -1987,7 +2039,7 @@
         "premium_peak": null
       },
       "Sensitive Premium Resort & Spa": {
-        "history_max": 8757.0,
+        "history_max": 9157.0,
         "premium_peak": null
       },
       "Selectum Noa": {
@@ -2235,7 +2287,7 @@
         "premium_peak": 10274.0
       },
       "Benata": {
-        "history_max": 8157.0,
+        "history_max": 8357.0,
         "premium_peak": null
       },
       "Casa Fora Beach Resort": {
@@ -2243,7 +2295,7 @@
         "premium_peak": null
       },
       "Castival (ex. La Grande Resort & Spa)": {
-        "history_max": 8157.0,
+        "history_max": 8557.0,
         "premium_peak": null
       },
       "Beach Club Doganay": {
@@ -2363,7 +2415,7 @@
         "premium_peak": null
       },
       "Anadolu Hotels Didim Club (ex. Palm Wings Didim)": {
-        "history_max": 8757.0,
+        "history_max": 9357.0,
         "premium_peak": null
       },
       "Elite World Kusadasi (ex Marina)": {
@@ -2403,7 +2455,7 @@
         "premium_peak": 10869.0
       },
       "Fantasia De Luxe Kusadasi": {
-        "history_max": 7849.0,
+        "history_max": 8064.0,
         "premium_peak": null
       },
       "Arcanus Trendline Resort": {
