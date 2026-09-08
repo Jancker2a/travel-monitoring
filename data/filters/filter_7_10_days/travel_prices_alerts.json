@@ -676,10 +676,114 @@
       "created_at": "2026-09-08T14:42:20.256323+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Pickalbatros Palace Port Ghalib (ex. Red Sea The Palace)_2026-09-08_14-41_comeback_8.6"
+    },
+    {
+      "hotel_name": "Fantazia Resort",
+      "duration_bucket": "",
+      "old_price": 7556.0,
+      "new_price": 8420.0,
+      "price_change": 864.0,
+      "price_change_pct": 11.434621492853362,
+      "timestamp": "2026-09-08 18:50:36.121065+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-08T18:51:16.617616+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Fantazia Resort_2026-09-08_18-50_+11.4"
+    },
+    {
+      "hotel_name": "Steigenberger Golf Resort",
+      "duration_bucket": "",
+      "old_price": 8762.0,
+      "new_price": 9963.0,
+      "price_change": 1201.0,
+      "price_change_pct": 13.706916229171423,
+      "timestamp": "2026-09-08 18:50:36.121065+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-08T18:51:16.617641+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Steigenberger Golf Resort_2026-09-08_18-50_+13.7"
+    },
+    {
+      "hotel_name": "Akassia Swiss Resort (ex. Calimera Club Akassia Swiss Resort)",
+      "duration_bucket": "",
+      "old_price": 8772.0,
+      "new_price": 9509.0,
+      "price_change": 737.0,
+      "price_change_pct": 8.40173278613771,
+      "timestamp": "2026-09-08 18:50:36.121065+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-08T18:51:16.617651+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Akassia Swiss Resort (ex. Calimera Club Akassia Swiss Resort)_2026-09-08_18-50_+8.4"
+    },
+    {
+      "hotel_name": "Sheraton Miramar Resort (El Gouna)",
+      "duration_bucket": "",
+      "old_price": 8762.0,
+      "new_price": 9963.0,
+      "price_change": 1201.0,
+      "price_change_pct": 13.706916229171423,
+      "timestamp": "2026-09-08 18:50:36.121065+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-08T18:51:16.617659+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sheraton Miramar Resort (El Gouna)_2026-09-08_18-50_+13.7"
+    },
+    {
+      "hotel_name": "Pyramisa Beach Resort Sahl Hasheesh",
+      "duration_bucket": "",
+      "old_price": 9753.0,
+      "new_price": 8773.0,
+      "price_change": -980.0,
+      "price_change_pct": -10.048190300420384,
+      "timestamp": "2026-09-08 18:50:36.121065+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-08T18:51:16.617669+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pyramisa Beach Resort Sahl Hasheesh_2026-09-08_18-50_-10.0"
+    },
+    {
+      "hotel_name": "Club Magic Life Kalawy",
+      "duration_bucket": "",
+      "old_price": 9853.0,
+      "new_price": 10233.0,
+      "price_change": 380.0,
+      "price_change_pct": 3.8566933928752665,
+      "timestamp": "2026-09-08 18:50:36.121065+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-08T18:51:16.617689+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Club Magic Life Kalawy_2026-09-08_18-50_zone_out_+3.9"
+    },
+    {
+      "hotel_name": "Jaz Grand Marsa (ex Resta Grand Resort)",
+      "duration_bucket": "",
+      "old_price": 9243.0,
+      "new_price": 9243.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-08 18:50:36.121065+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-08T18:51:16.617695+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Grand Marsa (ex Resta Grand Resort)_2026-09-08_18-50_zone_out_gone"
+    },
+    {
+      "hotel_name": "Pickalbatros Palace Port Ghalib (ex. Red Sea The Palace)",
+      "duration_bucket": "",
+      "old_price": 9553.0,
+      "new_price": 10152.0,
+      "price_change": 599.0,
+      "price_change_pct": 6.270281586936041,
+      "timestamp": "2026-09-08 18:50:36.121065+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-08T18:51:16.617701+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Palace Port Ghalib (ex. Red Sea The Palace)_2026-09-08_18-50_zone_out_+6.3"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-08T14:41:16.645516+00:00",
+    "last_processed_run": "2026-09-08T18:50:36.121065+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 7505.0,
@@ -718,7 +822,7 @@
         "premium_peak": 11257.0
       },
       "Sirena Beach Resort & Spa": {
-        "history_max": 8514.0,
+        "history_max": 8559.0,
         "premium_peak": null
       },
       "Movenpick Resort & Spa El Gouna": {
@@ -738,11 +842,11 @@
         "premium_peak": 12064.0
       },
       "Movenpick Waterpark Resort & Spa Soma Bay": {
-        "history_max": 7430.0,
+        "history_max": 7529.0,
         "premium_peak": null
       },
       "Sheraton Miramar Resort (El Gouna)": {
-        "history_max": 8843.0,
+        "history_max": 9963.0,
         "premium_peak": null
       },
       "Naama Bay Hotel & Resort": {
@@ -802,7 +906,7 @@
         "premium_peak": 10237.0
       },
       "Jaz Aquamarine Resort": {
-        "history_max": 9311.0,
+        "history_max": 9680.0,
         "premium_peak": null
       },
       "Jaz Aquaviva": {
@@ -858,7 +962,7 @@
         "premium_peak": 10770.0
       },
       "Steigenberger Golf Resort": {
-        "history_max": 8843.0,
+        "history_max": 9963.0,
         "premium_peak": null
       },
       "Jaz Makadi Oasis Resort": {
@@ -890,16 +994,16 @@
         "premium_peak": 14063.0
       },
       "Palm Royale Soma Bay": {
-        "history_max": 10098.0,
-        "premium_peak": 10098.0
+        "history_max": 10301.0,
+        "premium_peak": 10301.0
       },
       "Park Regency Resort (ex. Hyatt)": {
         "history_max": 11778.0,
         "premium_peak": 11778.0
       },
       "Pickalbatros Water Valley Resort Neverland": {
-        "history_max": 10697.0,
-        "premium_peak": 10697.0
+        "history_max": 11133.0,
+        "premium_peak": 11133.0
       },
       "Pickalbatros White Beach Resort": {
         "history_max": 10728.0,
@@ -914,7 +1018,7 @@
         "premium_peak": null
       },
       "Radisson Individuals Marina Port Ghalib (ex. Sunrise Marina Resort)": {
-        "history_max": 9278.0,
+        "history_max": 9621.0,
         "premium_peak": null
       },
       "Safir Dahab Resort": {
@@ -930,7 +1034,7 @@
         "premium_peak": 10202.0
       },
       "Royal Regency Club": {
-        "history_max": 8934.0,
+        "history_max": 9369.0,
         "premium_peak": null
       },
       "Reef Oasis Blue Bay Resort": {
@@ -962,7 +1066,7 @@
         "premium_peak": null
       },
       "Retac Qunay Dahab Resort & Spa": {
-        "history_max": 7865.0,
+        "history_max": 8463.0,
         "premium_peak": null
       },
       "Rixos Radamis Beach": {
@@ -1014,7 +1118,7 @@
         "premium_peak": null
       },
       "Parrotel Lagoon Resort": {
-        "history_max": 7244.0,
+        "history_max": 7467.0,
         "premium_peak": null
       },
       "Serenity Alma Heights Ross Park Collection": {
@@ -1134,7 +1238,7 @@
         "premium_peak": 12507.0
       },
       "Charmillion Garden Aqua Park": {
-        "history_max": 8871.0,
+        "history_max": 9200.0,
         "premium_peak": null
       },
       "The V Luxury Resort": {
@@ -1146,16 +1250,16 @@
         "premium_peak": 10051.0
       },
       "Cleopatra Luxury Resort (Makadi Bay)": {
-        "history_max": 11187.0,
-        "premium_peak": 11187.0
+        "history_max": 11430.0,
+        "premium_peak": 11430.0
       },
       "The Cascades Golf Resort Spa & Thalasso (ex Westin Soma Bay)": {
         "history_max": 8129.0,
         "premium_peak": null
       },
       "Club Magic Life Kalawy": {
-        "history_max": 9853.0,
-        "premium_peak": null
+        "history_max": 10233.0,
+        "premium_peak": 10233.0
       },
       "Concorde El Salam Front Area": {
         "history_max": 10083.0,
@@ -1170,7 +1274,7 @@
         "premium_peak": null
       },
       "Swissotel Resort El Quseir": {
-        "history_max": 7965.0,
+        "history_max": 8046.0,
         "premium_peak": null
       },
       "Continental (ex Movenpick Resort)": {
@@ -1186,7 +1290,7 @@
         "premium_peak": null
       },
       "Coral Sea Holiday Resort": {
-        "history_max": 9560.0,
+        "history_max": 9779.0,
         "premium_peak": null
       },
       "Coral Sea Sensatori (ex Coral Sea Imperial)": {
@@ -1202,11 +1306,11 @@
         "premium_peak": 11817.0
       },
       "Coral Sea Water World Resort": {
-        "history_max": 9551.0,
+        "history_max": 9779.0,
         "premium_peak": null
       },
       "Calimera Blend Paradise Resort": {
-        "history_max": 7988.0,
+        "history_max": 8055.0,
         "premium_peak": null
       },
       "Caesar Bay Resort": {
@@ -1214,7 +1318,7 @@
         "premium_peak": 10997.0
       },
       "Akassia Swiss Resort (ex. Calimera Club Akassia Swiss Resort)": {
-        "history_max": 9287.0,
+        "history_max": 9509.0,
         "premium_peak": null
       },
       "Xperience Kiroseiz Premier": {
@@ -1270,7 +1374,7 @@
         "premium_peak": 10266.0
       },
       "Ancient Sands Golf Resort": {
-        "history_max": 7853.0,
+        "history_max": 8243.0,
         "premium_peak": null
       },
       "Baron Palace Resort (Sahl Hasheesh)": {
@@ -1406,7 +1510,7 @@
         "premium_peak": null
       },
       "Sunrise Select Garden Beach Resort & Spa": {
-        "history_max": 9558.0,
+        "history_max": 9648.0,
         "premium_peak": null
       },
       "Domina Coral Bay Bella Vista": {
@@ -1418,7 +1522,7 @@
         "premium_peak": null
       },
       "Fantazia Resort": {
-        "history_max": 8177.0,
+        "history_max": 8420.0,
         "premium_peak": null
       },
       "Domina Coral Bay Harem": {
@@ -1436,6 +1540,10 @@
       "Gravity Sahl Hasheesh (Ex. Ocean Breeze)": {
         "history_max": 9494.0,
         "premium_peak": null
+      },
+      "Serenity Alpha Beach (ex. Serenity Makadi Beach)": {
+        "history_max": 17927.0,
+        "premium_peak": 17927.0
       }
     }
   }
