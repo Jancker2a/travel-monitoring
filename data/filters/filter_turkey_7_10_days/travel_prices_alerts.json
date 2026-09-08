@@ -1157,10 +1157,114 @@
       "created_at": "2026-09-08T04:53:37.725598+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Palm Wings Beach Resort & SPA (Kusadasi)_2026-09-08_04-52_comeback_12.9"
+    },
+    {
+      "hotel_name": "Grand Belish",
+      "duration_bucket": "",
+      "old_price": 8435.0,
+      "new_price": 9749.0,
+      "price_change": 1314.0,
+      "price_change_pct": 15.577949021932424,
+      "timestamp": "2026-09-08 07:42:05.086666+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-08T07:43:05.772081+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Grand Belish_2026-09-08_07-42_+15.6"
+    },
+    {
+      "hotel_name": "Sultan of Side",
+      "duration_bucket": "",
+      "old_price": 8197.0,
+      "new_price": 7425.0,
+      "price_change": -772.0,
+      "price_change_pct": -9.4180797852873,
+      "timestamp": "2026-09-08 07:42:05.086666+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-08T07:43:05.772108+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sultan of Side_2026-09-08_07-42_-9.4"
+    },
+    {
+      "hotel_name": "Mary Side (ex. Mary Palace)",
+      "duration_bucket": "",
+      "old_price": 9338.0,
+      "new_price": 10018.0,
+      "price_change": 680.0,
+      "price_change_pct": 7.28207324908974,
+      "timestamp": "2026-09-08 07:42:05.086666+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-08T07:43:05.772166+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Mary Side (ex. Mary Palace)_2026-09-08_07-42_zone_out_+7.3"
+    },
+    {
+      "hotel_name": "Pine Bay Holiday Resort",
+      "duration_bucket": "",
+      "old_price": 8557.0,
+      "new_price": 8557.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-08 07:42:05.086666+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-08T07:43:05.772187+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pine Bay Holiday Resort_2026-09-08_07-42_zone_out_gone"
+    },
+    {
+      "hotel_name": "Ring Beach (Kemer)",
+      "duration_bucket": "",
+      "old_price": 7124.0,
+      "new_price": 7124.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-08 07:42:05.086666+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-08T07:43:05.772194+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Ring Beach (Kemer)_2026-09-08_07-42_zone_out_gone"
+    },
+    {
+      "hotel_name": "Royal Garden Beach (ex Royal Garden Select & Suite)",
+      "duration_bucket": "",
+      "old_price": 9621.0,
+      "new_price": 10281.0,
+      "price_change": 660.0,
+      "price_change_pct": 6.859993763642033,
+      "timestamp": "2026-09-08 07:42:05.086666+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-08T07:43:05.772201+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Royal Garden Beach (ex Royal Garden Select & Suite)_2026-09-08_07-42_zone_out_+6.9"
+    },
+    {
+      "hotel_name": "Wyndham Residences Kusadasi Golf & Spa (ex. Kusadasi Golf & Spa Resort) Turcja, Kusadasi",
+      "duration_bucket": "",
+      "old_price": 6984.0,
+      "new_price": 6984.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-08 07:42:05.086666+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-08T07:43:05.772207+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Wyndham Residences Kusadasi Golf & Spa (ex. Kusadasi Golf & Spa Resort) Turcja, Kusadasi_2026-09-08_07-42_zone_out_gone"
+    },
+    {
+      "hotel_name": "Lonicera Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 11000.0,
+      "new_price": 9626.0,
+      "price_change": -1374.0,
+      "price_change_pct": -12.490909090909092,
+      "timestamp": "2026-09-08 07:42:05.086666+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-08T07:43:05.772230+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Lonicera Resort & Spa_2026-09-08_07-42_comeback_12.5"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-08T04:52:33.129066+00:00",
+    "last_processed_run": "2026-09-08T07:42:05.086666+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 8783.0,
@@ -1191,8 +1295,8 @@
         "premium_peak": null
       },
       "Mary Side (ex. Mary Palace)": {
-        "history_max": 9338.0,
-        "premium_peak": null
+        "history_max": 10018.0,
+        "premium_peak": 10018.0
       },
       "Mary Alanya (ex. Sirius Deluxe)": {
         "history_max": 10805.0,
@@ -1215,7 +1319,7 @@
         "premium_peak": null
       },
       "M. C. Beach Resort (ex. Otium MC Beach Resort) Turcja, Alanya, Konakli": {
-        "history_max": 5787.0,
+        "history_max": 5814.0,
         "premium_peak": null
       },
       "M. C. Arancia Resort Turcja, Alanya, Konakli": {
@@ -1295,7 +1399,7 @@
         "premium_peak": null
       },
       "Otium Family Club Marine Beach (ex Aqua Marin Beach Resort) Turcja, Side, Manavgat": {
-        "history_max": 6134.0,
+        "history_max": 6282.0,
         "premium_peak": null
       },
       "Orka Lotus Beach": {
@@ -1391,7 +1495,7 @@
         "premium_peak": 10957.0
       },
       "Green Garden Suite": {
-        "history_max": 8902.0,
+        "history_max": 9322.0,
         "premium_peak": null
       },
       "Gravel Select": {
@@ -1415,11 +1519,11 @@
         "premium_peak": null
       },
       "Grand Kolibri Prestige & Spa": {
-        "history_max": 9510.0,
+        "history_max": 9684.0,
         "premium_peak": null
       },
       "Grand Kaptan": {
-        "history_max": 8786.0,
+        "history_max": 9214.0,
         "premium_peak": null
       },
       "Grand Cettia": {
@@ -1427,7 +1531,7 @@
         "premium_peak": null
       },
       "Grand Belish": {
-        "history_max": 9506.0,
+        "history_max": 9749.0,
         "premium_peak": null
       },
       "Granada Luxury Okurcalar": {
@@ -1771,8 +1875,8 @@
         "premium_peak": 10951.0
       },
       "Royal Garden Beach (ex Royal Garden Select & Suite)": {
-        "history_max": 9621.0,
-        "premium_peak": null
+        "history_max": 10281.0,
+        "premium_peak": 10281.0
       },
       "Royal Atlantis Resort": {
         "history_max": 9356.0,
@@ -1803,7 +1907,7 @@
         "premium_peak": null
       },
       "Raxeria (Side)": {
-        "history_max": 8694.0,
+        "history_max": 8708.0,
         "premium_peak": null
       },
       "Ramada Resort Lara": {
@@ -1887,7 +1991,7 @@
         "premium_peak": null
       },
       "Selectum Noa": {
-        "history_max": 9468.0,
+        "history_max": 9675.0,
         "premium_peak": null
       },
       "Selectum Family Resort Side (ex. Silence Beach Resort)": {
@@ -1987,7 +2091,7 @@
         "premium_peak": null
       },
       "Asia Beach Resort and Spa": {
-        "history_max": 9298.0,
+        "history_max": 9870.0,
         "premium_peak": null
       },
       "Crystal Admiral Aqua Collection": {
@@ -2023,7 +2127,7 @@
         "premium_peak": null
       },
       "Club Side Coast Turcja, Side, Colakli": {
-        "history_max": 6653.0,
+        "history_max": 6842.0,
         "premium_peak": null
       },
       "Crystal Flora Pearl Collection": {
@@ -2211,11 +2315,11 @@
         "premium_peak": 10393.0
       },
       "Club Atlantis Resort": {
-        "history_max": 9166.0,
+        "history_max": 9317.0,
         "premium_peak": null
       },
       "Aydinbey Gold Dreams": {
-        "history_max": 8769.0,
+        "history_max": 8885.0,
         "premium_peak": null
       },
       "Charisma Deluxe (Kusadasi)": {
@@ -2255,7 +2359,7 @@
         "premium_peak": null
       },
       "Dizalya Palm Garden": {
-        "history_max": 9337.0,
+        "history_max": 9363.0,
         "premium_peak": null
       },
       "Anadolu Hotels Didim Club (ex. Palm Wings Didim)": {
@@ -2287,8 +2391,8 @@
         "premium_peak": null
       },
       "Adalya Art Side (Ex. Grand Art Side)": {
-        "history_max": 10523.0,
-        "premium_peak": 10523.0
+        "history_max": 10591.0,
+        "premium_peak": 10591.0
       },
       "Agaya Didim Resort (ex. Prive Didim)": {
         "history_max": 9959.0,
@@ -2299,7 +2403,7 @@
         "premium_peak": 10869.0
       },
       "Fantasia De Luxe Kusadasi": {
-        "history_max": 7754.0,
+        "history_max": 7849.0,
         "premium_peak": null
       },
       "Arcanus Trendline Resort": {
