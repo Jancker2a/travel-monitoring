@@ -338,10 +338,101 @@
       "created_at": "2026-09-08T09:53:41.161490+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Ladonia Adakule_2026-09-08_09-52_comeback_9.4"
+    },
+    {
+      "hotel_name": "Garden of Sun Spa & Wellness",
+      "duration_bucket": "",
+      "old_price": 9223.0,
+      "new_price": 8444.0,
+      "price_change": -779.0,
+      "price_change_pct": -8.446275615309553,
+      "timestamp": "2026-09-08 14:42:54.162124+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-08T14:43:24.417517+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Garden of Sun Spa & Wellness_2026-09-08_14-42_-8.4"
+    },
+    {
+      "hotel_name": "Campus Hill",
+      "duration_bucket": "",
+      "old_price": 7983.0,
+      "new_price": 7288.0,
+      "price_change": -695.0,
+      "price_change_pct": -8.70600025053238,
+      "timestamp": "2026-09-08 14:42:54.162124+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-08T14:43:24.417538+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Campus Hill_2026-09-08_14-42_-8.7"
+    },
+    {
+      "hotel_name": "Ladonia Adakule",
+      "duration_bucket": "",
+      "old_price": 9212.0,
+      "new_price": 10042.0,
+      "price_change": 830.0,
+      "price_change_pct": 9.00998697351281,
+      "timestamp": "2026-09-08 14:42:54.162124+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-08T14:43:24.417559+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Ladonia Adakule_2026-09-08_14-42_zone_out_+9.0"
+    },
+    {
+      "hotel_name": "Mira Meridia Beach Resort",
+      "duration_bucket": "",
+      "old_price": 8754.0,
+      "new_price": 8754.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-08 14:42:54.162124+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-08T14:43:24.417566+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Mira Meridia Beach Resort_2026-09-08_14-42_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sentido Lycus Beach (ex. Lti)",
+      "duration_bucket": "",
+      "old_price": 11223.0,
+      "new_price": 9300.0,
+      "price_change": -1923.0,
+      "price_change_pct": -17.134456027800056,
+      "timestamp": "2026-09-08 14:42:54.162124+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-08T14:43:24.417582+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sentido Lycus Beach (ex. Lti)_2026-09-08_14-42_comeback_17.1"
+    },
+    {
+      "hotel_name": "Viking Star",
+      "duration_bucket": "",
+      "old_price": 11012.0,
+      "new_price": 9729.0,
+      "price_change": -1283.0,
+      "price_change_pct": -11.650926262259354,
+      "timestamp": "2026-09-08 14:42:54.162124+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-08T14:43:24.417593+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Viking Star_2026-09-08_14-42_comeback_11.7"
+    },
+    {
+      "hotel_name": "Xoria Deluxe",
+      "duration_bucket": "",
+      "old_price": 10445.0,
+      "new_price": 9427.0,
+      "price_change": -1018.0,
+      "price_change_pct": -9.74629009095261,
+      "timestamp": "2026-09-08 14:42:54.162124+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-08T14:43:24.417600+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xoria Deluxe_2026-09-08_14-42_comeback_9.7"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-08T09:52:58.711151+00:00",
+    "last_processed_run": "2026-09-08T14:42:54.162124+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 10473.0,

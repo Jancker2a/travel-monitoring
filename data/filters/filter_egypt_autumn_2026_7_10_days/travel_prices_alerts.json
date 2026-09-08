@@ -650,17 +650,121 @@
       "created_at": "2026-09-08T09:52:26.863938+00:00",
       "threshold_percent": 8.0,
       "unique_key": "The Cleopatra Luxury Resort Collection Egipt, Sharm El Sheikh, Nabq Bay_2026-09-08_09-51_zone_out_gone"
+    },
+    {
+      "hotel_name": "Pickalbatros Laguna Club Resort",
+      "duration_bucket": "",
+      "old_price": 9847.0,
+      "new_price": 8710.0,
+      "price_change": -1137.0,
+      "price_change_pct": -11.54666395856606,
+      "timestamp": "2026-09-08 14:41:16.759142+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-08T14:42:18.738068+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Laguna Club Resort_2026-09-08_14-41_-11.5"
+    },
+    {
+      "hotel_name": "Stella Di Mare Beach & Spa",
+      "duration_bucket": "",
+      "old_price": 8793.0,
+      "new_price": 9543.0,
+      "price_change": 750.0,
+      "price_change_pct": 8.529512111907199,
+      "timestamp": "2026-09-08 14:41:16.759142+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-08T14:42:18.738088+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Stella Di Mare Beach & Spa_2026-09-08_14-41_+8.5"
+    },
+    {
+      "hotel_name": "Amarina Jannah Resort Aquapark Egipt, Marsa Alam, Port Ghalib",
+      "duration_bucket": "",
+      "old_price": 5933.0,
+      "new_price": 6503.0,
+      "price_change": 570.0,
+      "price_change_pct": 9.607281307938647,
+      "timestamp": "2026-09-08 14:41:16.759142+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-08T14:42:18.738105+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amarina Jannah Resort Aquapark Egipt, Marsa Alam, Port Ghalib_2026-09-08_14-41_+9.6"
+    },
+    {
+      "hotel_name": "Ecotel Dahab Bay View Resort",
+      "duration_bucket": "",
+      "old_price": 8247.0,
+      "new_price": 8247.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-08 14:41:16.759142+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-08T14:42:18.738130+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Ecotel Dahab Bay View Resort_2026-09-08_14-41_zone_out_gone"
+    },
+    {
+      "hotel_name": "Pickalbatros Villaggio Resort Portofino",
+      "duration_bucket": "",
+      "old_price": 8207.0,
+      "new_price": 8207.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-08 14:41:16.759142+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-08T14:42:18.738136+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Villaggio Resort Portofino_2026-09-08_14-41_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sea Star Beau Rivage Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 7976.0,
+      "new_price": 7976.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-08 14:41:16.759142+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-08T14:42:18.738142+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sea Star Beau Rivage Egipt, Hurghada_2026-09-08_14-41_zone_out_gone"
+    },
+    {
+      "hotel_name": "Stella Di Mare Gardens Resort & Spa Egipt, Hurghada, Makadi Bay",
+      "duration_bucket": "",
+      "old_price": 8096.0,
+      "new_price": 8096.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-08 14:41:16.759142+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-08T14:42:18.738147+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Stella Di Mare Gardens Resort & Spa Egipt, Hurghada, Makadi Bay_2026-09-08_14-41_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sunrise Montemare Resort",
+      "duration_bucket": "",
+      "old_price": 10893.0,
+      "new_price": 10893.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-08 14:41:16.759142+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-08T14:42:18.738151+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sunrise Montemare Resort_2026-09-08_14-41_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-08T09:51:51.191423+00:00",
+    "last_processed_run": "2026-09-08T14:41:16.759142+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 6687.0,
         "premium_peak": null
       },
       "Jaz Elite Asteria (Hurghada)": {
-        "history_max": 10017.0,
+        "history_max": 10057.0,
         "premium_peak": null
       },
       "Serenity Alma Heights (ex. Serenity Fun City)": {
@@ -728,11 +832,11 @@
         "premium_peak": null
       },
       "Jaz Belvedere": {
-        "history_max": 9265.0,
+        "history_max": 9315.0,
         "premium_peak": null
       },
       "Monte Carlo Resort Spa": {
-        "history_max": 9709.0,
+        "history_max": 10341.0,
         "premium_peak": null
       },
       "Serenity Alma Heights Ross Park Collection": {
@@ -744,7 +848,7 @@
         "premium_peak": null
       },
       "Gemma Resort (ex. Labranda Gemma Premium Resort) Egipt, Marsa Alam": {
-        "history_max": 6443.0,
+        "history_max": 6493.0,
         "premium_peak": null
       },
       "Sirena Beach Resort & Spa": {
@@ -824,7 +928,7 @@
         "premium_peak": null
       },
       "Naama Bay Hotel & Resort": {
-        "history_max": 8867.0,
+        "history_max": 9493.0,
         "premium_peak": null
       },
       "Retac Qunay Dahab Resort & Spa": {
@@ -872,7 +976,7 @@
         "premium_peak": null
       },
       "Pickalbatros Villaggio Resort Portofino Egipt, Marsa Alam": {
-        "history_max": 6837.0,
+        "history_max": 7227.0,
         "premium_peak": null
       },
       "Reef Oasis Suakin Resort": {
@@ -900,7 +1004,7 @@
         "premium_peak": null
       },
       "Safir Sharm Waterfalls Resort (ex Hilton Waterfalls Resort)": {
-        "history_max": 8978.0,
+        "history_max": 9135.0,
         "premium_peak": null
       },
       "Pickalbatros Citadel Sahl Hasheesh (ex. Citadel Azur Resort)": {
@@ -908,7 +1012,7 @@
         "premium_peak": null
       },
       "Pickalbatros Aqua Park Resort (Sharm El Sheikh)": {
-        "history_max": 10550.0,
+        "history_max": 10977.0,
         "premium_peak": null
       },
       "Naama Bay Promenade Beach Resort": {
@@ -936,7 +1040,7 @@
         "premium_peak": null
       },
       "Royal Regency Club Egipt, Sharm El Sheikh, Szarm el-Szejk": {
-        "history_max": 7721.0,
+        "history_max": 7771.0,
         "premium_peak": null
       },
       "Nubian Village": {
@@ -988,7 +1092,7 @@
         "premium_peak": null
       },
       "Hawaii Paradise Aqua Park Resort Egipt, Hurghada": {
-        "history_max": 7108.0,
+        "history_max": 7389.0,
         "premium_peak": null
       },
       "Red Sea Grand Makadi (Makadi Bay)": {
@@ -1024,7 +1128,7 @@
         "premium_peak": null
       },
       "Utopia Blue Resort": {
-        "history_max": 10247.0,
+        "history_max": 10847.0,
         "premium_peak": null
       },
       "The Cascades Golf Resort Spa & Thalasso (ex Westin Soma Bay)": {
@@ -1056,7 +1160,7 @@
         "premium_peak": null
       },
       "Cleopatra Luxury Resort (Makadi Bay)": {
-        "history_max": 8987.0,
+        "history_max": 9518.0,
         "premium_peak": null
       },
       "Three Corners Fayrouz Plaza Beach Resort": {
@@ -1128,7 +1232,7 @@
         "premium_peak": null
       },
       "Amarina Jannah Resort Aquapark Egipt, Marsa Alam, Port Ghalib": {
-        "history_max": 6184.0,
+        "history_max": 6503.0,
         "premium_peak": null
       },
       "Albatros Sea World Resort Marsa Alam Egipt, Marsa Alam, Al-Kusajr": {
@@ -1176,7 +1280,7 @@
         "premium_peak": null
       },
       "Stella Di Mare Beach & Spa": {
-        "history_max": 8793.0,
+        "history_max": 9543.0,
         "premium_peak": null
       },
       "Domina Coral Bay Sultan": {
@@ -1297,6 +1401,10 @@
       },
       "Royal Brayka Beach Resort (ex Zee Brayka) Egipt, Marsa Alam": {
         "history_max": 8157.0,
+        "premium_peak": null
+      },
+      "Mercure Dahab Bay View Egipt, Dahab": {
+        "history_max": 7803.0,
         "premium_peak": null
       }
     }

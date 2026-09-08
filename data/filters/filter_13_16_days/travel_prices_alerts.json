@@ -1,8 +1,22 @@
 {
   "version": 2,
-  "alerts": [],
+  "alerts": [
+    {
+      "hotel_name": "Amarina Sun Resort & Aqua Park (ex. Raouf Sun International Aqua Park & SPA)",
+      "duration_bucket": "",
+      "old_price": 10907.0,
+      "new_price": 9793.0,
+      "price_change": -1114.0,
+      "price_change_pct": -10.213624277986614,
+      "timestamp": "2026-09-08 14:41:16.606101+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-08T14:41:56.794260+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amarina Sun Resort & Aqua Park (ex. Raouf Sun International Aqua Park & SPA)_2026-09-08_14-41_comeback_10.2"
+    }
+  ],
   "meta": {
-    "last_processed_run": "2026-09-08T09:51:51.059551+00:00",
+    "last_processed_run": "2026-09-08T14:41:16.606101+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 14552.0,
@@ -21,12 +35,12 @@
         "premium_peak": 17297.0
       },
       "Pickalbatros Vita Resort Portofino": {
-        "history_max": 13447.0,
-        "premium_peak": 13447.0
+        "history_max": 13807.0,
+        "premium_peak": 13807.0
       },
       "Pickalbatros Villaggio Resort Portofino": {
-        "history_max": 12727.0,
-        "premium_peak": 12727.0
+        "history_max": 13447.0,
+        "premium_peak": 13447.0
       },
       "Pickalbatros Sands Port Ghalib (ex. Red Sea Siva Sands)": {
         "history_max": 17509.0,
@@ -77,8 +91,8 @@
         "premium_peak": 19187.0
       },
       "Jaz Lamaya Resort (ex Iberotel)": {
-        "history_max": 15860.0,
-        "premium_peak": 15860.0
+        "history_max": 16308.0,
+        "premium_peak": 16308.0
       },
       "Jaz Makadi Oasis Resort": {
         "history_max": 19188.0,
@@ -129,8 +143,8 @@
         "premium_peak": 16379.0
       },
       "Old Palace Resort": {
-        "history_max": 15481.0,
-        "premium_peak": 15481.0
+        "history_max": 15507.0,
+        "premium_peak": 15507.0
       },
       "Lazuli (Marsa Alam)": {
         "history_max": 13657.0,
@@ -209,12 +223,12 @@
         "premium_peak": 12996.0
       },
       "Jaz Elite Maraya": {
-        "history_max": 15899.0,
-        "premium_peak": 15899.0
+        "history_max": 16147.0,
+        "premium_peak": 16147.0
       },
       "Sunrise Anjum Resort": {
-        "history_max": 16733.0,
-        "premium_peak": 16733.0
+        "history_max": 17325.0,
+        "premium_peak": 17325.0
       },
       "Strand Taba Heights Resort (ex. InterContinental)": {
         "history_max": 13776.0,
@@ -273,8 +287,8 @@
         "premium_peak": 12918.0
       },
       "Stella Gardens Resort & Spa (ex Stella Di Mare Gardens)": {
-        "history_max": 16581.0,
-        "premium_peak": 16581.0
+        "history_max": 16653.0,
+        "premium_peak": 16653.0
       },
       "Sharm Grand Plaza Resort": {
         "history_max": 12531.0,
@@ -373,8 +387,8 @@
         "premium_peak": 12319.0
       },
       "Hilton Plaza (Hurghada)": {
-        "history_max": 14862.0,
-        "premium_peak": 14862.0
+        "history_max": 15070.0,
+        "premium_peak": 15070.0
       },
       "Concorde Moreen Beach Resort & Spa": {
         "history_max": 15476.0,
@@ -449,8 +463,8 @@
         "premium_peak": 19967.0
       },
       "Cleopatra Luxury Resort (Makadi Bay)": {
-        "history_max": 19114.0,
-        "premium_peak": 19114.0
+        "history_max": 19520.0,
+        "premium_peak": 19520.0
       },
       "Pickalbatros Water Valley Resort Neverland": {
         "history_max": 19549.0,
@@ -467,6 +481,10 @@
       "True Beach Resort": {
         "history_max": 18971.0,
         "premium_peak": 18971.0
+      },
+      "Sultan Gardens Resort": {
+        "history_max": 19752.0,
+        "premium_peak": 19752.0
       }
     }
   }
