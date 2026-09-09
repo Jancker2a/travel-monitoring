@@ -611,10 +611,49 @@
       "created_at": "2026-09-09T11:38:58.960102+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Well Palace Side (ex. Side Crown Charm Palace)_2026-09-09_11-37_zone_out_+3.8"
+    },
+    {
+      "hotel_name": "Marine Family Club Beach (ex. Otium Family Club Marine Beach)",
+      "duration_bucket": "",
+      "old_price": 7875.0,
+      "new_price": 9288.0,
+      "price_change": 1413.0,
+      "price_change_pct": 17.942857142857143,
+      "timestamp": "2026-09-09 16:49:46.204030+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-09T16:50:47.576098+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Marine Family Club Beach (ex. Otium Family Club Marine Beach)_2026-09-09_16-49_+17.9"
+    },
+    {
+      "hotel_name": "Hane Sun Elite (ex Noble Palace Side)",
+      "duration_bucket": "",
+      "old_price": 9857.0,
+      "new_price": 10037.0,
+      "price_change": 180.0,
+      "price_change_pct": 1.8261134219336512,
+      "timestamp": "2026-09-09 16:49:46.204030+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-09T16:50:47.576137+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Hane Sun Elite (ex Noble Palace Side)_2026-09-09_16-49_zone_out_+1.8"
+    },
+    {
+      "hotel_name": "Sultan of Side",
+      "duration_bucket": "",
+      "old_price": 9457.0,
+      "new_price": 11478.0,
+      "price_change": 2021.0,
+      "price_change_pct": 21.370413450354235,
+      "timestamp": "2026-09-09 16:49:46.204030+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-09T16:50:47.576149+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sultan of Side_2026-09-09_16-49_zone_out_+21.4"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-09T11:37:44.273753+00:00",
+    "last_processed_run": "2026-09-09T16:49:46.204030+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 10473.0,
@@ -657,8 +696,8 @@
         "premium_peak": 12582.0
       },
       "Hane Sun Elite (ex Noble Palace Side)": {
-        "history_max": 9857.0,
-        "premium_peak": null
+        "history_max": 10037.0,
+        "premium_peak": 10037.0
       },
       "Gural Premier Tekirova": {
         "history_max": 16171.0,
@@ -733,8 +772,8 @@
         "premium_peak": 15332.0
       },
       "Sealight Resort (ex Otium Sealight Beach Resort)": {
-        "history_max": 14784.0,
-        "premium_peak": 14784.0
+        "history_max": 15220.0,
+        "premium_peak": 15220.0
       },
       "Seven Seas Life": {
         "history_max": 16318.0,
@@ -829,8 +868,8 @@
         "premium_peak": 15517.0
       },
       "Sidemarin Kirman Premium": {
-        "history_max": 15884.0,
-        "premium_peak": 15884.0
+        "history_max": 16254.0,
+        "premium_peak": 16254.0
       },
       "Drita Resort & Spa": {
         "history_max": 8047.0,
@@ -1117,8 +1156,8 @@
         "premium_peak": 14218.0
       },
       "Paloma Grida": {
-        "history_max": 17832.0,
-        "premium_peak": 17832.0
+        "history_max": 19131.0,
+        "premium_peak": 19131.0
       },
       "Papillon Ayscha": {
         "history_max": 16553.0,
@@ -1149,7 +1188,7 @@
         "premium_peak": 15232.0
       },
       "Marine Family Club Beach (ex. Otium Family Club Marine Beach)": {
-        "history_max": 7925.0,
+        "history_max": 9288.0,
         "premium_peak": null
       },
       "Mandarin Resort (Bodrum)": {
@@ -1209,8 +1248,8 @@
         "premium_peak": 17208.0
       },
       "Mary Alanya (ex. Sirius Deluxe)": {
-        "history_max": 15951.0,
-        "premium_peak": 15951.0
+        "history_max": 16351.0,
+        "premium_peak": 16351.0
       },
       "Mary Side (ex. Mary Palace)": {
         "history_max": 14263.0,
@@ -1301,8 +1340,8 @@
         "premium_peak": 16715.0
       },
       "Side Premium by OZ Hotels": {
-        "history_max": 13549.0,
-        "premium_peak": 13549.0
+        "history_max": 16617.0,
+        "premium_peak": 16617.0
       },
       "Port Nature Luxury Resort": {
         "history_max": 16320.0,
@@ -1657,8 +1696,8 @@
         "premium_peak": 11338.0
       },
       "Sultan of Side": {
-        "history_max": 9857.0,
-        "premium_peak": null
+        "history_max": 11478.0,
+        "premium_peak": 11478.0
       },
       "Diamond Hill Resort": {
         "history_max": 8726.0,
@@ -1895,6 +1934,10 @@
       "Titanic Deluxe Lara (ex. Titanic Beach Lara)": {
         "history_max": 18261.0,
         "premium_peak": 18261.0
+      },
+      "Nirvana Mediterranean Excellence ( ex Nirvana Lagoon Luxury)": {
+        "history_max": 19343.0,
+        "premium_peak": 19343.0
       }
     }
   }
