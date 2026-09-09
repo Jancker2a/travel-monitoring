@@ -1274,10 +1274,101 @@
       "created_at": "2026-09-09T19:54:09.742282+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Xanadu Club Makadi Bay_2026-09-09_19-53_zone_out_+14.9"
+    },
+    {
+      "hotel_name": "Stella Beach Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 7073.0,
+      "new_price": 7871.0,
+      "price_change": 798.0,
+      "price_change_pct": 11.282341297893398,
+      "timestamp": "2026-09-09 22:40:27.182813+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-09T22:41:01.790969+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Stella Beach Resort & Spa_2026-09-09_22-40_+11.3"
+    },
+    {
+      "hotel_name": "Jaz Makadi Oasis Resort",
+      "duration_bucket": "",
+      "old_price": 8679.0,
+      "new_price": 9869.0,
+      "price_change": 1190.0,
+      "price_change_pct": 13.711257057264662,
+      "timestamp": "2026-09-09 22:40:27.182813+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-09T22:41:01.790995+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Makadi Oasis Resort_2026-09-09_22-40_+13.7"
+    },
+    {
+      "hotel_name": "Steigenberger Golf Resort",
+      "duration_bucket": "",
+      "old_price": 8762.0,
+      "new_price": 9681.0,
+      "price_change": 919.0,
+      "price_change_pct": 10.488472951380963,
+      "timestamp": "2026-09-09 22:40:27.182813+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-09T22:41:01.791009+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Steigenberger Golf Resort_2026-09-09_22-40_+10.5"
+    },
+    {
+      "hotel_name": "Steigenberger Aqua Magic",
+      "duration_bucket": "",
+      "old_price": 8809.0,
+      "new_price": 8059.0,
+      "price_change": -750.0,
+      "price_change_pct": -8.514019752525826,
+      "timestamp": "2026-09-09 22:40:27.182813+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-09T22:41:01.791017+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Steigenberger Aqua Magic_2026-09-09_22-40_-8.5"
+    },
+    {
+      "hotel_name": "Pickalbatros Palace Resort",
+      "duration_bucket": "",
+      "old_price": 9842.0,
+      "new_price": 8824.0,
+      "price_change": -1018.0,
+      "price_change_pct": -10.343426132899818,
+      "timestamp": "2026-09-09 22:40:27.182813+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-09T22:41:01.791026+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Palace Resort_2026-09-09_22-40_-10.3"
+    },
+    {
+      "hotel_name": "Pickalbatros Water Valley Resort Neverland",
+      "duration_bucket": "",
+      "old_price": 9415.0,
+      "new_price": 10044.0,
+      "price_change": 629.0,
+      "price_change_pct": 6.6808284652150824,
+      "timestamp": "2026-09-09 22:40:27.182813+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-09T22:41:01.791044+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Water Valley Resort Neverland_2026-09-09_22-40_zone_out_+6.7"
+    },
+    {
+      "hotel_name": "Sheraton Miramar Resort (El Gouna)",
+      "duration_bucket": "",
+      "old_price": 8762.0,
+      "new_price": 10274.0,
+      "price_change": 1512.0,
+      "price_change_pct": 17.256334170280756,
+      "timestamp": "2026-09-09 22:40:27.182813+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-09T22:41:01.791050+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sheraton Miramar Resort (El Gouna)_2026-09-09_22-40_zone_out_+17.3"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-09T19:53:28.282310+00:00",
+    "last_processed_run": "2026-09-09T22:40:27.182813+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 7505.0,
@@ -1340,8 +1431,8 @@
         "premium_peak": null
       },
       "Sheraton Miramar Resort (El Gouna)": {
-        "history_max": 9963.0,
-        "premium_peak": null
+        "history_max": 10274.0,
+        "premium_peak": 10274.0
       },
       "Naama Bay Hotel & Resort": {
         "history_max": 8992.0,
@@ -1460,7 +1551,7 @@
         "premium_peak": null
       },
       "Jaz Makadi Oasis Resort": {
-        "history_max": 9176.0,
+        "history_max": 9869.0,
         "premium_peak": null
       },
       "Jaz Makadi Saraya (ex Iberotel)": {
@@ -1480,8 +1571,8 @@
         "premium_peak": null
       },
       "Old Palace Resort": {
-        "history_max": 10486.0,
-        "premium_peak": 10486.0
+        "history_max": 10789.0,
+        "premium_peak": 10789.0
       },
       "Serry Beach Resort": {
         "history_max": 14063.0,
@@ -1676,8 +1767,8 @@
         "premium_peak": 10653.0
       },
       "Pickalbatros Palace Port Ghalib (ex. Red Sea The Palace)": {
-        "history_max": 10457.0,
-        "premium_peak": 10457.0
+        "history_max": 10820.0,
+        "premium_peak": 10820.0
       },
       "Pickalbatros Palace Resort": {
         "history_max": 9914.0,
@@ -1956,8 +2047,8 @@
         "premium_peak": null
       },
       "Sunrise Tucana Resort": {
-        "history_max": 13667.0,
-        "premium_peak": 13667.0
+        "history_max": 14873.0,
+        "premium_peak": 14873.0
       },
       "Dreams Vacation Sharm Resort": {
         "history_max": 11127.0,
