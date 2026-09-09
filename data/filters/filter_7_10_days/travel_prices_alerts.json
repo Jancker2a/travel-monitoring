@@ -780,10 +780,62 @@
       "created_at": "2026-09-08T18:51:16.617701+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Pickalbatros Palace Port Ghalib (ex. Red Sea The Palace)_2026-09-08_18-50_zone_out_+6.3"
+    },
+    {
+      "hotel_name": "Jaz Mirabel Park",
+      "duration_bucket": "",
+      "old_price": 9517.0,
+      "new_price": 8444.0,
+      "price_change": -1073.0,
+      "price_change_pct": -11.274561311337607,
+      "timestamp": "2026-09-09 00:23:34.633573+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-09T00:24:13.701285+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Mirabel Park_2026-09-09_00-23_-11.3"
+    },
+    {
+      "hotel_name": "Pyramisa Beach Resort Sahl Hasheesh",
+      "duration_bucket": "",
+      "old_price": 8773.0,
+      "new_price": 9753.0,
+      "price_change": 980.0,
+      "price_change_pct": 11.170637182263764,
+      "timestamp": "2026-09-09 00:23:34.633573+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-09T00:24:13.701330+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pyramisa Beach Resort Sahl Hasheesh_2026-09-09_00-23_+11.2"
+    },
+    {
+      "hotel_name": "Pickalbatros Oasis Port Ghalib (ex. Red Sea Port Ghalib Resort)",
+      "duration_bucket": "",
+      "old_price": 9333.0,
+      "new_price": 10203.0,
+      "price_change": 870.0,
+      "price_change_pct": 9.321761491481839,
+      "timestamp": "2026-09-09 00:23:34.633573+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-09T00:24:13.701380+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Oasis Port Ghalib (ex. Red Sea Port Ghalib Resort)_2026-09-09_00-23_zone_out_+9.3"
+    },
+    {
+      "hotel_name": "Hilton Marsa Alam Nubian Resort",
+      "duration_bucket": "",
+      "old_price": 10737.0,
+      "new_price": 9683.0,
+      "price_change": -1054.0,
+      "price_change_pct": -9.816522306044519,
+      "timestamp": "2026-09-09 00:23:34.633573+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-09T00:24:13.701455+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Hilton Marsa Alam Nubian Resort_2026-09-09_00-23_comeback_9.8"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-08T18:50:36.121065+00:00",
+    "last_processed_run": "2026-09-09T00:23:34.633573+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 7505.0,
@@ -906,7 +958,7 @@
         "premium_peak": 10237.0
       },
       "Jaz Aquamarine Resort": {
-        "history_max": 9680.0,
+        "history_max": 9716.0,
         "premium_peak": null
       },
       "Jaz Aquaviva": {
@@ -934,8 +986,8 @@
         "premium_peak": 11358.0
       },
       "Jaz Elite Casa Del Mar Beach": {
-        "history_max": 14437.0,
-        "premium_peak": 14437.0
+        "history_max": 14517.0,
+        "premium_peak": 14517.0
       },
       "Rixos Premium Magawish Suites & Villas": {
         "history_max": 14643.0,
@@ -974,8 +1026,8 @@
         "premium_peak": null
       },
       "Steigenberger Coraya Beach": {
-        "history_max": 16437.0,
-        "premium_peak": 16437.0
+        "history_max": 17367.0,
+        "premium_peak": 17367.0
       },
       "Jaz Makadina": {
         "history_max": 11561.0,
@@ -986,7 +1038,7 @@
         "premium_peak": null
       },
       "Old Palace Resort": {
-        "history_max": 9607.0,
+        "history_max": 9687.0,
         "premium_peak": null
       },
       "Serry Beach Resort": {
@@ -1078,7 +1130,7 @@
         "premium_peak": null
       },
       "Rewaya Luxury Resort": {
-        "history_max": 7583.0,
+        "history_max": 7745.0,
         "premium_peak": null
       },
       "Rixos Premium Seagate": {
@@ -1098,8 +1150,8 @@
         "premium_peak": null
       },
       "Sunrise Anjum Resort": {
-        "history_max": 10603.0,
-        "premium_peak": 10603.0
+        "history_max": 11849.0,
+        "premium_peak": 11849.0
       },
       "Pickalbatros Vita Resort Portofino": {
         "history_max": 10127.0,
@@ -1174,8 +1226,8 @@
         "premium_peak": 15807.0
       },
       "Pickalbatros Oasis Port Ghalib (ex. Red Sea Port Ghalib Resort)": {
-        "history_max": 9831.0,
-        "premium_peak": null
+        "history_max": 10203.0,
+        "premium_peak": 10203.0
       },
       "Sentido Mamlouk Palace Resort & Spa (ex Sunrise)": {
         "history_max": 10213.0,
@@ -1242,8 +1294,8 @@
         "premium_peak": null
       },
       "The V Luxury Resort": {
-        "history_max": 11211.0,
-        "premium_peak": 11211.0
+        "history_max": 11433.0,
+        "premium_peak": 11433.0
       },
       "Cleopatra Luxury Resort": {
         "history_max": 10051.0,
@@ -1258,8 +1310,8 @@
         "premium_peak": null
       },
       "Club Magic Life Kalawy": {
-        "history_max": 10233.0,
-        "premium_peak": 10233.0
+        "history_max": 10633.0,
+        "premium_peak": 10633.0
       },
       "Concorde El Salam Front Area": {
         "history_max": 10083.0,
@@ -1274,7 +1326,7 @@
         "premium_peak": null
       },
       "Swissotel Resort El Quseir": {
-        "history_max": 8046.0,
+        "history_max": 8127.0,
         "premium_peak": null
       },
       "Continental (ex Movenpick Resort)": {
@@ -1544,6 +1596,10 @@
       "Serenity Alpha Beach (ex. Serenity Makadi Beach)": {
         "history_max": 17927.0,
         "premium_peak": 17927.0
+      },
+      "Jaz Solaya Resort (ex Sol Y Mar Solaya)": {
+        "history_max": 11215.0,
+        "premium_peak": 11215.0
       }
     }
   }

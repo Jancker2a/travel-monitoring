@@ -481,10 +481,62 @@
       "created_at": "2026-09-08T18:52:47.876555+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Grand Seker_2026-09-08_18-51_zone_out_+44.1"
+    },
+    {
+      "hotel_name": "Sun Star Resort",
+      "duration_bucket": "",
+      "old_price": 8430.0,
+      "new_price": 6263.0,
+      "price_change": -2167.0,
+      "price_change_pct": -25.705812574139976,
+      "timestamp": "2026-09-09 00:24:47.419059+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-09T00:25:54.199203+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sun Star Resort_2026-09-09_00-24_-25.7"
+    },
+    {
+      "hotel_name": "Campus Hill",
+      "duration_bucket": "",
+      "old_price": 7437.0,
+      "new_price": 8786.0,
+      "price_change": 1349.0,
+      "price_change_pct": 18.139034556945006,
+      "timestamp": "2026-09-09 00:24:47.419059+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-09T00:25:54.199235+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Campus Hill_2026-09-09_00-24_+18.1"
+    },
+    {
+      "hotel_name": "Eftalia Village",
+      "duration_bucket": "",
+      "old_price": 9862.0,
+      "new_price": 10053.0,
+      "price_change": 191.0,
+      "price_change_pct": 1.936726830257554,
+      "timestamp": "2026-09-09 00:24:47.419059+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-09T00:25:54.199258+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Eftalia Village_2026-09-09_00-24_zone_out_+1.9"
+    },
+    {
+      "hotel_name": "Sentido Lycus Beach (ex. Lti)",
+      "duration_bucket": "",
+      "old_price": 9300.0,
+      "new_price": 10477.0,
+      "price_change": 1177.0,
+      "price_change_pct": 12.655913978494624,
+      "timestamp": "2026-09-09 00:24:47.419059+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-09T00:25:54.199270+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sentido Lycus Beach (ex. Lti)_2026-09-09_00-24_zone_out_+12.7"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-08T18:51:52.544993+00:00",
+    "last_processed_run": "2026-09-09T00:24:47.419059+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 10473.0,
@@ -563,8 +615,8 @@
         "premium_peak": 14352.0
       },
       "Innvista Belek (ex. Vera Verde)": {
-        "history_max": 10564.0,
-        "premium_peak": 10564.0
+        "history_max": 11525.0,
+        "premium_peak": 11525.0
       },
       "Selectum Family Comfort Side (ex. Lyra Resort)": {
         "history_max": 12083.0,
@@ -943,8 +995,8 @@
         "premium_peak": null
       },
       "Papillon Zeugma Reluxury": {
-        "history_max": 16884.0,
-        "premium_peak": 16884.0
+        "history_max": 16886.0,
+        "premium_peak": 16886.0
       },
       "Primasol Hane Family Resort": {
         "history_max": 13190.0,
@@ -1167,8 +1219,8 @@
         "premium_peak": 14436.0
       },
       "Siu Collection by Aydinbey": {
-        "history_max": 15237.0,
-        "premium_peak": 15237.0
+        "history_max": 16528.0,
+        "premium_peak": 16528.0
       },
       "Side Premium by OZ Hotels": {
         "history_max": 13549.0,
@@ -1251,8 +1303,8 @@
         "premium_peak": null
       },
       "Cenger Blue Collection": {
-        "history_max": 10395.0,
-        "premium_peak": 10395.0
+        "history_max": 10654.0,
+        "premium_peak": 10654.0
       },
       "Aquasis Deluxe Resort & Spa": {
         "history_max": 16984.0,
@@ -1275,8 +1327,8 @@
         "premium_peak": 14612.0
       },
       "Casa Fora Beach Resort": {
-        "history_max": 13248.0,
-        "premium_peak": 13248.0
+        "history_max": 13580.0,
+        "premium_peak": 13580.0
       },
       "Arcanus Hotels Sorgun (ex. Asteria Sorgun)": {
         "history_max": 14379.0,
@@ -1287,7 +1339,7 @@
         "premium_peak": null
       },
       "Campus Hill": {
-        "history_max": 8435.0,
+        "history_max": 8786.0,
         "premium_peak": null
       },
       "Arcanus Trendline Resort": {
@@ -1495,7 +1547,7 @@
         "premium_peak": 11887.0
       },
       "Xafira Deluxe Resort & Spa": {
-        "history_max": 8420.0,
+        "history_max": 8560.0,
         "premium_peak": null
       },
       "Akka Antedon": {
@@ -1503,8 +1555,8 @@
         "premium_peak": 18031.0
       },
       "Crystal Family Comfort Collection": {
-        "history_max": 11517.0,
-        "premium_peak": 11517.0
+        "history_max": 11683.0,
+        "premium_peak": 11683.0
       },
       "Sunis Elita Beach Resort (ex Asteria Elita)": {
         "history_max": 11958.0,
@@ -1749,6 +1801,14 @@
       "Mirada Exclusive Bodrum": {
         "history_max": 18228.0,
         "premium_peak": 18228.0
+      },
+      "Signature Blue Resort (ex. Grand Ozcelik)": {
+        "history_max": 12661.0,
+        "premium_peak": 12661.0
+      },
+      "Mylome Luxury": {
+        "history_max": 17056.0,
+        "premium_peak": 17056.0
       }
     }
   }

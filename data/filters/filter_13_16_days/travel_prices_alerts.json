@@ -13,10 +13,36 @@
       "created_at": "2026-09-08T14:41:56.794260+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Amarina Sun Resort & Aqua Park (ex. Raouf Sun International Aqua Park & SPA)_2026-09-08_14-41_comeback_10.2"
+    },
+    {
+      "hotel_name": "Parrotel Lagoon Resort",
+      "duration_bucket": "",
+      "old_price": 9005.0,
+      "new_price": 8282.0,
+      "price_change": -723.0,
+      "price_change_pct": -8.028872848417546,
+      "timestamp": "2026-09-09 00:23:34.461280+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-09T00:24:04.989923+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Parrotel Lagoon Resort_2026-09-09_00-23_-8.0"
+    },
+    {
+      "hotel_name": "Retac Qunay Dahab Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 10634.0,
+      "new_price": 9510.0,
+      "price_change": -1124.0,
+      "price_change_pct": -10.56987022757194,
+      "timestamp": "2026-09-09 00:23:34.461280+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-09T00:24:04.989984+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Retac Qunay Dahab Resort & Spa_2026-09-09_00-23_comeback_10.6"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-08T18:50:36.141293+00:00",
+    "last_processed_run": "2026-09-09T00:23:34.461280+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 14552.0,
@@ -199,8 +225,8 @@
         "premium_peak": 17528.0
       },
       "Tropitel Sahl Hasheesh": {
-        "history_max": 16727.0,
-        "premium_peak": 16727.0
+        "history_max": 17707.0,
+        "premium_peak": 17707.0
       },
       "V Hotel Sharm": {
         "history_max": 15192.0,
@@ -411,8 +437,8 @@
         "premium_peak": 15604.0
       },
       "Albatros Makadi Resort (ex Royal Pharaohs Makadi)": {
-        "history_max": 14937.0,
-        "premium_peak": 14937.0
+        "history_max": 15134.0,
+        "premium_peak": 15134.0
       },
       "Jasmine Palace": {
         "history_max": 13757.0,
@@ -485,6 +511,14 @@
       "Sultan Gardens Resort": {
         "history_max": 19752.0,
         "premium_peak": 19752.0
+      },
+      "Coral Sea Sensatori (ex Coral Sea Imperial)": {
+        "history_max": 19495.0,
+        "premium_peak": 19495.0
+      },
+      "Sunrise Diamond Beach Resort Grand Select": {
+        "history_max": 19626.0,
+        "premium_peak": 19626.0
       }
     }
   }
