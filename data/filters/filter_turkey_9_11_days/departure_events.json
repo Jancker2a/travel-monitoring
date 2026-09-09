@@ -6001,6 +6001,26 @@
       "hot_score": 0.0
     },
     {
+      "event_time": "2026-09-09T11:37:44+0000",
+      "departure_key": "turcja|bodrum|2026-09-27|2026-10-08|11|Warszawa|2+1",
+      "event_type": "mass_price_drop",
+      "severity": "medium",
+      "country": "turcja",
+      "region": "bodrum",
+      "departure_date": "2026-09-27",
+      "return_date": "2026-10-08",
+      "nights": 11.0,
+      "days_to_departure": 18.0,
+      "old_min_price": "",
+      "new_min_price": 11180.0,
+      "min_drop_pct": -6.51,
+      "p10_drop_pct": -5.92,
+      "median_drop_pct": -5.14,
+      "hotel_count": 10.0,
+      "hotel_delta": -2,
+      "hot_score": 0.0
+    },
+    {
       "event_time": "2026-06-18T19:38:19+0000",
       "departure_key": "turcja|kemer|2026-06-19|2026-06-28|9|Warszawa,Warszawa-Radom,Warszawa - Modlin,Warszawa - Radom|2+1",
       "event_type": "late_price_dump",
