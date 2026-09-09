@@ -832,10 +832,114 @@
       "created_at": "2026-09-09T00:24:13.701455+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Hilton Marsa Alam Nubian Resort_2026-09-09_00-23_comeback_9.8"
+    },
+    {
+      "hotel_name": "Steigenberger Golf Resort",
+      "duration_bucket": "",
+      "old_price": 9963.0,
+      "new_price": 8762.0,
+      "price_change": -1201.0,
+      "price_change_pct": -12.054602027501756,
+      "timestamp": "2026-09-09 04:50:32.685813+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-09T04:51:14.956172+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Steigenberger Golf Resort_2026-09-09_04-50_-12.1"
+    },
+    {
+      "hotel_name": "Sheraton Miramar Resort (El Gouna)",
+      "duration_bucket": "",
+      "old_price": 9963.0,
+      "new_price": 8762.0,
+      "price_change": -1201.0,
+      "price_change_pct": -12.054602027501756,
+      "timestamp": "2026-09-09 04:50:32.685813+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-09T04:51:14.956214+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sheraton Miramar Resort (El Gouna)_2026-09-09_04-50_-12.1"
+    },
+    {
+      "hotel_name": "Jaz Mirabel Park",
+      "duration_bucket": "",
+      "old_price": 8444.0,
+      "new_price": 9517.0,
+      "price_change": 1073.0,
+      "price_change_pct": 12.707247749881573,
+      "timestamp": "2026-09-09 04:50:32.685813+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-09T04:51:14.956231+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Mirabel Park_2026-09-09_04-50_+12.7"
+    },
+    {
+      "hotel_name": "Cleopatra Luxury Resort",
+      "duration_bucket": "",
+      "old_price": 9999.0,
+      "new_price": 10076.0,
+      "price_change": 77.0,
+      "price_change_pct": 0.77007700770077,
+      "timestamp": "2026-09-09 04:50:32.685813+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-09T04:51:14.956270+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Cleopatra Luxury Resort_2026-09-09_04-50_zone_out_+0.8"
+    },
+    {
+      "hotel_name": "Hilton Marsa Alam Nubian Resort",
+      "duration_bucket": "",
+      "old_price": 9683.0,
+      "new_price": 10304.0,
+      "price_change": 621.0,
+      "price_change_pct": 6.413301662707839,
+      "timestamp": "2026-09-09 04:50:32.685813+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-09T04:51:14.956287+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Hilton Marsa Alam Nubian Resort_2026-09-09_04-50_zone_out_+6.4"
+    },
+    {
+      "hotel_name": "Pickalbatros Palace Port Ghalib (ex. Red Sea The Palace)",
+      "duration_bucket": "",
+      "old_price": 9960.0,
+      "new_price": 10403.0,
+      "price_change": 443.0,
+      "price_change_pct": 4.447791164658634,
+      "timestamp": "2026-09-09 04:50:32.685813+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-09T04:51:14.956297+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Palace Port Ghalib (ex. Red Sea The Palace)_2026-09-09_04-50_zone_out_+4.4"
+    },
+    {
+      "hotel_name": "Renaissance Golden View Beach Resort by Marriott",
+      "duration_bucket": "",
+      "old_price": 9874.0,
+      "new_price": 10451.0,
+      "price_change": 577.0,
+      "price_change_pct": 5.843629734656674,
+      "timestamp": "2026-09-09 04:50:32.685813+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-09T04:51:14.956305+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Renaissance Golden View Beach Resort by Marriott_2026-09-09_04-50_zone_out_+5.8"
+    },
+    {
+      "hotel_name": "Strand Taba Heights Resort (ex. InterContinental)",
+      "duration_bucket": "",
+      "old_price": 9937.0,
+      "new_price": 9937.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-09 04:50:32.685813+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-09T04:51:14.956314+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Strand Taba Heights Resort (ex. InterContinental)_2026-09-09_04-50_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-09T00:23:34.633573+00:00",
+    "last_processed_run": "2026-09-09T04:50:32.685813+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 7505.0,
@@ -890,11 +994,11 @@
         "premium_peak": 15396.0
       },
       "Movenpick Resort Sharm el Sheikh": {
-        "history_max": 12064.0,
-        "premium_peak": 12064.0
+        "history_max": 12508.0,
+        "premium_peak": 12508.0
       },
       "Movenpick Waterpark Resort & Spa Soma Bay": {
-        "history_max": 7529.0,
+        "history_max": 7574.0,
         "premium_peak": null
       },
       "Sheraton Miramar Resort (El Gouna)": {
@@ -966,8 +1070,8 @@
         "premium_peak": null
       },
       "Sultan Gardens Resort": {
-        "history_max": 12238.0,
-        "premium_peak": 12238.0
+        "history_max": 12347.0,
+        "premium_peak": 12347.0
       },
       "Jaz Belvedere": {
         "history_max": 10673.0,
@@ -1114,8 +1218,8 @@
         "premium_peak": 12949.0
       },
       "Renaissance Golden View Beach Resort by Marriott": {
-        "history_max": 9926.0,
-        "premium_peak": null
+        "history_max": 10451.0,
+        "premium_peak": 10451.0
       },
       "Retac Qunay Dahab Resort & Spa": {
         "history_max": 8463.0,
@@ -1166,7 +1270,7 @@
         "premium_peak": 11547.0
       },
       "Parrotel Beach Resort (ex. Radisson Blu)": {
-        "history_max": 8708.0,
+        "history_max": 8727.0,
         "premium_peak": null
       },
       "Parrotel Lagoon Resort": {
@@ -1246,8 +1350,8 @@
         "premium_peak": null
       },
       "Pickalbatros Royal Moderna": {
-        "history_max": 10499.0,
-        "premium_peak": 10499.0
+        "history_max": 10664.0,
+        "premium_peak": 10664.0
       },
       "Pickalbatros Sands Port Ghalib (ex. Red Sea Siva Sands)": {
         "history_max": 11968.0,
@@ -1298,8 +1402,8 @@
         "premium_peak": 11433.0
       },
       "Cleopatra Luxury Resort": {
-        "history_max": 10051.0,
-        "premium_peak": 10051.0
+        "history_max": 10076.0,
+        "premium_peak": 10076.0
       },
       "Cleopatra Luxury Resort (Makadi Bay)": {
         "history_max": 11430.0,
@@ -1322,7 +1426,7 @@
         "premium_peak": 11452.0
       },
       "Concorde Sport": {
-        "history_max": 8864.0,
+        "history_max": 9021.0,
         "premium_peak": null
       },
       "Swissotel Resort El Quseir": {
@@ -1346,12 +1450,12 @@
         "premium_peak": null
       },
       "Coral Sea Sensatori (ex Coral Sea Imperial)": {
-        "history_max": 12832.0,
-        "premium_peak": 12832.0
+        "history_max": 13022.0,
+        "premium_peak": 13022.0
       },
       "Sunrise White Hills Resort": {
-        "history_max": 16272.0,
-        "premium_peak": 16272.0
+        "history_max": 16300.0,
+        "premium_peak": 16300.0
       },
       "Cardina Resort by Sunrise": {
         "history_max": 11817.0,
@@ -1386,7 +1490,7 @@
         "premium_peak": null
       },
       "Xperience Kiroseiz Parkland": {
-        "history_max": 8489.0,
+        "history_max": 8504.0,
         "premium_peak": null
       },
       "Amarina Abu Soma Resort": {
@@ -1470,7 +1574,7 @@
         "premium_peak": 13788.0
       },
       "Domina Coral Bay Oasis": {
-        "history_max": 8768.0,
+        "history_max": 8810.0,
         "premium_peak": null
       },
       "El Malikia Resort Abu Dabbab (ex.Sol Y Mar)": {
@@ -1554,11 +1658,11 @@
         "premium_peak": 11977.0
       },
       "Domina Coral Bay Aquamarine": {
-        "history_max": 9518.0,
+        "history_max": 9559.0,
         "premium_peak": null
       },
       "IL Mercato Splash Aqua Park": {
-        "history_max": 7557.0,
+        "history_max": 8028.0,
         "premium_peak": null
       },
       "Sunrise Select Garden Beach Resort & Spa": {
@@ -1566,7 +1670,7 @@
         "premium_peak": null
       },
       "Domina Coral Bay Bella Vista": {
-        "history_max": 8768.0,
+        "history_max": 8810.0,
         "premium_peak": null
       },
       "Hilton Plaza (Hurghada)": {
@@ -1598,8 +1702,8 @@
         "premium_peak": 17927.0
       },
       "Jaz Solaya Resort (ex Sol Y Mar Solaya)": {
-        "history_max": 11215.0,
-        "premium_peak": 11215.0
+        "history_max": 11483.0,
+        "premium_peak": 11483.0
       }
     }
   }

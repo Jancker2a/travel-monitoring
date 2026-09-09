@@ -2028,10 +2028,114 @@
       "created_at": "2026-09-09T00:25:45.726326+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Cesars Resort (Side)_2026-09-09_00-24_comeback_17.7"
+    },
+    {
+      "hotel_name": "Ozkaymak Incekum",
+      "duration_bucket": "",
+      "old_price": 7540.0,
+      "new_price": 9579.0,
+      "price_change": 2039.0,
+      "price_change_pct": 27.042440318302386,
+      "timestamp": "2026-09-09 04:51:39.100581+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-09T04:52:58.137394+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Ozkaymak Incekum_2026-09-09_04-51_+27.0"
+    },
+    {
+      "hotel_name": "Crystal Family Comfort Collection",
+      "duration_bucket": "",
+      "old_price": 9763.0,
+      "new_price": 10043.0,
+      "price_change": 280.0,
+      "price_change_pct": 2.8679709105807643,
+      "timestamp": "2026-09-09 04:51:39.100581+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-09T04:52:58.137479+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Crystal Family Comfort Collection_2026-09-09_04-51_zone_out_+2.9"
+    },
+    {
+      "hotel_name": "Diamond Hill Resort",
+      "duration_bucket": "",
+      "old_price": 7253.0,
+      "new_price": 7253.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-09 04:51:39.100581+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-09T04:52:58.137492+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Diamond Hill Resort_2026-09-09_04-51_zone_out_gone"
+    },
+    {
+      "hotel_name": "Granada Luxury Okurcalar",
+      "duration_bucket": "",
+      "old_price": 9781.0,
+      "new_price": 10040.0,
+      "price_change": 259.0,
+      "price_change_pct": 2.647991002964932,
+      "timestamp": "2026-09-09 04:51:39.100581+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-09T04:52:58.137502+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Granada Luxury Okurcalar_2026-09-09_04-51_zone_out_+2.6"
+    },
+    {
+      "hotel_name": "Kadikale Resort Spa & Wellness",
+      "duration_bucket": "",
+      "old_price": 8557.0,
+      "new_price": 8557.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-09 04:51:39.100581+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-09T04:52:58.137510+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Kadikale Resort Spa & Wellness_2026-09-09_04-51_zone_out_gone"
+    },
+    {
+      "hotel_name": "Marti Myra",
+      "duration_bucket": "",
+      "old_price": 9876.0,
+      "new_price": 10136.0,
+      "price_change": 260.0,
+      "price_change_pct": 2.6326447954637504,
+      "timestamp": "2026-09-09 04:51:39.100581+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-09T04:52:58.137518+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Marti Myra_2026-09-09_04-51_zone_out_+2.6"
+    },
+    {
+      "hotel_name": "Porto Bello",
+      "duration_bucket": "",
+      "old_price": 9958.0,
+      "new_price": 10022.0,
+      "price_change": 64.0,
+      "price_change_pct": 0.6426993372163085,
+      "timestamp": "2026-09-09 04:51:39.100581+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-09T04:52:58.137527+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Porto Bello_2026-09-09_04-51_zone_out_+0.6"
+    },
+    {
+      "hotel_name": "Stella Beach (Okurcalar) Turcja, Alanya, Okurcalar",
+      "duration_bucket": "",
+      "old_price": 6957.0,
+      "new_price": 6957.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-09 04:51:39.100581+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-09T04:52:58.137535+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Stella Beach (Okurcalar) Turcja, Alanya, Okurcalar_2026-09-09_04-51_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-09T00:24:43.292706+00:00",
+    "last_processed_run": "2026-09-09T04:51:39.100581+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 8876.0,
@@ -2154,7 +2258,7 @@
         "premium_peak": null
       },
       "Ozkaymak Incekum": {
-        "history_max": 7721.0,
+        "history_max": 9579.0,
         "premium_peak": null
       },
       "Ozkaymak Falez": {
@@ -2458,7 +2562,7 @@
         "premium_peak": null
       },
       "The Lumos Deluxe Resort & Spa": {
-        "history_max": 7755.0,
+        "history_max": 7812.0,
         "premium_peak": null
       },
       "Terrace Elite Resort": {
@@ -2838,8 +2942,8 @@
         "premium_peak": 10096.0
       },
       "Club Turan Prince World": {
-        "history_max": 10803.0,
-        "premium_peak": 10803.0
+        "history_max": 10812.0,
+        "premium_peak": 10812.0
       },
       "Asteria Bloom Side": {
         "history_max": 7871.0,
@@ -2906,7 +3010,7 @@
         "premium_peak": null
       },
       "Crystal Sunset Pearl Collection (ex Crystal Sunset Luxury Resort)": {
-        "history_max": 8807.0,
+        "history_max": 8834.0,
         "premium_peak": null
       },
       "Armas Kaplan Paradise Turcja, Kemer, Tekirova": {
@@ -2990,7 +3094,7 @@
         "premium_peak": 10172.0
       },
       "Campus Hill": {
-        "history_max": 7751.0,
+        "history_max": 7765.0,
         "premium_peak": null
       },
       "Blue Marlin Deluxe Spa & Resort": {
@@ -3062,8 +3166,8 @@
         "premium_peak": null
       },
       "Club Grand Side": {
-        "history_max": 10290.0,
-        "premium_peak": 10290.0
+        "history_max": 10882.0,
+        "premium_peak": 10882.0
       },
       "Aria Resort & SPA": {
         "history_max": 9517.0,
@@ -3098,8 +3202,8 @@
         "premium_peak": null
       },
       "Club Grand Aqua": {
-        "history_max": 10622.0,
-        "premium_peak": 10622.0
+        "history_max": 10882.0,
+        "premium_peak": 10882.0
       },
       "Diamond Hill Resort": {
         "history_max": 7346.0,
@@ -3436,6 +3540,10 @@
       "Baia Salima Kemer (ex Club Salima)": {
         "history_max": 10848.0,
         "premium_peak": 10848.0
+      },
+      "Diamond Hill Resort Turcja, Alanya, Incekum": {
+        "history_max": 7087.0,
+        "premium_peak": null
       }
     }
   }
