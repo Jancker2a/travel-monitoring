@@ -1391,10 +1391,88 @@
       "created_at": "2026-09-10T06:10:02.271523+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Elinotel Apolamare_2026-09-10_06-09_zone_out_+15.4"
+    },
+    {
+      "hotel_name": "Solimar Aquamarine Grecja, Kreta Zachodnia, Pirgos Psilonerou",
+      "duration_bucket": "",
+      "old_price": 7457.0,
+      "new_price": 8057.0,
+      "price_change": 600.0,
+      "price_change_pct": 8.046131151937777,
+      "timestamp": "2026-09-10 11:35:11.575201+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-10T11:36:24.173112+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Solimar Aquamarine Grecja, Kreta Zachodnia, Pirgos Psilonerou_2026-09-10_11-35_+8.0"
+    },
+    {
+      "hotel_name": "Gaia Palace Grecja, Kos, Mastichari",
+      "duration_bucket": "",
+      "old_price": 9554.0,
+      "new_price": 9554.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-10 11:35:11.575201+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-10T11:36:24.173148+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Gaia Palace Grecja, Kos, Mastichari_2026-09-10_11-35_zone_out_gone"
+    },
+    {
+      "hotel_name": "Giannoulis Cavo Spada Luxury Sports & Leisure Resort",
+      "duration_bucket": "",
+      "old_price": 9907.0,
+      "new_price": 10347.0,
+      "price_change": 440.0,
+      "price_change_pct": 4.441304128394065,
+      "timestamp": "2026-09-10 11:35:11.575201+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-10T11:36:24.173162+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Giannoulis Cavo Spada Luxury Sports & Leisure Resort_2026-09-10_11-35_zone_out_+4.4"
+    },
+    {
+      "hotel_name": "Santa Marina Pearl Grecja, Kreta, Agia Marina",
+      "duration_bucket": "",
+      "old_price": 9127.0,
+      "new_price": 9127.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-10 11:35:11.575201+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-10T11:36:24.173171+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Santa Marina Pearl Grecja, Kreta, Agia Marina_2026-09-10_11-35_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sitia Beach",
+      "duration_bucket": "",
+      "old_price": 9657.0,
+      "new_price": 9657.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-10 11:35:11.575201+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-10T11:36:24.173179+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sitia Beach_2026-09-10_11-35_zone_out_gone"
+    },
+    {
+      "hotel_name": "Gaia Palace",
+      "duration_bucket": "",
+      "old_price": 12002.0,
+      "new_price": 9613.0,
+      "price_change": -2389.0,
+      "price_change_pct": -19.905015830694882,
+      "timestamp": "2026-09-10 11:35:11.575201+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-10T11:36:24.173206+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Gaia Palace_2026-09-10_11-35_comeback_19.9"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-10T06:09:01.172446+00:00",
+    "last_processed_run": "2026-09-10T11:35:11.575201+00:00",
     "premium_state": {
       "Ajul Luxury & Spa Resort (Ayios Nikolaos) Grecja, Chalkidiki, Loutra": {
         "history_max": 9807.0,
@@ -1429,8 +1507,8 @@
         "premium_peak": 19162.0
       },
       "Hersonissos Palace": {
-        "history_max": 11030.0,
-        "premium_peak": 11030.0
+        "history_max": 11570.0,
+        "premium_peak": 11570.0
       },
       "Princess Andriana Resort & Spa": {
         "history_max": 12819.0,
@@ -1457,8 +1535,8 @@
         "premium_peak": 15847.0
       },
       "Porto Platanias Village": {
-        "history_max": 11437.0,
-        "premium_peak": 11437.0
+        "history_max": 12067.0,
+        "premium_peak": 12067.0
       },
       "Restia (Acharavi)": {
         "history_max": 15133.0,
@@ -1473,8 +1551,8 @@
         "premium_peak": 15372.0
       },
       "Rethymno Mare & Water Park (Rethymno)": {
-        "history_max": 11607.0,
-        "premium_peak": 11607.0
+        "history_max": 11966.0,
+        "premium_peak": 11966.0
       },
       "Elios Hill": {
         "history_max": 12857.0,
@@ -1533,7 +1611,7 @@
         "premium_peak": 12672.0
       },
       "Galini Sea View (Agia Marina) Grecja, Kreta Zachodnia, Agia Marina": {
-        "history_max": 8662.0,
+        "history_max": 8770.0,
         "premium_peak": null
       },
       "Gennadi Grand Resort": {
@@ -1549,8 +1627,8 @@
         "premium_peak": 12141.0
       },
       "Porto Platanias Beach (Chania)": {
-        "history_max": 14447.0,
-        "premium_peak": 14447.0
+        "history_max": 14807.0,
+        "premium_peak": 14807.0
       },
       "Kakkos Terra Blu": {
         "history_max": 13029.0,
@@ -1569,8 +1647,8 @@
         "premium_peak": 16722.0
       },
       "Michelangelo Resort & Spa": {
-        "history_max": 14070.0,
-        "premium_peak": 14070.0
+        "history_max": 14270.0,
+        "premium_peak": 14270.0
       },
       "Nana Golden Beach": {
         "history_max": 17259.0,
@@ -1661,8 +1739,8 @@
         "premium_peak": 12501.0
       },
       "Portes Lithos Luxury Resort": {
-        "history_max": 14707.0,
-        "premium_peak": 14707.0
+        "history_max": 15076.0,
+        "premium_peak": 15076.0
       },
       "Lindos Royal (ex. COOEE)": {
         "history_max": 10007.0,
@@ -1749,8 +1827,8 @@
         "premium_peak": 14623.0
       },
       "Atlantica Caldera Palace Resort & Spa (ex Atlantica Sensatori)": {
-        "history_max": 14291.0,
-        "premium_peak": 14291.0
+        "history_max": 14323.0,
+        "premium_peak": 14323.0
       },
       "Elinotel Apolamare": {
         "history_max": 11441.0,
@@ -1773,12 +1851,12 @@
         "premium_peak": 19257.0
       },
       "Avra Imperial Beach Resort & Spa": {
-        "history_max": 15827.0,
-        "premium_peak": 15827.0
+        "history_max": 16038.0,
+        "premium_peak": 16038.0
       },
       "Aquila Porto Rethymno": {
-        "history_max": 14177.0,
-        "premium_peak": 14177.0
+        "history_max": 14512.0,
+        "premium_peak": 14512.0
       },
       "Stella Palace Aqua Park Resort": {
         "history_max": 14336.0,
@@ -1813,8 +1891,8 @@
         "premium_peak": 16227.0
       },
       "Alia Palace": {
-        "history_max": 16257.0,
-        "premium_peak": 16257.0
+        "history_max": 16407.0,
+        "premium_peak": 16407.0
       },
       "All Senses Nautica Blue Exclusive Resort & Spa (ex Aegean Breeze) Grecja, Rodos, Fanes": {
         "history_max": 7682.0,
@@ -1849,8 +1927,8 @@
         "premium_peak": 10513.0
       },
       "Annabelle Beach Resort (ex. AKS Annabelle Beach Resort)": {
-        "history_max": 10869.0,
-        "premium_peak": 10869.0
+        "history_max": 12107.0,
+        "premium_peak": 12107.0
       },
       "White Olive Elite": {
         "history_max": 10949.0,
@@ -1909,12 +1987,12 @@
         "premium_peak": 17928.0
       },
       "Dreams Corfu Resort & Spa (ex Louis Corcyra Beach)": {
-        "history_max": 17616.0,
-        "premium_peak": 17616.0
+        "history_max": 17766.0,
+        "premium_peak": 17766.0
       },
       "Blue Marine Resort & SPA": {
-        "history_max": 12617.0,
-        "premium_peak": 12617.0
+        "history_max": 12697.0,
+        "premium_peak": 12697.0
       },
       "Santa Marina Pearl Grecja, Kreta, Agia Marina": {
         "history_max": 9127.0,
@@ -1981,8 +2059,8 @@
         "premium_peak": null
       },
       "The Ixian Grand (ex. Sentido Ixian Grand)": {
-        "history_max": 17777.0,
-        "premium_peak": 17777.0
+        "history_max": 17997.0,
+        "premium_peak": 17997.0
       },
       "Lydia Maris Resort & Spa Grecja, Rodos, Kolymbia": {
         "history_max": 9176.0,
@@ -2005,8 +2083,8 @@
         "premium_peak": 11094.0
       },
       "Giannoulis Cavo Spada Luxury Sports & Leisure Resort": {
-        "history_max": 9937.0,
-        "premium_peak": null
+        "history_max": 10347.0,
+        "premium_peak": 10347.0
       },
       "Sitia Beach Grecja, Kreta Wschodnia, Sitia": {
         "history_max": 9657.0,
@@ -2137,7 +2215,7 @@
         "premium_peak": null
       },
       "Santa Marina Pearl": {
-        "history_max": 9037.0,
+        "history_max": 9607.0,
         "premium_peak": null
       },
       "Solimar Aquamarine": {
