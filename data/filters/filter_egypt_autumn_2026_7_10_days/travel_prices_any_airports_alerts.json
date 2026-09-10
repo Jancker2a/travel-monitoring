@@ -1534,17 +1534,95 @@
       "created_at": "2026-09-09T22:41:28.807912+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Hilton Marsa Alam Nubian Resort Egipt, Marsa Alam_2026-09-09_22-40_zone_out_gone"
+    },
+    {
+      "hotel_name": "Amarina Queen Resort Egipt, Marsa Alam",
+      "duration_bucket": "",
+      "old_price": 5395.0,
+      "new_price": 6169.0,
+      "price_change": 774.0,
+      "price_change_pct": 14.346617238183503,
+      "timestamp": "2026-09-10 06:07:13.697032+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-10T06:07:56.919016+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amarina Queen Resort Egipt, Marsa Alam_2026-09-10_06-07_+14.3"
+    },
+    {
+      "hotel_name": "Hawaii Paradise Aqua Park Resort Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 7163.0,
+      "new_price": 6303.0,
+      "price_change": -860.0,
+      "price_change_pct": -12.00614267764903,
+      "timestamp": "2026-09-10 06:07:13.697032+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-10T06:07:56.919042+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Hawaii Paradise Aqua Park Resort Egipt, Hurghada_2026-09-10_06-07_-12.0"
+    },
+    {
+      "hotel_name": "Domina Coral Bay Aquamarine",
+      "duration_bucket": "",
+      "old_price": 8802.0,
+      "new_price": 9999.0,
+      "price_change": 1197.0,
+      "price_change_pct": 13.599182004089979,
+      "timestamp": "2026-09-10 06:07:13.697032+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-10T06:07:56.919063+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Domina Coral Bay Aquamarine_2026-09-10_06-07_+13.6"
+    },
+    {
+      "hotel_name": "Amwaj Oyoun Resort & Spa (ex AA Amwaj Resort) Egipt, Sharm El Sheikh",
+      "duration_bucket": "",
+      "old_price": 7666.0,
+      "new_price": 7666.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-10 06:07:13.697032+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-10T06:07:56.919092+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amwaj Oyoun Resort & Spa (ex AA Amwaj Resort) Egipt, Sharm El Sheikh_2026-09-10_06-07_zone_out_gone"
+    },
+    {
+      "hotel_name": "IL Mercato Splash Aqua Park",
+      "duration_bucket": "",
+      "old_price": 7857.0,
+      "new_price": 7857.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-10 06:07:13.697032+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-10T06:07:56.919100+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "IL Mercato Splash Aqua Park_2026-09-10_06-07_zone_out_gone"
+    },
+    {
+      "hotel_name": "Jaz Elite Asteria (Hurghada)",
+      "duration_bucket": "",
+      "old_price": 9917.0,
+      "new_price": 9917.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-10 06:07:13.697032+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-10T06:07:56.919108+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Elite Asteria (Hurghada)_2026-09-10_06-07_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-10T01:14:36.212679+00:00",
+    "last_processed_run": "2026-09-10T06:07:13.697032+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 6615.0,
         "premium_peak": null
       },
       "Nubian Village": {
-        "history_max": 10389.0,
+        "history_max": 10508.0,
         "premium_peak": null
       },
       "Old Palace Resort Egipt, Hurghada": {
@@ -1556,7 +1634,7 @@
         "premium_peak": null
       },
       "Park Regency Resort (ex. Hyatt)": {
-        "history_max": 10716.0,
+        "history_max": 10966.0,
         "premium_peak": null
       },
       "Parrotel Beach Resort (ex. Radisson Blu)": {
@@ -1564,7 +1642,7 @@
         "premium_peak": null
       },
       "Parrotel Lagoon Resort Egipt, Sharm El Sheikh, Szarm el-Szejk": {
-        "history_max": 6836.0,
+        "history_max": 7086.0,
         "premium_peak": null
       },
       "Pharaoh Azur Resort (ex Sonesta Pharaoh Beach Resort)": {
@@ -1584,7 +1662,7 @@
         "premium_peak": null
       },
       "Nubian Island": {
-        "history_max": 10389.0,
+        "history_max": 10641.0,
         "premium_peak": null
       },
       "Pickalbatros Golf Beach Resort": {
@@ -1624,7 +1702,7 @@
         "premium_peak": null
       },
       "Pyramisa Beach Resort Sahl Hasheesh": {
-        "history_max": 9036.0,
+        "history_max": 9216.0,
         "premium_peak": null
       },
       "Radisson Individuals Marina Port Ghalib (ex. Sunrise Marina Resort)": {
@@ -1960,7 +2038,7 @@
         "premium_peak": null
       },
       "Domina Coral Bay Aquamarine": {
-        "history_max": 9959.0,
+        "history_max": 9999.0,
         "premium_peak": null
       },
       "Aurora Oriental Resort": {
@@ -2020,7 +2098,7 @@
         "premium_peak": null
       },
       "Amarina Queen Resort Egipt, Marsa Alam": {
-        "history_max": 5752.0,
+        "history_max": 6169.0,
         "premium_peak": null
       },
       "Desert Rose Resort": {
@@ -2184,7 +2262,7 @@
         "premium_peak": null
       },
       "Charmillion Club Resort": {
-        "history_max": 9148.0,
+        "history_max": 9623.0,
         "premium_peak": null
       },
       "Domina Coral Bay Oasis Egipt, Sharm El Sheikh": {
@@ -2237,6 +2315,18 @@
       },
       "Mercure Dahab Bay View Egipt, Dahab": {
         "history_max": 7803.0,
+        "premium_peak": null
+      },
+      "Amwaj Oyoun Resort & Casino": {
+        "history_max": 7916.0,
+        "premium_peak": null
+      },
+      "Naama Waves": {
+        "history_max": 9306.0,
+        "premium_peak": null
+      },
+      "Sharm Dreams Vacation Club": {
+        "history_max": 8091.0,
         "premium_peak": null
       }
     }
