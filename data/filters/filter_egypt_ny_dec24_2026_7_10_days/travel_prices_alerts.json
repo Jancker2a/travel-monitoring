@@ -1859,10 +1859,49 @@
       "created_at": "2026-09-10T16:14:41.999469+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Xperience Kiroseiz Premier_2026-09-10_16-14_zone_out_gone"
+    },
+    {
+      "hotel_name": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 9934.0,
+      "new_price": 8514.0,
+      "price_change": -1420.0,
+      "price_change_pct": -14.294342661566336,
+      "timestamp": "2026-09-10 19:51:50.037464+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-10T19:52:13.098363+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada_2026-09-10_19-51_-14.3"
+    },
+    {
+      "hotel_name": "Hilton Marsa Alam Nubian Resort Egipt, Marsa Alam",
+      "duration_bucket": "",
+      "old_price": 10672.0,
+      "new_price": 10672.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-10 19:51:50.037464+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-10T19:52:13.098399+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Hilton Marsa Alam Nubian Resort Egipt, Marsa Alam_2026-09-10_19-51_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sharm Grand Plaza Resort Egipt, Sharm El Sheikh",
+      "duration_bucket": "",
+      "old_price": 10655.0,
+      "new_price": 10655.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-10 19:51:50.037464+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-10T19:52:13.098411+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sharm Grand Plaza Resort Egipt, Sharm El Sheikh_2026-09-10_19-51_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-10T16:35:07.499038+00:00",
+    "last_processed_run": "2026-09-10T19:51:50.037464+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 10249.0,
@@ -1889,7 +1928,7 @@
         "premium_peak": null
       },
       "Parrotel Lagoon Resort Egipt, Sharm El Sheikh, Szarm el-Szejk": {
-        "history_max": 9579.0,
+        "history_max": 9708.0,
         "premium_peak": null
       },
       "Radisson Blu Resort (El Quseir) Egipt, Marsa Alam, Al-Kusajr": {
@@ -1965,7 +2004,7 @@
         "premium_peak": null
       },
       "Parrotel Beach Resort (ex. Radisson Blu) Egipt, Sharm El Sheikh": {
-        "history_max": 10205.0,
+        "history_max": 10332.0,
         "premium_peak": null
       },
       "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna": {
@@ -2206,6 +2245,14 @@
       },
       "Sharm Grand Plaza Resort Egipt, Sharm El Sheikh": {
         "history_max": 10872.0,
+        "premium_peak": null
+      },
+      "Titanic Beach Spa & Aqua Park": {
+        "history_max": 10691.0,
+        "premium_peak": null
+      },
+      "Hilton Marsa Alam Nubian Resort": {
+        "history_max": 10672.0,
         "premium_peak": null
       }
     }
