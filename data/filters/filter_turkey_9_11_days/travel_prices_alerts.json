@@ -858,10 +858,62 @@
       "created_at": "2026-09-10T19:53:38.040954+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Club Nena (Side)_2026-09-10_19-52_comeback_12.3"
+    },
+    {
+      "hotel_name": "Campus Hill",
+      "duration_bucket": "",
+      "old_price": 7437.0,
+      "new_price": 8897.0,
+      "price_change": 1460.0,
+      "price_change_pct": 19.63157187037784,
+      "timestamp": "2026-09-10 22:44:53.152343+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-10T22:45:40.256587+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Campus Hill_2026-09-10_22-44_+19.6"
+    },
+    {
+      "hotel_name": "Club Nena (Side)",
+      "duration_bucket": "",
+      "old_price": 9784.0,
+      "new_price": 10006.0,
+      "price_change": 222.0,
+      "price_change_pct": 2.2690106295993457,
+      "timestamp": "2026-09-10 22:44:53.152343+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-10T22:45:40.256633+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Club Nena (Side)_2026-09-10_22-44_zone_out_+2.3"
+    },
+    {
+      "hotel_name": "Sentido Lycus Beach (ex. Lti)",
+      "duration_bucket": "",
+      "old_price": 9970.0,
+      "new_price": 10725.0,
+      "price_change": 755.0,
+      "price_change_pct": 7.57271815446339,
+      "timestamp": "2026-09-10 22:44:53.152343+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-10T22:45:40.256643+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sentido Lycus Beach (ex. Lti)_2026-09-10_22-44_zone_out_+7.6"
+    },
+    {
+      "hotel_name": "Sultan of Dreams",
+      "duration_bucket": "",
+      "old_price": 9519.0,
+      "new_price": 10927.0,
+      "price_change": 1408.0,
+      "price_change_pct": 14.791469692194559,
+      "timestamp": "2026-09-10 22:44:53.152343+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-10T22:45:40.256651+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sultan of Dreams_2026-09-10_22-44_zone_out_+14.8"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-10T19:52:13.967342+00:00",
+    "last_processed_run": "2026-09-10T22:44:53.152343+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 10473.0,
@@ -1392,8 +1444,8 @@
         "premium_peak": 12803.0
       },
       "Rubi Platinum (Alanya)": {
-        "history_max": 16176.0,
-        "premium_peak": 16176.0
+        "history_max": 16236.0,
+        "premium_peak": 16236.0
       },
       "Marine Family Club Beach (ex. Otium Family Club Marine Beach)": {
         "history_max": 11178.0,
@@ -1664,12 +1716,12 @@
         "premium_peak": null
       },
       "Campus Hill": {
-        "history_max": 8786.0,
+        "history_max": 8897.0,
         "premium_peak": null
       },
       "Arcanus Trendline Resort": {
-        "history_max": 12199.0,
-        "premium_peak": 12199.0
+        "history_max": 12329.0,
+        "premium_peak": 12329.0
       },
       "Calyptus Kirman Premium": {
         "history_max": 13861.0,
