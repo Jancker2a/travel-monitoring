@@ -2782,10 +2782,88 @@
       "created_at": "2026-09-09T22:42:26.139090+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Side Alegria (ex Holiday Point & Spa)_2026-09-09_22-41_zone_out_gone"
+    },
+    {
+      "hotel_name": "Champion Holiday Village (Kemer)",
+      "duration_bucket": "",
+      "old_price": 9645.0,
+      "new_price": 8693.0,
+      "price_change": -952.0,
+      "price_change_pct": -9.870399170554691,
+      "timestamp": "2026-09-10 01:15:16.091972+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-10T01:16:39.863201+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Champion Holiday Village (Kemer)_2026-09-10_01-15_-9.9"
+    },
+    {
+      "hotel_name": "Armas Bella Sun (ex.Club Bella Sun) Turcja, Side",
+      "duration_bucket": "",
+      "old_price": 7142.0,
+      "new_price": 7142.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-10 01:15:16.091972+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-10T01:16:39.863275+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Armas Bella Sun (ex.Club Bella Sun) Turcja, Side_2026-09-10_01-15_zone_out_gone"
+    },
+    {
+      "hotel_name": "Greenwood Suites Resort (ex. Sherwood Suites Resort)",
+      "duration_bucket": "",
+      "old_price": 9352.0,
+      "new_price": 10236.0,
+      "price_change": 884.0,
+      "price_change_pct": 9.452523524379812,
+      "timestamp": "2026-09-10 01:15:16.091972+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-10T01:16:39.863289+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Greenwood Suites Resort (ex. Sherwood Suites Resort)_2026-09-10_01-15_zone_out_+9.5"
+    },
+    {
+      "hotel_name": "Presa Di Finica (Finike) Turcja, Kemer, Finike",
+      "duration_bucket": "",
+      "old_price": 7157.0,
+      "new_price": 7157.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-10 01:15:16.091972+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-10T01:16:39.863298+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Presa Di Finica (Finike) Turcja, Kemer, Finike_2026-09-10_01-15_zone_out_gone"
+    },
+    {
+      "hotel_name": "Seven For Life Thermal",
+      "duration_bucket": "",
+      "old_price": 7426.0,
+      "new_price": 7426.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-10 01:15:16.091972+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-10T01:16:39.863306+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Seven For Life Thermal_2026-09-10_01-15_zone_out_gone"
+    },
+    {
+      "hotel_name": "Unique Residence Golf Spa",
+      "duration_bucket": "",
+      "old_price": 7295.0,
+      "new_price": 7295.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-10 01:15:16.091972+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-10T01:16:39.863313+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Unique Residence Golf Spa_2026-09-10_01-15_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-09T22:41:29.518482+00:00",
+    "last_processed_run": "2026-09-10T01:15:16.091972+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 8876.0,
@@ -3000,8 +3078,8 @@
         "premium_peak": null
       },
       "Greenwood Suites Resort (ex. Sherwood Suites Resort)": {
-        "history_max": 9352.0,
-        "premium_peak": null
+        "history_max": 10236.0,
+        "premium_peak": 10236.0
       },
       "Greenwood Kemer Resort (ex. Sherwood Greenwood Resort)": {
         "history_max": 10376.0,
@@ -3404,7 +3482,7 @@
         "premium_peak": null
       },
       "Royal Asarlik Beach": {
-        "history_max": 8352.0,
+        "history_max": 8586.0,
         "premium_peak": null
       },
       "Royal Alhambra Palace": {
@@ -3980,7 +4058,7 @@
         "premium_peak": 10686.0
       },
       "Elite Luxury Suite & Spa": {
-        "history_max": 7625.0,
+        "history_max": 7755.0,
         "premium_peak": null
       },
       "Salmakis Beach Resort": {
@@ -4008,7 +4086,7 @@
         "premium_peak": null
       },
       "Wyndham Residences Kusadasi Golf & Spa (ex. Kusadasi Golf & Spa Resort) Turcja, Kusadasi": {
-        "history_max": 6984.0,
+        "history_max": 7061.0,
         "premium_peak": null
       },
       "Dedeman Kemer Resort": {
@@ -4234,6 +4312,18 @@
       "Arycanda Kirman Premium": {
         "history_max": 11089.0,
         "premium_peak": 11089.0
+      },
+      "Glamour Resort & Spa": {
+        "history_max": 10017.0,
+        "premium_peak": 10017.0
+      },
+      "Seven For Life Thermal Turcja, Kusadasi, Guzelcamli": {
+        "history_max": 7126.0,
+        "premium_peak": null
+      },
+      "Bosphorus Sorgun": {
+        "history_max": 10733.0,
+        "premium_peak": 10733.0
       }
     }
   }
