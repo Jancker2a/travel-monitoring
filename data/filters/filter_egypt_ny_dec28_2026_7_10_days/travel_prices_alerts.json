@@ -572,10 +572,101 @@
       "created_at": "2026-09-11T11:36:47.856276+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Hilton Marsa Alam Nubian Resort Egipt, Marsa Alam_2026-09-11_11-36_zone_out_gone"
+    },
+    {
+      "hotel_name": "Three Corners Fayrouz Plaza Beach Resort Egipt, Marsa Alam",
+      "duration_bucket": "",
+      "old_price": 10622.0,
+      "new_price": 9574.0,
+      "price_change": -1048.0,
+      "price_change_pct": -9.866315194878554,
+      "timestamp": "2026-09-11 15:03:33.925719+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-11T15:03:49.479060+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Three Corners Fayrouz Plaza Beach Resort Egipt, Marsa Alam_2026-09-11_15-03_-9.9"
+    },
+    {
+      "hotel_name": "Novotel Marsa Alam Egipt, Marsa Alam",
+      "duration_bucket": "",
+      "old_price": 9952.0,
+      "new_price": 9112.0,
+      "price_change": -840.0,
+      "price_change_pct": -8.440514469453376,
+      "timestamp": "2026-09-11 15:03:33.925719+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-11T15:03:49.479088+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Novotel Marsa Alam Egipt, Marsa Alam_2026-09-11_15-03_-8.4"
+    },
+    {
+      "hotel_name": "Gemma Resort (ex. Labranda Gemma Premium Resort) Egipt, Marsa Alam",
+      "duration_bucket": "",
+      "old_price": 10495.0,
+      "new_price": 9190.0,
+      "price_change": -1305.0,
+      "price_change_pct": -12.434492615531205,
+      "timestamp": "2026-09-11 15:03:33.925719+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-11T15:03:49.479122+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Gemma Resort (ex. Labranda Gemma Premium Resort) Egipt, Marsa Alam_2026-09-11_15-03_-12.4"
+    },
+    {
+      "hotel_name": "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna",
+      "duration_bucket": "",
+      "old_price": 9768.0,
+      "new_price": 9768.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-11 15:03:33.925719+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-11T15:03:49.479140+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna_2026-09-11_15-03_zone_out_gone"
+    },
+    {
+      "hotel_name": "Gorgonia Beach Egipt, Marsa Alam",
+      "duration_bucket": "",
+      "old_price": 9918.0,
+      "new_price": 9918.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-11 15:03:33.925719+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-11T15:03:49.479155+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Gorgonia Beach Egipt, Marsa Alam_2026-09-11_15-03_zone_out_gone"
+    },
+    {
+      "hotel_name": "Radisson Blu Resort (El Quseir) Egipt, Marsa Alam, Al-Kusajr",
+      "duration_bucket": "",
+      "old_price": 10899.0,
+      "new_price": 10899.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-11 15:03:33.925719+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-11T15:03:49.479163+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Radisson Blu Resort (El Quseir) Egipt, Marsa Alam, Al-Kusajr_2026-09-11_15-03_zone_out_gone"
+    },
+    {
+      "hotel_name": "Rewaya Majestic Resort Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 10368.0,
+      "new_price": 10368.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-11 15:03:33.925719+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-11T15:03:49.479170+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Majestic Resort Egipt, Hurghada_2026-09-11_15-03_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-11T11:36:31.746812+00:00",
+    "last_processed_run": "2026-09-11T15:03:33.925719+00:00",
     "premium_state": {
       "Gorgonia Beach Egipt, Marsa Alam": {
         "history_max": 10216.0,
@@ -594,7 +685,7 @@
         "premium_peak": null
       },
       "Concorde Moreen Beach Resort & Spa Egipt, Marsa Alam": {
-        "history_max": 10093.0,
+        "history_max": 10352.0,
         "premium_peak": null
       },
       "Radisson Blu Resort (El Quseir) Egipt, Marsa Alam, Al-Kusajr": {
@@ -626,7 +717,7 @@
         "premium_peak": null
       },
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
-        "history_max": 9833.0,
+        "history_max": 10311.0,
         "premium_peak": null
       },
       "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna": {

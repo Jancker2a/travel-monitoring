@@ -2431,10 +2431,88 @@
       "created_at": "2026-09-11T11:36:10.486941+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Tropitel Sahl Hasheesh_2026-09-11_11-35_comeback_30.2"
+    },
+    {
+      "hotel_name": "Jasmine Palace",
+      "duration_bucket": "",
+      "old_price": 8857.0,
+      "new_price": 9857.0,
+      "price_change": 1000.0,
+      "price_change_pct": 11.290504685559446,
+      "timestamp": "2026-09-11 15:02:27.684324+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-11T15:03:12.451452+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jasmine Palace_2026-09-11_15-02_+11.3"
+    },
+    {
+      "hotel_name": "Albatros Makadi Resort (ex Royal Pharaohs Makadi)",
+      "duration_bucket": "",
+      "old_price": 9718.0,
+      "new_price": 10247.0,
+      "price_change": 529.0,
+      "price_change_pct": 5.443506894422721,
+      "timestamp": "2026-09-11 15:02:27.684324+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-11T15:03:12.451501+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Albatros Makadi Resort (ex Royal Pharaohs Makadi)_2026-09-11_15-02_zone_out_+5.4"
+    },
+    {
+      "hotel_name": "Cleopatra Luxury Resort (Makadi Bay)",
+      "duration_bucket": "",
+      "old_price": 8818.0,
+      "new_price": 11592.0,
+      "price_change": 2774.0,
+      "price_change_pct": 31.458380585166708,
+      "timestamp": "2026-09-11 15:02:27.684324+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-11T15:03:12.451514+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Cleopatra Luxury Resort (Makadi Bay)_2026-09-11_15-02_zone_out_+31.5"
+    },
+    {
+      "hotel_name": "Gravity Sahl Hasheesh (Ex. Ocean Breeze)",
+      "duration_bucket": "",
+      "old_price": 8562.0,
+      "new_price": 8562.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-11 15:02:27.684324+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-11T15:03:12.451523+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Gravity Sahl Hasheesh (Ex. Ocean Breeze)_2026-09-11_15-02_zone_out_gone"
+    },
+    {
+      "hotel_name": "Titanic Beach Spa & Aqua Park",
+      "duration_bucket": "",
+      "old_price": 8257.0,
+      "new_price": 10057.0,
+      "price_change": 1800.0,
+      "price_change_pct": 21.79968511565944,
+      "timestamp": "2026-09-11 15:02:27.684324+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-11T15:03:12.451532+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Titanic Beach Spa & Aqua Park_2026-09-11_15-02_zone_out_+21.8"
+    },
+    {
+      "hotel_name": "Tropitel Sahl Hasheesh",
+      "duration_bucket": "",
+      "old_price": 8680.0,
+      "new_price": 12437.0,
+      "price_change": 3757.0,
+      "price_change_pct": 43.28341013824885,
+      "timestamp": "2026-09-11 15:02:27.684324+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-11T15:03:12.451540+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Tropitel Sahl Hasheesh_2026-09-11_15-02_zone_out_+43.3"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-11T11:35:27.564830+00:00",
+    "last_processed_run": "2026-09-11T15:02:27.684324+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 7505.0,
@@ -2465,7 +2543,7 @@
         "premium_peak": null
       },
       "Marriott Hurghada Beach Resort": {
-        "history_max": 9038.0,
+        "history_max": 9171.0,
         "premium_peak": null
       },
       "Monte Carlo Resort Spa": {
@@ -2977,8 +3055,8 @@
         "premium_peak": null
       },
       "Albatros Makadi Resort (ex Royal Pharaohs Makadi)": {
-        "history_max": 10094.0,
-        "premium_peak": 10094.0
+        "history_max": 10247.0,
+        "premium_peak": 10247.0
       },
       "Albatros Sea World Resort Marsa Alam": {
         "history_max": 10237.0,
@@ -3001,7 +3079,7 @@
         "premium_peak": 12272.0
       },
       "Amarina Queen Resort": {
-        "history_max": 8755.0,
+        "history_max": 8775.0,
         "premium_peak": null
       },
       "Amarina Star Resort & Aqua Park (ex. Raouf Star)": {
@@ -3017,8 +3095,8 @@
         "premium_peak": null
       },
       "Amphoras Beach": {
-        "history_max": 10257.0,
-        "premium_peak": 10257.0
+        "history_max": 10603.0,
+        "premium_peak": 10603.0
       },
       "V Hotel Sharm": {
         "history_max": 12823.0,
@@ -3173,7 +3251,7 @@
         "premium_peak": null
       },
       "Fantazia Resort": {
-        "history_max": 8420.0,
+        "history_max": 8582.0,
         "premium_peak": null
       },
       "Domina Coral Bay Harem": {
@@ -3201,7 +3279,7 @@
         "premium_peak": 11751.0
       },
       "Sentido Akassia Beach (ex. LTI Akassia Beach)": {
-        "history_max": 8730.0,
+        "history_max": 8892.0,
         "premium_peak": null
       },
       "Jaz Elite Negma": {

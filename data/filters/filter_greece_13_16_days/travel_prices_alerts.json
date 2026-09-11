@@ -234,10 +234,62 @@
       "created_at": "2026-09-11T11:39:20.706054+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Summer Beach Grecja, Kreta Zachodnia, Georgioupolis_2026-09-11_11-38_zone_out_+12.0"
+    },
+    {
+      "hotel_name": "Majestic & Spa Grecja, Zakynthos, Laganas",
+      "duration_bucket": "",
+      "old_price": 9392.0,
+      "new_price": 11282.0,
+      "price_change": 1890.0,
+      "price_change_pct": 20.12350936967632,
+      "timestamp": "2026-09-11 15:05:08.548630+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-11T15:06:15.098404+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Majestic & Spa Grecja, Zakynthos, Laganas_2026-09-11_15-05_zone_out_+20.1"
+    },
+    {
+      "hotel_name": "Saint George Palace (Agios Georgios) Grecja, Korfu, Agios Georgios Pagon",
+      "duration_bucket": "",
+      "old_price": 9439.0,
+      "new_price": 9439.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-11 15:05:08.548630+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-11T15:06:15.098430+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Saint George Palace (Agios Georgios) Grecja, Korfu, Agios Georgios Pagon_2026-09-11_15-05_zone_out_gone"
+    },
+    {
+      "hotel_name": "Alexander The Great Grecja, Zakynthos, Laganas",
+      "duration_bucket": "",
+      "old_price": 11327.0,
+      "new_price": 9346.0,
+      "price_change": -1981.0,
+      "price_change_pct": -17.489185132868368,
+      "timestamp": "2026-09-11 15:05:08.548630+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-11T15:06:15.098453+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Alexander The Great Grecja, Zakynthos, Laganas_2026-09-11_15-05_comeback_17.5"
+    },
+    {
+      "hotel_name": "Ionian Sea & Aquapark Grecja, Kefalonia, Kounopetra",
+      "duration_bucket": "",
+      "old_price": 11695.0,
+      "new_price": 9807.0,
+      "price_change": -1888.0,
+      "price_change_pct": -16.143651132962805,
+      "timestamp": "2026-09-11 15:05:08.548630+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-11T15:06:15.098466+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Ionian Sea & Aquapark Grecja, Kefalonia, Kounopetra_2026-09-11_15-05_comeback_16.1"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-11T11:38:13.440947+00:00",
+    "last_processed_run": "2026-09-11T15:05:08.548630+00:00",
     "premium_state": {
       "Acharavi Mare by Wyndham (ex. Beis Beach)": {
         "history_max": 16357.0,
@@ -500,8 +552,8 @@
         "premium_peak": 13883.0
       },
       "Majestic & Spa Grecja, Zakynthos, Laganas": {
-        "history_max": 10187.0,
-        "premium_peak": 10187.0
+        "history_max": 11282.0,
+        "premium_peak": 11282.0
       },
       "Maistrali (Tragaki) Grecja, Zakynthos, Tragaki": {
         "history_max": 10798.0,
@@ -592,8 +644,8 @@
         "premium_peak": 15150.0
       },
       "Olympian Bay Grand Resort (ex. Bomo Olympus Grand Resort)": {
-        "history_max": 13558.0,
-        "premium_peak": 13558.0
+        "history_max": 13831.0,
+        "premium_peak": 13831.0
       },
       "Village Inn": {
         "history_max": 17537.0,
@@ -800,8 +852,8 @@
         "premium_peak": 14657.0
       },
       "Cathrin (Faliraki)": {
-        "history_max": 17170.0,
-        "premium_peak": 17170.0
+        "history_max": 17370.0,
+        "premium_peak": 17370.0
       },
       "Zeus Eleva Ajul (Ayios Nikolaos)": {
         "history_max": 17727.0,
@@ -1144,16 +1196,16 @@
         "premium_peak": 14657.0
       },
       "Horizon Beach (Stalida)": {
-        "history_max": 11857.0,
-        "premium_peak": 11857.0
+        "history_max": 12657.0,
+        "premium_peak": 12657.0
       },
       "Eri Village": {
         "history_max": 11624.0,
         "premium_peak": 11624.0
       },
       "Blue Princess Beach (ex. Elly Beach) Grecja, Korfu, Liapades": {
-        "history_max": 9788.0,
-        "premium_peak": null
+        "history_max": 10344.0,
+        "premium_peak": 10344.0
       },
       "Geraniotis Beach": {
         "history_max": 14675.0,
@@ -1164,8 +1216,8 @@
         "premium_peak": null
       },
       "White Olive Premium Lindos (ex Pefkos Garden)": {
-        "history_max": 13868.0,
-        "premium_peak": 13868.0
+        "history_max": 14068.0,
+        "premium_peak": 14068.0
       },
       "Pollis (ex Miramare) Grecja, Kreta Wschodnia, Hersonissos": {
         "history_max": 11935.0,

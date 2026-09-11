@@ -1014,18 +1014,44 @@
       "created_at": "2026-09-11T11:38:14.253207+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Oz Sui Resort_2026-09-11_11-36_zone_out_+10.8"
+    },
+    {
+      "hotel_name": "Cenger Beach Resort (Side)",
+      "duration_bucket": "",
+      "old_price": 8378.0,
+      "new_price": 9766.0,
+      "price_change": 1388.0,
+      "price_change_pct": 16.567199809023634,
+      "timestamp": "2026-09-11 15:03:49.195250+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-11T15:05:07.533616+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Cenger Beach Resort (Side)_2026-09-11_15-03_+16.6"
+    },
+    {
+      "hotel_name": "Sun Star Resort",
+      "duration_bucket": "",
+      "old_price": 8819.0,
+      "new_price": 8819.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-11 15:03:49.195250+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-11T15:05:07.533657+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sun Star Resort_2026-09-11_15-03_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-11T11:36:48.781859+00:00",
+    "last_processed_run": "2026-09-11T15:03:49.195250+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 10473.0,
         "premium_peak": 10473.0
       },
       "Selectum Family Resort (ex Letoonia Golf Resort)": {
-        "history_max": 16875.0,
-        "premium_peak": 16875.0
+        "history_max": 16938.0,
+        "premium_peak": 16938.0
       },
       "IC Santai Family Resort (Belek)": {
         "history_max": 14959.0,
@@ -1060,8 +1086,8 @@
         "premium_peak": 12942.0
       },
       "Hane Sun Elite (ex Noble Palace Side)": {
-        "history_max": 10683.0,
-        "premium_peak": 10683.0
+        "history_max": 10845.0,
+        "premium_peak": 10845.0
       },
       "Gural Premier Tekirova": {
         "history_max": 16171.0,
@@ -1424,8 +1450,8 @@
         "premium_peak": 12541.0
       },
       "Nova Park": {
-        "history_max": 12763.0,
-        "premium_peak": 12763.0
+        "history_max": 13281.0,
+        "premium_peak": 13281.0
       },
       "Rox Royal (ex. Grand Haber)": {
         "history_max": 10094.0,
@@ -1792,7 +1818,7 @@
         "premium_peak": 16984.0
       },
       "Cenger Beach Resort (Side)": {
-        "history_max": 8378.0,
+        "history_max": 9766.0,
         "premium_peak": null
       },
       "VONResort Golden Beach": {
@@ -1824,8 +1850,8 @@
         "premium_peak": null
       },
       "Arcanus Trendline Resort": {
-        "history_max": 12731.0,
-        "premium_peak": 12731.0
+        "history_max": 12879.0,
+        "premium_peak": 12879.0
       },
       "Calyptus Kirman Premium": {
         "history_max": 13861.0,
@@ -2172,8 +2198,8 @@
         "premium_peak": 15940.0
       },
       "Andriake Beach Club": {
-        "history_max": 11313.0,
-        "premium_peak": 11313.0
+        "history_max": 11462.0,
+        "premium_peak": 11462.0
       },
       "Sunrise Resort & SPA": {
         "history_max": 13215.0,
@@ -2360,8 +2386,8 @@
         "premium_peak": null
       },
       "Ozcelik": {
-        "history_max": 18300.0,
-        "premium_peak": 18300.0
+        "history_max": 18800.0,
+        "premium_peak": 18800.0
       },
       "Sueno Deluxe Belek": {
         "history_max": 17126.0,
@@ -2370,6 +2396,14 @@
       "Kaila Beach (ex Katya)": {
         "history_max": 11233.0,
         "premium_peak": 11233.0
+      },
+      "Sueno Beach Side": {
+        "history_max": 11990.0,
+        "premium_peak": 11990.0
+      },
+      "Sueno Golf Belek": {
+        "history_max": 17790.0,
+        "premium_peak": 17790.0
       }
     }
   }
