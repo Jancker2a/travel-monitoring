@@ -143,10 +143,49 @@
       "created_at": "2026-09-10T16:17:11.246799+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Golden Odyssey Grecja, Rodos, Kolymbia_2026-09-10_16-16_comeback_10.5"
+    },
+    {
+      "hotel_name": "Golden Odyssey Grecja, Rodos, Kolymbia",
+      "duration_bucket": "",
+      "old_price": 9834.0,
+      "new_price": 9834.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-11 01:16:28.953985+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-11T01:17:31.816886+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Golden Odyssey Grecja, Rodos, Kolymbia_2026-09-11_01-16_zone_out_gone"
+    },
+    {
+      "hotel_name": "Bali Mare Grecja, Kreta Wschodnia, Bali",
+      "duration_bucket": "",
+      "old_price": 11585.0,
+      "new_price": 9675.0,
+      "price_change": -1910.0,
+      "price_change_pct": -16.486836426413465,
+      "timestamp": "2026-09-11 01:16:28.953985+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-11T01:17:31.816925+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Bali Mare Grecja, Kreta Wschodnia, Bali_2026-09-11_01-16_comeback_16.5"
+    },
+    {
+      "hotel_name": "Summer Beach Grecja, Kreta Zachodnia, Georgioupolis",
+      "duration_bucket": "",
+      "old_price": 11850.0,
+      "new_price": 9755.0,
+      "price_change": -2095.0,
+      "price_change_pct": -17.679324894514767,
+      "timestamp": "2026-09-11 01:16:28.953985+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-11T01:17:31.816941+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Summer Beach Grecja, Kreta Zachodnia, Georgioupolis_2026-09-11_01-16_comeback_17.7"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-10T22:45:42.605708+00:00",
+    "last_processed_run": "2026-09-11T01:16:28.953985+00:00",
     "premium_state": {
       "Acharavi Mare by Wyndham (ex. Beis Beach)": {
         "history_max": 16357.0,
@@ -1011,6 +1050,46 @@
       "Galaxy Beach Resort BW Premier Collection": {
         "history_max": 17090.0,
         "premium_peak": 17090.0
+      },
+      "Elios Hill": {
+        "history_max": 19857.0,
+        "premium_peak": 19857.0
+      },
+      "Creta Palm": {
+        "history_max": 19797.0,
+        "premium_peak": 19797.0
+      },
+      "Allsun Dolphin Bay Resort": {
+        "history_max": 16757.0,
+        "premium_peak": 16757.0
+      },
+      "Giannoulis Cavo Spada Luxury Sports & Leisure Resort": {
+        "history_max": 19257.0,
+        "premium_peak": 19257.0
+      },
+      "Santa Marina Pearl": {
+        "history_max": 18457.0,
+        "premium_peak": 18457.0
+      },
+      "Horizon Beach (Stalida) Grecja, Kreta Wschodnia, Stalida": {
+        "history_max": 11857.0,
+        "premium_peak": 11857.0
+      },
+      "Possidi Holidays": {
+        "history_max": 16277.0,
+        "premium_peak": 16277.0
+      },
+      "Mare Blue & Suites": {
+        "history_max": 19507.0,
+        "premium_peak": 19507.0
+      },
+      "Magda (Kato Gouves)": {
+        "history_max": 17957.0,
+        "premium_peak": 17957.0
+      },
+      "Themis Beach": {
+        "history_max": 14657.0,
+        "premium_peak": 14657.0
       }
     }
   }

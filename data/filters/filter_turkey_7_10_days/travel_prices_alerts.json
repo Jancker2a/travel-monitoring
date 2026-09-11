@@ -3640,10 +3640,88 @@
       "created_at": "2026-09-10T22:45:42.009881+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Saphir Resort_2026-09-10_22-44_zone_out_+0.4"
+    },
+    {
+      "hotel_name": "Garden of Sun Spa & Wellness",
+      "duration_bucket": "",
+      "old_price": 8195.0,
+      "new_price": 7349.0,
+      "price_change": -846.0,
+      "price_change_pct": -10.323367907260526,
+      "timestamp": "2026-09-11 01:15:05.161117+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-11T01:16:27.900638+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Garden of Sun Spa & Wellness_2026-09-11_01-15_-10.3"
+    },
+    {
+      "hotel_name": "Cenger Beach Resort (Side)",
+      "duration_bucket": "",
+      "old_price": 7128.0,
+      "new_price": 7128.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-11 01:15:05.161117+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-11T01:16:27.900738+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Cenger Beach Resort (Side)_2026-09-11_01-15_zone_out_gone"
+    },
+    {
+      "hotel_name": "La Mer (Goynuk) Turcja, Kemer, Goynuk",
+      "duration_bucket": "",
+      "old_price": 7052.0,
+      "new_price": 7052.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-11 01:15:05.161117+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-11T01:16:27.900752+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "La Mer (Goynuk) Turcja, Kemer, Goynuk_2026-09-11_01-15_zone_out_gone"
+    },
+    {
+      "hotel_name": "Nova Life",
+      "duration_bucket": "",
+      "old_price": 7205.0,
+      "new_price": 7205.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-11 01:15:05.161117+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-11T01:16:27.900761+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Nova Life_2026-09-11_01-15_zone_out_gone"
+    },
+    {
+      "hotel_name": "Viking Star Turcja, Kemer",
+      "duration_bucket": "",
+      "old_price": 6755.0,
+      "new_price": 6755.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-11 01:15:05.161117+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-11T01:16:27.900769+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Viking Star Turcja, Kemer_2026-09-11_01-15_zone_out_gone"
+    },
+    {
+      "hotel_name": "Arin Resort Bodrum",
+      "duration_bucket": "",
+      "old_price": 10823.0,
+      "new_price": 9317.0,
+      "price_change": -1506.0,
+      "price_change_pct": -13.914811050540516,
+      "timestamp": "2026-09-11 01:15:05.161117+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-11T01:16:27.900801+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Arin Resort Bodrum_2026-09-11_01-15_comeback_13.9"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-10T22:44:41.215114+00:00",
+    "last_processed_run": "2026-09-11T01:15:05.161117+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 9065.0,
@@ -3686,8 +3764,8 @@
         "premium_peak": null
       },
       "Marti Myra": {
-        "history_max": 10396.0,
-        "premium_peak": 10396.0
+        "history_max": 10424.0,
+        "premium_peak": 10424.0
       },
       "Mandarin Resort (Bodrum)": {
         "history_max": 9094.0,
@@ -4494,7 +4572,7 @@
         "premium_peak": 10096.0
       },
       "Crystal De Luxe Comfort Collection": {
-        "history_max": 9726.0,
+        "history_max": 9763.0,
         "premium_peak": null
       },
       "Armella Hill": {
@@ -4534,7 +4612,7 @@
         "premium_peak": null
       },
       "Crystal Waterworld Aqua Collection": {
-        "history_max": 9572.0,
+        "history_max": 9838.0,
         "premium_peak": null
       },
       "Crystal World of Colours Comfort Collection": {
@@ -5152,6 +5230,34 @@
       "Terrace Beach Resort (Side)": {
         "history_max": 11104.0,
         "premium_peak": 11104.0
+      },
+      "Green Garden Resort": {
+        "history_max": 9420.0,
+        "premium_peak": null
+      },
+      "Hapimag Resort Sea Garden": {
+        "history_max": 10797.0,
+        "premium_peak": 10797.0
+      },
+      "Catamaran Quality Times (ex. Catamaran Resort)": {
+        "history_max": 8726.0,
+        "premium_peak": null
+      },
+      "Samara (Bodrum)": {
+        "history_max": 10036.0,
+        "premium_peak": 10036.0
+      },
+      "Blue Dreams Resort (ex. Kairaba)": {
+        "history_max": 9964.0,
+        "premium_peak": null
+      },
+      "Mivara Luxury Resort & Spa Bodrum": {
+        "history_max": 10948.0,
+        "premium_peak": 10948.0
+      },
+      "Kefaluka Resort": {
+        "history_max": 10848.0,
+        "premium_peak": 10848.0
       }
     }
   }
