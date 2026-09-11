@@ -4589,10 +4589,114 @@
       "created_at": "2026-09-11T19:55:32.561836+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Unique Life Style_2026-09-11_19-54_zone_out_+6.2"
+    },
+    {
+      "hotel_name": "Eftalia Marin",
+      "duration_bucket": "",
+      "old_price": 8661.0,
+      "new_price": 9437.0,
+      "price_change": 776.0,
+      "price_change_pct": 8.959704422122156,
+      "timestamp": "2026-09-11 22:44:30.283545+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-11T22:45:45.222054+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Eftalia Marin_2026-09-11_22-44_+9.0"
+    },
+    {
+      "hotel_name": "Sultan of Dreams",
+      "duration_bucket": "",
+      "old_price": 7374.0,
+      "new_price": 8879.0,
+      "price_change": 1505.0,
+      "price_change_pct": 20.409547057228096,
+      "timestamp": "2026-09-11 22:44:30.283545+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-11T22:45:45.222096+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sultan of Dreams_2026-09-11_22-44_+20.4"
+    },
+    {
+      "hotel_name": "Sentido Lycus Beach (ex. Lti)",
+      "duration_bucket": "",
+      "old_price": 7655.0,
+      "new_price": 8437.0,
+      "price_change": 782.0,
+      "price_change_pct": 10.215545395166558,
+      "timestamp": "2026-09-11 22:44:30.283545+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-11T22:45:45.222123+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sentido Lycus Beach (ex. Lti)_2026-09-11_22-44_+10.2"
+    },
+    {
+      "hotel_name": "Cenger Beach Resort Turcja, Side",
+      "duration_bucket": "",
+      "old_price": 5744.0,
+      "new_price": 6892.0,
+      "price_change": 1148.0,
+      "price_change_pct": 19.98607242339833,
+      "timestamp": "2026-09-11 22:44:30.283545+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-11T22:45:45.222134+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Cenger Beach Resort Turcja, Side_2026-09-11_22-44_+20.0"
+    },
+    {
+      "hotel_name": "Mary Side (ex. Mary Palace)",
+      "duration_bucket": "",
+      "old_price": 9970.0,
+      "new_price": 10609.0,
+      "price_change": 639.0,
+      "price_change_pct": 6.4092276830491475,
+      "timestamp": "2026-09-11 22:44:30.283545+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-11T22:45:45.222181+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Mary Side (ex. Mary Palace)_2026-09-11_22-44_zone_out_+6.4"
+    },
+    {
+      "hotel_name": "Saphir Resort",
+      "duration_bucket": "",
+      "old_price": 9916.0,
+      "new_price": 10101.0,
+      "price_change": 185.0,
+      "price_change_pct": 1.8656716417910446,
+      "timestamp": "2026-09-11 22:44:30.283545+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-11T22:45:45.222191+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Saphir Resort_2026-09-11_22-44_zone_out_+1.9"
+    },
+    {
+      "hotel_name": "Swissotel Resort Bodrum",
+      "duration_bucket": "",
+      "old_price": 9822.0,
+      "new_price": 10212.0,
+      "price_change": 390.0,
+      "price_change_pct": 3.9706780696395847,
+      "timestamp": "2026-09-11 22:44:30.283545+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-11T22:45:45.222199+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Swissotel Resort Bodrum_2026-09-11_22-44_zone_out_+4.0"
+    },
+    {
+      "hotel_name": "Sultan of Side",
+      "duration_bucket": "",
+      "old_price": 10472.0,
+      "new_price": 8197.0,
+      "price_change": -2275.0,
+      "price_change_pct": -21.724598930481285,
+      "timestamp": "2026-09-11 22:44:30.283545+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-11T22:45:45.222226+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sultan of Side_2026-09-11_22-44_comeback_21.7"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-11T19:54:18.717478+00:00",
+    "last_processed_run": "2026-09-11T22:44:30.283545+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 9065.0,
@@ -4623,8 +4727,8 @@
         "premium_peak": null
       },
       "Mary Side (ex. Mary Palace)": {
-        "history_max": 10018.0,
-        "premium_peak": 10018.0
+        "history_max": 10609.0,
+        "premium_peak": 10609.0
       },
       "Mary Alanya (ex. Sirius Deluxe)": {
         "history_max": 10937.0,
@@ -5587,7 +5691,7 @@
         "premium_peak": null
       },
       "Cenger Blue Collection": {
-        "history_max": 8703.0,
+        "history_max": 8871.0,
         "premium_peak": null
       },
       "Cesars Resort (Side)": {
@@ -5959,8 +6063,8 @@
         "premium_peak": 10586.0
       },
       "Radisson Collection Bodrum": {
-        "history_max": 10625.0,
-        "premium_peak": 10625.0
+        "history_max": 11014.0,
+        "premium_peak": 11014.0
       },
       "La Blanche Resort & Spa": {
         "history_max": 11044.0,
@@ -6003,8 +6107,8 @@
         "premium_peak": null
       },
       "Kamelya Aishen Club (ex. Kamelya Aishen K Club)": {
-        "history_max": 11025.0,
-        "premium_peak": 11025.0
+        "history_max": 11187.0,
+        "premium_peak": 11187.0
       },
       "Armas Kaplan Paradise": {
         "history_max": 7772.0,
@@ -6107,8 +6211,8 @@
         "premium_peak": null
       },
       "Hapimag Resort Sea Garden": {
-        "history_max": 10797.0,
-        "premium_peak": 10797.0
+        "history_max": 11186.0,
+        "premium_peak": 11186.0
       },
       "Catamaran Quality Times (ex. Catamaran Resort)": {
         "history_max": 8726.0,
@@ -6119,8 +6223,8 @@
         "premium_peak": 10788.0
       },
       "Blue Dreams Resort (ex. Kairaba)": {
-        "history_max": 10205.0,
-        "premium_peak": 10205.0
+        "history_max": 10594.0,
+        "premium_peak": 10594.0
       },
       "Mivara Luxury Resort & Spa Bodrum": {
         "history_max": 10948.0,
