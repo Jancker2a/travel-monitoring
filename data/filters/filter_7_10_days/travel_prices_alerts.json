@@ -2548,10 +2548,36 @@
       "created_at": "2026-09-11T16:39:16.196503+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Reef Oasis Suakin Resort_2026-09-11_16-38_zone_out_+27.2"
+    },
+    {
+      "hotel_name": "Radisson Individuals Marina Port Ghalib (ex. Sunrise Marina Resort)",
+      "duration_bucket": "",
+      "old_price": 9189.0,
+      "new_price": 11721.0,
+      "price_change": 2532.0,
+      "price_change_pct": 27.55468494939602,
+      "timestamp": "2026-09-11 19:53:07.518338+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-11T19:53:55.021787+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Radisson Individuals Marina Port Ghalib (ex. Sunrise Marina Resort)_2026-09-11_19-53_zone_out_+27.6"
+    },
+    {
+      "hotel_name": "Reef Oasis Suakin Resort",
+      "duration_bucket": "",
+      "old_price": 12157.0,
+      "new_price": 9657.0,
+      "price_change": -2500.0,
+      "price_change_pct": -20.564283951632802,
+      "timestamp": "2026-09-11 19:53:07.518338+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-11T19:53:55.021839+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Reef Oasis Suakin Resort_2026-09-11_19-53_comeback_20.6"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-11T16:38:28.972274+00:00",
+    "last_processed_run": "2026-09-11T19:53:07.518338+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 7505.0,
@@ -2682,8 +2708,8 @@
         "premium_peak": 10121.0
       },
       "Sultan Gardens Resort": {
-        "history_max": 12859.0,
-        "premium_peak": 12859.0
+        "history_max": 13011.0,
+        "premium_peak": 13011.0
       },
       "Jaz Belvedere": {
         "history_max": 10999.0,
@@ -2722,12 +2748,12 @@
         "premium_peak": null
       },
       "Jaz Grand Marsa (ex Resta Grand Resort)": {
-        "history_max": 9577.0,
-        "premium_peak": null
+        "history_max": 13297.0,
+        "premium_peak": 13297.0
       },
       "Jaz Lamaya Resort (ex Iberotel)": {
-        "history_max": 11310.0,
-        "premium_peak": 11310.0
+        "history_max": 11456.0,
+        "premium_peak": 11456.0
       },
       "Steigenberger Golf Resort": {
         "history_max": 10274.0,
@@ -2786,8 +2812,8 @@
         "premium_peak": 10533.0
       },
       "Radisson Individuals Marina Port Ghalib (ex. Sunrise Marina Resort)": {
-        "history_max": 9621.0,
-        "premium_peak": null
+        "history_max": 11721.0,
+        "premium_peak": 11721.0
       },
       "Safir Dahab Resort": {
         "history_max": 10840.0,

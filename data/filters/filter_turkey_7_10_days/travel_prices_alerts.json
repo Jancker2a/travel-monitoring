@@ -4511,10 +4511,88 @@
       "created_at": "2026-09-11T16:40:59.362238+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Mandarin Resort (Bodrum)_2026-09-11_16-39_zone_out_gone"
+    },
+    {
+      "hotel_name": "Cenger Beach Resort Turcja, Side",
+      "duration_bucket": "",
+      "old_price": 6762.0,
+      "new_price": 5744.0,
+      "price_change": -1018.0,
+      "price_change_pct": -15.054717539189589,
+      "timestamp": "2026-09-11 19:54:18.717478+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-11T19:55:32.561749+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Cenger Beach Resort Turcja, Side_2026-09-11_19-54_-15.1"
+    },
+    {
+      "hotel_name": "Greenwood Suites Resort (ex. Sherwood Suites Resort)",
+      "duration_bucket": "",
+      "old_price": 9964.0,
+      "new_price": 10094.0,
+      "price_change": 130.0,
+      "price_change_pct": 1.304696908871939,
+      "timestamp": "2026-09-11 19:54:18.717478+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-11T19:55:32.561796+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Greenwood Suites Resort (ex. Sherwood Suites Resort)_2026-09-11_19-54_zone_out_+1.3"
+    },
+    {
+      "hotel_name": "Mandarin Resort (Bodrum) Turcja, Bodrum",
+      "duration_bucket": "",
+      "old_price": 7050.0,
+      "new_price": 7050.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-11 19:54:18.717478+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-11T19:55:32.561809+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Mandarin Resort (Bodrum) Turcja, Bodrum_2026-09-11_19-54_zone_out_gone"
+    },
+    {
+      "hotel_name": "Senza Grand Santana (Alanya)",
+      "duration_bucket": "",
+      "old_price": 8030.0,
+      "new_price": 8030.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-11 19:54:18.717478+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-11T19:55:32.561818+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Senza Grand Santana (Alanya)_2026-09-11_19-54_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sultan of Side",
+      "duration_bucket": "",
+      "old_price": 8587.0,
+      "new_price": 10472.0,
+      "price_change": 1885.0,
+      "price_change_pct": 21.95178758588564,
+      "timestamp": "2026-09-11 19:54:18.717478+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-11T19:55:32.561827+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sultan of Side_2026-09-11_19-54_zone_out_+22.0"
+    },
+    {
+      "hotel_name": "Unique Life Style",
+      "duration_bucket": "",
+      "old_price": 9708.0,
+      "new_price": 10308.0,
+      "price_change": 600.0,
+      "price_change_pct": 6.180469715698393,
+      "timestamp": "2026-09-11 19:54:18.717478+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-11T19:55:32.561836+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Unique Life Style_2026-09-11_19-54_zone_out_+6.2"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-11T16:39:44.363286+00:00",
+    "last_processed_run": "2026-09-11T19:54:18.717478+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 9065.0,
@@ -4725,7 +4803,7 @@
         "premium_peak": null
       },
       "Gypsophila Holiday Village": {
-        "history_max": 9513.0,
+        "history_max": 9772.0,
         "premium_peak": null
       },
       "Greenwood Suites Resort (ex. Sherwood Suites Resort)": {
@@ -4969,12 +5047,12 @@
         "premium_peak": null
       },
       "Sun Star Resort Turcja, Alanya, Mahmutlar": {
-        "history_max": 5931.0,
+        "history_max": 6060.0,
         "premium_peak": null
       },
       "Sultan of Side": {
-        "history_max": 8644.0,
-        "premium_peak": null
+        "history_max": 10472.0,
+        "premium_peak": 10472.0
       },
       "Sultan of Dreams": {
         "history_max": 9027.0,
@@ -5033,8 +5111,8 @@
         "premium_peak": null
       },
       "White City Resort": {
-        "history_max": 10212.0,
-        "premium_peak": 10212.0
+        "history_max": 10342.0,
+        "premium_peak": 10342.0
       },
       "Well Palace Side (ex. Side Crown Charm Palace)": {
         "history_max": 8321.0,
@@ -5093,8 +5171,8 @@
         "premium_peak": null
       },
       "Unique Life Style": {
-        "history_max": 10291.0,
-        "premium_peak": 10291.0
+        "history_max": 10308.0,
+        "premium_peak": 10308.0
       },
       "Ulusoy Kemer Holiday Club": {
         "history_max": 10357.0,
@@ -5169,8 +5247,8 @@
         "premium_peak": 10499.0
       },
       "Queens Park Le Jardin Resort": {
-        "history_max": 10209.0,
-        "premium_peak": 10209.0
+        "history_max": 10469.0,
+        "premium_peak": 10469.0
       },
       "Queens Park Goynuk (Kemer)": {
         "history_max": 9124.0,
@@ -5573,7 +5651,7 @@
         "premium_peak": null
       },
       "Charisma Deluxe (Kusadasi)": {
-        "history_max": 8486.0,
+        "history_max": 8723.0,
         "premium_peak": null
       },
       "Aydinbey Queens Palace & Spa": {
@@ -5585,7 +5663,7 @@
         "premium_peak": 11048.0
       },
       "Diamond Hill Resort": {
-        "history_max": 7744.0,
+        "history_max": 7873.0,
         "premium_peak": null
       },
       "Calido Sol (Alanya)": {
@@ -5977,8 +6055,8 @@
         "premium_peak": 11068.0
       },
       "Emelda Sun Club (ex. Simena Sun Club)": {
-        "history_max": 11043.0,
-        "premium_peak": 11043.0
+        "history_max": 11173.0,
+        "premium_peak": 11173.0
       },
       "Viking Star Turcja, Kemer": {
         "history_max": 6755.0,
@@ -6009,7 +6087,7 @@
         "premium_peak": 10850.0
       },
       "Xafira Deluxe Resort & Spa": {
-        "history_max": 7495.0,
+        "history_max": 7803.0,
         "premium_peak": null
       },
       "Senza Grand Santana (Alanya)": {
@@ -6025,7 +6103,7 @@
         "premium_peak": 11104.0
       },
       "Green Garden Resort": {
-        "history_max": 9550.0,
+        "history_max": 9680.0,
         "premium_peak": null
       },
       "Hapimag Resort Sea Garden": {
@@ -6057,8 +6135,8 @@
         "premium_peak": null
       },
       "Sirene Belek": {
-        "history_max": 10966.0,
-        "premium_peak": 10966.0
+        "history_max": 11096.0,
+        "premium_peak": 11096.0
       },
       "Insula Resort Turcja, Alanya, Konakli": {
         "history_max": 7075.0,
@@ -6091,6 +6169,14 @@
       "Mandarin Resort (Bodrum) Turcja, Bodrum": {
         "history_max": 7050.0,
         "premium_peak": null
+      },
+      "Senza Grand Santana (Alanya) Turcja, Alanya": {
+        "history_max": 6517.0,
+        "premium_peak": null
+      },
+      "Sherwood Dreams Resort": {
+        "history_max": 11174.0,
+        "premium_peak": 11174.0
       }
     }
   }
