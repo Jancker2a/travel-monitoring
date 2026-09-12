@@ -1755,13 +1755,52 @@
       "created_at": "2026-09-12T11:02:34.593327+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Lydia Maris Resort & Spa Grecja, Rodos, Kolymbia_2026-09-12_11-01_zone_out_gone"
+    },
+    {
+      "hotel_name": "Galaxy Beach Resort BW Premier Collection Grecja, Zakynthos, Laganas",
+      "duration_bucket": "",
+      "old_price": 9579.0,
+      "new_price": 9579.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-12 14:18:35.802519+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-12T14:19:39.075282+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Galaxy Beach Resort BW Premier Collection Grecja, Zakynthos, Laganas_2026-09-12_14-18_zone_out_gone"
+    },
+    {
+      "hotel_name": "Giannoulis Cavo Spada Luxury Sports & Leisure Resort",
+      "duration_bucket": "",
+      "old_price": 9877.0,
+      "new_price": 9877.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-12 14:18:35.802519+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-12T14:19:39.075310+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Giannoulis Cavo Spada Luxury Sports & Leisure Resort_2026-09-12_14-18_zone_out_gone"
+    },
+    {
+      "hotel_name": "Galaxy Beach Resort BW Premier Collection",
+      "duration_bucket": "",
+      "old_price": 11897.0,
+      "new_price": 9879.0,
+      "price_change": -2018.0,
+      "price_change_pct": -16.962259393124317,
+      "timestamp": "2026-09-12 14:18:35.802519+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-12T14:19:39.075339+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Galaxy Beach Resort BW Premier Collection_2026-09-12_14-18_comeback_17.0"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-12T11:01:29.230641+00:00",
+    "last_processed_run": "2026-09-12T14:18:35.802519+00:00",
     "premium_state": {
       "Ajul Luxury & Spa Resort (Ayios Nikolaos) Grecja, Chalkidiki, Loutra": {
-        "history_max": 9807.0,
+        "history_max": 9877.0,
         "premium_peak": null
       },
       "Grand Blue Beach Grecja, kos, Kardamaina": {
@@ -1849,8 +1888,8 @@
         "premium_peak": null
       },
       "Enorme Santanna Island": {
-        "history_max": 13157.0,
-        "premium_peak": 13157.0
+        "history_max": 16097.0,
+        "premium_peak": 16097.0
       },
       "Eretria Hotel & Spa Resort (ex. Eretria Village) Grecja, Evia, Eretria": {
         "history_max": 8996.0,
@@ -1941,8 +1980,8 @@
         "premium_peak": 17259.0
       },
       "Minos Imperial": {
-        "history_max": 11756.0,
-        "premium_peak": 11756.0
+        "history_max": 11860.0,
+        "premium_peak": 11860.0
       },
       "Mitsis Bali Paradise (ex. Bali Paradise)": {
         "history_max": 11109.0,
@@ -2397,8 +2436,8 @@
         "premium_peak": 10691.0
       },
       "Panorama Leptos (Kato Galatas)": {
-        "history_max": 11042.0,
-        "premium_peak": 11042.0
+        "history_max": 11723.0,
+        "premium_peak": 11723.0
       },
       "Electra Palace (Ialyssos)": {
         "history_max": 14570.0,
