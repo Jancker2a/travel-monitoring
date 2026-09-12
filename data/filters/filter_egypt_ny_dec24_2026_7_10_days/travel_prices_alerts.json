@@ -2210,10 +2210,49 @@
       "created_at": "2026-09-11T19:54:32.882734+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Rehana Royal Beach Resort & Spa_2026-09-11_19-54_zone_out_gone"
+    },
+    {
+      "hotel_name": "Gemma Resort (ex. Labranda Gemma Premium Resort) Egipt, Marsa Alam",
+      "duration_bucket": "",
+      "old_price": 9690.0,
+      "new_price": 10478.0,
+      "price_change": 788.0,
+      "price_change_pct": 8.132094943240455,
+      "timestamp": "2026-09-12 01:16:28.971883+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-12T01:16:48.853460+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Gemma Resort (ex. Labranda Gemma Premium Resort) Egipt, Marsa Alam_2026-09-12_01-16_+8.1"
+    },
+    {
+      "hotel_name": "Sentido Oriental Dream Resort Egipt, Marsa Alam",
+      "duration_bucket": "",
+      "old_price": 9615.0,
+      "new_price": 9615.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-12 01:16:28.971883+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-12T01:16:48.853494+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sentido Oriental Dream Resort Egipt, Marsa Alam_2026-09-12_01-16_zone_out_gone"
+    },
+    {
+      "hotel_name": "Stella Beach Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 10952.0,
+      "new_price": 10952.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-12 01:16:28.971883+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-12T01:16:48.853507+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Stella Beach Resort & Spa_2026-09-12_01-16_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-11T22:44:19.619642+00:00",
+    "last_processed_run": "2026-09-12T01:16:28.971883+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 10249.0,
@@ -2228,7 +2267,7 @@
         "premium_peak": null
       },
       "Novotel Marsa Alam Egipt, Marsa Alam": {
-        "history_max": 9952.0,
+        "history_max": 10149.0,
         "premium_peak": null
       },
       "Park Inn (Sharm El Sheikh) Egipt, Sharm El Sheikh": {
@@ -2288,7 +2327,7 @@
         "premium_peak": null
       },
       "Stella Di Mare Beach Resort & Spa (ex. Stella Makadi Resort) Egipt, Hurghada, Makadi Bay": {
-        "history_max": 10881.0,
+        "history_max": 10952.0,
         "premium_peak": null
       },
       "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort) Egipt, Hurghada": {
@@ -2368,7 +2407,7 @@
         "premium_peak": null
       },
       "Three Corners Fayrouz Plaza Beach Resort Egipt, Marsa Alam": {
-        "history_max": 10622.0,
+        "history_max": 10784.0,
         "premium_peak": null
       },
       "Gravity Sahl Hasheesh (Ex. Ocean Breeze)": {

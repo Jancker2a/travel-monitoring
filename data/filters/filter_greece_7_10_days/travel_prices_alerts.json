@@ -1703,10 +1703,23 @@
       "created_at": "2026-09-11T22:46:35.675970+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Apollonia Beach (Ammoudara)_2026-09-11_22-45_zone_out_+2.7"
+    },
+    {
+      "hotel_name": "Galaxy Beach Resort BW Premier Collection",
+      "duration_bucket": "",
+      "old_price": 11897.0,
+      "new_price": 9879.0,
+      "price_change": -2018.0,
+      "price_change_pct": -16.962259393124317,
+      "timestamp": "2026-09-12 01:17:53.110960+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-12T01:18:58.904243+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Galaxy Beach Resort BW Premier Collection_2026-09-12_01-17_comeback_17.0"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-11T22:45:35.248118+00:00",
+    "last_processed_run": "2026-09-12T01:17:53.110960+00:00",
     "premium_state": {
       "Ajul Luxury & Spa Resort (Ayios Nikolaos) Grecja, Chalkidiki, Loutra": {
         "history_max": 9807.0,
@@ -2487,6 +2500,14 @@
       "Natura Park Village Grecja, Kos, Psalidi": {
         "history_max": 9634.0,
         "premium_peak": null
+      },
+      "Blue Lagoon Princess": {
+        "history_max": 12767.0,
+        "premium_peak": 12767.0
+      },
+      "Atrium Palace Thalasso Spa & Villas": {
+        "history_max": 17499.0,
+        "premium_peak": 17499.0
       }
     }
   }
