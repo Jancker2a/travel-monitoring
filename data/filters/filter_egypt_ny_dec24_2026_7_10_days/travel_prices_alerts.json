@@ -2431,10 +2431,88 @@
       "created_at": "2026-09-12T14:17:41.067829+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Rehana Royal Beach Resort & Spa Egipt, Sharm El Sheikh_2026-09-12_14-17_zone_out_gone"
+    },
+    {
+      "hotel_name": "Fantazia Resort Egipt, Marsa Alam",
+      "duration_bucket": "",
+      "old_price": 9807.0,
+      "new_price": 10926.0,
+      "price_change": 1119.0,
+      "price_change_pct": 11.410217191801774,
+      "timestamp": "2026-09-12 17:20:28.365518+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-12T17:20:47.300544+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Fantazia Resort Egipt, Marsa Alam_2026-09-12_17-20_+11.4"
+    },
+    {
+      "hotel_name": "Albatros Makadi Resort (ex Royal Pharaohs Makadi)",
+      "duration_bucket": "",
+      "old_price": 10981.0,
+      "new_price": 10981.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-12 17:20:28.365518+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-12T17:20:47.300584+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Albatros Makadi Resort (ex Royal Pharaohs Makadi)_2026-09-12_17-20_zone_out_gone"
+    },
+    {
+      "hotel_name": "Marriott Hurghada Beach Resort Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 10849.0,
+      "new_price": 10849.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-12 17:20:28.365518+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-12T17:20:47.300596+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Marriott Hurghada Beach Resort Egipt, Hurghada_2026-09-12_17-20_zone_out_gone"
+    },
+    {
+      "hotel_name": "Palm Royale Resort Soma Bay Egipt, Hurghada, Soma Bay",
+      "duration_bucket": "",
+      "old_price": 10800.0,
+      "new_price": 10800.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-12 17:20:28.365518+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-12T17:20:47.300604+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Palm Royale Resort Soma Bay Egipt, Hurghada, Soma Bay_2026-09-12_17-20_zone_out_gone"
+    },
+    {
+      "hotel_name": "Rehana Royal Beach Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 10945.0,
+      "new_price": 10945.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-12 17:20:28.365518+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-12T17:20:47.300612+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rehana Royal Beach Resort & Spa_2026-09-12_17-20_zone_out_gone"
+    },
+    {
+      "hotel_name": "Swissotel Resort El Quseir",
+      "duration_bucket": "",
+      "old_price": 10895.0,
+      "new_price": 10895.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-12 17:20:28.365518+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-12T17:20:47.300619+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Swissotel Resort El Quseir_2026-09-12_17-20_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-12T14:17:19.768027+00:00",
+    "last_processed_run": "2026-09-12T17:20:28.365518+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 10249.0,
@@ -2565,7 +2643,7 @@
         "premium_peak": null
       },
       "Fantazia Resort Egipt, Marsa Alam": {
-        "history_max": 9932.0,
+        "history_max": 10926.0,
         "premium_peak": null
       },
       "Amarina Jannah Resort Aquapark Egipt, Marsa Alam, Port Ghalib": {
@@ -2793,7 +2871,7 @@
         "premium_peak": null
       },
       "Titanic Beach Spa & Aqua Park Egipt, Hurghada": {
-        "history_max": 10591.0,
+        "history_max": 10741.0,
         "premium_peak": null
       },
       "Stella Beach Resort & Spa": {

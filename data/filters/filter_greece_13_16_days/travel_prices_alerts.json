@@ -520,10 +520,88 @@
       "created_at": "2026-09-12T11:02:45.210572+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Alexander The Great Grecja, Zakynthos, Laganas_2026-09-12_11-01_comeback_24.0"
+    },
+    {
+      "hotel_name": "Alexander The Great Grecja, Zakynthos, Laganas",
+      "duration_bucket": "",
+      "old_price": 8606.0,
+      "new_price": 8606.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-12 17:22:23.523950+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-12T17:23:34.549978+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Alexander The Great Grecja, Zakynthos, Laganas_2026-09-12_17-22_zone_out_gone"
+    },
+    {
+      "hotel_name": "Heronissos Grecja, Kreta, Hersonissos",
+      "duration_bucket": "",
+      "old_price": 9022.0,
+      "new_price": 9022.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-12 17:22:23.523950+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-12T17:23:34.550005+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Heronissos Grecja, Kreta, Hersonissos_2026-09-12_17-22_zone_out_gone"
+    },
+    {
+      "hotel_name": "Ionian Sea & Aquapark Grecja, Kefalonia, Kounopetra",
+      "duration_bucket": "",
+      "old_price": 9784.0,
+      "new_price": 9784.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-12 17:22:23.523950+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-12T17:23:34.550016+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Ionian Sea & Aquapark Grecja, Kefalonia, Kounopetra_2026-09-12_17-22_zone_out_gone"
+    },
+    {
+      "hotel_name": "Majestic & Spa Grecja, Zakynthos, Laganas",
+      "duration_bucket": "",
+      "old_price": 9347.0,
+      "new_price": 9347.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-12 17:22:23.523950+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-12T17:23:34.550024+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Majestic & Spa Grecja, Zakynthos, Laganas_2026-09-12_17-22_zone_out_gone"
+    },
+    {
+      "hotel_name": "White Olive Premium Cameo (ex. Zante Blue Beach) Grecja, Tinos, Aghios Sostis",
+      "duration_bucket": "",
+      "old_price": 9957.0,
+      "new_price": 9957.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-12 17:22:23.523950+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-12T17:23:34.550031+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "White Olive Premium Cameo (ex. Zante Blue Beach) Grecja, Tinos, Aghios Sostis_2026-09-12_17-22_zone_out_gone"
+    },
+    {
+      "hotel_name": "Cameo Beach Resort (ex. White Olive Premium Cameo)",
+      "duration_bucket": "",
+      "old_price": 13157.0,
+      "new_price": 9957.0,
+      "price_change": -3200.0,
+      "price_change_pct": -24.32165387246333,
+      "timestamp": "2026-09-12 17:22:23.523950+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-12T17:23:34.550053+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Cameo Beach Resort (ex. White Olive Premium Cameo)_2026-09-12_17-22_comeback_24.3"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-12T14:18:49.942544+00:00",
+    "last_processed_run": "2026-09-12T17:22:23.523950+00:00",
     "premium_state": {
       "Acharavi Mare by Wyndham (ex. Beis Beach)": {
         "history_max": 16397.0,
@@ -550,8 +628,8 @@
         "premium_peak": 15198.0
       },
       "Galini Palace": {
-        "history_max": 14776.0,
-        "premium_peak": 14776.0
+        "history_max": 18108.0,
+        "premium_peak": 18108.0
       },
       "Serita Beach": {
         "history_max": 19995.0,
