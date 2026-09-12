@@ -598,10 +598,114 @@
       "created_at": "2026-09-12T17:23:34.550053+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Cameo Beach Resort (ex. White Olive Premium Cameo)_2026-09-12_17-22_comeback_24.3"
+    },
+    {
+      "hotel_name": "Alexander The Great",
+      "duration_bucket": "",
+      "old_price": 8606.0,
+      "new_price": 8606.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-12 22:28:38.777581+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-12T22:29:42.640480+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Alexander The Great_2026-09-12_22-28_zone_out_gone"
+    },
+    {
+      "hotel_name": "Cameo Beach Resort (ex. White Olive Premium Cameo)",
+      "duration_bucket": "",
+      "old_price": 9957.0,
+      "new_price": 9957.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-12 22:28:38.777581+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-12T22:29:42.640504+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Cameo Beach Resort (ex. White Olive Premium Cameo)_2026-09-12_22-28_zone_out_gone"
+    },
+    {
+      "hotel_name": "Heronissos",
+      "duration_bucket": "",
+      "old_price": 9022.0,
+      "new_price": 9022.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-12 22:28:38.777581+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-12T22:29:42.640515+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Heronissos_2026-09-12_22-28_zone_out_gone"
+    },
+    {
+      "hotel_name": "Ionian Sea & Aquapark",
+      "duration_bucket": "",
+      "old_price": 9784.0,
+      "new_price": 9784.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-12 22:28:38.777581+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-12T22:29:42.640523+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Ionian Sea & Aquapark_2026-09-12_22-28_zone_out_gone"
+    },
+    {
+      "hotel_name": "Majestic & Spa",
+      "duration_bucket": "",
+      "old_price": 9347.0,
+      "new_price": 9347.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-12 22:28:38.777581+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-12T22:29:42.640530+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Majestic & Spa_2026-09-12_22-28_zone_out_gone"
+    },
+    {
+      "hotel_name": "Alexander The Great Grecja, Zakynthos, Laganas",
+      "duration_bucket": "",
+      "old_price": 11327.0,
+      "new_price": 9166.0,
+      "price_change": -2161.0,
+      "price_change_pct": -19.078308466495983,
+      "timestamp": "2026-09-12 22:28:38.777581+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-12T22:29:42.640553+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Alexander The Great Grecja, Zakynthos, Laganas_2026-09-12_22-28_comeback_19.1"
+    },
+    {
+      "hotel_name": "Ionian Sea & Aquapark Grecja, Kefalonia, Kounopetra",
+      "duration_bucket": "",
+      "old_price": 11695.0,
+      "new_price": 9784.0,
+      "price_change": -1911.0,
+      "price_change_pct": -16.340316374519027,
+      "timestamp": "2026-09-12 22:28:38.777581+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-12T22:29:42.640565+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Ionian Sea & Aquapark Grecja, Kefalonia, Kounopetra_2026-09-12_22-28_comeback_16.3"
+    },
+    {
+      "hotel_name": "Majestic & Spa Grecja, Zakynthos, Laganas",
+      "duration_bucket": "",
+      "old_price": 11282.0,
+      "new_price": 9152.0,
+      "price_change": -2130.0,
+      "price_change_pct": -18.87963127105123,
+      "timestamp": "2026-09-12 22:28:38.777581+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-12T22:29:42.640576+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Majestic & Spa Grecja, Zakynthos, Laganas_2026-09-12_22-28_comeback_18.9"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-12T17:22:23.523950+00:00",
+    "last_processed_run": "2026-09-12T22:28:38.777581+00:00",
     "premium_state": {
       "Acharavi Mare by Wyndham (ex. Beis Beach)": {
         "history_max": 16397.0,
@@ -628,8 +732,8 @@
         "premium_peak": 15198.0
       },
       "Galini Palace": {
-        "history_max": 18108.0,
-        "premium_peak": 18108.0
+        "history_max": 19088.0,
+        "premium_peak": 19088.0
       },
       "Serita Beach": {
         "history_max": 19995.0,
@@ -924,12 +1028,12 @@
         "premium_peak": 11878.0
       },
       "Lagomandra Beach": {
-        "history_max": 16991.0,
-        "premium_peak": 16991.0
+        "history_max": 17054.0,
+        "premium_peak": 17054.0
       },
       "Lagomandra Hotel & Spa": {
-        "history_max": 15545.0,
-        "premium_peak": 15545.0
+        "history_max": 15618.0,
+        "premium_peak": 15618.0
       },
       "Rodos Palace": {
         "history_max": 17257.0,
@@ -1048,8 +1152,8 @@
         "premium_peak": 12884.0
       },
       "White Olive Premium (ex President Premium Complex)": {
-        "history_max": 14847.0,
-        "premium_peak": 14847.0
+        "history_max": 14884.0,
+        "premium_peak": 14884.0
       },
       "Apollonia Beach (Ammoudara)": {
         "history_max": 19455.0,
@@ -1236,8 +1340,8 @@
         "premium_peak": 12806.0
       },
       "Ilianthos Village Grecja, Kreta Zachodnia, Agia Marina": {
-        "history_max": 11377.0,
-        "premium_peak": 11377.0
+        "history_max": 12230.0,
+        "premium_peak": 12230.0
       },
       "Golden Alexandros (Perama)": {
         "history_max": 12919.0,
@@ -1428,8 +1532,8 @@
         "premium_peak": 19752.0
       },
       "Mareblue Beach (ex Blue Bay Escape) Grecja, Korfu, Agios Spyridon": {
-        "history_max": 11627.0,
-        "premium_peak": 11627.0
+        "history_max": 11642.0,
+        "premium_peak": 11642.0
       },
       "San Panteleimon": {
         "history_max": 13567.0,
@@ -1638,6 +1742,10 @@
       "Avra Beach (Ixia)": {
         "history_max": 18486.0,
         "premium_peak": 18486.0
+      },
+      "Dion Palace Grecja, Riwiera Olimpijska, LITOCHORO-PIERIA": {
+        "history_max": 12239.0,
+        "premium_peak": 12239.0
       }
     }
   }

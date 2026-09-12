@@ -2730,10 +2730,49 @@
       "created_at": "2026-09-12T17:20:11.350228+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Steigenberger Golf Resort_2026-09-12_17-19_zone_out_gone"
+    },
+    {
+      "hotel_name": "Titanic Palace Resort",
+      "duration_bucket": "",
+      "old_price": 8184.0,
+      "new_price": 9217.0,
+      "price_change": 1033.0,
+      "price_change_pct": 12.62218963831867,
+      "timestamp": "2026-09-12 22:25:55.530658+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-12T22:26:41.754190+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Titanic Palace Resort_2026-09-12_22-25_+12.6"
+    },
+    {
+      "hotel_name": "Albatros Makadi Resort (ex Royal Pharaohs Makadi)",
+      "duration_bucket": "",
+      "old_price": 9425.0,
+      "new_price": 10247.0,
+      "price_change": 822.0,
+      "price_change_pct": 8.721485411140584,
+      "timestamp": "2026-09-12 22:25:55.530658+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-12T22:26:41.754231+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Albatros Makadi Resort (ex Royal Pharaohs Makadi)_2026-09-12_22-25_zone_out_+8.7"
+    },
+    {
+      "hotel_name": "Reef Oasis Suakin Resort",
+      "duration_bucket": "",
+      "old_price": 12157.0,
+      "new_price": 9557.0,
+      "price_change": -2600.0,
+      "price_change_pct": -21.386855309698117,
+      "timestamp": "2026-09-12 22:25:55.530658+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-12T22:26:41.754258+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Reef Oasis Suakin Resort_2026-09-12_22-25_comeback_21.4"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-12T17:19:41.168734+00:00",
+    "last_processed_run": "2026-09-12T22:25:55.530658+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 7505.0,
@@ -3364,8 +3403,8 @@
         "premium_peak": null
       },
       "Rixos Premium Magawish Bay View": {
-        "history_max": 13788.0,
-        "premium_peak": 13788.0
+        "history_max": 14571.0,
+        "premium_peak": 14571.0
       },
       "Domina Coral Bay Oasis": {
         "history_max": 9474.0,
@@ -3400,8 +3439,8 @@
         "premium_peak": null
       },
       "Sunrise Montemare Resort": {
-        "history_max": 12407.0,
-        "premium_peak": 12407.0
+        "history_max": 12736.0,
+        "premium_peak": 12736.0
       },
       "Dreams Beach Sharm Resort (Sharm El Sheikh)": {
         "history_max": 9121.0,
@@ -3436,8 +3475,8 @@
         "premium_peak": 13205.0
       },
       "Domina Coral Bay Sultan": {
-        "history_max": 10504.0,
-        "premium_peak": 10504.0
+        "history_max": 11130.0,
+        "premium_peak": 11130.0
       },
       "Sunrise Royal Makadi Aqua Resort": {
         "history_max": 11313.0,
@@ -3476,8 +3515,8 @@
         "premium_peak": null
       },
       "Domina Coral Bay Harem": {
-        "history_max": 10002.0,
-        "premium_peak": 10002.0
+        "history_max": 10629.0,
+        "premium_peak": 10629.0
       },
       "Stella Di Mare Beach & Spa": {
         "history_max": 11613.0,
