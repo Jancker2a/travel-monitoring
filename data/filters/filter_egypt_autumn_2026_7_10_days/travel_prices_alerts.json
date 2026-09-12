@@ -2457,10 +2457,36 @@
       "created_at": "2026-09-12T01:16:11.877504+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Nubian Island_2026-09-12_01-15_-8.7"
+    },
+    {
+      "hotel_name": "Nubian Island",
+      "duration_bucket": "",
+      "old_price": 9945.0,
+      "new_price": 10945.0,
+      "price_change": 1000.0,
+      "price_change_pct": 10.055304172951232,
+      "timestamp": "2026-09-12 05:57:38.266670+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-12T05:58:27.260342+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Nubian Island_2026-09-12_05-57_+10.1"
+    },
+    {
+      "hotel_name": "Jaz Elite Asteria (Hurghada)",
+      "duration_bucket": "",
+      "old_price": 10997.0,
+      "new_price": 10997.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-12 05:57:38.266670+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-12T05:58:27.260393+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Elite Asteria (Hurghada)_2026-09-12_05-57_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-12T01:15:26.393102+00:00",
+    "last_processed_run": "2026-09-12T05:57:38.266670+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 6867.0,
@@ -2667,7 +2693,7 @@
         "premium_peak": null
       },
       "Pickalbatros Royal Moderna": {
-        "history_max": 10851.0,
+        "history_max": 10856.0,
         "premium_peak": null
       },
       "Regency Plaza Aqua Park Spa Egipt, Sharm El Sheikh, Szarm el-Szejk": {
@@ -2739,7 +2765,7 @@
         "premium_peak": null
       },
       "Nubian Island": {
-        "history_max": 10893.0,
+        "history_max": 10945.0,
         "premium_peak": null
       },
       "Royal Regency Club Egipt, Sharm El Sheikh, Szarm el-Szejk": {
@@ -2747,7 +2773,7 @@
         "premium_peak": null
       },
       "Nubian Village": {
-        "history_max": 10891.0,
+        "history_max": 10949.0,
         "premium_peak": null
       },
       "Old Palace Resort Egipt, Hurghada": {
@@ -2775,7 +2801,7 @@
         "premium_peak": null
       },
       "Parrotel Lagoon Resort Egipt, Sharm El Sheikh, Szarm el-Szejk": {
-        "history_max": 7338.0,
+        "history_max": 7438.0,
         "premium_peak": null
       },
       "Rewaya Majestic Resort Egipt, Hurghada": {
@@ -2879,7 +2905,7 @@
         "premium_peak": null
       },
       "Amwaj Oyoun Resort & Spa (ex AA Amwaj Resort) Egipt, Sharm El Sheikh": {
-        "history_max": 8170.0,
+        "history_max": 8320.0,
         "premium_peak": null
       },
       "Calimera Blend Paradise Resort": {
@@ -2967,7 +2993,7 @@
         "premium_peak": null
       },
       "Xperience Kiroseiz Premier Egipt, Sharm El Sheikh": {
-        "history_max": 8298.0,
+        "history_max": 8448.0,
         "premium_peak": null
       },
       "Dream Lagoon & Aqua Park Resort (ex. Floriana Dream Lagoon) Egipt, Marsa Alam": {
@@ -3115,7 +3141,7 @@
         "premium_peak": null
       },
       "Charmillion Club Resort": {
-        "history_max": 10186.0,
+        "history_max": 10336.0,
         "premium_peak": null
       },
       "Royal Pharaohs Makadi (ex. Harmony) Egipt, Hurghada, Makadi Bay": {
@@ -3139,7 +3165,7 @@
         "premium_peak": null
       },
       "Xperience Sea Breeze Resort": {
-        "history_max": 8784.0,
+        "history_max": 8926.0,
         "premium_peak": null
       },
       "Xperience Kiroseiz Parkland": {

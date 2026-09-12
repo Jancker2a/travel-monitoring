@@ -3068,10 +3068,49 @@
       "created_at": "2026-09-12T01:16:39.127643+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Royal Brayka Beach Resort (ex Zee Brayka)_2026-09-12_01-15_zone_out_gone"
+    },
+    {
+      "hotel_name": "Nubian Island",
+      "duration_bucket": "",
+      "old_price": 9945.0,
+      "new_price": 10945.0,
+      "price_change": 1000.0,
+      "price_change_pct": 10.055304172951232,
+      "timestamp": "2026-09-12 05:58:06.412709+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-12T05:58:52.148139+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Nubian Island_2026-09-12_05-58_+10.1"
+    },
+    {
+      "hotel_name": "Cleopatra Luxury Resort",
+      "duration_bucket": "",
+      "old_price": 8475.0,
+      "new_price": 10058.0,
+      "price_change": 1583.0,
+      "price_change_pct": 18.678466076696164,
+      "timestamp": "2026-09-12 05:58:06.412709+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-12T05:58:52.148181+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Cleopatra Luxury Resort_2026-09-12_05-58_+18.7"
+    },
+    {
+      "hotel_name": "Jaz Elite Asteria (Hurghada)",
+      "duration_bucket": "",
+      "old_price": 10427.0,
+      "new_price": 10427.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-12 05:58:06.412709+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-12T05:58:52.148210+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Elite Asteria (Hurghada)_2026-09-12_05-58_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-12T01:15:53.669494+00:00",
+    "last_processed_run": "2026-09-12T05:58:06.412709+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 6845.0,
@@ -3098,7 +3137,7 @@
         "premium_peak": null
       },
       "Parrotel Lagoon Resort Egipt, Sharm El Sheikh, Szarm el-Szejk": {
-        "history_max": 7338.0,
+        "history_max": 7367.0,
         "premium_peak": null
       },
       "Pharaoh Azur Resort (ex Sonesta Pharaoh Beach Resort)": {
@@ -3118,7 +3157,7 @@
         "premium_peak": null
       },
       "Nubian Island": {
-        "history_max": 10893.0,
+        "history_max": 10945.0,
         "premium_peak": null
       },
       "Pickalbatros Golf Beach Resort": {
@@ -3706,7 +3745,7 @@
         "premium_peak": null
       },
       "Cleopatra Luxury Resort": {
-        "history_max": 8556.0,
+        "history_max": 10058.0,
         "premium_peak": null
       },
       "Sunrise Montemare Resort": {
@@ -3718,7 +3757,7 @@
         "premium_peak": null
       },
       "Charmillion Club Resort": {
-        "history_max": 10186.0,
+        "history_max": 10336.0,
         "premium_peak": null
       },
       "Domina Coral Bay Oasis Egipt, Sharm El Sheikh": {
@@ -3774,7 +3813,7 @@
         "premium_peak": null
       },
       "Amwaj Oyoun Resort & Casino": {
-        "history_max": 8170.0,
+        "history_max": 8320.0,
         "premium_peak": null
       },
       "Naama Waves": {
