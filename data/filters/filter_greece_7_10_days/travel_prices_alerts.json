@@ -1846,10 +1846,49 @@
       "created_at": "2026-09-12T22:29:33.087483+00:00",
       "threshold_percent": 8.0,
       "unique_key": "All Senses Nautica Blue Exclusive Resort & Spa (ex Aegean Breeze) Grecja, Rodos, Fanes_2026-09-12_22-28_+8.7"
+    },
+    {
+      "hotel_name": "Possidi Holidays Grecja, Chalkidiki, Possidi",
+      "duration_bucket": "",
+      "old_price": 9837.0,
+      "new_price": 8687.0,
+      "price_change": -1150.0,
+      "price_change_pct": -11.690556063840601,
+      "timestamp": "2026-09-13 01:13:54.014853+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-13T01:15:03.041295+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Possidi Holidays Grecja, Chalkidiki, Possidi_2026-09-13_01-13_-11.7"
+    },
+    {
+      "hotel_name": "Grand Blue Beach Grecja, kos, Kardamaina",
+      "duration_bucket": "",
+      "old_price": 9798.0,
+      "new_price": 9798.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-13 01:13:54.014853+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-13T01:15:03.041331+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Grand Blue Beach Grecja, kos, Kardamaina_2026-09-13_01-13_zone_out_gone"
+    },
+    {
+      "hotel_name": "Zeus Eleva Ajul (Ayios Nikolaos)",
+      "duration_bucket": "",
+      "old_price": 9877.0,
+      "new_price": 9877.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-13 01:13:54.014853+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-13T01:15:03.041343+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Zeus Eleva Ajul (Ayios Nikolaos)_2026-09-13_01-13_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-12T22:28:22.363107+00:00",
+    "last_processed_run": "2026-09-13T01:13:54.014853+00:00",
     "premium_state": {
       "Ajul Luxury & Spa Resort (Ayios Nikolaos) Grecja, Chalkidiki, Loutra": {
         "history_max": 9877.0,
@@ -1908,8 +1947,8 @@
         "premium_peak": 13223.0
       },
       "Iberostar Selection Creta Marine": {
-        "history_max": 17713.0,
-        "premium_peak": 17713.0
+        "history_max": 18483.0,
+        "premium_peak": 18483.0
       },
       "Porto Platanias Village": {
         "history_max": 12277.0,
