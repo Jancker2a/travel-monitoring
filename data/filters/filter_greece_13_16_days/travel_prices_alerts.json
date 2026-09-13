@@ -806,10 +806,36 @@
       "created_at": "2026-09-13T12:53:25.901421+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Summer Beach Grecja, Kreta Zachodnia, Georgioupolis_2026-09-13_12-52_comeback_17.7"
+    },
+    {
+      "hotel_name": "Saint George Palace (Agios Georgios) Grecja, Korfu, Agios Georgios Pagon",
+      "duration_bucket": "",
+      "old_price": 9236.0,
+      "new_price": 9236.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-13 17:04:24.233330+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-13T17:05:22.360390+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Saint George Palace (Agios Georgios) Grecja, Korfu, Agios Georgios Pagon_2026-09-13_17-04_zone_out_gone"
+    },
+    {
+      "hotel_name": "Filerimos Village Grecja, Rodos, Jalisos",
+      "duration_bucket": "",
+      "old_price": 11305.0,
+      "new_price": 9613.0,
+      "price_change": -1692.0,
+      "price_change_pct": -14.966828836797877,
+      "timestamp": "2026-09-13 17:04:24.233330+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-13T17:05:22.360427+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Filerimos Village Grecja, Rodos, Jalisos_2026-09-13_17-04_comeback_15.0"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-13T12:52:14.932802+00:00",
+    "last_processed_run": "2026-09-13T17:04:24.233330+00:00",
     "premium_state": {
       "Acharavi Mare by Wyndham (ex. Beis Beach)": {
         "history_max": 16397.0,
@@ -1748,12 +1774,12 @@
         "premium_peak": 12096.0
       },
       "Royal & Suites (Polichrono)": {
-        "history_max": 18019.0,
-        "premium_peak": 18019.0
+        "history_max": 18369.0,
+        "premium_peak": 18369.0
       },
       "Minos Imperial": {
-        "history_max": 19914.0,
-        "premium_peak": 19914.0
+        "history_max": 19974.0,
+        "premium_peak": 19974.0
       },
       "Zante Sun Resort": {
         "history_max": 14047.0,
@@ -1844,8 +1870,8 @@
         "premium_peak": 19978.0
       },
       "Avra Beach (Ixia)": {
-        "history_max": 18786.0,
-        "premium_peak": 18786.0
+        "history_max": 19086.0,
+        "premium_peak": 19086.0
       },
       "Dion Palace Grecja, Riwiera Olimpijska, LITOCHORO-PIERIA": {
         "history_max": 12239.0,
