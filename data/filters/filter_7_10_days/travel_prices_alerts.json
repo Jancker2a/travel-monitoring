@@ -2821,10 +2821,62 @@
       "created_at": "2026-09-13T09:28:26.853177+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Red Sea Grand Waterworld Makadi (ex. Sunwing Waterworld Makadi)_2026-09-13_09-27_zone_out_+0.4"
+    },
+    {
+      "hotel_name": "Parrotel Beach Resort (ex. Radisson Blu)",
+      "duration_bucket": "",
+      "old_price": 9257.0,
+      "new_price": 10092.0,
+      "price_change": 835.0,
+      "price_change_pct": 9.020200929026682,
+      "timestamp": "2026-09-13 12:49:16.327261+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-13T12:50:07.177854+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Parrotel Beach Resort (ex. Radisson Blu)_2026-09-13_12-49_zone_out_+9.0"
+    },
+    {
+      "hotel_name": "Jaz Grand Marsa (ex Resta Grand Resort)",
+      "duration_bucket": "",
+      "old_price": 13587.0,
+      "new_price": 9577.0,
+      "price_change": -4010.0,
+      "price_change_pct": -29.513505556782217,
+      "timestamp": "2026-09-13 12:49:16.327261+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-13T12:50:07.177898+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Grand Marsa (ex Resta Grand Resort)_2026-09-13_12-49_comeback_29.5"
+    },
+    {
+      "hotel_name": "Desert Rose Resort",
+      "duration_bucket": "",
+      "old_price": 12623.0,
+      "new_price": 8718.0,
+      "price_change": -3905.0,
+      "price_change_pct": -30.935593757426922,
+      "timestamp": "2026-09-13 12:49:16.327261+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-13T12:50:07.177918+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Desert Rose Resort_2026-09-13_12-49_comeback_30.9"
+    },
+    {
+      "hotel_name": "Charmillion Garden Aqua Park",
+      "duration_bucket": "",
+      "old_price": 11659.0,
+      "new_price": 9923.0,
+      "price_change": -1736.0,
+      "price_change_pct": -14.889784715670299,
+      "timestamp": "2026-09-13 12:49:16.327261+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-13T12:50:07.177930+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Charmillion Garden Aqua Park_2026-09-13_12-49_comeback_14.9"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-13T09:27:51.642919+00:00",
+    "last_processed_run": "2026-09-13T12:49:16.327261+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 7505.0,
@@ -3155,8 +3207,8 @@
         "premium_peak": 12101.0
       },
       "Parrotel Beach Resort (ex. Radisson Blu)": {
-        "history_max": 9398.0,
-        "premium_peak": null
+        "history_max": 10092.0,
+        "premium_peak": 10092.0
       },
       "Parrotel Lagoon Resort": {
         "history_max": 7657.0,
@@ -3219,16 +3271,16 @@
         "premium_peak": 10343.0
       },
       "Sentido Mamlouk Palace Resort & Spa (ex Sunrise)": {
-        "history_max": 11071.0,
-        "premium_peak": 11071.0
+        "history_max": 11073.0,
+        "premium_peak": 11073.0
       },
       "Pickalbatros Palace Port Ghalib (ex. Red Sea The Palace)": {
         "history_max": 10857.0,
         "premium_peak": 10857.0
       },
       "Pickalbatros Palace Resort": {
-        "history_max": 11012.0,
-        "premium_peak": 11012.0
+        "history_max": 11096.0,
+        "premium_peak": 11096.0
       },
       "Sea Star Beau Rivage": {
         "history_max": 8549.0,
@@ -3467,7 +3519,7 @@
         "premium_peak": null
       },
       "Gravity Hotel & Aquapark Hurghada (ex. Samra Bay Resort)": {
-        "history_max": 8927.0,
+        "history_max": 9177.0,
         "premium_peak": null
       },
       "Sunrise Remal Beach": {
@@ -3625,6 +3677,22 @@
       "Naama Waves": {
         "history_max": 9756.0,
         "premium_peak": null
+      },
+      "Titanic Pearl": {
+        "history_max": 10554.0,
+        "premium_peak": 10554.0
+      },
+      "Invidia Coral Beach Tiran": {
+        "history_max": 11437.0,
+        "premium_peak": 11437.0
+      },
+      "Ecotel Dahab Bay View Resort": {
+        "history_max": 7982.0,
+        "premium_peak": null
+      },
+      "Domina Coral Bay Resort": {
+        "history_max": 10211.0,
+        "premium_peak": 10211.0
       }
     }
   }

@@ -3094,10 +3094,49 @@
       "created_at": "2026-09-13T09:28:29.136772+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Stella Beach Resort & Spa_2026-09-13_09-27_zone_out_gone"
+    },
+    {
+      "hotel_name": "Parrotel Beach Resort (ex. Radisson Blu)",
+      "duration_bucket": "",
+      "old_price": 9087.0,
+      "new_price": 10100.0,
+      "price_change": 1013.0,
+      "price_change_pct": 11.147793551227029,
+      "timestamp": "2026-09-13 12:49:16.164138+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-13T12:50:11.214360+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Parrotel Beach Resort (ex. Radisson Blu)_2026-09-13_12-49_+11.1"
+    },
+    {
+      "hotel_name": "Stella Di Mare Beach Resort & Spa (ex. Stella Makadi Resort) Egipt, Hurghada, Makadi Bay",
+      "duration_bucket": "",
+      "old_price": 8330.0,
+      "new_price": 8330.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-13 12:49:16.164138+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-13T12:50:11.214415+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Stella Di Mare Beach Resort & Spa (ex. Stella Makadi Resort) Egipt, Hurghada, Makadi Bay_2026-09-13_12-49_zone_out_gone"
+    },
+    {
+      "hotel_name": "Xperience Sea Breeze Resort",
+      "duration_bucket": "",
+      "old_price": 8682.0,
+      "new_price": 8682.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-13 12:49:16.164138+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-13T12:50:11.214429+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xperience Sea Breeze Resort_2026-09-13_12-49_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-13T09:27:51.570467+00:00",
+    "last_processed_run": "2026-09-13T12:49:16.164138+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 6867.0,
@@ -3408,7 +3447,7 @@
         "premium_peak": null
       },
       "Parrotel Beach Resort (ex. Radisson Blu)": {
-        "history_max": 9087.0,
+        "history_max": 10100.0,
         "premium_peak": null
       },
       "Parrotel Lagoon Resort Egipt, Sharm El Sheikh, Szarm el-Szejk": {
@@ -3592,7 +3631,7 @@
         "premium_peak": null
       },
       "Akassia Swiss Resort (ex. Calimera Club Akassia Swiss Resort)": {
-        "history_max": 9376.0,
+        "history_max": 9445.0,
         "premium_peak": null
       },
       "Dreams Beach Sharm Resort (Sharm El Sheikh)": {
