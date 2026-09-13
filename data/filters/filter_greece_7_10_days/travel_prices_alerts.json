@@ -1885,10 +1885,49 @@
       "created_at": "2026-09-13T01:15:03.041343+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Zeus Eleva Ajul (Ayios Nikolaos)_2026-09-13_01-13_zone_out_gone"
+    },
+    {
+      "hotel_name": "Apollonia Beach (Ammoudara)",
+      "duration_bucket": "",
+      "old_price": 9839.0,
+      "new_price": 10037.0,
+      "price_change": 198.0,
+      "price_change_pct": 2.0123996341091575,
+      "timestamp": "2026-09-13 09:30:00.123116+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-13T09:30:57.161349+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Apollonia Beach (Ammoudara)_2026-09-13_09-30_zone_out_+2.0"
+    },
+    {
+      "hotel_name": "Lydia Maris Resort & Spa Grecja, Rodos, Kolymbia",
+      "duration_bucket": "",
+      "old_price": 9776.0,
+      "new_price": 9776.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-13 09:30:00.123116+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-13T09:30:57.161371+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Lydia Maris Resort & Spa Grecja, Rodos, Kolymbia_2026-09-13_09-30_zone_out_gone"
+    },
+    {
+      "hotel_name": "Lydia Maris Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 11601.0,
+      "new_price": 9776.0,
+      "price_change": -1825.0,
+      "price_change_pct": -15.731402465304715,
+      "timestamp": "2026-09-13 09:30:00.123116+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-13T09:30:57.161391+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Lydia Maris Resort & Spa_2026-09-13_09-30_comeback_15.7"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-13T06:23:37.334521+00:00",
+    "last_processed_run": "2026-09-13T09:30:00.123116+00:00",
     "premium_state": {
       "Ajul Luxury & Spa Resort (Ayios Nikolaos) Grecja, Chalkidiki, Loutra": {
         "history_max": 9877.0,
@@ -1947,8 +1986,8 @@
         "premium_peak": 13223.0
       },
       "Iberostar Selection Creta Marine": {
-        "history_max": 18483.0,
-        "premium_peak": 18483.0
+        "history_max": 18634.0,
+        "premium_peak": 18634.0
       },
       "Porto Platanias Village": {
         "history_max": 12277.0,
@@ -2463,8 +2502,8 @@
         "premium_peak": 19807.0
       },
       "Arina Beach Resort (ex Aquis Arina Sand)": {
-        "history_max": 14593.0,
-        "premium_peak": 14593.0
+        "history_max": 14645.0,
+        "premium_peak": 14645.0
       },
       "Aquila Rithymna Beach": {
         "history_max": 10588.0,
@@ -2475,8 +2514,8 @@
         "premium_peak": null
       },
       "The Ixian Grand (ex. Sentido Ixian Grand)": {
-        "history_max": 18327.0,
-        "premium_peak": 18327.0
+        "history_max": 18387.0,
+        "premium_peak": 18387.0
       },
       "Lydia Maris Resort & Spa Grecja, Rodos, Kolymbia": {
         "history_max": 9776.0,

@@ -3419,10 +3419,101 @@
       "created_at": "2026-09-13T06:22:23.065429+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Parrotel Beach Resort (ex. Radisson Blu) Egipt, Sharm El Sheikh_2026-09-13_06-21_zone_out_gone"
+    },
+    {
+      "hotel_name": "Royal Lagoons Aqua (ex. Premium Blue) Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 7220.0,
+      "new_price": 8019.0,
+      "price_change": 799.0,
+      "price_change_pct": 11.066481994459835,
+      "timestamp": "2026-09-13 09:28:10.060432+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-13T09:28:49.079587+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Royal Lagoons Aqua (ex. Premium Blue) Egipt, Hurghada_2026-09-13_09-28_+11.1"
+    },
+    {
+      "hotel_name": "IL Mercato (ex. Iberotel Il Mercato) Egipt, Sharm El Sheikh",
+      "duration_bucket": "",
+      "old_price": 6896.0,
+      "new_price": 7857.0,
+      "price_change": 961.0,
+      "price_change_pct": 13.935614849187935,
+      "timestamp": "2026-09-13 09:28:10.060432+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-13T09:28:49.079622+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "IL Mercato (ex. Iberotel Il Mercato) Egipt, Sharm El Sheikh_2026-09-13_09-28_+13.9"
+    },
+    {
+      "hotel_name": "Dreams Beach (Sharm El Sheikh) Egipt, Sharm El Sheikh, Szarm el-Szejk",
+      "duration_bucket": "",
+      "old_price": 7696.0,
+      "new_price": 7696.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-13 09:28:10.060432+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-13T09:28:49.079658+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Dreams Beach (Sharm El Sheikh) Egipt, Sharm El Sheikh, Szarm el-Szejk_2026-09-13_09-28_zone_out_gone"
+    },
+    {
+      "hotel_name": "Golf Villas And Suites Sharm",
+      "duration_bucket": "",
+      "old_price": 7995.0,
+      "new_price": 7995.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-13 09:28:10.060432+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-13T09:28:49.079666+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Golf Villas And Suites Sharm_2026-09-13_09-28_zone_out_gone"
+    },
+    {
+      "hotel_name": "Mercure Dahab Bay View Egipt, Dahab",
+      "duration_bucket": "",
+      "old_price": 7712.0,
+      "new_price": 7712.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-13 09:28:10.060432+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-13T09:28:49.079672+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Mercure Dahab Bay View Egipt, Dahab_2026-09-13_09-28_zone_out_gone"
+    },
+    {
+      "hotel_name": "Pickalbatros Sands Port Ghalib (ex. Red Sea Siva Sands)",
+      "duration_bucket": "",
+      "old_price": 8797.0,
+      "new_price": 8797.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-13 09:28:10.060432+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-13T09:28:49.079678+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Sands Port Ghalib (ex. Red Sea Siva Sands)_2026-09-13_09-28_zone_out_gone"
+    },
+    {
+      "hotel_name": "Siva Golden Bay Makadi",
+      "duration_bucket": "",
+      "old_price": 7897.0,
+      "new_price": 7897.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-13 09:28:10.060432+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-13T09:28:49.079684+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Siva Golden Bay Makadi_2026-09-13_09-28_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-13T06:21:41.775002+00:00",
+    "last_processed_run": "2026-09-13T09:28:10.060432+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 6845.0,
@@ -3577,7 +3668,7 @@
         "premium_peak": null
       },
       "Jaz Makadi Saraya (ex Iberotel)": {
-        "history_max": 10220.0,
+        "history_max": 10233.0,
         "premium_peak": null
       },
       "Jaz Mirabel Park": {
@@ -3765,7 +3856,7 @@
         "premium_peak": null
       },
       "Royal Lagoons Aqua (ex. Premium Blue) Egipt, Hurghada": {
-        "history_max": 7756.0,
+        "history_max": 8019.0,
         "premium_peak": null
       },
       "Royal Regency Club Egipt, Sharm El Sheikh, Szarm el-Szejk": {
@@ -3925,7 +4016,7 @@
         "premium_peak": null
       },
       "Concorde El Salam Sport": {
-        "history_max": 8834.0,
+        "history_max": 8871.0,
         "premium_peak": null
       },
       "Charmillion Garden Aqua Park": {
