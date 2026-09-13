@@ -2574,10 +2574,36 @@
       "created_at": "2026-09-13T01:12:38.059126+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna_2026-09-13_01-12_+16.2"
+    },
+    {
+      "hotel_name": "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna",
+      "duration_bucket": "",
+      "old_price": 10980.0,
+      "new_price": 7566.0,
+      "price_change": -3414.0,
+      "price_change_pct": -31.092896174863387,
+      "timestamp": "2026-09-13 06:22:18.156308+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-13T06:22:35.139395+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna_2026-09-13_06-22_-31.1"
+    },
+    {
+      "hotel_name": "Concorde Moreen Beach Resort & Spa Egipt, Marsa Alam",
+      "duration_bucket": "",
+      "old_price": 10053.0,
+      "new_price": 10053.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-13 06:22:18.156308+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-13T06:22:35.139427+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Concorde Moreen Beach Resort & Spa Egipt, Marsa Alam_2026-09-13_06-22_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-13T01:12:19.601276+00:00",
+    "last_processed_run": "2026-09-13T06:22:18.156308+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 10249.0,
