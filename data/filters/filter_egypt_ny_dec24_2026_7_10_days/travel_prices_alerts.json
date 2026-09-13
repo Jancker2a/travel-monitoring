@@ -2717,10 +2717,62 @@
       "created_at": "2026-09-13T17:03:11.920357+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Gemma Resort (ex. Labranda Gemma Premium Resort) Egipt, Marsa Alam_2026-09-13_17-02_+18.8"
+    },
+    {
+      "hotel_name": "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna",
+      "duration_bucket": "",
+      "old_price": 7606.0,
+      "new_price": 9768.0,
+      "price_change": 2162.0,
+      "price_change_pct": 28.42492768866684,
+      "timestamp": "2026-09-13 19:35:37.748200+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-13T19:35:55.153984+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna_2026-09-13_19-35_+28.4"
+    },
+    {
+      "hotel_name": "Three Corners Fayrouz Plaza Beach Resort Egipt, Marsa Alam",
+      "duration_bucket": "",
+      "old_price": 10796.0,
+      "new_price": 9594.0,
+      "price_change": -1202.0,
+      "price_change_pct": -11.133753241941461,
+      "timestamp": "2026-09-13 19:35:37.748200+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-13T19:35:55.154010+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Three Corners Fayrouz Plaza Beach Resort Egipt, Marsa Alam_2026-09-13_19-35_-11.1"
+    },
+    {
+      "hotel_name": "Gemma Resort (ex. Labranda Gemma Premium Resort) Egipt, Marsa Alam",
+      "duration_bucket": "",
+      "old_price": 10490.0,
+      "new_price": 9210.0,
+      "price_change": -1280.0,
+      "price_change_pct": -12.202097235462345,
+      "timestamp": "2026-09-13 19:35:37.748200+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-13T19:35:55.154019+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Gemma Resort (ex. Labranda Gemma Premium Resort) Egipt, Marsa Alam_2026-09-13_19-35_-12.2"
+    },
+    {
+      "hotel_name": "Stella Di Mare Beach Resort & Spa (ex. Stella Makadi Resort) Egipt, Hurghada, Makadi Bay",
+      "duration_bucket": "",
+      "old_price": 10952.0,
+      "new_price": 10952.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-13 19:35:37.748200+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-13T19:35:55.154033+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Stella Di Mare Beach Resort & Spa (ex. Stella Makadi Resort) Egipt, Hurghada, Makadi Bay_2026-09-13_19-35_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-13T17:02:54.643799+00:00",
+    "last_processed_run": "2026-09-13T19:35:37.748200+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 10249.0,
@@ -2787,7 +2839,7 @@
         "premium_peak": null
       },
       "Sea Star Beau Rivage Egipt, Hurghada": {
-        "history_max": 8954.0,
+        "history_max": 9001.0,
         "premium_peak": null
       },
       "Sharm Grand Plaza Resort": {

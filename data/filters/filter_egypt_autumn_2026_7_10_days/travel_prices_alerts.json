@@ -3198,10 +3198,36 @@
       "created_at": "2026-09-13T17:02:37.606727+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Xperience Sea Breeze Egipt, Sharm El Sheikh_2026-09-13_17-01_zone_out_gone"
+    },
+    {
+      "hotel_name": "Concorde El Salam Sport",
+      "duration_bucket": "",
+      "old_price": 9176.0,
+      "new_price": 10214.0,
+      "price_change": 1038.0,
+      "price_change_pct": 11.312118570183086,
+      "timestamp": "2026-09-13 19:34:34.972837+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-13T19:35:22.136588+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Concorde El Salam Sport_2026-09-13_19-34_+11.3"
+    },
+    {
+      "hotel_name": "Stella Di Mare Beach & Spa",
+      "duration_bucket": "",
+      "old_price": 10496.0,
+      "new_price": 10496.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-13 19:34:34.972837+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-13T19:35:22.136646+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Stella Di Mare Beach & Spa_2026-09-13_19-34_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-13T17:01:56.837336+00:00",
+    "last_processed_run": "2026-09-13T19:34:34.972837+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 6881.0,
@@ -3232,7 +3258,7 @@
         "premium_peak": null
       },
       "Jaz Mirabel Beach Resort": {
-        "history_max": 10630.0,
+        "history_max": 10730.0,
         "premium_peak": null
       },
       "Sentido Mamlouk Palace Resort & Spa (ex Sunrise)": {
@@ -3520,7 +3546,7 @@
         "premium_peak": null
       },
       "Rewaya Majestic Resort Egipt, Hurghada": {
-        "history_max": 7327.0,
+        "history_max": 7507.0,
         "premium_peak": null
       },
       "Pharaoh Azur Resort (ex Sonesta Pharaoh Beach Resort)": {
@@ -3536,7 +3562,7 @@
         "premium_peak": null
       },
       "Hawaii Paradise Aqua Park Resort Egipt, Hurghada": {
-        "history_max": 7389.0,
+        "history_max": 7648.0,
         "premium_peak": null
       },
       "Red Sea Grand Makadi (Makadi Bay)": {
@@ -3588,7 +3614,7 @@
         "premium_peak": null
       },
       "Concorde El Salam Sport": {
-        "history_max": 9176.0,
+        "history_max": 10214.0,
         "premium_peak": null
       },
       "The V Luxury Resort": {
