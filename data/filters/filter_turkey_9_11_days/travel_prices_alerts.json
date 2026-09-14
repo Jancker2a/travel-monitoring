@@ -572,10 +572,62 @@
       "created_at": "2026-09-14T14:17:52.367215+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Signature Blue Resort (ex. Grand Ozcelik)_2026-09-14_14-17_zone_out_+19.5"
+    },
+    {
+      "hotel_name": "Cenger Beach Resort (Side)",
+      "duration_bucket": "",
+      "old_price": 7190.0,
+      "new_price": 6400.0,
+      "price_change": -790.0,
+      "price_change_pct": -10.987482614742698,
+      "timestamp": "2026-09-14 19:33:08.018662+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-14T19:33:56.758534+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Cenger Beach Resort (Side)_2026-09-14_19-33_-11.0"
+    },
+    {
+      "hotel_name": "Sultan of Dreams",
+      "duration_bucket": "",
+      "old_price": 10944.0,
+      "new_price": 8798.0,
+      "price_change": -2146.0,
+      "price_change_pct": -19.60891812865497,
+      "timestamp": "2026-09-14 19:33:08.018662+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-14T19:33:56.758581+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sultan of Dreams_2026-09-14_19-33_comeback_19.6"
+    },
+    {
+      "hotel_name": "Sultan of Side",
+      "duration_bucket": "",
+      "old_price": 10214.0,
+      "new_price": 8068.0,
+      "price_change": -2146.0,
+      "price_change_pct": -21.010377912668886,
+      "timestamp": "2026-09-14 19:33:08.018662+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-14T19:33:56.758593+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sultan of Side_2026-09-14_19-33_comeback_21.0"
+    },
+    {
+      "hotel_name": "Sentido Lycus Beach (ex. Lti)",
+      "duration_bucket": "",
+      "old_price": 10872.0,
+      "new_price": 9188.0,
+      "price_change": -1684.0,
+      "price_change_pct": -15.489330389992642,
+      "timestamp": "2026-09-14 19:33:08.018662+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-14T19:33:56.758601+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sentido Lycus Beach (ex. Lti)_2026-09-14_19-33_comeback_15.5"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-14T14:17:00.304510+00:00",
+    "last_processed_run": "2026-09-14T19:33:08.018662+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 10036.0,
@@ -594,7 +646,7 @@
         "premium_peak": 14753.0
       },
       "Insula Resort": {
-        "history_max": 8166.0,
+        "history_max": 8271.0,
         "premium_peak": null
       },
       "Seven Seas Life": {
@@ -670,16 +722,16 @@
         "premium_peak": null
       },
       "La Blanche Resort & Spa": {
-        "history_max": 14321.0,
-        "premium_peak": 14321.0
+        "history_max": 14841.0,
+        "premium_peak": 14841.0
       },
       "Selectum Family Comfort Side (ex. Lyra Resort)": {
         "history_max": 12168.0,
         "premium_peak": 12168.0
       },
       "La Blanche Island Bodrum": {
-        "history_max": 16569.0,
-        "premium_peak": 16569.0
+        "history_max": 17089.0,
+        "premium_peak": 17089.0
       },
       "L' Oceanica Beach Resort (Kemer)": {
         "history_max": 10979.0,
@@ -714,8 +766,8 @@
         "premium_peak": 12780.0
       },
       "Kefaluka Resort": {
-        "history_max": 16865.0,
-        "premium_peak": 16865.0
+        "history_max": 16877.0,
+        "premium_peak": 16877.0
       },
       "Kaya Side (ex. Club Calimera Kaya Side)": {
         "history_max": 11237.0,
@@ -782,24 +834,24 @@
         "premium_peak": null
       },
       "Eftalia Ocean (Alanya)": {
-        "history_max": 11822.0,
-        "premium_peak": 11822.0
+        "history_max": 11921.0,
+        "premium_peak": 11921.0
       },
       "Eftalia Marin": {
         "history_max": 11467.0,
         "premium_peak": 11467.0
       },
       "Spice": {
-        "history_max": 15273.0,
-        "premium_peak": 15273.0
+        "history_max": 15532.0,
+        "premium_peak": 15532.0
       },
       "Eftalia Blue": {
-        "history_max": 12353.0,
-        "premium_peak": 12353.0
+        "history_max": 12613.0,
+        "premium_peak": 12613.0
       },
       "Duja Didim": {
-        "history_max": 11892.0,
-        "premium_peak": 11892.0
+        "history_max": 12157.0,
+        "premium_peak": 12157.0
       },
       "Starlight Resort & Convention Center (Side)": {
         "history_max": 12749.0,
@@ -814,8 +866,8 @@
         "premium_peak": null
       },
       "Sueno Beach Side": {
-        "history_max": 12379.0,
-        "premium_peak": 12379.0
+        "history_max": 12639.0,
+        "premium_peak": 12639.0
       },
       "Dobedan World Palace (ex. Alva Donna World Palace)": {
         "history_max": 15475.0,
@@ -842,8 +894,8 @@
         "premium_peak": 15347.0
       },
       "Side Mare Resort": {
-        "history_max": 14073.0,
-        "premium_peak": 14073.0
+        "history_max": 14333.0,
+        "premium_peak": 14333.0
       },
       "Grand Pasa": {
         "history_max": 9276.0,
@@ -882,8 +934,8 @@
         "premium_peak": 16632.0
       },
       "Granada Luxury Okurcalar": {
-        "history_max": 13914.0,
-        "premium_peak": 13914.0
+        "history_max": 14044.0,
+        "premium_peak": 14044.0
       },
       "Granada Luxury Belek": {
         "history_max": 17263.0,
@@ -958,8 +1010,8 @@
         "premium_peak": null
       },
       "OZ Incekum Beach Resort": {
-        "history_max": 11033.0,
-        "premium_peak": 11033.0
+        "history_max": 11781.0,
+        "premium_peak": 11781.0
       },
       "Numa Bay Exclusive (ex Sentido Numa Bay)": {
         "history_max": 12106.0,
@@ -970,8 +1022,8 @@
         "premium_peak": null
       },
       "Nova Park": {
-        "history_max": 13541.0,
-        "premium_peak": 13541.0
+        "history_max": 14190.0,
+        "premium_peak": 14190.0
       },
       "Nova Life": {
         "history_max": 8170.0,
@@ -1086,8 +1138,8 @@
         "premium_peak": 13935.0
       },
       "Laur Experience & Elegance": {
-        "history_max": 11949.0,
-        "premium_peak": 11949.0
+        "history_max": 12165.0,
+        "premium_peak": 12165.0
       },
       "Movenpick Resort Antalya Tekirova (ex. Royal Diwa Tekirova Resort)": {
         "history_max": 16272.0,
@@ -1098,8 +1150,8 @@
         "premium_peak": 13277.0
       },
       "Seaden Sea Planet Resort & Spa": {
-        "history_max": 13320.0,
-        "premium_peak": 13320.0
+        "history_max": 13969.0,
+        "premium_peak": 13969.0
       },
       "M. C. Beach Resort (ex. Otium MC Beach Resort)": {
         "history_max": 7542.0,
@@ -1154,8 +1206,8 @@
         "premium_peak": 14801.0
       },
       "Seher Resort & Spa": {
-        "history_max": 11844.0,
-        "premium_peak": 11844.0
+        "history_max": 12046.0,
+        "premium_peak": 12046.0
       },
       "Limak Arcadia Sport Resort": {
         "history_max": 14900.0,
@@ -1206,8 +1258,8 @@
         "premium_peak": 11646.0
       },
       "Megasaray Resort Side (ex. Aska Side Grand Prestige)": {
-        "history_max": 11733.0,
-        "premium_peak": 11733.0
+        "history_max": 12370.0,
+        "premium_peak": 12370.0
       },
       "Rubi Platinum Sign": {
         "history_max": 14972.0,
@@ -1226,16 +1278,16 @@
         "premium_peak": 14883.0
       },
       "Mary Side (ex. Mary Palace)": {
-        "history_max": 14467.0,
-        "premium_peak": 14467.0
+        "history_max": 14667.0,
+        "premium_peak": 14667.0
       },
       "Mary Alanya (ex. Sirius Deluxe)": {
         "history_max": 14128.0,
         "premium_peak": 14128.0
       },
       "Salmakis Beach Resort": {
-        "history_max": 13671.0,
-        "premium_peak": 13671.0
+        "history_max": 14190.0,
+        "premium_peak": 14190.0
       },
       "Marvida Family Eco": {
         "history_max": 11185.0,
@@ -1290,8 +1342,8 @@
         "premium_peak": 17555.0
       },
       "Blue Marlin Deluxe Spa & Resort": {
-        "history_max": 16454.0,
-        "premium_peak": 16454.0
+        "history_max": 16714.0,
+        "premium_peak": 16714.0
       },
       "Aria Resort & SPA": {
         "history_max": 11719.0,
@@ -1330,8 +1382,8 @@
         "premium_peak": null
       },
       "Arcanus Trendline Resort": {
-        "history_max": 13203.0,
-        "premium_peak": 13203.0
+        "history_max": 17631.0,
+        "premium_peak": 17631.0
       },
       "Campus Hill": {
         "history_max": 8263.0,
@@ -1366,8 +1418,8 @@
         "premium_peak": 15102.0
       },
       "Aquasis Deluxe Resort & Spa": {
-        "history_max": 13583.0,
-        "premium_peak": 13583.0
+        "history_max": 15237.0,
+        "premium_peak": 15237.0
       },
       "Catamaran Quality Times (ex. Catamaran Resort)": {
         "history_max": 10143.0,
@@ -1482,16 +1534,16 @@
         "premium_peak": 10833.0
       },
       "Baska Resort Bodrum": {
-        "history_max": 14147.0,
-        "premium_peak": 14147.0
+        "history_max": 14658.0,
+        "premium_peak": 14658.0
       },
       "Armas Bella Sun (ex.Club Bella Sun)": {
         "history_max": 8926.0,
         "premium_peak": null
       },
       "Baia Salima Kemer (ex Club Salima)": {
-        "history_max": 13904.0,
-        "premium_peak": 13904.0
+        "history_max": 14553.0,
+        "premium_peak": 14553.0
       },
       "Trendy Perge Resort & Suites": {
         "history_max": 15413.0,
@@ -1542,8 +1594,8 @@
         "premium_peak": 11668.0
       },
       "White City Resort": {
-        "history_max": 12346.0,
-        "premium_peak": 12346.0
+        "history_max": 12606.0,
+        "premium_peak": 12606.0
       },
       "Cenger Blue Collection": {
         "history_max": 11433.0,
@@ -1598,8 +1650,8 @@
         "premium_peak": 14087.0
       },
       "Sunis Evren Beach & Spa": {
-        "history_max": 13892.0,
-        "premium_peak": 13892.0
+        "history_max": 14152.0,
+        "premium_peak": 14152.0
       },
       "Crystal World of Colours Comfort Collection": {
         "history_max": 10544.0,
@@ -1634,8 +1686,8 @@
         "premium_peak": 16958.0
       },
       "Delphin Botanik Platinum (Alanya)": {
-        "history_max": 16362.0,
-        "premium_peak": 16362.0
+        "history_max": 16955.0,
+        "premium_peak": 16955.0
       },
       "Adalya Elite Lara": {
         "history_max": 16486.0,
@@ -1654,7 +1706,7 @@
         "premium_peak": null
       },
       "Diamond Hill Resort": {
-        "history_max": 9245.0,
+        "history_max": 9505.0,
         "premium_peak": null
       },
       "Adalya Art Side (Ex. Grand Art Side)": {
@@ -1774,7 +1826,7 @@
         "premium_peak": 13040.0
       },
       "Xafira Deluxe Resort & Spa": {
-        "history_max": 9119.0,
+        "history_max": 9728.0,
         "premium_peak": null
       },
       "Bellis Deluxe": {
@@ -1804,6 +1856,10 @@
       "Nirvana Dolce Vita (ex. Amara Dolce Vita)": {
         "history_max": 17339.0,
         "premium_peak": 17339.0
+      },
+      "Sueno Deluxe Belek": {
+        "history_max": 17775.0,
+        "premium_peak": 17775.0
       }
     }
   }

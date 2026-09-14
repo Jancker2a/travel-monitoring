@@ -923,10 +923,49 @@
       "created_at": "2026-09-14T14:16:44.062048+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Rewaya Inn Resort (ex. Hawaii Paradise Aqua Park Resort)_2026-09-14_14-16_zone_out_gone"
+    },
+    {
+      "hotel_name": "Rewaya Luxury Resort Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 6357.0,
+      "new_price": 7317.0,
+      "price_change": 960.0,
+      "price_change_pct": 15.10146295422369,
+      "timestamp": "2026-09-14 19:32:17.327812+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-14T19:32:54.420825+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Luxury Resort Egipt, Hurghada_2026-09-14_19-32_+15.1"
+    },
+    {
+      "hotel_name": "Nubian Village",
+      "duration_bucket": "",
+      "old_price": 10744.0,
+      "new_price": 10744.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-14 19:32:17.327812+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-14T19:32:54.420878+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Nubian Village_2026-09-14_19-32_zone_out_gone"
+    },
+    {
+      "hotel_name": "Pickalbatros White Beach Resort",
+      "duration_bucket": "",
+      "old_price": 10857.0,
+      "new_price": 10857.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-14 19:32:17.327812+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-14T19:32:54.420886+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros White Beach Resort_2026-09-14_19-32_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-14T14:16:09.635851+00:00",
+    "last_processed_run": "2026-09-14T19:32:17.327812+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 6845.0,
@@ -949,7 +988,7 @@
         "premium_peak": null
       },
       "Pickalbatros Aqua Park Resort (Sharm El Sheikh)": {
-        "history_max": 10397.0,
+        "history_max": 10401.0,
         "premium_peak": null
       },
       "Pickalbatros Citadel Sahl Hasheesh (ex. Citadel Azur Resort)": {
@@ -1213,7 +1252,7 @@
         "premium_peak": null
       },
       "Xperience Kiroseiz Premier Egipt, Sharm El Sheikh": {
-        "history_max": 6529.0,
+        "history_max": 7035.0,
         "premium_peak": null
       },
       "Stella Di Mare Beach & Spa": {
@@ -1233,11 +1272,11 @@
         "premium_peak": null
       },
       "Rewaya Luxury Resort Egipt, Hurghada": {
-        "history_max": 6537.0,
+        "history_max": 7317.0,
         "premium_peak": null
       },
       "Rewaya Majestic Resort Egipt, Hurghada": {
-        "history_max": 7148.0,
+        "history_max": 7297.0,
         "premium_peak": null
       },
       "Royal Brayka Beach Resort (ex Zee Brayka) Egipt, Marsa Alam": {
@@ -1345,7 +1384,7 @@
         "premium_peak": null
       },
       "Double Tree by Hilton Mangroovy El Gouna Resort": {
-        "history_max": 9540.0,
+        "history_max": 9558.0,
         "premium_peak": null
       },
       "Amarina Sun Resort & Aqua Park (ex. Raouf Sun International Aqua Park & SPA)": {
@@ -1421,7 +1460,7 @@
         "premium_peak": null
       },
       "Concorde Sport": {
-        "history_max": 9192.0,
+        "history_max": 9382.0,
         "premium_peak": null
       },
       "Charmillion Club Aqua Park": {
@@ -1493,7 +1532,7 @@
         "premium_peak": null
       },
       "Fantazia Resort": {
-        "history_max": 9063.0,
+        "history_max": 9180.0,
         "premium_peak": null
       },
       "El Malikia Resort Abu Dabbab (ex.Sol Y Mar)": {
@@ -1509,7 +1548,7 @@
         "premium_peak": null
       },
       "Amarina Jannah Resort Aquapark Egipt, Marsa Alam, Port Ghalib": {
-        "history_max": 6446.0,
+        "history_max": 6906.0,
         "premium_peak": null
       },
       "Albatros Oasis Port Ghalib (ex. Red Sea Port Ghalib Resort) Egipt, Marsa Alam, Port Ghalib": {
@@ -1678,6 +1717,10 @@
       },
       "Hawaii Paradise Aqua Park Resort Egipt, Hurghada": {
         "history_max": 7662.0,
+        "premium_peak": null
+      },
+      "Jaz Solaya Resort (ex Sol Y Mar Solaya)": {
+        "history_max": 10978.0,
         "premium_peak": null
       }
     }
