@@ -1,8 +1,451 @@
 {
   "version": 2,
-  "alerts": [],
+  "alerts": [
+    {
+      "hotel_name": "Asteria Bloom Side",
+      "duration_bucket": "",
+      "old_price": 9648.0,
+      "new_price": 8172.0,
+      "price_change": -1476.0,
+      "price_change_pct": -15.298507462686567,
+      "timestamp": "2026-09-14 13:01:56.669545+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-14T13:03:00.842784+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Asteria Bloom Side_2026-09-14_13-01_-15.3"
+    },
+    {
+      "hotel_name": "Perre Delta",
+      "duration_bucket": "",
+      "old_price": 7173.0,
+      "new_price": 6296.0,
+      "price_change": -877.0,
+      "price_change_pct": -12.226404572703192,
+      "timestamp": "2026-09-14 13:01:56.669545+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-14T13:03:00.842812+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Perre Delta_2026-09-14_13-01_-12.2"
+    },
+    {
+      "hotel_name": "M. C. Beach Resort (ex. Otium MC Beach Resort)",
+      "duration_bucket": "",
+      "old_price": 7542.0,
+      "new_price": 6440.0,
+      "price_change": -1102.0,
+      "price_change_pct": -14.611508883585255,
+      "timestamp": "2026-09-14 13:01:56.669545+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-14T13:03:00.842824+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "M. C. Beach Resort (ex. Otium MC Beach Resort)_2026-09-14_13-01_-14.6"
+    },
+    {
+      "hotel_name": "Miarosa Beach (Kemer)",
+      "duration_bucket": "",
+      "old_price": 9252.0,
+      "new_price": 8240.0,
+      "price_change": -1012.0,
+      "price_change_pct": -10.938175529615219,
+      "timestamp": "2026-09-14 13:01:56.669545+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-14T13:03:00.842833+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Miarosa Beach (Kemer)_2026-09-14_13-01_-10.9"
+    },
+    {
+      "hotel_name": "World Star Beach Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 8451.0,
+      "new_price": 7209.0,
+      "price_change": -1242.0,
+      "price_change_pct": -14.696485623003195,
+      "timestamp": "2026-09-14 13:01:56.669545+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-14T13:03:00.842841+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "World Star Beach Resort & Spa_2026-09-14_13-01_-14.7"
+    },
+    {
+      "hotel_name": "Calido Maris",
+      "duration_bucket": "",
+      "old_price": 8310.0,
+      "new_price": 9560.0,
+      "price_change": 1250.0,
+      "price_change_pct": 15.042117930204574,
+      "timestamp": "2026-09-14 13:01:56.669545+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-14T13:03:00.842850+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Calido Maris_2026-09-14_13-01_+15.0"
+    },
+    {
+      "hotel_name": "Ring Beach (Kemer)",
+      "duration_bucket": "",
+      "old_price": 9441.0,
+      "new_price": 7983.0,
+      "price_change": -1458.0,
+      "price_change_pct": -15.44327931363203,
+      "timestamp": "2026-09-14 13:01:56.669545+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-14T13:03:00.842859+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Ring Beach (Kemer)_2026-09-14_13-01_-15.4"
+    },
+    {
+      "hotel_name": "Armas Green Fugla",
+      "duration_bucket": "",
+      "old_price": 8834.0,
+      "new_price": 7394.0,
+      "price_change": -1440.0,
+      "price_change_pct": -16.30065655422232,
+      "timestamp": "2026-09-14 13:01:56.669545+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-14T13:03:00.842868+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Armas Green Fugla_2026-09-14_13-01_-16.3"
+    },
+    {
+      "hotel_name": "Miarosa Incekum Beach (ex Alara Kum)",
+      "duration_bucket": "",
+      "old_price": 7925.0,
+      "new_price": 6480.0,
+      "price_change": -1445.0,
+      "price_change_pct": -18.233438485804417,
+      "timestamp": "2026-09-14 13:01:56.669545+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-14T13:03:00.842876+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Miarosa Incekum Beach (ex Alara Kum)_2026-09-14_13-01_-18.2"
+    },
+    {
+      "hotel_name": "Rox Royal (ex. Grand Haber)",
+      "duration_bucket": "",
+      "old_price": 9990.0,
+      "new_price": 8586.0,
+      "price_change": -1404.0,
+      "price_change_pct": -14.054054054054054,
+      "timestamp": "2026-09-14 13:01:56.669545+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-14T13:03:00.842884+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rox Royal (ex. Grand Haber)_2026-09-14_13-01_-14.1"
+    },
+    {
+      "hotel_name": "Eftalia Village",
+      "duration_bucket": "",
+      "old_price": 9558.0,
+      "new_price": 8510.0,
+      "price_change": -1048.0,
+      "price_change_pct": -10.964636953337518,
+      "timestamp": "2026-09-14 13:01:56.669545+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-14T13:03:00.842893+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Eftalia Village_2026-09-14_13-01_-11.0"
+    },
+    {
+      "hotel_name": "Perre La Mer Resort & Spa (ex. La Mer)",
+      "duration_bucket": "",
+      "old_price": 9025.0,
+      "new_price": 8159.0,
+      "price_change": -866.0,
+      "price_change_pct": -9.595567867036012,
+      "timestamp": "2026-09-14 13:01:56.669545+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-14T13:03:00.842902+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Perre La Mer Resort & Spa (ex. La Mer)_2026-09-14_13-01_-9.6"
+    },
+    {
+      "hotel_name": "First Class",
+      "duration_bucket": "",
+      "old_price": 7191.0,
+      "new_price": 5837.0,
+      "price_change": -1354.0,
+      "price_change_pct": -18.829091920456126,
+      "timestamp": "2026-09-14 13:01:56.669545+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-14T13:03:00.842927+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "First Class_2026-09-14_13-01_-18.8"
+    },
+    {
+      "hotel_name": "Fun & Sun Smart Hane Sun",
+      "duration_bucket": "",
+      "old_price": 9590.0,
+      "new_price": 8109.0,
+      "price_change": -1481.0,
+      "price_change_pct": -15.443169968717413,
+      "timestamp": "2026-09-14 13:01:56.669545+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-14T13:03:00.842935+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Fun & Sun Smart Hane Sun_2026-09-14_13-01_-15.4"
+    },
+    {
+      "hotel_name": "Armas Bella Sun (ex.Club Bella Sun)",
+      "duration_bucket": "",
+      "old_price": 8926.0,
+      "new_price": 7704.0,
+      "price_change": -1222.0,
+      "price_change_pct": -13.690342818731796,
+      "timestamp": "2026-09-14 13:01:56.669545+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-14T13:03:00.842946+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Armas Bella Sun (ex.Club Bella Sun)_2026-09-14_13-01_-13.7"
+    },
+    {
+      "hotel_name": "Drita Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 8395.0,
+      "new_price": 7709.0,
+      "price_change": -686.0,
+      "price_change_pct": -8.171530673019655,
+      "timestamp": "2026-09-14 13:01:56.669545+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-14T13:03:00.842954+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Drita Resort & Spa_2026-09-14_13-01_-8.2"
+    },
+    {
+      "hotel_name": "Armas Beach",
+      "duration_bucket": "",
+      "old_price": 9617.0,
+      "new_price": 8834.0,
+      "price_change": -783.0,
+      "price_change_pct": -8.141832172195071,
+      "timestamp": "2026-09-14 13:01:56.669545+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-14T13:03:00.842961+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Armas Beach_2026-09-14_13-01_-8.1"
+    },
+    {
+      "hotel_name": "Solivia (Ex. Titan Select)",
+      "duration_bucket": "",
+      "old_price": 9306.0,
+      "new_price": 7934.0,
+      "price_change": -1372.0,
+      "price_change_pct": -14.743176445304105,
+      "timestamp": "2026-09-14 13:01:56.669545+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-14T13:03:00.842969+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Solivia (Ex. Titan Select)_2026-09-14_13-01_-14.7"
+    },
+    {
+      "hotel_name": "Armas Pemar Beach Resort",
+      "duration_bucket": "",
+      "old_price": 9023.0,
+      "new_price": 7583.0,
+      "price_change": -1440.0,
+      "price_change_pct": -15.959215338579186,
+      "timestamp": "2026-09-14 13:01:56.669545+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-14T13:03:00.842977+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Armas Pemar Beach Resort_2026-09-14_13-01_-16.0"
+    },
+    {
+      "hotel_name": "Prestige Alanya",
+      "duration_bucket": "",
+      "old_price": 7745.0,
+      "new_price": 6458.0,
+      "price_change": -1287.0,
+      "price_change_pct": -16.6171723692705,
+      "timestamp": "2026-09-14 13:01:56.669545+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-14T13:03:00.842986+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Prestige Alanya_2026-09-14_13-01_-16.6"
+    },
+    {
+      "hotel_name": "Gold City",
+      "duration_bucket": "",
+      "old_price": 9581.0,
+      "new_price": 9581.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-14 13:01:56.669545+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-14T13:03:00.843005+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Gold City_2026-09-14_13-01_zone_out_gone"
+    },
+    {
+      "hotel_name": "Kirbiyik Resort (ex. Dinler)",
+      "duration_bucket": "",
+      "old_price": 7531.0,
+      "new_price": 7531.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-14 13:01:56.669545+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-14T13:03:00.843013+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Kirbiyik Resort (ex. Dinler)_2026-09-14_13-01_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sultan of Side",
+      "duration_bucket": "",
+      "old_price": 9653.0,
+      "new_price": 10214.0,
+      "price_change": 561.0,
+      "price_change_pct": 5.811664767429814,
+      "timestamp": "2026-09-14 13:01:56.669545+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-14T13:03:00.843022+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sultan of Side_2026-09-14_13-01_zone_out_+5.8"
+    },
+    {
+      "hotel_name": "Side Aluna",
+      "duration_bucket": "",
+      "old_price": 10656.0,
+      "new_price": 9464.0,
+      "price_change": -1192.0,
+      "price_change_pct": -11.186186186186188,
+      "timestamp": "2026-09-14 13:01:56.669545+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-14T13:03:00.843043+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Side Aluna_2026-09-14_13-01_comeback_11.2"
+    },
+    {
+      "hotel_name": "Viking Star",
+      "duration_bucket": "",
+      "old_price": 10418.0,
+      "new_price": 9320.0,
+      "price_change": -1098.0,
+      "price_change_pct": -10.539450950278365,
+      "timestamp": "2026-09-14 13:01:56.669545+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-14T13:03:00.843055+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Viking Star_2026-09-14_13-01_comeback_10.5"
+    },
+    {
+      "hotel_name": "Andriake Beach Club",
+      "duration_bucket": "",
+      "old_price": 11241.0,
+      "new_price": 9941.0,
+      "price_change": -1300.0,
+      "price_change_pct": -11.564807401476736,
+      "timestamp": "2026-09-14 13:01:56.669545+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-14T13:03:00.843067+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Andriake Beach Club_2026-09-14_13-01_comeback_11.6"
+    },
+    {
+      "hotel_name": "Crystal World of Colours Comfort Collection",
+      "duration_bucket": "",
+      "old_price": 10544.0,
+      "new_price": 9050.0,
+      "price_change": -1494.0,
+      "price_change_pct": -14.169195751138089,
+      "timestamp": "2026-09-14 13:01:56.669545+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-14T13:03:00.843077+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Crystal World of Colours Comfort Collection_2026-09-14_13-01_comeback_14.2"
+    },
+    {
+      "hotel_name": "Club Paradiso",
+      "duration_bucket": "",
+      "old_price": 11264.0,
+      "new_price": 9743.0,
+      "price_change": -1521.0,
+      "price_change_pct": -13.503196022727273,
+      "timestamp": "2026-09-14 13:01:56.669545+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-14T13:03:00.843086+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Club Paradiso_2026-09-14_13-01_comeback_13.5"
+    },
+    {
+      "hotel_name": "Catamaran Quality Times (ex. Catamaran Resort)",
+      "duration_bucket": "",
+      "old_price": 10143.0,
+      "new_price": 8771.0,
+      "price_change": -1372.0,
+      "price_change_pct": -13.526570048309178,
+      "timestamp": "2026-09-14 13:01:56.669545+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-14T13:03:00.843094+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Catamaran Quality Times (ex. Catamaran Resort)_2026-09-14_13-01_comeback_13.5"
+    },
+    {
+      "hotel_name": "Aydinbey Queens Palace & Spa",
+      "duration_bucket": "",
+      "old_price": 10368.0,
+      "new_price": 8793.0,
+      "price_change": -1575.0,
+      "price_change_pct": -15.190972222222221,
+      "timestamp": "2026-09-14 13:01:56.669545+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-14T13:03:00.843105+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Aydinbey Queens Palace & Spa_2026-09-14_13-01_comeback_15.2"
+    },
+    {
+      "hotel_name": "Armas Kaplan Paradise",
+      "duration_bucket": "",
+      "old_price": 10103.0,
+      "new_price": 8645.0,
+      "price_change": -1458.0,
+      "price_change_pct": -14.431357022666536,
+      "timestamp": "2026-09-14 13:01:56.669545+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-14T13:03:00.843115+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Armas Kaplan Paradise_2026-09-14_13-01_comeback_14.4"
+    },
+    {
+      "hotel_name": "Oz Sui Resort",
+      "duration_bucket": "",
+      "old_price": 10823.0,
+      "new_price": 9302.0,
+      "price_change": -1521.0,
+      "price_change_pct": -14.053404786103668,
+      "timestamp": "2026-09-14 13:01:56.669545+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-14T13:03:00.843125+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Oz Sui Resort_2026-09-14_13-01_comeback_14.1"
+    },
+    {
+      "hotel_name": "L' Oceanica Beach Resort (Kemer)",
+      "duration_bucket": "",
+      "old_price": 10979.0,
+      "new_price": 9815.0,
+      "price_change": -1164.0,
+      "price_change_pct": -10.602058475270972,
+      "timestamp": "2026-09-14 13:01:56.669545+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-14T13:03:00.843134+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "L' Oceanica Beach Resort (Kemer)_2026-09-14_13-01_comeback_10.6"
+    },
+    {
+      "hotel_name": "Grand Park Lara",
+      "duration_bucket": "",
+      "old_price": 11304.0,
+      "new_price": 9815.0,
+      "price_change": -1489.0,
+      "price_change_pct": -13.172328379334749,
+      "timestamp": "2026-09-14 13:01:56.669545+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-14T13:03:00.843143+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Grand Park Lara_2026-09-14_13-01_comeback_13.2"
+    }
+  ],
   "meta": {
-    "last_processed_run": "2026-09-14T06:30:14.873616+00:00",
+    "last_processed_run": "2026-09-14T13:01:56.669545+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 10036.0,
@@ -145,12 +588,12 @@
         "premium_peak": 16865.0
       },
       "Kaya Side (ex. Club Calimera Kaya Side)": {
-        "history_max": 10638.0,
-        "premium_peak": 10638.0
+        "history_max": 11237.0,
+        "premium_peak": 11237.0
       },
       "Sentido Lycus Beach (ex. Lti)": {
-        "history_max": 10722.0,
-        "premium_peak": 10722.0
+        "history_max": 10872.0,
+        "premium_peak": 10872.0
       },
       "Kaya (Belek)": {
         "history_max": 12295.0,
@@ -209,8 +652,8 @@
         "premium_peak": null
       },
       "Eftalia Ocean (Alanya)": {
-        "history_max": 11610.0,
-        "premium_peak": 11610.0
+        "history_max": 11822.0,
+        "premium_peak": 11822.0
       },
       "Eftalia Marin": {
         "history_max": 11467.0,
@@ -233,8 +676,8 @@
         "premium_peak": 12749.0
       },
       "Ducale Lara": {
-        "history_max": 15095.0,
-        "premium_peak": 15095.0
+        "history_max": 15465.0,
+        "premium_peak": 15465.0
       },
       "Drita Resort & Spa": {
         "history_max": 8395.0,
@@ -377,8 +820,8 @@
         "premium_peak": null
       },
       "Orange County (Kemer)": {
-        "history_max": 11094.0,
-        "premium_peak": 11094.0
+        "history_max": 11547.0,
+        "premium_peak": 11547.0
       },
       "Ring Beach (Kemer)": {
         "history_max": 9441.0,
@@ -465,8 +908,8 @@
         "premium_peak": 17409.0
       },
       "Papillon Ayscha": {
-        "history_max": 15315.0,
-        "premium_peak": 15315.0
+        "history_max": 15660.0,
+        "premium_peak": 15660.0
       },
       "My Home Resort": {
         "history_max": 11381.0,
@@ -601,11 +1044,11 @@
         "premium_peak": 14844.0
       },
       "Saphir Resort": {
-        "history_max": 12419.0,
-        "premium_peak": 12419.0
+        "history_max": 12542.0,
+        "premium_peak": 12542.0
       },
       "Marine Family Club Beach (ex. Otium Family Club Marine Beach)": {
-        "history_max": 9608.0,
+        "history_max": 9918.0,
         "premium_peak": null
       },
       "Mirage Park Resort": {
@@ -673,8 +1116,8 @@
         "premium_peak": 16493.0
       },
       "Saphir Hotel & Villas": {
-        "history_max": 11344.0,
-        "premium_peak": 11344.0
+        "history_max": 11458.0,
+        "premium_peak": 11458.0
       },
       "Marti Myra": {
         "history_max": 12624.0,
@@ -685,8 +1128,8 @@
         "premium_peak": null
       },
       "Sultan of Dreams": {
-        "history_max": 10383.0,
-        "premium_peak": 10383.0
+        "history_max": 10944.0,
+        "premium_peak": 10944.0
       },
       "Sidera Kirman Premium": {
         "history_max": 13546.0,
@@ -709,8 +1152,8 @@
         "premium_peak": 10418.0
       },
       "Berry Blue": {
-        "history_max": 14766.0,
-        "premium_peak": 14766.0
+        "history_max": 15669.0,
+        "premium_peak": 15669.0
       },
       "Titanic Deluxe Lara (ex. Titanic Beach Lara)": {
         "history_max": 17555.0,
@@ -733,7 +1176,7 @@
         "premium_peak": null
       },
       "Calido Maris": {
-        "history_max": 8430.0,
+        "history_max": 9560.0,
         "premium_peak": null
       },
       "Aria Claros Beach and Spa Resort": {
@@ -757,8 +1200,8 @@
         "premium_peak": null
       },
       "Arcanus Trendline Resort": {
-        "history_max": 12879.0,
-        "premium_peak": 12879.0
+        "history_max": 13203.0,
+        "premium_peak": 13203.0
       },
       "Campus Hill": {
         "history_max": 8263.0,
@@ -805,8 +1248,8 @@
         "premium_peak": null
       },
       "Arcanus Hotels Sorgun (ex. Asteria Sorgun)": {
-        "history_max": 14612.0,
-        "premium_peak": 14612.0
+        "history_max": 14819.0,
+        "premium_peak": 14819.0
       },
       "Casa Fora Beach Resort": {
         "history_max": 12916.0,
@@ -885,8 +1328,8 @@
         "premium_peak": 10371.0
       },
       "Armonia Holiday Village": {
-        "history_max": 13070.0,
-        "premium_peak": 13070.0
+        "history_max": 13301.0,
+        "premium_peak": 13301.0
       },
       "Armas Pemar Beach Resort": {
         "history_max": 9023.0,
@@ -917,8 +1360,8 @@
         "premium_peak": null
       },
       "Baia Salima Kemer (ex Club Salima)": {
-        "history_max": 13851.0,
-        "premium_peak": 13851.0
+        "history_max": 13904.0,
+        "premium_peak": 13904.0
       },
       "Trendy Perge Resort & Suites": {
         "history_max": 15413.0,
@@ -1041,7 +1484,7 @@
         "premium_peak": 14414.0
       },
       "Daima Biz (Kemer)": {
-        "history_max": 8243.0,
+        "history_max": 8271.0,
         "premium_peak": null
       },
       "Dedeman Kemer Resort": {
@@ -1093,8 +1536,8 @@
         "premium_peak": 11426.0
       },
       "Sultan of Side": {
-        "history_max": 9653.0,
-        "premium_peak": null
+        "history_max": 10214.0,
+        "premium_peak": 10214.0
       },
       "Dizalya Palm Garden": {
         "history_max": 11804.0,
@@ -1207,6 +1650,26 @@
       "Bellis Deluxe": {
         "history_max": 17573.0,
         "premium_peak": 17573.0
+      },
+      "Diamond of Bodrum": {
+        "history_max": 13130.0,
+        "premium_peak": 13130.0
+      },
+      "Selectum Luxury Resort": {
+        "history_max": 16704.0,
+        "premium_peak": 16704.0
+      },
+      "Sianji Well-Being Resort": {
+        "history_max": 16290.0,
+        "premium_peak": 16290.0
+      },
+      "Baia Bodrum": {
+        "history_max": 17249.0,
+        "premium_peak": 17249.0
+      },
+      "Royal Dragon": {
+        "history_max": 17325.0,
+        "premium_peak": 17325.0
       }
     }
   }

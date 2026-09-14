@@ -26,10 +26,62 @@
       "created_at": "2026-09-14T05:27:50.852883+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Rewaya Luxury Resort Egipt, Hurghada_2026-09-14_05-27_+10.6"
+    },
+    {
+      "hotel_name": "Rewaya Luxury Resort Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 10017.0,
+      "new_price": 9057.0,
+      "price_change": -960.0,
+      "price_change_pct": -9.583707696915244,
+      "timestamp": "2026-09-14 13:01:39.586691+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-14T13:01:55.792706+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Luxury Resort Egipt, Hurghada_2026-09-14_13-01_-9.6"
+    },
+    {
+      "hotel_name": "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna",
+      "duration_bucket": "",
+      "old_price": 10980.0,
+      "new_price": 9446.0,
+      "price_change": -1534.0,
+      "price_change_pct": -13.970856102003642,
+      "timestamp": "2026-09-14 13:01:39.586691+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-14T13:01:55.792745+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna_2026-09-14_13-01_-14.0"
+    },
+    {
+      "hotel_name": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 10191.0,
+      "new_price": 9015.0,
+      "price_change": -1176.0,
+      "price_change_pct": -11.539593759199294,
+      "timestamp": "2026-09-14 13:01:39.586691+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-14T13:01:55.792765+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada_2026-09-14_13-01_-11.5"
+    },
+    {
+      "hotel_name": "Radisson Blu Resort (El Quseir) Egipt, Marsa Alam, Al-Kusajr",
+      "duration_bucket": "",
+      "old_price": 10895.0,
+      "new_price": 10895.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-14 13:01:39.586691+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-14T13:01:55.792785+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Radisson Blu Resort (El Quseir) Egipt, Marsa Alam, Al-Kusajr_2026-09-14_13-01_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-14T06:29:57.846700+00:00",
+    "last_processed_run": "2026-09-14T13:01:39.586691+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 10191.0,
@@ -149,6 +201,10 @@
       },
       "Gemma Resort (ex. Labranda Gemma Premium Resort) Egipt, Marsa Alam": {
         "history_max": 10510.0,
+        "premium_peak": null
+      },
+      "Concorde Moreen Beach Resort & Spa Egipt, Marsa Alam": {
+        "history_max": 10062.0,
         "premium_peak": null
       }
     }
