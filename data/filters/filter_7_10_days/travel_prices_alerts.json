@@ -234,10 +234,36 @@
       "created_at": "2026-09-14T19:32:31.892626+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort)_2026-09-14_19-31_comeback_8.2"
+    },
+    {
+      "hotel_name": "Serenity Sky Arc",
+      "duration_bucket": "",
+      "old_price": 9932.0,
+      "new_price": 11876.0,
+      "price_change": 1944.0,
+      "price_change_pct": 19.573097060008056,
+      "timestamp": "2026-09-14 23:15:25.979371+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-14T23:16:02.920358+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Serenity Sky Arc_2026-09-14_23-15_zone_out_+19.6"
+    },
+    {
+      "hotel_name": "Desert Rose Resort",
+      "duration_bucket": "",
+      "old_price": 12443.0,
+      "new_price": 8868.0,
+      "price_change": -3575.0,
+      "price_change_pct": -28.731013421200675,
+      "timestamp": "2026-09-14 23:15:25.979371+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-14T23:16:02.920390+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Desert Rose Resort_2026-09-14_23-15_comeback_28.7"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-14T19:31:59.206292+00:00",
+    "last_processed_run": "2026-09-14T23:15:25.979371+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 8105.0,
@@ -276,8 +302,8 @@
         "premium_peak": 10557.0
       },
       "Movenpick Resort & Spa El Gouna": {
-        "history_max": 10037.0,
-        "premium_peak": 10037.0
+        "history_max": 11093.0,
+        "premium_peak": 11093.0
       },
       "Siva Golden Bay Makadi": {
         "history_max": 9417.0,
@@ -372,8 +398,8 @@
         "premium_peak": 14897.0
       },
       "Jaz Elite Maraya": {
-        "history_max": 11517.0,
-        "premium_peak": 11517.0
+        "history_max": 12276.0,
+        "premium_peak": 12276.0
       },
       "Sultan Gardens Resort": {
         "history_max": 13225.0,
@@ -492,7 +518,7 @@
         "premium_peak": null
       },
       "Rehana Royal Beach Resort & Spa": {
-        "history_max": 8461.0,
+        "history_max": 8469.0,
         "premium_peak": null
       },
       "Rixos Radamis Sharm El Sheikh": {
@@ -528,8 +554,8 @@
         "premium_peak": 14571.0
       },
       "Pickalbatros Water Valley Resort Neverland": {
-        "history_max": 10463.0,
-        "premium_peak": 10463.0
+        "history_max": 10922.0,
+        "premium_peak": 10922.0
       },
       "Park Regency Resort (ex. Hyatt)": {
         "history_max": 11883.0,
@@ -556,8 +582,8 @@
         "premium_peak": 10477.0
       },
       "Serenity Sky Arc": {
-        "history_max": 10584.0,
-        "premium_peak": 10584.0
+        "history_max": 11876.0,
+        "premium_peak": 11876.0
       },
       "Pickalbatros Aqua Park Resort (Sharm El Sheikh)": {
         "history_max": 13169.0,
@@ -664,8 +690,8 @@
         "premium_peak": 11592.0
       },
       "Club Magic Life Kalawy": {
-        "history_max": 10433.0,
-        "premium_peak": 10433.0
+        "history_max": 11171.0,
+        "premium_peak": 11171.0
       },
       "Titanic Beach Spa & Aqua Park": {
         "history_max": 10057.0,
@@ -744,7 +770,7 @@
         "premium_peak": null
       },
       "Xperience Kiroseiz Premier": {
-        "history_max": 8504.0,
+        "history_max": 8505.0,
         "premium_peak": null
       },
       "Albatros Makadi Resort (ex Royal Pharaohs Makadi)": {
