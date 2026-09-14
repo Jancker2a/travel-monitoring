@@ -884,10 +884,49 @@
       "created_at": "2026-09-14T13:01:44.320270+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Xperience Sea Breeze Resort_2026-09-14_13-01_zone_out_gone"
+    },
+    {
+      "hotel_name": "Jaz Mirabel Park",
+      "duration_bucket": "",
+      "old_price": 9361.0,
+      "new_price": 10177.0,
+      "price_change": 816.0,
+      "price_change_pct": 8.717017412669586,
+      "timestamp": "2026-09-14 14:16:09.635851+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-14T14:16:44.061998+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Mirabel Park_2026-09-14_14-16_+8.7"
+    },
+    {
+      "hotel_name": "Parrotel Beach Resort (ex. Radisson Blu) Egipt, Sharm El Sheikh",
+      "duration_bucket": "",
+      "old_price": 7911.0,
+      "new_price": 7911.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-14 14:16:09.635851+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-14T14:16:44.062038+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Parrotel Beach Resort (ex. Radisson Blu) Egipt, Sharm El Sheikh_2026-09-14_14-16_zone_out_gone"
+    },
+    {
+      "hotel_name": "Rewaya Inn Resort (ex. Hawaii Paradise Aqua Park Resort)",
+      "duration_bucket": "",
+      "old_price": 8465.0,
+      "new_price": 8465.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-14 14:16:09.635851+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-14T14:16:44.062048+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Inn Resort (ex. Hawaii Paradise Aqua Park Resort)_2026-09-14_14-16_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-14T13:01:11.422672+00:00",
+    "last_processed_run": "2026-09-14T14:16:09.635851+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 6845.0,
@@ -950,7 +989,7 @@
         "premium_peak": null
       },
       "Pickalbatros White Beach Resort": {
-        "history_max": 10837.0,
+        "history_max": 10857.0,
         "premium_peak": null
       },
       "Pyramisa Beach Resort Sahl Hasheesh": {
@@ -1030,7 +1069,7 @@
         "premium_peak": null
       },
       "Jaz Mirabel Park": {
-        "history_max": 9361.0,
+        "history_max": 10177.0,
         "premium_peak": null
       },
       "Jaz Palmariva Beach": {
@@ -1046,7 +1085,7 @@
         "premium_peak": null
       },
       "Lazuli (Marsa Alam)": {
-        "history_max": 8497.0,
+        "history_max": 9097.0,
         "premium_peak": null
       },
       "Maritim Jolie Ville Royal Peninsula Egipt, Sharm El Sheikh": {
@@ -1138,7 +1177,7 @@
         "premium_peak": null
       },
       "Three Corners Fayrouz Plaza Beach Resort": {
-        "history_max": 10071.0,
+        "history_max": 10328.0,
         "premium_peak": null
       },
       "Titanic Beach Spa & Aqua Park": {
@@ -1158,7 +1197,7 @@
         "premium_peak": null
       },
       "Tropitel Sahl Hasheesh": {
-        "history_max": 9763.0,
+        "history_max": 9834.0,
         "premium_peak": null
       },
       "True Beach Resort": {
@@ -1170,7 +1209,7 @@
         "premium_peak": null
       },
       "Xperience Kiroseiz Parkland Egipt, Sharm El Sheikh": {
-        "history_max": 6755.0,
+        "history_max": 7259.0,
         "premium_peak": null
       },
       "Xperience Kiroseiz Premier Egipt, Sharm El Sheikh": {
@@ -1234,7 +1273,7 @@
         "premium_peak": null
       },
       "Sentido Mamlouk Palace Resort & Spa (ex Sunrise)": {
-        "history_max": 9893.0,
+        "history_max": 9971.0,
         "premium_peak": null
       },
       "Sentido Naga Bay": {
@@ -1635,6 +1674,10 @@
       },
       "Parrotel Beach Resort (ex. Radisson Blu) Egipt, Sharm El Sheikh": {
         "history_max": 7911.0,
+        "premium_peak": null
+      },
+      "Hawaii Paradise Aqua Park Resort Egipt, Hurghada": {
+        "history_max": 7662.0,
         "premium_peak": null
       }
     }
