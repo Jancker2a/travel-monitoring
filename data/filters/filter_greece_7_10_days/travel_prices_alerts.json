@@ -1,8 +1,22 @@
 {
   "version": 2,
-  "alerts": [],
+  "alerts": [
+    {
+      "hotel_name": "Aquila Rithymna Beach",
+      "duration_bucket": "",
+      "old_price": 9908.0,
+      "new_price": 10110.0,
+      "price_change": 202.0,
+      "price_change_pct": 2.038756560355268,
+      "timestamp": "2026-09-14 06:31:06.154182+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-14T06:32:05.186861+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Aquila Rithymna Beach_2026-09-14_06-31_zone_out_+2.0"
+    }
+  ],
   "meta": {
-    "last_processed_run": "2026-09-14T05:28:48.797095+00:00",
+    "last_processed_run": "2026-09-14T06:31:06.154182+00:00",
     "premium_state": {
       "Ajul Luxury & Spa Resort (Ayios Nikolaos) Grecja, Chalkidiki, Loutra": {
         "history_max": 8827.0,
@@ -101,7 +115,7 @@
         "premium_peak": null
       },
       "Galini Sea View (Agia Marina) Grecja, Kreta Zachodnia, Agia Marina": {
-        "history_max": 8522.0,
+        "history_max": 8608.0,
         "premium_peak": null
       },
       "Gennadi Grand Resort": {
@@ -465,8 +479,8 @@
         "premium_peak": 13841.0
       },
       "Atlantica Ocean Beach Resort (ex. Creta Princess by Atlantica)": {
-        "history_max": 13851.0,
-        "premium_peak": 13851.0
+        "history_max": 14205.0,
+        "premium_peak": 14205.0
       },
       "Atrium Prestige Thalasso Spa Resort & Villas": {
         "history_max": 19678.0,
