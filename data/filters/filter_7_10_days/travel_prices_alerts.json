@@ -533,10 +533,62 @@
       "created_at": "2026-09-15T18:20:53.900987+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Tropitel Sahl Hasheesh_2026-09-15_18-20_comeback_38.4"
+    },
+    {
+      "hotel_name": "Tropitel Sahl Hasheesh",
+      "duration_bucket": "",
+      "old_price": 7657.0,
+      "new_price": 9685.0,
+      "price_change": 2028.0,
+      "price_change_pct": 26.485568760611205,
+      "timestamp": "2026-09-15 21:35:45.498327+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-15T21:36:22.714696+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Tropitel Sahl Hasheesh_2026-09-15_21-35_+26.5"
+    },
+    {
+      "hotel_name": "Hilton Plaza (Hurghada)",
+      "duration_bucket": "",
+      "old_price": 8290.0,
+      "new_price": 9797.0,
+      "price_change": 1507.0,
+      "price_change_pct": 18.178528347406512,
+      "timestamp": "2026-09-15 21:35:45.498327+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-15T21:36:22.714724+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Hilton Plaza (Hurghada)_2026-09-15_21-35_+18.2"
+    },
+    {
+      "hotel_name": "Gravity Sahl Hasheesh (Ex. Ocean Breeze)",
+      "duration_bucket": "",
+      "old_price": 7516.0,
+      "new_price": 9780.0,
+      "price_change": 2264.0,
+      "price_change_pct": 30.122405534858963,
+      "timestamp": "2026-09-15 21:35:45.498327+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-15T21:36:22.714740+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Gravity Sahl Hasheesh (Ex. Ocean Breeze)_2026-09-15_21-35_+30.1"
+    },
+    {
+      "hotel_name": "Steigenberger Golf Resort",
+      "duration_bucket": "",
+      "old_price": 9990.0,
+      "new_price": 10125.0,
+      "price_change": 135.0,
+      "price_change_pct": 1.3513513513513513,
+      "timestamp": "2026-09-15 21:35:45.498327+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-15T21:36:22.714760+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Steigenberger Golf Resort_2026-09-15_21-35_zone_out_+1.4"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-15T18:20:10.316799+00:00",
+    "last_processed_run": "2026-09-15T21:35:45.498327+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 8105.0,
@@ -755,8 +807,8 @@
         "premium_peak": 10278.0
       },
       "Radisson Individuals Marina Port Ghalib (ex. Sunrise Marina Resort)": {
-        "history_max": 10729.0,
-        "premium_peak": 10729.0
+        "history_max": 11010.0,
+        "premium_peak": 11010.0
       },
       "Safir Dahab Resort": {
         "history_max": 13850.0,
@@ -1035,7 +1087,7 @@
         "premium_peak": 11337.0
       },
       "Calimera Blend Paradise Resort": {
-        "history_max": 8957.0,
+        "history_max": 9257.0,
         "premium_peak": null
       },
       "Akassia Swiss Resort (ex. Calimera Club Akassia Swiss Resort)": {
@@ -1067,8 +1119,8 @@
         "premium_peak": 15697.0
       },
       "Xanadu Makadi Bay": {
-        "history_max": 12191.0,
-        "premium_peak": 12191.0
+        "history_max": 12353.0,
+        "premium_peak": 12353.0
       },
       "Amarina Jannah Resort Aquapark": {
         "history_max": 8157.0,

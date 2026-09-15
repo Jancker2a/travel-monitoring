@@ -871,10 +871,49 @@
       "created_at": "2026-09-15T18:22:20.262868+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Galeri Resort_2026-09-15_18-21_zone_out_+11.2"
+    },
+    {
+      "hotel_name": "The Nora Hotels Family Club (Kargicak)",
+      "duration_bucket": "",
+      "old_price": 6252.0,
+      "new_price": 5669.0,
+      "price_change": -583.0,
+      "price_change_pct": -9.325015994881637,
+      "timestamp": "2026-09-15 21:36:57.626986+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-15T21:37:56.260521+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "The Nora Hotels Family Club (Kargicak)_2026-09-15_21-36_-9.3"
+    },
+    {
+      "hotel_name": "Campus Hill",
+      "duration_bucket": "",
+      "old_price": 7710.0,
+      "new_price": 8903.0,
+      "price_change": 1193.0,
+      "price_change_pct": 15.473411154345007,
+      "timestamp": "2026-09-15 21:36:57.626986+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-15T21:37:56.260554+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Campus Hill_2026-09-15_21-36_+15.5"
+    },
+    {
+      "hotel_name": "Ozkaymak Select Resort (ex. Otium Ozkaymak Select)",
+      "duration_bucket": "",
+      "old_price": 9968.0,
+      "new_price": 10098.0,
+      "price_change": 130.0,
+      "price_change_pct": 1.3041733547351524,
+      "timestamp": "2026-09-15 21:36:57.626986+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-15T21:37:56.260582+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Ozkaymak Select Resort (ex. Otium Ozkaymak Select)_2026-09-15_21-36_zone_out_+1.3"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-15T18:21:23.231119+00:00",
+    "last_processed_run": "2026-09-15T21:36:57.626986+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 10060.0,
@@ -913,8 +952,8 @@
         "premium_peak": 13840.0
       },
       "IC Green Palace": {
-        "history_max": 15326.0,
-        "premium_peak": 15326.0
+        "history_max": 15332.0,
+        "premium_peak": 15332.0
       },
       "Horus Paradise Luxury Resort": {
         "history_max": 10082.0,
@@ -1029,8 +1068,8 @@
         "premium_peak": 12609.0
       },
       "Karmir Resort (Kemer)": {
-        "history_max": 12026.0,
-        "premium_peak": 12026.0
+        "history_max": 12170.0,
+        "premium_peak": 12170.0
       },
       "Sentido Trendy Verbena Beach (ex. Trendy Verbena Beach)": {
         "history_max": 15057.0,
@@ -1125,8 +1164,8 @@
         "premium_peak": null
       },
       "Flora Garden Ephesus": {
-        "history_max": 11737.0,
-        "premium_peak": 11737.0
+        "history_max": 12334.0,
+        "premium_peak": 12334.0
       },
       "Port Nature Luxury Resort": {
         "history_max": 16081.0,
@@ -1305,8 +1344,8 @@
         "premium_peak": 13116.0
       },
       "Ozkaymak Select Resort (ex. Otium Ozkaymak Select)": {
-        "history_max": 9968.0,
-        "premium_peak": null
+        "history_max": 10098.0,
+        "premium_peak": 10098.0
       },
       "Pine Beach Belek (ex. Maritim Pine Beach Resort)": {
         "history_max": 13455.0,
@@ -1633,7 +1672,7 @@
         "premium_peak": 17631.0
       },
       "Campus Hill": {
-        "history_max": 8263.0,
+        "history_max": 8903.0,
         "premium_peak": null
       },
       "Aqua Marmaris": {
@@ -1649,7 +1688,7 @@
         "premium_peak": null
       },
       "Armella Hill": {
-        "history_max": 9662.0,
+        "history_max": 9749.0,
         "premium_peak": null
       },
       "The Marilis Hill Resort and Spa (Alanya)": {
@@ -1681,8 +1720,8 @@
         "premium_peak": 14922.0
       },
       "Casa Fora Beach Resort": {
-        "history_max": 12916.0,
-        "premium_peak": 12916.0
+        "history_max": 13756.0,
+        "premium_peak": 13756.0
       },
       "Can Garden Resort (Side)": {
         "history_max": 12251.0,
