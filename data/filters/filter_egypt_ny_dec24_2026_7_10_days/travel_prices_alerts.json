@@ -481,10 +481,88 @@
       "created_at": "2026-09-15T07:56:37.146409+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Three Corners Fayrouz Plaza Beach Resort_2026-09-15_07-56_zone_out_gone"
+    },
+    {
+      "hotel_name": "Rewaya Majestic Resort Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 8182.0,
+      "new_price": 9997.0,
+      "price_change": 1815.0,
+      "price_change_pct": 22.18284038132486,
+      "timestamp": "2026-09-15 14:49:10.382969+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-15T14:49:26.572487+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Majestic Resort Egipt, Hurghada_2026-09-15_14-49_+22.2"
+    },
+    {
+      "hotel_name": "Rewaya Luxury Resort Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 9018.0,
+      "new_price": 9777.0,
+      "price_change": 759.0,
+      "price_change_pct": 8.416500332667997,
+      "timestamp": "2026-09-15 14:49:10.382969+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-15T14:49:26.572513+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Luxury Resort Egipt, Hurghada_2026-09-15_14-49_+8.4"
+    },
+    {
+      "hotel_name": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 8779.0,
+      "new_price": 10191.0,
+      "price_change": 1412.0,
+      "price_change_pct": 16.083836427839163,
+      "timestamp": "2026-09-15 14:49:10.382969+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-15T14:49:26.572526+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada_2026-09-15_14-49_+16.1"
+    },
+    {
+      "hotel_name": "Bellagio Beach Resort & Spa (ex. Panorama Bungalows Hurghada) Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 10587.0,
+      "new_price": 10587.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-15 14:49:10.382969+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-15T14:49:26.572546+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Bellagio Beach Resort & Spa (ex. Panorama Bungalows Hurghada) Egipt, Hurghada_2026-09-15_14-49_zone_out_gone"
+    },
+    {
+      "hotel_name": "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort) Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 9701.0,
+      "new_price": 9701.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-15 14:49:10.382969+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-15T14:49:26.572555+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort) Egipt, Hurghada_2026-09-15_14-49_zone_out_gone"
+    },
+    {
+      "hotel_name": "Three Corners Fayrouz Plaza Beach Resort Egipt, Marsa Alam",
+      "duration_bucket": "",
+      "old_price": 10894.0,
+      "new_price": 10894.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-15 14:49:10.382969+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-15T14:49:26.572564+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Three Corners Fayrouz Plaza Beach Resort Egipt, Marsa Alam_2026-09-15_14-49_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-15T07:56:20.821604+00:00",
+    "last_processed_run": "2026-09-15T14:49:10.382969+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 10191.0,
@@ -547,7 +625,7 @@
         "premium_peak": null
       },
       "Movenpick Sirena Beach Egipt, Marsa Alam, Al-Kusajr": {
-        "history_max": 10489.0,
+        "history_max": 10528.0,
         "premium_peak": null
       },
       "Sharm Grand Plaza Resort Egipt, Sharm El Sheikh": {
@@ -555,7 +633,7 @@
         "premium_peak": null
       },
       "Fantazia Resort Egipt, Marsa Alam": {
-        "history_max": 10343.0,
+        "history_max": 10926.0,
         "premium_peak": null
       },
       "Albatros Sea World Resort Marsa Alam Egipt, Marsa Alam, Al-Kusajr": {
@@ -583,7 +661,7 @@
         "premium_peak": null
       },
       "Rewaya Majestic Resort Egipt, Hurghada": {
-        "history_max": 9577.0,
+        "history_max": 9997.0,
         "premium_peak": null
       },
       "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort) Egipt, Hurghada": {
@@ -603,7 +681,7 @@
         "premium_peak": null
       },
       "Gemma Resort (ex. Labranda Gemma Premium Resort) Egipt, Marsa Alam": {
-        "history_max": 10510.0,
+        "history_max": 10756.0,
         "premium_peak": null
       },
       "Concorde Moreen Beach Resort & Spa Egipt, Marsa Alam": {
