@@ -299,10 +299,75 @@
       "created_at": "2026-09-15T01:36:35.150052+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Pyramisa Beach Resort Sahl Hasheesh_2026-09-15_01-36_zone_out_gone"
+    },
+    {
+      "hotel_name": "Rewaya Luxury Resort Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 6867.0,
+      "new_price": 7527.0,
+      "price_change": 660.0,
+      "price_change_pct": 9.611183923110529,
+      "timestamp": "2026-09-15 07:55:19.732062+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-15T07:56:03.447384+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Luxury Resort Egipt, Hurghada_2026-09-15_07-55_+9.6"
+    },
+    {
+      "hotel_name": "Hawaii Paradise Aqua Park Resort Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 7662.0,
+      "new_price": 7662.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-15 07:55:19.732062+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-15T07:56:03.447452+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Hawaii Paradise Aqua Park Resort Egipt, Hurghada_2026-09-15_07-55_zone_out_gone"
+    },
+    {
+      "hotel_name": "Nubian Village",
+      "duration_bucket": "",
+      "old_price": 10893.0,
+      "new_price": 10893.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-15 07:55:19.732062+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-15T07:56:03.447464+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Nubian Village_2026-09-15_07-55_zone_out_gone"
+    },
+    {
+      "hotel_name": "Utopia Blue Resort",
+      "duration_bucket": "",
+      "old_price": 10247.0,
+      "new_price": 10247.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-15 07:55:19.732062+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-15T07:56:03.447473+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Utopia Blue Resort_2026-09-15_07-55_zone_out_gone"
+    },
+    {
+      "hotel_name": "Xperience Sea Breeze Resort",
+      "duration_bucket": "",
+      "old_price": 8432.0,
+      "new_price": 8432.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-15 07:55:19.732062+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-15T07:56:03.447481+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xperience Sea Breeze Resort_2026-09-15_07-55_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-15T01:36:05.087185+00:00",
+    "last_processed_run": "2026-09-15T07:55:19.732062+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 6921.0,
@@ -385,7 +450,7 @@
         "premium_peak": null
       },
       "Xperience Sea Breeze Egipt, Sharm El Sheikh": {
-        "history_max": 7760.0,
+        "history_max": 8432.0,
         "premium_peak": null
       },
       "Naama Bay Promenade Mountain Resort": {
@@ -701,7 +766,7 @@
         "premium_peak": null
       },
       "Amwaj Oyoun Resort & Spa (ex AA Amwaj Resort) Egipt, Sharm El Sheikh": {
-        "history_max": 8321.0,
+        "history_max": 8322.0,
         "premium_peak": null
       },
       "Coral Sea Water World Resort": {
@@ -741,7 +806,7 @@
         "premium_peak": null
       },
       "Charmillion Club Resort": {
-        "history_max": 10287.0,
+        "history_max": 10302.0,
         "premium_peak": null
       },
       "Charmillion Garden Aqua Park": {
@@ -757,7 +822,7 @@
         "premium_peak": null
       },
       "Amarina Jannah Resort Aquapark Egipt, Marsa Alam, Port Ghalib": {
-        "history_max": 7624.0,
+        "history_max": 7674.0,
         "premium_peak": null
       },
       "Dreams Beach Sharm Resort (Sharm El Sheikh)": {
@@ -785,7 +850,7 @@
         "premium_peak": null
       },
       "Gemma Resort (ex. Labranda Gemma Premium Resort) Egipt, Marsa Alam": {
-        "history_max": 6736.0,
+        "history_max": 7004.0,
         "premium_peak": null
       },
       "Gorgonia Beach": {

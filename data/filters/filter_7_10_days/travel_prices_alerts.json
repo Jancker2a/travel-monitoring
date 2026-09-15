@@ -299,10 +299,101 @@
       "created_at": "2026-09-15T01:36:35.145537+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Reef Oasis Suakin Resort_2026-09-15_01-36_comeback_21.4"
+    },
+    {
+      "hotel_name": "Rewaya Majestic Resort",
+      "duration_bucket": "",
+      "old_price": 8028.0,
+      "new_price": 9149.0,
+      "price_change": 1121.0,
+      "price_change_pct": 13.963627304434478,
+      "timestamp": "2026-09-15 07:55:19.733321+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-15T07:56:11.777643+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Majestic Resort_2026-09-15_07-55_+14.0"
+    },
+    {
+      "hotel_name": "Lazuli (Marsa Alam)",
+      "duration_bucket": "",
+      "old_price": 9357.0,
+      "new_price": 8057.0,
+      "price_change": -1300.0,
+      "price_change_pct": -13.893341883082183,
+      "timestamp": "2026-09-15 07:55:19.733321+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-15T07:56:11.777673+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Lazuli (Marsa Alam)_2026-09-15_07-55_-13.9"
+    },
+    {
+      "hotel_name": "Jaz Makadi Oasis Resort",
+      "duration_bucket": "",
+      "old_price": 9923.0,
+      "new_price": 10112.0,
+      "price_change": 189.0,
+      "price_change_pct": 1.90466592764285,
+      "timestamp": "2026-09-15 07:55:19.733321+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-15T07:56:11.777698+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Makadi Oasis Resort_2026-09-15_07-55_zone_out_+1.9"
+    },
+    {
+      "hotel_name": "Serenity Sky Arc",
+      "duration_bucket": "",
+      "old_price": 9932.0,
+      "new_price": 11357.0,
+      "price_change": 1425.0,
+      "price_change_pct": 14.347563431333066,
+      "timestamp": "2026-09-15 07:55:19.733321+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-15T07:56:11.777709+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Serenity Sky Arc_2026-09-15_07-55_zone_out_+14.3"
+    },
+    {
+      "hotel_name": "Sheraton Miramar Resort (El Gouna)",
+      "duration_bucket": "",
+      "old_price": 9639.0,
+      "new_price": 10085.0,
+      "price_change": 446.0,
+      "price_change_pct": 4.627035999585019,
+      "timestamp": "2026-09-15 07:55:19.733321+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-15T07:56:11.777718+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sheraton Miramar Resort (El Gouna)_2026-09-15_07-55_zone_out_+4.6"
+    },
+    {
+      "hotel_name": "Steigenberger Golf Resort",
+      "duration_bucket": "",
+      "old_price": 9639.0,
+      "new_price": 10125.0,
+      "price_change": 486.0,
+      "price_change_pct": 5.042016806722689,
+      "timestamp": "2026-09-15 07:55:19.733321+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-15T07:56:11.777726+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Steigenberger Golf Resort_2026-09-15_07-55_zone_out_+5.0"
+    },
+    {
+      "hotel_name": "Radisson Individuals Marina Port Ghalib (ex. Sunrise Marina Resort)",
+      "duration_bucket": "",
+      "old_price": 10729.0,
+      "new_price": 9390.0,
+      "price_change": -1339.0,
+      "price_change_pct": -12.480193867089197,
+      "timestamp": "2026-09-15 07:55:19.733321+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-15T07:56:11.777749+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Radisson Individuals Marina Port Ghalib (ex. Sunrise Marina Resort)_2026-09-15_07-55_comeback_12.5"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-15T01:36:04.976846+00:00",
+    "last_processed_run": "2026-09-15T07:55:19.733321+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 8105.0,
@@ -353,7 +444,7 @@
         "premium_peak": 13099.0
       },
       "Movenpick Waterpark Resort & Spa Soma Bay": {
-        "history_max": 8672.0,
+        "history_max": 9014.0,
         "premium_peak": null
       },
       "Sirena Beach Resort & Spa": {
@@ -421,12 +512,12 @@
         "premium_peak": 11849.0
       },
       "Jaz Elite Amara": {
-        "history_max": 13221.0,
-        "premium_peak": 13221.0
+        "history_max": 13244.0,
+        "premium_peak": 13244.0
       },
       "Jaz Elite Asteria (Hurghada)": {
-        "history_max": 12825.0,
-        "premium_peak": 12825.0
+        "history_max": 13095.0,
+        "premium_peak": 13095.0
       },
       "Sunrise Alora Aqua Park Resort": {
         "history_max": 10237.0,
@@ -485,8 +576,8 @@
         "premium_peak": 10445.0
       },
       "Steigenberger Golf Resort": {
-        "history_max": 9963.0,
-        "premium_peak": null
+        "history_max": 10125.0,
+        "premium_peak": 10125.0
       },
       "Jaz Palmariva Beach": {
         "history_max": 9140.0,
@@ -657,8 +748,8 @@
         "premium_peak": 12057.0
       },
       "Sentido Naga Bay": {
-        "history_max": 11637.0,
-        "premium_peak": 11637.0
+        "history_max": 12074.0,
+        "premium_peak": 12074.0
       },
       "Pickalbatros Oasis Port Ghalib (ex. Red Sea Port Ghalib Resort)": {
         "history_max": 10237.0,
@@ -677,7 +768,7 @@
         "premium_peak": 11096.0
       },
       "Sentido Akassia Beach (ex. LTI Akassia Beach)": {
-        "history_max": 9216.0,
+        "history_max": 9446.0,
         "premium_peak": null
       },
       "Pickalbatros Royal Moderna": {
@@ -697,7 +788,7 @@
         "premium_peak": null
       },
       "Jaz Aquamarine Resort": {
-        "history_max": 9716.0,
+        "history_max": 9878.0,
         "premium_peak": null
       },
       "Jaz Elite Riviera": {
@@ -773,7 +864,7 @@
         "premium_peak": 10260.0
       },
       "Swissotel Resort El Quseir": {
-        "history_max": 9473.0,
+        "history_max": 9702.0,
         "premium_peak": null
       },
       "Creek Hotel and Residences": {
@@ -845,7 +936,7 @@
         "premium_peak": 10317.0
       },
       "Amarina Queen Resort": {
-        "history_max": 8929.0,
+        "history_max": 9375.0,
         "premium_peak": null
       },
       "Amarina Star Resort & Aqua Park (ex. Raouf Star)": {
@@ -949,8 +1040,8 @@
         "premium_peak": 13008.0
       },
       "Iberotel Makadi Beach": {
-        "history_max": 14567.0,
-        "premium_peak": 14567.0
+        "history_max": 14847.0,
+        "premium_peak": 14847.0
       },
       "Double Tree by Hilton Mangroovy El Gouna Resort": {
         "history_max": 11747.0,
