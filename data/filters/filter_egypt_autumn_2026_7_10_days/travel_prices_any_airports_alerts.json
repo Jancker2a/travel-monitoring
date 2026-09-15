@@ -962,10 +962,62 @@
       "created_at": "2026-09-14T19:32:54.420886+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Pickalbatros White Beach Resort_2026-09-14_19-32_zone_out_gone"
+    },
+    {
+      "hotel_name": "Rewaya Luxury Resort Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 7317.0,
+      "new_price": 6357.0,
+      "price_change": -960.0,
+      "price_change_pct": -13.120131201312013,
+      "timestamp": "2026-09-15 01:36:21.868503+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-15T01:36:52.080701+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Luxury Resort Egipt, Hurghada_2026-09-15_01-36_-13.1"
+    },
+    {
+      "hotel_name": "Aurora Oriental Resort",
+      "duration_bucket": "",
+      "old_price": 8762.0,
+      "new_price": 8762.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-15 01:36:21.868503+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-15T01:36:52.080735+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Aurora Oriental Resort_2026-09-15_01-36_zone_out_gone"
+    },
+    {
+      "hotel_name": "Pyramisa Beach Resort Sahl Hasheesh",
+      "duration_bucket": "",
+      "old_price": 9216.0,
+      "new_price": 9216.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-15 01:36:21.868503+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-15T01:36:52.080741+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pyramisa Beach Resort Sahl Hasheesh_2026-09-15_01-36_zone_out_gone"
+    },
+    {
+      "hotel_name": "Siva Golden Bay Makadi Egipt, Hurghada, Makadi Bay",
+      "duration_bucket": "",
+      "old_price": 7897.0,
+      "new_price": 7897.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-15 01:36:21.868503+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-15T01:36:52.080745+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Siva Golden Bay Makadi Egipt, Hurghada, Makadi Bay_2026-09-15_01-36_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-14T23:15:46.647842+00:00",
+    "last_processed_run": "2026-09-15T01:36:21.868503+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 6845.0,
@@ -1312,7 +1364,7 @@
         "premium_peak": null
       },
       "Sentido Mamlouk Palace Resort & Spa (ex Sunrise)": {
-        "history_max": 9971.0,
+        "history_max": 9973.0,
         "premium_peak": null
       },
       "Sentido Naga Bay": {
@@ -1392,7 +1444,7 @@
         "premium_peak": null
       },
       "Domina Coral Bay Sultan": {
-        "history_max": 10546.0,
+        "history_max": 10681.0,
         "premium_peak": null
       },
       "Amphoras Beach": {
@@ -1725,6 +1777,14 @@
       },
       "Desert Rose Resort": {
         "history_max": 8899.0,
+        "premium_peak": null
+      },
+      "V Grand Beach Resort Sahl Hasheesh": {
+        "history_max": 9216.0,
+        "premium_peak": null
+      },
+      "Aurora Oriental Resort Egipt, Sharm El Sheikh, Szarm el-Szejk": {
+        "history_max": 7826.0,
         "premium_peak": null
       }
     }

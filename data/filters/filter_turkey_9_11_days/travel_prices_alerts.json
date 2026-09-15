@@ -663,10 +663,75 @@
       "created_at": "2026-09-14T23:17:35.439647+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sultan of Side_2026-09-14_23-16_+20.3"
+    },
+    {
+      "hotel_name": "Senza Grand Santana (Alanya)",
+      "duration_bucket": "",
+      "old_price": 8165.0,
+      "new_price": 6942.0,
+      "price_change": -1223.0,
+      "price_change_pct": -14.97856705450092,
+      "timestamp": "2026-09-15 01:37:06.513676+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-15T01:37:46.619848+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Senza Grand Santana (Alanya)_2026-09-15_01-37_-15.0"
+    },
+    {
+      "hotel_name": "Rox Royal (ex. Grand Haber)",
+      "duration_bucket": "",
+      "old_price": 8586.0,
+      "new_price": 8586.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-15 01:37:06.513676+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-15T01:37:46.619874+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rox Royal (ex. Grand Haber)_2026-09-15_01-37_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sentido Lycus Beach (ex. Lti)",
+      "duration_bucket": "",
+      "old_price": 9188.0,
+      "new_price": 10872.0,
+      "price_change": 1684.0,
+      "price_change_pct": 18.328254244666955,
+      "timestamp": "2026-09-15 01:37:06.513676+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-15T01:37:46.619881+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sentido Lycus Beach (ex. Lti)_2026-09-15_01-37_zone_out_+18.3"
+    },
+    {
+      "hotel_name": "Sultan of Dreams",
+      "duration_bucket": "",
+      "old_price": 9647.0,
+      "new_price": 10944.0,
+      "price_change": 1297.0,
+      "price_change_pct": 13.444594174354721,
+      "timestamp": "2026-09-15 01:37:06.513676+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-15T01:37:46.619900+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sultan of Dreams_2026-09-15_01-37_zone_out_+13.4"
+    },
+    {
+      "hotel_name": "Sultan of Side",
+      "duration_bucket": "",
+      "old_price": 9708.0,
+      "new_price": 10214.0,
+      "price_change": 506.0,
+      "price_change_pct": 5.212196126905645,
+      "timestamp": "2026-09-15 01:37:06.513676+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-15T01:37:46.619906+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sultan of Side_2026-09-15_01-37_zone_out_+5.2"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-14T23:16:34.425600+00:00",
+    "last_processed_run": "2026-09-15T01:37:06.513676+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 10036.0,
@@ -809,8 +874,8 @@
         "premium_peak": 16877.0
       },
       "Kaya Side (ex. Club Calimera Kaya Side)": {
-        "history_max": 11237.0,
-        "premium_peak": 11237.0
+        "history_max": 13096.0,
+        "premium_peak": 13096.0
       },
       "Sentido Lycus Beach (ex. Lti)": {
         "history_max": 10872.0,
@@ -1029,8 +1094,8 @@
         "premium_peak": 10823.0
       },
       "Orange County Belek": {
-        "history_max": 11748.0,
-        "premium_peak": 11748.0
+        "history_max": 12251.0,
+        "premium_peak": 12251.0
       },
       "Richmond Ephesus": {
         "history_max": 11692.0,
@@ -1041,16 +1106,16 @@
         "premium_peak": null
       },
       "Orange County (Kemer)": {
-        "history_max": 11547.0,
-        "premium_peak": 11547.0
+        "history_max": 11708.0,
+        "premium_peak": 11708.0
       },
       "Ring Beach (Kemer)": {
         "history_max": 9441.0,
         "premium_peak": null
       },
       "OZ Incekum Beach Resort": {
-        "history_max": 11781.0,
-        "premium_peak": 11781.0
+        "history_max": 11916.0,
+        "premium_peak": 11916.0
       },
       "Numa Bay Exclusive (ex Sentido Numa Bay)": {
         "history_max": 12106.0,
@@ -1145,8 +1210,8 @@
         "premium_peak": 14387.0
       },
       "Queens Park Le Jardin Resort": {
-        "history_max": 11849.0,
-        "premium_peak": 11849.0
+        "history_max": 12409.0,
+        "premium_peak": 12409.0
       },
       "Paloma Orenda Resort": {
         "history_max": 16400.0,
@@ -1221,8 +1286,8 @@
         "premium_peak": 12174.0
       },
       "Zena Resort": {
-        "history_max": 10717.0,
-        "premium_peak": 10717.0
+        "history_max": 11136.0,
+        "premium_peak": 11136.0
       },
       "Long Beach Club Nature": {
         "history_max": 11960.0,
@@ -1899,6 +1964,30 @@
       "Sueno Deluxe Belek": {
         "history_max": 17775.0,
         "premium_peak": 17775.0
+      },
+      "Transatlantik (Kemer)": {
+        "history_max": 9608.0,
+        "premium_peak": null
+      },
+      "Garden of Sun Spa & Wellness": {
+        "history_max": 8609.0,
+        "premium_peak": null
+      },
+      "Hapimag Resort Sea Garden": {
+        "history_max": 13617.0,
+        "premium_peak": 13617.0
+      },
+      "Club Melas Prive (ex. Melas Holiday Village)": {
+        "history_max": 16290.0,
+        "premium_peak": 16290.0
+      },
+      "Samara (Bodrum)": {
+        "history_max": 13496.0,
+        "premium_peak": 13496.0
+      },
+      "Lykia World & Links Golf Antalya": {
+        "history_max": 10512.0,
+        "premium_peak": 10512.0
       }
     }
   }
