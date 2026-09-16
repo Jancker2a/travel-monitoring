@@ -1261,10 +1261,75 @@
       "created_at": "2026-09-16T20:18:59.467499+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sultan of Side_2026-09-16_20-18_+17.8"
+    },
+    {
+      "hotel_name": "Campus Hill",
+      "duration_bucket": "",
+      "old_price": 7283.0,
+      "new_price": 8503.0,
+      "price_change": 1220.0,
+      "price_change_pct": 16.75133873403817,
+      "timestamp": "2026-09-16 23:06:01.514623+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-16T23:07:03.552370+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Campus Hill_2026-09-16_23-06_+16.8"
+    },
+    {
+      "hotel_name": "Mira Meridia Beach Resort",
+      "duration_bucket": "",
+      "old_price": 9974.0,
+      "new_price": 10103.0,
+      "price_change": 129.0,
+      "price_change_pct": 1.2933627431321437,
+      "timestamp": "2026-09-16 23:06:01.514623+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-16T23:07:03.552423+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Mira Meridia Beach Resort_2026-09-16_23-06_zone_out_+1.3"
+    },
+    {
+      "hotel_name": "Saphir Hotel & Villas",
+      "duration_bucket": "",
+      "old_price": 9776.0,
+      "new_price": 10842.0,
+      "price_change": 1066.0,
+      "price_change_pct": 10.904255319148938,
+      "timestamp": "2026-09-16 23:06:01.514623+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-16T23:07:03.552437+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Saphir Hotel & Villas_2026-09-16_23-06_zone_out_+10.9"
+    },
+    {
+      "hotel_name": "Sentido Lycus Beach (ex. Lti)",
+      "duration_bucket": "",
+      "old_price": 9991.0,
+      "new_price": 10821.0,
+      "price_change": 830.0,
+      "price_change_pct": 8.30747672905615,
+      "timestamp": "2026-09-16 23:06:01.514623+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-16T23:07:03.552447+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sentido Lycus Beach (ex. Lti)_2026-09-16_23-06_zone_out_+8.3"
+    },
+    {
+      "hotel_name": "Sultan of Dreams",
+      "duration_bucket": "",
+      "old_price": 9540.0,
+      "new_price": 10234.0,
+      "price_change": 694.0,
+      "price_change_pct": 7.2746331236897275,
+      "timestamp": "2026-09-16 23:06:01.514623+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-16T23:07:03.552456+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sultan of Dreams_2026-09-16_23-06_zone_out_+7.3"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-16T20:18:07.281662+00:00",
+    "last_processed_run": "2026-09-16T23:06:01.514623+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 10060.0,
@@ -1471,8 +1536,8 @@
         "premium_peak": null
       },
       "Eftalia Ocean (Alanya)": {
-        "history_max": 12249.0,
-        "premium_peak": 12249.0
+        "history_max": 12933.0,
+        "premium_peak": 12933.0
       },
       "Eftalia Marin": {
         "history_max": 11767.0,
@@ -2527,8 +2592,8 @@
         "premium_peak": 17498.0
       },
       "Mira Meridia Beach Resort": {
-        "history_max": 9974.0,
-        "premium_peak": null
+        "history_max": 10103.0,
+        "premium_peak": 10103.0
       },
       "Diamond De Luxe ( Colakli)": {
         "history_max": 15800.0,
