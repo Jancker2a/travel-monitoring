@@ -585,13 +585,104 @@
       "created_at": "2026-09-16T00:33:57.243183+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Thassos Grand Resort Grecja, Thassos, Alikí_2026-09-16_00-32_zone_out_gone"
+    },
+    {
+      "hotel_name": "Valis Resort Grecja, Tesalia, Agria",
+      "duration_bucket": "",
+      "old_price": 8631.0,
+      "new_price": 6704.0,
+      "price_change": -1927.0,
+      "price_change_pct": -22.32649750897926,
+      "timestamp": "2026-09-16 11:52:13.218036+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-16T11:53:11.068341+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Valis Resort Grecja, Tesalia, Agria_2026-09-16_11-52_-22.3"
+    },
+    {
+      "hotel_name": "Aquila Rithymna Beach Grecja, Kreta Zachodnia, Adelianos Kampos",
+      "duration_bucket": "",
+      "old_price": 9363.0,
+      "new_price": 9363.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-16 11:52:13.218036+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-16T11:53:11.068374+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Aquila Rithymna Beach Grecja, Kreta Zachodnia, Adelianos Kampos_2026-09-16_11-52_zone_out_gone"
+    },
+    {
+      "hotel_name": "Kairaba Sandy Villas Grecja, Korfu, Agios Georgios",
+      "duration_bucket": "",
+      "old_price": 9442.0,
+      "new_price": 9442.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-16 11:52:13.218036+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-16T11:53:11.068383+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Kairaba Sandy Villas Grecja, Korfu, Agios Georgios_2026-09-16_11-52_zone_out_gone"
+    },
+    {
+      "hotel_name": "Lydia Maris Resort & Spa Grecja, Rodos, Kolymbia",
+      "duration_bucket": "",
+      "old_price": 9149.0,
+      "new_price": 9149.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-16 11:52:13.218036+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-16T11:53:11.068389+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Lydia Maris Resort & Spa Grecja, Rodos, Kolymbia_2026-09-16_11-52_zone_out_gone"
+    },
+    {
+      "hotel_name": "Thassos Grand Resort",
+      "duration_bucket": "",
+      "old_price": 9557.0,
+      "new_price": 9557.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-16 11:52:13.218036+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-16T11:53:11.068395+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Thassos Grand Resort_2026-09-16_11-52_zone_out_gone"
+    },
+    {
+      "hotel_name": "Zeus Kos Beach",
+      "duration_bucket": "",
+      "old_price": 9557.0,
+      "new_price": 9557.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-16 11:52:13.218036+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-16T11:53:11.068401+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Zeus Kos Beach_2026-09-16_11-52_zone_out_gone"
+    },
+    {
+      "hotel_name": "Minos Imperial",
+      "duration_bucket": "",
+      "old_price": 10911.0,
+      "new_price": 9911.0,
+      "price_change": -1000.0,
+      "price_change_pct": -9.165062780680048,
+      "timestamp": "2026-09-16 11:52:13.218036+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-16T11:53:11.068421+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Minos Imperial_2026-09-16_11-52_comeback_9.2"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-16T06:13:20.391245+00:00",
+    "last_processed_run": "2026-09-16T11:52:13.218036+00:00",
     "premium_state": {
       "Ajul Luxury & Spa Resort (Ayios Nikolaos) Grecja, Chalkidiki, Loutra": {
-        "history_max": 8837.0,
+        "history_max": 8917.0,
         "premium_peak": null
       },
       "Kresten Royal Euphoria Resort (ex. Kresten Royal Villas)": {
@@ -627,12 +718,12 @@
         "premium_peak": 12947.0
       },
       "Kouros Palace": {
-        "history_max": 10897.0,
-        "premium_peak": 10897.0
+        "history_max": 11497.0,
+        "premium_peak": 11497.0
       },
       "Lyttos Mare": {
-        "history_max": 19207.0,
-        "premium_peak": 19207.0
+        "history_max": 19267.0,
+        "premium_peak": 19267.0
       },
       "Michelangelo Resort & Spa": {
         "history_max": 16119.0,
@@ -747,8 +838,8 @@
         "premium_peak": 12436.0
       },
       "Kakkos Terra Blu": {
-        "history_max": 14025.0,
-        "premium_peak": 14025.0
+        "history_max": 14165.0,
+        "premium_peak": 14165.0
       },
       "Kiani Beach": {
         "history_max": 11702.0,
@@ -759,8 +850,8 @@
         "premium_peak": 14002.0
       },
       "Mitsis Selection Blue Domes": {
-        "history_max": 14315.0,
-        "premium_peak": 14315.0
+        "history_max": 14364.0,
+        "premium_peak": 14364.0
       },
       "Mitsis Selection Laguna": {
         "history_max": 14655.0,
@@ -783,8 +874,8 @@
         "premium_peak": 12349.0
       },
       "Senseana Sea Side Resort & Spa (ex. Golden Star)": {
-        "history_max": 11167.0,
-        "premium_peak": 11167.0
+        "history_max": 11287.0,
+        "premium_peak": 11287.0
       },
       "Serita Beach": {
         "history_max": 11923.0,
@@ -927,8 +1018,8 @@
         "premium_peak": 10807.0
       },
       "Ramada Athens Attica Riviera (ex Aquamarina)": {
-        "history_max": 12243.0,
-        "premium_peak": 12243.0
+        "history_max": 12351.0,
+        "premium_peak": 12351.0
       },
       "Restia (Acharavi)": {
         "history_max": 13323.0,
@@ -983,8 +1074,8 @@
         "premium_peak": 10790.0
       },
       "Cooks Club Corfu (ex Ionian Park)": {
-        "history_max": 13597.0,
-        "premium_peak": 13597.0
+        "history_max": 15797.0,
+        "premium_peak": 15797.0
       },
       "Cavo Spada Luxury Resort & Spa Grecja, Kreta Zachodnia, Rapaniana": {
         "history_max": 9697.0,
@@ -1183,11 +1274,11 @@
         "premium_peak": 10048.0
       },
       "Aquila Elounda Village": {
-        "history_max": 18969.0,
-        "premium_peak": 18969.0
+        "history_max": 19249.0,
+        "premium_peak": 19249.0
       },
       "Sitia Beach": {
-        "history_max": 9657.0,
+        "history_max": 9857.0,
         "premium_peak": null
       },
       "Zeus Kos Beach": {
@@ -1200,6 +1291,10 @@
       },
       "Levante Beach Resort By Playitas Grecja, Rodos, Afandu": {
         "history_max": 8890.0,
+        "premium_peak": null
+      },
+      "Lydia Maris Resort & Spa": {
+        "history_max": 9476.0,
         "premium_peak": null
       }
     }
