@@ -598,10 +598,101 @@
       "created_at": "2026-09-16T00:31:30.682747+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Pyramisa Beach Resort Sahl Hasheesh_2026-09-16_00-30_zone_out_gone"
+    },
+    {
+      "hotel_name": "Royal Brayka Beach Resort (ex Zee Brayka)",
+      "duration_bucket": "",
+      "old_price": 8157.0,
+      "new_price": 8857.0,
+      "price_change": 700.0,
+      "price_change_pct": 8.581586367537085,
+      "timestamp": "2026-09-16 06:11:23.028180+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-16T06:11:56.895452+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Royal Brayka Beach Resort (ex Zee Brayka)_2026-09-16_06-11_+8.6"
+    },
+    {
+      "hotel_name": "Lazuli (Marsa Alam)",
+      "duration_bucket": "",
+      "old_price": 8457.0,
+      "new_price": 9357.0,
+      "price_change": 900.0,
+      "price_change_pct": 10.64207165661582,
+      "timestamp": "2026-09-16 06:11:23.028180+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-16T06:11:56.895478+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Lazuli (Marsa Alam)_2026-09-16_06-11_+10.6"
+    },
+    {
+      "hotel_name": "Domina Coral Bay Aquamarine",
+      "duration_bucket": "",
+      "old_price": 9836.0,
+      "new_price": 10945.0,
+      "price_change": 1109.0,
+      "price_change_pct": 11.274908499389996,
+      "timestamp": "2026-09-16 06:11:23.028180+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-16T06:11:56.895512+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Domina Coral Bay Aquamarine_2026-09-16_06-11_zone_out_+11.3"
+    },
+    {
+      "hotel_name": "Domina Coral Bay Bella Vista",
+      "duration_bucket": "",
+      "old_price": 8878.0,
+      "new_price": 10317.0,
+      "price_change": 1439.0,
+      "price_change_pct": 16.20860554178869,
+      "timestamp": "2026-09-16 06:11:23.028180+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-16T06:11:56.895522+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Domina Coral Bay Bella Vista_2026-09-16_06-11_zone_out_+16.2"
+    },
+    {
+      "hotel_name": "Domina Coral Bay Oasis",
+      "duration_bucket": "",
+      "old_price": 9029.0,
+      "new_price": 10380.0,
+      "price_change": 1351.0,
+      "price_change_pct": 14.962897330822905,
+      "timestamp": "2026-09-16 06:11:23.028180+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-16T06:11:56.895530+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Domina Coral Bay Oasis_2026-09-16_06-11_zone_out_+15.0"
+    },
+    {
+      "hotel_name": "Hilton Marsa Alam Nubian Resort",
+      "duration_bucket": "",
+      "old_price": 9936.0,
+      "new_price": 10092.0,
+      "price_change": 156.0,
+      "price_change_pct": 1.570048309178744,
+      "timestamp": "2026-09-16 06:11:23.028180+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-16T06:11:56.895538+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Hilton Marsa Alam Nubian Resort_2026-09-16_06-11_zone_out_+1.6"
+    },
+    {
+      "hotel_name": "Serenity Sky Arc",
+      "duration_bucket": "",
+      "old_price": 12457.0,
+      "new_price": 9932.0,
+      "price_change": -2525.0,
+      "price_change_pct": -20.26972786385165,
+      "timestamp": "2026-09-16 06:11:23.028180+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-16T06:11:56.895562+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Serenity Sky Arc_2026-09-16_06-11_comeback_20.3"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-16T00:30:49.132066+00:00",
+    "last_processed_run": "2026-09-16T06:11:23.028180+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 8105.0,
@@ -672,8 +763,8 @@
         "premium_peak": null
       },
       "Sheraton Miramar Resort (El Gouna)": {
-        "history_max": 10125.0,
-        "premium_peak": 10125.0
+        "history_max": 10418.0,
+        "premium_peak": 10418.0
       },
       "Novotel Sharm Palm": {
         "history_max": 11977.0,
@@ -688,8 +779,8 @@
         "premium_peak": null
       },
       "Nubian Village": {
-        "history_max": 13483.0,
-        "premium_peak": 13483.0
+        "history_max": 13682.0,
+        "premium_peak": 13682.0
       },
       "Jaz Solaya Resort (ex Sol Y Mar Solaya)": {
         "history_max": 11307.0,
@@ -736,8 +827,8 @@
         "premium_peak": 14897.0
       },
       "Jaz Elite Maraya": {
-        "history_max": 12276.0,
-        "premium_peak": 12276.0
+        "history_max": 12371.0,
+        "premium_peak": 12371.0
       },
       "Sultan Gardens Resort": {
         "history_max": 13225.0,
@@ -760,12 +851,12 @@
         "premium_peak": 12137.0
       },
       "Stella Di Mare Beach & Spa": {
-        "history_max": 11558.0,
-        "premium_peak": 11558.0
+        "history_max": 11574.0,
+        "premium_peak": 11574.0
       },
       "Jaz Makadi Oasis Resort": {
-        "history_max": 10503.0,
-        "premium_peak": 10503.0
+        "history_max": 11043.0,
+        "premium_peak": 11043.0
       },
       "Jaz Makadi Saraya (ex Iberotel)": {
         "history_max": 10607.0,
@@ -792,8 +883,8 @@
         "premium_peak": null
       },
       "Steigenberger Coraya Beach": {
-        "history_max": 17577.0,
-        "premium_peak": 17577.0
+        "history_max": 19317.0,
+        "premium_peak": 19317.0
       },
       "Sunrise Aqua Joy": {
         "history_max": 11977.0,
@@ -876,7 +967,7 @@
         "premium_peak": 14841.0
       },
       "Rewaya Inn Resort (ex. Hawaii Paradise Aqua Park Resort)": {
-        "history_max": 8314.0,
+        "history_max": 8582.0,
         "premium_peak": null
       },
       "Rewaya Luxury Resort": {
@@ -1092,8 +1183,8 @@
         "premium_peak": null
       },
       "Domina Coral Bay Aquamarine": {
-        "history_max": 10105.0,
-        "premium_peak": 10105.0
+        "history_max": 10945.0,
+        "premium_peak": 10945.0
       },
       "Cardina Resort by Sunrise": {
         "history_max": 11337.0,
@@ -1160,8 +1251,8 @@
         "premium_peak": 11403.0
       },
       "Amphoras Beach": {
-        "history_max": 10479.0,
-        "premium_peak": 10479.0
+        "history_max": 10987.0,
+        "premium_peak": 10987.0
       },
       "Ancient Sands Golf Resort": {
         "history_max": 9135.0,
@@ -1184,16 +1275,16 @@
         "premium_peak": 10997.0
       },
       "Xanadu Club Makadi Bay": {
-        "history_max": 11651.0,
-        "premium_peak": 11651.0
+        "history_max": 11867.0,
+        "premium_peak": 11867.0
       },
       "Domina Coral Bay Bella Vista": {
-        "history_max": 9297.0,
-        "premium_peak": null
+        "history_max": 10317.0,
+        "premium_peak": 10317.0
       },
       "Rixos Premium Magawish Suites & Villas": {
-        "history_max": 15217.0,
-        "premium_peak": 15217.0
+        "history_max": 17815.0,
+        "premium_peak": 17815.0
       },
       "Sunrise White Hills Resort": {
         "history_max": 16287.0,
@@ -1212,8 +1303,8 @@
         "premium_peak": 10337.0
       },
       "Sunrise Holidays Resort": {
-        "history_max": 14037.0,
-        "premium_peak": 14037.0
+        "history_max": 15777.0,
+        "premium_peak": 15777.0
       },
       "Fantazia Resort": {
         "history_max": 8527.0,
@@ -1288,8 +1379,8 @@
         "premium_peak": 14497.0
       },
       "Domina Coral Bay Oasis": {
-        "history_max": 9297.0,
-        "premium_peak": null
+        "history_max": 10380.0,
+        "premium_peak": 10380.0
       },
       "Sunrise Tucana Resort": {
         "history_max": 17141.0,
