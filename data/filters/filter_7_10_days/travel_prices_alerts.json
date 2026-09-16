@@ -585,10 +585,23 @@
       "created_at": "2026-09-15T21:36:22.714760+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Steigenberger Golf Resort_2026-09-15_21-35_zone_out_+1.4"
+    },
+    {
+      "hotel_name": "Pyramisa Beach Resort Sahl Hasheesh",
+      "duration_bucket": "",
+      "old_price": 9893.0,
+      "new_price": 9893.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-16 00:30:49.132066+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-16T00:31:30.682747+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pyramisa Beach Resort Sahl Hasheesh_2026-09-16_00-30_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-15T21:35:45.498327+00:00",
+    "last_processed_run": "2026-09-16T00:30:49.132066+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 8105.0,
@@ -627,8 +640,8 @@
         "premium_peak": 10557.0
       },
       "Movenpick Resort & Spa El Gouna": {
-        "history_max": 11093.0,
-        "premium_peak": 11093.0
+        "history_max": 11266.0,
+        "premium_peak": 11266.0
       },
       "Siva Golden Bay Makadi": {
         "history_max": 9417.0,
@@ -863,7 +876,7 @@
         "premium_peak": 14841.0
       },
       "Rewaya Inn Resort (ex. Hawaii Paradise Aqua Park Resort)": {
-        "history_max": 8063.0,
+        "history_max": 8314.0,
         "premium_peak": null
       },
       "Rewaya Luxury Resort": {
@@ -1167,8 +1180,8 @@
         "premium_peak": 12437.0
       },
       "Caesar Bay Resort": {
-        "history_max": 10697.0,
-        "premium_peak": 10697.0
+        "history_max": 10997.0,
+        "premium_peak": 10997.0
       },
       "Xanadu Club Makadi Bay": {
         "history_max": 11651.0,
@@ -1343,7 +1356,11 @@
         "premium_peak": 10083.0
       },
       "Gemma Resort (ex. Labranda Gemma Premium Resort)": {
-        "history_max": 9270.0,
+        "history_max": 9371.0,
+        "premium_peak": null
+      },
+      "V Grand Beach Resort Sahl Hasheesh": {
+        "history_max": 9893.0,
         "premium_peak": null
       }
     }
