@@ -754,10 +754,62 @@
       "created_at": "2026-09-16T11:51:30.713008+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort) Egipt, Hurghada_2026-09-16_11-51_zone_out_gone"
+    },
+    {
+      "hotel_name": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 10941.0,
+      "new_price": 9299.0,
+      "price_change": -1642.0,
+      "price_change_pct": -15.007768942509825,
+      "timestamp": "2026-09-16 17:10:53.140594+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-16T17:11:09.677249+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada_2026-09-16_17-10_-15.0"
+    },
+    {
+      "hotel_name": "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna",
+      "duration_bucket": "",
+      "old_price": 10294.0,
+      "new_price": 8523.0,
+      "price_change": -1771.0,
+      "price_change_pct": -17.204196619389936,
+      "timestamp": "2026-09-16 17:10:53.140594+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-16T17:11:09.677278+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna_2026-09-16_17-10_-17.2"
+    },
+    {
+      "hotel_name": "Rewaya Majestic Resort Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 10037.0,
+      "new_price": 8728.0,
+      "price_change": -1309.0,
+      "price_change_pct": -13.041745541496464,
+      "timestamp": "2026-09-16 17:10:53.140594+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-16T17:11:09.677291+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Majestic Resort Egipt, Hurghada_2026-09-16_17-10_-13.0"
+    },
+    {
+      "hotel_name": "Albatros Sea World Resort Marsa Alam Egipt, Marsa Alam, Al-Kusajr",
+      "duration_bucket": "",
+      "old_price": 10473.0,
+      "new_price": 10473.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-16 17:10:53.140594+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-16T17:11:09.677312+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Albatros Sea World Resort Marsa Alam Egipt, Marsa Alam, Al-Kusajr_2026-09-16_17-10_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-16T11:51:14.073142+00:00",
+    "last_processed_run": "2026-09-16T17:10:53.140594+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 10941.0,
@@ -808,7 +860,7 @@
         "premium_peak": null
       },
       "Parrotel Beach Resort (ex. Radisson Blu) Egipt, Sharm El Sheikh": {
-        "history_max": 10337.0,
+        "history_max": 10533.0,
         "premium_peak": null
       },
       "Novotel Marsa Alam Egipt, Marsa Alam": {
