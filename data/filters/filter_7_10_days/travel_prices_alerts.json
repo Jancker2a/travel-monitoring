@@ -1326,18 +1326,57 @@
       "created_at": "2026-09-17T13:38:38.249821+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Hilton Plaza (Hurghada)_2026-09-17_13-37_comeback_8.3"
+    },
+    {
+      "hotel_name": "Fantazia Resort",
+      "duration_bucket": "",
+      "old_price": 8236.0,
+      "new_price": 9198.0,
+      "price_change": 962.0,
+      "price_change_pct": 11.680427391937833,
+      "timestamp": "2026-09-17 15:07:57.583331+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-17T15:08:42.391928+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Fantazia Resort_2026-09-17_15-07_+11.7"
+    },
+    {
+      "hotel_name": "Royal Brayka Beach Resort (ex Zee Brayka)",
+      "duration_bucket": "",
+      "old_price": 8157.0,
+      "new_price": 8957.0,
+      "price_change": 800.0,
+      "price_change_pct": 9.807527277185239,
+      "timestamp": "2026-09-17 15:07:57.583331+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-17T15:08:42.391962+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Royal Brayka Beach Resort (ex Zee Brayka)_2026-09-17_15-07_+9.8"
+    },
+    {
+      "hotel_name": "Jaz Aquaviva",
+      "duration_bucket": "",
+      "old_price": 9765.0,
+      "new_price": 10327.0,
+      "price_change": 562.0,
+      "price_change_pct": 5.755248335893497,
+      "timestamp": "2026-09-17 15:07:57.583331+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-17T15:08:42.391990+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Aquaviva_2026-09-17_15-07_zone_out_+5.8"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-17T13:37:54.655232+00:00",
+    "last_processed_run": "2026-09-17T15:07:57.583331+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 9150.0,
         "premium_peak": null
       },
       "Steigenberger Aqua Magic": {
-        "history_max": 11502.0,
-        "premium_peak": 11502.0
+        "history_max": 11786.0,
+        "premium_peak": 11786.0
       },
       "Laguna Vista Garden": {
         "history_max": 12997.0,
@@ -1352,8 +1391,8 @@
         "premium_peak": 14514.0
       },
       "Maritim Jolie Ville Resort and Casino": {
-        "history_max": 13025.0,
-        "premium_peak": 13025.0
+        "history_max": 13921.0,
+        "premium_peak": 13921.0
       },
       "Marriott Hurghada Beach Resort": {
         "history_max": 9252.0,
@@ -1476,7 +1515,7 @@
         "premium_peak": 14711.0
       },
       "Stella Gardens Resort & Spa (ex Stella Di Mare Gardens)": {
-        "history_max": 9096.0,
+        "history_max": 9186.0,
         "premium_peak": null
       },
       "Jaz Grand Marsa (ex Resta Grand Resort)": {
@@ -1488,8 +1527,8 @@
         "premium_peak": 12137.0
       },
       "Stella Di Mare Beach & Spa": {
-        "history_max": 12095.0,
-        "premium_peak": 12095.0
+        "history_max": 12498.0,
+        "premium_peak": 12498.0
       },
       "Jaz Makadi Oasis Resort": {
         "history_max": 11394.0,
@@ -1508,8 +1547,8 @@
         "premium_peak": 14310.0
       },
       "Jaz Mirabel Park": {
-        "history_max": 10848.0,
-        "premium_peak": 10848.0
+        "history_max": 11074.0,
+        "premium_peak": 11074.0
       },
       "Steigenberger Golf Resort": {
         "history_max": 10877.0,
@@ -1584,7 +1623,7 @@
         "premium_peak": null
       },
       "Rehana Royal Beach Resort & Spa": {
-        "history_max": 9292.0,
+        "history_max": 9496.0,
         "premium_peak": null
       },
       "Rixos Radamis Sharm El Sheikh": {
@@ -1844,8 +1883,8 @@
         "premium_peak": 10413.0
       },
       "Albatros Sea World Resort Marsa Alam": {
-        "history_max": 10297.0,
-        "premium_peak": 10297.0
+        "history_max": 10437.0,
+        "premium_peak": 10437.0
       },
       "Xperience Kiroseiz Parkland": {
         "history_max": 9217.0,
@@ -1936,15 +1975,15 @@
         "premium_peak": 13856.0
       },
       "Hilton Marsa Alam Nubian Resort": {
-        "history_max": 11040.0,
-        "premium_peak": 11040.0
+        "history_max": 11340.0,
+        "premium_peak": 11340.0
       },
       "Sunrise Holidays Resort": {
-        "history_max": 15777.0,
-        "premium_peak": 15777.0
+        "history_max": 16197.0,
+        "premium_peak": 16197.0
       },
       "Fantazia Resort": {
-        "history_max": 8841.0,
+        "history_max": 9198.0,
         "premium_peak": null
       },
       "Sunrise Remal Beach": {
@@ -1988,7 +2027,7 @@
         "premium_peak": 11187.0
       },
       "Dream Lagoon & Aqua Park Resort (ex. Floriana Dream Lagoon)": {
-        "history_max": 7677.0,
+        "history_max": 8033.0,
         "premium_peak": null
       },
       "Jasmine Palace": {
@@ -2004,12 +2043,12 @@
         "premium_peak": 10629.0
       },
       "Sunrise Crystal Bay Resort": {
-        "history_max": 15705.0,
-        "premium_peak": 15705.0
+        "history_max": 15974.0,
+        "premium_peak": 15974.0
       },
       "Sunrise Arabian Beach Resort": {
-        "history_max": 15566.0,
-        "premium_peak": 15566.0
+        "history_max": 15968.0,
+        "premium_peak": 15968.0
       },
       "Jaz Almaza Beach": {
         "history_max": 14497.0,
