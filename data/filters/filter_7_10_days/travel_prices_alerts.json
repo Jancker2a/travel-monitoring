@@ -1222,10 +1222,36 @@
       "created_at": "2026-09-17T01:35:16.477014+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Tropitel Sahl Hasheesh_2026-09-17_01-34_zone_out_+11.3"
+    },
+    {
+      "hotel_name": "Lazuli (Marsa Alam)",
+      "duration_bucket": "",
+      "old_price": 8657.0,
+      "new_price": 9357.0,
+      "price_change": 700.0,
+      "price_change_pct": 8.085942012244427,
+      "timestamp": "2026-09-17 07:50:22.489405+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-17T07:50:59.926491+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Lazuli (Marsa Alam)_2026-09-17_07-50_+8.1"
+    },
+    {
+      "hotel_name": "Radisson Individuals Marina Port Ghalib (ex. Sunrise Marina Resort)",
+      "duration_bucket": "",
+      "old_price": 11010.0,
+      "new_price": 9907.0,
+      "price_change": -1103.0,
+      "price_change_pct": -10.018165304268846,
+      "timestamp": "2026-09-17 07:50:22.489405+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-17T07:50:59.926535+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Radisson Individuals Marina Port Ghalib (ex. Sunrise Marina Resort)_2026-09-17_07-50_comeback_10.0"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-17T01:34:32.534165+00:00",
+    "last_processed_run": "2026-09-17T07:50:22.489405+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 8882.0,
@@ -1364,8 +1390,8 @@
         "premium_peak": 12371.0
       },
       "Sultan Gardens Resort": {
-        "history_max": 13288.0,
-        "premium_peak": 13288.0
+        "history_max": 13477.0,
+        "premium_peak": 13477.0
       },
       "Jaz Elite Negma": {
         "history_max": 14711.0,
@@ -1388,8 +1414,8 @@
         "premium_peak": 12095.0
       },
       "Jaz Makadi Oasis Resort": {
-        "history_max": 11137.0,
-        "premium_peak": 11137.0
+        "history_max": 11394.0,
+        "premium_peak": 11394.0
       },
       "Jaz Makadi Saraya (ex Iberotel)": {
         "history_max": 11509.0,
@@ -1648,8 +1674,8 @@
         "premium_peak": null
       },
       "Cleopatra Luxury Resort (Makadi Bay)": {
-        "history_max": 11592.0,
-        "premium_peak": 11592.0
+        "history_max": 12270.0,
+        "premium_peak": 12270.0
       },
       "Club Magic Life Kalawy": {
         "history_max": 11171.0,
@@ -1880,8 +1906,8 @@
         "premium_peak": 11747.0
       },
       "Sunrise Select Garden Beach Resort & Spa": {
-        "history_max": 11167.0,
-        "premium_peak": 11167.0
+        "history_max": 11187.0,
+        "premium_peak": 11187.0
       },
       "Dream Lagoon & Aqua Park Resort (ex. Floriana Dream Lagoon)": {
         "history_max": 7677.0,
