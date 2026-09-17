@@ -910,10 +910,75 @@
       "created_at": "2026-09-17T07:51:34.412862+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Amwaj Oyoun Resort & Spa (ex AA Amwaj Resort) Egipt, Sharm El Sheikh_2026-09-17_07-51_zone_out_gone"
+    },
+    {
+      "hotel_name": "Rewaya Majestic Resort Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 10247.0,
+      "new_price": 8888.0,
+      "price_change": -1359.0,
+      "price_change_pct": -13.26241826876159,
+      "timestamp": "2026-09-17 13:38:52.268225+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-17T13:39:09.069114+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Majestic Resort Egipt, Hurghada_2026-09-17_13-38_-13.3"
+    },
+    {
+      "hotel_name": "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort) Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 10925.0,
+      "new_price": 9365.0,
+      "price_change": -1560.0,
+      "price_change_pct": -14.279176201372998,
+      "timestamp": "2026-09-17 13:38:52.268225+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-17T13:39:09.069140+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort) Egipt, Hurghada_2026-09-17_13-38_-14.3"
+    },
+    {
+      "hotel_name": "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna",
+      "duration_bucket": "",
+      "old_price": 10294.0,
+      "new_price": 8701.0,
+      "price_change": -1593.0,
+      "price_change_pct": -15.475034000388577,
+      "timestamp": "2026-09-17 13:38:52.268225+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-17T13:39:09.069156+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna_2026-09-17_13-38_-15.5"
+    },
+    {
+      "hotel_name": "Sea Star Beau Rivage Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 8827.0,
+      "new_price": 9751.0,
+      "price_change": 924.0,
+      "price_change_pct": 10.467882632831087,
+      "timestamp": "2026-09-17 13:38:52.268225+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-17T13:39:09.069167+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sea Star Beau Rivage Egipt, Hurghada_2026-09-17_13-38_+10.5"
+    },
+    {
+      "hotel_name": "Marriott Hurghada Beach Resort Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 10609.0,
+      "new_price": 10609.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-17 13:38:52.268225+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-17T13:39:09.069182+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Marriott Hurghada Beach Resort Egipt, Hurghada_2026-09-17_13-38_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-17T07:51:16.775667+00:00",
+    "last_processed_run": "2026-09-17T13:38:52.268225+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 10941.0,
