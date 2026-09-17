@@ -1170,10 +1170,62 @@
       "created_at": "2026-09-16T23:05:27.389956+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Naama Bay Promenade Mountain Resort_2026-09-16_23-04_zone_out_gone"
+    },
+    {
+      "hotel_name": "Royal Brayka Beach Resort (ex Zee Brayka)",
+      "duration_bucket": "",
+      "old_price": 8957.0,
+      "new_price": 8157.0,
+      "price_change": -800.0,
+      "price_change_pct": -8.931561906888467,
+      "timestamp": "2026-09-17 01:34:32.534165+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-17T01:35:16.476944+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Royal Brayka Beach Resort (ex Zee Brayka)_2026-09-17_01-34_-8.9"
+    },
+    {
+      "hotel_name": "El Malikia Resort Abu Dabbab (ex.Sol Y Mar)",
+      "duration_bucket": "",
+      "old_price": 9703.0,
+      "new_price": 10053.0,
+      "price_change": 350.0,
+      "price_change_pct": 3.6071318149026075,
+      "timestamp": "2026-09-17 01:34:32.534165+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-17T01:35:16.476990+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "El Malikia Resort Abu Dabbab (ex.Sol Y Mar)_2026-09-17_01-34_zone_out_+3.6"
+    },
+    {
+      "hotel_name": "Hilton Marsa Alam Nubian Resort",
+      "duration_bucket": "",
+      "old_price": 9824.0,
+      "new_price": 10257.0,
+      "price_change": 433.0,
+      "price_change_pct": 4.40757328990228,
+      "timestamp": "2026-09-17 01:34:32.534165+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-17T01:35:16.477004+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Hilton Marsa Alam Nubian Resort_2026-09-17_01-34_zone_out_+4.4"
+    },
+    {
+      "hotel_name": "Tropitel Sahl Hasheesh",
+      "duration_bucket": "",
+      "old_price": 9490.0,
+      "new_price": 10567.0,
+      "price_change": 1077.0,
+      "price_change_pct": 11.348788198103268,
+      "timestamp": "2026-09-17 01:34:32.534165+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-17T01:35:16.477014+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Tropitel Sahl Hasheesh_2026-09-17_01-34_zone_out_+11.3"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-16T23:04:48.827155+00:00",
+    "last_processed_run": "2026-09-17T01:34:32.534165+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 8882.0,
@@ -1236,8 +1288,8 @@
         "premium_peak": 10043.0
       },
       "Sheraton Soma Bay": {
-        "history_max": 12311.0,
-        "premium_peak": 12311.0
+        "history_max": 13516.0,
+        "premium_peak": 13516.0
       },
       "Novotel Marsa Alam": {
         "history_max": 8957.0,
@@ -1264,12 +1316,12 @@
         "premium_peak": 13682.0
       },
       "Jaz Solaya Resort (ex Sol Y Mar Solaya)": {
-        "history_max": 11307.0,
-        "premium_peak": 11307.0
+        "history_max": 11491.0,
+        "premium_peak": 11491.0
       },
       "Palm Royale Soma Bay": {
-        "history_max": 11174.0,
-        "premium_peak": 11174.0
+        "history_max": 11537.0,
+        "premium_peak": 11537.0
       },
       "Jaz Sharm Dreams Resort": {
         "history_max": 10770.0,
@@ -1336,8 +1388,8 @@
         "premium_peak": 12095.0
       },
       "Jaz Makadi Oasis Resort": {
-        "history_max": 11043.0,
-        "premium_peak": 11043.0
+        "history_max": 11137.0,
+        "premium_peak": 11137.0
       },
       "Jaz Makadi Saraya (ex Iberotel)": {
         "history_max": 11509.0,
@@ -1532,8 +1584,8 @@
         "premium_peak": 12074.0
       },
       "Pickalbatros Oasis Port Ghalib (ex. Red Sea Port Ghalib Resort)": {
-        "history_max": 10343.0,
-        "premium_peak": 10343.0
+        "history_max": 11023.0,
+        "premium_peak": 11023.0
       },
       "Pickalbatros Palace Port Ghalib (ex. Red Sea The Palace)": {
         "history_max": 10539.0,
@@ -1612,8 +1664,8 @@
         "premium_peak": 10715.0
       },
       "The V Luxury Resort": {
-        "history_max": 11433.0,
-        "premium_peak": 11433.0
+        "history_max": 14177.0,
+        "premium_peak": 14177.0
       },
       "Casa Mare Resort (ex. Royal Tulip Beach Resort)": {
         "history_max": 7857.0,
@@ -1704,11 +1756,11 @@
         "premium_peak": 15697.0
       },
       "Xanadu Makadi Bay": {
-        "history_max": 12402.0,
-        "premium_peak": 12402.0
+        "history_max": 12906.0,
+        "premium_peak": 12906.0
       },
       "Amarina Jannah Resort Aquapark": {
-        "history_max": 9247.0,
+        "history_max": 9288.0,
         "premium_peak": null
       },
       "Titanic Royal": {
@@ -1800,8 +1852,8 @@
         "premium_peak": 10617.0
       },
       "El Malikia Resort Abu Dabbab (ex.Sol Y Mar)": {
-        "history_max": 9703.0,
-        "premium_peak": null
+        "history_max": 10053.0,
+        "premium_peak": 10053.0
       },
       "IL Mercato Splash Aqua Park": {
         "history_max": 8408.0,
@@ -1928,12 +1980,12 @@
         "premium_peak": 10083.0
       },
       "Gemma Resort (ex. Labranda Gemma Premium Resort)": {
-        "history_max": 9622.0,
+        "history_max": 9772.0,
         "premium_peak": null
       },
       "V Grand Beach Resort Sahl Hasheesh": {
-        "history_max": 10353.0,
-        "premium_peak": 10353.0
+        "history_max": 10440.0,
+        "premium_peak": 10440.0
       },
       "Cleopatra Signature Marsa Alam": {
         "history_max": 11004.0,
@@ -1946,6 +1998,10 @@
       "Ecotel Dahab Bay View Resort": {
         "history_max": 7982.0,
         "premium_peak": null
+      },
+      "Movenpick Resort El Quseir": {
+        "history_max": 17983.0,
+        "premium_peak": 17983.0
       }
     }
   }

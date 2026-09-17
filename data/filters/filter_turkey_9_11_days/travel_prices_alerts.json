@@ -1326,10 +1326,101 @@
       "created_at": "2026-09-16T23:07:03.552456+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sultan of Dreams_2026-09-16_23-06_zone_out_+7.3"
+    },
+    {
+      "hotel_name": "Daima Biz (Kemer)",
+      "duration_bucket": "",
+      "old_price": 8271.0,
+      "new_price": 9499.0,
+      "price_change": 1228.0,
+      "price_change_pct": 14.847055978720833,
+      "timestamp": "2026-09-17 01:35:51.765965+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-17T01:37:06.342630+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Daima Biz (Kemer)_2026-09-17_01-35_+14.8"
+    },
+    {
+      "hotel_name": "M. C. Beach Resort (ex. Otium MC Beach Resort)",
+      "duration_bucket": "",
+      "old_price": 6512.0,
+      "new_price": 6512.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-17 01:35:51.765965+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-17T01:37:06.342664+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "M. C. Beach Resort (ex. Otium MC Beach Resort)_2026-09-17_01-35_zone_out_gone"
+    },
+    {
+      "hotel_name": "Side Aluna",
+      "duration_bucket": "",
+      "old_price": 9770.0,
+      "new_price": 11394.0,
+      "price_change": 1624.0,
+      "price_change_pct": 16.62231320368475,
+      "timestamp": "2026-09-17 01:35:51.765965+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-17T01:37:06.342678+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Side Aluna_2026-09-17_01-35_zone_out_+16.6"
+    },
+    {
+      "hotel_name": "Well Palace Side (ex. Side Crown Charm Palace)",
+      "duration_bucket": "",
+      "old_price": 8960.0,
+      "new_price": 8960.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-17 01:35:51.765965+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-17T01:37:06.342688+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Well Palace Side (ex. Side Crown Charm Palace)_2026-09-17_01-35_zone_out_gone"
+    },
+    {
+      "hotel_name": "Club Nena (Side)",
+      "duration_bucket": "",
+      "old_price": 11982.0,
+      "new_price": 9664.0,
+      "price_change": -2318.0,
+      "price_change_pct": -19.345685194458355,
+      "timestamp": "2026-09-17 01:35:51.765965+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-17T01:37:06.342711+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Club Nena (Side)_2026-09-17_01-35_comeback_19.3"
+    },
+    {
+      "hotel_name": "Aydinbey Gold Dreams",
+      "duration_bucket": "",
+      "old_price": 10534.0,
+      "new_price": 9015.0,
+      "price_change": -1519.0,
+      "price_change_pct": -14.419973419403837,
+      "timestamp": "2026-09-17 01:35:51.765965+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-17T01:37:06.342724+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Aydinbey Gold Dreams_2026-09-17_01-35_comeback_14.4"
+    },
+    {
+      "hotel_name": "Grand Kolibri Prestige & Spa",
+      "duration_bucket": "",
+      "old_price": 11181.0,
+      "new_price": 9666.0,
+      "price_change": -1515.0,
+      "price_change_pct": -13.549771934531796,
+      "timestamp": "2026-09-17 01:35:51.765965+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-17T01:37:06.342735+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Grand Kolibri Prestige & Spa_2026-09-17_01-35_comeback_13.5"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-16T23:06:01.514623+00:00",
+    "last_processed_run": "2026-09-17T01:35:51.765965+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 10060.0,
@@ -1516,8 +1607,8 @@
         "premium_peak": 15702.0
       },
       "Fantasia De Luxe Kusadasi": {
-        "history_max": 11320.0,
-        "premium_peak": 11320.0
+        "history_max": 11923.0,
+        "premium_peak": 11923.0
       },
       "Sirene Belek": {
         "history_max": 14759.0,
@@ -1536,8 +1627,8 @@
         "premium_peak": null
       },
       "Eftalia Ocean (Alanya)": {
-        "history_max": 12933.0,
-        "premium_peak": 12933.0
+        "history_max": 13723.0,
+        "premium_peak": 13723.0
       },
       "Eftalia Marin": {
         "history_max": 11767.0,
@@ -1624,16 +1715,16 @@
         "premium_peak": 12262.0
       },
       "Side Aluna": {
-        "history_max": 10656.0,
-        "premium_peak": 10656.0
+        "history_max": 11394.0,
+        "premium_peak": 11394.0
       },
       "Grand Cettia": {
         "history_max": 9277.0,
         "premium_peak": null
       },
       "Side Star Elegance": {
-        "history_max": 16781.0,
-        "premium_peak": 16781.0
+        "history_max": 17784.0,
+        "premium_peak": 17784.0
       },
       "Granada Luxury Okurcalar": {
         "history_max": 14044.0,
@@ -1744,8 +1835,8 @@
         "premium_peak": 17456.0
       },
       "Royal Seginus": {
-        "history_max": 14692.0,
-        "premium_peak": 14692.0
+        "history_max": 14980.0,
+        "premium_peak": 14980.0
       },
       "Ozkaymak Incekum": {
         "history_max": 11992.0,
@@ -1832,8 +1923,8 @@
         "premium_peak": null
       },
       "Rai Premium Tekirova (ex. Queens Park Tekirova)": {
-        "history_max": 14672.0,
-        "premium_peak": 14672.0
+        "history_max": 15260.0,
+        "premium_peak": 15260.0
       },
       "Paloma Sencia": {
         "history_max": 14195.0,
@@ -1932,8 +2023,8 @@
         "premium_peak": 12844.0
       },
       "Marine Family Club Beach (ex. Otium Family Club Marine Beach)": {
-        "history_max": 10080.0,
-        "premium_peak": 10080.0
+        "history_max": 10548.0,
+        "premium_peak": 10548.0
       },
       "Mirage Park Resort": {
         "history_max": 15706.0,
@@ -2132,8 +2223,8 @@
         "premium_peak": null
       },
       "Arcanus Hotels Sorgun (ex. Asteria Sorgun)": {
-        "history_max": 14981.0,
-        "premium_peak": 14981.0
+        "history_max": 15399.0,
+        "premium_peak": 15399.0
       },
       "Casa Fora Beach Resort": {
         "history_max": 13756.0,
@@ -2244,8 +2335,8 @@
         "premium_peak": null
       },
       "Baia Salima Kemer (ex Club Salima)": {
-        "history_max": 14553.0,
-        "premium_peak": 14553.0
+        "history_max": 16914.0,
+        "premium_peak": 16914.0
       },
       "Trendy Perge Resort & Suites": {
         "history_max": 15413.0,
@@ -2368,7 +2459,7 @@
         "premium_peak": 14414.0
       },
       "Daima Biz (Kemer)": {
-        "history_max": 8271.0,
+        "history_max": 9499.0,
         "premium_peak": null
       },
       "Dedeman Kemer Resort": {
@@ -2384,8 +2475,8 @@
         "premium_peak": 13051.0
       },
       "Sunis Efes Royal Palace Resort": {
-        "history_max": 16958.0,
-        "premium_peak": 16958.0
+        "history_max": 17734.0,
+        "premium_peak": 17734.0
       },
       "Delphin Botanik Platinum (Alanya)": {
         "history_max": 17204.0,
@@ -2492,8 +2583,8 @@
         "premium_peak": null
       },
       "Club Paradiso": {
-        "history_max": 11264.0,
-        "premium_peak": 11264.0
+        "history_max": 12218.0,
+        "premium_peak": 12218.0
       },
       "Swandor Kemer (ex. Pgs Kiris Resort)": {
         "history_max": 15683.0,
@@ -2626,6 +2717,10 @@
       "Emelda Sun Club (ex. Simena Sun Club)": {
         "history_max": 16514.0,
         "premium_peak": 16514.0
+      },
+      "DoubleTree by Hilton Antalya Kemer": {
+        "history_max": 17793.0,
+        "premium_peak": 17793.0
       }
     }
   }
