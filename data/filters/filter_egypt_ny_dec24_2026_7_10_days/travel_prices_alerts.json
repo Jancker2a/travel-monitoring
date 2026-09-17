@@ -1040,10 +1040,88 @@
       "created_at": "2026-09-17T15:09:12.071125+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort) Egipt, Hurghada_2026-09-17_15-08_zone_out_gone"
+    },
+    {
+      "hotel_name": "Regency Plaza Aqua Park Spa Egipt, Sharm El Sheikh, Szarm el-Szejk",
+      "duration_bucket": "",
+      "old_price": 10680.0,
+      "new_price": 9514.0,
+      "price_change": -1166.0,
+      "price_change_pct": -10.917602996254681,
+      "timestamp": "2026-09-17 22:20:46.828349+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-17T22:21:06.297515+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Regency Plaza Aqua Park Spa Egipt, Sharm El Sheikh, Szarm el-Szejk_2026-09-17_22-20_-10.9"
+    },
+    {
+      "hotel_name": "Xperience Kiroseiz Premier Egipt, Sharm El Sheikh",
+      "duration_bucket": "",
+      "old_price": 10311.0,
+      "new_price": 9391.0,
+      "price_change": -920.0,
+      "price_change_pct": -8.92250994083988,
+      "timestamp": "2026-09-17 22:20:46.828349+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-17T22:21:06.297543+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xperience Kiroseiz Premier Egipt, Sharm El Sheikh_2026-09-17_22-20_-8.9"
+    },
+    {
+      "hotel_name": "Rehana Royal Beach Resort & Spa Egipt, Sharm El Sheikh",
+      "duration_bucket": "",
+      "old_price": 10957.0,
+      "new_price": 10957.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-17 22:20:46.828349+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-17T22:21:06.297562+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rehana Royal Beach Resort & Spa Egipt, Sharm El Sheikh_2026-09-17_22-20_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sharm Grand Plaza Resort Egipt, Sharm El Sheikh",
+      "duration_bucket": "",
+      "old_price": 10881.0,
+      "new_price": 10881.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-17 22:20:46.828349+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-17T22:21:06.297572+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sharm Grand Plaza Resort Egipt, Sharm El Sheikh_2026-09-17_22-20_zone_out_gone"
+    },
+    {
+      "hotel_name": "Stella Di Mare Beach Resort & Spa (ex. Stella Makadi Resort) Egipt, Hurghada, Makadi Bay",
+      "duration_bucket": "",
+      "old_price": 10952.0,
+      "new_price": 10952.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-17 22:20:46.828349+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-17T22:21:06.297580+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Stella Di Mare Beach Resort & Spa (ex. Stella Makadi Resort) Egipt, Hurghada, Makadi Bay_2026-09-17_22-20_zone_out_gone"
+    },
+    {
+      "hotel_name": "Three Corners Fayrouz Plaza Beach Resort Egipt, Marsa Alam",
+      "duration_bucket": "",
+      "old_price": 10662.0,
+      "new_price": 10662.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-17 22:20:46.828349+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-17T22:21:06.297588+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Three Corners Fayrouz Plaza Beach Resort Egipt, Marsa Alam_2026-09-17_22-20_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-17T18:24:15.666750+00:00",
+    "last_processed_run": "2026-09-17T22:20:46.828349+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 10941.0,
@@ -1194,7 +1272,7 @@
         "premium_peak": null
       },
       "Sharm Grand Plaza Resort": {
-        "history_max": 10869.0,
+        "history_max": 10881.0,
         "premium_peak": null
       },
       "Marriott Hurghada Beach Resort": {
@@ -1227,6 +1305,38 @@
       },
       "Amwaj Oyoun Resort & Spa (ex AA Amwaj Resort) Egipt, Sharm El Sheikh": {
         "history_max": 10942.0,
+        "premium_peak": null
+      },
+      "Stella Beach Resort & Spa": {
+        "history_max": 10952.0,
+        "premium_peak": null
+      },
+      "Domina Coral Bay Sultan Egipt, Sharm El Sheikh": {
+        "history_max": 10271.0,
+        "premium_peak": null
+      },
+      "Domina Coral Bay Harem Egipt, Sharm El Sheikh": {
+        "history_max": 9751.0,
+        "premium_peak": null
+      },
+      "Domina Coral Bay Oasis Egipt, Sharm El Sheikh": {
+        "history_max": 9751.0,
+        "premium_peak": null
+      },
+      "Domina Coral Bay Aquamarine Egipt, Sharm El Sheikh": {
+        "history_max": 10401.0,
+        "premium_peak": null
+      },
+      "Royal Regency Club Egipt, Sharm El Sheikh, Szarm el-Szejk": {
+        "history_max": 10070.0,
+        "premium_peak": null
+      },
+      "Bellagio Beach Resort & Spa (ex. Panorama Bungalows Hurghada)": {
+        "history_max": 10620.0,
+        "premium_peak": null
+      },
+      "Xperience Kiroseiz Parkland Egipt, Sharm El Sheikh": {
+        "history_max": 9715.0,
         "premium_peak": null
       }
     }
