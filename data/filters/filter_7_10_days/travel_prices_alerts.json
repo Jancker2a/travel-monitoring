@@ -1365,10 +1365,49 @@
       "created_at": "2026-09-17T15:08:42.391990+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Jaz Aquaviva_2026-09-17_15-07_zone_out_+5.8"
+    },
+    {
+      "hotel_name": "Hilton Plaza (Hurghada)",
+      "duration_bucket": "",
+      "old_price": 9738.0,
+      "new_price": 10377.0,
+      "price_change": 639.0,
+      "price_change_pct": 6.561922365988909,
+      "timestamp": "2026-09-17 18:23:20.741364+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-17T18:24:03.372935+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Hilton Plaza (Hurghada)_2026-09-17_18-23_zone_out_+6.6"
+    },
+    {
+      "hotel_name": "Desert Rose Resort",
+      "duration_bucket": "",
+      "old_price": 13226.0,
+      "new_price": 9348.0,
+      "price_change": -3878.0,
+      "price_change_pct": -29.321034326326934,
+      "timestamp": "2026-09-17 18:23:20.741364+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-17T18:24:03.372979+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Desert Rose Resort_2026-09-17_18-23_comeback_29.3"
+    },
+    {
+      "hotel_name": "Gravity Sahl Hasheesh (Ex. Ocean Breeze)",
+      "duration_bucket": "",
+      "old_price": 11789.0,
+      "new_price": 9646.0,
+      "price_change": -2143.0,
+      "price_change_pct": -18.177962507422173,
+      "timestamp": "2026-09-17 18:23:20.741364+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-17T18:24:03.372995+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Gravity Sahl Hasheesh (Ex. Ocean Breeze)_2026-09-17_18-23_comeback_18.2"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-17T15:07:57.583331+00:00",
+    "last_processed_run": "2026-09-17T18:23:20.741364+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 9150.0,
@@ -1463,8 +1502,8 @@
         "premium_peak": 11491.0
       },
       "Palm Royale Soma Bay": {
-        "history_max": 11707.0,
-        "premium_peak": 11707.0
+        "history_max": 11799.0,
+        "premium_peak": 11799.0
       },
       "Jaz Sharm Dreams Resort": {
         "history_max": 10770.0,
@@ -1515,7 +1554,7 @@
         "premium_peak": 14711.0
       },
       "Stella Gardens Resort & Spa (ex Stella Di Mare Gardens)": {
-        "history_max": 9186.0,
+        "history_max": 9187.0,
         "premium_peak": null
       },
       "Jaz Grand Marsa (ex Resta Grand Resort)": {
@@ -1539,7 +1578,7 @@
         "premium_peak": 11509.0
       },
       "Stella Beach Resort & Spa": {
-        "history_max": 9054.0,
+        "history_max": 9090.0,
         "premium_peak": null
       },
       "Jaz Makadina": {
@@ -1579,7 +1618,7 @@
         "premium_peak": 11887.0
       },
       "Sataya Resort (ex. Labranda Sataya Marsa Alam)": {
-        "history_max": 9457.0,
+        "history_max": 9657.0,
         "premium_peak": null
       },
       "Pyramisa Beach Resort Sahl Hasheesh": {
@@ -1651,8 +1690,8 @@
         "premium_peak": null
       },
       "Rixos Premium Seagate": {
-        "history_max": 14757.0,
-        "premium_peak": 14757.0
+        "history_max": 14851.0,
+        "premium_peak": 14851.0
       },
       "Rixos Premium Magawish Bay View": {
         "history_max": 16253.0,
@@ -1755,7 +1794,7 @@
         "premium_peak": 11383.0
       },
       "Sea Star Beau Rivage": {
-        "history_max": 8906.0,
+        "history_max": 8945.0,
         "premium_peak": null
       },
       "Pickalbatros Vita Resort Portofino": {
@@ -1763,8 +1802,8 @@
         "premium_peak": null
       },
       "Jaz Aquamarine Resort": {
-        "history_max": 10873.0,
-        "premium_peak": 10873.0
+        "history_max": 10911.0,
+        "premium_peak": 10911.0
       },
       "Jaz Elite Riviera": {
         "history_max": 15417.0,
@@ -1779,8 +1818,8 @@
         "premium_peak": 11184.0
       },
       "Charmillion Garden Aqua Park": {
-        "history_max": 10232.0,
-        "premium_peak": 10232.0
+        "history_max": 10489.0,
+        "premium_peak": 10489.0
       },
       "Cleopatra Luxury Resort": {
         "history_max": 10886.0,
@@ -2027,7 +2066,7 @@
         "premium_peak": 11187.0
       },
       "Dream Lagoon & Aqua Park Resort (ex. Floriana Dream Lagoon)": {
-        "history_max": 8033.0,
+        "history_max": 8150.0,
         "premium_peak": null
       },
       "Jasmine Palace": {

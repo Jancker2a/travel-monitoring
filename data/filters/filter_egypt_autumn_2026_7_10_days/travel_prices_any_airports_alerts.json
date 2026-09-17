@@ -2106,10 +2106,62 @@
       "created_at": "2026-09-17T15:09:05.780672+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Swissotel Sharm El Sheikh_2026-09-17_15-08_zone_out_gone"
+    },
+    {
+      "hotel_name": "Cleopatra Luxury Resort",
+      "duration_bucket": "",
+      "old_price": 10327.0,
+      "new_price": 10327.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-17 18:23:44.303221+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-17T18:24:23.879402+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Cleopatra Luxury Resort_2026-09-17_18-23_zone_out_gone"
+    },
+    {
+      "hotel_name": "Pickalbatros Vita Resort Portofino Egipt, Marsa Alam",
+      "duration_bucket": "",
+      "old_price": 7747.0,
+      "new_price": 7747.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-17 18:23:44.303221+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-17T18:24:23.879430+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Vita Resort Portofino Egipt, Marsa Alam_2026-09-17_18-23_zone_out_gone"
+    },
+    {
+      "hotel_name": "Royal Lagoons Aqua (ex. Premium Blue)",
+      "duration_bucket": "",
+      "old_price": 8227.0,
+      "new_price": 8227.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-17 18:23:44.303221+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-17T18:24:23.879440+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Royal Lagoons Aqua (ex. Premium Blue)_2026-09-17_18-23_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sea Star Beau Rivage",
+      "duration_bucket": "",
+      "old_price": 8127.0,
+      "new_price": 8127.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-17 18:23:44.303221+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-17T18:24:23.879448+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sea Star Beau Rivage_2026-09-17_18-23_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-17T15:08:25.650583+00:00",
+    "last_processed_run": "2026-09-17T18:23:44.303221+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 6845.0,
@@ -2164,7 +2216,7 @@
         "premium_peak": null
       },
       "Pickalbatros Villaggio Resort Portofino Egipt, Marsa Alam": {
-        "history_max": 7567.0,
+        "history_max": 8057.0,
         "premium_peak": null
       },
       "Pickalbatros Vita Resort Portofino Egipt, Marsa Alam": {
@@ -2196,7 +2248,7 @@
         "premium_peak": null
       },
       "Regency Plaza Aqua Park Spa Egipt, Sharm El Sheikh, Szarm el-Szejk": {
-        "history_max": 7068.0,
+        "history_max": 7252.0,
         "premium_peak": null
       },
       "Old Palace Resort": {
@@ -2212,7 +2264,7 @@
         "premium_peak": null
       },
       "Novotel Marsa Alam Egipt, Marsa Alam": {
-        "history_max": 6227.0,
+        "history_max": 6307.0,
         "premium_peak": null
       },
       "Jasmine Palace": {
@@ -2544,7 +2596,7 @@
         "premium_peak": null
       },
       "Amwaj Oyoun Resort & Casino": {
-        "history_max": 8995.0,
+        "history_max": 9089.0,
         "premium_peak": null
       },
       "Domina Coral Bay Harem": {
@@ -2660,11 +2712,11 @@
         "premium_peak": null
       },
       "Albatros Palace Port Ghalib (ex. Red Sea The Palace) Egipt, Marsa Alam, Port Ghalib": {
-        "history_max": 7799.0,
+        "history_max": 7997.0,
         "premium_peak": null
       },
       "Akassia Swiss Resort (ex. Calimera Club Akassia Swiss Resort)": {
-        "history_max": 9265.0,
+        "history_max": 9267.0,
         "premium_peak": null
       },
       "Albatros Sea World Resort Marsa Alam Egipt, Marsa Alam, Al-Kusajr": {
@@ -2748,7 +2800,7 @@
         "premium_peak": null
       },
       "Hilton Marsa Alam Nubian Resort": {
-        "history_max": 8247.0,
+        "history_max": 8587.0,
         "premium_peak": null
       },
       "IL Mercato Splash Aqua Park": {
@@ -2800,7 +2852,7 @@
         "premium_peak": null
       },
       "Royal Brayka Beach Resort (ex Zee Brayka)": {
-        "history_max": 8297.0,
+        "history_max": 8897.0,
         "premium_peak": null
       },
       "Royal Lagoons Aqua (ex. Premium Blue)": {
@@ -2909,6 +2961,10 @@
       },
       "Mercure Dahab Bay View Egipt, Dahab": {
         "history_max": 7712.0,
+        "premium_peak": null
+      },
+      "Sea Star Beau Rivage Egipt, Hurghada": {
+        "history_max": 8127.0,
         "premium_peak": null
       }
     }
