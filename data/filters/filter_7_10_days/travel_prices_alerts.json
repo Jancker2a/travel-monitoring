@@ -1482,10 +1482,101 @@
       "created_at": "2026-09-18T06:05:11.256198+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Jaz Mirabel Park_2026-09-18_06-04_comeback_15.3"
+    },
+    {
+      "hotel_name": "Fantazia Resort",
+      "duration_bucket": "",
+      "old_price": 9392.0,
+      "new_price": 8595.0,
+      "price_change": -797.0,
+      "price_change_pct": -8.485945485519592,
+      "timestamp": "2026-09-18 11:29:20.009681+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-18T11:29:58.669152+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Fantazia Resort_2026-09-18_11-29_-8.5"
+    },
+    {
+      "hotel_name": "Amarina Jannah Resort Aquapark",
+      "duration_bucket": "",
+      "old_price": 8802.0,
+      "new_price": 8006.0,
+      "price_change": -796.0,
+      "price_change_pct": -9.043399227448306,
+      "timestamp": "2026-09-18 11:29:20.009681+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-18T11:29:58.669176+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amarina Jannah Resort Aquapark_2026-09-18_11-29_-9.0"
+    },
+    {
+      "hotel_name": "Charmillion Club Resort",
+      "duration_bucket": "",
+      "old_price": 9986.0,
+      "new_price": 10174.0,
+      "price_change": 188.0,
+      "price_change_pct": 1.8826356899659522,
+      "timestamp": "2026-09-18 11:29:20.009681+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-18T11:29:58.669192+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Charmillion Club Resort_2026-09-18_11-29_zone_out_+1.9"
+    },
+    {
+      "hotel_name": "Jaz Mirabel Park",
+      "duration_bucket": "",
+      "old_price": 9379.0,
+      "new_price": 10312.0,
+      "price_change": 933.0,
+      "price_change_pct": 9.94775562426698,
+      "timestamp": "2026-09-18 11:29:20.009681+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-18T11:29:58.669198+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Mirabel Park_2026-09-18_11-29_zone_out_+9.9"
+    },
+    {
+      "hotel_name": "Marriott Hurghada Beach Resort",
+      "duration_bucket": "",
+      "old_price": 9597.0,
+      "new_price": 10094.0,
+      "price_change": 497.0,
+      "price_change_pct": 5.178701677607585,
+      "timestamp": "2026-09-18 11:29:20.009681+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-18T11:29:58.669203+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Marriott Hurghada Beach Resort_2026-09-18_11-29_zone_out_+5.2"
+    },
+    {
+      "hotel_name": "Radisson Individuals Marina Port Ghalib (ex. Sunrise Marina Resort)",
+      "duration_bucket": "",
+      "old_price": 9460.0,
+      "new_price": 11160.0,
+      "price_change": 1700.0,
+      "price_change_pct": 17.970401691331926,
+      "timestamp": "2026-09-18 11:29:20.009681+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-18T11:29:58.669208+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Radisson Individuals Marina Port Ghalib (ex. Sunrise Marina Resort)_2026-09-18_11-29_zone_out_+18.0"
+    },
+    {
+      "hotel_name": "Tropitel Sahl Hasheesh",
+      "duration_bucket": "",
+      "old_price": 12437.0,
+      "new_price": 9601.0,
+      "price_change": -2836.0,
+      "price_change_pct": -22.802926750824152,
+      "timestamp": "2026-09-18 11:29:20.009681+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-18T11:29:58.669223+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Tropitel Sahl Hasheesh_2026-09-18_11-29_comeback_22.8"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-18T06:04:27.624824+00:00",
+    "last_processed_run": "2026-09-18T11:29:20.009681+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 9150.0,
@@ -1512,8 +1603,8 @@
         "premium_peak": 13921.0
       },
       "Marriott Hurghada Beach Resort": {
-        "history_max": 9597.0,
-        "premium_peak": null
+        "history_max": 10094.0,
+        "premium_peak": 10094.0
       },
       "Steigenberger Al Dau Beach": {
         "history_max": 15277.0,
@@ -1608,8 +1699,8 @@
         "premium_peak": 13244.0
       },
       "Jaz Elite Asteria (Hurghada)": {
-        "history_max": 14037.0,
-        "premium_peak": 14037.0
+        "history_max": 14328.0,
+        "premium_peak": 14328.0
       },
       "Sunrise Alora Aqua Park Resort": {
         "history_max": 11637.0,
@@ -1668,8 +1759,8 @@
         "premium_peak": 11074.0
       },
       "Steigenberger Golf Resort": {
-        "history_max": 10877.0,
-        "premium_peak": 10877.0
+        "history_max": 11047.0,
+        "premium_peak": 11047.0
       },
       "Jaz Palmariva Beach": {
         "history_max": 9347.0,
@@ -1704,8 +1795,8 @@
         "premium_peak": 10278.0
       },
       "Radisson Individuals Marina Port Ghalib (ex. Sunrise Marina Resort)": {
-        "history_max": 11010.0,
-        "premium_peak": 11010.0
+        "history_max": 11160.0,
+        "premium_peak": 11160.0
       },
       "Safir Dahab Resort": {
         "history_max": 13850.0,
@@ -1792,8 +1883,8 @@
         "premium_peak": null
       },
       "Serry Beach Resort": {
-        "history_max": 15577.0,
-        "premium_peak": 15577.0
+        "history_max": 15615.0,
+        "premium_peak": 15615.0
       },
       "Parrotel Lagoon Resort": {
         "history_max": 8131.0,
@@ -1928,7 +2019,7 @@
         "premium_peak": 18617.0
       },
       "Casa Mare Resort (ex. Royal Tulip Beach Resort)": {
-        "history_max": 7857.0,
+        "history_max": 8057.0,
         "premium_peak": null
       },
       "Concorde Moreen Beach Resort & Spa": {
@@ -1984,7 +2075,7 @@
         "premium_peak": 11337.0
       },
       "Calimera Blend Paradise Resort": {
-        "history_max": 9257.0,
+        "history_max": 9657.0,
         "premium_peak": null
       },
       "Akassia Swiss Resort (ex. Calimera Club Akassia Swiss Resort)": {
@@ -2008,12 +2099,12 @@
         "premium_peak": null
       },
       "Aldiana Club Naga Bay": {
-        "history_max": 14017.0,
-        "premium_peak": 14017.0
+        "history_max": 14187.0,
+        "premium_peak": 14187.0
       },
       "Amarina Abu Soma Resort": {
-        "history_max": 15697.0,
-        "premium_peak": 15697.0
+        "history_max": 15717.0,
+        "premium_peak": 15717.0
       },
       "Xanadu Makadi Bay": {
         "history_max": 12906.0,
@@ -2056,8 +2147,8 @@
         "premium_peak": 12121.0
       },
       "Baron Palace Resort (Sahl Hasheesh)": {
-        "history_max": 13059.0,
-        "premium_peak": 13059.0
+        "history_max": 13594.0,
+        "premium_peak": 13594.0
       },
       "Tropitel Sahl Hasheesh": {
         "history_max": 12437.0,
@@ -2176,8 +2267,8 @@
         "premium_peak": 11051.0
       },
       "Sunrise Tucana Resort": {
-        "history_max": 17377.0,
-        "premium_peak": 17377.0
+        "history_max": 17667.0,
+        "premium_peak": 17667.0
       },
       "Domina Coral Bay Resort": {
         "history_max": 10517.0,

@@ -1911,10 +1911,114 @@
       "created_at": "2026-09-18T06:05:08.486431+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Xperience Kiroseiz Premier_2026-09-18_06-04_zone_out_gone"
+    },
+    {
+      "hotel_name": "Jaz Mirabel Park",
+      "duration_bucket": "",
+      "old_price": 9379.0,
+      "new_price": 10312.0,
+      "price_change": 933.0,
+      "price_change_pct": 9.94775562426698,
+      "timestamp": "2026-09-18 11:29:19.947931+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-18T11:29:55.538912+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Mirabel Park_2026-09-18_11-29_+9.9"
+    },
+    {
+      "hotel_name": "Albatros Oasis Port Ghalib (ex. Red Sea Port Ghalib Resort) Egipt, Marsa Alam, Port Ghalib",
+      "duration_bucket": "",
+      "old_price": 7917.0,
+      "new_price": 7917.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-18 11:29:19.947931+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-18T11:29:55.538948+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Albatros Oasis Port Ghalib (ex. Red Sea Port Ghalib Resort) Egipt, Marsa Alam, Port Ghalib_2026-09-18_11-29_zone_out_gone"
+    },
+    {
+      "hotel_name": "Old Palace Resort",
+      "duration_bucket": "",
+      "old_price": 8811.0,
+      "new_price": 8811.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-18 11:29:19.947931+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-18T11:29:55.538954+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Old Palace Resort_2026-09-18_11-29_zone_out_gone"
+    },
+    {
+      "hotel_name": "Pickalbatros Palace Port Ghalib (ex. Red Sea The Palace)",
+      "duration_bucket": "",
+      "old_price": 8789.0,
+      "new_price": 8789.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-18 11:29:19.947931+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-18T11:29:55.538959+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Palace Port Ghalib (ex. Red Sea The Palace)_2026-09-18_11-29_zone_out_gone"
+    },
+    {
+      "hotel_name": "Rehana Royal Beach Resort & Spa Egipt, Sharm El Sheikh",
+      "duration_bucket": "",
+      "old_price": 8755.0,
+      "new_price": 8755.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-18 11:29:19.947931+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-18T11:29:55.538962+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rehana Royal Beach Resort & Spa Egipt, Sharm El Sheikh_2026-09-18_11-29_zone_out_gone"
+    },
+    {
+      "hotel_name": "Royal Brayka Beach Resort (ex Zee Brayka)",
+      "duration_bucket": "",
+      "old_price": 8957.0,
+      "new_price": 8957.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-18 11:29:19.947931+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-18T11:29:55.538966+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Royal Brayka Beach Resort (ex Zee Brayka)_2026-09-18_11-29_zone_out_gone"
+    },
+    {
+      "hotel_name": "Serenity Fun City Egipt, Hurghada, Makadi Bay",
+      "duration_bucket": "",
+      "old_price": 8735.0,
+      "new_price": 8735.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-18 11:29:19.947931+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-18T11:29:55.538970+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Serenity Fun City Egipt, Hurghada, Makadi Bay_2026-09-18_11-29_zone_out_gone"
+    },
+    {
+      "hotel_name": "Utopia Blue Resort",
+      "duration_bucket": "",
+      "old_price": 10417.0,
+      "new_price": 10417.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-18 11:29:19.947931+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-18T11:29:55.538973+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Utopia Blue Resort_2026-09-18_11-29_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-18T06:04:27.772784+00:00",
+    "last_processed_run": "2026-09-18T11:29:19.947931+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 6921.0,
@@ -1973,7 +2077,7 @@
         "premium_peak": null
       },
       "Pickalbatros Vita Resort Portofino Egipt, Marsa Alam": {
-        "history_max": 8237.0,
+        "history_max": 8557.0,
         "premium_peak": null
       },
       "Pyramisa Beach Resort Sahl Hasheesh": {
@@ -2033,7 +2137,7 @@
         "premium_peak": null
       },
       "Jaz Makadi Oasis Resort": {
-        "history_max": 10691.0,
+        "history_max": 10991.0,
         "premium_peak": null
       },
       "Red Sea Grand Waterworld Makadi (ex. Sunwing Waterworld Makadi)": {
@@ -2045,7 +2149,7 @@
         "premium_peak": null
       },
       "Jaz Mirabel Park": {
-        "history_max": 10311.0,
+        "history_max": 10312.0,
         "premium_peak": null
       },
       "Jaz Palmariva Beach": {
@@ -2093,7 +2197,7 @@
         "premium_peak": null
       },
       "Siva Golden Bay Makadi Egipt, Hurghada, Makadi Bay": {
-        "history_max": 7897.0,
+        "history_max": 8027.0,
         "premium_peak": null
       },
       "Steigenberger Aqua Magic": {
@@ -2141,7 +2245,7 @@
         "premium_peak": null
       },
       "Titanic Royal": {
-        "history_max": 10547.0,
+        "history_max": 10717.0,
         "premium_peak": null
       },
       "Tropitel Sahl Hasheesh": {
@@ -2201,7 +2305,7 @@
         "premium_peak": null
       },
       "Royal Brayka Beach Resort (ex Zee Brayka) Egipt, Marsa Alam": {
-        "history_max": 8357.0,
+        "history_max": 8447.0,
         "premium_peak": null
       },
       "Royal Lagoons Aqua (ex. Premium Blue) Egipt, Hurghada": {
@@ -2237,7 +2341,7 @@
         "premium_peak": null
       },
       "Sentido Naga Bay": {
-        "history_max": 10737.0,
+        "history_max": 10887.0,
         "premium_peak": null
       },
       "Serenity Alma Heights (ex. Serenity Fun City)": {
@@ -2249,7 +2353,7 @@
         "premium_peak": null
       },
       "Serenity Sky Arc": {
-        "history_max": 9677.0,
+        "history_max": 9819.0,
         "premium_peak": null
       },
       "Safir Sharm Waterfalls Resort (ex Hilton Waterfalls Resort)": {
@@ -2257,7 +2361,7 @@
         "premium_peak": null
       },
       "Hilton Marsa Alam Nubian Resort": {
-        "history_max": 9097.0,
+        "history_max": 9197.0,
         "premium_peak": null
       },
       "Novotel Marsa Alam Egipt, Marsa Alam": {
@@ -2333,7 +2437,7 @@
         "premium_peak": null
       },
       "Cooee Prima Life Makadi Bay": {
-        "history_max": 10097.0,
+        "history_max": 10247.0,
         "premium_peak": null
       },
       "Calimera Blend Paradise Egipt, Hurghada": {
@@ -2501,7 +2605,7 @@
         "premium_peak": null
       },
       "Titanic Pearl": {
-        "history_max": 10807.0,
+        "history_max": 10977.0,
         "premium_peak": null
       },
       "V Grand Beach Resort Sahl Hasheesh": {
@@ -2586,6 +2690,14 @@
       },
       "Serenity Fun City Egipt, Hurghada, Makadi Bay": {
         "history_max": 8735.0,
+        "premium_peak": null
+      },
+      "Old Palace Resort Egipt, Hurghada": {
+        "history_max": 8531.0,
+        "premium_peak": null
+      },
+      "Pickalbatros Oasis Port Ghalib (ex. Red Sea Port Ghalib Resort)": {
+        "history_max": 9187.0,
         "premium_peak": null
       }
     }
