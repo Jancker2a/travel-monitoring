@@ -2210,10 +2210,49 @@
       "created_at": "2026-09-18T19:47:39.446586+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Cenger Beach Resort (Side)_2026-09-18_19-46_+12.6"
+    },
+    {
+      "hotel_name": "Cenger Beach Resort (Side)",
+      "duration_bucket": "",
+      "old_price": 7165.0,
+      "new_price": 6361.0,
+      "price_change": -804.0,
+      "price_change_pct": -11.221214235868807,
+      "timestamp": "2026-09-18 22:43:33.328462+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-18T22:44:38.450330+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Cenger Beach Resort (Side)_2026-09-18_22-43_-11.2"
+    },
+    {
+      "hotel_name": "Aydinbey Gold Dreams",
+      "duration_bucket": "",
+      "old_price": 8715.0,
+      "new_price": 10834.0,
+      "price_change": 2119.0,
+      "price_change_pct": 24.31440045897877,
+      "timestamp": "2026-09-18 22:43:33.328462+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-18T22:44:38.450380+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Aydinbey Gold Dreams_2026-09-18_22-43_zone_out_+24.3"
+    },
+    {
+      "hotel_name": "Sentido Lycus Beach (ex. Lti)",
+      "duration_bucket": "",
+      "old_price": 9883.0,
+      "new_price": 11430.0,
+      "price_change": 1547.0,
+      "price_change_pct": 15.653141758575332,
+      "timestamp": "2026-09-18 22:43:33.328462+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-18T22:44:38.450392+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sentido Lycus Beach (ex. Lti)_2026-09-18_22-43_zone_out_+15.7"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-18T19:46:47.030018+00:00",
+    "last_processed_run": "2026-09-18T22:43:33.328462+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 10060.0,
@@ -2360,8 +2399,8 @@
         "premium_peak": 13129.0
       },
       "Sentido Lycus Beach (ex. Lti)": {
-        "history_max": 10872.0,
-        "premium_peak": 10872.0
+        "history_max": 11430.0,
+        "premium_peak": 11430.0
       },
       "Kaya (Belek)": {
         "history_max": 15102.0,
@@ -2780,8 +2819,8 @@
         "premium_peak": 12862.0
       },
       "Seaphoria Beach Resort": {
-        "history_max": 13213.0,
-        "premium_peak": 13213.0
+        "history_max": 13813.0,
+        "premium_peak": 13813.0
       },
       "Litore Resort & Spa": {
         "history_max": 15723.0,
@@ -3160,8 +3199,8 @@
         "premium_peak": 10422.0
       },
       "Aydinbey Gold Dreams": {
-        "history_max": 10534.0,
-        "premium_peak": 10534.0
+        "history_max": 10834.0,
+        "premium_peak": 10834.0
       },
       "Turquoise Hotel": {
         "history_max": 14695.0,
@@ -3308,8 +3347,8 @@
         "premium_peak": 10214.0
       },
       "Dizalya Palm Garden": {
-        "history_max": 11804.0,
-        "premium_peak": 11804.0
+        "history_max": 11913.0,
+        "premium_peak": 11913.0
       },
       "Sunis Elita Beach Resort (ex Asteria Elita)": {
         "history_max": 12064.0,

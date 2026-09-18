@@ -1235,10 +1235,62 @@
       "created_at": "2026-09-18T19:48:26.813780+00:00",
       "threshold_percent": 8.0,
       "unique_key": "White Olive Elite_2026-09-18_19-47_zone_out_gone"
+    },
+    {
+      "hotel_name": "Hydramis Palace Beach Resort Grecja, Kreta Zachodnia, Kavros",
+      "duration_bucket": "",
+      "old_price": 7875.0,
+      "new_price": 8547.0,
+      "price_change": 672.0,
+      "price_change_pct": 8.533333333333333,
+      "timestamp": "2026-09-18 22:44:33.670988+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-18T22:45:28.692244+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Hydramis Palace Beach Resort Grecja, Kreta Zachodnia, Kavros_2026-09-18_22-44_+8.5"
+    },
+    {
+      "hotel_name": "Amus",
+      "duration_bucket": "",
+      "old_price": 9885.0,
+      "new_price": 10957.0,
+      "price_change": 1072.0,
+      "price_change_pct": 10.84471421345473,
+      "timestamp": "2026-09-18 22:44:33.670988+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-18T22:45:28.692285+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amus_2026-09-18_22-44_zone_out_+10.8"
+    },
+    {
+      "hotel_name": "Galaxy Beach Resort BW Premier Collection",
+      "duration_bucket": "",
+      "old_price": 9491.0,
+      "new_price": 9491.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-18 22:44:33.670988+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-18T22:45:28.692296+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Galaxy Beach Resort BW Premier Collection_2026-09-18_22-44_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sunshine Crete Beach (ex Club Calimera) Grecja, Kreta Wschodnia, Koutsounari",
+      "duration_bucket": "",
+      "old_price": 9406.0,
+      "new_price": 9406.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-18 22:44:33.670988+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-18T22:45:28.692304+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sunshine Crete Beach (ex Club Calimera) Grecja, Kreta Wschodnia, Koutsounari_2026-09-18_22-44_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-18T19:47:31.481214+00:00",
+    "last_processed_run": "2026-09-18T22:44:33.670988+00:00",
     "premium_state": {
       "Ajul Luxury & Spa Resort (Ayios Nikolaos) Grecja, Chalkidiki, Loutra": {
         "history_max": 9207.0,
@@ -1305,8 +1357,8 @@
         "premium_peak": 12444.0
       },
       "Mitsis Ramira": {
-        "history_max": 12052.0,
-        "premium_peak": 12052.0
+        "history_max": 13060.0,
+        "premium_peak": 13060.0
       },
       "Mitsis Rodos Maris": {
         "history_max": 11408.0,
@@ -1333,7 +1385,7 @@
         "premium_peak": 13002.0
       },
       "Galini Palace Grecja, Kreta Zachodnia, Kolymvari": {
-        "history_max": 8081.0,
+        "history_max": 8161.0,
         "premium_peak": null
       },
       "Galini Sea View (Agia Marina) Grecja, Kreta Zachodnia, Agia Marina": {
@@ -1577,8 +1629,8 @@
         "premium_peak": 10807.0
       },
       "Ramada Athens Attica Riviera (ex Aquamarina)": {
-        "history_max": 12389.0,
-        "premium_peak": 12389.0
+        "history_max": 12432.0,
+        "premium_peak": 12432.0
       },
       "Restia (Acharavi)": {
         "history_max": 13323.0,
@@ -1629,8 +1681,8 @@
         "premium_peak": 14144.0
       },
       "Amus": {
-        "history_max": 10790.0,
-        "premium_peak": 10790.0
+        "history_max": 10957.0,
+        "premium_peak": 10957.0
       },
       "Cooks Club Corfu (ex Ionian Park)": {
         "history_max": 16027.0,
