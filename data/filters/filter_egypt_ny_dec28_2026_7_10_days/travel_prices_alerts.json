@@ -429,10 +429,36 @@
       "created_at": "2026-09-18T16:36:21.273832+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sentido Oriental Dream Resort Egipt, Marsa Alam_2026-09-18_16-36_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sea Star Beau Rivage Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 9117.0,
+      "new_price": 10791.0,
+      "price_change": 1674.0,
+      "price_change_pct": 18.36130306021718,
+      "timestamp": "2026-09-18 19:46:35.210692+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-18T19:46:50.179851+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sea Star Beau Rivage Egipt, Hurghada_2026-09-18_19-46_+18.4"
+    },
+    {
+      "hotel_name": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 9833.0,
+      "new_price": 9833.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-18 19:46:35.210692+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-18T19:46:50.179880+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada_2026-09-18_19-46_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-18T16:36:06.520929+00:00",
+    "last_processed_run": "2026-09-18T19:46:35.210692+00:00",
     "premium_state": {
       "Albatros Sea World Resort Marsa Alam Egipt, Marsa Alam, Al-Kusajr": {
         "history_max": 10797.0,

@@ -1456,10 +1456,49 @@
       "created_at": "2026-09-18T16:36:18.940242+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Xperience Sea Breeze Egipt, Sharm El Sheikh_2026-09-18_16-36_zone_out_gone"
+    },
+    {
+      "hotel_name": "Rewaya Luxury Resort Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 10927.0,
+      "new_price": 9642.0,
+      "price_change": -1285.0,
+      "price_change_pct": -11.759860895030657,
+      "timestamp": "2026-09-18 19:46:30.388575+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-18T19:46:46.386416+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Luxury Resort Egipt, Hurghada_2026-09-18_19-46_-11.8"
+    },
+    {
+      "hotel_name": "Sea Star Beau Rivage Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 9117.0,
+      "new_price": 10235.0,
+      "price_change": 1118.0,
+      "price_change_pct": 12.262805747504661,
+      "timestamp": "2026-09-18 19:46:30.388575+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-18T19:46:46.386437+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sea Star Beau Rivage Egipt, Hurghada_2026-09-18_19-46_+12.3"
+    },
+    {
+      "hotel_name": "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna",
+      "duration_bucket": "",
+      "old_price": 10794.0,
+      "new_price": 10794.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-18 19:46:30.388575+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-18T19:46:46.386450+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna_2026-09-18_19-46_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-18T16:36:01.998159+00:00",
+    "last_processed_run": "2026-09-18T19:46:30.388575+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 10941.0,
@@ -1494,7 +1533,7 @@
         "premium_peak": null
       },
       "Sea Star Beau Rivage Egipt, Hurghada": {
-        "history_max": 9751.0,
+        "history_max": 10235.0,
         "premium_peak": null
       },
       "Radisson Blu Resort (El Quseir) Egipt, Marsa Alam, Al-Kusajr": {
@@ -1506,7 +1545,7 @@
         "premium_peak": null
       },
       "Sentido Oriental Dream Resort Egipt, Marsa Alam": {
-        "history_max": 10608.0,
+        "history_max": 10841.0,
         "premium_peak": null
       },
       "Parrotel Beach Resort (ex. Radisson Blu) Egipt, Sharm El Sheikh": {
@@ -1582,7 +1621,7 @@
         "premium_peak": null
       },
       "Concorde Moreen Beach Resort & Spa Egipt, Marsa Alam": {
-        "history_max": 10062.0,
+        "history_max": 10348.0,
         "premium_peak": null
       },
       "Three Corners Fayrouz Plaza Beach Resort": {
