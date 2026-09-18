@@ -2340,10 +2340,88 @@
       "created_at": "2026-09-18T11:30:18.201595+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Xperience Sea Breeze Egipt, Sharm El Sheikh_2026-09-18_11-29_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sharm Grand Plaza Resort",
+      "duration_bucket": "",
+      "old_price": 8225.0,
+      "new_price": 8943.0,
+      "price_change": 718.0,
+      "price_change_pct": 8.72948328267477,
+      "timestamp": "2026-09-18 16:35:26.666654+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-18T16:36:08.979023+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sharm Grand Plaza Resort_2026-09-18_16-35_+8.7"
+    },
+    {
+      "hotel_name": "Concorde El Salam Sport Egipt, Sharm El Sheikh, Szarm el-Szejk",
+      "duration_bucket": "",
+      "old_price": 8159.0,
+      "new_price": 8159.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-18 16:35:26.666654+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-18T16:36:08.979080+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Concorde El Salam Sport Egipt, Sharm El Sheikh, Szarm el-Szejk_2026-09-18_16-35_zone_out_gone"
+    },
+    {
+      "hotel_name": "Raouf Sun International Aqua Park & SPA Egipt, Sharm El Sheikh, Szarm el-Szejk",
+      "duration_bucket": "",
+      "old_price": 8117.0,
+      "new_price": 8117.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-18 16:35:26.666654+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-18T16:36:08.979093+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Raouf Sun International Aqua Park & SPA Egipt, Sharm El Sheikh, Szarm el-Szejk_2026-09-18_16-35_zone_out_gone"
+    },
+    {
+      "hotel_name": "Rewaya Inn Resort (ex. Hawaii Paradise Aqua Park Resort)",
+      "duration_bucket": "",
+      "old_price": 8185.0,
+      "new_price": 8185.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-18 16:35:26.666654+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-18T16:36:08.979101+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Inn Resort (ex. Hawaii Paradise Aqua Park Resort)_2026-09-18_16-35_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sataya Resort (ex. Labranda Sataya Marsa Alam)",
+      "duration_bucket": "",
+      "old_price": 8859.0,
+      "new_price": 8859.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-18 16:35:26.666654+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-18T16:36:08.979109+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sataya Resort (ex. Labranda Sataya Marsa Alam)_2026-09-18_16-35_zone_out_gone"
+    },
+    {
+      "hotel_name": "Utopia Blue Resort",
+      "duration_bucket": "",
+      "old_price": 10727.0,
+      "new_price": 10727.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-18 16:35:26.666654+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-18T16:36:08.979117+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Utopia Blue Resort_2026-09-18_16-35_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-18T11:29:38.998023+00:00",
+    "last_processed_run": "2026-09-18T16:35:26.666654+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 6845.0,
@@ -2618,7 +2696,7 @@
         "premium_peak": null
       },
       "True Beach Resort": {
-        "history_max": 8973.0,
+        "history_max": 9060.0,
         "premium_peak": null
       },
       "Utopia Blue Resort": {
@@ -2714,11 +2792,11 @@
         "premium_peak": null
       },
       "Seven Seas Jolie Bay": {
-        "history_max": 9066.0,
+        "history_max": 9177.0,
         "premium_peak": null
       },
       "Sharm Grand Plaza Resort": {
-        "history_max": 8225.0,
+        "history_max": 8943.0,
         "premium_peak": null
       },
       "Sheraton Miramar Resort (El Gouna)": {
@@ -2754,7 +2832,7 @@
         "premium_peak": null
       },
       "Dream Lagoon & Aqua Park Resort (ex. Floriana Dream Lagoon) Egipt, Marsa Alam": {
-        "history_max": 7592.0,
+        "history_max": 7641.0,
         "premium_peak": null
       },
       "Amarina Star Resort & Aqua Park (ex. Raouf Star)": {
@@ -3094,7 +3172,7 @@
         "premium_peak": null
       },
       "Hawaii Paradise Aqua Park Resort Egipt, Hurghada": {
-        "history_max": 7662.0,
+        "history_max": 8087.0,
         "premium_peak": null
       },
       "Jaz Solaya Resort (ex Sol Y Mar Solaya)": {
@@ -3118,7 +3196,7 @@
         "premium_peak": null
       },
       "Sataya Resort (ex. Labranda Sataya Marsa Alam) Egipt, Marsa Alam": {
-        "history_max": 7777.0,
+        "history_max": 7927.0,
         "premium_peak": null
       },
       "Baron Resort (Sharm El Sheikh)": {

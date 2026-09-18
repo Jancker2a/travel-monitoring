@@ -1573,10 +1573,36 @@
       "created_at": "2026-09-18T11:29:58.669223+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Tropitel Sahl Hasheesh_2026-09-18_11-29_comeback_22.8"
+    },
+    {
+      "hotel_name": "Cleopatra Luxury Resort",
+      "duration_bucket": "",
+      "old_price": 9675.0,
+      "new_price": 10752.0,
+      "price_change": 1077.0,
+      "price_change_pct": 11.131782945736434,
+      "timestamp": "2026-09-18 16:35:04.453917+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-18T16:35:49.406683+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Cleopatra Luxury Resort_2026-09-18_16-35_zone_out_+11.1"
+    },
+    {
+      "hotel_name": "Desert Rose Resort",
+      "duration_bucket": "",
+      "old_price": 13226.0,
+      "new_price": 9348.0,
+      "price_change": -3878.0,
+      "price_change_pct": -29.321034326326934,
+      "timestamp": "2026-09-18 16:35:04.453917+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-18T16:35:49.406725+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Desert Rose Resort_2026-09-18_16-35_comeback_29.3"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-18T11:29:20.009681+00:00",
+    "last_processed_run": "2026-09-18T16:35:04.453917+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 9150.0,
@@ -1787,7 +1813,7 @@
         "premium_peak": 11887.0
       },
       "Sataya Resort (ex. Labranda Sataya Marsa Alam)": {
-        "history_max": 9657.0,
+        "history_max": 9857.0,
         "premium_peak": null
       },
       "Pyramisa Beach Resort Sahl Hasheesh": {
@@ -1847,8 +1873,8 @@
         "premium_peak": null
       },
       "Rixos Radamis Beach": {
-        "history_max": 14841.0,
-        "premium_peak": 14841.0
+        "history_max": 15110.0,
+        "premium_peak": 15110.0
       },
       "Rewaya Inn Resort (ex. Hawaii Paradise Aqua Park Resort)": {
         "history_max": 9195.0,
@@ -1907,8 +1933,8 @@
         "premium_peak": null
       },
       "Pickalbatros Blu Spa Resort Hurghada": {
-        "history_max": 17817.0,
-        "premium_peak": 17817.0
+        "history_max": 18687.0,
+        "premium_peak": 18687.0
       },
       "Pickalbatros Citadel Sahl Hasheesh (ex. Citadel Azur Resort)": {
         "history_max": 12203.0,
@@ -2023,7 +2049,7 @@
         "premium_peak": null
       },
       "Concorde Moreen Beach Resort & Spa": {
-        "history_max": 9157.0,
+        "history_max": 9357.0,
         "premium_peak": null
       },
       "The Cascades Golf Resort Spa & Thalasso (ex Westin Soma Bay)": {
@@ -2131,8 +2157,8 @@
         "premium_peak": null
       },
       "V Hotel Sharm": {
-        "history_max": 11649.0,
-        "premium_peak": 11649.0
+        "history_max": 12008.0,
+        "premium_peak": 12008.0
       },
       "Amphoras Beach": {
         "history_max": 11658.0,
@@ -2267,8 +2293,8 @@
         "premium_peak": 11051.0
       },
       "Sunrise Tucana Resort": {
-        "history_max": 17667.0,
-        "premium_peak": 17667.0
+        "history_max": 18327.0,
+        "premium_peak": 18327.0
       },
       "Domina Coral Bay Resort": {
         "history_max": 10517.0,
@@ -2365,6 +2391,10 @@
       "Safir Sharm Waterfalls Resort (ex Hilton Waterfalls Resort)": {
         "history_max": 9346.0,
         "premium_peak": null
+      },
+      "Jaz Tamerina (ex. Jaz Oriental Club)": {
+        "history_max": 14397.0,
+        "premium_peak": 14397.0
       }
     }
   }
