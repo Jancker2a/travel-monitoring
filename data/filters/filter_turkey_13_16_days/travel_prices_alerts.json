@@ -312,10 +312,62 @@
       "created_at": "2026-09-17T13:40:25.660940+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Campus Hill Turcja, Alanya_2026-09-17_13-39_comeback_12.6"
+    },
+    {
+      "hotel_name": "Scylax Family Club (Kargicak) Turcja, Alanya, Mahmutlar",
+      "duration_bucket": "",
+      "old_price": 8180.0,
+      "new_price": 8861.0,
+      "price_change": 681.0,
+      "price_change_pct": 8.32518337408313,
+      "timestamp": "2026-09-18 00:34:02.520205+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-18T00:35:16.986678+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Scylax Family Club (Kargicak) Turcja, Alanya, Mahmutlar_2026-09-18_00-34_+8.3"
+    },
+    {
+      "hotel_name": "Campus Hill Turcja, Alanya",
+      "duration_bucket": "",
+      "old_price": 8993.0,
+      "new_price": 10333.0,
+      "price_change": 1340.0,
+      "price_change_pct": 14.900478149671967,
+      "timestamp": "2026-09-18 00:34:02.520205+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-18T00:35:16.986710+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Campus Hill Turcja, Alanya_2026-09-18_00-34_zone_out_+14.9"
+    },
+    {
+      "hotel_name": "Cenger Beach Resort Turcja, Side",
+      "duration_bucket": "",
+      "old_price": 9559.0,
+      "new_price": 10113.0,
+      "price_change": 554.0,
+      "price_change_pct": 5.795585312271158,
+      "timestamp": "2026-09-18 00:34:02.520205+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-18T00:35:16.986723+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Cenger Beach Resort Turcja, Side_2026-09-18_00-34_zone_out_+5.8"
+    },
+    {
+      "hotel_name": "Elite Luxury Suite & Spa Turcja, Alanya, Konaklı",
+      "duration_bucket": "",
+      "old_price": 9213.0,
+      "new_price": 10553.0,
+      "price_change": 1340.0,
+      "price_change_pct": 14.544665147074786,
+      "timestamp": "2026-09-18 00:34:02.520205+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-18T00:35:16.986734+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Elite Luxury Suite & Spa Turcja, Alanya, Konaklı_2026-09-18_00-34_zone_out_+14.5"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-17T22:21:08.022772+00:00",
+    "last_processed_run": "2026-09-18T00:34:02.520205+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 12997.0,
@@ -346,8 +398,8 @@
         "premium_peak": 15630.0
       },
       "Marti Myra": {
-        "history_max": 17425.0,
-        "premium_peak": 17425.0
+        "history_max": 17531.0,
+        "premium_peak": 17531.0
       },
       "Marine Family Club Beach (ex. Otium Family Club Marine Beach)": {
         "history_max": 13491.0,
@@ -854,7 +906,7 @@
         "premium_peak": 17232.0
       },
       "Scylax Family Club (Kargicak) Turcja, Alanya, Mahmutlar": {
-        "history_max": 8538.0,
+        "history_max": 8861.0,
         "premium_peak": null
       },
       "SeaLife Kemer Resort (ex. PGS Rose Residence Beach)": {
@@ -886,8 +938,8 @@
         "premium_peak": 11257.0
       },
       "Sentido Lycus Beach (ex. Lti)": {
-        "history_max": 14441.0,
-        "premium_peak": 14441.0
+        "history_max": 14542.0,
+        "premium_peak": 14542.0
       },
       "Sensitive Premium Resort & Spa": {
         "history_max": 14757.0,
@@ -1074,8 +1126,8 @@
         "premium_peak": 18980.0
       },
       "Campus Hill Turcja, Alanya": {
-        "history_max": 10283.0,
-        "premium_peak": 10283.0
+        "history_max": 10333.0,
+        "premium_peak": 10333.0
       },
       "Azura Deluxe Resort & Spa": {
         "history_max": 16684.0,
@@ -1214,8 +1266,8 @@
         "premium_peak": 19524.0
       },
       "Adalya Art Side (Ex. Grand Art Side)": {
-        "history_max": 18195.0,
-        "premium_peak": 18195.0
+        "history_max": 18315.0,
+        "premium_peak": 18315.0
       },
       "Crystal Waterworld Aqua Collection": {
         "history_max": 17811.0,
@@ -1322,8 +1374,8 @@
         "premium_peak": 19953.0
       },
       "Venosa Beach Resort": {
-        "history_max": 13509.0,
-        "premium_peak": 13509.0
+        "history_max": 17156.0,
+        "premium_peak": 17156.0
       },
       "Sentido Trendy Verbena Beach (ex. Trendy Verbena Beach)": {
         "history_max": 19841.0,
@@ -1496,6 +1548,38 @@
       "Lake River Side Spa": {
         "history_max": 12057.0,
         "premium_peak": 12057.0
+      },
+      "Yasmin Resort": {
+        "history_max": 18898.0,
+        "premium_peak": 18898.0
+      },
+      "Baia Bodrum": {
+        "history_max": 19085.0,
+        "premium_peak": 19085.0
+      },
+      "Kefaluka Resort": {
+        "history_max": 16925.0,
+        "premium_peak": 16925.0
+      },
+      "Movenpick Resort Antalya Tekirova (ex. Royal Diwa Tekirova Resort)": {
+        "history_max": 19917.0,
+        "premium_peak": 19917.0
+      },
+      "Miarosa Kemer Beach Turcja, Kemer, Kiris": {
+        "history_max": 11354.0,
+        "premium_peak": 11354.0
+      },
+      "Ma Biche Kemer by Werde Hotels": {
+        "history_max": 15318.0,
+        "premium_peak": 15318.0
+      },
+      "Rubi Platinum (Alanya)": {
+        "history_max": 19647.0,
+        "premium_peak": 19647.0
+      },
+      "Garden of Sun Spa & Wellness Turcja, Bodrum, Didim": {
+        "history_max": 11112.0,
+        "premium_peak": 11112.0
       }
     }
   }

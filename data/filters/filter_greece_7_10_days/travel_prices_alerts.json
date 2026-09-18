@@ -1040,10 +1040,23 @@
       "created_at": "2026-09-17T22:23:14.846576+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Galini Palace Grecja, Kreta Zachodnia, Kolymvari_2026-09-17_22-22_+8.9"
+    },
+    {
+      "hotel_name": "Kakkos Bay",
+      "duration_bucket": "",
+      "old_price": 12555.0,
+      "new_price": 9690.0,
+      "price_change": -2865.0,
+      "price_change_pct": -22.819593787335723,
+      "timestamp": "2026-09-18 00:35:03.361375+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-18T00:36:11.813866+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Kakkos Bay_2026-09-18_00-35_comeback_22.8"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-17T22:22:07.837569+00:00",
+    "last_processed_run": "2026-09-18T00:35:03.361375+00:00",
     "premium_state": {
       "Ajul Luxury & Spa Resort (Ayios Nikolaos) Grecja, Chalkidiki, Loutra": {
         "history_max": 9067.0,
@@ -1382,8 +1395,8 @@
         "premium_peak": 10807.0
       },
       "Ramada Athens Attica Riviera (ex Aquamarina)": {
-        "history_max": 12369.0,
-        "premium_peak": 12369.0
+        "history_max": 12389.0,
+        "premium_peak": 12389.0
       },
       "Restia (Acharavi)": {
         "history_max": 13323.0,
@@ -1522,8 +1535,8 @@
         "premium_peak": 17999.0
       },
       "Domes Aulus Zante Autograph Collection": {
-        "history_max": 12127.0,
-        "premium_peak": 12127.0
+        "history_max": 16914.0,
+        "premium_peak": 16914.0
       },
       "Almyros Beach (ex Cyprotel Almyros) Grecja, Korfu, Acharavi": {
         "history_max": 9505.0,
@@ -1666,12 +1679,20 @@
         "premium_peak": null
       },
       "Kerkyra Blue N' Spa by Louis (Corfu)": {
-        "history_max": 19801.0,
-        "premium_peak": 19801.0
+        "history_max": 19901.0,
+        "premium_peak": 19901.0
       },
       "Bella Beach Grecja, Kreta Wschodnia, Anissaras": {
         "history_max": 9583.0,
         "premium_peak": null
+      },
+      "Rethymno Palace": {
+        "history_max": 11193.0,
+        "premium_peak": 11193.0
+      },
+      "Kakkos Beach": {
+        "history_max": 13500.0,
+        "premium_peak": 13500.0
       }
     }
   }

@@ -260,10 +260,49 @@
       "created_at": "2026-09-17T22:23:20.400676+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Mareblue Beach (ex Blue Bay Escape) Grecja, Korfu, Agios Spyridon_2026-09-17_22-22_comeback_9.7"
+    },
+    {
+      "hotel_name": "Majestic & Spa Grecja, Zakynthos, Laganas",
+      "duration_bucket": "",
+      "old_price": 7677.0,
+      "new_price": 8552.0,
+      "price_change": 875.0,
+      "price_change_pct": 11.397681385958057,
+      "timestamp": "2026-09-18 00:35:17.701226+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-18T00:36:15.777392+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Majestic & Spa Grecja, Zakynthos, Laganas_2026-09-18_00-35_+11.4"
+    },
+    {
+      "hotel_name": "Alexander The Great Grecja, Zakynthos, Laganas",
+      "duration_bucket": "",
+      "old_price": 7997.0,
+      "new_price": 9046.0,
+      "price_change": 1049.0,
+      "price_change_pct": 13.11741903213705,
+      "timestamp": "2026-09-18 00:35:17.701226+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-18T00:36:15.777419+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Alexander The Great Grecja, Zakynthos, Laganas_2026-09-18_00-35_+13.1"
+    },
+    {
+      "hotel_name": "Mareblue Beach (ex Blue Bay Escape) Grecja, Korfu, Agios Spyridon",
+      "duration_bucket": "",
+      "old_price": 9848.0,
+      "new_price": 10157.0,
+      "price_change": 309.0,
+      "price_change_pct": 3.1376929325751424,
+      "timestamp": "2026-09-18 00:35:17.701226+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-18T00:36:15.777436+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Mareblue Beach (ex Blue Bay Escape) Grecja, Korfu, Agios Spyridon_2026-09-18_00-35_zone_out_+3.1"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-17T22:22:24.086523+00:00",
+    "last_processed_run": "2026-09-18T00:35:17.701226+00:00",
     "premium_state": {
       "Acharavi Mare by Wyndham (ex. Beis Beach)": {
         "history_max": 16397.0,
@@ -358,8 +397,8 @@
         "premium_peak": 15057.0
       },
       "Eri Beach & Village": {
-        "history_max": 14340.0,
-        "premium_peak": 14340.0
+        "history_max": 14555.0,
+        "premium_peak": 14555.0
       },
       "Eri Beach Grecja, Kreta Wschodnia, Hersonissos": {
         "history_max": 11624.0,
@@ -1064,6 +1103,18 @@
       "Tsilivi Beach": {
         "history_max": 13358.0,
         "premium_peak": 13358.0
+      },
+      "Horizon Beach (Stalida) Grecja, Kreta Wschodnia, Stalida": {
+        "history_max": 11557.0,
+        "premium_peak": 11557.0
+      },
+      "Themis Beach": {
+        "history_max": 15357.0,
+        "premium_peak": 15357.0
+      },
+      "Petra Mare": {
+        "history_max": 16357.0,
+        "premium_peak": 16357.0
       }
     }
   }
