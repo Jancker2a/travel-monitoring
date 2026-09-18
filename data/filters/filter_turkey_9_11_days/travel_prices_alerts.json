@@ -2028,10 +2028,49 @@
       "created_at": "2026-09-18T00:35:02.456823+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sultan of Dreams_2026-09-18_00-33_zone_out_+9.0"
+    },
+    {
+      "hotel_name": "Armas Bella Sun (ex.Club Bella Sun)",
+      "duration_bucket": "",
+      "old_price": 8888.0,
+      "new_price": 9701.0,
+      "price_change": 813.0,
+      "price_change_pct": 9.147164716471647,
+      "timestamp": "2026-09-18 06:05:44.742869+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-18T06:07:03.158257+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Armas Bella Sun (ex.Club Bella Sun)_2026-09-18_06-05_+9.1"
+    },
+    {
+      "hotel_name": "Aydinbey Queens Palace & Spa",
+      "duration_bucket": "",
+      "old_price": 8955.0,
+      "new_price": 10260.0,
+      "price_change": 1305.0,
+      "price_change_pct": 14.572864321608039,
+      "timestamp": "2026-09-18 06:05:44.742869+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-18T06:07:03.158298+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Aydinbey Queens Palace & Spa_2026-09-18_06-05_zone_out_+14.6"
+    },
+    {
+      "hotel_name": "Mira Meridia Beach Resort",
+      "duration_bucket": "",
+      "old_price": 10233.0,
+      "new_price": 9195.0,
+      "price_change": -1038.0,
+      "price_change_pct": -10.143652887716211,
+      "timestamp": "2026-09-18 06:05:44.742869+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-18T06:07:03.158321+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Mira Meridia Beach Resort_2026-09-18_06-05_comeback_10.1"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-18T00:33:57.259797+00:00",
+    "last_processed_run": "2026-09-18T06:05:44.742869+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 10060.0,
@@ -2158,8 +2197,8 @@
         "premium_peak": 13275.0
       },
       "Selectum Family Resort Side (ex. Silence Beach Resort)": {
-        "history_max": 11763.0,
-        "premium_peak": 11763.0
+        "history_max": 11844.0,
+        "premium_peak": 11844.0
       },
       "Kirbiyik Resort (ex. Dinler)": {
         "history_max": 7531.0,
@@ -2346,8 +2385,8 @@
         "premium_peak": 17291.0
       },
       "Side Star Resort": {
-        "history_max": 14382.0,
-        "premium_peak": 14382.0
+        "history_max": 15125.0,
+        "premium_peak": 15125.0
       },
       "Golden Rock Beach": {
         "history_max": 10396.0,
@@ -2602,8 +2641,8 @@
         "premium_peak": 13213.0
       },
       "Litore Resort & Spa": {
-        "history_max": 14261.0,
-        "premium_peak": 14261.0
+        "history_max": 15723.0,
+        "premium_peak": 15723.0
       },
       "Limak Atlantis": {
         "history_max": 14801.0,
@@ -2774,8 +2813,8 @@
         "premium_peak": 11983.0
       },
       "The X Belek": {
-        "history_max": 12548.0,
-        "premium_peak": 12548.0
+        "history_max": 12758.0,
+        "premium_peak": 12758.0
       },
       "Calyptus Kirman Premium": {
         "history_max": 14585.0,
@@ -2802,8 +2841,8 @@
         "premium_peak": null
       },
       "Champion Holiday Village (Kemer)": {
-        "history_max": 10601.0,
-        "premium_peak": 10601.0
+        "history_max": 10674.0,
+        "premium_peak": 10674.0
       },
       "Armella Hill": {
         "history_max": 11131.0,
@@ -2918,7 +2957,7 @@
         "premium_peak": 13301.0
       },
       "Armas Pemar Beach Resort": {
-        "history_max": 9023.0,
+        "history_max": 9374.0,
         "premium_peak": null
       },
       "Venosa Beach Resort": {
@@ -2942,7 +2981,7 @@
         "premium_peak": 14658.0
       },
       "Armas Bella Sun (ex.Club Bella Sun)": {
-        "history_max": 9207.0,
+        "history_max": 9701.0,
         "premium_peak": null
       },
       "Baia Salima Kemer (ex Club Salima)": {
@@ -2986,7 +3025,7 @@
         "premium_peak": 14695.0
       },
       "Armas Gul Beach": {
-        "history_max": 9455.0,
+        "history_max": 9617.0,
         "premium_peak": null
       },
       "Avia Resort & Spa": {
@@ -3098,8 +3137,8 @@
         "premium_peak": 17030.0
       },
       "Diamond Excellence Resort & Spa": {
-        "history_max": 13721.0,
-        "premium_peak": 13721.0
+        "history_max": 14171.0,
+        "premium_peak": 14171.0
       },
       "Yasmin Resort": {
         "history_max": 16619.0,
@@ -3118,8 +3157,8 @@
         "premium_peak": 14029.0
       },
       "Diamond Premium": {
-        "history_max": 11538.0,
-        "premium_peak": 11538.0
+        "history_max": 11667.0,
+        "premium_peak": 11667.0
       },
       "Sultan of Side": {
         "history_max": 10214.0,
@@ -3380,6 +3419,10 @@
       "Royal Holiday Palace": {
         "history_max": 17852.0,
         "premium_peak": 17852.0
+      },
+      "Paloma Grida": {
+        "history_max": 17889.0,
+        "premium_peak": 17889.0
       }
     }
   }
