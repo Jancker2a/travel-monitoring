@@ -2431,10 +2431,49 @@
       "created_at": "2026-09-19T14:36:35.416563+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Campus Hill_2026-09-19_14-35_+22.1"
+    },
+    {
+      "hotel_name": "Cenger Beach Resort (Side)",
+      "duration_bucket": "",
+      "old_price": 8357.0,
+      "new_price": 7359.0,
+      "price_change": -998.0,
+      "price_change_pct": -11.942084480076582,
+      "timestamp": "2026-09-19 18:11:19.499083+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-19T18:12:31.905339+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Cenger Beach Resort (Side)_2026-09-19_18-11_-11.9"
+    },
+    {
+      "hotel_name": "Ozkaymak Select Resort (ex. Otium Ozkaymak Select)",
+      "duration_bucket": "",
+      "old_price": 9622.0,
+      "new_price": 10167.0,
+      "price_change": 545.0,
+      "price_change_pct": 5.664103097069216,
+      "timestamp": "2026-09-19 18:11:19.499083+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-19T18:12:31.905381+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Ozkaymak Select Resort (ex. Otium Ozkaymak Select)_2026-09-19_18-11_zone_out_+5.7"
+    },
+    {
+      "hotel_name": "Seher Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 12112.0,
+      "new_price": 9621.0,
+      "price_change": -2491.0,
+      "price_change_pct": -20.56638044914135,
+      "timestamp": "2026-09-19 18:11:19.499083+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-19T18:12:31.905414+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Seher Resort & Spa_2026-09-19_18-11_comeback_20.6"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-19T14:35:30.389857+00:00",
+    "last_processed_run": "2026-09-19T18:11:19.499083+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 10060.0,
@@ -2865,8 +2904,8 @@
         "premium_peak": 13116.0
       },
       "Ozkaymak Select Resort (ex. Otium Ozkaymak Select)": {
-        "history_max": 10098.0,
-        "premium_peak": 10098.0
+        "history_max": 10167.0,
+        "premium_peak": 10167.0
       },
       "Pine Beach Belek (ex. Maritim Pine Beach Resort)": {
         "history_max": 13455.0,
@@ -3817,8 +3856,8 @@
         "premium_peak": 14289.0
       },
       "Arnor De Luxe & SPA": {
-        "history_max": 12447.0,
-        "premium_peak": 12447.0
+        "history_max": 12590.0,
+        "premium_peak": 12590.0
       }
     }
   }

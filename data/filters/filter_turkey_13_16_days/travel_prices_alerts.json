@@ -520,10 +520,23 @@
       "created_at": "2026-09-19T14:36:29.927897+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Cenger Beach Resort Turcja, Side_2026-09-19_14-35_zone_out_+16.1"
+    },
+    {
+      "hotel_name": "Cenger Beach Resort Turcja, Side",
+      "duration_bucket": "",
+      "old_price": 11050.0,
+      "new_price": 9117.0,
+      "price_change": -1933.0,
+      "price_change_pct": -17.49321266968326,
+      "timestamp": "2026-09-19 18:11:22.733566+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-19T18:12:17.572220+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Cenger Beach Resort Turcja, Side_2026-09-19_18-11_comeback_17.5"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-19T14:35:32.563795+00:00",
+    "last_processed_run": "2026-09-19T18:11:22.733566+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 12997.0,
@@ -1758,8 +1771,8 @@
         "premium_peak": 15241.0
       },
       "Cenger Blue Collection": {
-        "history_max": 13561.0,
-        "premium_peak": 13561.0
+        "history_max": 13691.0,
+        "premium_peak": 13691.0
       },
       "Sultan of Side": {
         "history_max": 12414.0,
@@ -1782,8 +1795,12 @@
         "premium_peak": 15440.0
       },
       "Arnor De Luxe & SPA": {
-        "history_max": 15963.0,
-        "premium_peak": 15963.0
+        "history_max": 16020.0,
+        "premium_peak": 16020.0
+      },
+      "Rox Royal (ex. Grand Haber) Turcja, Kemer": {
+        "history_max": 11084.0,
+        "premium_peak": 11084.0
       }
     }
   }

@@ -1417,10 +1417,49 @@
       "created_at": "2026-09-19T14:37:23.807193+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Rimondi Grand Resort & Spa Grecja, Kreta Zachodnia, Magnisia_2026-09-19_14-36_zone_out_gone"
+    },
+    {
+      "hotel_name": "Lydia Maris Resort & Spa Grecja, Rodos, Kolymbia",
+      "duration_bucket": "",
+      "old_price": 7650.0,
+      "new_price": 8479.0,
+      "price_change": 829.0,
+      "price_change_pct": 10.836601307189543,
+      "timestamp": "2026-09-19 18:12:18.753672+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-19T18:13:14.698185+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Lydia Maris Resort & Spa Grecja, Rodos, Kolymbia_2026-09-19_18-12_+10.8"
+    },
+    {
+      "hotel_name": "Valis Resort Grecja, Tesalia, Agria",
+      "duration_bucket": "",
+      "old_price": 7277.0,
+      "new_price": 6524.0,
+      "price_change": -753.0,
+      "price_change_pct": -10.34767074343823,
+      "timestamp": "2026-09-19 18:12:18.753672+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-19T18:13:14.698214+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Valis Resort Grecja, Tesalia, Agria_2026-09-19_18-12_-10.3"
+    },
+    {
+      "hotel_name": "White Olive Elite Grecja, Zakynthos, Laganas",
+      "duration_bucket": "",
+      "old_price": 8746.0,
+      "new_price": 7994.0,
+      "price_change": -752.0,
+      "price_change_pct": -8.598216327463984,
+      "timestamp": "2026-09-19 18:12:18.753672+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-19T18:13:14.698227+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "White Olive Elite Grecja, Zakynthos, Laganas_2026-09-19_18-12_-8.6"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-19T14:36:26.418393+00:00",
+    "last_processed_run": "2026-09-19T18:12:18.753672+00:00",
     "premium_state": {
       "Ajul Luxury & Spa Resort (Ayios Nikolaos) Grecja, Chalkidiki, Loutra": {
         "history_max": 9207.0,
@@ -1831,7 +1870,7 @@
         "premium_peak": 11950.0
       },
       "Apollonia Beach (Ammoudara) Grecja, Kreta Wschodnia, Ammoudara": {
-        "history_max": 8487.0,
+        "history_max": 8497.0,
         "premium_peak": null
       },
       "CHC Athina Palace Resort & Spa (Agia Pelagia)": {
@@ -1855,8 +1894,8 @@
         "premium_peak": 16439.0
       },
       "Blue Lagoon Princess": {
-        "history_max": 14072.0,
-        "premium_peak": 14072.0
+        "history_max": 14290.0,
+        "premium_peak": 14290.0
       },
       "Aquila Rithymna Beach": {
         "history_max": 10110.0,
