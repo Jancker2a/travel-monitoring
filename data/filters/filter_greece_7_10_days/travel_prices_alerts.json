@@ -1287,10 +1287,75 @@
       "created_at": "2026-09-18T22:45:28.692304+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sunshine Crete Beach (ex Club Calimera) Grecja, Kreta Wschodnia, Koutsounari_2026-09-18_22-44_zone_out_gone"
+    },
+    {
+      "hotel_name": "Galaxy Beach Resort BW Premier Collection Grecja, Zakynthos, Laganas",
+      "duration_bucket": "",
+      "old_price": 9459.0,
+      "new_price": 8363.0,
+      "price_change": -1096.0,
+      "price_change_pct": -11.586848504070197,
+      "timestamp": "2026-09-19 05:52:31.713858+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-19T05:53:27.430313+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Galaxy Beach Resort BW Premier Collection Grecja, Zakynthos, Laganas_2026-09-19_05-52_-11.6"
+    },
+    {
+      "hotel_name": "Lydia Maris Resort & Spa Grecja, Rodos, Kolymbia",
+      "duration_bucket": "",
+      "old_price": 8668.0,
+      "new_price": 7950.0,
+      "price_change": -718.0,
+      "price_change_pct": -8.283341024457776,
+      "timestamp": "2026-09-19 05:52:31.713858+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-19T05:53:27.430337+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Lydia Maris Resort & Spa Grecja, Rodos, Kolymbia_2026-09-19_05-52_-8.3"
+    },
+    {
+      "hotel_name": "Grand Blue Beach Grecja, kos, Kardamaina",
+      "duration_bucket": "",
+      "old_price": 9452.0,
+      "new_price": 9452.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-19 05:52:31.713858+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-19T05:53:27.430356+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Grand Blue Beach Grecja, kos, Kardamaina_2026-09-19_05-52_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sandy Villas Resort (ex. Kairaba Sandy Villas)",
+      "duration_bucket": "",
+      "old_price": 9555.0,
+      "new_price": 9555.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-19 05:52:31.713858+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-19T05:53:27.430363+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sandy Villas Resort (ex. Kairaba Sandy Villas)_2026-09-19_05-52_zone_out_gone"
+    },
+    {
+      "hotel_name": "Lindos Imperial Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 10877.0,
+      "new_price": 9787.0,
+      "price_change": -1090.0,
+      "price_change_pct": -10.021145536453066,
+      "timestamp": "2026-09-19 05:52:31.713858+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-19T05:53:27.430382+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Lindos Imperial Resort & Spa_2026-09-19_05-52_comeback_10.0"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-18T22:44:33.670988+00:00",
+    "last_processed_run": "2026-09-19T05:52:31.713858+00:00",
     "premium_state": {
       "Ajul Luxury & Spa Resort (Ayios Nikolaos) Grecja, Chalkidiki, Loutra": {
         "history_max": 9207.0,
@@ -1725,8 +1790,8 @@
         "premium_peak": 16439.0
       },
       "Blue Lagoon Princess": {
-        "history_max": 13885.0,
-        "premium_peak": 13885.0
+        "history_max": 14072.0,
+        "premium_peak": 14072.0
       },
       "Aquila Rithymna Beach": {
         "history_max": 10110.0,
@@ -1935,6 +2000,14 @@
       "Kouros Palace Grecja, Kos, Mastichari": {
         "history_max": 9397.0,
         "premium_peak": null
+      },
+      "Ikaros Beach Luxury Resort & Spa": {
+        "history_max": 19769.0,
+        "premium_peak": 19769.0
+      },
+      "Eliros Mare": {
+        "history_max": 15040.0,
+        "premium_peak": 15040.0
       }
     }
   }

@@ -2509,17 +2509,69 @@
       "created_at": "2026-09-18T22:43:20.285792+00:00",
       "threshold_percent": 8.0,
       "unique_key": "V Hotel Sharm_2026-09-18_22-42_zone_out_gone"
+    },
+    {
+      "hotel_name": "Bellagio Beach Resort & Spa (ex. Panorama Bungalows Hurghada)",
+      "duration_bucket": "",
+      "old_price": 9393.0,
+      "new_price": 10855.0,
+      "price_change": 1462.0,
+      "price_change_pct": 15.564782284680081,
+      "timestamp": "2026-09-19 05:50:54.568818+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-19T05:51:30.315932+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Bellagio Beach Resort & Spa (ex. Panorama Bungalows Hurghada)_2026-09-19_05-50_+15.6"
+    },
+    {
+      "hotel_name": "Invidia Coral Beach Tiran",
+      "duration_bucket": "",
+      "old_price": 10246.0,
+      "new_price": 10246.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-19 05:50:54.568818+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-19T05:51:30.315982+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Invidia Coral Beach Tiran_2026-09-19_05-50_zone_out_gone"
+    },
+    {
+      "hotel_name": "Pickalbatros Vita Resort Portofino Egipt, Marsa Alam",
+      "duration_bucket": "",
+      "old_price": 8157.0,
+      "new_price": 8157.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-19 05:50:54.568818+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-19T05:51:30.315991+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Vita Resort Portofino Egipt, Marsa Alam_2026-09-19_05-50_zone_out_gone"
+    },
+    {
+      "hotel_name": "Swissotel Sharm El Sheikh",
+      "duration_bucket": "",
+      "old_price": 10592.0,
+      "new_price": 10592.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-19 05:50:54.568818+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-19T05:51:30.315997+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Swissotel Sharm El Sheikh_2026-09-19_05-50_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-18T22:42:42.600401+00:00",
+    "last_processed_run": "2026-09-19T05:50:54.568818+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 6845.0,
         "premium_peak": null
       },
       "Palm Royale Soma Bay": {
-        "history_max": 10071.0,
+        "history_max": 10418.0,
         "premium_peak": null
       },
       "Parrotel Beach Resort (ex. Radisson Blu)": {
@@ -2647,7 +2699,7 @@
         "premium_peak": null
       },
       "Jaz Makadi Saraya (ex Iberotel)": {
-        "history_max": 10251.0,
+        "history_max": 10683.0,
         "premium_peak": null
       },
       "Jaz Mirabel Beach Resort": {
@@ -2919,7 +2971,7 @@
         "premium_peak": null
       },
       "Dreams Beach Sharm Resort (Sharm El Sheikh)": {
-        "history_max": 8664.0,
+        "history_max": 8835.0,
         "premium_peak": null
       },
       "Dream Lagoon & Aqua Park Resort (ex. Floriana Dream Lagoon) Egipt, Marsa Alam": {
@@ -2979,7 +3031,7 @@
         "premium_peak": null
       },
       "Bellagio Beach Resort & Spa (ex. Panorama Bungalows Hurghada)": {
-        "history_max": 9983.0,
+        "history_max": 10855.0,
         "premium_peak": null
       },
       "Calimera Blend Paradise Resort": {
@@ -3071,7 +3123,7 @@
         "premium_peak": null
       },
       "Albatros Sea World Resort Marsa Alam Egipt, Marsa Alam, Al-Kusajr": {
-        "history_max": 7735.0,
+        "history_max": 7777.0,
         "premium_peak": null
       },
       "Albatros Makadi Resort (ex Royal Pharaohs Makadi)": {
@@ -3107,7 +3159,7 @@
         "premium_peak": null
       },
       "Domina Coral Bay Resort": {
-        "history_max": 10052.0,
+        "history_max": 10177.0,
         "premium_peak": null
       },
       "Ecotel Dahab Bay View Resort": {
@@ -3119,7 +3171,7 @@
         "premium_peak": null
       },
       "Jaz Neo Naama Bay": {
-        "history_max": 8509.0,
+        "history_max": 8634.0,
         "premium_peak": null
       },
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
