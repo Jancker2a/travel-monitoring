@@ -1833,10 +1833,36 @@
       "created_at": "2026-09-19T18:10:43.293015+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Jaz Aquaviva_2026-09-19_18-10_zone_out_+3.0"
+    },
+    {
+      "hotel_name": "Tropitel Sahl Hasheesh",
+      "duration_bucket": "",
+      "old_price": 9971.0,
+      "new_price": 10205.0,
+      "price_change": 234.0,
+      "price_change_pct": 2.346805736636245,
+      "timestamp": "2026-09-19 20:53:05.772249+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-19T20:53:42.659465+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Tropitel Sahl Hasheesh_2026-09-19_20-53_zone_out_+2.3"
+    },
+    {
+      "hotel_name": "Rewaya Majestic Resort",
+      "duration_bucket": "",
+      "old_price": 10594.0,
+      "new_price": 9632.0,
+      "price_change": -962.0,
+      "price_change_pct": -9.08061166698131,
+      "timestamp": "2026-09-19 20:53:05.772249+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-19T20:53:42.659500+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Majestic Resort_2026-09-19_20-53_comeback_9.1"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-19T18:10:08.547672+00:00",
+    "last_processed_run": "2026-09-19T20:53:05.772249+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 9150.0,
@@ -2127,8 +2153,8 @@
         "premium_peak": 16253.0
       },
       "Pickalbatros Water Valley Resort Neverland": {
-        "history_max": 12255.0,
-        "premium_peak": 12255.0
+        "history_max": 12362.0,
+        "premium_peak": 12362.0
       },
       "Park Regency Resort (ex. Hyatt)": {
         "history_max": 12456.0,
@@ -2207,8 +2233,8 @@
         "premium_peak": 11073.0
       },
       "Pickalbatros Palace Resort": {
-        "history_max": 11635.0,
-        "premium_peak": 11635.0
+        "history_max": 11682.0,
+        "premium_peak": 11682.0
       },
       "Sentido Akassia Beach (ex. LTI Akassia Beach)": {
         "history_max": 9689.0,
