@@ -2353,10 +2353,62 @@
       "created_at": "2026-09-19T05:52:40.614421+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Armella Hill_2026-09-19_05-51_comeback_10.2"
+    },
+    {
+      "hotel_name": "Campus Hill",
+      "duration_bucket": "",
+      "old_price": 8683.0,
+      "new_price": 7243.0,
+      "price_change": -1440.0,
+      "price_change_pct": -16.58412990901762,
+      "timestamp": "2026-09-19 11:14:10.034531+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-19T11:15:29.370648+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Campus Hill_2026-09-19_11-14_-16.6"
+    },
+    {
+      "hotel_name": "Cenger Beach Resort (Side)",
+      "duration_bucket": "",
+      "old_price": 8357.0,
+      "new_price": 7359.0,
+      "price_change": -998.0,
+      "price_change_pct": -11.942084480076582,
+      "timestamp": "2026-09-19 11:14:10.034531+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-19T11:15:29.370680+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Cenger Beach Resort (Side)_2026-09-19_11-14_-11.9"
+    },
+    {
+      "hotel_name": "Grand Kolibri Prestige & Spa",
+      "duration_bucket": "",
+      "old_price": 11181.0,
+      "new_price": 9366.0,
+      "price_change": -1815.0,
+      "price_change_pct": -16.232895089884625,
+      "timestamp": "2026-09-19 11:14:10.034531+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-19T11:15:29.370720+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Grand Kolibri Prestige & Spa_2026-09-19_11-14_comeback_16.2"
+    },
+    {
+      "hotel_name": "Aydinbey Gold Dreams",
+      "duration_bucket": "",
+      "old_price": 10834.0,
+      "new_price": 8715.0,
+      "price_change": -2119.0,
+      "price_change_pct": -19.558796381761123,
+      "timestamp": "2026-09-19 11:14:10.034531+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-19T11:15:29.370743+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Aydinbey Gold Dreams_2026-09-19_11-14_comeback_19.6"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-19T05:51:40.565515+00:00",
+    "last_processed_run": "2026-09-19T11:14:10.034531+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 10060.0,
@@ -2703,8 +2755,8 @@
         "premium_peak": 15800.0
       },
       "Seher Sun Palace Resort & Spa": {
-        "history_max": 11010.0,
-        "premium_peak": 11010.0
+        "history_max": 11449.0,
+        "premium_peak": 11449.0
       },
       "Ozkaymak Falez": {
         "history_max": 12554.0,
@@ -3387,7 +3439,7 @@
         "premium_peak": 10544.0
       },
       "Xoria Deluxe": {
-        "history_max": 9464.0,
+        "history_max": 9851.0,
         "premium_peak": null
       },
       "Crystal Centro Pearl Collection (ex. Amara Centro Resort)": {
@@ -3407,8 +3459,8 @@
         "premium_peak": 14750.0
       },
       "Delphin Botanik (Alanya)": {
-        "history_max": 13527.0,
-        "premium_peak": 13527.0
+        "history_max": 13833.0,
+        "premium_peak": 13833.0
       },
       "Sunis Efes Royal Palace Resort": {
         "history_max": 17734.0,
@@ -3737,6 +3789,10 @@
       "Adora Hotel & Resort (ex. Adora Golf)": {
         "history_max": 14289.0,
         "premium_peak": 14289.0
+      },
+      "Arnor De Luxe & SPA": {
+        "history_max": 12447.0,
+        "premium_peak": 12447.0
       }
     }
   }
