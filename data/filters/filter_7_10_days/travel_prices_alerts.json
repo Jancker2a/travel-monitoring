@@ -1859,10 +1859,49 @@
       "created_at": "2026-09-19T20:53:42.659500+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Rewaya Majestic Resort_2026-09-19_20-53_comeback_9.1"
+    },
+    {
+      "hotel_name": "Rewaya Majestic Resort",
+      "duration_bucket": "",
+      "old_price": 9632.0,
+      "new_price": 11357.0,
+      "price_change": 1725.0,
+      "price_change_pct": 17.90905315614618,
+      "timestamp": "2026-09-19 23:16:33.890868+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-19T23:17:19.487469+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Majestic Resort_2026-09-19_23-16_zone_out_+17.9"
+    },
+    {
+      "hotel_name": "Tropitel Sahl Hasheesh",
+      "duration_bucket": "",
+      "old_price": 12437.0,
+      "new_price": 9778.0,
+      "price_change": -2659.0,
+      "price_change_pct": -21.37975395995819,
+      "timestamp": "2026-09-19 23:16:33.890868+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-19T23:17:19.487513+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Tropitel Sahl Hasheesh_2026-09-19_23-16_comeback_21.4"
+    },
+    {
+      "hotel_name": "Gravity Sahl Hasheesh (Ex. Ocean Breeze)",
+      "duration_bucket": "",
+      "old_price": 11789.0,
+      "new_price": 9779.0,
+      "price_change": -2010.0,
+      "price_change_pct": -17.049792179150057,
+      "timestamp": "2026-09-19 23:16:33.890868+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-19T23:17:19.487531+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Gravity Sahl Hasheesh (Ex. Ocean Breeze)_2026-09-19_23-16_comeback_17.0"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-19T20:53:05.772249+00:00",
+    "last_processed_run": "2026-09-19T23:16:33.890868+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 9150.0,
@@ -2205,8 +2244,8 @@
         "premium_peak": 10843.0
       },
       "Pickalbatros Dana Beach Resort": {
-        "history_max": 12107.0,
-        "premium_peak": 12107.0
+        "history_max": 12238.0,
+        "premium_peak": 12238.0
       },
       "Serenity Alma Heights (ex. Serenity Fun City)": {
         "history_max": 9617.0,
@@ -2601,8 +2640,8 @@
         "premium_peak": 10757.0
       },
       "Rewaya Majestic Resort": {
-        "history_max": 10594.0,
-        "premium_peak": 10594.0
+        "history_max": 11357.0,
+        "premium_peak": 11357.0
       },
       "Gravity Sahl Hasheesh (Ex. Ocean Breeze)": {
         "history_max": 11789.0,

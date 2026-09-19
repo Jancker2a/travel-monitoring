@@ -5330,10 +5330,49 @@
       "created_at": "2026-09-19T20:55:15.938669+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Pemar Beach Resort Turcja, Alanya, Okurcalar_2026-09-19_20-54_zone_out_gone"
+    },
+    {
+      "hotel_name": "Cenger Beach Resort Turcja, Side",
+      "duration_bucket": "",
+      "old_price": 5967.0,
+      "new_price": 6599.0,
+      "price_change": 632.0,
+      "price_change_pct": 10.591587062175298,
+      "timestamp": "2026-09-19 23:17:46.983632+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-19T23:19:20.074706+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Cenger Beach Resort Turcja, Side_2026-09-19_23-17_+10.6"
+    },
+    {
+      "hotel_name": "Sentido Lycus Beach (ex. Lti)",
+      "duration_bucket": "",
+      "old_price": 9546.0,
+      "new_price": 8527.0,
+      "price_change": -1019.0,
+      "price_change_pct": -10.67462811648858,
+      "timestamp": "2026-09-19 23:17:46.983632+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-19T23:19:20.074779+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sentido Lycus Beach (ex. Lti)_2026-09-19_23-17_-10.7"
+    },
+    {
+      "hotel_name": "Crystal Prestige Pearl Collection",
+      "duration_bucket": "",
+      "old_price": 9957.0,
+      "new_price": 9957.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-19 23:17:46.983632+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-19T23:19:20.074812+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Crystal Prestige Pearl Collection_2026-09-19_23-17_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-19T20:54:09.355715+00:00",
+    "last_processed_run": "2026-09-19T23:17:46.983632+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 8944.0,
@@ -6376,7 +6415,7 @@
         "premium_peak": null
       },
       "Club Paradiso": {
-        "history_max": 9590.0,
+        "history_max": 9626.0,
         "premium_peak": null
       },
       "Club Nena (Side)": {
