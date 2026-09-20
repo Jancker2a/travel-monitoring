@@ -533,10 +533,62 @@
       "created_at": "2026-09-19T18:12:17.572220+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Cenger Beach Resort Turcja, Side_2026-09-19_18-11_comeback_17.5"
+    },
+    {
+      "hotel_name": "Loxia Comfort Beach Alanya (ex. Fun & Sun Smart Club Prestige) Turcja, Alanya, Mahmutlar",
+      "duration_bucket": "",
+      "old_price": 9009.0,
+      "new_price": 8258.0,
+      "price_change": -751.0,
+      "price_change_pct": -8.336108336108335,
+      "timestamp": "2026-09-20 01:21:31.540429+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-20T01:22:31.281633+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Loxia Comfort Beach Alanya (ex. Fun & Sun Smart Club Prestige) Turcja, Alanya, Mahmutlar_2026-09-20_01-21_-8.3"
+    },
+    {
+      "hotel_name": "First Class Turcja, Alanya, Mahmutlar",
+      "duration_bucket": "",
+      "old_price": 7677.0,
+      "new_price": 6939.0,
+      "price_change": -738.0,
+      "price_change_pct": -9.613130128956623,
+      "timestamp": "2026-09-20 01:21:31.540429+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-20T01:22:31.281657+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "First Class Turcja, Alanya, Mahmutlar_2026-09-20_01-21_-9.6"
+    },
+    {
+      "hotel_name": "Armas Green Fugla Turcja, Alanya",
+      "duration_bucket": "",
+      "old_price": 11295.0,
+      "new_price": 9783.0,
+      "price_change": -1512.0,
+      "price_change_pct": -13.386454183266933,
+      "timestamp": "2026-09-20 01:21:31.540429+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-20T01:22:31.281678+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Armas Green Fugla Turcja, Alanya_2026-09-20_01-21_comeback_13.4"
+    },
+    {
+      "hotel_name": "Ladonia Hotels Adakule (ex Alkoclar Adakule) Turcja, Kusadasi",
+      "duration_bucket": "",
+      "old_price": 10967.0,
+      "new_price": 9675.0,
+      "price_change": -1292.0,
+      "price_change_pct": -11.780796936263336,
+      "timestamp": "2026-09-20 01:21:31.540429+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-20T01:22:31.281686+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Ladonia Hotels Adakule (ex Alkoclar Adakule) Turcja, Kusadasi_2026-09-20_01-21_comeback_11.8"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-19T23:17:57.559511+00:00",
+    "last_processed_run": "2026-09-20T01:21:31.540429+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 12997.0,
@@ -1055,8 +1107,8 @@
         "premium_peak": 17931.0
       },
       "Queens Park Goynuk (Kemer)": {
-        "history_max": 15758.0,
-        "premium_peak": 15758.0
+        "history_max": 16629.0,
+        "premium_peak": 16629.0
       },
       "Presa Di Finica (Finike) Turcja, Kemer, Finike": {
         "history_max": 10357.0,
@@ -1801,6 +1853,10 @@
       "Rox Royal (ex. Grand Haber) Turcja, Kemer": {
         "history_max": 11084.0,
         "premium_peak": 11084.0
+      },
+      "Barut Goia (ex. Barut Sunwing Side Beach)": {
+        "history_max": 18014.0,
+        "premium_peak": 18014.0
       }
     }
   }
