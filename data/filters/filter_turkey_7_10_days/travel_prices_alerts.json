@@ -5512,10 +5512,62 @@
       "created_at": "2026-09-20T06:33:31.210553+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Baia Salima Kemer (ex Club Salima)_2026-09-20_06-31_+8.1"
+    },
+    {
+      "hotel_name": "Amara Comfort Resort Kemer (ex. Loxia Comfort Resort Kemer)",
+      "duration_bucket": "",
+      "old_price": 8649.0,
+      "new_price": 8649.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-20 12:32:19.696292+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-20T12:33:50.282751+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amara Comfort Resort Kemer (ex. Loxia Comfort Resort Kemer)_2026-09-20_12-32_zone_out_gone"
+    },
+    {
+      "hotel_name": "Rox Royal (ex. Grand Haber) Turcja, Kemer",
+      "duration_bucket": "",
+      "old_price": 7137.0,
+      "new_price": 7137.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-20 12:32:19.696292+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-20T12:33:50.282777+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rox Royal (ex. Grand Haber) Turcja, Kemer_2026-09-20_12-32_zone_out_gone"
+    },
+    {
+      "hotel_name": "Xoria Deluxe",
+      "duration_bucket": "",
+      "old_price": 7695.0,
+      "new_price": 7695.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-20 12:32:19.696292+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-20T12:33:50.282788+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xoria Deluxe_2026-09-20_12-32_zone_out_gone"
+    },
+    {
+      "hotel_name": "Lonicera Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 11011.0,
+      "new_price": 9324.0,
+      "price_change": -1687.0,
+      "price_change_pct": -15.321042593769866,
+      "timestamp": "2026-09-20 12:32:19.696292+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-20T12:33:50.282817+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Lonicera Resort & Spa_2026-09-20_12-32_comeback_15.3"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-20T06:31:57.713841+00:00",
+    "last_processed_run": "2026-09-20T12:32:19.696292+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 8944.0,
@@ -7096,6 +7148,14 @@
       "Solivia (Ex. Titan Select)": {
         "history_max": 7178.0,
         "premium_peak": null
+      },
+      "Quattro Family Club Dem": {
+        "history_max": 10808.0,
+        "premium_peak": 10808.0
+      },
+      "Ducale Lara": {
+        "history_max": 10635.0,
+        "premium_peak": 10635.0
       }
     }
   }
