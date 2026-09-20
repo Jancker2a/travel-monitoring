@@ -1651,10 +1651,49 @@
       "created_at": "2026-09-20T12:34:44.572569+00:00",
       "threshold_percent": 8.0,
       "unique_key": "White Olive Elite Rethymno_2026-09-20_12-33_comeback_11.4"
+    },
+    {
+      "hotel_name": "Bella Beach Grecja, Kreta Wschodnia, Anissaras",
+      "duration_bucket": "",
+      "old_price": 9346.0,
+      "new_price": 9346.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-20 16:56:38.120987+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-20T16:57:29.004698+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Bella Beach Grecja, Kreta Wschodnia, Anissaras_2026-09-20_16-56_zone_out_gone"
+    },
+    {
+      "hotel_name": "Istion Club",
+      "duration_bucket": "",
+      "old_price": 9572.0,
+      "new_price": 9572.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-20 16:56:38.120987+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-20T16:57:29.004717+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Istion Club_2026-09-20_16-56_zone_out_gone"
+    },
+    {
+      "hotel_name": "Bella Beach",
+      "duration_bucket": "",
+      "old_price": 12054.0,
+      "new_price": 9678.0,
+      "price_change": -2376.0,
+      "price_change_pct": -19.711299153807865,
+      "timestamp": "2026-09-20 16:56:38.120987+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-20T16:57:29.004736+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Bella Beach_2026-09-20_16-56_comeback_19.7"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-20T12:33:32.299231+00:00",
+    "last_processed_run": "2026-09-20T16:56:38.120987+00:00",
     "premium_state": {
       "Ajul Luxury & Spa Resort (Ayios Nikolaos) Grecja, Chalkidiki, Loutra": {
         "history_max": 9207.0,
@@ -2311,6 +2350,10 @@
       "Rimondi Grand Resort & Spa": {
         "history_max": 12515.0,
         "premium_peak": 12515.0
+      },
+      "Istion Club Grecja, Chalkidiki, Nea Poteidaia": {
+        "history_max": 9612.0,
+        "premium_peak": null
       }
     }
   }

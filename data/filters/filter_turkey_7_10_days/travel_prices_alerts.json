@@ -5564,10 +5564,101 @@
       "created_at": "2026-09-20T12:33:50.282817+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Lonicera Resort & Spa_2026-09-20_12-32_comeback_15.3"
+    },
+    {
+      "hotel_name": "Sentido Lycus Beach (ex. Lti)",
+      "duration_bucket": "",
+      "old_price": 8527.0,
+      "new_price": 9546.0,
+      "price_change": 1019.0,
+      "price_change_pct": 11.95027559516829,
+      "timestamp": "2026-09-20 16:55:44.419760+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-20T16:56:37.282615+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sentido Lycus Beach (ex. Lti)_2026-09-20_16-55_+12.0"
+    },
+    {
+      "hotel_name": "Grand Kolibri Prestige & Spa",
+      "duration_bucket": "",
+      "old_price": 7601.0,
+      "new_price": 8347.0,
+      "price_change": 746.0,
+      "price_change_pct": 9.814498092356269,
+      "timestamp": "2026-09-20 16:55:44.419760+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-20T16:56:37.282675+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Grand Kolibri Prestige & Spa_2026-09-20_16-55_+9.8"
+    },
+    {
+      "hotel_name": "Innvista Belek (ex. Vera Verde)",
+      "duration_bucket": "",
+      "old_price": 8649.0,
+      "new_price": 8649.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-20 16:55:44.419760+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-20T16:56:37.282716+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Innvista Belek (ex. Vera Verde)_2026-09-20_16-55_zone_out_gone"
+    },
+    {
+      "hotel_name": "Raymar Resort & Aqua Turcja, Side",
+      "duration_bucket": "",
+      "old_price": 6989.0,
+      "new_price": 6989.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-20 16:55:44.419760+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-20T16:56:37.282724+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Raymar Resort & Aqua Turcja, Side_2026-09-20_16-55_zone_out_gone"
+    },
+    {
+      "hotel_name": "Rox Royal (ex. Grand Haber)",
+      "duration_bucket": "",
+      "old_price": 7137.0,
+      "new_price": 7137.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-20 16:55:44.419760+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-20T16:56:37.282731+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rox Royal (ex. Grand Haber)_2026-09-20_16-55_zone_out_gone"
+    },
+    {
+      "hotel_name": "VONResort Golden Beach",
+      "duration_bucket": "",
+      "old_price": 9718.0,
+      "new_price": 9718.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-20 16:55:44.419760+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-20T16:56:37.282738+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "VONResort Golden Beach_2026-09-20_16-55_zone_out_gone"
+    },
+    {
+      "hotel_name": "Amara Comfort Resort Kemer (ex. Loxia Comfort Resort Kemer)",
+      "duration_bucket": "",
+      "old_price": 10341.0,
+      "new_price": 8649.0,
+      "price_change": -1692.0,
+      "price_change_pct": -16.362053959965188,
+      "timestamp": "2026-09-20 16:55:44.419760+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-20T16:56:37.282766+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amara Comfort Resort Kemer (ex. Loxia Comfort Resort Kemer)_2026-09-20_16-55_comeback_16.4"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-20T12:32:19.696292+00:00",
+    "last_processed_run": "2026-09-20T16:55:44.419760+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 8944.0,
