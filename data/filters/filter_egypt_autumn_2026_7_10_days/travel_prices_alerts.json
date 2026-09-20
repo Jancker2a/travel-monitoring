@@ -3341,10 +3341,88 @@
       "created_at": "2026-09-20T16:55:24.181651+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Naama Bay Hotel & Resort_2026-09-20_16-54_zone_out_gone"
+    },
+    {
+      "hotel_name": "Hilton Marsa Alam Nubian Resort",
+      "duration_bucket": "",
+      "old_price": 9031.0,
+      "new_price": 9887.0,
+      "price_change": 856.0,
+      "price_change_pct": 9.478463071642123,
+      "timestamp": "2026-09-20 19:35:59.477172+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-20T19:36:35.625923+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Hilton Marsa Alam Nubian Resort_2026-09-20_19-35_+9.5"
+    },
+    {
+      "hotel_name": "Concorde El Salam Sport",
+      "duration_bucket": "",
+      "old_price": 10371.0,
+      "new_price": 9156.0,
+      "price_change": -1215.0,
+      "price_change_pct": -11.715360138848713,
+      "timestamp": "2026-09-20 19:35:59.477172+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-20T19:36:35.625951+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Concorde El Salam Sport_2026-09-20_19-35_-11.7"
+    },
+    {
+      "hotel_name": "Charmillion Club Resort",
+      "duration_bucket": "",
+      "old_price": 9654.0,
+      "new_price": 10604.0,
+      "price_change": 950.0,
+      "price_change_pct": 9.84048062979076,
+      "timestamp": "2026-09-20 19:35:59.477172+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-20T19:36:35.625964+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Charmillion Club Resort_2026-09-20_19-35_+9.8"
+    },
+    {
+      "hotel_name": "Amarina Jannah Resort Aquapark Egipt, Marsa Alam, Port Ghalib",
+      "duration_bucket": "",
+      "old_price": 8471.0,
+      "new_price": 8471.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-20 19:35:59.477172+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-20T19:36:35.625985+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amarina Jannah Resort Aquapark Egipt, Marsa Alam, Port Ghalib_2026-09-20_19-35_zone_out_gone"
+    },
+    {
+      "hotel_name": "Jaz Mirabel Beach Resort",
+      "duration_bucket": "",
+      "old_price": 10146.0,
+      "new_price": 10146.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-20 19:35:59.477172+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-20T19:36:35.625991+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Mirabel Beach Resort_2026-09-20_19-35_zone_out_gone"
+    },
+    {
+      "hotel_name": "Marriott Hurghada Beach Resort Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 8827.0,
+      "new_price": 8827.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-20 19:35:59.477172+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-20T19:36:35.625997+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Marriott Hurghada Beach Resort Egipt, Hurghada_2026-09-20_19-35_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-20T16:54:50.631740+00:00",
+    "last_processed_run": "2026-09-20T19:35:59.477172+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 6921.0,
@@ -3499,7 +3577,7 @@
         "premium_peak": null
       },
       "Naama Bay Hotel & Resort": {
-        "history_max": 10034.0,
+        "history_max": 10149.0,
         "premium_peak": null
       },
       "Naama Bay Promenade Beach Resort": {
@@ -3687,11 +3765,11 @@
         "premium_peak": null
       },
       "Hilton Marsa Alam Nubian Resort": {
-        "history_max": 9701.0,
+        "history_max": 9887.0,
         "premium_peak": null
       },
       "Novotel Marsa Alam Egipt, Marsa Alam": {
-        "history_max": 7409.0,
+        "history_max": 7737.0,
         "premium_peak": null
       },
       "Concorde El Salam Sport": {
@@ -3703,7 +3781,7 @@
         "premium_peak": null
       },
       "Amarina Queen Resort Egipt, Marsa Alam": {
-        "history_max": 7285.0,
+        "history_max": 7735.0,
         "premium_peak": null
       },
       "Double Tree by Hilton Mangroovy El Gouna Resort": {
@@ -3827,7 +3905,7 @@
         "premium_peak": null
       },
       "Gemma Resort (ex. Labranda Gemma Premium Resort) Egipt, Marsa Alam": {
-        "history_max": 7563.0,
+        "history_max": 7913.0,
         "premium_peak": null
       },
       "Gorgonia Beach": {
@@ -3987,11 +4065,11 @@
         "premium_peak": null
       },
       "Pickalbatros Palace Port Ghalib (ex. Red Sea The Palace)": {
-        "history_max": 9089.0,
+        "history_max": 9127.0,
         "premium_peak": null
       },
       "Albatros Sea World Resort Marsa Alam": {
-        "history_max": 9349.0,
+        "history_max": 9799.0,
         "premium_peak": null
       },
       "Serenity Alma Heights Ross Park Collection": {
@@ -4044,6 +4122,10 @@
       },
       "Gravity Sahl Hasheesh (Ex. Ocean Breeze) Egipt, Hurghada": {
         "history_max": 8628.0,
+        "premium_peak": null
+      },
+      "Amarina Jannah Resort Aquapark": {
+        "history_max": 8821.0,
         "premium_peak": null
       }
     }
