@@ -234,10 +234,114 @@
       "created_at": "2026-09-21T14:24:09.736822+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sultan of Dreams_2026-09-21_14-23_comeback_14.2"
+    },
+    {
+      "hotel_name": "Xoria Deluxe",
+      "duration_bucket": "",
+      "old_price": 8251.0,
+      "new_price": 9115.0,
+      "price_change": 864.0,
+      "price_change_pct": 10.471458005090293,
+      "timestamp": "2026-09-21 20:05:33.975663+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-21T20:06:22.519521+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xoria Deluxe_2026-09-21_20-05_+10.5"
+    },
+    {
+      "hotel_name": "Sultan of Side",
+      "duration_bucket": "",
+      "old_price": 7989.0,
+      "new_price": 8807.0,
+      "price_change": 818.0,
+      "price_change_pct": 10.23907873325823,
+      "timestamp": "2026-09-21 20:05:33.975663+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-21T20:06:22.519551+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sultan of Side_2026-09-21_20-05_+10.2"
+    },
+    {
+      "hotel_name": "Sultan of Dreams",
+      "duration_bucket": "",
+      "old_price": 8697.0,
+      "new_price": 9577.0,
+      "price_change": 880.0,
+      "price_change_pct": 10.11843164309532,
+      "timestamp": "2026-09-21 20:05:33.975663+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-21T20:06:22.519561+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sultan of Dreams_2026-09-21_20-05_+10.1"
+    },
+    {
+      "hotel_name": "Aydinbey Gold Dreams",
+      "duration_bucket": "",
+      "old_price": 8715.0,
+      "new_price": 10534.0,
+      "price_change": 1819.0,
+      "price_change_pct": 20.87205966724039,
+      "timestamp": "2026-09-21 20:05:33.975663+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-21T20:06:22.519580+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Aydinbey Gold Dreams_2026-09-21_20-05_zone_out_+20.9"
+    },
+    {
+      "hotel_name": "Eftalia Aqua",
+      "duration_bucket": "",
+      "old_price": 9579.0,
+      "new_price": 10953.0,
+      "price_change": 1374.0,
+      "price_change_pct": 14.343877231443782,
+      "timestamp": "2026-09-21 20:05:33.975663+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-21T20:06:22.519587+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Eftalia Aqua_2026-09-21_20-05_zone_out_+14.3"
+    },
+    {
+      "hotel_name": "Eftalia Marin",
+      "duration_bucket": "",
+      "old_price": 9855.0,
+      "new_price": 10044.0,
+      "price_change": 189.0,
+      "price_change_pct": 1.9178082191780823,
+      "timestamp": "2026-09-21 20:05:33.975663+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-21T20:06:22.519594+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Eftalia Marin_2026-09-21_20-05_zone_out_+1.9"
+    },
+    {
+      "hotel_name": "Side Kum",
+      "duration_bucket": "",
+      "old_price": 9951.0,
+      "new_price": 10081.0,
+      "price_change": 130.0,
+      "price_change_pct": 1.3064013666968144,
+      "timestamp": "2026-09-21 20:05:33.975663+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-21T20:06:22.519600+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Side Kum_2026-09-21_20-05_zone_out_+1.3"
+    },
+    {
+      "hotel_name": "Innvista Belek (ex. Vera Verde)",
+      "duration_bucket": "",
+      "old_price": 11282.0,
+      "new_price": 9747.0,
+      "price_change": -1535.0,
+      "price_change_pct": -13.605743662471193,
+      "timestamp": "2026-09-21 20:05:33.975663+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-21T20:06:22.519619+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Innvista Belek (ex. Vera Verde)_2026-09-21_20-05_comeback_13.6"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-21T14:23:01.396422+00:00",
+    "last_processed_run": "2026-09-21T20:05:33.975663+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 9799.0,
@@ -284,8 +388,8 @@
         "premium_peak": null
       },
       "Sianji Well-Being Resort": {
-        "history_max": 13651.0,
-        "premium_peak": 13651.0
+        "history_max": 14794.0,
+        "premium_peak": 14794.0
       },
       "Holiday Garden Resort (Okurcalar)": {
         "history_max": 8781.0,
@@ -296,8 +400,8 @@
         "premium_peak": 13158.0
       },
       "Side Kum": {
-        "history_max": 9951.0,
-        "premium_peak": null
+        "history_max": 10081.0,
+        "premium_peak": 10081.0
       },
       "Hane Sun Elite (ex Noble Palace Side)": {
         "history_max": 9018.0,
@@ -308,24 +412,24 @@
         "premium_peak": 14709.0
       },
       "Side Mare Resort": {
-        "history_max": 14822.0,
-        "premium_peak": 14822.0
+        "history_max": 14938.0,
+        "premium_peak": 14938.0
       },
       "Juju Premier Palace (ex. Amara Premier Palace)": {
         "history_max": 14537.0,
         "premium_peak": 14537.0
       },
       "Justiniano Club Park Conti": {
-        "history_max": 10125.0,
-        "premium_peak": 10125.0
+        "history_max": 10912.0,
+        "premium_peak": 10912.0
       },
       "Seven Seas Life": {
         "history_max": 14756.0,
         "premium_peak": 14756.0
       },
       "Justiniano Deluxe Resort": {
-        "history_max": 10273.0,
-        "premium_peak": 10273.0
+        "history_max": 10469.0,
+        "premium_peak": 10469.0
       },
       "La Blanche Island Bodrum": {
         "history_max": 15254.0,
@@ -356,8 +460,8 @@
         "premium_peak": 15798.0
       },
       "Sentido Lycus Beach (ex. Lti)": {
-        "history_max": 12029.0,
-        "premium_peak": 12029.0
+        "history_max": 12232.0,
+        "premium_peak": 12232.0
       },
       "Greenwood Suites Resort (ex. Sherwood Suites Resort)": {
         "history_max": 10575.0,
@@ -440,8 +544,8 @@
         "premium_peak": 14157.0
       },
       "Eftalia Marin": {
-        "history_max": 9855.0,
-        "premium_peak": null
+        "history_max": 10044.0,
+        "premium_peak": 10044.0
       },
       "Eftalia Blue": {
         "history_max": 12613.0,
@@ -596,8 +700,8 @@
         "premium_peak": 12554.0
       },
       "Oz Sui Resort": {
-        "history_max": 10040.0,
-        "premium_peak": 10040.0
+        "history_max": 10355.0,
+        "premium_peak": 10355.0
       },
       "Royal Alhambra Palace": {
         "history_max": 13044.0,
@@ -636,8 +740,8 @@
         "premium_peak": 13518.0
       },
       "Nova Park": {
-        "history_max": 14969.0,
-        "premium_peak": 14969.0
+        "history_max": 15099.0,
+        "premium_peak": 15099.0
       },
       "Nova Life": {
         "history_max": 8262.0,
@@ -756,8 +860,8 @@
         "premium_peak": 13932.0
       },
       "Mirage Park Resort": {
-        "history_max": 15813.0,
-        "premium_peak": 15813.0
+        "history_max": 16250.0,
+        "premium_peak": 16250.0
       },
       "Seamelia Beach Resort & Spa": {
         "history_max": 13845.0,
@@ -804,8 +908,8 @@
         "premium_peak": 14029.0
       },
       "Seher Sun Palace Resort & Spa": {
-        "history_max": 12559.0,
-        "premium_peak": 12559.0
+        "history_max": 12761.0,
+        "premium_peak": 12761.0
       },
       "Limak Arcadia Sport Resort": {
         "history_max": 14162.0,
@@ -848,7 +952,7 @@
         "premium_peak": null
       },
       "Mira Meridia Beach Resort": {
-        "history_max": 9416.0,
+        "history_max": 9546.0,
         "premium_peak": null
       },
       "Rubi Platinum Sign": {
@@ -888,8 +992,8 @@
         "premium_peak": null
       },
       "Samara (Bodrum)": {
-        "history_max": 13925.0,
-        "premium_peak": 13925.0
+        "history_max": 14963.0,
+        "premium_peak": 14963.0
       },
       "Mary Alanya (ex. Sirius Deluxe)": {
         "history_max": 12078.0,
@@ -1076,8 +1180,8 @@
         "premium_peak": 11546.0
       },
       "Armonia Holiday Village": {
-        "history_max": 10813.0,
-        "premium_peak": 10813.0
+        "history_max": 11852.0,
+        "premium_peak": 11852.0
       },
       "Aydinbey Famous": {
         "history_max": 12741.0,
@@ -1092,8 +1196,8 @@
         "premium_peak": null
       },
       "Arnor De Luxe & SPA": {
-        "history_max": 11064.0,
-        "premium_peak": 11064.0
+        "history_max": 11148.0,
+        "premium_peak": 11148.0
       },
       "Asteria Family Resort Side": {
         "history_max": 9360.0,
@@ -1104,8 +1208,8 @@
         "premium_peak": 10834.0
       },
       "VONResort Golden Beach": {
-        "history_max": 12371.0,
-        "premium_peak": 12371.0
+        "history_max": 16182.0,
+        "premium_peak": 16182.0
       },
       "Asteria Family Belek": {
         "history_max": 10440.0,
@@ -1144,8 +1248,8 @@
         "premium_peak": 10319.0
       },
       "Victory Volare": {
-        "history_max": 10905.0,
-        "premium_peak": 10905.0
+        "history_max": 10998.0,
+        "premium_peak": 10998.0
       },
       "Baska Resort Bodrum": {
         "history_max": 13039.0,
@@ -1372,8 +1476,8 @@
         "premium_peak": null
       },
       "Antique Roman Palace": {
-        "history_max": 12094.0,
-        "premium_peak": 12094.0
+        "history_max": 12283.0,
+        "premium_peak": 12283.0
       },
       "White City Resort": {
         "history_max": 10731.0,
@@ -1388,7 +1492,7 @@
         "premium_peak": 13392.0
       },
       "Club Nena (Side)": {
-        "history_max": 9485.0,
+        "history_max": 9672.0,
         "premium_peak": null
       },
       "Crystal Centro Pearl Collection (ex. Amara Centro Resort)": {
@@ -1462,6 +1566,14 @@
       "Marti Resort Delux": {
         "history_max": 15993.0,
         "premium_peak": 15993.0
+      },
+      "Akka Antedon": {
+        "history_max": 16331.0,
+        "premium_peak": 16331.0
+      },
+      "Sueno Deluxe Belek": {
+        "history_max": 16351.0,
+        "premium_peak": 16351.0
       }
     }
   }
