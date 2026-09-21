@@ -1,8 +1,48 @@
 {
   "version": 2,
-  "alerts": [],
+  "alerts": [
+    {
+      "hotel_name": "Domina Coral Bay Harem Egipt, Sharm El Sheikh",
+      "duration_bucket": "",
+      "old_price": 10831.0,
+      "new_price": 10831.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-21 06:33:57.698234+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-21T06:34:14.333509+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Domina Coral Bay Harem Egipt, Sharm El Sheikh_2026-09-21_06-33_zone_out_gone"
+    },
+    {
+      "hotel_name": "Domina Coral Bay Oasis Egipt, Sharm El Sheikh",
+      "duration_bucket": "",
+      "old_price": 10831.0,
+      "new_price": 10831.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-21 06:33:57.698234+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-21T06:34:14.333539+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Domina Coral Bay Oasis Egipt, Sharm El Sheikh_2026-09-21_06-33_zone_out_gone"
+    },
+    {
+      "hotel_name": "Xperience Kiroseiz Parkland Egipt, Sharm El Sheikh",
+      "duration_bucket": "",
+      "old_price": 10795.0,
+      "new_price": 10795.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-21 06:33:57.698234+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-21T06:34:14.333554+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xperience Kiroseiz Parkland Egipt, Sharm El Sheikh_2026-09-21_06-33_zone_out_gone"
+    }
+  ],
   "meta": {
-    "last_processed_run": "2026-09-21T05:24:33.213957+00:00",
+    "last_processed_run": "2026-09-21T06:33:57.698234+00:00",
     "premium_state": {
       "Parrotel Lagoon Resort Egipt, Sharm El Sheikh, Szarm el-Szejk": {
         "history_max": 9994.0,
@@ -21,7 +61,7 @@
         "premium_peak": null
       },
       "Xperience Kiroseiz Premier Egipt, Sharm El Sheikh": {
-        "history_max": 10471.0,
+        "history_max": 10654.0,
         "premium_peak": null
       },
       "Parrotel Beach Resort (ex. Radisson Blu) Egipt, Sharm El Sheikh": {
