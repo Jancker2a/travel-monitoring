@@ -637,10 +637,75 @@
       "created_at": "2026-09-22T10:08:48.735725+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Royal Lagoons Aqua (ex. Premium Blue) Egipt, Hurghada_2026-09-22_10-08_zone_out_gone"
+    },
+    {
+      "hotel_name": "Continental (ex Movenpick Resort)",
+      "duration_bucket": "",
+      "old_price": 8932.0,
+      "new_price": 10094.0,
+      "price_change": 1162.0,
+      "price_change_pct": 13.009404388714735,
+      "timestamp": "2026-09-22 15:05:07.987428+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-22T15:05:43.061848+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Continental (ex Movenpick Resort)_2026-09-22_15-05_+13.0"
+    },
+    {
+      "hotel_name": "Pickalbatros Laguna Club Resort",
+      "duration_bucket": "",
+      "old_price": 9513.0,
+      "new_price": 8541.0,
+      "price_change": -972.0,
+      "price_change_pct": -10.21759697256386,
+      "timestamp": "2026-09-22 15:05:07.987428+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-22T15:05:43.061891+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Laguna Club Resort_2026-09-22_15-05_-10.2"
+    },
+    {
+      "hotel_name": "Old Palace Resort",
+      "duration_bucket": "",
+      "old_price": 8476.0,
+      "new_price": 9216.0,
+      "price_change": 740.0,
+      "price_change_pct": 8.73053327041057,
+      "timestamp": "2026-09-22 15:05:07.987428+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-22T15:05:43.061914+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Old Palace Resort_2026-09-22_15-05_+8.7"
+    },
+    {
+      "hotel_name": "Gravity Hotel & Aquapark Hurghada (ex. Samra Bay Resort) Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 7733.0,
+      "new_price": 7733.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-22 15:05:07.987428+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-22T15:05:43.061942+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Gravity Hotel & Aquapark Hurghada (ex. Samra Bay Resort) Egipt, Hurghada_2026-09-22_15-05_zone_out_gone"
+    },
+    {
+      "hotel_name": "Stella Gardens Resort & Spa (ex Stella Di Mare Gardens)",
+      "duration_bucket": "",
+      "old_price": 8581.0,
+      "new_price": 8581.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-22 15:05:07.987428+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-22T15:05:43.061952+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Stella Gardens Resort & Spa (ex Stella Di Mare Gardens)_2026-09-22_15-05_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-22T10:08:15.707771+00:00",
+    "last_processed_run": "2026-09-22T15:05:07.987428+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 6669.0,
@@ -659,7 +724,7 @@
         "premium_peak": null
       },
       "Palm Royale Soma Bay": {
-        "history_max": 10664.0,
+        "history_max": 10971.0,
         "premium_peak": null
       },
       "Parrotel Beach Resort (ex. Radisson Blu) Egipt, Sharm El Sheikh": {
@@ -895,7 +960,7 @@
         "premium_peak": null
       },
       "Tropitel Sahl Hasheesh": {
-        "history_max": 9400.0,
+        "history_max": 10024.0,
         "premium_peak": null
       },
       "True Beach Resort": {
@@ -1023,7 +1088,7 @@
         "premium_peak": null
       },
       "Movenpick Resort Soma Bay Egipt, Hurghada": {
-        "history_max": 7812.0,
+        "history_max": 7853.0,
         "premium_peak": null
       },
       "Gravity Hotel & Aquapark Hurghada (ex. Samra Bay Resort)": {
@@ -1167,7 +1232,7 @@
         "premium_peak": null
       },
       "Akassia Swiss Resort (ex. Calimera Club Akassia Swiss Resort)": {
-        "history_max": 9458.0,
+        "history_max": 9472.0,
         "premium_peak": null
       },
       "Golf Villas And Suites Sharm": {
@@ -1260,6 +1325,10 @@
       },
       "Gemma Resort (ex. Labranda Gemma Premium Resort)": {
         "history_max": 9126.0,
+        "premium_peak": null
+      },
+      "Stella Di Mare Gardens Resort & Spa Egipt, Hurghada, Makadi Bay": {
+        "history_max": 7471.0,
         "premium_peak": null
       }
     }

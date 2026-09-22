@@ -390,10 +390,101 @@
       "created_at": "2026-09-22T10:10:54.420100+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sunshine Crete Beach (ex Club Calimera) Grecja, Kreta Wschodnia, Koutsounari_2026-09-22_10-09_zone_out_gone"
+    },
+    {
+      "hotel_name": "Rodos Palace Grecja, Rodos, Ixia",
+      "duration_bucket": "",
+      "old_price": 6997.0,
+      "new_price": 7797.0,
+      "price_change": 800.0,
+      "price_change_pct": 11.433471487780478,
+      "timestamp": "2026-09-22 15:06:50.010690+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-22T15:07:54.738811+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rodos Palace Grecja, Rodos, Ixia_2026-09-22_15-06_+11.4"
+    },
+    {
+      "hotel_name": "Elinotel Sermilia Resort (ex. Bomo Cronwell Sermilia) Grecja, Chalkidiki, Psakoudia",
+      "duration_bucket": "",
+      "old_price": 7765.0,
+      "new_price": 6709.0,
+      "price_change": -1056.0,
+      "price_change_pct": -13.599484867997425,
+      "timestamp": "2026-09-22 15:06:50.010690+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-22T15:07:54.738841+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Elinotel Sermilia Resort (ex. Bomo Cronwell Sermilia) Grecja, Chalkidiki, Psakoudia_2026-09-22_15-06_-13.6"
+    },
+    {
+      "hotel_name": "Galaxy Beach Resort BW Premier Collection Grecja, Zakynthos, Laganas",
+      "duration_bucket": "",
+      "old_price": 8423.0,
+      "new_price": 7363.0,
+      "price_change": -1060.0,
+      "price_change_pct": -12.584589813605604,
+      "timestamp": "2026-09-22 15:06:50.010690+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-22T15:07:54.738854+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Galaxy Beach Resort BW Premier Collection Grecja, Zakynthos, Laganas_2026-09-22_15-06_-12.6"
+    },
+    {
+      "hotel_name": "Apollonia Beach (Ammoudara) Grecja, Kreta Wschodnia, Ammoudara",
+      "duration_bucket": "",
+      "old_price": 8697.0,
+      "new_price": 8697.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-22 15:06:50.010690+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-22T15:07:54.738876+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Apollonia Beach (Ammoudara) Grecja, Kreta Wschodnia, Ammoudara_2026-09-22_15-06_zone_out_gone"
+    },
+    {
+      "hotel_name": "Gaia Palace Grecja, Kos, Mastichari",
+      "duration_bucket": "",
+      "old_price": 9195.0,
+      "new_price": 9195.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-22 15:06:50.010690+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-22T15:07:54.738885+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Gaia Palace Grecja, Kos, Mastichari_2026-09-22_15-06_zone_out_gone"
+    },
+    {
+      "hotel_name": "Hersonissos Palace",
+      "duration_bucket": "",
+      "old_price": 9709.0,
+      "new_price": 9709.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-22 15:06:50.010690+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-22T15:07:54.738894+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Hersonissos Palace_2026-09-22_15-06_zone_out_gone"
+    },
+    {
+      "hotel_name": "Kiani Beach",
+      "duration_bucket": "",
+      "old_price": 11288.0,
+      "new_price": 9968.0,
+      "price_change": -1320.0,
+      "price_change_pct": -11.693834160170093,
+      "timestamp": "2026-09-22 15:06:50.010690+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-22T15:07:54.738918+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Kiani Beach_2026-09-22_15-06_comeback_11.7"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-22T10:09:51.382348+00:00",
+    "last_processed_run": "2026-09-22T15:06:50.010690+00:00",
     "premium_state": {
       "Ajul Luxury & Spa Resort (Ayios Nikolaos) Grecja, Chalkidiki, Loutra": {
         "history_max": 9297.0,
@@ -492,8 +583,8 @@
         "premium_peak": null
       },
       "Gennadi Grand Resort": {
-        "history_max": 17017.0,
-        "premium_peak": 17017.0
+        "history_max": 17488.0,
+        "premium_peak": 17488.0
       },
       "Georgioupolis Resort & Aqua Park": {
         "history_max": 13154.0,
@@ -512,8 +603,8 @@
         "premium_peak": null
       },
       "Grecotel Kos Imperial": {
-        "history_max": 18001.0,
-        "premium_peak": 18001.0
+        "history_max": 18106.0,
+        "premium_peak": 18106.0
       },
       "Grecotel LuxMe Costa Botanica (ex. Gelina Village)": {
         "history_max": 11533.0,
@@ -933,6 +1024,22 @@
       },
       "Atlantica Porto Bello Royal Grecja, kos, Kardamaina": {
         "history_max": 9357.0,
+        "premium_peak": null
+      },
+      "Apollonia Beach (Ammoudara)": {
+        "history_max": 9647.0,
+        "premium_peak": null
+      },
+      "White Olive Elite Rethymno Grecja, Kreta Zachodnia, Sfakaki": {
+        "history_max": 8088.0,
+        "premium_peak": null
+      },
+      "Astir Odysseus": {
+        "history_max": 19628.0,
+        "premium_peak": 19628.0
+      },
+      "Hersonissos Palace Grecja, Kreta Wschodnia, Hersonissos": {
+        "history_max": 9169.0,
         "premium_peak": null
       }
     }
