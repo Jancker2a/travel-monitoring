@@ -351,10 +351,49 @@
       "created_at": "2026-09-21T23:26:44.808651+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sultan of Dreams_2026-09-21_23-26_zone_out_+5.1"
+    },
+    {
+      "hotel_name": "Rox Royal (ex. Grand Haber)",
+      "duration_bucket": "",
+      "old_price": 8942.0,
+      "new_price": 8942.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-22 05:12:10.934791+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-22T05:13:06.365242+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rox Royal (ex. Grand Haber)_2026-09-22_05-12_zone_out_gone"
+    },
+    {
+      "hotel_name": "Well Palace Side (ex. Side Crown Charm Palace)",
+      "duration_bucket": "",
+      "old_price": 8388.0,
+      "new_price": 8388.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-22 05:12:10.934791+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-22T05:13:06.365265+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Well Palace Side (ex. Side Crown Charm Palace)_2026-09-22_05-12_zone_out_gone"
+    },
+    {
+      "hotel_name": "Eftalia Aqua",
+      "duration_bucket": "",
+      "old_price": 11024.0,
+      "new_price": 9774.0,
+      "price_change": -1250.0,
+      "price_change_pct": -11.338896952104498,
+      "timestamp": "2026-09-22 05:12:10.934791+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-22T05:13:06.365289+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Eftalia Aqua_2026-09-22_05-12_comeback_11.3"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-21T23:26:07.670821+00:00",
+    "last_processed_run": "2026-09-22T05:12:10.934791+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 9799.0,
@@ -381,8 +420,8 @@
         "premium_peak": 15516.0
       },
       "Imperial Turkiz Resort (ex. Turkiz Deluxe Resort)": {
-        "history_max": 11949.0,
-        "premium_peak": 11949.0
+        "history_max": 13118.0,
+        "premium_peak": 13118.0
       },
       "IC Green Palace": {
         "history_max": 14400.0,
@@ -489,8 +528,8 @@
         "premium_peak": 13185.0
       },
       "Kaya Side (ex. Club Calimera Kaya Side)": {
-        "history_max": 10481.0,
-        "premium_peak": 10481.0
+        "history_max": 11462.0,
+        "premium_peak": 11462.0
       },
       "Kaya (Belek)": {
         "history_max": 12404.0,
@@ -729,8 +768,8 @@
         "premium_peak": null
       },
       "Royal Atlantis Resort": {
-        "history_max": 10422.0,
-        "premium_peak": 10422.0
+        "history_max": 10895.0,
+        "premium_peak": 10895.0
       },
       "Orange County (Kemer)": {
         "history_max": 11448.0,
@@ -809,8 +848,8 @@
         "premium_peak": 13001.0
       },
       "Pine Beach Belek (ex. Maritim Pine Beach Resort)": {
-        "history_max": 13172.0,
-        "premium_peak": 13172.0
+        "history_max": 13355.0,
+        "premium_peak": 13355.0
       },
       "Perre La Mer Resort & Spa (ex. La Mer)": {
         "history_max": 8019.0,
@@ -1161,7 +1200,7 @@
         "premium_peak": null
       },
       "Cenger Beach Resort (Side)": {
-        "history_max": 7365.0,
+        "history_max": 7861.0,
         "premium_peak": null
       },
       "Armas Bella Sun (ex.Club Bella Sun)": {
@@ -1209,8 +1248,8 @@
         "premium_peak": null
       },
       "Arnor De Luxe & SPA": {
-        "history_max": 11148.0,
-        "premium_peak": 11148.0
+        "history_max": 11240.0,
+        "premium_peak": 11240.0
       },
       "Asteria Family Resort Side": {
         "history_max": 9360.0,
@@ -1591,6 +1630,30 @@
       "Paloma Grida": {
         "history_max": 16382.0,
         "premium_peak": 16382.0
+      },
+      "Arin Resort Bodrum": {
+        "history_max": 13110.0,
+        "premium_peak": 13110.0
+      },
+      "Amara Comfort Resort Kemer (ex. Loxia Comfort Resort Kemer)": {
+        "history_max": 10193.0,
+        "premium_peak": 10193.0
+      },
+      "Delphin Botanik Platinum (Alanya)": {
+        "history_max": 14130.0,
+        "premium_peak": 14130.0
+      },
+      "Meder Resort": {
+        "history_max": 9977.0,
+        "premium_peak": null
+      },
+      "Delphin Deluxe Resort": {
+        "history_max": 15426.0,
+        "premium_peak": 15426.0
+      },
+      "Sunland Resort (ex. Imperial Sunland Resort & Spa)": {
+        "history_max": 9748.0,
+        "premium_peak": null
       }
     }
   }

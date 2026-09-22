@@ -273,10 +273,49 @@
       "created_at": "2026-09-21T23:25:40.993732+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Pickalbatros Villaggio Resort Portofino_2026-09-21_23-25_comeback_13.4"
+    },
+    {
+      "hotel_name": "AMC Royal Hotel & Spa (ex. AMC Azur Resort)",
+      "duration_bucket": "",
+      "old_price": 8596.0,
+      "new_price": 7124.0,
+      "price_change": -1472.0,
+      "price_change_pct": -17.124243834341556,
+      "timestamp": "2026-09-22 05:11:03.418603+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-22T05:11:39.768957+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort)_2026-09-22_05-11_-17.1"
+    },
+    {
+      "hotel_name": "Pickalbatros Villaggio Resort Portofino",
+      "duration_bucket": "",
+      "old_price": 9267.0,
+      "new_price": 10037.0,
+      "price_change": 770.0,
+      "price_change_pct": 8.309053631164346,
+      "timestamp": "2026-09-22 05:11:03.418603+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-22T05:11:39.768997+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Villaggio Resort Portofino_2026-09-22_05-11_zone_out_+8.3"
+    },
+    {
+      "hotel_name": "Serenity Alpha Beach (ex. Serenity Makadi Beach)",
+      "duration_bucket": "",
+      "old_price": 10917.0,
+      "new_price": 9878.0,
+      "price_change": -1039.0,
+      "price_change_pct": -9.517266648346617,
+      "timestamp": "2026-09-22 05:11:03.418603+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-22T05:11:39.769027+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Serenity Alpha Beach (ex. Serenity Makadi Beach)_2026-09-22_05-11_comeback_9.5"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-21T23:25:04.727922+00:00",
+    "last_processed_run": "2026-09-22T05:11:03.418603+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 8939.0,
@@ -475,8 +514,8 @@
         "premium_peak": 11413.0
       },
       "Jaz Makadi Oasis Resort": {
-        "history_max": 12355.0,
-        "premium_peak": 12355.0
+        "history_max": 13784.0,
+        "premium_peak": 13784.0
       },
       "Seven Seas Jolie Bay": {
         "history_max": 10297.0,
@@ -547,8 +586,8 @@
         "premium_peak": null
       },
       "Royal Regency Club": {
-        "history_max": 10778.0,
-        "premium_peak": 10778.0
+        "history_max": 10806.0,
+        "premium_peak": 10806.0
       },
       "Rewaya Luxury Resort": {
         "history_max": 8595.0,
@@ -807,8 +846,8 @@
         "premium_peak": 11307.0
       },
       "Charmillion Garden Aqua Park": {
-        "history_max": 10535.0,
-        "premium_peak": 10535.0
+        "history_max": 10583.0,
+        "premium_peak": 10583.0
       },
       "Titanic Royal": {
         "history_max": 11474.0,
@@ -1015,8 +1054,20 @@
         "premium_peak": 13197.0
       },
       "Jaz Solaya Resort (ex Sol Y Mar Solaya)": {
-        "history_max": 11892.0,
-        "premium_peak": 11892.0
+        "history_max": 12238.0,
+        "premium_peak": 12238.0
+      },
+      "Bellagio Beach Resort & Spa (ex. Panorama Bungalows Hurghada)": {
+        "history_max": 12022.0,
+        "premium_peak": 12022.0
+      },
+      "Old Palace Resort": {
+        "history_max": 16947.0,
+        "premium_peak": 16947.0
+      },
+      "Red Sea Grand Makadi (Makadi Bay)": {
+        "history_max": 10870.0,
+        "premium_peak": 10870.0
       }
     }
   }

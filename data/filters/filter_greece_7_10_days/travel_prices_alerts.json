@@ -182,10 +182,88 @@
       "created_at": "2026-09-21T23:27:35.551632+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Aquila Rithymna Beach Grecja, Kreta Zachodnia, Adelianos Kampos_2026-09-21_23-26_+15.4"
+    },
+    {
+      "hotel_name": "Hydramis Palace Beach Resort Grecja, Kreta Zachodnia, Kavros",
+      "duration_bucket": "",
+      "old_price": 8141.0,
+      "new_price": 7487.0,
+      "price_change": -654.0,
+      "price_change_pct": -8.033411128853949,
+      "timestamp": "2026-09-22 05:12:58.702601+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-22T05:14:00.127436+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Hydramis Palace Beach Resort Grecja, Kreta Zachodnia, Kavros_2026-09-22_05-12_-8.0"
+    },
+    {
+      "hotel_name": "Almyros Beach (ex Cyprotel Almyros) Grecja, Korfu, Acharavi",
+      "duration_bucket": "",
+      "old_price": 9665.0,
+      "new_price": 9665.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-22 05:12:58.702601+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-22T05:14:00.127472+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Almyros Beach (ex Cyprotel Almyros) Grecja, Korfu, Acharavi_2026-09-22_05-12_zone_out_gone"
+    },
+    {
+      "hotel_name": "Annabelle Beach Resort (ex. AKS Annabelle Beach Resort)",
+      "duration_bucket": "",
+      "old_price": 9754.0,
+      "new_price": 9754.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-22 05:12:58.702601+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-22T05:14:00.127485+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Annabelle Beach Resort (ex. AKS Annabelle Beach Resort)_2026-09-22_05-12_zone_out_gone"
+    },
+    {
+      "hotel_name": "Grand Blue Beach Grecja, kos, Kardamaina",
+      "duration_bucket": "",
+      "old_price": 9706.0,
+      "new_price": 9706.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-22 05:12:58.702601+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-22T05:14:00.127493+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Grand Blue Beach Grecja, kos, Kardamaina_2026-09-22_05-12_zone_out_gone"
+    },
+    {
+      "hotel_name": "Istion Club",
+      "duration_bucket": "",
+      "old_price": 9807.0,
+      "new_price": 9807.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-22 05:12:58.702601+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-22T05:14:00.127501+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Istion Club_2026-09-22_05-12_zone_out_gone"
+    },
+    {
+      "hotel_name": "Kakkos Bay",
+      "duration_bucket": "",
+      "old_price": 9924.0,
+      "new_price": 10119.0,
+      "price_change": 195.0,
+      "price_change_pct": 1.9649334945586456,
+      "timestamp": "2026-09-22 05:12:58.702601+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-22T05:14:00.127510+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Kakkos Bay_2026-09-22_05-12_zone_out_+2.0"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-21T23:26:45.576156+00:00",
+    "last_processed_run": "2026-09-22T05:12:58.702601+00:00",
     "premium_state": {
       "Ajul Luxury & Spa Resort (Ayios Nikolaos) Grecja, Chalkidiki, Loutra": {
         "history_max": 9207.0,
@@ -268,12 +346,12 @@
         "premium_peak": 13785.0
       },
       "Kakkos Terra Blu": {
-        "history_max": 11164.0,
-        "premium_peak": 11164.0
+        "history_max": 11375.0,
+        "premium_peak": 11375.0
       },
       "Kakkos Bay": {
-        "history_max": 9932.0,
-        "premium_peak": null
+        "history_max": 10119.0,
+        "premium_peak": 10119.0
       },
       "Galini Palace Grecja, Kreta Zachodnia, Kolymvari": {
         "history_max": 8041.0,
@@ -344,8 +422,8 @@
         "premium_peak": null
       },
       "Zeus Eleva Mirabello Bay": {
-        "history_max": 11513.0,
-        "premium_peak": 11513.0
+        "history_max": 11725.0,
+        "premium_peak": 11725.0
       },
       "Galaxy Beach Resort BW Premier Collection Grecja, Zakynthos, Laganas": {
         "history_max": 8539.0,
@@ -452,12 +530,12 @@
         "premium_peak": 14029.0
       },
       "Mitsis Selection Laguna": {
-        "history_max": 13602.0,
-        "premium_peak": 13602.0
+        "history_max": 13890.0,
+        "premium_peak": 13890.0
       },
       "Mitsis Selection Rinela": {
-        "history_max": 14463.0,
-        "premium_peak": 14463.0
+        "history_max": 14778.0,
+        "premium_peak": 14778.0
       },
       "Mitsis Summer Palace": {
         "history_max": 10553.0,
@@ -520,8 +598,8 @@
         "premium_peak": null
       },
       "Kakkos Beach": {
-        "history_max": 12783.0,
-        "premium_peak": 12783.0
+        "history_max": 13028.0,
+        "premium_peak": 13028.0
       },
       "Fodele Beach & Water Park Holiday Resort": {
         "history_max": 10530.0,
@@ -656,8 +734,8 @@
         "premium_peak": null
       },
       "Alia Palace": {
-        "history_max": 11337.0,
-        "premium_peak": 11337.0
+        "history_max": 11517.0,
+        "premium_peak": 11517.0
       },
       "Euphoria Resort": {
         "history_max": 12224.0,
@@ -700,12 +778,28 @@
         "premium_peak": null
       },
       "Mitsis Bali Paradise (ex. Bali Paradise)": {
-        "history_max": 10235.0,
-        "premium_peak": 10235.0
+        "history_max": 10403.0,
+        "premium_peak": 10403.0
       },
       "Kerkyra Blue N' Spa by Louis (Corfu)": {
         "history_max": 19968.0,
         "premium_peak": 19968.0
+      },
+      "Annabelle Beach Resort (ex. AKS Annabelle Beach Resort) Grecja, Kreta Wschodnia, Anissaras": {
+        "history_max": 9052.0,
+        "premium_peak": null
+      },
+      "Almyros Beach (ex Cyprotel Almyros)": {
+        "history_max": 9658.0,
+        "premium_peak": null
+      },
+      "Istion Club Grecja, Chalkidiki, Nea Poteidaia": {
+        "history_max": 9567.0,
+        "premium_peak": null
+      },
+      "Grand Blue Beach": {
+        "history_max": 9706.0,
+        "premium_peak": null
       }
     }
   }

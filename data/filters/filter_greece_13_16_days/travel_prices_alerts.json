@@ -52,10 +52,36 @@
       "created_at": "2026-09-21T23:27:34.060843+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Michelangelo Resort Grecja, Korfu_2026-09-21_23-26_zone_out_+2.0"
+    },
+    {
+      "hotel_name": "Kipriotis Village Grecja, Kos, Psalidi",
+      "duration_bucket": "",
+      "old_price": 9691.0,
+      "new_price": 10225.0,
+      "price_change": 534.0,
+      "price_change_pct": 5.510267258280879,
+      "timestamp": "2026-09-22 05:13:07.234499+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-22T05:14:04.379586+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Kipriotis Village Grecja, Kos, Psalidi_2026-09-22_05-13_zone_out_+5.5"
+    },
+    {
+      "hotel_name": "Saint George Palace (Agios Georgios) Grecja, Korfu, Agios Georgios Pagon",
+      "duration_bucket": "",
+      "old_price": 8759.0,
+      "new_price": 8759.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-22 05:13:07.234499+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-22T05:14:04.379611+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Saint George Palace (Agios Georgios) Grecja, Korfu, Agios Georgios Pagon_2026-09-22_05-13_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-21T23:26:46.570423+00:00",
+    "last_processed_run": "2026-09-22T05:13:07.234499+00:00",
     "premium_state": {
       "Acrotel Elea Beach (ex Elea Village)": {
         "history_max": 12447.0,
@@ -122,12 +148,12 @@
         "premium_peak": 16905.0
       },
       "Mitsis Rodos Village": {
-        "history_max": 18785.0,
-        "premium_peak": 18785.0
+        "history_max": 18865.0,
+        "premium_peak": 18865.0
       },
       "Mitsis Summer Palace": {
-        "history_max": 16132.0,
-        "premium_peak": 16132.0
+        "history_max": 16152.0,
+        "premium_peak": 16152.0
       },
       "Mythos Beach Resort": {
         "history_max": 17580.0,
@@ -210,8 +236,8 @@
         "premium_peak": 10799.0
       },
       "Kipriotis Village Grecja, Kos, Psalidi": {
-        "history_max": 9691.0,
-        "premium_peak": null
+        "history_max": 10225.0,
+        "premium_peak": 10225.0
       },
       "Kouros Palace": {
         "history_max": 17898.0,
@@ -366,8 +392,8 @@
         "premium_peak": 18297.0
       },
       "Philoxenia (Psakoudia)": {
-        "history_max": 14227.0,
-        "premium_peak": 14227.0
+        "history_max": 17377.0,
+        "premium_peak": 17377.0
       },
       "Planos": {
         "history_max": 13706.0,
@@ -538,8 +564,8 @@
         "premium_peak": 16288.0
       },
       "Apollonia Beach (Ammoudara)": {
-        "history_max": 12157.0,
-        "premium_peak": 12157.0
+        "history_max": 12987.0,
+        "premium_peak": 12987.0
       },
       "Cyprotel Faliraki": {
         "history_max": 15779.0,
@@ -586,8 +612,8 @@
         "premium_peak": 13380.0
       },
       "Aeolos Beach (Kos)": {
-        "history_max": 18491.0,
-        "premium_peak": 18491.0
+        "history_max": 18764.0,
+        "premium_peak": 18764.0
       },
       "Filerimos Village Grecja, Rodos, Jalisos": {
         "history_max": 10008.0,
@@ -686,8 +712,8 @@
         "premium_peak": 15957.0
       },
       "Euphoria Resort": {
-        "history_max": 19606.0,
-        "premium_peak": 19606.0
+        "history_max": 19706.0,
+        "premium_peak": 19706.0
       },
       "Eri Village": {
         "history_max": 11624.0,
@@ -712,6 +738,26 @@
       "Saint George Palace (Agios Georgios) Grecja, Korfu, Agios Georgios Pagon": {
         "history_max": 8759.0,
         "premium_peak": null
+      },
+      "Gouves Bay": {
+        "history_max": 11817.0,
+        "premium_peak": 11817.0
+      },
+      "K.Ilios (Tigaki)": {
+        "history_max": 14290.0,
+        "premium_peak": 14290.0
+      },
+      "Cooks Club Corfu (ex Ionian Park)": {
+        "history_max": 19917.0,
+        "premium_peak": 19917.0
+      },
+      "Nobilis Corfu": {
+        "history_max": 16400.0,
+        "premium_peak": 16400.0
+      },
+      "Elea Beach (Dassia)": {
+        "history_max": 18823.0,
+        "premium_peak": 18823.0
       }
     }
   }
