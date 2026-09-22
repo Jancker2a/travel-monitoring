@@ -65,10 +65,49 @@
       "created_at": "2026-09-22T05:13:15.276495+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Cenger Beach Resort Turcja, Side_2026-09-22_05-12_zone_out_+10.3"
+    },
+    {
+      "hotel_name": "Elite Luxury Suite & Spa Turcja, Alanya, Konaklı",
+      "duration_bucket": "",
+      "old_price": 8405.0,
+      "new_price": 9845.0,
+      "price_change": 1440.0,
+      "price_change_pct": 17.132659131469364,
+      "timestamp": "2026-09-22 22:22:28.692664+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-22T22:23:34.536867+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Elite Luxury Suite & Spa Turcja, Alanya, Konaklı_2026-09-22_22-22_+17.1"
+    },
+    {
+      "hotel_name": "Campus Hill Turcja, Alanya",
+      "duration_bucket": "",
+      "old_price": 8837.0,
+      "new_price": 10277.0,
+      "price_change": 1440.0,
+      "price_change_pct": 16.29512277922372,
+      "timestamp": "2026-09-22 22:22:28.692664+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-22T22:23:34.536901+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Campus Hill Turcja, Alanya_2026-09-22_22-22_zone_out_+16.3"
+    },
+    {
+      "hotel_name": "Cenger Beach Resort Turcja, Side",
+      "duration_bucket": "",
+      "old_price": 11001.0,
+      "new_price": 9251.0,
+      "price_change": -1750.0,
+      "price_change_pct": -15.907644759567313,
+      "timestamp": "2026-09-22 22:22:28.692664+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-22T22:23:34.536927+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Cenger Beach Resort Turcja, Side_2026-09-22_22-22_comeback_15.9"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-22T19:04:20.516448+00:00",
+    "last_processed_run": "2026-09-22T22:22:28.692664+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 12570.0,
@@ -199,8 +238,8 @@
         "premium_peak": 13057.0
       },
       "My Home Resort": {
-        "history_max": 14791.0,
-        "premium_peak": 14791.0
+        "history_max": 15631.0,
+        "premium_peak": 15631.0
       },
       "Movenpick Resort Antalya Tekirova (ex. Royal Diwa Tekirova Resort)": {
         "history_max": 18954.0,
@@ -267,7 +306,7 @@
         "premium_peak": 14865.0
       },
       "Elite Luxury Suite & Spa Turcja, Alanya, Konaklı": {
-        "history_max": 9005.0,
+        "history_max": 9845.0,
         "premium_peak": null
       },
       "Elegance (Marmaris)": {
@@ -403,8 +442,8 @@
         "premium_peak": 17715.0
       },
       "Swandor Topkapi Palace (ex WOW)": {
-        "history_max": 18337.0,
-        "premium_peak": 18337.0
+        "history_max": 18657.0,
+        "premium_peak": 18657.0
       },
       "Sural Resort": {
         "history_max": 19603.0,
@@ -963,8 +1002,8 @@
         "premium_peak": 12907.0
       },
       "Adalya Art Side (Ex. Grand Art Side)": {
-        "history_max": 18003.0,
-        "premium_peak": 18003.0
+        "history_max": 18615.0,
+        "premium_peak": 18615.0
       },
       "Calyptus Kirman Premium": {
         "history_max": 18071.0,
@@ -975,8 +1014,8 @@
         "premium_peak": 16919.0
       },
       "Campus Hill Turcja, Alanya": {
-        "history_max": 9437.0,
-        "premium_peak": null
+        "history_max": 10277.0,
+        "premium_peak": 10277.0
       },
       "Aquasis Deluxe Resort & Spa": {
         "history_max": 16343.0,
@@ -1121,6 +1160,14 @@
       "IC Green Palace": {
         "history_max": 19878.0,
         "premium_peak": 19878.0
+      },
+      "Dobedan Exclusive (ex. Alva Donna Exclusive & SPA)": {
+        "history_max": 19888.0,
+        "premium_peak": 19888.0
+      },
+      "Sidemarin Kirman Premium": {
+        "history_max": 19945.0,
+        "premium_peak": 19945.0
       }
     }
   }
