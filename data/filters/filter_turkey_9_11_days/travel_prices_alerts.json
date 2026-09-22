@@ -429,10 +429,49 @@
       "created_at": "2026-09-22T15:07:03.661898+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Diamond Hill Resort_2026-09-22_15-05_zone_out_gone"
+    },
+    {
+      "hotel_name": "Raymar Resort & Aqua",
+      "duration_bucket": "",
+      "old_price": 8044.0,
+      "new_price": 9065.0,
+      "price_change": 1021.0,
+      "price_change_pct": 12.692690203878668,
+      "timestamp": "2026-09-22 19:04:11.589077+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-22T19:05:28.256581+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Raymar Resort & Aqua_2026-09-22_19-04_+12.7"
+    },
+    {
+      "hotel_name": "Campus Hill",
+      "duration_bucket": "",
+      "old_price": 7604.0,
+      "new_price": 6885.0,
+      "price_change": -719.0,
+      "price_change_pct": -9.45554971067859,
+      "timestamp": "2026-09-22 19:04:11.589077+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-22T19:05:28.256617+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Campus Hill_2026-09-22_19-04_-9.5"
+    },
+    {
+      "hotel_name": "Flora Garden Ephesus",
+      "duration_bucket": "",
+      "old_price": 9719.0,
+      "new_price": 11318.0,
+      "price_change": 1599.0,
+      "price_change_pct": 16.452309908426795,
+      "timestamp": "2026-09-22 19:04:11.589077+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-22T19:05:28.256653+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Flora Garden Ephesus_2026-09-22_19-04_zone_out_+16.5"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-22T15:05:51.935133+00:00",
+    "last_processed_run": "2026-09-22T19:04:11.589077+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 9799.0,
@@ -759,8 +798,8 @@
         "premium_peak": null
       },
       "Flora Garden Ephesus": {
-        "history_max": 10221.0,
-        "premium_peak": 10221.0
+        "history_max": 11318.0,
+        "premium_peak": 11318.0
       },
       "Sirene Belek": {
         "history_max": 14871.0,
@@ -919,7 +958,7 @@
         "premium_peak": 15359.0
       },
       "Raymar Resort & Aqua": {
-        "history_max": 8948.0,
+        "history_max": 9065.0,
         "premium_peak": null
       },
       "Paloma Sencia": {
@@ -943,8 +982,8 @@
         "premium_peak": 15539.0
       },
       "Monachus Family Resort Sorgun": {
-        "history_max": 14044.0,
-        "premium_peak": 14044.0
+        "history_max": 14172.0,
+        "premium_peak": 14172.0
       },
       "Rubi Platinum (Alanya)": {
         "history_max": 13932.0,
@@ -1697,6 +1736,10 @@
       "Royal Holiday Palace": {
         "history_max": 16074.0,
         "premium_peak": 16074.0
+      },
+      "Xanadu Resort": {
+        "history_max": 16281.0,
+        "premium_peak": 16281.0
       }
     }
   }

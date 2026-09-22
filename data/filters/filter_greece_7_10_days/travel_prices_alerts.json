@@ -481,10 +481,62 @@
       "created_at": "2026-09-22T15:07:54.738918+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Kiani Beach_2026-09-22_15-06_comeback_11.7"
+    },
+    {
+      "hotel_name": "Aquila Rithymna Beach Grecja, Kreta Zachodnia, Adelianos Kampos",
+      "duration_bucket": "",
+      "old_price": 7681.0,
+      "new_price": 9249.0,
+      "price_change": 1568.0,
+      "price_change_pct": 20.414008592631166,
+      "timestamp": "2026-09-22 19:05:19.754703+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-22T19:06:44.082272+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Aquila Rithymna Beach Grecja, Kreta Zachodnia, Adelianos Kampos_2026-09-22_19-05_+20.4"
+    },
+    {
+      "hotel_name": "White Olive Elite Grecja, Zakynthos, Laganas",
+      "duration_bucket": "",
+      "old_price": 8258.0,
+      "new_price": 7544.0,
+      "price_change": -714.0,
+      "price_change_pct": -8.64616129813514,
+      "timestamp": "2026-09-22 19:05:19.754703+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-22T19:06:44.082304+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "White Olive Elite Grecja, Zakynthos, Laganas_2026-09-22_19-05_-8.6"
+    },
+    {
+      "hotel_name": "Almyros Beach (ex Cyprotel Almyros)",
+      "duration_bucket": "",
+      "old_price": 9658.0,
+      "new_price": 9658.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-22 19:05:19.754703+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-22T19:06:44.082329+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Almyros Beach (ex Cyprotel Almyros)_2026-09-22_19-05_zone_out_gone"
+    },
+    {
+      "hotel_name": "Kiani Beach",
+      "duration_bucket": "",
+      "old_price": 9968.0,
+      "new_price": 10050.0,
+      "price_change": 82.0,
+      "price_change_pct": 0.8226324237560192,
+      "timestamp": "2026-09-22 19:05:19.754703+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-22T19:06:44.082340+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Kiani Beach_2026-09-22_19-05_zone_out_+0.8"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-22T15:06:50.010690+00:00",
+    "last_processed_run": "2026-09-22T19:05:19.754703+00:00",
     "premium_state": {
       "Ajul Luxury & Spa Resort (Ayios Nikolaos) Grecja, Chalkidiki, Loutra": {
         "history_max": 9297.0,
@@ -727,8 +779,8 @@
         "premium_peak": 15054.0
       },
       "Restia (Acharavi)": {
-        "history_max": 12097.0,
-        "premium_peak": 12097.0
+        "history_max": 12106.0,
+        "premium_peak": 12106.0
       },
       "Mitsis Ramira": {
         "history_max": 12444.0,
@@ -799,8 +851,8 @@
         "premium_peak": 11542.0
       },
       "Porto Carras Meliton": {
-        "history_max": 13057.0,
-        "premium_peak": 13057.0
+        "history_max": 13894.0,
+        "premium_peak": 13894.0
       },
       "Porto Platanias Beach (Chania)": {
         "history_max": 10847.0,
@@ -863,8 +915,8 @@
         "premium_peak": 13135.0
       },
       "Creta Maris Beach Resort (ex Terra Maris)": {
-        "history_max": 15355.0,
-        "premium_peak": 15355.0
+        "history_max": 15375.0,
+        "premium_peak": 15375.0
       },
       "Azure Resort & Spa (ex. Mediterranee) Grecja, Zakynthos, Planos": {
         "history_max": 7657.0,
@@ -963,8 +1015,8 @@
         "premium_peak": 12224.0
       },
       "Atlantica Ocean Beach Resort (ex. Creta Princess by Atlantica)": {
-        "history_max": 14023.0,
-        "premium_peak": 14023.0
+        "history_max": 14301.0,
+        "premium_peak": 14301.0
       },
       "Atrium Prestige Thalasso Spa Resort & Villas": {
         "history_max": 16942.0,
@@ -1031,7 +1083,7 @@
         "premium_peak": null
       },
       "White Olive Elite Rethymno Grecja, Kreta Zachodnia, Sfakaki": {
-        "history_max": 8088.0,
+        "history_max": 8382.0,
         "premium_peak": null
       },
       "Astir Odysseus": {
