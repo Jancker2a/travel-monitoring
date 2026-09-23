@@ -884,10 +884,62 @@
       "created_at": "2026-09-23T11:53:23.763078+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sataya Resort (ex. Labranda Sataya Marsa Alam) Egipt, Marsa Alam_2026-09-23_11-52_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sirena Beach Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 9657.0,
+      "new_price": 8302.0,
+      "price_change": -1355.0,
+      "price_change_pct": -14.031272651962306,
+      "timestamp": "2026-09-23 17:15:51.484160+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-23T17:16:26.753809+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sirena Beach Resort & Spa_2026-09-23_17-15_-14.0"
+    },
+    {
+      "hotel_name": "Concorde El Salam Sport Egipt, Sharm El Sheikh, Szarm el-Szejk",
+      "duration_bucket": "",
+      "old_price": 7992.0,
+      "new_price": 7992.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-23 17:15:51.484160+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-23T17:16:26.753847+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Concorde El Salam Sport Egipt, Sharm El Sheikh, Szarm el-Szejk_2026-09-23_17-15_zone_out_gone"
+    },
+    {
+      "hotel_name": "Domina Coral Bay Sultan",
+      "duration_bucket": "",
+      "old_price": 10664.0,
+      "new_price": 10664.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-23 17:15:51.484160+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-23T17:16:26.753853+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Domina Coral Bay Sultan_2026-09-23_17-15_zone_out_gone"
+    },
+    {
+      "hotel_name": "Fantazia Resort",
+      "duration_bucket": "",
+      "old_price": 9444.0,
+      "new_price": 9444.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-23 17:15:51.484160+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-23T17:16:26.753858+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Fantazia Resort_2026-09-23_17-15_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-23T11:52:43.479608+00:00",
+    "last_processed_run": "2026-09-23T17:15:51.484160+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 6669.0,
@@ -1014,7 +1066,7 @@
         "premium_peak": null
       },
       "Jaz Belvedere": {
-        "history_max": 10134.0,
+        "history_max": 10162.0,
         "premium_peak": null
       },
       "Jaz Grand Marsa (ex Resta Grand Resort) Egipt, Marsa Alam, Madinat Coraya": {
@@ -1062,7 +1114,7 @@
         "premium_peak": null
       },
       "Marriott Hurghada Beach Resort": {
-        "history_max": 8467.0,
+        "history_max": 8747.0,
         "premium_peak": null
       },
       "Mercure Dahab Bay View Egipt, Dahab": {
@@ -1142,7 +1194,7 @@
         "premium_peak": null
       },
       "Tropitel Sahl Hasheesh": {
-        "history_max": 10141.0,
+        "history_max": 10220.0,
         "premium_peak": null
       },
       "True Beach Resort": {
@@ -1210,7 +1262,7 @@
         "premium_peak": null
       },
       "Safir Dahab Resort": {
-        "history_max": 10368.0,
+        "history_max": 10611.0,
         "premium_peak": null
       },
       "Safir Sharm Waterfalls Resort (ex Hilton Waterfalls Resort)": {
@@ -1326,7 +1378,7 @@
         "premium_peak": null
       },
       "Coral Sea Holiday Resort": {
-        "history_max": 10683.0,
+        "history_max": 10684.0,
         "premium_peak": null
       },
       "Aurora Oriental Resort Egipt, Sharm El Sheikh, Szarm el-Szejk": {
@@ -1362,7 +1414,7 @@
         "premium_peak": null
       },
       "Concorde El Salam Sport": {
-        "history_max": 8159.0,
+        "history_max": 8235.0,
         "premium_peak": null
       },
       "Casa Mare Resort (ex. Royal Tulip Beach Resort) Egipt, Marsa Alam": {
@@ -1370,7 +1422,7 @@
         "premium_peak": null
       },
       "Concorde El Salam Front Area": {
-        "history_max": 9081.0,
+        "history_max": 9180.0,
         "premium_peak": null
       },
       "Charmillion Club Aqua Park": {
@@ -1466,7 +1518,7 @@
         "premium_peak": null
       },
       "Xperience Sea Breeze Egipt, Sharm El Sheikh": {
-        "history_max": 7965.0,
+        "history_max": 8052.0,
         "premium_peak": null
       },
       "Albatros Sea World Resort Marsa Alam": {
@@ -1506,7 +1558,7 @@
         "premium_peak": null
       },
       "Gemma Resort (ex. Labranda Gemma Premium Resort)": {
-        "history_max": 9126.0,
+        "history_max": 9173.0,
         "premium_peak": null
       },
       "Stella Di Mare Gardens Resort & Spa Egipt, Hurghada, Makadi Bay": {
@@ -1522,11 +1574,15 @@
         "premium_peak": null
       },
       "Nubian Village": {
-        "history_max": 10526.0,
+        "history_max": 10769.0,
         "premium_peak": null
       },
       "Nubian Island": {
         "history_max": 10526.0,
+        "premium_peak": null
+      },
+      "Fantazia Resort Egipt, Marsa Alam": {
+        "history_max": 8139.0,
         "premium_peak": null
       }
     }
