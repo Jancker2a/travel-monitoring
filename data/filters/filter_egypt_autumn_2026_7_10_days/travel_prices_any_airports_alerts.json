@@ -806,10 +806,36 @@
       "created_at": "2026-09-23T00:48:45.027381+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Hawaii Paradise Aqua Park Resort Egipt, Hurghada_2026-09-23_00-48_zone_out_gone"
+    },
+    {
+      "hotel_name": "Labranda Club Makadi (ex Club Azur) Egipt, Hurghada, Makadi Bay",
+      "duration_bucket": "",
+      "old_price": 8107.0,
+      "new_price": 8107.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-23 05:23:55.526487+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-23T05:24:32.973106+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Labranda Club Makadi (ex Club Azur) Egipt, Hurghada, Makadi Bay_2026-09-23_05-23_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sataya Resort (ex. Labranda Sataya Marsa Alam)",
+      "duration_bucket": "",
+      "old_price": 8400.0,
+      "new_price": 8400.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-23 05:23:55.526487+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-23T05:24:32.973132+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sataya Resort (ex. Labranda Sataya Marsa Alam)_2026-09-23_05-23_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-23T00:48:12.743183+00:00",
+    "last_processed_run": "2026-09-23T05:23:55.526487+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 6669.0,
@@ -1020,7 +1046,7 @@
         "premium_peak": null
       },
       "Sunrise Royal Makadi Aqua Resort": {
-        "history_max": 10382.0,
+        "history_max": 10393.0,
         "premium_peak": null
       },
       "Sunrise Select Garden Beach Resort & Spa": {
@@ -1437,6 +1463,18 @@
       },
       "Domina Coral Bay Sultan": {
         "history_max": 10664.0,
+        "premium_peak": null
+      },
+      "Sataya Resort (ex. Labranda Sataya Marsa Alam) Egipt, Marsa Alam": {
+        "history_max": 8036.0,
+        "premium_peak": null
+      },
+      "Nubian Village": {
+        "history_max": 10526.0,
+        "premium_peak": null
+      },
+      "Nubian Island": {
+        "history_max": 10526.0,
         "premium_peak": null
       }
     }

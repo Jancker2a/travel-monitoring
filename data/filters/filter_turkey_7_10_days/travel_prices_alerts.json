@@ -1560,17 +1560,238 @@
       "created_at": "2026-09-23T00:49:38.673460+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Royal Alhambra Palace_2026-09-23_00-48_comeback_8.6"
+    },
+    {
+      "hotel_name": "Xoria Deluxe",
+      "duration_bucket": "",
+      "old_price": 6883.0,
+      "new_price": 7754.0,
+      "price_change": 871.0,
+      "price_change_pct": 12.654365828853697,
+      "timestamp": "2026-09-23 05:24:33.867981+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-23T05:25:47.595768+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xoria Deluxe_2026-09-23_05-24_+12.7"
+    },
+    {
+      "hotel_name": "Infinity by Yelken",
+      "duration_bucket": "",
+      "old_price": 9053.0,
+      "new_price": 8319.0,
+      "price_change": -734.0,
+      "price_change_pct": -8.107809565889761,
+      "timestamp": "2026-09-23 05:24:33.867981+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-23T05:25:47.595812+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Infinity by Yelken_2026-09-23_05-24_-8.1"
+    },
+    {
+      "hotel_name": "Calido Sol (Alanya)",
+      "duration_bucket": "",
+      "old_price": 7164.0,
+      "new_price": 8568.0,
+      "price_change": 1404.0,
+      "price_change_pct": 19.597989949748744,
+      "timestamp": "2026-09-23 05:24:33.867981+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-23T05:25:47.595834+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Calido Sol (Alanya)_2026-09-23_05-24_+19.6"
+    },
+    {
+      "hotel_name": "Sultan of Dreams",
+      "duration_bucket": "",
+      "old_price": 7177.0,
+      "new_price": 8097.0,
+      "price_change": 920.0,
+      "price_change_pct": 12.818726487390276,
+      "timestamp": "2026-09-23 05:24:33.867981+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-23T05:25:47.595848+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sultan of Dreams_2026-09-23_05-24_+12.8"
+    },
+    {
+      "hotel_name": "Side Premium by OZ Hotels",
+      "duration_bucket": "",
+      "old_price": 7811.0,
+      "new_price": 8496.0,
+      "price_change": 685.0,
+      "price_change_pct": 8.769683779285623,
+      "timestamp": "2026-09-23 05:24:33.867981+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-23T05:25:47.595860+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Side Premium by OZ Hotels_2026-09-23_05-24_+8.8"
+    },
+    {
+      "hotel_name": "Saphir Hotel & Villas",
+      "duration_bucket": "",
+      "old_price": 8201.0,
+      "new_price": 9043.0,
+      "price_change": 842.0,
+      "price_change_pct": 10.267040604804292,
+      "timestamp": "2026-09-23 05:24:33.867981+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-23T05:25:47.595886+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Saphir Hotel & Villas_2026-09-23_05-24_+10.3"
+    },
+    {
+      "hotel_name": "Cenger Beach Resort Turcja, Side",
+      "duration_bucket": "",
+      "old_price": 5615.0,
+      "new_price": 6409.0,
+      "price_change": 794.0,
+      "price_change_pct": 14.140694568121104,
+      "timestamp": "2026-09-23 05:24:33.867981+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-23T05:25:47.595897+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Cenger Beach Resort Turcja, Side_2026-09-23_05-24_+14.1"
+    },
+    {
+      "hotel_name": "Adora Hotel & Resort (ex. Adora Golf)",
+      "duration_bucket": "",
+      "old_price": 9719.0,
+      "new_price": 10339.0,
+      "price_change": 620.0,
+      "price_change_pct": 6.379257125218644,
+      "timestamp": "2026-09-23 05:24:33.867981+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-23T05:25:47.595935+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Adora Hotel & Resort (ex. Adora Golf)_2026-09-23_05-24_zone_out_+6.4"
+    },
+    {
+      "hotel_name": "Campus Hill",
+      "duration_bucket": "",
+      "old_price": 6997.0,
+      "new_price": 6997.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-23 05:24:33.867981+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-23T05:25:47.595945+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Campus Hill_2026-09-23_05-24_zone_out_gone"
+    },
+    {
+      "hotel_name": "Casa Fora Beach Resort",
+      "duration_bucket": "",
+      "old_price": 7257.0,
+      "new_price": 7257.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-23 05:24:33.867981+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-23T05:25:47.595954+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Casa Fora Beach Resort_2026-09-23_05-24_zone_out_gone"
+    },
+    {
+      "hotel_name": "Kamelya Aishen Club (ex. Kamelya Aishen K Club)",
+      "duration_bucket": "",
+      "old_price": 9983.0,
+      "new_price": 10384.0,
+      "price_change": 401.0,
+      "price_change_pct": 4.016828608634679,
+      "timestamp": "2026-09-23 05:24:33.867981+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-23T05:25:47.595963+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Kamelya Aishen Club (ex. Kamelya Aishen K Club)_2026-09-23_05-24_zone_out_+4.0"
+    },
+    {
+      "hotel_name": "Ozkaymak Incekum",
+      "duration_bucket": "",
+      "old_price": 7347.0,
+      "new_price": 10106.0,
+      "price_change": 2759.0,
+      "price_change_pct": 37.552742616033754,
+      "timestamp": "2026-09-23 05:24:33.867981+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-23T05:25:47.595972+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Ozkaymak Incekum_2026-09-23_05-24_zone_out_+37.6"
+    },
+    {
+      "hotel_name": "Pine Beach Belek (ex. Maritim Pine Beach Resort)",
+      "duration_bucket": "",
+      "old_price": 9953.0,
+      "new_price": 9953.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-23 05:24:33.867981+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-23T05:25:47.595980+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pine Beach Belek (ex. Maritim Pine Beach Resort)_2026-09-23_05-24_zone_out_gone"
+    },
+    {
+      "hotel_name": "Rox Royal (ex. Grand Haber)",
+      "duration_bucket": "",
+      "old_price": 7178.0,
+      "new_price": 7178.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-23 05:24:33.867981+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-23T05:25:47.595987+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rox Royal (ex. Grand Haber)_2026-09-23_05-24_zone_out_gone"
+    },
+    {
+      "hotel_name": "Saphir Resort",
+      "duration_bucket": "",
+      "old_price": 9831.0,
+      "new_price": 9831.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-23 05:24:33.867981+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-23T05:25:47.595994+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Saphir Resort_2026-09-23_05-24_zone_out_gone"
+    },
+    {
+      "hotel_name": "Selectum Colours Side",
+      "duration_bucket": "",
+      "old_price": 7700.0,
+      "new_price": 7700.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-23 05:24:33.867981+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-23T05:25:47.596001+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Selectum Colours Side_2026-09-23_05-24_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sultan of Side Turcja, Side, Colakli",
+      "duration_bucket": "",
+      "old_price": 6631.0,
+      "new_price": 6631.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-23 05:24:33.867981+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-23T05:25:47.596009+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sultan of Side Turcja, Side, Colakli_2026-09-23_05-24_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-23T00:48:45.713043+00:00",
+    "last_processed_run": "2026-09-23T05:24:33.867981+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 9001.0,
         "premium_peak": null
       },
       "Miarosa Incekum Beach (ex Alara Kum) Turcja, Alanya, Avsallar": {
-        "history_max": 6008.0,
+        "history_max": 6314.0,
         "premium_peak": null
       },
       "Miarosa Beach (Kemer)": {
@@ -1686,7 +1907,7 @@
         "premium_peak": null
       },
       "Ozkaymak Select Resort (ex. Otium Ozkaymak Select)": {
-        "history_max": 7566.0,
+        "history_max": 8020.0,
         "premium_peak": null
       },
       "Ozkaymak Marina (Kemer)": {
@@ -1694,8 +1915,8 @@
         "premium_peak": 10074.0
       },
       "Ozkaymak Incekum": {
-        "history_max": 7347.0,
-        "premium_peak": null
+        "history_max": 10106.0,
+        "premium_peak": 10106.0
       },
       "Ozkaymak Falez": {
         "history_max": 7440.0,
@@ -2638,7 +2859,7 @@
         "premium_peak": null
       },
       "Crystal Sunset Pearl Collection (ex Crystal Sunset Luxury Resort)": {
-        "history_max": 9086.0,
+        "history_max": 9234.0,
         "premium_peak": null
       },
       "Benata": {
@@ -2990,19 +3211,27 @@
         "premium_peak": 10022.0
       },
       "Sural Resort": {
-        "history_max": 10220.0,
-        "premium_peak": 10220.0
+        "history_max": 10221.0,
+        "premium_peak": 10221.0
       },
       "Kamelya Aishen Club (ex. Kamelya Aishen K Club)": {
-        "history_max": 9983.0,
-        "premium_peak": null
+        "history_max": 10384.0,
+        "premium_peak": 10384.0
       },
       "Calido Sol (Alanya)": {
-        "history_max": 7164.0,
+        "history_max": 8568.0,
         "premium_peak": null
       },
       "Kirbiyik Resort (ex. Dinler) Turcja, Alanya, Mahmutlar": {
         "history_max": 6630.0,
+        "premium_peak": null
+      },
+      "Adalya Ocean Deluxe": {
+        "history_max": 10411.0,
+        "premium_peak": 10411.0
+      },
+      "Gravel Select": {
+        "history_max": 7957.0,
         "premium_peak": null
       }
     }

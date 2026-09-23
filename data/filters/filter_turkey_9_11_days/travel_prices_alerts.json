@@ -572,10 +572,62 @@
       "created_at": "2026-09-23T00:49:38.771231+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Karmir Resort (Kemer)_2026-09-23_00-48_comeback_10.7"
+    },
+    {
+      "hotel_name": "Cenger Beach Resort (Side)",
+      "duration_bucket": "",
+      "old_price": 5911.0,
+      "new_price": 6505.0,
+      "price_change": 594.0,
+      "price_change_pct": 10.049061072576553,
+      "timestamp": "2026-09-23 05:24:40.629879+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-23T05:25:35.757785+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Cenger Beach Resort (Side)_2026-09-23_05-24_+10.0"
+    },
+    {
+      "hotel_name": "Rox Royal (ex. Grand Haber)",
+      "duration_bucket": "",
+      "old_price": 8631.0,
+      "new_price": 8631.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-23 05:24:40.629879+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-23T05:25:35.757836+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rox Royal (ex. Grand Haber)_2026-09-23_05-24_zone_out_gone"
+    },
+    {
+      "hotel_name": "Selectum Colours Side",
+      "duration_bucket": "",
+      "old_price": 9207.0,
+      "new_price": 9207.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-23 05:24:40.629879+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-23T05:25:35.757848+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Selectum Colours Side_2026-09-23_05-24_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sultan of Dreams",
+      "duration_bucket": "",
+      "old_price": 9565.0,
+      "new_price": 10071.0,
+      "price_change": 506.0,
+      "price_change_pct": 5.290120230005227,
+      "timestamp": "2026-09-23 05:24:40.629879+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-23T05:25:35.757859+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sultan of Dreams_2026-09-23_05-24_zone_out_+5.3"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-23T00:48:55.913047+00:00",
+    "last_processed_run": "2026-09-23T05:24:40.629879+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 9799.0,
@@ -818,8 +870,8 @@
         "premium_peak": 12141.0
       },
       "Dobedan World Palace (ex. Alva Donna World Palace)": {
-        "history_max": 15055.0,
-        "premium_peak": 15055.0
+        "history_max": 15275.0,
+        "premium_peak": 15275.0
       },
       "Siu Collection by Aydinbey": {
         "history_max": 13431.0,
@@ -1170,8 +1222,8 @@
         "premium_peak": 10652.0
       },
       "Limak Lara De Luxe": {
-        "history_max": 14063.0,
-        "premium_peak": 14063.0
+        "history_max": 14515.0,
+        "premium_peak": 14515.0
       },
       "Sultan of Side": {
         "history_max": 9434.0,
@@ -1866,7 +1918,7 @@
         "premium_peak": 10876.0
       },
       "Side Premium by OZ Hotels": {
-        "history_max": 9247.0,
+        "history_max": 9841.0,
         "premium_peak": null
       },
       "Marine Family Club Beach (ex. Otium Family Club Marine Beach)": {
