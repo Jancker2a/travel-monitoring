@@ -936,10 +936,49 @@
       "created_at": "2026-09-23T17:16:26.753858+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Fantazia Resort_2026-09-23_17-15_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sirena Beach Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 8302.0,
+      "new_price": 9605.0,
+      "price_change": 1303.0,
+      "price_change_pct": 15.69501324981932,
+      "timestamp": "2026-09-23 20:32:54.858292+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-23T20:33:38.020521+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sirena Beach Resort & Spa_2026-09-23_20-32_+15.7"
+    },
+    {
+      "hotel_name": "Amarina Sun Resort & Aqua Park (ex. Raouf Sun International Aqua Park & SPA)",
+      "duration_bucket": "",
+      "old_price": 8387.0,
+      "new_price": 8387.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-23 20:32:54.858292+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-23T20:33:38.020568+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amarina Sun Resort & Aqua Park (ex. Raouf Sun International Aqua Park & SPA)_2026-09-23_20-32_zone_out_gone"
+    },
+    {
+      "hotel_name": "Fantazia Resort Egipt, Marsa Alam",
+      "duration_bucket": "",
+      "old_price": 8139.0,
+      "new_price": 8139.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-23 20:32:54.858292+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-23T20:33:38.020581+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Fantazia Resort Egipt, Marsa Alam_2026-09-23_20-32_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-23T17:15:51.484160+00:00",
+    "last_processed_run": "2026-09-23T20:32:54.858292+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 6669.0,
@@ -1058,7 +1097,7 @@
         "premium_peak": null
       },
       "Jaz Aquamarine Resort": {
-        "history_max": 9317.0,
+        "history_max": 9357.0,
         "premium_peak": null
       },
       "Jaz Aquaviva": {
@@ -1154,7 +1193,7 @@
         "premium_peak": null
       },
       "Sunrise Select Garden Beach Resort & Spa": {
-        "history_max": 10322.0,
+        "history_max": 10422.0,
         "premium_peak": null
       },
       "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort)": {
@@ -1174,7 +1213,7 @@
         "premium_peak": null
       },
       "Steigenberger Aqua Magic": {
-        "history_max": 10067.0,
+        "history_max": 10077.0,
         "premium_peak": null
       },
       "Three Corners Fayrouz Plaza Beach Resort": {
@@ -1278,7 +1317,7 @@
         "premium_peak": null
       },
       "Sentido Akassia Beach (ex. LTI Akassia Beach)": {
-        "history_max": 8636.0,
+        "history_max": 8708.0,
         "premium_peak": null
       },
       "Sentido Mamlouk Palace Resort & Spa (ex Sunrise)": {
@@ -1458,7 +1497,7 @@
         "premium_peak": null
       },
       "Fantazia Resort": {
-        "history_max": 9459.0,
+        "history_max": 9908.0,
         "premium_peak": null
       },
       "Gorgonia Beach": {
@@ -1474,7 +1513,7 @@
         "premium_peak": null
       },
       "Albatros Makadi Resort (ex Royal Pharaohs Makadi)": {
-        "history_max": 8987.0,
+        "history_max": 9097.0,
         "premium_peak": null
       },
       "Gemma Resort (ex. Labranda Gemma Premium Resort) Egipt, Marsa Alam": {
@@ -1482,7 +1521,7 @@
         "premium_peak": null
       },
       "Albatros Oasis Port Ghalib (ex. Red Sea Port Ghalib Resort) Egipt, Marsa Alam, Port Ghalib": {
-        "history_max": 7587.0,
+        "history_max": 7637.0,
         "premium_peak": null
       },
       "Amarina Jannah Resort Aquapark Egipt, Marsa Alam, Port Ghalib": {
@@ -1522,7 +1561,7 @@
         "premium_peak": null
       },
       "Albatros Sea World Resort Marsa Alam": {
-        "history_max": 8507.0,
+        "history_max": 8537.0,
         "premium_peak": null
       },
       "Casa Mare Resort (ex. Royal Tulip Beach Resort)": {
@@ -1583,6 +1622,10 @@
       },
       "Fantazia Resort Egipt, Marsa Alam": {
         "history_max": 8139.0,
+        "premium_peak": null
+      },
+      "Raouf Sun International Aqua Park & SPA Egipt, Sharm El Sheikh, Szarm el-Szejk": {
+        "history_max": 7768.0,
         "premium_peak": null
       }
     }

@@ -2418,10 +2418,88 @@
       "created_at": "2026-09-23T17:17:17.355387+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sultan of Side_2026-09-23_17-16_zone_out_gone"
+    },
+    {
+      "hotel_name": "Hillstone Bodrum (ex. Grand Yazici)",
+      "duration_bucket": "",
+      "old_price": 9616.0,
+      "new_price": 6889.0,
+      "price_change": -2727.0,
+      "price_change_pct": -28.358985024958404,
+      "timestamp": "2026-09-23 20:33:38.910849+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-23T20:34:43.032675+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Hillstone Bodrum (ex. Grand Yazici)_2026-09-23_20-33_-28.4"
+    },
+    {
+      "hotel_name": "Crystal De Luxe Comfort Collection",
+      "duration_bucket": "",
+      "old_price": 9427.0,
+      "new_price": 9427.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-23 20:33:38.910849+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-23T20:34:43.032740+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Crystal De Luxe Comfort Collection_2026-09-23_20-33_zone_out_gone"
+    },
+    {
+      "hotel_name": "Royal Seginus",
+      "duration_bucket": "",
+      "old_price": 9865.0,
+      "new_price": 9865.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-23 20:33:38.910849+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-23T20:34:43.032753+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Royal Seginus_2026-09-23_20-33_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sueno Beach Side",
+      "duration_bucket": "",
+      "old_price": 8567.0,
+      "new_price": 8567.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-23 20:33:38.910849+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-23T20:34:43.032762+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sueno Beach Side_2026-09-23_20-33_zone_out_gone"
+    },
+    {
+      "hotel_name": "Aydinbey Famous",
+      "duration_bucket": "",
+      "old_price": 10239.0,
+      "new_price": 9287.0,
+      "price_change": -952.0,
+      "price_change_pct": -9.297782986619788,
+      "timestamp": "2026-09-23 20:33:38.910849+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-23T20:34:43.032787+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Aydinbey Famous_2026-09-23_20-33_comeback_9.3"
+    },
+    {
+      "hotel_name": "Swissotel Resort Bodrum",
+      "duration_bucket": "",
+      "old_price": 10660.0,
+      "new_price": 8496.0,
+      "price_change": -2164.0,
+      "price_change_pct": -20.300187617260786,
+      "timestamp": "2026-09-23 20:33:38.910849+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-23T20:34:43.032811+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Swissotel Resort Bodrum_2026-09-23_20-33_comeback_20.3"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-23T17:16:27.310711+00:00",
+    "last_processed_run": "2026-09-23T20:33:38.910849+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 9001.0,
@@ -3612,7 +3690,7 @@
         "premium_peak": null
       },
       "Dizalya Palm Garden": {
-        "history_max": 8510.0,
+        "history_max": 8536.0,
         "premium_peak": null
       },
       "Dosinia Luxury Resort": {
@@ -3901,6 +3979,10 @@
       },
       "Club Jovia Kemer (ex. Armir Resort) Turcja, Kemer": {
         "history_max": 6730.0,
+        "premium_peak": null
+      },
+      "Maril Resort Beach & Spa": {
+        "history_max": 7157.0,
         "premium_peak": null
       }
     }

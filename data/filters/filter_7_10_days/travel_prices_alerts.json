@@ -754,10 +754,62 @@
       "created_at": "2026-09-23T17:16:06.345388+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Xperience Sea Breeze Resort_2026-09-23_17-15_zone_out_+8.1"
+    },
+    {
+      "hotel_name": "Charmillion Garden Aqua Park",
+      "duration_bucket": "",
+      "old_price": 9926.0,
+      "new_price": 11070.0,
+      "price_change": 1144.0,
+      "price_change_pct": 11.525287124722949,
+      "timestamp": "2026-09-23 20:32:32.505152+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-23T20:33:13.269014+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Charmillion Garden Aqua Park_2026-09-23_20-32_zone_out_+11.5"
+    },
+    {
+      "hotel_name": "Monte Carlo Resort Spa",
+      "duration_bucket": "",
+      "old_price": 9457.0,
+      "new_price": 10157.0,
+      "price_change": 700.0,
+      "price_change_pct": 7.401924500370097,
+      "timestamp": "2026-09-23 20:32:32.505152+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-23T20:33:13.269041+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Monte Carlo Resort Spa_2026-09-23_20-32_zone_out_+7.4"
+    },
+    {
+      "hotel_name": "Parrotel Beach Resort (ex. Radisson Blu)",
+      "duration_bucket": "",
+      "old_price": 9834.0,
+      "new_price": 10335.0,
+      "price_change": 501.0,
+      "price_change_pct": 5.094569859670531,
+      "timestamp": "2026-09-23 20:32:32.505152+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-23T20:33:13.269053+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Parrotel Beach Resort (ex. Radisson Blu)_2026-09-23_20-32_zone_out_+5.1"
+    },
+    {
+      "hotel_name": "Xanadu Club Makadi Bay",
+      "duration_bucket": "",
+      "old_price": 13101.0,
+      "new_price": 9013.0,
+      "price_change": -4088.0,
+      "price_change_pct": -31.20372490649569,
+      "timestamp": "2026-09-23 20:32:32.505152+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-23T20:33:13.269076+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xanadu Club Makadi Bay_2026-09-23_20-32_comeback_31.2"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-23T17:15:30.684651+00:00",
+    "last_processed_run": "2026-09-23T20:32:32.505152+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 8939.0,
@@ -784,8 +836,8 @@
         "premium_peak": 10557.0
       },
       "Steigenberger Alcazar": {
-        "history_max": 15205.0,
-        "premium_peak": 15205.0
+        "history_max": 15561.0,
+        "premium_peak": 15561.0
       },
       "Movenpick Resort & Spa El Gouna": {
         "history_max": 11866.0,
@@ -964,12 +1016,12 @@
         "premium_peak": 10498.0
       },
       "Park Regency Resort (ex. Hyatt)": {
-        "history_max": 13409.0,
-        "premium_peak": 13409.0
+        "history_max": 15009.0,
+        "premium_peak": 15009.0
       },
       "Parrotel Beach Resort (ex. Radisson Blu)": {
-        "history_max": 10124.0,
-        "premium_peak": 10124.0
+        "history_max": 10335.0,
+        "premium_peak": 10335.0
       },
       "Pickalbatros White Beach Resort": {
         "history_max": 12417.0,
@@ -1008,7 +1060,7 @@
         "premium_peak": 10736.0
       },
       "Rehana Royal Beach Resort & Spa": {
-        "history_max": 9543.0,
+        "history_max": 9971.0,
         "premium_peak": null
       },
       "Sea Star Beau Rivage": {
@@ -1016,8 +1068,8 @@
         "premium_peak": null
       },
       "Renaissance Golden View Beach Resort by Marriott": {
-        "history_max": 12083.0,
-        "premium_peak": 12083.0
+        "history_max": 12810.0,
+        "premium_peak": 12810.0
       },
       "Retac Qunay Dahab Resort & Spa": {
         "history_max": 10192.0,
@@ -1056,8 +1108,8 @@
         "premium_peak": 13925.0
       },
       "Rixos Premium Seagate": {
-        "history_max": 15054.0,
-        "premium_peak": 15054.0
+        "history_max": 15310.0,
+        "premium_peak": 15310.0
       },
       "Safir Dahab Resort": {
         "history_max": 12502.0,
@@ -1092,8 +1144,8 @@
         "premium_peak": 10805.0
       },
       "Pickalbatros Aqua Park Resort (Sharm El Sheikh)": {
-        "history_max": 11639.0,
-        "premium_peak": 11639.0
+        "history_max": 11767.0,
+        "premium_peak": 11767.0
       },
       "Serenity Sky Arc": {
         "history_max": 12996.0,
@@ -1224,16 +1276,16 @@
         "premium_peak": 11181.0
       },
       "Swissotel Sharm El Sheikh": {
-        "history_max": 13315.0,
-        "premium_peak": 13315.0
+        "history_max": 13343.0,
+        "premium_peak": 13343.0
       },
       "Creek Hotel and Residences": {
         "history_max": 9189.0,
         "premium_peak": null
       },
       "Amphoras Beach": {
-        "history_max": 12309.0,
-        "premium_peak": 12309.0
+        "history_max": 12365.0,
+        "premium_peak": 12365.0
       },
       "Desert Rose Resort": {
         "history_max": 13526.0,
@@ -1288,8 +1340,8 @@
         "premium_peak": 11307.0
       },
       "Charmillion Garden Aqua Park": {
-        "history_max": 10583.0,
-        "premium_peak": 10583.0
+        "history_max": 11070.0,
+        "premium_peak": 11070.0
       },
       "Titanic Royal": {
         "history_max": 11977.0,
