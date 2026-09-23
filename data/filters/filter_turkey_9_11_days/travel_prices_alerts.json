@@ -624,10 +624,36 @@
       "created_at": "2026-09-23T05:25:35.757859+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sultan of Dreams_2026-09-23_05-24_zone_out_+5.3"
+    },
+    {
+      "hotel_name": "Miarosa Beach (Kemer)",
+      "duration_bucket": "",
+      "old_price": 7920.0,
+      "new_price": 8861.0,
+      "price_change": 941.0,
+      "price_change_pct": 11.881313131313131,
+      "timestamp": "2026-09-23 06:08:22.054521+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-23T06:09:02.503220+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Miarosa Beach (Kemer)_2026-09-23_06-08_+11.9"
+    },
+    {
+      "hotel_name": "Miarosa Incekum Beach (ex Alara Kum)",
+      "duration_bucket": "",
+      "old_price": 6804.0,
+      "new_price": 7749.0,
+      "price_change": 945.0,
+      "price_change_pct": 13.88888888888889,
+      "timestamp": "2026-09-23 06:08:22.054521+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-23T06:09:02.503245+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Miarosa Incekum Beach (ex Alara Kum)_2026-09-23_06-08_+13.9"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-23T05:24:40.629879+00:00",
+    "last_processed_run": "2026-09-23T06:08:22.054521+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 9799.0,
@@ -1246,11 +1272,11 @@
         "premium_peak": 15003.0
       },
       "Miarosa Incekum Beach (ex Alara Kum)": {
-        "history_max": 7128.0,
+        "history_max": 7749.0,
         "premium_peak": null
       },
       "Miarosa Beach (Kemer)": {
-        "history_max": 7920.0,
+        "history_max": 8861.0,
         "premium_peak": null
       },
       "Sailors Beach Club": {
@@ -1638,8 +1664,8 @@
         "premium_peak": 15320.0
       },
       "Crystal Sunset Pearl Collection (ex Crystal Sunset Luxury Resort)": {
-        "history_max": 11426.0,
-        "premium_peak": 11426.0
+        "history_max": 12200.0,
+        "premium_peak": 12200.0
       },
       "Swandor Topkapi Palace (ex WOW)": {
         "history_max": 14047.0,
