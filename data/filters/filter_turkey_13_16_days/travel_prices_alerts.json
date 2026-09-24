@@ -234,10 +234,62 @@
       "created_at": "2026-09-24T05:06:47.962225+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Club Jovia Kemer (ex. Armir Resort) Turcja, Kemer_2026-09-24_05-05_comeback_8.3"
+    },
+    {
+      "hotel_name": "World Star Beach Resort & Spa Turcja, Alanya, Kestel",
+      "duration_bucket": "",
+      "old_price": 9347.0,
+      "new_price": 8420.0,
+      "price_change": -927.0,
+      "price_change_pct": -9.917620626939124,
+      "timestamp": "2026-09-24 10:13:29.123337+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-24T10:14:43.149520+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "World Star Beach Resort & Spa Turcja, Alanya, Kestel_2026-09-24_10-13_-9.9"
+    },
+    {
+      "hotel_name": "First Class Turcja, Alanya, Mahmutlar",
+      "duration_bucket": "",
+      "old_price": 8109.0,
+      "new_price": 7160.0,
+      "price_change": -949.0,
+      "price_change_pct": -11.703045998273524,
+      "timestamp": "2026-09-24 10:13:29.123337+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-24T10:14:43.149549+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "First Class Turcja, Alanya, Mahmutlar_2026-09-24_10-13_-11.7"
+    },
+    {
+      "hotel_name": "M. C. Beach Resort (ex. Otium MC Beach Resort) Turcja, Alanya, Konakli",
+      "duration_bucket": "",
+      "old_price": 8915.0,
+      "new_price": 7853.0,
+      "price_change": -1062.0,
+      "price_change_pct": -11.912507010656197,
+      "timestamp": "2026-09-24 10:13:29.123337+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-24T10:14:43.149562+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "M. C. Beach Resort (ex. Otium MC Beach Resort) Turcja, Alanya, Konakli_2026-09-24_10-13_-11.9"
+    },
+    {
+      "hotel_name": "Concordia Celes Beach Turcja, Alanya, Okurcalar",
+      "duration_bucket": "",
+      "old_price": 8958.0,
+      "new_price": 10411.0,
+      "price_change": 1453.0,
+      "price_change_pct": 16.220138423755305,
+      "timestamp": "2026-09-24 10:13:29.123337+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-24T10:14:43.149578+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Concordia Celes Beach Turcja, Alanya, Okurcalar_2026-09-24_10-13_zone_out_+16.2"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-24T05:05:35.457472+00:00",
+    "last_processed_run": "2026-09-24T10:13:29.123337+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 12570.0,
@@ -1036,16 +1088,16 @@
         "premium_peak": 12893.0
       },
       "Concordia Celes Beach Turcja, Alanya, Okurcalar": {
-        "history_max": 9867.0,
-        "premium_peak": null
+        "history_max": 10411.0,
+        "premium_peak": 10411.0
       },
       "Club Side Coast Turcja, Side, Colakli": {
         "history_max": 9164.0,
         "premium_peak": null
       },
       "Aydinbey Queens Palace & Spa": {
-        "history_max": 13176.0,
-        "premium_peak": 13176.0
+        "history_max": 13203.0,
+        "premium_peak": 13203.0
       },
       "Aska Lara Resort & Spa": {
         "history_max": 19119.0,
@@ -1434,6 +1486,10 @@
       "Royal Alhambra Palace": {
         "history_max": 17079.0,
         "premium_peak": 17079.0
+      },
+      "Dobedan World Palace (ex. Alva Donna World Palace)": {
+        "history_max": 19532.0,
+        "premium_peak": 19532.0
       }
     }
   }
