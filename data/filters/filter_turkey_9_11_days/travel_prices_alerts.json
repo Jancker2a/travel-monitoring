@@ -1066,10 +1066,62 @@
       "created_at": "2026-09-24T15:19:35.086655+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sultan of Dreams_2026-09-24_15-18_comeback_15.2"
+    },
+    {
+      "hotel_name": "Eftalia Village",
+      "duration_bucket": "",
+      "old_price": 9522.0,
+      "new_price": 8510.0,
+      "price_change": -1012.0,
+      "price_change_pct": -10.628019323671497,
+      "timestamp": "2026-09-24 19:22:34.502167+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-24T19:23:22.029707+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Eftalia Village_2026-09-24_19-22_-10.6"
+    },
+    {
+      "hotel_name": "Asteria Collection Side",
+      "duration_bucket": "",
+      "old_price": 9113.0,
+      "new_price": 8325.0,
+      "price_change": -788.0,
+      "price_change_pct": -8.646987819598376,
+      "timestamp": "2026-09-24 19:22:34.502167+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-24T19:23:22.029731+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Asteria Collection Side_2026-09-24_19-22_-8.6"
+    },
+    {
+      "hotel_name": "Flora Garden Ephesus",
+      "duration_bucket": "",
+      "old_price": 11318.0,
+      "new_price": 9496.0,
+      "price_change": -1822.0,
+      "price_change_pct": -16.098250574306412,
+      "timestamp": "2026-09-24 19:22:34.502167+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-24T19:23:22.029769+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Flora Garden Ephesus_2026-09-24_19-22_comeback_16.1"
+    },
+    {
+      "hotel_name": "Fantasia De Luxe Kusadasi",
+      "duration_bucket": "",
+      "old_price": 11404.0,
+      "new_price": 9976.0,
+      "price_change": -1428.0,
+      "price_change_pct": -12.52192213258506,
+      "timestamp": "2026-09-24 19:22:34.502167+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-24T19:23:22.029780+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Fantasia De Luxe Kusadasi_2026-09-24_19-22_comeback_12.5"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-24T15:18:33.602848+00:00",
+    "last_processed_run": "2026-09-24T19:22:34.502167+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 9799.0,
@@ -1140,8 +1192,8 @@
         "premium_peak": 14709.0
       },
       "Side Mare Resort": {
-        "history_max": 15652.0,
-        "premium_peak": 15652.0
+        "history_max": 15952.0,
+        "premium_peak": 15952.0
       },
       "Juju Premier Palace (ex. Amara Premier Palace)": {
         "history_max": 14537.0,

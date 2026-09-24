@@ -1040,10 +1040,49 @@
       "created_at": "2026-09-24T15:20:12.179468+00:00",
       "threshold_percent": 8.0,
       "unique_key": "White Olive Elite Rethymno Grecja, Kreta Zachodnia, Sfakaki_2026-09-24_15-19_zone_out_gone"
+    },
+    {
+      "hotel_name": "Porto Angeli Grecja, Rodos, Archangelos",
+      "duration_bucket": "",
+      "old_price": 8402.0,
+      "new_price": 7294.0,
+      "price_change": -1108.0,
+      "price_change_pct": -13.187336348488454,
+      "timestamp": "2026-09-24 19:23:16.229189+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-24T19:24:12.822544+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Porto Angeli Grecja, Rodos, Archangelos_2026-09-24_19-23_-13.2"
+    },
+    {
+      "hotel_name": "Levante Beach Resort By Playitas Grecja, Rodos, Afandu",
+      "duration_bucket": "",
+      "old_price": 9022.0,
+      "new_price": 9022.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-24 19:23:16.229189+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-24T19:24:12.822574+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Levante Beach Resort By Playitas Grecja, Rodos, Afandu_2026-09-24_19-23_zone_out_gone"
+    },
+    {
+      "hotel_name": "Pegasos Beach (Faliraki)",
+      "duration_bucket": "",
+      "old_price": 9557.0,
+      "new_price": 9557.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-24 19:23:16.229189+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-24T19:24:12.822581+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pegasos Beach (Faliraki)_2026-09-24_19-23_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-24T15:19:29.006672+00:00",
+    "last_processed_run": "2026-09-24T19:23:16.229189+00:00",
     "premium_state": {
       "Ajul Luxury & Spa Resort (Ayios Nikolaos) Grecja, Chalkidiki, Loutra": {
         "history_max": 9337.0,
@@ -1090,7 +1129,7 @@
         "premium_peak": null
       },
       "Lydia Maris Resort & Spa Grecja, Rodos, Kolymbia": {
-        "history_max": 7534.0,
+        "history_max": 7834.0,
         "premium_peak": null
       },
       "Lyttos Beach": {
@@ -1358,8 +1397,8 @@
         "premium_peak": 11926.0
       },
       "Porto Carras Meliton": {
-        "history_max": 14131.0,
-        "premium_peak": 14131.0
+        "history_max": 14149.0,
+        "premium_peak": 14149.0
       },
       "Porto Platanias Beach (Chania)": {
         "history_max": 10847.0,
@@ -1486,8 +1525,8 @@
         "premium_peak": 12636.0
       },
       "Atrium Palace Thalasso Spa & Villas": {
-        "history_max": 19238.0,
-        "premium_peak": 19238.0
+        "history_max": 19338.0,
+        "premium_peak": 19338.0
       },
       "Akti Coast Club": {
         "history_max": 10968.0,
@@ -1514,8 +1553,8 @@
         "premium_peak": null
       },
       "Alia Palace": {
-        "history_max": 11667.0,
-        "premium_peak": 11667.0
+        "history_max": 11937.0,
+        "premium_peak": 11937.0
       },
       "Euphoria Resort": {
         "history_max": 12224.0,
@@ -1534,7 +1573,7 @@
         "premium_peak": 10157.0
       },
       "All Senses Nautica Blue Exclusive Resort & Spa (ex Aegean Breeze) Grecja, Rodos, Fanes": {
-        "history_max": 6470.0,
+        "history_max": 6533.0,
         "premium_peak": null
       },
       "Arina Beach Resort (ex Aquis Arina Sand)": {
@@ -1630,7 +1669,7 @@
         "premium_peak": null
       },
       "Grecotel Costa Botanica (ex. Gelina Village) Grecja, Korfu, Acharavi": {
-        "history_max": 7580.0,
+        "history_max": 7660.0,
         "premium_peak": null
       },
       "Zeus Eleva Ajul (Ayios Nikolaos)": {
@@ -1643,6 +1682,14 @@
       },
       "Porto Angeli Grecja, Rodos, Archangelos": {
         "history_max": 8402.0,
+        "premium_peak": null
+      },
+      "Levante Beach Resort By Playitas": {
+        "history_max": 9022.0,
+        "premium_peak": null
+      },
+      "Pegasos Beach (Faliraki) Grecja, Rodos, Faliraki": {
+        "history_max": 7797.0,
         "premium_peak": null
       }
     }

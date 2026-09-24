@@ -689,14 +689,40 @@
       "created_at": "2026-09-24T15:20:15.939886+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Summer Beach Grecja, Kreta Zachodnia, Georgioupolis_2026-09-24_15-19_comeback_14.8"
+    },
+    {
+      "hotel_name": "Gaia Royal Grecja, Kos, Mastichari",
+      "duration_bucket": "",
+      "old_price": 9758.0,
+      "new_price": 9758.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-24 19:23:22.727762+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-24T19:24:12.114390+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Gaia Royal Grecja, Kos, Mastichari_2026-09-24_19-23_zone_out_gone"
+    },
+    {
+      "hotel_name": "Eri Beach Grecja, Kreta Wschodnia, Hersonissos",
+      "duration_bucket": "",
+      "old_price": 11624.0,
+      "new_price": 9839.0,
+      "price_change": -1785.0,
+      "price_change_pct": -15.356159669649003,
+      "timestamp": "2026-09-24 19:23:22.727762+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-24T19:24:12.114425+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Eri Beach Grecja, Kreta Wschodnia, Hersonissos_2026-09-24_19-23_comeback_15.4"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-24T15:19:35.656557+00:00",
+    "last_processed_run": "2026-09-24T19:23:22.727762+00:00",
     "premium_state": {
       "Acrotel Elea Beach (ex Elea Village)": {
-        "history_max": 13725.0,
-        "premium_peak": 13725.0
+        "history_max": 13767.0,
+        "premium_peak": 13767.0
       },
       "Maistrali (Tragaki) Grecja, Zakynthos, Tragaki": {
         "history_max": 10711.0,
@@ -859,12 +885,12 @@
         "premium_peak": 19662.0
       },
       "Lagomandra Beach": {
-        "history_max": 13853.0,
-        "premium_peak": 13853.0
+        "history_max": 13873.0,
+        "premium_peak": 13873.0
       },
       "Lagomandra Hotel & Spa": {
-        "history_max": 12763.0,
-        "premium_peak": 12763.0
+        "history_max": 12842.0,
+        "premium_peak": 12842.0
       },
       "Laguna Holiday Resort": {
         "history_max": 14257.0,
@@ -1243,8 +1269,8 @@
         "premium_peak": 16335.0
       },
       "Aeolos Beach Resort": {
-        "history_max": 18576.0,
-        "premium_peak": 18576.0
+        "history_max": 18588.0,
+        "premium_peak": 18588.0
       },
       "Aqua Sun Village (Ex. Eri Sun Village) Grecja, Kreta Wschodnia, Hersonissos": {
         "history_max": 10598.0,
@@ -1559,8 +1585,8 @@
         "premium_peak": 10557.0
       },
       "Avra Beach (Ixia)": {
-        "history_max": 17217.0,
-        "premium_peak": 17217.0
+        "history_max": 17267.0,
+        "premium_peak": 17267.0
       },
       "Heronissos Grecja, Kreta Wschodnia, Hersonissos": {
         "history_max": 7539.0,

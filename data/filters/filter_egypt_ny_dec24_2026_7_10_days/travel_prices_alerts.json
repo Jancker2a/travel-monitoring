@@ -611,10 +611,36 @@
       "created_at": "2026-09-24T15:18:32.985484+00:00",
       "threshold_percent": 8.0,
       "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada_2026-09-24_15-18_zone_out_gone"
+    },
+    {
+      "hotel_name": "Jaz Mirabel Beach Resort Egipt, Sharm El Sheikh",
+      "duration_bucket": "",
+      "old_price": 8100.0,
+      "new_price": 8845.0,
+      "price_change": 745.0,
+      "price_change_pct": 9.197530864197532,
+      "timestamp": "2026-09-24 19:22:15.065790+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-24T19:22:33.938104+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Mirabel Beach Resort Egipt, Sharm El Sheikh_2026-09-24_19-22_+9.2"
+    },
+    {
+      "hotel_name": "Jaz Makadi Oasis (ex Iberotel) Egipt, Hurghada, Makadi Bay",
+      "duration_bucket": "",
+      "old_price": 9415.0,
+      "new_price": 9415.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-24 19:22:15.065790+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-24T19:22:33.938137+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Makadi Oasis (ex Iberotel) Egipt, Hurghada, Makadi Bay_2026-09-24_19-22_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-24T15:18:16.699071+00:00",
+    "last_processed_run": "2026-09-24T19:22:15.065790+00:00",
     "premium_state": {
       "Parrotel Lagoon Resort Egipt, Sharm El Sheikh, Szarm el-Szejk": {
         "history_max": 10265.0,
@@ -765,7 +791,7 @@
         "premium_peak": null
       },
       "Jaz Mirabel Beach Resort Egipt, Sharm El Sheikh": {
-        "history_max": 8100.0,
+        "history_max": 8845.0,
         "premium_peak": null
       },
       "Jaz Makadi Oasis (ex Iberotel) Egipt, Hurghada, Makadi Bay": {
@@ -774,6 +800,10 @@
       },
       "Jaz Aquaviva Egipt, Hurghada, Makadi Bay": {
         "history_max": 8548.0,
+        "premium_peak": null
+      },
+      "Jaz Lamaya Resort (ex Iberotel) Egipt, Marsa Alam, Madinat Coraya": {
+        "history_max": 9338.0,
         "premium_peak": null
       }
     }
