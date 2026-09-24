@@ -1638,10 +1638,36 @@
       "created_at": "2026-09-24T19:22:01.921180+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Pickalbatros Laguna Vista Beach_2026-09-24_19-21_zone_out_gone"
+    },
+    {
+      "hotel_name": "Serenity Sky Arc",
+      "duration_bucket": "",
+      "old_price": 9827.0,
+      "new_price": 10832.0,
+      "price_change": 1005.0,
+      "price_change_pct": 10.22692581662766,
+      "timestamp": "2026-09-24 23:18:11.021282+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-24T23:18:48.377189+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Serenity Sky Arc_2026-09-24_23-18_+10.2"
+    },
+    {
+      "hotel_name": "Pickalbatros Vita Resort Portofino",
+      "duration_bucket": "",
+      "old_price": 8917.0,
+      "new_price": 8917.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-24 23:18:11.021282+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-24T23:18:48.377231+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Vita Resort Portofino_2026-09-24_23-18_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-24T19:21:26.917163+00:00",
+    "last_processed_run": "2026-09-24T23:18:11.021282+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 6764.0,
@@ -1932,7 +1958,7 @@
         "premium_peak": null
       },
       "Serenity Sky Arc": {
-        "history_max": 9827.0,
+        "history_max": 10832.0,
         "premium_peak": null
       },
       "Seven Seas Jolie Bay": {
@@ -2284,7 +2310,7 @@
         "premium_peak": null
       },
       "Albatros Laguna Club Resort Egipt, Sharm El Sheikh, Szarm el-Szejk": {
-        "history_max": 8037.0,
+        "history_max": 8437.0,
         "premium_peak": null
       }
     }

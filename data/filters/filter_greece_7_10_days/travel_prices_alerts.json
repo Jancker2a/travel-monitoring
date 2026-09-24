@@ -1079,10 +1079,114 @@
       "created_at": "2026-09-24T19:24:12.822581+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Pegasos Beach (Faliraki)_2026-09-24_19-23_zone_out_gone"
+    },
+    {
+      "hotel_name": "Galini Palace Grecja, Kreta Zachodnia, Kolymvari",
+      "duration_bucket": "",
+      "old_price": 7121.0,
+      "new_price": 7701.0,
+      "price_change": 580.0,
+      "price_change_pct": 8.144923465805364,
+      "timestamp": "2026-09-24 23:20:30.255480+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-24T23:21:34.931843+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Galini Palace Grecja, Kreta Zachodnia, Kolymvari_2026-09-24_23-20_+8.1"
+    },
+    {
+      "hotel_name": "Grand Blue Beach",
+      "duration_bucket": "",
+      "old_price": 9184.0,
+      "new_price": 9184.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-24 23:20:30.255480+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-24T23:21:34.931882+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Grand Blue Beach_2026-09-24_23-20_zone_out_gone"
+    },
+    {
+      "hotel_name": "Grecotel Costa Botanica (ex. Gelina Village) Grecja, Korfu, Acharavi",
+      "duration_bucket": "",
+      "old_price": 7660.0,
+      "new_price": 7660.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-24 23:20:30.255480+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-24T23:21:34.931895+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Grecotel Costa Botanica (ex. Gelina Village) Grecja, Korfu, Acharavi_2026-09-24_23-20_zone_out_gone"
+    },
+    {
+      "hotel_name": "Levante Beach Resort By Playitas",
+      "duration_bucket": "",
+      "old_price": 9022.0,
+      "new_price": 9022.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-24 23:20:30.255480+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-24T23:21:34.931903+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Levante Beach Resort By Playitas_2026-09-24_23-20_zone_out_gone"
+    },
+    {
+      "hotel_name": "Mare blue (ex. Sunshine Crete Beach)",
+      "duration_bucket": "",
+      "old_price": 9110.0,
+      "new_price": 9110.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-24 23:20:30.255480+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-24T23:21:34.931911+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Mare blue (ex. Sunshine Crete Beach)_2026-09-24_23-20_zone_out_gone"
+    },
+    {
+      "hotel_name": "Pegasos Beach (Faliraki) Grecja, Rodos, Faliraki",
+      "duration_bucket": "",
+      "old_price": 7797.0,
+      "new_price": 7797.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-24 23:20:30.255480+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-24T23:21:34.931919+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pegasos Beach (Faliraki) Grecja, Rodos, Faliraki_2026-09-24_23-20_zone_out_gone"
+    },
+    {
+      "hotel_name": "Rhodes Bay & Spa (ex Amathus Beach) Grecja, Rodos, Ixia",
+      "duration_bucket": "",
+      "old_price": 6469.0,
+      "new_price": 6469.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-24 23:20:30.255480+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-24T23:21:34.931926+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rhodes Bay & Spa (ex Amathus Beach) Grecja, Rodos, Ixia_2026-09-24_23-20_zone_out_gone"
+    },
+    {
+      "hotel_name": "Pegasos Beach (Faliraki)",
+      "duration_bucket": "",
+      "old_price": 11057.0,
+      "new_price": 9557.0,
+      "price_change": -1500.0,
+      "price_change_pct": -13.566066745048385,
+      "timestamp": "2026-09-24 23:20:30.255480+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-24T23:21:34.931950+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pegasos Beach (Faliraki)_2026-09-24_23-20_comeback_13.6"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-24T19:23:16.229189+00:00",
+    "last_processed_run": "2026-09-24T23:20:30.255480+00:00",
     "premium_state": {
       "Ajul Luxury & Spa Resort (Ayios Nikolaos) Grecja, Chalkidiki, Loutra": {
         "history_max": 9337.0,
@@ -1577,8 +1681,8 @@
         "premium_peak": null
       },
       "Arina Beach Resort (ex Aquis Arina Sand)": {
-        "history_max": 17797.0,
-        "premium_peak": 17797.0
+        "history_max": 17907.0,
+        "premium_peak": 17907.0
       },
       "Eliros Mare": {
         "history_max": 12940.0,

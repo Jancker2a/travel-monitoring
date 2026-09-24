@@ -1534,10 +1534,101 @@
       "created_at": "2026-09-24T19:22:18.395635+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Royal Regency Club_2026-09-24_19-21_zone_out_gone"
+    },
+    {
+      "hotel_name": "Serenity Sky Arc",
+      "duration_bucket": "",
+      "old_price": 9427.0,
+      "new_price": 10697.0,
+      "price_change": 1270.0,
+      "price_change_pct": 13.471942293412539,
+      "timestamp": "2026-09-24 23:18:35.197959+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-24T23:19:14.099990+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Serenity Sky Arc_2026-09-24_23-18_+13.5"
+    },
+    {
+      "hotel_name": "Jaz Aquaviva Egipt, Hurghada, Makadi Bay",
+      "duration_bucket": "",
+      "old_price": 6288.0,
+      "new_price": 6868.0,
+      "price_change": 580.0,
+      "price_change_pct": 9.223918575063614,
+      "timestamp": "2026-09-24 23:18:35.197959+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-24T23:19:14.100057+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Aquaviva Egipt, Hurghada, Makadi Bay_2026-09-24_23-18_+9.2"
+    },
+    {
+      "hotel_name": "Albatros Laguna Club Resort Egipt, Sharm El Sheikh, Szarm el-Szejk",
+      "duration_bucket": "",
+      "old_price": 8037.0,
+      "new_price": 8037.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-24 23:18:35.197959+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-24T23:19:14.100104+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Albatros Laguna Club Resort Egipt, Sharm El Sheikh, Szarm el-Szejk_2026-09-24_23-18_zone_out_gone"
+    },
+    {
+      "hotel_name": "Amarina Jannah Resort Aquapark Egipt, Marsa Alam, Port Ghalib",
+      "duration_bucket": "",
+      "old_price": 8194.0,
+      "new_price": 8194.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-24 23:18:35.197959+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-24T23:19:14.100115+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amarina Jannah Resort Aquapark Egipt, Marsa Alam, Port Ghalib_2026-09-24_23-18_zone_out_gone"
+    },
+    {
+      "hotel_name": "Calimera Blend Paradise Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 8204.0,
+      "new_price": 8204.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-24 23:18:35.197959+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-24T23:19:14.100123+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Calimera Blend Paradise Egipt, Hurghada_2026-09-24_23-18_zone_out_gone"
+    },
+    {
+      "hotel_name": "Pickalbatros Palace Port Ghalib (ex. Red Sea The Palace)",
+      "duration_bucket": "",
+      "old_price": 8617.0,
+      "new_price": 8617.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-24 23:18:35.197959+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-24T23:19:14.100131+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Palace Port Ghalib (ex. Red Sea The Palace)_2026-09-24_23-18_zone_out_gone"
+    },
+    {
+      "hotel_name": "Pickalbatros Vita Resort Portofino",
+      "duration_bucket": "",
+      "old_price": 8877.0,
+      "new_price": 8877.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-24 23:18:35.197959+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-24T23:19:14.100139+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Vita Resort Portofino_2026-09-24_23-18_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-24T19:21:47.177815+00:00",
+    "last_processed_run": "2026-09-24T23:18:35.197959+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 6719.0,
@@ -1548,7 +1639,7 @@
         "premium_peak": null
       },
       "Novotel Marsa Alam Egipt, Marsa Alam": {
-        "history_max": 6777.0,
+        "history_max": 7057.0,
         "premium_peak": null
       },
       "Old Palace Resort": {
@@ -1900,7 +1991,7 @@
         "premium_peak": null
       },
       "Serenity Sky Arc": {
-        "history_max": 9427.0,
+        "history_max": 10697.0,
         "premium_peak": null
       },
       "Seven Seas Jolie Bay": {
@@ -2196,11 +2287,11 @@
         "premium_peak": null
       },
       "Jaz Aquaviva Egipt, Hurghada, Makadi Bay": {
-        "history_max": 6288.0,
+        "history_max": 6868.0,
         "premium_peak": null
       },
       "Amarina Jannah Resort Aquapark": {
-        "history_max": 8194.0,
+        "history_max": 8394.0,
         "premium_peak": null
       },
       "Jaz Mirabel Beach Resort Egipt, Sharm El Sheikh": {
@@ -2232,7 +2323,7 @@
         "premium_peak": null
       },
       "Jaz Lamaya Resort (ex Iberotel)": {
-        "history_max": 9017.0,
+        "history_max": 9227.0,
         "premium_peak": null
       },
       "Calimera Blend Paradise Egipt, Hurghada": {

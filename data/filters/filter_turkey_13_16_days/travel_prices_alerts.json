@@ -390,10 +390,36 @@
       "created_at": "2026-09-24T19:23:31.581022+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Holiday Park Resort (Okurcalar) Turcja, Alanya, Okurcalar_2026-09-24_19-22_zone_out_+11.5"
+    },
+    {
+      "hotel_name": "Campus Hill Turcja, Alanya",
+      "duration_bucket": "",
+      "old_price": 8957.0,
+      "new_price": 10457.0,
+      "price_change": 1500.0,
+      "price_change_pct": 16.746678575415878,
+      "timestamp": "2026-09-24 23:19:23.825871+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-24T23:20:29.337471+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Campus Hill Turcja, Alanya_2026-09-24_23-19_zone_out_+16.7"
+    },
+    {
+      "hotel_name": "Elite Luxury Suite & Spa Turcja, Alanya, Konaklı",
+      "duration_bucket": "",
+      "old_price": 8525.0,
+      "new_price": 10025.0,
+      "price_change": 1500.0,
+      "price_change_pct": 17.595307917888565,
+      "timestamp": "2026-09-24 23:19:23.825871+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-24T23:20:29.337499+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Elite Luxury Suite & Spa Turcja, Alanya, Konaklı_2026-09-24_23-19_zone_out_+17.6"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-24T19:22:34.659771+00:00",
+    "last_processed_run": "2026-09-24T23:19:23.825871+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 12570.0,
@@ -524,8 +550,8 @@
         "premium_peak": 13057.0
       },
       "My Home Resort": {
-        "history_max": 15631.0,
-        "premium_peak": 15631.0
+        "history_max": 15811.0,
+        "premium_peak": 15811.0
       },
       "Movenpick Resort Antalya Tekirova (ex. Royal Diwa Tekirova Resort)": {
         "history_max": 18954.0,
@@ -592,8 +618,8 @@
         "premium_peak": 14865.0
       },
       "Elite Luxury Suite & Spa Turcja, Alanya, Konaklı": {
-        "history_max": 9845.0,
-        "premium_peak": null
+        "history_max": 10025.0,
+        "premium_peak": 10025.0
       },
       "Elegance (Marmaris)": {
         "history_max": 15813.0,
@@ -1288,8 +1314,8 @@
         "premium_peak": 18075.0
       },
       "Adalya Art Side (Ex. Grand Art Side)": {
-        "history_max": 18615.0,
-        "premium_peak": 18615.0
+        "history_max": 19023.0,
+        "premium_peak": 19023.0
       },
       "Calyptus Kirman Premium": {
         "history_max": 18071.0,
@@ -1300,8 +1326,8 @@
         "premium_peak": 16919.0
       },
       "Campus Hill Turcja, Alanya": {
-        "history_max": 10277.0,
-        "premium_peak": 10277.0
+        "history_max": 10457.0,
+        "premium_peak": 10457.0
       },
       "Aquasis Deluxe Resort & Spa": {
         "history_max": 16343.0,
@@ -1436,8 +1462,8 @@
         "premium_peak": 19896.0
       },
       "Sultan of Side Turcja, Side, Colakli": {
-        "history_max": 10625.0,
-        "premium_peak": 10625.0
+        "history_max": 10648.0,
+        "premium_peak": 10648.0
       },
       "Side Mare Resort": {
         "history_max": 19652.0,
@@ -1606,6 +1632,10 @@
       "Aria Claros Beach and Spa Resort Turcja, Kusadasi, Ozdere": {
         "history_max": 10715.0,
         "premium_peak": 10715.0
+      },
+      "Holiday Park Resort (Okurcalar)": {
+        "history_max": 10848.0,
+        "premium_peak": 10848.0
       }
     }
   }

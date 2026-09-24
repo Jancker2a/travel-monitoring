@@ -715,10 +715,36 @@
       "created_at": "2026-09-24T19:24:12.114425+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Eri Beach Grecja, Kreta Wschodnia, Hersonissos_2026-09-24_19-23_comeback_15.4"
+    },
+    {
+      "hotel_name": "Kalia Beach Grecja, Kreta Wschodnia, Kato Gouves",
+      "duration_bucket": "",
+      "old_price": 9892.0,
+      "new_price": 10252.0,
+      "price_change": 360.0,
+      "price_change_pct": 3.6393044884755357,
+      "timestamp": "2026-09-24 23:20:32.485812+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-24T23:21:32.900927+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Kalia Beach Grecja, Kreta Wschodnia, Kato Gouves_2026-09-24_23-20_zone_out_+3.6"
+    },
+    {
+      "hotel_name": "Michelangelo Resort Grecja, Korfu",
+      "duration_bucket": "",
+      "old_price": 9852.0,
+      "new_price": 10032.0,
+      "price_change": 180.0,
+      "price_change_pct": 1.8270401948842874,
+      "timestamp": "2026-09-24 23:20:32.485812+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-24T23:21:32.900956+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Michelangelo Resort Grecja, Korfu_2026-09-24_23-20_zone_out_+1.8"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-24T19:23:22.727762+00:00",
+    "last_processed_run": "2026-09-24T23:20:32.485812+00:00",
     "premium_state": {
       "Acrotel Elea Beach (ex Elea Village)": {
         "history_max": 13767.0,
@@ -885,12 +911,12 @@
         "premium_peak": 19662.0
       },
       "Lagomandra Beach": {
-        "history_max": 13873.0,
-        "premium_peak": 13873.0
+        "history_max": 14093.0,
+        "premium_peak": 14093.0
       },
       "Lagomandra Hotel & Spa": {
-        "history_max": 12842.0,
-        "premium_peak": 12842.0
+        "history_max": 13062.0,
+        "premium_peak": 13062.0
       },
       "Laguna Holiday Resort": {
         "history_max": 14257.0,
@@ -1033,8 +1059,8 @@
         "premium_peak": 17467.0
       },
       "Planos": {
-        "history_max": 13826.0,
-        "premium_peak": 13826.0
+        "history_max": 14006.0,
+        "premium_peak": 14006.0
       },
       "Pollis (ex Miramare) Grecja, Kreta Wschodnia, Hersonissos": {
         "history_max": 10346.0,
@@ -1069,8 +1095,8 @@
         "premium_peak": 16059.0
       },
       "Princess Andriana Resort & Spa": {
-        "history_max": 17697.0,
-        "premium_peak": 17697.0
+        "history_max": 17897.0,
+        "premium_peak": 17897.0
       },
       "Rethymno Mare & Water Park (Rethymno)": {
         "history_max": 19007.0,
@@ -1089,16 +1115,16 @@
         "premium_peak": 19677.0
       },
       "Royal & Imperial Belvedere": {
-        "history_max": 18657.0,
-        "premium_peak": 18657.0
+        "history_max": 18743.0,
+        "premium_peak": 18743.0
       },
       "Sandy Beach Faliraki by Sun Palace Grecja, Rodos, Faliraki": {
         "history_max": 10746.0,
         "premium_peak": 10746.0
       },
       "Galaxy Beach Resort BW Premier Collection": {
-        "history_max": 14930.0,
-        "premium_peak": 14930.0
+        "history_max": 15110.0,
+        "premium_peak": 15110.0
       },
       "Gaia Royal": {
         "history_max": 12428.0,
@@ -1601,8 +1627,8 @@
         "premium_peak": 19542.0
       },
       "Kalia Beach Grecja, Kreta Wschodnia, Kato Gouves": {
-        "history_max": 9952.0,
-        "premium_peak": null
+        "history_max": 10252.0,
+        "premium_peak": 10252.0
       }
     }
   }
