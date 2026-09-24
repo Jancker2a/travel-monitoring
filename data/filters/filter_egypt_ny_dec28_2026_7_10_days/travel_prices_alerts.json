@@ -234,10 +234,23 @@
       "created_at": "2026-09-24T10:13:28.274622+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna_2026-09-24_10-13_zone_out_gone"
+    },
+    {
+      "hotel_name": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 9755.0,
+      "new_price": 9755.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-24 15:18:18.666350+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-24T15:18:32.989536+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada_2026-09-24_15-18_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-24T10:13:13.613475+00:00",
+    "last_processed_run": "2026-09-24T15:18:18.666350+00:00",
     "premium_state": {
       "Concorde Moreen Beach Resort & Spa Egipt, Marsa Alam": {
         "history_max": 10716.0,
@@ -301,6 +314,18 @@
       },
       "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna": {
         "history_max": 10488.0,
+        "premium_peak": null
+      },
+      "Jaz Mirabel Beach Resort Egipt, Sharm El Sheikh": {
+        "history_max": 8100.0,
+        "premium_peak": null
+      },
+      "Jaz Aquaviva Egipt, Hurghada, Makadi Bay": {
+        "history_max": 9048.0,
+        "premium_peak": null
+      },
+      "Jaz Makadi Oasis (ex Iberotel) Egipt, Hurghada, Makadi Bay": {
+        "history_max": 9415.0,
         "premium_peak": null
       }
     }

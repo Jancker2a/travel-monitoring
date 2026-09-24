@@ -1456,10 +1456,62 @@
       "created_at": "2026-09-24T10:12:52.093328+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Xperience Sea Breeze Resort_2026-09-24_10-12_zone_out_gone"
+    },
+    {
+      "hotel_name": "Jaz Aquaviva Egipt, Hurghada, Makadi Bay",
+      "duration_bucket": "",
+      "old_price": 5750.0,
+      "new_price": 7178.0,
+      "price_change": 1428.0,
+      "price_change_pct": 24.83478260869565,
+      "timestamp": "2026-09-24 15:17:35.359804+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-24T15:18:03.477343+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Aquaviva Egipt, Hurghada, Makadi Bay_2026-09-24_15-17_+24.8"
+    },
+    {
+      "hotel_name": "Jaz Makadi Oasis Resort",
+      "duration_bucket": "",
+      "old_price": 10817.0,
+      "new_price": 10817.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-24 15:17:35.359804+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-24T15:18:03.477377+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Makadi Oasis Resort_2026-09-24_15-17_zone_out_gone"
+    },
+    {
+      "hotel_name": "Old Palace Resort Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 8812.0,
+      "new_price": 8812.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-24 15:17:35.359804+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-24T15:18:03.477383+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Old Palace Resort Egipt, Hurghada_2026-09-24_15-17_zone_out_gone"
+    },
+    {
+      "hotel_name": "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort) Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 8817.0,
+      "new_price": 8817.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-24 15:17:35.359804+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-24T15:18:03.477388+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort) Egipt, Hurghada_2026-09-24_15-17_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-24T10:12:17.330889+00:00",
+    "last_processed_run": "2026-09-24T15:17:35.359804+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 6764.0,
@@ -1490,7 +1542,7 @@
         "premium_peak": null
       },
       "Pickalbatros Palace Resort": {
-        "history_max": 10777.0,
+        "history_max": 10877.0,
         "premium_peak": null
       },
       "Parrotel Lagoon Resort Egipt, Sharm El Sheikh, Szarm el-Szejk": {
@@ -1638,11 +1690,11 @@
         "premium_peak": null
       },
       "Swissotel Resort El Quseir": {
-        "history_max": 9243.0,
+        "history_max": 9311.0,
         "premium_peak": null
       },
       "The Cascades Golf Resort Spa & Thalasso (ex Westin Soma Bay)": {
-        "history_max": 9199.0,
+        "history_max": 9403.0,
         "premium_peak": null
       },
       "Three Corners Fayrouz Plaza Beach Resort": {
@@ -1654,7 +1706,7 @@
         "premium_peak": null
       },
       "Stella Gardens Resort & Spa (ex Stella Di Mare Gardens)": {
-        "history_max": 8921.0,
+        "history_max": 9124.0,
         "premium_peak": null
       },
       "Titanic Palace Resort": {
@@ -1718,7 +1770,7 @@
         "premium_peak": null
       },
       "Sataya Resort (ex. Labranda Sataya Marsa Alam)": {
-        "history_max": 9747.0,
+        "history_max": 9757.0,
         "premium_peak": null
       },
       "Sea Star Beau Rivage Egipt, Hurghada": {
@@ -1726,7 +1778,7 @@
         "premium_peak": null
       },
       "Sentido Akassia Beach (ex. LTI Akassia Beach)": {
-        "history_max": 9059.0,
+        "history_max": 9135.0,
         "premium_peak": null
       },
       "Sentido Mamlouk Palace Resort & Spa (ex Sunrise)": {
@@ -1734,7 +1786,7 @@
         "premium_peak": null
       },
       "Steigenberger Aqua Magic": {
-        "history_max": 10537.0,
+        "history_max": 10577.0,
         "premium_peak": null
       },
       "Sentido Naga Bay": {
@@ -1906,7 +1958,7 @@
         "premium_peak": null
       },
       "Hawaii Paradise Aqua Park Resort Egipt, Hurghada": {
-        "history_max": 8449.0,
+        "history_max": 8599.0,
         "premium_peak": null
       },
       "Hilton Plaza (Hurghada)": {
@@ -1930,7 +1982,7 @@
         "premium_peak": null
       },
       "Gravity Hotel & Aquapark Hurghada (ex. Samra Bay Resort)": {
-        "history_max": 9250.0,
+        "history_max": 9414.0,
         "premium_peak": null
       },
       "IL Mercato (ex. Iberotel Il Mercato) Egipt, Sharm El Sheikh": {
@@ -2054,7 +2106,7 @@
         "premium_peak": null
       },
       "Pickalbatros Laguna Vista Beach": {
-        "history_max": 10727.0,
+        "history_max": 10823.0,
         "premium_peak": null
       },
       "Pickalbatros Dana Beach Resort": {
@@ -2078,7 +2130,19 @@
         "premium_peak": null
       },
       "Jaz Aquaviva Egipt, Hurghada, Makadi Bay": {
-        "history_max": 5750.0,
+        "history_max": 7178.0,
+        "premium_peak": null
+      },
+      "Jaz Elite Riviera": {
+        "history_max": 10441.0,
+        "premium_peak": null
+      },
+      "Jaz Mirabel Beach Resort Egipt, Sharm El Sheikh": {
+        "history_max": 6704.0,
+        "premium_peak": null
+      },
+      "Jaz Makadi Oasis (ex Iberotel) Egipt, Hurghada, Makadi Bay": {
+        "history_max": 6495.0,
         "premium_peak": null
       }
     }

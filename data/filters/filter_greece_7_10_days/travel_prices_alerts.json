@@ -949,10 +949,101 @@
       "created_at": "2026-09-24T10:15:33.041395+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Mitsis Summer Palace_2026-09-24_10-14_comeback_11.9"
+    },
+    {
+      "hotel_name": "Rodos Palace Grecja, Rodos, Ixia",
+      "duration_bucket": "",
+      "old_price": 6797.0,
+      "new_price": 6197.0,
+      "price_change": -600.0,
+      "price_change_pct": -8.827423863469178,
+      "timestamp": "2026-09-24 15:19:29.006672+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-24T15:20:12.179416+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rodos Palace Grecja, Rodos, Ixia_2026-09-24_15-19_-8.8"
+    },
+    {
+      "hotel_name": "Aquila Rithymna Beach Grecja, Kreta Zachodnia, Adelianos Kampos",
+      "duration_bucket": "",
+      "old_price": 6628.0,
+      "new_price": 7250.0,
+      "price_change": 622.0,
+      "price_change_pct": 9.384429692214846,
+      "timestamp": "2026-09-24 15:19:29.006672+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-24T15:20:12.179437+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Aquila Rithymna Beach Grecja, Kreta Zachodnia, Adelianos Kampos_2026-09-24_15-19_+9.4"
+    },
+    {
+      "hotel_name": "Ajul Luxury & Spa Resort (Ayios Nikolaos) Grecja, Chalkidiki, Loutra",
+      "duration_bucket": "",
+      "old_price": 9067.0,
+      "new_price": 9067.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-24 15:19:29.006672+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-24T15:20:12.179450+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Ajul Luxury & Spa Resort (Ayios Nikolaos) Grecja, Chalkidiki, Loutra_2026-09-24_15-19_zone_out_gone"
+    },
+    {
+      "hotel_name": "Amus",
+      "duration_bucket": "",
+      "old_price": 9653.0,
+      "new_price": 9653.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-24 15:19:29.006672+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-24T15:20:12.179455+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amus_2026-09-24_15-19_zone_out_gone"
+    },
+    {
+      "hotel_name": "Grand Blue Beach Grecja, kos, Kardamaina",
+      "duration_bucket": "",
+      "old_price": 9044.0,
+      "new_price": 9044.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-24 15:19:29.006672+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-24T15:20:12.179459+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Grand Blue Beach Grecja, kos, Kardamaina_2026-09-24_15-19_zone_out_gone"
+    },
+    {
+      "hotel_name": "Portes Lithos Luxury Resort",
+      "duration_bucket": "",
+      "old_price": 9902.0,
+      "new_price": 10177.0,
+      "price_change": 275.0,
+      "price_change_pct": 2.7772167238941625,
+      "timestamp": "2026-09-24 15:19:29.006672+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-24T15:20:12.179464+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Portes Lithos Luxury Resort_2026-09-24_15-19_zone_out_+2.8"
+    },
+    {
+      "hotel_name": "White Olive Elite Rethymno Grecja, Kreta Zachodnia, Sfakaki",
+      "duration_bucket": "",
+      "old_price": 8007.0,
+      "new_price": 8007.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-24 15:19:29.006672+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-24T15:20:12.179468+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "White Olive Elite Rethymno Grecja, Kreta Zachodnia, Sfakaki_2026-09-24_15-19_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-24T10:14:26.100727+00:00",
+    "last_processed_run": "2026-09-24T15:19:29.006672+00:00",
     "premium_state": {
       "Ajul Luxury & Spa Resort (Ayios Nikolaos) Grecja, Chalkidiki, Loutra": {
         "history_max": 9337.0,
@@ -1035,12 +1126,12 @@
         "premium_peak": 13785.0
       },
       "Kakkos Terra Blu": {
-        "history_max": 12013.0,
-        "premium_peak": 12013.0
+        "history_max": 12139.0,
+        "premium_peak": 12139.0
       },
       "Kakkos Bay": {
-        "history_max": 10195.0,
-        "premium_peak": 10195.0
+        "history_max": 10283.0,
+        "premium_peak": 10283.0
       },
       "Galini Palace Grecja, Kreta Zachodnia, Kolymvari": {
         "history_max": 8041.0,
@@ -1115,7 +1206,7 @@
         "premium_peak": 11725.0
       },
       "Galaxy Beach Resort BW Premier Collection Grecja, Zakynthos, Laganas": {
-        "history_max": 8539.0,
+        "history_max": 8989.0,
         "premium_peak": null
       },
       "Mitsis Norida": {
@@ -1267,8 +1358,8 @@
         "premium_peak": 11926.0
       },
       "Porto Carras Meliton": {
-        "history_max": 14044.0,
-        "premium_peak": 14044.0
+        "history_max": 14131.0,
+        "premium_peak": 14131.0
       },
       "Porto Platanias Beach (Chania)": {
         "history_max": 10847.0,
@@ -1375,8 +1466,8 @@
         "premium_peak": null
       },
       "Blue Sea Beach (Stalida)": {
-        "history_max": 17454.0,
-        "premium_peak": 17454.0
+        "history_max": 17714.0,
+        "premium_peak": 17714.0
       },
       "Aulus Chania Resort, Curio Collection by Hilton (ex. Isla Brown Chania)": {
         "history_max": 15594.0,
@@ -1536,6 +1627,22 @@
       },
       "Blue Lagoon Village": {
         "history_max": 9206.0,
+        "premium_peak": null
+      },
+      "Grecotel Costa Botanica (ex. Gelina Village) Grecja, Korfu, Acharavi": {
+        "history_max": 7580.0,
+        "premium_peak": null
+      },
+      "Zeus Eleva Ajul (Ayios Nikolaos)": {
+        "history_max": 9387.0,
+        "premium_peak": null
+      },
+      "Rhodes Bay & Spa (ex Amathus Beach) Grecja, Rodos, Ixia": {
+        "history_max": 6809.0,
+        "premium_peak": null
+      },
+      "Porto Angeli Grecja, Rodos, Archangelos": {
+        "history_max": 8402.0,
         "premium_peak": null
       }
     }

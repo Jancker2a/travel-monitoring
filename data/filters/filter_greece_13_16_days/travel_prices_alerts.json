@@ -637,10 +637,62 @@
       "created_at": "2026-09-24T05:07:42.279583+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Michelangelo Resort Grecja, Korfu_2026-09-24_05-06_zone_out_+1.1"
+    },
+    {
+      "hotel_name": "Heronissos Grecja, Kreta, Hersonissos",
+      "duration_bucket": "",
+      "old_price": 7496.0,
+      "new_price": 7496.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-24 15:19:35.656557+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-24T15:20:15.939846+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Heronissos Grecja, Kreta, Hersonissos_2026-09-24_15-19_zone_out_gone"
+    },
+    {
+      "hotel_name": "Alexander House Grecja, Kreta Wschodnia, Agia Pelagia",
+      "duration_bucket": "",
+      "old_price": 10832.0,
+      "new_price": 9512.0,
+      "price_change": -1320.0,
+      "price_change_pct": -12.186115214180207,
+      "timestamp": "2026-09-24 15:19:35.656557+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-24T15:20:15.939871+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Alexander House Grecja, Kreta Wschodnia, Agia Pelagia_2026-09-24_15-19_comeback_12.2"
+    },
+    {
+      "hotel_name": "Sandy Beach Faliraki by Sun Palace Grecja, Rodos, Faliraki",
+      "duration_bucket": "",
+      "old_price": 10746.0,
+      "new_price": 9524.0,
+      "price_change": -1222.0,
+      "price_change_pct": -11.371673180718407,
+      "timestamp": "2026-09-24 15:19:35.656557+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-24T15:20:15.939879+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sandy Beach Faliraki by Sun Palace Grecja, Rodos, Faliraki_2026-09-24_15-19_comeback_11.4"
+    },
+    {
+      "hotel_name": "Summer Beach Grecja, Kreta Zachodnia, Georgioupolis",
+      "duration_bucket": "",
+      "old_price": 10693.0,
+      "new_price": 9107.0,
+      "price_change": -1586.0,
+      "price_change_pct": -14.832133171233517,
+      "timestamp": "2026-09-24 15:19:35.656557+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-24T15:20:15.939886+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Summer Beach Grecja, Kreta Zachodnia, Georgioupolis_2026-09-24_15-19_comeback_14.8"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-24T10:14:36.458044+00:00",
+    "last_processed_run": "2026-09-24T15:19:35.656557+00:00",
     "premium_state": {
       "Acrotel Elea Beach (ex Elea Village)": {
         "history_max": 13725.0,
@@ -683,8 +735,8 @@
         "premium_peak": 12985.0
       },
       "Magda (Kato Gouves)": {
-        "history_max": 17857.0,
-        "premium_peak": 17857.0
+        "history_max": 18857.0,
+        "premium_peak": 18857.0
       },
       "Mediterranean Princess": {
         "history_max": 16637.0,
@@ -927,8 +979,8 @@
         "premium_peak": 18867.0
       },
       "Sandy Villas Resort (ex. Kairaba Sandy Villas)": {
-        "history_max": 18016.0,
-        "premium_peak": 18016.0
+        "history_max": 18517.0,
+        "premium_peak": 18517.0
       },
       "Sandy Beach Resort": {
         "history_max": 17511.0,
@@ -1215,8 +1267,8 @@
         "premium_peak": 19139.0
       },
       "Atrium (Pefkohori)": {
-        "history_max": 14242.0,
-        "premium_peak": 14242.0
+        "history_max": 14392.0,
+        "premium_peak": 14392.0
       },
       "Evita Mare Grecja, Rodos, Faliraki": {
         "history_max": 10565.0,
@@ -1331,8 +1383,8 @@
         "premium_peak": 10954.0
       },
       "Grand Blue Beach": {
-        "history_max": 19775.0,
-        "premium_peak": 19775.0
+        "history_max": 19940.0,
+        "premium_peak": 19940.0
       },
       "Grecotel LuxMe Costa Botanica (ex. Gelina Village)": {
         "history_max": 19952.0,
@@ -1443,8 +1495,8 @@
         "premium_peak": 10693.0
       },
       "Belvedere Luxury Suites (Zakynthos)": {
-        "history_max": 11203.0,
-        "premium_peak": 11203.0
+        "history_max": 11337.0,
+        "premium_peak": 11337.0
       },
       "Maistrali (Tragaki)": {
         "history_max": 10387.0,
@@ -1509,6 +1561,22 @@
       "Avra Beach (Ixia)": {
         "history_max": 17217.0,
         "premium_peak": 17217.0
+      },
+      "Heronissos Grecja, Kreta Wschodnia, Hersonissos": {
+        "history_max": 7539.0,
+        "premium_peak": null
+      },
+      "Creta Maris Beach Resort (ex Terra Maris)": {
+        "history_max": 19334.0,
+        "premium_peak": 19334.0
+      },
+      "Minos Imperial": {
+        "history_max": 19542.0,
+        "premium_peak": 19542.0
+      },
+      "Kalia Beach Grecja, Kreta Wschodnia, Kato Gouves": {
+        "history_max": 9952.0,
+        "premium_peak": null
       }
     }
   }

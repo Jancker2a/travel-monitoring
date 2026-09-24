@@ -286,10 +286,101 @@
       "created_at": "2026-09-24T10:14:43.149578+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Concordia Celes Beach Turcja, Alanya, Okurcalar_2026-09-24_10-13_zone_out_+16.2"
+    },
+    {
+      "hotel_name": "M. C. Beach Resort (ex. Otium MC Beach Resort) Turcja, Alanya, Konakli",
+      "duration_bucket": "",
+      "old_price": 7853.0,
+      "new_price": 8937.0,
+      "price_change": 1084.0,
+      "price_change_pct": 13.803641920285243,
+      "timestamp": "2026-09-24 15:18:33.611181+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-24T15:19:39.804669+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "M. C. Beach Resort (ex. Otium MC Beach Resort) Turcja, Alanya, Konakli_2026-09-24_15-18_+13.8"
+    },
+    {
+      "hotel_name": "World Star Beach Resort & Spa Turcja, Alanya, Kestel",
+      "duration_bucket": "",
+      "old_price": 8420.0,
+      "new_price": 9180.0,
+      "price_change": 760.0,
+      "price_change_pct": 9.026128266033254,
+      "timestamp": "2026-09-24 15:18:33.611181+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-24T15:19:39.804689+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "World Star Beach Resort & Spa Turcja, Alanya, Kestel_2026-09-24_15-18_+9.0"
+    },
+    {
+      "hotel_name": "Elite Luxury Suite & Spa Turcja, Alanya, Konaklı",
+      "duration_bucket": "",
+      "old_price": 9845.0,
+      "new_price": 8525.0,
+      "price_change": -1320.0,
+      "price_change_pct": -13.40782122905028,
+      "timestamp": "2026-09-24 15:18:33.611181+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-24T15:19:39.804697+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Elite Luxury Suite & Spa Turcja, Alanya, Konaklı_2026-09-24_15-18_-13.4"
+    },
+    {
+      "hotel_name": "First Class Turcja, Alanya, Mahmutlar",
+      "duration_bucket": "",
+      "old_price": 7160.0,
+      "new_price": 7983.0,
+      "price_change": 823.0,
+      "price_change_pct": 11.494413407821229,
+      "timestamp": "2026-09-24 15:18:33.611181+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-24T15:19:39.804702+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "First Class Turcja, Alanya, Mahmutlar_2026-09-24_15-18_+11.5"
+    },
+    {
+      "hotel_name": "Armas Green Fugla Turcja, Alanya",
+      "duration_bucket": "",
+      "old_price": 9918.0,
+      "new_price": 10197.0,
+      "price_change": 279.0,
+      "price_change_pct": 2.813067150635209,
+      "timestamp": "2026-09-24 15:18:33.611181+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-24T15:19:39.804711+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Armas Green Fugla Turcja, Alanya_2026-09-24_15-18_zone_out_+2.8"
+    },
+    {
+      "hotel_name": "Campus Hill Turcja, Alanya",
+      "duration_bucket": "",
+      "old_price": 10277.0,
+      "new_price": 8957.0,
+      "price_change": -1320.0,
+      "price_change_pct": -12.844215237909895,
+      "timestamp": "2026-09-24 15:18:33.611181+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-24T15:19:39.804725+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Campus Hill Turcja, Alanya_2026-09-24_15-18_comeback_12.8"
+    },
+    {
+      "hotel_name": "Daima Biz Resort Turcja, Kemer",
+      "duration_bucket": "",
+      "old_price": 11007.0,
+      "new_price": 9976.0,
+      "price_change": -1031.0,
+      "price_change_pct": -9.366766603070772,
+      "timestamp": "2026-09-24 15:18:33.611181+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-24T15:19:39.804731+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Daima Biz Resort Turcja, Kemer_2026-09-24_15-18_comeback_9.4"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-24T10:13:29.123337+00:00",
+    "last_processed_run": "2026-09-24T15:18:33.611181+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 12570.0,
@@ -820,8 +911,8 @@
         "premium_peak": 17138.0
       },
       "Pine Beach Belek (ex. Maritim Pine Beach Resort)": {
-        "history_max": 18001.0,
-        "premium_peak": 18001.0
+        "history_max": 18158.0,
+        "premium_peak": 18158.0
       },
       "Salmakis Beach Resort": {
         "history_max": 16159.0,
@@ -1088,16 +1179,16 @@
         "premium_peak": 12893.0
       },
       "Concordia Celes Beach Turcja, Alanya, Okurcalar": {
-        "history_max": 10411.0,
-        "premium_peak": 10411.0
+        "history_max": 10420.0,
+        "premium_peak": 10420.0
       },
       "Club Side Coast Turcja, Side, Colakli": {
         "history_max": 9164.0,
         "premium_peak": null
       },
       "Aydinbey Queens Palace & Spa": {
-        "history_max": 13203.0,
-        "premium_peak": 13203.0
+        "history_max": 13352.0,
+        "premium_peak": 13352.0
       },
       "Aska Lara Resort & Spa": {
         "history_max": 19119.0,
@@ -1132,8 +1223,8 @@
         "premium_peak": 13334.0
       },
       "Bella Resort": {
-        "history_max": 19672.0,
-        "premium_peak": 19672.0
+        "history_max": 19839.0,
+        "premium_peak": 19839.0
       },
       "Adalya Ocean Deluxe": {
         "history_max": 17942.0,
@@ -1388,8 +1479,8 @@
         "premium_peak": 11007.0
       },
       "Miarosa Beach (Kemer)": {
-        "history_max": 11979.0,
-        "premium_peak": 11979.0
+        "history_max": 12047.0,
+        "premium_peak": 12047.0
       },
       "Armella Hill Turcja, Side, Manavgat": {
         "history_max": 11075.0,
@@ -1490,6 +1581,14 @@
       "Dobedan World Palace (ex. Alva Donna World Palace)": {
         "history_max": 19532.0,
         "premium_peak": 19532.0
+      },
+      "Doganay Beach Club Turcja, Alanya, Konakli": {
+        "history_max": 9846.0,
+        "premium_peak": null
+      },
+      "Papillon Ayscha": {
+        "history_max": 19622.0,
+        "premium_peak": 19622.0
       }
     }
   }

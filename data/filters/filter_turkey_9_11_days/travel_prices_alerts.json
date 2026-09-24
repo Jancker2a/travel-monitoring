@@ -949,10 +949,127 @@
       "created_at": "2026-09-24T10:14:25.223600+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Grand Pasa_2026-09-24_10-13_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sultan of Side",
+      "duration_bucket": "",
+      "old_price": 9350.0,
+      "new_price": 8002.0,
+      "price_change": -1348.0,
+      "price_change_pct": -14.41711229946524,
+      "timestamp": "2026-09-24 15:18:33.602848+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-24T15:19:35.086571+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sultan of Side_2026-09-24_15-18_-14.4"
+    },
+    {
+      "hotel_name": "Campus Hill",
+      "duration_bucket": "",
+      "old_price": 8285.0,
+      "new_price": 7005.0,
+      "price_change": -1280.0,
+      "price_change_pct": -15.449607724803863,
+      "timestamp": "2026-09-24 15:18:33.602848+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-24T15:19:35.086593+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Campus Hill_2026-09-24_15-18_-15.4"
+    },
+    {
+      "hotel_name": "Meder Resort",
+      "duration_bucket": "",
+      "old_price": 8498.0,
+      "new_price": 9230.0,
+      "price_change": 732.0,
+      "price_change_pct": 8.613791480348318,
+      "timestamp": "2026-09-24 15:18:33.602848+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-24T15:19:35.086602+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Meder Resort_2026-09-24_15-18_+8.6"
+    },
+    {
+      "hotel_name": "Eftalia Village",
+      "duration_bucket": "",
+      "old_price": 8510.0,
+      "new_price": 9522.0,
+      "price_change": 1012.0,
+      "price_change_pct": 11.891891891891893,
+      "timestamp": "2026-09-24 15:18:33.602848+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-24T15:19:35.086608+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Eftalia Village_2026-09-24_15-18_+11.9"
+    },
+    {
+      "hotel_name": "Asteria Collection Side",
+      "duration_bucket": "",
+      "old_price": 8325.0,
+      "new_price": 9113.0,
+      "price_change": 788.0,
+      "price_change_pct": 9.465465465465465,
+      "timestamp": "2026-09-24 15:18:33.602848+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-24T15:19:35.086613+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Asteria Collection Side_2026-09-24_15-18_+9.5"
+    },
+    {
+      "hotel_name": "Greenwood Suites Resort (ex. Sherwood Suites Resort)",
+      "duration_bucket": "",
+      "old_price": 9977.0,
+      "new_price": 10182.0,
+      "price_change": 205.0,
+      "price_change_pct": 2.0547258694998494,
+      "timestamp": "2026-09-24 15:18:33.602848+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-24T15:19:35.086629+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Greenwood Suites Resort (ex. Sherwood Suites Resort)_2026-09-24_15-18_zone_out_+2.1"
+    },
+    {
+      "hotel_name": "Ladonia Adakule",
+      "duration_bucket": "",
+      "old_price": 8156.0,
+      "new_price": 8156.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-24 15:18:33.602848+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-24T15:19:35.086634+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Ladonia Adakule_2026-09-24_15-18_zone_out_gone"
+    },
+    {
+      "hotel_name": "Raxeria (Side)",
+      "duration_bucket": "",
+      "old_price": 9972.0,
+      "new_price": 10323.0,
+      "price_change": 351.0,
+      "price_change_pct": 3.5198555956678703,
+      "timestamp": "2026-09-24 15:18:33.602848+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-24T15:19:35.086639+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Raxeria (Side)_2026-09-24_15-18_zone_out_+3.5"
+    },
+    {
+      "hotel_name": "Sultan of Dreams",
+      "duration_bucket": "",
+      "old_price": 10276.0,
+      "new_price": 8710.0,
+      "price_change": -1566.0,
+      "price_change_pct": -15.239392759828727,
+      "timestamp": "2026-09-24 15:18:33.602848+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-24T15:19:35.086655+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sultan of Dreams_2026-09-24_15-18_comeback_15.2"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-24T10:13:25.110899+00:00",
+    "last_processed_run": "2026-09-24T15:18:33.602848+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 9799.0,
@@ -1023,8 +1140,8 @@
         "premium_peak": 14709.0
       },
       "Side Mare Resort": {
-        "history_max": 15538.0,
-        "premium_peak": 15538.0
+        "history_max": 15652.0,
+        "premium_peak": 15652.0
       },
       "Juju Premier Palace (ex. Amara Premier Palace)": {
         "history_max": 14537.0,
@@ -1071,8 +1188,8 @@
         "premium_peak": 15798.0
       },
       "Sentido Lycus Beach (ex. Lti)": {
-        "history_max": 12552.0,
-        "premium_peak": 12552.0
+        "history_max": 12648.0,
+        "premium_peak": 12648.0
       },
       "Greenwood Suites Resort (ex. Sherwood Suites Resort)": {
         "history_max": 10634.0,
@@ -1143,7 +1260,7 @@
         "premium_peak": null
       },
       "Eftalia Village": {
-        "history_max": 9293.0,
+        "history_max": 9522.0,
         "premium_peak": null
       },
       "Eftalia Sol": {
@@ -1679,8 +1796,8 @@
         "premium_peak": null
       },
       "Bosphorus Sorgun": {
-        "history_max": 13131.0,
-        "premium_peak": 13131.0
+        "history_max": 13224.0,
+        "premium_peak": 13224.0
       },
       "Trendy Perge Resort & Suites": {
         "history_max": 14657.0,

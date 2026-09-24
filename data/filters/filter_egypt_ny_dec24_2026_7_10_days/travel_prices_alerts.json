@@ -572,10 +572,49 @@
       "created_at": "2026-09-24T10:13:24.258019+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Stella Di Mare Beach Resort & Spa (ex. Stella Makadi Resort) Egipt, Hurghada, Makadi Bay_2026-09-24_10-13_zone_out_gone"
+    },
+    {
+      "hotel_name": "Radisson Blu Resort (El Quseir) Egipt, Marsa Alam, Al-Kusajr",
+      "duration_bucket": "",
+      "old_price": 10863.0,
+      "new_price": 9641.0,
+      "price_change": -1222.0,
+      "price_change_pct": -11.249194513486145,
+      "timestamp": "2026-09-24 15:18:16.699071+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-24T15:18:32.985447+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Radisson Blu Resort (El Quseir) Egipt, Marsa Alam, Al-Kusajr_2026-09-24_15-18_-11.2"
+    },
+    {
+      "hotel_name": "Novotel Marsa Alam Egipt, Marsa Alam",
+      "duration_bucket": "",
+      "old_price": 10753.0,
+      "new_price": 9849.0,
+      "price_change": -904.0,
+      "price_change_pct": -8.406956198270251,
+      "timestamp": "2026-09-24 15:18:16.699071+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-24T15:18:32.985471+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Novotel Marsa Alam Egipt, Marsa Alam_2026-09-24_15-18_-8.4"
+    },
+    {
+      "hotel_name": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 9755.0,
+      "new_price": 9755.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-24 15:18:16.699071+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-24T15:18:32.985484+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada_2026-09-24_15-18_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-24T10:13:08.913790+00:00",
+    "last_processed_run": "2026-09-24T15:18:16.699071+00:00",
     "premium_state": {
       "Parrotel Lagoon Resort Egipt, Sharm El Sheikh, Szarm el-Szejk": {
         "history_max": 10265.0,
@@ -723,6 +762,18 @@
       },
       "Xperience Sea Breeze Egipt, Sharm El Sheikh": {
         "history_max": 10141.0,
+        "premium_peak": null
+      },
+      "Jaz Mirabel Beach Resort Egipt, Sharm El Sheikh": {
+        "history_max": 8100.0,
+        "premium_peak": null
+      },
+      "Jaz Makadi Oasis (ex Iberotel) Egipt, Hurghada, Makadi Bay": {
+        "history_max": 9415.0,
+        "premium_peak": null
+      },
+      "Jaz Aquaviva Egipt, Hurghada, Makadi Bay": {
+        "history_max": 8548.0,
         "premium_peak": null
       }
     }
