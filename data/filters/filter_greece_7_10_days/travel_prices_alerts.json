@@ -1183,10 +1183,62 @@
       "created_at": "2026-09-24T23:21:34.931950+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Pegasos Beach (Faliraki)_2026-09-24_23-20_comeback_13.6"
+    },
+    {
+      "hotel_name": "Rodos Palace Grecja, Rodos, Ixia",
+      "duration_bucket": "",
+      "old_price": 6197.0,
+      "new_price": 7757.0,
+      "price_change": 1560.0,
+      "price_change_pct": 25.17347103437147,
+      "timestamp": "2026-09-25 01:42:45.041287+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-25T01:43:32.066149+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rodos Palace Grecja, Rodos, Ixia_2026-09-25_01-42_+25.2"
+    },
+    {
+      "hotel_name": "Blue Lagoon Village",
+      "duration_bucket": "",
+      "old_price": 9206.0,
+      "new_price": 9206.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-25 01:42:45.041287+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-25T01:43:32.066183+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Blue Lagoon Village_2026-09-25_01-42_zone_out_gone"
+    },
+    {
+      "hotel_name": "Levante Beach Resort By Playitas Grecja, Rodos, Afandu",
+      "duration_bucket": "",
+      "old_price": 9022.0,
+      "new_price": 9022.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-25 01:42:45.041287+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-25T01:43:32.066192+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Levante Beach Resort By Playitas Grecja, Rodos, Afandu_2026-09-25_01-42_zone_out_gone"
+    },
+    {
+      "hotel_name": "Porto Angeli Grecja, Rodos, Archangelos",
+      "duration_bucket": "",
+      "old_price": 7294.0,
+      "new_price": 7294.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-25 01:42:45.041287+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-25T01:43:32.066198+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Porto Angeli Grecja, Rodos, Archangelos_2026-09-25_01-42_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-24T23:20:30.255480+00:00",
+    "last_processed_run": "2026-09-25T01:42:45.041287+00:00",
     "premium_state": {
       "Ajul Luxury & Spa Resort (Ayios Nikolaos) Grecja, Chalkidiki, Loutra": {
         "history_max": 9337.0,
@@ -1677,7 +1729,7 @@
         "premium_peak": 10157.0
       },
       "All Senses Nautica Blue Exclusive Resort & Spa (ex Aegean Breeze) Grecja, Rodos, Fanes": {
-        "history_max": 6533.0,
+        "history_max": 6546.0,
         "premium_peak": null
       },
       "Arina Beach Resort (ex Aquis Arina Sand)": {
@@ -1789,11 +1841,15 @@
         "premium_peak": null
       },
       "Levante Beach Resort By Playitas": {
-        "history_max": 9022.0,
-        "premium_peak": null
+        "history_max": 10167.0,
+        "premium_peak": 10167.0
       },
       "Pegasos Beach (Faliraki) Grecja, Rodos, Faliraki": {
         "history_max": 7797.0,
+        "premium_peak": null
+      },
+      "Kakkos Bay Grecja, Kreta Wschodnia, Ierapetra": {
+        "history_max": 9107.0,
         "premium_peak": null
       }
     }
