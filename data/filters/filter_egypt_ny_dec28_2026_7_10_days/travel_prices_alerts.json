@@ -377,10 +377,36 @@
       "created_at": "2026-09-25T14:00:23.927498+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sentido Oriental Dream Resort Egipt, Marsa Alam_2026-09-25_14-00_zone_out_gone"
+    },
+    {
+      "hotel_name": "Fantazia Resort Egipt, Marsa Alam",
+      "duration_bucket": "",
+      "old_price": 10494.0,
+      "new_price": 10494.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-25 18:47:24.930380+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-25T18:47:39.999352+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Fantazia Resort Egipt, Marsa Alam_2026-09-25_18-47_zone_out_gone"
+    },
+    {
+      "hotel_name": "Movenpick Sirena Beach Egipt, Marsa Alam, Al-Kusajr",
+      "duration_bucket": "",
+      "old_price": 10897.0,
+      "new_price": 10897.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-25 18:47:24.930380+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-25T18:47:39.999384+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Movenpick Sirena Beach Egipt, Marsa Alam, Al-Kusajr_2026-09-25_18-47_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-25T14:00:09.082007+00:00",
+    "last_processed_run": "2026-09-25T18:47:24.930380+00:00",
     "premium_state": {
       "Concorde Moreen Beach Resort & Spa Egipt, Marsa Alam": {
         "history_max": 10716.0,
@@ -460,6 +486,10 @@
       },
       "Jaz Lamaya Resort (ex Iberotel) Egipt, Marsa Alam, Madinat Coraya": {
         "history_max": 9338.0,
+        "premium_peak": null
+      },
+      "Three Corners Fayrouz Plaza Beach Resort Egipt, Marsa Alam": {
+        "history_max": 10878.0,
         "premium_peak": null
       }
     }
