@@ -728,10 +728,88 @@
       "created_at": "2026-09-25T08:01:30.598574+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Park Inn (Sharm El Sheikh) Egipt, Sharm El Sheikh_2026-09-25_08-01_zone_out_gone"
+    },
+    {
+      "hotel_name": "Rewaya Majestic Resort Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 9588.0,
+      "new_price": 10787.0,
+      "price_change": 1199.0,
+      "price_change_pct": 12.505214851898206,
+      "timestamp": "2026-09-25 14:00:06.513456+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-25T14:00:23.479750+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Majestic Resort Egipt, Hurghada_2026-09-25_14-00_+12.5"
+    },
+    {
+      "hotel_name": "Domina Coral Bay Aquamarine",
+      "duration_bucket": "",
+      "old_price": 10977.0,
+      "new_price": 10977.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-25 14:00:06.513456+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-25T14:00:23.479785+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Domina Coral Bay Aquamarine_2026-09-25_14-00_zone_out_gone"
+    },
+    {
+      "hotel_name": "Marriott Hurghada Beach Resort Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 10932.0,
+      "new_price": 10932.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-25 14:00:06.513456+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-25T14:00:23.479797+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Marriott Hurghada Beach Resort Egipt, Hurghada_2026-09-25_14-00_zone_out_gone"
+    },
+    {
+      "hotel_name": "Naama Bay Promenade Mountain Resort Egipt, Sharm El Sheikh, Szarm el-Szejk",
+      "duration_bucket": "",
+      "old_price": 10222.0,
+      "new_price": 10222.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-25 14:00:06.513456+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-25T14:00:23.479806+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Naama Bay Promenade Mountain Resort Egipt, Sharm El Sheikh, Szarm el-Szejk_2026-09-25_14-00_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sentido Oriental Dream Resort Egipt, Marsa Alam",
+      "duration_bucket": "",
+      "old_price": 9691.0,
+      "new_price": 9691.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-25 14:00:06.513456+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-25T14:00:23.479814+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sentido Oriental Dream Resort Egipt, Marsa Alam_2026-09-25_14-00_zone_out_gone"
+    },
+    {
+      "hotel_name": "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort) Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 10114.0,
+      "new_price": 10114.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-25 14:00:06.513456+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-25T14:00:23.479822+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort) Egipt, Hurghada_2026-09-25_14-00_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-25T08:01:12.553399+00:00",
+    "last_processed_run": "2026-09-25T14:00:06.513456+00:00",
     "premium_state": {
       "Parrotel Lagoon Resort Egipt, Sharm El Sheikh, Szarm el-Szejk": {
         "history_max": 10265.0,
@@ -870,7 +948,7 @@
         "premium_peak": null
       },
       "Domina Coral Bay Aquamarine Egipt, Sharm El Sheikh": {
-        "history_max": 10501.0,
+        "history_max": 10562.0,
         "premium_peak": null
       },
       "Domina Coral Bay Sultan Egipt, Sharm El Sheikh": {

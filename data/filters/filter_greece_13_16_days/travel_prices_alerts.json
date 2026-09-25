@@ -754,10 +754,49 @@
       "created_at": "2026-09-25T08:03:32.944717+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Alexander House Grecja, Kreta Wschodnia, Agia Pelagia_2026-09-25_08-02_zone_out_+5.5"
+    },
+    {
+      "hotel_name": "Kipriotis Village Grecja, Kos, Psalidi",
+      "duration_bucket": "",
+      "old_price": 9233.0,
+      "new_price": 9233.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-25 14:01:36.392515+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-25T14:02:36.879771+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Kipriotis Village Grecja, Kos, Psalidi_2026-09-25_14-01_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sunbay Grecja, Kreta, Hersonissos",
+      "duration_bucket": "",
+      "old_price": 9872.0,
+      "new_price": 10069.0,
+      "price_change": 197.0,
+      "price_change_pct": 1.9955429497568882,
+      "timestamp": "2026-09-25 14:01:36.392515+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-25T14:02:36.879803+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sunbay Grecja, Kreta, Hersonissos_2026-09-25_14-01_zone_out_+2.0"
+    },
+    {
+      "hotel_name": "Alexander House Grecja, Kreta Wschodnia, Agia Pelagia",
+      "duration_bucket": "",
+      "old_price": 10832.0,
+      "new_price": 9672.0,
+      "price_change": -1160.0,
+      "price_change_pct": -10.709010339734121,
+      "timestamp": "2026-09-25 14:01:36.392515+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-25T14:02:36.879828+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Alexander House Grecja, Kreta Wschodnia, Agia Pelagia_2026-09-25_14-01_comeback_10.7"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-25T08:02:37.053261+00:00",
+    "last_processed_run": "2026-09-25T14:01:36.392515+00:00",
     "premium_state": {
       "Acrotel Elea Beach (ex Elea Village)": {
         "history_max": 13767.0,
@@ -804,20 +843,20 @@
         "premium_peak": 18857.0
       },
       "Mediterranean Princess": {
-        "history_max": 16637.0,
-        "premium_peak": 16637.0
+        "history_max": 16717.0,
+        "premium_peak": 16717.0
       },
       "Michelangelo Resort & Spa": {
         "history_max": 19987.0,
         "premium_peak": 19987.0
       },
       "Michelangelo Resort Grecja, Korfu": {
-        "history_max": 10281.0,
-        "premium_peak": 10281.0
+        "history_max": 10392.0,
+        "premium_peak": 10392.0
       },
       "Mirage Bleu Resort": {
-        "history_max": 11792.0,
-        "premium_peak": 11792.0
+        "history_max": 12549.0,
+        "premium_peak": 12549.0
       },
       "Mitsis Rodos Maris": {
         "history_max": 16905.0,
@@ -856,8 +895,8 @@
         "premium_peak": 15296.0
       },
       "Lindos Imperial Resort & Spa": {
-        "history_max": 17867.0,
-        "premium_peak": 17867.0
+        "history_max": 18507.0,
+        "premium_peak": 18507.0
       },
       "Galini Palace": {
         "history_max": 12173.0,
@@ -1036,8 +1075,8 @@
         "premium_peak": 17427.0
       },
       "Sunshine Village (ex. Best Western Sunshine Village)": {
-        "history_max": 14934.0,
-        "premium_peak": 14934.0
+        "history_max": 14942.0,
+        "premium_peak": 14942.0
       },
       "Senseana Sea Side Resort & Spa (ex. Golden Star)": {
         "history_max": 18867.0,
@@ -1068,8 +1107,8 @@
         "premium_peak": 18297.0
       },
       "Philoxenia (Psakoudia)": {
-        "history_max": 17467.0,
-        "premium_peak": 17467.0
+        "history_max": 17897.0,
+        "premium_peak": 17897.0
       },
       "Planos": {
         "history_max": 14006.0,
@@ -1100,8 +1139,8 @@
         "premium_peak": 15250.0
       },
       "Possidi Holidays": {
-        "history_max": 15087.0,
-        "premium_peak": 15087.0
+        "history_max": 15157.0,
+        "premium_peak": 15157.0
       },
       "Potidea Palace": {
         "history_max": 16059.0,
@@ -1152,8 +1191,8 @@
         "premium_peak": 15661.0
       },
       "Atlantica Ocean Beach Resort (ex. Creta Princess by Atlantica)": {
-        "history_max": 18520.0,
-        "premium_peak": 18520.0
+        "history_max": 18691.0,
+        "premium_peak": 18691.0
       },
       "Eri Village Grecja, Kreta Zachodnia, Hersonissos": {
         "history_max": 11624.0,
@@ -1248,8 +1287,8 @@
         "premium_peak": 15779.0
       },
       "Corfu Acharavi Collection by Wyndham Grecja, Korfu, Acharavi": {
-        "history_max": 11132.0,
-        "premium_peak": 11132.0
+        "history_max": 11197.0,
+        "premium_peak": 11197.0
       },
       "All Senses Nautica Blue Exclusive Resort & Spa (ex Aegean Breeze) Grecja, Rodos, Fanes": {
         "history_max": 11557.0,
@@ -1268,16 +1307,16 @@
         "premium_peak": 14980.0
       },
       "Belvedere Luxury Suites (Zakynthos) Grecja, Zakynthos, Vasilikos": {
-        "history_max": 11337.0,
-        "premium_peak": 11337.0
+        "history_max": 11427.0,
+        "premium_peak": 11427.0
       },
       "Filoxenia (Tsilivi)": {
         "history_max": 11831.0,
         "premium_peak": 11831.0
       },
       "Aelius by Lavris": {
-        "history_max": 13957.0,
-        "premium_peak": 13957.0
+        "history_max": 14357.0,
+        "premium_peak": 14357.0
       },
       "Blue Aegean Hotel & Suites": {
         "history_max": 12007.0,
@@ -1308,8 +1347,8 @@
         "premium_peak": 16335.0
       },
       "Aeolos Beach Resort": {
-        "history_max": 18588.0,
-        "premium_peak": 18588.0
+        "history_max": 18768.0,
+        "premium_peak": 18768.0
       },
       "Aqua Sun Village (Ex. Eri Sun Village) Grecja, Kreta Wschodnia, Hersonissos": {
         "history_max": 10598.0,
@@ -1588,8 +1627,8 @@
         "premium_peak": null
       },
       "Filerimos Village": {
-        "history_max": 11581.0,
-        "premium_peak": 11581.0
+        "history_max": 11785.0,
+        "premium_peak": 11785.0
       },
       "Hydramis Palace Beach Resort Grecja, Kreta Zachodnia, Kavros": {
         "history_max": 11427.0,
@@ -1628,7 +1667,7 @@
         "premium_peak": 17267.0
       },
       "Heronissos Grecja, Kreta Wschodnia, Hersonissos": {
-        "history_max": 7539.0,
+        "history_max": 7719.0,
         "premium_peak": null
       },
       "Creta Maris Beach Resort (ex Terra Maris)": {
@@ -1654,6 +1693,14 @@
       "Golden Coast Family Resort Grecja, Zakynthos, Drosia": {
         "history_max": 11484.0,
         "premium_peak": 11484.0
+      },
+      "Harmony Crest Resort & Spa": {
+        "history_max": 17801.0,
+        "premium_peak": 17801.0
+      },
+      "Sunrise (Pefkos)": {
+        "history_max": 11625.0,
+        "premium_peak": 11625.0
       }
     }
   }
