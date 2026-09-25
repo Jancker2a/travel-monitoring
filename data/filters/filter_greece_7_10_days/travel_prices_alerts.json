@@ -1495,10 +1495,49 @@
       "created_at": "2026-09-25T18:49:38.747710+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Zeus Eleva Mirabello Bay_2026-09-25_18-48_comeback_18.6"
+    },
+    {
+      "hotel_name": "Amus",
+      "duration_bucket": "",
+      "old_price": 9392.0,
+      "new_price": 10012.0,
+      "price_change": 620.0,
+      "price_change_pct": 6.601362862010221,
+      "timestamp": "2026-09-25 22:32:55.773654+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-25T22:33:37.130873+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amus_2026-09-25_22-32_zone_out_+6.6"
+    },
+    {
+      "hotel_name": "Cavo Spada Luxury Resort & Spa Grecja, Kreta Zachodnia, Rapaniana",
+      "duration_bucket": "",
+      "old_price": 8757.0,
+      "new_price": 8757.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-25 22:32:55.773654+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-25T22:33:37.130891+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Cavo Spada Luxury Resort & Spa Grecja, Kreta Zachodnia, Rapaniana_2026-09-25_22-32_zone_out_gone"
+    },
+    {
+      "hotel_name": "Kakkos Bay",
+      "duration_bucket": "",
+      "old_price": 9099.0,
+      "new_price": 9099.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-25 22:32:55.773654+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-25T22:33:37.130898+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Kakkos Bay_2026-09-25_22-32_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-25T18:48:38.752332+00:00",
+    "last_processed_run": "2026-09-25T22:32:55.773654+00:00",
     "premium_state": {
       "Ajul Luxury & Spa Resort (Ayios Nikolaos) Grecja, Chalkidiki, Loutra": {
         "history_max": 9337.0,
@@ -1877,8 +1916,8 @@
         "premium_peak": 14490.0
       },
       "Creta Maris Beach Resort (ex Terra Maris)": {
-        "history_max": 15867.0,
-        "premium_peak": 15867.0
+        "history_max": 16376.0,
+        "premium_peak": 16376.0
       },
       "Azure Resort & Spa (ex. Mediterranee) Grecja, Zakynthos, Planos": {
         "history_max": 7657.0,
