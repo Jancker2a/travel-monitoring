@@ -676,10 +676,62 @@
       "created_at": "2026-09-25T01:41:58.467344+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Park Inn (Sharm El Sheikh) Egipt, Sharm El Sheikh_2026-09-25_01-41_-9.6"
+    },
+    {
+      "hotel_name": "Rewaya Majestic Resort Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 10787.0,
+      "new_price": 9588.0,
+      "price_change": -1199.0,
+      "price_change_pct": -11.11523129693149,
+      "timestamp": "2026-09-25 08:01:12.553399+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-25T08:01:30.598522+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Majestic Resort Egipt, Hurghada_2026-09-25_08-01_-11.1"
+    },
+    {
+      "hotel_name": "Jaz Aquaviva Egipt, Hurghada, Makadi Bay",
+      "duration_bucket": "",
+      "old_price": 8548.0,
+      "new_price": 8548.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-25 08:01:12.553399+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-25T08:01:30.598555+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Aquaviva Egipt, Hurghada, Makadi Bay_2026-09-25_08-01_zone_out_gone"
+    },
+    {
+      "hotel_name": "Jaz Lamaya Resort (ex Iberotel) Egipt, Marsa Alam, Madinat Coraya",
+      "duration_bucket": "",
+      "old_price": 9338.0,
+      "new_price": 9338.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-25 08:01:12.553399+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-25T08:01:30.598566+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Lamaya Resort (ex Iberotel) Egipt, Marsa Alam, Madinat Coraya_2026-09-25_08-01_zone_out_gone"
+    },
+    {
+      "hotel_name": "Park Inn (Sharm El Sheikh) Egipt, Sharm El Sheikh",
+      "duration_bucket": "",
+      "old_price": 9706.0,
+      "new_price": 9706.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-25 08:01:12.553399+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-25T08:01:30.598574+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Park Inn (Sharm El Sheikh) Egipt, Sharm El Sheikh_2026-09-25_08-01_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-25T01:41:42.488231+00:00",
+    "last_processed_run": "2026-09-25T08:01:12.553399+00:00",
     "premium_state": {
       "Parrotel Lagoon Resort Egipt, Sharm El Sheikh, Szarm el-Szejk": {
         "history_max": 10265.0,
@@ -782,7 +834,7 @@
         "premium_peak": null
       },
       "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort) Egipt, Hurghada": {
-        "history_max": 9685.0,
+        "history_max": 10114.0,
         "premium_peak": null
       },
       "Bellagio Beach Resort & Spa (ex. Panorama Bungalows Hurghada) Egipt, Hurghada": {
@@ -798,7 +850,7 @@
         "premium_peak": null
       },
       "Marriott Hurghada Beach Resort Egipt, Hurghada": {
-        "history_max": 10922.0,
+        "history_max": 10932.0,
         "premium_peak": null
       },
       "Sentido Oriental Dream Resort Egipt, Marsa Alam": {
@@ -814,7 +866,7 @@
         "premium_peak": null
       },
       "Royal Regency Club Egipt, Sharm El Sheikh, Szarm el-Szejk": {
-        "history_max": 10170.0,
+        "history_max": 10635.0,
         "premium_peak": null
       },
       "Domina Coral Bay Aquamarine Egipt, Sharm El Sheikh": {
@@ -822,11 +874,11 @@
         "premium_peak": null
       },
       "Domina Coral Bay Sultan Egipt, Sharm El Sheikh": {
-        "history_max": 10371.0,
+        "history_max": 10847.0,
         "premium_peak": null
       },
       "Xperience Sea Breeze Egipt, Sharm El Sheikh": {
-        "history_max": 10141.0,
+        "history_max": 10610.0,
         "premium_peak": null
       },
       "Jaz Mirabel Beach Resort Egipt, Sharm El Sheikh": {
@@ -843,6 +895,18 @@
       },
       "Jaz Lamaya Resort (ex Iberotel) Egipt, Marsa Alam, Madinat Coraya": {
         "history_max": 9338.0,
+        "premium_peak": null
+      },
+      "Naama Bay Promenade Mountain Resort Egipt, Sharm El Sheikh, Szarm el-Szejk": {
+        "history_max": 10222.0,
+        "premium_peak": null
+      },
+      "Domina Coral Bay Aquamarine": {
+        "history_max": 10977.0,
+        "premium_peak": null
+      },
+      "El Malikia Resort Abu Dabbab (ex.Sol Y Mar) Egipt, Marsa Alam": {
+        "history_max": 9999.0,
         "premium_peak": null
       }
     }

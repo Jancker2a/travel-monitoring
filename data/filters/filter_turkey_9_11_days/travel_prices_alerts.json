@@ -1300,10 +1300,75 @@
       "created_at": "2026-09-25T01:42:43.898459+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Arnor De Luxe & SPA_2026-09-25_01-41_comeback_15.9"
+    },
+    {
+      "hotel_name": "Asteria Collection Side",
+      "duration_bucket": "",
+      "old_price": 8325.0,
+      "new_price": 9117.0,
+      "price_change": 792.0,
+      "price_change_pct": 9.513513513513514,
+      "timestamp": "2026-09-25 08:01:29.063643+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-25T08:02:36.117691+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Asteria Collection Side_2026-09-25_08-01_+9.5"
+    },
+    {
+      "hotel_name": "Club Nena (Side)",
+      "duration_bucket": "",
+      "old_price": 9578.0,
+      "new_price": 10572.0,
+      "price_change": 994.0,
+      "price_change_pct": 10.377949467529755,
+      "timestamp": "2026-09-25 08:01:29.063643+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-25T08:02:36.117753+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Club Nena (Side)_2026-09-25_08-01_zone_out_+10.4"
+    },
+    {
+      "hotel_name": "Horus Paradise Luxury Resort",
+      "duration_bucket": "",
+      "old_price": 9488.0,
+      "new_price": 10004.0,
+      "price_change": 516.0,
+      "price_change_pct": 5.438448566610455,
+      "timestamp": "2026-09-25 08:01:29.063643+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-25T08:02:36.117766+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Horus Paradise Luxury Resort_2026-09-25_08-01_zone_out_+5.4"
+    },
+    {
+      "hotel_name": "Innvista Belek (ex. Vera Verde)",
+      "duration_bucket": "",
+      "old_price": 9909.0,
+      "new_price": 10220.0,
+      "price_change": 311.0,
+      "price_change_pct": 3.1385609042284788,
+      "timestamp": "2026-09-25 08:01:29.063643+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-25T08:02:36.117776+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Innvista Belek (ex. Vera Verde)_2026-09-25_08-01_zone_out_+3.1"
+    },
+    {
+      "hotel_name": "Victory Volare",
+      "duration_bucket": "",
+      "old_price": 10998.0,
+      "new_price": 9470.0,
+      "price_change": -1528.0,
+      "price_change_pct": -13.893435170030916,
+      "timestamp": "2026-09-25 08:01:29.063643+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-25T08:02:36.117804+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Victory Volare_2026-09-25_08-01_comeback_13.9"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-25T01:41:59.316069+00:00",
+    "last_processed_run": "2026-09-25T08:01:29.063643+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 9799.0,
@@ -2098,7 +2163,7 @@
         "premium_peak": 13839.0
       },
       "Armas Beach": {
-        "history_max": 8987.0,
+        "history_max": 9005.0,
         "premium_peak": null
       },
       "Cenger Blue Collection": {
@@ -2454,8 +2519,8 @@
         "premium_peak": 13392.0
       },
       "Club Nena (Side)": {
-        "history_max": 9946.0,
-        "premium_peak": null
+        "history_max": 10572.0,
+        "premium_peak": 10572.0
       },
       "Crystal Centro Pearl Collection (ex. Amara Centro Resort)": {
         "history_max": 13082.0,
@@ -2582,8 +2647,8 @@
         "premium_peak": 14679.0
       },
       "Royal Atlantis Icon": {
-        "history_max": 11559.0,
-        "premium_peak": 11559.0
+        "history_max": 11692.0,
+        "premium_peak": 11692.0
       },
       "Mylome Luxury": {
         "history_max": 14864.0,
@@ -2606,8 +2671,8 @@
         "premium_peak": 13607.0
       },
       "Grand Belish": {
-        "history_max": 7939.0,
-        "premium_peak": null
+        "history_max": 11290.0,
+        "premium_peak": 11290.0
       },
       "Kirbiyik Resort (ex. Dinler)": {
         "history_max": 7667.0,
@@ -2656,6 +2721,14 @@
       "Kamelya Selin": {
         "history_max": 12854.0,
         "premium_peak": 12854.0
+      },
+      "Royal Asarlik Beach": {
+        "history_max": 11077.0,
+        "premium_peak": 11077.0
+      },
+      "Palm Wings Beach Resort & SPA (Kusadasi)": {
+        "history_max": 10923.0,
+        "premium_peak": 10923.0
       }
     }
   }
