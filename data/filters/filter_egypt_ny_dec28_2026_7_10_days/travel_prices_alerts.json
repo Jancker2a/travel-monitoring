@@ -468,10 +468,36 @@
       "created_at": "2026-09-25T22:32:22.866346+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Three Corners Fayrouz Plaza Beach Resort Egipt, Marsa Alam_2026-09-25_22-32_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sea Star Beau Rivage Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 9507.0,
+      "new_price": 10912.0,
+      "price_change": 1405.0,
+      "price_change_pct": 14.778584201114969,
+      "timestamp": "2026-09-26 01:43:33.283898+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-26T01:43:47.962716+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sea Star Beau Rivage Egipt, Hurghada_2026-09-26_01-43_+14.8"
+    },
+    {
+      "hotel_name": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 10287.0,
+      "new_price": 10287.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-26 01:43:33.283898+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-26T01:43:47.962750+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada_2026-09-26_01-43_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-25T22:32:09.096503+00:00",
+    "last_processed_run": "2026-09-26T01:43:33.283898+00:00",
     "premium_state": {
       "Concorde Moreen Beach Resort & Spa Egipt, Marsa Alam": {
         "history_max": 10716.0,

@@ -520,10 +520,36 @@
       "created_at": "2026-09-25T18:48:52.276375+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Nova Life Turcja, Alanya, Konaklı_2026-09-25_18-47_zone_out_+8.2"
+    },
+    {
+      "hotel_name": "Kirbiyik Resort (ex. Dinler) Turcja, Alanya, Mahmutlar",
+      "duration_bucket": "",
+      "old_price": 9564.0,
+      "new_price": 9564.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-26 01:43:48.911925+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-26T01:45:05.981521+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Kirbiyik Resort (ex. Dinler) Turcja, Alanya, Mahmutlar_2026-09-26_01-43_zone_out_gone"
+    },
+    {
+      "hotel_name": "Club Jovia Kemer (ex. Armir Resort) Turcja, Kemer",
+      "duration_bucket": "",
+      "old_price": 10900.0,
+      "new_price": 9983.0,
+      "price_change": -917.0,
+      "price_change_pct": -8.412844036697248,
+      "timestamp": "2026-09-26 01:43:48.911925+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-26T01:45:05.981560+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Club Jovia Kemer (ex. Armir Resort) Turcja, Kemer_2026-09-26_01-43_comeback_8.4"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-25T22:32:23.401436+00:00",
+    "last_processed_run": "2026-09-26T01:43:48.911925+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 12570.0,
@@ -534,8 +560,8 @@
         "premium_peak": 15668.0
       },
       "Marvida Family Eco": {
-        "history_max": 14667.0,
-        "premium_peak": 14667.0
+        "history_max": 14721.0,
+        "premium_peak": 14721.0
       },
       "Marti Myra": {
         "history_max": 16688.0,
@@ -682,8 +708,8 @@
         "premium_peak": 10161.0
       },
       "L' Oceanica Beach Resort (Kemer)": {
-        "history_max": 14256.0,
-        "premium_peak": 14256.0
+        "history_max": 14457.0,
+        "premium_peak": 14457.0
       },
       "Greenwood Kemer Resort (ex. Sherwood Greenwood Resort)": {
         "history_max": 14759.0,
@@ -866,8 +892,8 @@
         "premium_peak": 19603.0
       },
       "Sunrise Resort & SPA": {
-        "history_max": 17248.0,
-        "premium_peak": 17248.0
+        "history_max": 17378.0,
+        "premium_peak": 17378.0
       },
       "Sunis Elita Beach Resort (ex Asteria Elita)": {
         "history_max": 16096.0,
@@ -1246,8 +1272,8 @@
         "premium_peak": 11025.0
       },
       "Club Grand Side": {
-        "history_max": 17200.0,
-        "premium_peak": 17200.0
+        "history_max": 17202.0,
+        "premium_peak": 17202.0
       },
       "Aska Just in Beach": {
         "history_max": 14943.0,
@@ -1266,8 +1292,8 @@
         "premium_peak": 17492.0
       },
       "Club Grand Aqua": {
-        "history_max": 16832.0,
-        "premium_peak": 16832.0
+        "history_max": 16842.0,
+        "premium_peak": 16842.0
       },
       "Arnor De Luxe & SPA": {
         "history_max": 16020.0,
@@ -1290,8 +1316,8 @@
         "premium_peak": 12260.0
       },
       "Club Atlantis Resort": {
-        "history_max": 12976.0,
-        "premium_peak": 12976.0
+        "history_max": 13106.0,
+        "premium_peak": 13106.0
       },
       "Asteria Collection Side": {
         "history_max": 13329.0,
@@ -1438,8 +1464,8 @@
         "premium_peak": 16343.0
       },
       "Aria Claros Beach and Spa Resort": {
-        "history_max": 11482.0,
-        "premium_peak": 11482.0
+        "history_max": 11612.0,
+        "premium_peak": 11612.0
       },
       "Crystal Sunset Pearl Collection (ex Crystal Sunset Luxury Resort)": {
         "history_max": 17235.0,
@@ -1710,16 +1736,16 @@
         "premium_peak": 18424.0
       },
       "Ramada Plaza Antalya": {
-        "history_max": 15760.0,
-        "premium_peak": 15760.0
+        "history_max": 17338.0,
+        "premium_peak": 17338.0
       },
       "Royal Dragon": {
         "history_max": 18705.0,
         "premium_peak": 18705.0
       },
       "Royal Alhambra Palace": {
-        "history_max": 17079.0,
-        "premium_peak": 17079.0
+        "history_max": 17378.0,
+        "premium_peak": 17378.0
       },
       "Dobedan World Palace (ex. Alva Donna World Palace)": {
         "history_max": 19666.0,
@@ -1780,6 +1806,38 @@
       "Imperial Sunland Resort & Spa Turcja, Kemer, Beldibi": {
         "history_max": 10060.0,
         "premium_peak": 10060.0
+      },
+      "Sherwood Exclusive Lara (ex Sherwood Breezes)": {
+        "history_max": 19819.0,
+        "premium_peak": 19819.0
+      },
+      "Holiday Garden Resort (Okurcalar)": {
+        "history_max": 10778.0,
+        "premium_peak": 10778.0
+      },
+      "Club Marco Polo (Kemer)": {
+        "history_max": 19816.0,
+        "premium_peak": 19816.0
+      },
+      "Club Nena Turcja, Side, Kizilagac": {
+        "history_max": 10430.0,
+        "premium_peak": 10430.0
+      },
+      "Amara Comfort Resort Kemer (ex. Loxia Comfort Resort Kemer)": {
+        "history_max": 12798.0,
+        "premium_peak": 12798.0
+      },
+      "Kirbiyik Resort (ex. Dinler)": {
+        "history_max": 13302.0,
+        "premium_peak": 13302.0
+      },
+      "Delphin Botanik Platinum (Alanya)": {
+        "history_max": 17735.0,
+        "premium_peak": 17735.0
+      },
+      "Diamond De Luxe ( Colakli)": {
+        "history_max": 19881.0,
+        "premium_peak": 19881.0
       }
     }
   }
