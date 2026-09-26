@@ -1703,10 +1703,62 @@
       "created_at": "2026-09-26T20:04:17.760130+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Istion Club_2026-09-26_20-03_zone_out_+2.1"
+    },
+    {
+      "hotel_name": "White Olive Elite Grecja, Zakynthos, Laganas",
+      "duration_bucket": "",
+      "old_price": 5998.0,
+      "new_price": 5498.0,
+      "price_change": -500.0,
+      "price_change_pct": -8.336112037345782,
+      "timestamp": "2026-09-26 23:02:45.648051+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-26T23:03:35.538312+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "White Olive Elite Grecja, Zakynthos, Laganas_2026-09-26_23-02_-8.3"
+    },
+    {
+      "hotel_name": "Blue Lagoon Village Grecja, Kos, Kéfalos",
+      "duration_bucket": "",
+      "old_price": 9192.0,
+      "new_price": 9192.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-26 23:02:45.648051+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-26T23:03:35.538346+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Blue Lagoon Village Grecja, Kos, Kéfalos_2026-09-26_23-02_zone_out_gone"
+    },
+    {
+      "hotel_name": "Kiani Beach",
+      "duration_bucket": "",
+      "old_price": 9415.0,
+      "new_price": 9415.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-26 23:02:45.648051+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-26T23:03:35.538354+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Kiani Beach_2026-09-26_23-02_zone_out_gone"
+    },
+    {
+      "hotel_name": "Kipriotis Maris Suites (ex Iberostar)",
+      "duration_bucket": "",
+      "old_price": 11923.0,
+      "new_price": 9448.0,
+      "price_change": -2475.0,
+      "price_change_pct": -20.758198439989936,
+      "timestamp": "2026-09-26 23:02:45.648051+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-26T23:03:35.538371+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Kipriotis Maris Suites (ex Iberostar)_2026-09-26_23-02_comeback_20.8"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-26T20:03:11.437430+00:00",
+    "last_processed_run": "2026-09-26T23:02:45.648051+00:00",
     "premium_state": {
       "Ajul Luxury & Spa Resort (Ayios Nikolaos) Grecja, Chalkidiki, Loutra": {
         "history_max": 9337.0,
@@ -2326,6 +2378,10 @@
       },
       "Egeo Easy Living Resort (ex. Atlantica Holiday Village Kos) Grecja, Kos, Marmari": {
         "history_max": 9058.0,
+        "premium_peak": null
+      },
+      "Kiani Beach Grecja, Kreta Zachodnia, Kiani Akti": {
+        "history_max": 9015.0,
         "premium_peak": null
       }
     }
