@@ -1651,10 +1651,49 @@
       "created_at": "2026-09-26T13:18:44.437442+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Serita Beach_2026-09-26_13-17_zone_out_+24.2"
+    },
+    {
+      "hotel_name": "Labranda Sandy Beach (ex Aquis Sandy Beach) Grecja, Korfu, Agios Georgios",
+      "duration_bucket": "",
+      "old_price": 8018.0,
+      "new_price": 6767.0,
+      "price_change": -1251.0,
+      "price_change_pct": -15.602394612122724,
+      "timestamp": "2026-09-26 17:21:27.118459+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-26T17:22:39.847200+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Labranda Sandy Beach (ex Aquis Sandy Beach) Grecja, Korfu, Agios Georgios_2026-09-26_17-21_-15.6"
+    },
+    {
+      "hotel_name": "White Olive Elite Grecja, Zakynthos, Laganas",
+      "duration_bucket": "",
+      "old_price": 7851.0,
+      "new_price": 5998.0,
+      "price_change": -1853.0,
+      "price_change_pct": -23.602088905871863,
+      "timestamp": "2026-09-26 17:21:27.118459+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-26T17:22:39.847231+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "White Olive Elite Grecja, Zakynthos, Laganas_2026-09-26_17-21_-23.6"
+    },
+    {
+      "hotel_name": "Blue Lagoon Princess",
+      "duration_bucket": "",
+      "old_price": 14218.0,
+      "new_price": 9969.0,
+      "price_change": -4249.0,
+      "price_change_pct": -29.884653256435506,
+      "timestamp": "2026-09-26 17:21:27.118459+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-26T17:22:39.847295+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Blue Lagoon Princess_2026-09-26_17-21_comeback_29.9"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-26T13:17:38.999010+00:00",
+    "last_processed_run": "2026-09-26T17:21:27.118459+00:00",
     "premium_state": {
       "Ajul Luxury & Spa Resort (Ayios Nikolaos) Grecja, Chalkidiki, Loutra": {
         "history_max": 9337.0,
@@ -1905,8 +1944,8 @@
         "premium_peak": 12444.0
       },
       "Ramada Athens Attica Riviera (ex Aquamarina)": {
-        "history_max": 12858.0,
-        "premium_peak": 12858.0
+        "history_max": 13017.0,
+        "premium_peak": 13017.0
       },
       "Possidi Holidays Grecja, Chalkidiki, Possidi": {
         "history_max": 8807.0,
