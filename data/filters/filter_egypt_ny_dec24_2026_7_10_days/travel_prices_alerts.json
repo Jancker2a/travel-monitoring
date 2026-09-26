@@ -1196,10 +1196,49 @@
       "created_at": "2026-09-26T13:16:35.248287+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Xperience Sea Breeze Egipt, Sharm El Sheikh_2026-09-26_13-16_zone_out_gone"
+    },
+    {
+      "hotel_name": "Fantazia Resort Egipt, Marsa Alam",
+      "duration_bucket": "",
+      "old_price": 9378.0,
+      "new_price": 10509.0,
+      "price_change": 1131.0,
+      "price_change_pct": 12.060140754958413,
+      "timestamp": "2026-09-26 20:01:58.273969+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-26T20:02:16.403185+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Fantazia Resort Egipt, Marsa Alam_2026-09-26_20-01_+12.1"
+    },
+    {
+      "hotel_name": "Sentido Oriental Dream Resort Egipt, Marsa Alam",
+      "duration_bucket": "",
+      "old_price": 8771.0,
+      "new_price": 10517.0,
+      "price_change": 1746.0,
+      "price_change_pct": 19.90651009006955,
+      "timestamp": "2026-09-26 20:01:58.273969+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-26T20:02:16.403211+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sentido Oriental Dream Resort Egipt, Marsa Alam_2026-09-26_20-01_+19.9"
+    },
+    {
+      "hotel_name": "Sea Star Beau Rivage Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 10303.0,
+      "new_price": 9223.0,
+      "price_change": -1080.0,
+      "price_change_pct": -10.482383771716975,
+      "timestamp": "2026-09-26 20:01:58.273969+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-26T20:02:16.403225+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sea Star Beau Rivage Egipt, Hurghada_2026-09-26_20-01_-10.5"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-26T17:20:08.345802+00:00",
+    "last_processed_run": "2026-09-26T20:01:58.273969+00:00",
     "premium_state": {
       "Parrotel Lagoon Resort Egipt, Sharm El Sheikh, Szarm el-Szejk": {
         "history_max": 10293.0,
@@ -1322,7 +1361,7 @@
         "premium_peak": null
       },
       "Sentido Oriental Dream Resort Egipt, Marsa Alam": {
-        "history_max": 10000.0,
+        "history_max": 10517.0,
         "premium_peak": null
       },
       "Park Inn (Sharm El Sheikh) Egipt, Sharm El Sheikh": {
@@ -1387,6 +1426,10 @@
       },
       "Amwaj Oyoun Resort & Spa (ex AA Amwaj Resort) Egipt, Sharm El Sheikh": {
         "history_max": 10719.0,
+        "premium_peak": null
+      },
+      "Calimera Blend Paradise Resort": {
+        "history_max": 10955.0,
         "premium_peak": null
       }
     }
