@@ -2639,10 +2639,75 @@
       "created_at": "2026-09-27T19:07:47.211512+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Victory Be Mine_2026-09-27_19-06_comeback_16.0"
+    },
+    {
+      "hotel_name": "Grand Cettia",
+      "duration_bucket": "",
+      "old_price": 7890.0,
+      "new_price": 8590.0,
+      "price_change": 700.0,
+      "price_change_pct": 8.871989860583017,
+      "timestamp": "2026-09-27 22:23:02.222584+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-27T22:24:10.917994+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Grand Cettia_2026-09-27_22-23_+8.9"
+    },
+    {
+      "hotel_name": "Club Nena (Side)",
+      "duration_bucket": "",
+      "old_price": 9194.0,
+      "new_price": 8258.0,
+      "price_change": -936.0,
+      "price_change_pct": -10.180552534261475,
+      "timestamp": "2026-09-27 22:23:02.222584+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-27T22:24:10.918028+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Club Nena (Side)_2026-09-27_22-23_-10.2"
+    },
+    {
+      "hotel_name": "Grand Pasa",
+      "duration_bucket": "",
+      "old_price": 8332.0,
+      "new_price": 9032.0,
+      "price_change": 700.0,
+      "price_change_pct": 8.401344215074412,
+      "timestamp": "2026-09-27 22:23:02.222584+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-27T22:24:10.918044+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Grand Pasa_2026-09-27_22-23_+8.4"
+    },
+    {
+      "hotel_name": "Unique Residence Golf Spa",
+      "duration_bucket": "",
+      "old_price": 9655.0,
+      "new_price": 10104.0,
+      "price_change": 449.0,
+      "price_change_pct": 4.650440186431901,
+      "timestamp": "2026-09-27 22:23:02.222584+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-27T22:24:10.918077+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Unique Residence Golf Spa_2026-09-27_22-23_zone_out_+4.7"
+    },
+    {
+      "hotel_name": "Victory Volare",
+      "duration_bucket": "",
+      "old_price": 10998.0,
+      "new_price": 9243.0,
+      "price_change": -1755.0,
+      "price_change_pct": -15.957446808510639,
+      "timestamp": "2026-09-27 22:23:02.222584+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-27T22:24:10.918100+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Victory Volare_2026-09-27_22-23_comeback_16.0"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-27T19:06:28.285820+00:00",
+    "last_processed_run": "2026-09-27T22:23:02.222584+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 9799.0,

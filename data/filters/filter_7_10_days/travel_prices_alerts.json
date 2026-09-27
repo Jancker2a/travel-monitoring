@@ -2288,10 +2288,75 @@
       "created_at": "2026-09-27T19:05:52.576689+00:00",
       "threshold_percent": 8.0,
       "unique_key": "V Grand Beach Resort Sahl Hasheesh_2026-09-27_19-05_comeback_11.7"
+    },
+    {
+      "hotel_name": "Gravity Hotel & Aquapark Hurghada (ex. Samra Bay Resort)",
+      "duration_bucket": "",
+      "old_price": 8884.0,
+      "new_price": 7927.0,
+      "price_change": -957.0,
+      "price_change_pct": -10.772174696082844,
+      "timestamp": "2026-09-27 22:21:49.031284+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-27T22:22:28.579877+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Gravity Hotel & Aquapark Hurghada (ex. Samra Bay Resort)_2026-09-27_22-21_-10.8"
+    },
+    {
+      "hotel_name": "Stella Beach Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 8829.0,
+      "new_price": 7918.0,
+      "price_change": -911.0,
+      "price_change_pct": -10.318269339676068,
+      "timestamp": "2026-09-27 22:21:49.031284+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-27T22:22:28.579903+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Stella Beach Resort & Spa_2026-09-27_22-21_-10.3"
+    },
+    {
+      "hotel_name": "V Grand Beach Resort Sahl Hasheesh",
+      "duration_bucket": "",
+      "old_price": 9777.0,
+      "new_price": 8864.0,
+      "price_change": -913.0,
+      "price_change_pct": -9.338242814769357,
+      "timestamp": "2026-09-27 22:21:49.031284+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-27T22:22:28.579914+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "V Grand Beach Resort Sahl Hasheesh_2026-09-27_22-21_-9.3"
+    },
+    {
+      "hotel_name": "Tropitel Sahl Hasheesh",
+      "duration_bucket": "",
+      "old_price": 9988.0,
+      "new_price": 10050.0,
+      "price_change": 62.0,
+      "price_change_pct": 0.6207448938726472,
+      "timestamp": "2026-09-27 22:21:49.031284+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-27T22:22:28.579937+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Tropitel Sahl Hasheesh_2026-09-27_22-21_zone_out_+0.6"
+    },
+    {
+      "hotel_name": "Jaz Aquamarine Resort",
+      "duration_bucket": "",
+      "old_price": 10693.0,
+      "new_price": 9621.0,
+      "price_change": -1072.0,
+      "price_change_pct": -10.025250163658468,
+      "timestamp": "2026-09-27 22:21:49.031284+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-27T22:22:28.579956+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Aquamarine Resort_2026-09-27_22-21_comeback_10.0"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-27T19:05:11.030142+00:00",
+    "last_processed_run": "2026-09-27T22:21:49.031284+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 9677.0,
@@ -2834,8 +2899,8 @@
         "premium_peak": 11307.0
       },
       "Cleopatra Luxury Resort (Makadi Bay)": {
-        "history_max": 12205.0,
-        "premium_peak": 12205.0
+        "history_max": 12753.0,
+        "premium_peak": 12753.0
       },
       "Concorde Sport": {
         "history_max": 11737.0,
