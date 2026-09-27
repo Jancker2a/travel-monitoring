@@ -2145,10 +2145,36 @@
       "created_at": "2026-09-27T06:36:28.737513+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Calimera Blend Paradise Resort_2026-09-27_06-35_comeback_13.8"
+    },
+    {
+      "hotel_name": "Amarina Queen Resort",
+      "duration_bucket": "",
+      "old_price": 8046.0,
+      "new_price": 7140.0,
+      "price_change": -906.0,
+      "price_change_pct": -11.260253542132737,
+      "timestamp": "2026-09-27 08:22:38.151347+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-27T08:23:16.702887+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amarina Queen Resort_2026-09-27_08-22_-11.3"
+    },
+    {
+      "hotel_name": "Fantazia Resort",
+      "duration_bucket": "",
+      "old_price": 10372.0,
+      "new_price": 9195.0,
+      "price_change": -1177.0,
+      "price_change_pct": -11.34785962205939,
+      "timestamp": "2026-09-27 08:22:38.151347+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-27T08:23:16.702941+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Fantazia Resort_2026-09-27_08-22_comeback_11.3"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-27T06:35:53.516784+00:00",
+    "last_processed_run": "2026-09-27T08:22:38.151347+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 9677.0,

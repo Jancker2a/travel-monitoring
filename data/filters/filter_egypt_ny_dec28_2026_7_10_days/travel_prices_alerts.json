@@ -702,10 +702,75 @@
       "created_at": "2026-09-27T01:37:32.979451+00:00",
       "threshold_percent": 8.0,
       "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada_2026-09-27_01-37_-12.7"
+    },
+    {
+      "hotel_name": "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna",
+      "duration_bucket": "",
+      "old_price": 10738.0,
+      "new_price": 9331.0,
+      "price_change": -1407.0,
+      "price_change_pct": -13.102998696219034,
+      "timestamp": "2026-09-27 08:23:36.961365+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-27T08:23:53.903208+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna_2026-09-27_08-23_-13.1"
+    },
+    {
+      "hotel_name": "Sea Star Beau Rivage Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 8847.0,
+      "new_price": 10327.0,
+      "price_change": 1480.0,
+      "price_change_pct": 16.728834633208997,
+      "timestamp": "2026-09-27 08:23:36.961365+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-27T08:23:53.903233+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sea Star Beau Rivage Egipt, Hurghada_2026-09-27_08-23_+16.7"
+    },
+    {
+      "hotel_name": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 9569.0,
+      "new_price": 10955.0,
+      "price_change": 1386.0,
+      "price_change_pct": 14.484272128749085,
+      "timestamp": "2026-09-27 08:23:36.961365+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-27T08:23:53.903247+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada_2026-09-27_08-23_+14.5"
+    },
+    {
+      "hotel_name": "Calimera Blend Paradise Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 10143.0,
+      "new_price": 10143.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-27 08:23:36.961365+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-27T08:23:53.903260+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Calimera Blend Paradise Egipt, Hurghada_2026-09-27_08-23_zone_out_gone"
+    },
+    {
+      "hotel_name": "Pharaoh Azur Resort (ex Sonesta Pharaoh) Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 10760.0,
+      "new_price": 10760.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-27 08:23:36.961365+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-27T08:23:53.903268+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pharaoh Azur Resort (ex Sonesta Pharaoh) Egipt, Hurghada_2026-09-27_08-23_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-27T06:36:47.420471+00:00",
+    "last_processed_run": "2026-09-27T08:23:36.961365+00:00",
     "premium_state": {
       "Concorde Moreen Beach Resort & Spa Egipt, Marsa Alam": {
         "history_max": 10716.0,
