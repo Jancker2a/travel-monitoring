@@ -2249,10 +2249,23 @@
       "created_at": "2026-09-27T14:48:17.729848+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Hilton Plaza (Hurghada)_2026-09-27_14-47_comeback_10.1"
+    },
+    {
+      "hotel_name": "Fantazia Resort",
+      "duration_bucket": "",
+      "old_price": 8822.0,
+      "new_price": 9936.0,
+      "price_change": 1114.0,
+      "price_change_pct": 12.627522103831332,
+      "timestamp": "2026-09-27 16:10:44.028407+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-27T16:11:12.449975+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Fantazia Resort_2026-09-27_16-10_+12.6"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-27T14:47:36.602177+00:00",
+    "last_processed_run": "2026-09-27T16:10:44.028407+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 9677.0,
@@ -2979,8 +2992,8 @@
         "premium_peak": 13784.0
       },
       "Grand Rotana Resort & Spa": {
-        "history_max": 12487.0,
-        "premium_peak": 12487.0
+        "history_max": 12608.0,
+        "premium_peak": 12608.0
       },
       "Sunrise Select Garden Beach Resort & Spa": {
         "history_max": 11571.0,
@@ -3009,6 +3022,10 @@
       "El Kasr Red Sea": {
         "history_max": 14097.0,
         "premium_peak": 14097.0
+      },
+      "El Malikia Resort Abu Dabbab (ex.Sol Y Mar)": {
+        "history_max": 8563.0,
+        "premium_peak": null
       }
     }
   }

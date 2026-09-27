@@ -1963,10 +1963,62 @@
       "created_at": "2026-09-27T14:51:07.568785+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Kiani Beach_2026-09-27_14-50_comeback_18.8"
+    },
+    {
+      "hotel_name": "Amus",
+      "duration_bucket": "",
+      "old_price": 9352.0,
+      "new_price": 10132.0,
+      "price_change": 780.0,
+      "price_change_pct": 8.340461933276304,
+      "timestamp": "2026-09-27 16:12:24.125310+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-27T16:13:14.726108+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amus_2026-09-27_16-12_zone_out_+8.3"
+    },
+    {
+      "hotel_name": "Fodele Beach & Water Park Holiday Resort",
+      "duration_bucket": "",
+      "old_price": 9644.0,
+      "new_price": 9644.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-27 16:12:24.125310+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-27T16:13:14.726125+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Fodele Beach & Water Park Holiday Resort_2026-09-27_16-12_zone_out_gone"
+    },
+    {
+      "hotel_name": "Mitsis Bali Paradise (ex. Bali Paradise) Grecja, Kreta, Bali",
+      "duration_bucket": "",
+      "old_price": 9251.0,
+      "new_price": 9251.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-27 16:12:24.125310+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-27T16:13:14.726131+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Mitsis Bali Paradise (ex. Bali Paradise) Grecja, Kreta, Bali_2026-09-27_16-12_zone_out_gone"
+    },
+    {
+      "hotel_name": "Mitsis Bali Paradise (ex. Bali Paradise)",
+      "duration_bucket": "",
+      "old_price": 10403.0,
+      "new_price": 9273.0,
+      "price_change": -1130.0,
+      "price_change_pct": -10.862251273671056,
+      "timestamp": "2026-09-27 16:12:24.125310+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-27T16:13:14.726143+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Mitsis Bali Paradise (ex. Bali Paradise)_2026-09-27_16-12_comeback_10.9"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-27T14:50:02.216119+00:00",
+    "last_processed_run": "2026-09-27T16:12:24.125310+00:00",
     "premium_state": {
       "Ajul Luxury & Spa Resort (Ayios Nikolaos) Grecja, Chalkidiki, Loutra": {
         "history_max": 9337.0,
@@ -2365,8 +2417,8 @@
         "premium_peak": null
       },
       "Amus": {
-        "history_max": 10057.0,
-        "premium_peak": 10057.0
+        "history_max": 10132.0,
+        "premium_peak": 10132.0
       },
       "Cooks Club Corfu (ex Ionian Park)": {
         "history_max": 11337.0,
@@ -2602,6 +2654,10 @@
       },
       "Mitsis Bali Paradise (ex. Bali Paradise) Grecja, Kreta, Bali": {
         "history_max": 9251.0,
+        "premium_peak": null
+      },
+      "Fodele Beach & Water Park Holiday Resort Grecja, Kreta Wschodnia, Fodele": {
+        "history_max": 9112.0,
         "premium_peak": null
       }
     }
