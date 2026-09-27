@@ -884,10 +884,75 @@
       "created_at": "2026-09-26T23:03:37.479088+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Michelangelo Resort Grecja, Korfu_2026-09-26_23-02_zone_out_+1.3"
+    },
+    {
+      "hotel_name": "Summer Beach Grecja, Kreta Zachodnia, Georgioupolis",
+      "duration_bucket": "",
+      "old_price": 7601.0,
+      "new_price": 9776.0,
+      "price_change": 2175.0,
+      "price_change_pct": 28.614655966320225,
+      "timestamp": "2026-09-27 01:38:43.735809+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-27T01:39:43.874110+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Summer Beach Grecja, Kreta Zachodnia, Georgioupolis_2026-09-27_01-38_+28.6"
+    },
+    {
+      "hotel_name": "Eri Beach Grecja, Kreta Wschodnia, Hersonissos",
+      "duration_bucket": "",
+      "old_price": 7280.0,
+      "new_price": 9705.0,
+      "price_change": 2425.0,
+      "price_change_pct": 33.31043956043956,
+      "timestamp": "2026-09-27 01:38:43.735809+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-27T01:39:43.874139+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Eri Beach Grecja, Kreta Wschodnia, Hersonissos_2026-09-27_01-38_+33.3"
+    },
+    {
+      "hotel_name": "Alexander House Grecja, Kreta Wschodnia, Agia Pelagia",
+      "duration_bucket": "",
+      "old_price": 9932.0,
+      "new_price": 10172.0,
+      "price_change": 240.0,
+      "price_change_pct": 2.4164317358034633,
+      "timestamp": "2026-09-27 01:38:43.735809+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-27T01:39:43.874160+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Alexander House Grecja, Kreta Wschodnia, Agia Pelagia_2026-09-27_01-38_zone_out_+2.4"
+    },
+    {
+      "hotel_name": "Dias Solimar Grecja, Kreta Zachodnia, Adelianos Kampos",
+      "duration_bucket": "",
+      "old_price": 9882.0,
+      "new_price": 9882.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-27 01:38:43.735809+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-27T01:39:43.874171+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Dias Solimar Grecja, Kreta Zachodnia, Adelianos Kampos_2026-09-27_01-38_zone_out_gone"
+    },
+    {
+      "hotel_name": "Kalia Beach Grecja, Kreta Wschodnia, Kato Gouves",
+      "duration_bucket": "",
+      "old_price": 10552.0,
+      "new_price": 8957.0,
+      "price_change": -1595.0,
+      "price_change_pct": -15.115617892342684,
+      "timestamp": "2026-09-27 01:38:43.735809+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-27T01:39:43.874195+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Kalia Beach Grecja, Kreta Wschodnia, Kato Gouves_2026-09-27_01-38_comeback_15.1"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-26T23:02:49.483949+00:00",
+    "last_processed_run": "2026-09-27T01:38:43.735809+00:00",
     "premium_state": {
       "Acrotel Elea Beach (ex Elea Village)": {
         "history_max": 13767.0,
@@ -946,8 +1011,8 @@
         "premium_peak": 10392.0
       },
       "Mirage Bleu Resort": {
-        "history_max": 12549.0,
-        "premium_peak": 12549.0
+        "history_max": 12646.0,
+        "premium_peak": 12646.0
       },
       "Mitsis Rodos Maris": {
         "history_max": 16905.0,
@@ -1122,12 +1187,12 @@
         "premium_peak": 10090.0
       },
       "Sirios Village": {
-        "history_max": 18857.0,
-        "premium_peak": 18857.0
+        "history_max": 18907.0,
+        "premium_peak": 18907.0
       },
       "Sunshine Corfu & Spa Grecja, Korfu, Nisaki": {
-        "history_max": 11650.0,
-        "premium_peak": 11650.0
+        "history_max": 11706.0,
+        "premium_peak": 11706.0
       },
       "Themis Beach": {
         "history_max": 15357.0,
@@ -1462,8 +1527,8 @@
         "premium_peak": 19139.0
       },
       "Atrium (Pefkohori)": {
-        "history_max": 14542.0,
-        "premium_peak": 14542.0
+        "history_max": 18302.0,
+        "premium_peak": 18302.0
       },
       "Evita Mare Grecja, Rodos, Faliraki": {
         "history_max": 10565.0,
@@ -1690,8 +1755,8 @@
         "premium_peak": 10693.0
       },
       "Belvedere Luxury Suites (Zakynthos)": {
-        "history_max": 11337.0,
-        "premium_peak": 11337.0
+        "history_max": 17127.0,
+        "premium_peak": 17127.0
       },
       "Maistrali (Tragaki)": {
         "history_max": 10387.0,
@@ -1812,6 +1877,10 @@
       "Tsilivi Beach Grecja, Zakynthos, Planos": {
         "history_max": 11758.0,
         "premium_peak": 11758.0
+      },
+      "Almyrida Village & Water Park (ex. Langley Resort Almirida Bay) Grecja, Kreta Zachodnia, Almyrida": {
+        "history_max": 11617.0,
+        "premium_peak": 11617.0
       }
     }
   }
