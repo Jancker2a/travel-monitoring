@@ -2600,10 +2600,23 @@
       "created_at": "2026-09-27T08:24:52.128897+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Victory Be Mine_2026-09-27_08-23_comeback_16.0"
+    },
+    {
+      "hotel_name": "Victory Be Mine",
+      "duration_bucket": "",
+      "old_price": 9243.0,
+      "new_price": 9243.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-27 14:48:52.926827+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-27T14:50:08.699225+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Victory Be Mine_2026-09-27_14-48_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-27T08:23:51.840557+00:00",
+    "last_processed_run": "2026-09-27T14:48:52.926827+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 9799.0,
@@ -4000,6 +4013,10 @@
       "Alaiye Resort & Spa": {
         "history_max": 8532.0,
         "premium_peak": null
+      },
+      "Blue Marlin Deluxe Spa & Resort": {
+        "history_max": 14835.0,
+        "premium_peak": 14835.0
       }
     }
   }

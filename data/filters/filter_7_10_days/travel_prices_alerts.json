@@ -2171,10 +2171,88 @@
       "created_at": "2026-09-27T08:23:16.702941+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Fantazia Resort_2026-09-27_08-22_comeback_11.3"
+    },
+    {
+      "hotel_name": "Amarina Queen Resort",
+      "duration_bucket": "",
+      "old_price": 7140.0,
+      "new_price": 8046.0,
+      "price_change": 906.0,
+      "price_change_pct": 12.6890756302521,
+      "timestamp": "2026-09-27 14:47:36.602177+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-27T14:48:17.729748+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amarina Queen Resort_2026-09-27_14-47_+12.7"
+    },
+    {
+      "hotel_name": "Gravity Sahl Hasheesh (Ex. Ocean Breeze)",
+      "duration_bucket": "",
+      "old_price": 8732.0,
+      "new_price": 7945.0,
+      "price_change": -787.0,
+      "price_change_pct": -9.012826385707742,
+      "timestamp": "2026-09-27 14:47:36.602177+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-27T14:48:17.729777+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Gravity Sahl Hasheesh (Ex. Ocean Breeze)_2026-09-27_14-47_-9.0"
+    },
+    {
+      "hotel_name": "Calimera Blend Paradise Resort",
+      "duration_bucket": "",
+      "old_price": 9647.0,
+      "new_price": 11307.0,
+      "price_change": 1660.0,
+      "price_change_pct": 17.20742199647559,
+      "timestamp": "2026-09-27 14:47:36.602177+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-27T14:48:17.729802+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Calimera Blend Paradise Resort_2026-09-27_14-47_zone_out_+17.2"
+    },
+    {
+      "hotel_name": "V Grand Beach Resort Sahl Hasheesh",
+      "duration_bucket": "",
+      "old_price": 9777.0,
+      "new_price": 11074.0,
+      "price_change": 1297.0,
+      "price_change_pct": 13.265827963588011,
+      "timestamp": "2026-09-27 14:47:36.602177+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-27T14:48:17.729814+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "V Grand Beach Resort Sahl Hasheesh_2026-09-27_14-47_zone_out_+13.3"
+    },
+    {
+      "hotel_name": "Jaz Aquaviva",
+      "duration_bucket": "",
+      "old_price": 10773.0,
+      "new_price": 9810.0,
+      "price_change": -963.0,
+      "price_change_pct": -8.939014202172096,
+      "timestamp": "2026-09-27 14:47:36.602177+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-27T14:48:17.729834+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Aquaviva_2026-09-27_14-47_comeback_8.9"
+    },
+    {
+      "hotel_name": "Hilton Plaza (Hurghada)",
+      "duration_bucket": "",
+      "old_price": 11052.0,
+      "new_price": 9932.0,
+      "price_change": -1120.0,
+      "price_change_pct": -10.133912414042708,
+      "timestamp": "2026-09-27 14:47:36.602177+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-27T14:48:17.729848+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Hilton Plaza (Hurghada)_2026-09-27_14-47_comeback_10.1"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-27T08:22:38.151347+00:00",
+    "last_processed_run": "2026-09-27T14:47:36.602177+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 9677.0,
@@ -2189,8 +2267,8 @@
         "premium_peak": 13970.0
       },
       "Steigenberger Aqua Magic": {
-        "history_max": 11789.0,
-        "premium_peak": 11789.0
+        "history_max": 12825.0,
+        "premium_peak": 12825.0
       },
       "Marriott Hurghada Beach Resort": {
         "history_max": 10431.0,
@@ -2633,8 +2711,8 @@
         "premium_peak": 10832.0
       },
       "V Grand Beach Resort Sahl Hasheesh": {
-        "history_max": 10601.0,
-        "premium_peak": 10601.0
+        "history_max": 11074.0,
+        "premium_peak": 11074.0
       },
       "Coral Sea Water World Resort": {
         "history_max": 11865.0,
@@ -2713,8 +2791,8 @@
         "premium_peak": 11977.0
       },
       "Calimera Blend Paradise Resort": {
-        "history_max": 11197.0,
-        "premium_peak": 11197.0
+        "history_max": 11307.0,
+        "premium_peak": 11307.0
       },
       "Cleopatra Luxury Resort (Makadi Bay)": {
         "history_max": 12205.0,
@@ -2837,8 +2915,8 @@
         "premium_peak": 11178.0
       },
       "Sunrise Montemare Resort": {
-        "history_max": 15135.0,
-        "premium_peak": 15135.0
+        "history_max": 16273.0,
+        "premium_peak": 16273.0
       },
       "Gravity Hotel & Aquapark Hurghada (ex. Samra Bay Resort)": {
         "history_max": 9386.0,
