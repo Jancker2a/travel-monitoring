@@ -1534,10 +1534,88 @@
       "created_at": "2026-09-27T16:11:44.691812+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Stella Di Mare Beach Resort & Spa (ex. Stella Makadi Resort) Egipt, Hurghada, Makadi Bay_2026-09-27_16-11_zone_out_gone"
+    },
+    {
+      "hotel_name": "Rewaya Majestic Resort Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 10496.0,
+      "new_price": 8836.0,
+      "price_change": -1660.0,
+      "price_change_pct": -15.815548780487804,
+      "timestamp": "2026-09-27 19:06:09.626985+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-27T19:06:27.237282+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Majestic Resort Egipt, Hurghada_2026-09-27_19-06_-15.8"
+    },
+    {
+      "hotel_name": "Fantazia Resort Egipt, Marsa Alam",
+      "duration_bucket": "",
+      "old_price": 10509.0,
+      "new_price": 8971.0,
+      "price_change": -1538.0,
+      "price_change_pct": -14.635074697878009,
+      "timestamp": "2026-09-27 19:06:09.626985+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-27T19:06:27.237310+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Fantazia Resort Egipt, Marsa Alam_2026-09-27_19-06_-14.6"
+    },
+    {
+      "hotel_name": "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort) Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 10979.0,
+      "new_price": 9319.0,
+      "price_change": -1660.0,
+      "price_change_pct": -15.119774114218052,
+      "timestamp": "2026-09-27 19:06:09.626985+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-27T19:06:27.237323+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort) Egipt, Hurghada_2026-09-27_19-06_-15.1"
+    },
+    {
+      "hotel_name": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 10955.0,
+      "new_price": 9443.0,
+      "price_change": -1512.0,
+      "price_change_pct": -13.801916932907348,
+      "timestamp": "2026-09-27 19:06:09.626985+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-27T19:06:27.237333+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada_2026-09-27_19-06_-13.8"
+    },
+    {
+      "hotel_name": "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna",
+      "duration_bucket": "",
+      "old_price": 10317.0,
+      "new_price": 8657.0,
+      "price_change": -1660.0,
+      "price_change_pct": -16.08994862847727,
+      "timestamp": "2026-09-27 19:06:09.626985+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-27T19:06:27.237343+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna_2026-09-27_19-06_-16.1"
+    },
+    {
+      "hotel_name": "Rewaya Luxury Resort Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 10347.0,
+      "new_price": 9496.0,
+      "price_change": -851.0,
+      "price_change_pct": -8.224606166038466,
+      "timestamp": "2026-09-27 19:06:09.626985+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-27T19:06:27.237352+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Luxury Resort Egipt, Hurghada_2026-09-27_19-06_-8.2"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-27T16:11:28.360563+00:00",
+    "last_processed_run": "2026-09-27T19:06:09.626985+00:00",
     "premium_state": {
       "Parrotel Lagoon Resort Egipt, Sharm El Sheikh, Szarm el-Szejk": {
         "history_max": 10293.0,
@@ -1737,6 +1815,14 @@
       },
       "Calimera Blend Paradise Egipt, Hurghada": {
         "history_max": 10143.0,
+        "premium_peak": null
+      },
+      "Hilton Marsa Alam Nubian Resort Egipt, Marsa Alam": {
+        "history_max": 10786.0,
+        "premium_peak": null
+      },
+      "Titanic Beach Spa & Aqua Park Egipt, Hurghada": {
+        "history_max": 10923.0,
         "premium_peak": null
       }
     }

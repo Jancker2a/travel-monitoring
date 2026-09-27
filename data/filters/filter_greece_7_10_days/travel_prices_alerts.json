@@ -2015,10 +2015,62 @@
       "created_at": "2026-09-27T16:13:14.726143+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Mitsis Bali Paradise (ex. Bali Paradise)_2026-09-27_16-12_comeback_10.9"
+    },
+    {
+      "hotel_name": "Fodele Beach & Water Park Holiday Resort Grecja, Kreta Wschodnia, Fodele",
+      "duration_bucket": "",
+      "old_price": 9112.0,
+      "new_price": 9112.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-27 19:07:40.088496+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-27T19:08:51.303361+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Fodele Beach & Water Park Holiday Resort Grecja, Kreta Wschodnia, Fodele_2026-09-27_19-07_zone_out_gone"
+    },
+    {
+      "hotel_name": "Princess Andriana Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 9267.0,
+      "new_price": 9267.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-27 19:07:40.088496+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-27T19:08:51.303388+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Princess Andriana Resort & Spa_2026-09-27_19-07_zone_out_gone"
+    },
+    {
+      "hotel_name": "Fodele Beach & Water Park Holiday Resort",
+      "duration_bucket": "",
+      "old_price": 10530.0,
+      "new_price": 9644.0,
+      "price_change": -886.0,
+      "price_change_pct": -8.414055080721747,
+      "timestamp": "2026-09-27 19:07:40.088496+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-27T19:08:51.303415+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Fodele Beach & Water Park Holiday Resort_2026-09-27_19-07_comeback_8.4"
+    },
+    {
+      "hotel_name": "Princess Andriana Resort & Spa Grecja, Rodos, Kiotari",
+      "duration_bucket": "",
+      "old_price": 12397.0,
+      "new_price": 9267.0,
+      "price_change": -3130.0,
+      "price_change_pct": -25.248043881584252,
+      "timestamp": "2026-09-27 19:07:40.088496+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-27T19:08:51.303430+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Princess Andriana Resort & Spa Grecja, Rodos, Kiotari_2026-09-27_19-07_comeback_25.2"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-27T16:12:24.125310+00:00",
+    "last_processed_run": "2026-09-27T19:07:40.088496+00:00",
     "premium_state": {
       "Ajul Luxury & Spa Resort (Ayios Nikolaos) Grecja, Chalkidiki, Loutra": {
         "history_max": 9337.0,
@@ -2313,8 +2365,8 @@
         "premium_peak": 11157.0
       },
       "Panorama Leptos (Kato Galatas)": {
-        "history_max": 10977.0,
-        "premium_peak": 10977.0
+        "history_max": 11642.0,
+        "premium_peak": 11642.0
       },
       "Pegasos Beach (Faliraki)": {
         "history_max": 12557.0,
@@ -2581,8 +2633,8 @@
         "premium_peak": null
       },
       "Ikos Oceania": {
-        "history_max": 19141.0,
-        "premium_peak": 19141.0
+        "history_max": 19628.0,
+        "premium_peak": 19628.0
       },
       "Blue Lagoon Village Grecja, Kos, Kéfalos": {
         "history_max": 9216.0,

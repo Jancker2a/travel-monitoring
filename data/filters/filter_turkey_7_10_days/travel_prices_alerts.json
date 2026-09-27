@@ -6994,10 +6994,62 @@
       "created_at": "2026-09-27T16:12:23.338914+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Saphir Resort_2026-09-27_16-11_zone_out_gone"
+    },
+    {
+      "hotel_name": "Mary Side (ex. Mary Palace)",
+      "duration_bucket": "",
+      "old_price": 7752.0,
+      "new_price": 8702.0,
+      "price_change": 950.0,
+      "price_change_pct": 12.254901960784313,
+      "timestamp": "2026-09-27 19:06:19.325561+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-27T19:07:39.144808+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Mary Side (ex. Mary Palace)_2026-09-27_19-06_+12.3"
+    },
+    {
+      "hotel_name": "Lake River Side Spa Turcja, Side, Manavgat",
+      "duration_bucket": "",
+      "old_price": 6457.0,
+      "new_price": 5557.0,
+      "price_change": -900.0,
+      "price_change_pct": -13.938361468174074,
+      "timestamp": "2026-09-27 19:06:19.325561+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-27T19:07:39.144883+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Lake River Side Spa Turcja, Side, Manavgat_2026-09-27_19-06_-13.9"
+    },
+    {
+      "hotel_name": "Grand Cettia",
+      "duration_bucket": "",
+      "old_price": 7056.0,
+      "new_price": 7056.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-27 19:06:19.325561+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-27T19:07:39.144957+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Grand Cettia_2026-09-27_19-06_zone_out_gone"
+    },
+    {
+      "hotel_name": "Ring Beach Turcja, Kemer, Beldibi",
+      "duration_bucket": "",
+      "old_price": 6395.0,
+      "new_price": 6395.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-27 19:06:19.325561+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-27T19:07:39.144969+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Ring Beach Turcja, Kemer, Beldibi_2026-09-27_19-06_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-27T16:11:32.889047+00:00",
+    "last_processed_run": "2026-09-27T19:06:19.325561+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 9001.0,

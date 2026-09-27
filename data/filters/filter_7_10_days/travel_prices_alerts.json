@@ -2262,10 +2262,36 @@
       "created_at": "2026-09-27T16:11:12.449975+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Fantazia Resort_2026-09-27_16-10_+12.6"
+    },
+    {
+      "hotel_name": "Jaz Aquaviva",
+      "duration_bucket": "",
+      "old_price": 9810.0,
+      "new_price": 10107.0,
+      "price_change": 297.0,
+      "price_change_pct": 3.0275229357798166,
+      "timestamp": "2026-09-27 19:05:11.030142+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-27T19:05:52.576648+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Aquaviva_2026-09-27_19-05_zone_out_+3.0"
+    },
+    {
+      "hotel_name": "V Grand Beach Resort Sahl Hasheesh",
+      "duration_bucket": "",
+      "old_price": 11074.0,
+      "new_price": 9777.0,
+      "price_change": -1297.0,
+      "price_change_pct": -11.712118475708868,
+      "timestamp": "2026-09-27 19:05:11.030142+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-27T19:05:52.576689+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "V Grand Beach Resort Sahl Hasheesh_2026-09-27_19-05_comeback_11.7"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-27T16:10:44.028407+00:00",
+    "last_processed_run": "2026-09-27T19:05:11.030142+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 9677.0,
