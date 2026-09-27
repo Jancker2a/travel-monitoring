@@ -2119,10 +2119,36 @@
       "created_at": "2026-09-27T01:37:00.769978+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sharm Grand Plaza Resort_2026-09-27_01-36_comeback_8.7"
+    },
+    {
+      "hotel_name": "Fantazia Resort",
+      "duration_bucket": "",
+      "old_price": 9444.0,
+      "new_price": 10372.0,
+      "price_change": 928.0,
+      "price_change_pct": 9.826344769165608,
+      "timestamp": "2026-09-27 06:35:53.516784+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-27T06:36:28.737474+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Fantazia Resort_2026-09-27_06-35_zone_out_+9.8"
+    },
+    {
+      "hotel_name": "Calimera Blend Paradise Resort",
+      "duration_bucket": "",
+      "old_price": 11197.0,
+      "new_price": 9647.0,
+      "price_change": -1550.0,
+      "price_change_pct": -13.842993659015807,
+      "timestamp": "2026-09-27 06:35:53.516784+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-27T06:36:28.737513+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Calimera Blend Paradise Resort_2026-09-27_06-35_comeback_13.8"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-27T01:36:21.438844+00:00",
+    "last_processed_run": "2026-09-27T06:35:53.516784+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 9677.0,
@@ -2389,7 +2415,7 @@
         "premium_peak": 10192.0
       },
       "Rewaya Inn Resort (ex. Hawaii Paradise Aqua Park Resort)": {
-        "history_max": 8622.0,
+        "history_max": 8639.0,
         "premium_peak": null
       },
       "Royal Regency Club": {
@@ -2513,8 +2539,8 @@
         "premium_peak": 19643.0
       },
       "Pickalbatros Palace Resort": {
-        "history_max": 11723.0,
-        "premium_peak": 11723.0
+        "history_max": 11831.0,
+        "premium_peak": 11831.0
       },
       "Pickalbatros Royal Moderna": {
         "history_max": 10657.0,
@@ -2797,8 +2823,8 @@
         "premium_peak": null
       },
       "Fantazia Resort": {
-        "history_max": 10044.0,
-        "premium_peak": 10044.0
+        "history_max": 10372.0,
+        "premium_peak": 10372.0
       },
       "Xanadu Club Makadi Bay": {
         "history_max": 13101.0,
@@ -2821,8 +2847,8 @@
         "premium_peak": null
       },
       "Sunrise Diamond Beach Resort Grand Select": {
-        "history_max": 15900.0,
-        "premium_peak": 15900.0
+        "history_max": 16225.0,
+        "premium_peak": 16225.0
       },
       "Amarina Jannah Resort Aquapark": {
         "history_max": 9549.0,
@@ -2875,6 +2901,10 @@
       "Red Sea Grand Makadi (Makadi Bay)": {
         "history_max": 10870.0,
         "premium_peak": 10870.0
+      },
+      "El Kasr Red Sea": {
+        "history_max": 14097.0,
+        "premium_peak": 14097.0
       }
     }
   }

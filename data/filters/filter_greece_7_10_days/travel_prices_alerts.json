@@ -1807,10 +1807,49 @@
       "created_at": "2026-09-27T01:39:40.145307+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Eretria Hotel & Spa Resort (ex. Eretria Village) Grecja, Evia, Eretria_2026-09-27_01-38_zone_out_gone"
+    },
+    {
+      "hotel_name": "Kakkos Bay Grecja, Kreta Wschodnia, Ierapetra",
+      "duration_bucket": "",
+      "old_price": 9091.0,
+      "new_price": 9091.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-27 06:37:54.493026+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-27T06:38:50.099778+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Kakkos Bay Grecja, Kreta Wschodnia, Ierapetra_2026-09-27_06-37_zone_out_gone"
+    },
+    {
+      "hotel_name": "Princess Andriana Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 9287.0,
+      "new_price": 9287.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-27 06:37:54.493026+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-27T06:38:50.099805+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Princess Andriana Resort & Spa_2026-09-27_06-37_zone_out_gone"
+    },
+    {
+      "hotel_name": "Kakkos Bay",
+      "duration_bucket": "",
+      "old_price": 10283.0,
+      "new_price": 9091.0,
+      "price_change": -1192.0,
+      "price_change_pct": -11.591947875133716,
+      "timestamp": "2026-09-27 06:37:54.493026+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-27T06:38:50.099830+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Kakkos Bay_2026-09-27_06-37_comeback_11.6"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-27T01:38:35.673518+00:00",
+    "last_processed_run": "2026-09-27T06:37:54.493026+00:00",
     "premium_state": {
       "Ajul Luxury & Spa Resort (Ayios Nikolaos) Grecja, Chalkidiki, Loutra": {
         "history_max": 9337.0,
@@ -1849,8 +1888,8 @@
         "premium_peak": null
       },
       "Lindos Imperial Resort & Spa": {
-        "history_max": 10327.0,
-        "premium_peak": 10327.0
+        "history_max": 13367.0,
+        "premium_peak": 13367.0
       },
       "Lindos Royal (ex. COOEE) Grecja, Rodos, Lindos": {
         "history_max": 8517.0,
@@ -2439,6 +2478,10 @@
       "Creta Royal": {
         "history_max": 18387.0,
         "premium_peak": 18387.0
+      },
+      "Princess Andriana Resort & Spa Grecja, Rodos, Kiotari": {
+        "history_max": 12397.0,
+        "premium_peak": 12397.0
       }
     }
   }

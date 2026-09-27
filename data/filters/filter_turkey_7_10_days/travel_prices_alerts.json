@@ -6682,10 +6682,49 @@
       "created_at": "2026-09-27T01:38:34.745734+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Seamelia Beach Resort & Spa_2026-09-27_01-37_comeback_12.6"
+    },
+    {
+      "hotel_name": "Mandarin Resort (Bodrum) Turcja, Bodrum",
+      "duration_bucket": "",
+      "old_price": 5891.0,
+      "new_price": 5245.0,
+      "price_change": -646.0,
+      "price_change_pct": -10.96588015617043,
+      "timestamp": "2026-09-27 06:36:51.632977+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-27T06:38:04.709856+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Mandarin Resort (Bodrum) Turcja, Bodrum_2026-09-27_06-36_-11.0"
+    },
+    {
+      "hotel_name": "Mary Side (ex. Mary Palace)",
+      "duration_bucket": "",
+      "old_price": 8702.0,
+      "new_price": 7752.0,
+      "price_change": -950.0,
+      "price_change_pct": -10.91703056768559,
+      "timestamp": "2026-09-27 06:36:51.632977+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-27T06:38:04.709888+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Mary Side (ex. Mary Palace)_2026-09-27_06-36_-10.9"
+    },
+    {
+      "hotel_name": "Kaya Izmir Thermal & Convention",
+      "duration_bucket": "",
+      "old_price": 9887.0,
+      "new_price": 10028.0,
+      "price_change": 141.0,
+      "price_change_pct": 1.4261151006372004,
+      "timestamp": "2026-09-27 06:36:51.632977+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-27T06:38:04.709932+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Kaya Izmir Thermal & Convention_2026-09-27_06-36_zone_out_+1.4"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-27T01:37:25.718308+00:00",
+    "last_processed_run": "2026-09-27T06:36:51.632977+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 9001.0,
@@ -7044,8 +7083,8 @@
         "premium_peak": null
       },
       "Kaya Izmir Thermal & Convention": {
-        "history_max": 9887.0,
-        "premium_peak": null
+        "history_max": 10028.0,
+        "premium_peak": 10028.0
       },
       "Kaya (Belek)": {
         "history_max": 10400.0,
@@ -7992,7 +8031,7 @@
         "premium_peak": 10116.0
       },
       "Campus Hill": {
-        "history_max": 7217.0,
+        "history_max": 7297.0,
         "premium_peak": null
       },
       "Miarosa Kemer Beach Turcja, Kemer, Kiris": {
@@ -8100,7 +8139,7 @@
         "premium_peak": 10433.0
       },
       "Elite Luxury Suite & Spa": {
-        "history_max": 7109.0,
+        "history_max": 7229.0,
         "premium_peak": null
       },
       "Adora Hotel & Resort (ex. Adora Golf)": {
