@@ -481,10 +481,62 @@
       "created_at": "2026-09-28T17:48:24.331521+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Kirbiyik Resort (ex. Dinler)_2026-09-28_17-47_comeback_27.6"
+    },
+    {
+      "hotel_name": "Campus Hill",
+      "duration_bucket": "",
+      "old_price": 6805.0,
+      "new_price": 8265.0,
+      "price_change": 1460.0,
+      "price_change_pct": 21.45481263776635,
+      "timestamp": "2026-09-28 23:26:46.662904+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-28T23:27:24.003268+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Campus Hill_2026-09-28_23-26_+21.5"
+    },
+    {
+      "hotel_name": "Sultan of Side",
+      "duration_bucket": "",
+      "old_price": 8518.0,
+      "new_price": 9247.0,
+      "price_change": 729.0,
+      "price_change_pct": 8.558347029819206,
+      "timestamp": "2026-09-28 23:26:46.662904+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-28T23:27:24.003299+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sultan of Side_2026-09-28_23-26_+8.6"
+    },
+    {
+      "hotel_name": "Sueno Beach Side",
+      "duration_bucket": "",
+      "old_price": 9830.0,
+      "new_price": 11059.0,
+      "price_change": 1229.0,
+      "price_change_pct": 12.502543234994915,
+      "timestamp": "2026-09-28 23:26:46.662904+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-28T23:27:24.003327+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sueno Beach Side_2026-09-28_23-26_zone_out_+12.5"
+    },
+    {
+      "hotel_name": "Sentido Lycus Beach (ex. Lti)",
+      "duration_bucket": "",
+      "old_price": 10317.0,
+      "new_price": 9012.0,
+      "price_change": -1305.0,
+      "price_change_pct": -12.649025879616168,
+      "timestamp": "2026-09-28 23:26:46.662904+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-28T23:27:24.003355+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sentido Lycus Beach (ex. Lti)_2026-09-28_23-26_comeback_12.6"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-28T17:47:44.233533+00:00",
+    "last_processed_run": "2026-09-28T23:26:46.662904+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 9500.0,
@@ -975,7 +1027,7 @@
         "premium_peak": 10259.0
       },
       "Palemon Resort & Spa": {
-        "history_max": 8524.0,
+        "history_max": 8620.0,
         "premium_peak": null
       },
       "Ozkaymak Select Resort (ex. Otium Ozkaymak Select)": {
@@ -1511,7 +1563,7 @@
         "premium_peak": 11907.0
       },
       "Sultan of Side": {
-        "history_max": 9136.0,
+        "history_max": 9247.0,
         "premium_peak": null
       },
       "Crystal Waterworld Aqua Collection": {
@@ -1543,8 +1595,8 @@
         "premium_peak": 14706.0
       },
       "Sueno Beach Side": {
-        "history_max": 9830.0,
-        "premium_peak": null
+        "history_max": 11059.0,
+        "premium_peak": 11059.0
       },
       "Xoria Deluxe": {
         "history_max": 8899.0,
@@ -1579,7 +1631,7 @@
         "premium_peak": null
       },
       "Sultan of Dreams": {
-        "history_max": 9782.0,
+        "history_max": 9959.0,
         "premium_peak": null
       },
       "Delphin Botanik (Alanya)": {
@@ -1717,6 +1769,18 @@
       "Sailors Beach Club": {
         "history_max": 14526.0,
         "premium_peak": 14526.0
+      },
+      "Kahya Resort Aqua & Spa": {
+        "history_max": 10909.0,
+        "premium_peak": 10909.0
+      },
+      "Liu Resorts": {
+        "history_max": 14512.0,
+        "premium_peak": 14512.0
+      },
+      "Linda Resort (Side)": {
+        "history_max": 10154.0,
+        "premium_peak": 10154.0
       }
     }
   }

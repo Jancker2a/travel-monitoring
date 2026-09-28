@@ -442,10 +442,88 @@
       "created_at": "2026-09-28T17:47:11.802611+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Xperience Sea Breeze Resort_2026-09-28_17-46_zone_out_gone"
+    },
+    {
+      "hotel_name": "Amarina Jannah Resort Aquapark Egipt, Marsa Alam, Port Ghalib",
+      "duration_bucket": "",
+      "old_price": 6759.0,
+      "new_price": 7409.0,
+      "price_change": 650.0,
+      "price_change_pct": 9.616807220002958,
+      "timestamp": "2026-09-28 23:25:46.506200+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-28T23:26:14.006372+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amarina Jannah Resort Aquapark Egipt, Marsa Alam, Port Ghalib_2026-09-28_23-25_+9.6"
+    },
+    {
+      "hotel_name": "Xperience Sea Breeze Egipt, Sharm El Sheikh",
+      "duration_bucket": "",
+      "old_price": 7596.0,
+      "new_price": 8291.0,
+      "price_change": 695.0,
+      "price_change_pct": 9.149552395997894,
+      "timestamp": "2026-09-28 23:25:46.506200+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-28T23:26:14.006395+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xperience Sea Breeze Egipt, Sharm El Sheikh_2026-09-28_23-25_+9.1"
+    },
+    {
+      "hotel_name": "Xperience Kiroseiz Parkland Egipt, Sharm El Sheikh",
+      "duration_bucket": "",
+      "old_price": 7176.0,
+      "new_price": 7890.0,
+      "price_change": 714.0,
+      "price_change_pct": 9.949832775919733,
+      "timestamp": "2026-09-28 23:25:46.506200+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-28T23:26:14.006404+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xperience Kiroseiz Parkland Egipt, Sharm El Sheikh_2026-09-28_23-25_+9.9"
+    },
+    {
+      "hotel_name": "Xperience Kiroseiz Premier Egipt, Sharm El Sheikh",
+      "duration_bucket": "",
+      "old_price": 6932.0,
+      "new_price": 7653.0,
+      "price_change": 721.0,
+      "price_change_pct": 10.401038661281016,
+      "timestamp": "2026-09-28 23:25:46.506200+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-28T23:26:14.006413+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xperience Kiroseiz Premier Egipt, Sharm El Sheikh_2026-09-28_23-25_+10.4"
+    },
+    {
+      "hotel_name": "Royal Regency Club",
+      "duration_bucket": "",
+      "old_price": 9344.0,
+      "new_price": 8594.0,
+      "price_change": -750.0,
+      "price_change_pct": -8.02654109589041,
+      "timestamp": "2026-09-28 23:25:46.506200+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-28T23:26:14.006444+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Royal Regency Club_2026-09-28_23-25_-8.0"
+    },
+    {
+      "hotel_name": "Monte Carlo Resort Spa",
+      "duration_bucket": "",
+      "old_price": 10288.0,
+      "new_price": 10288.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-28 23:25:46.506200+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-28T23:26:14.006462+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Monte Carlo Resort Spa_2026-09-28_23-25_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-28T17:46:44.547693+00:00",
+    "last_processed_run": "2026-09-28T23:25:46.506200+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 6899.0,
@@ -672,7 +750,7 @@
         "premium_peak": null
       },
       "Rewaya Majestic Resort Egipt, Hurghada": {
-        "history_max": 7787.0,
+        "history_max": 8027.0,
         "premium_peak": null
       },
       "Royal Brayka Beach Resort (ex Zee Brayka)": {
@@ -836,7 +914,7 @@
         "premium_peak": null
       },
       "Akassia Swiss Resort (ex. Calimera Club Akassia Swiss Resort)": {
-        "history_max": 9291.0,
+        "history_max": 9490.0,
         "premium_peak": null
       },
       "Hilton Marsa Alam Nubian Resort": {
@@ -908,7 +986,7 @@
         "premium_peak": null
       },
       "Pickalbatros Laguna Vista Beach": {
-        "history_max": 10754.0,
+        "history_max": 10954.0,
         "premium_peak": null
       },
       "Pickalbatros White Beach Resort": {
@@ -916,11 +994,11 @@
         "premium_peak": null
       },
       "Xperience Sea Breeze Egipt, Sharm El Sheikh": {
-        "history_max": 7596.0,
+        "history_max": 8291.0,
         "premium_peak": null
       },
       "Jaz Mirabel Beach Resort": {
-        "history_max": 9794.0,
+        "history_max": 10544.0,
         "premium_peak": null
       },
       "Monte Carlo Resort Spa": {
@@ -933,6 +1011,10 @@
       },
       "Radisson Blu Resort (El Quseir) Egipt, Marsa Alam, Al-Kusajr": {
         "history_max": 8190.0,
+        "premium_peak": null
+      },
+      "Naama Bay Promenade Beach Resort": {
+        "history_max": 10862.0,
         "premium_peak": null
       }
     }
