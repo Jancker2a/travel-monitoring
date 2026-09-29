@@ -58341,6 +58341,26 @@
       "hot_score": 74.0
     },
     {
+      "event_time": "2026-09-29T05:56:20+0000",
+      "departure_key": "turcja|side|2026-09-30|2026-10-07|7|Warszawa - Radom|2+1",
+      "event_type": "late_price_dump",
+      "severity": "high",
+      "country": "turcja",
+      "region": "side",
+      "departure_date": "2026-09-30",
+      "return_date": "2026-10-07",
+      "nights": 7.0,
+      "days_to_departure": 1.0,
+      "old_min_price": "",
+      "new_min_price": 5097.0,
+      "min_drop_pct": -9.53,
+      "p10_drop_pct": -6.7,
+      "median_drop_pct": -8.63,
+      "hotel_count": 15.0,
+      "hotel_delta": 7,
+      "hot_score": 70.0
+    },
+    {
       "event_time": "2026-09-24T10:13:17+0000",
       "departure_key": "turcja|side|2026-09-30|2026-10-07|7|Warszawa|2+1",
       "event_type": "late_deal_window",
