@@ -1066,10 +1066,88 @@
       "created_at": "2026-09-29T13:09:19.877183+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Selectum Family Comfort Side (ex. Lyra Resort)_2026-09-29_13-08_comeback_9.1"
+    },
+    {
+      "hotel_name": "Sultan of Dreams",
+      "duration_bucket": "",
+      "old_price": 9959.0,
+      "new_price": 8913.0,
+      "price_change": -1046.0,
+      "price_change_pct": -10.503062556481574,
+      "timestamp": "2026-09-29 18:46:12.405941+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-29T18:46:54.147858+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sultan of Dreams_2026-09-29_18-46_-10.5"
+    },
+    {
+      "hotel_name": "Asteria Collection Side",
+      "duration_bucket": "",
+      "old_price": 6611.0,
+      "new_price": 7367.0,
+      "price_change": 756.0,
+      "price_change_pct": 11.435486310694296,
+      "timestamp": "2026-09-29 18:46:12.405941+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-29T18:46:54.147893+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Asteria Collection Side_2026-09-29_18-46_+11.4"
+    },
+    {
+      "hotel_name": "Sultan of Side",
+      "duration_bucket": "",
+      "old_price": 9313.0,
+      "new_price": 8205.0,
+      "price_change": -1108.0,
+      "price_change_pct": -11.897347793407064,
+      "timestamp": "2026-09-29 18:46:12.405941+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-29T18:46:54.147908+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sultan of Side_2026-09-29_18-46_-11.9"
+    },
+    {
+      "hotel_name": "Eftalia Marin",
+      "duration_bucket": "",
+      "old_price": 9928.0,
+      "new_price": 10351.0,
+      "price_change": 423.0,
+      "price_change_pct": 4.260676873489121,
+      "timestamp": "2026-09-29 18:46:12.405941+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-29T18:46:54.147935+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Eftalia Marin_2026-09-29_18-46_zone_out_+4.3"
+    },
+    {
+      "hotel_name": "Wind of Lara",
+      "duration_bucket": "",
+      "old_price": 9486.0,
+      "new_price": 10091.0,
+      "price_change": 605.0,
+      "price_change_pct": 6.377819945182374,
+      "timestamp": "2026-09-29 18:46:12.405941+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-29T18:46:54.147944+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Wind of Lara_2026-09-29_18-46_zone_out_+6.4"
+    },
+    {
+      "hotel_name": "Marvida Family Eco",
+      "duration_bucket": "",
+      "old_price": 10864.0,
+      "new_price": 9657.0,
+      "price_change": -1207.0,
+      "price_change_pct": -11.110088365243003,
+      "timestamp": "2026-09-29 18:46:12.405941+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-29T18:46:54.147969+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Marvida Family Eco_2026-09-29_18-46_comeback_11.1"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-29T13:08:39.738165+00:00",
+    "last_processed_run": "2026-09-29T18:46:12.405941+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 9500.0,
@@ -1092,8 +1170,8 @@
         "premium_peak": 10283.0
       },
       "Serenity Queen": {
-        "history_max": 11647.0,
-        "premium_peak": 11647.0
+        "history_max": 11783.0,
+        "premium_peak": 11783.0
       },
       "Greenwood Kemer Resort (ex. Sherwood Greenwood Resort)": {
         "history_max": 9519.0,
@@ -1316,12 +1394,12 @@
         "premium_peak": 10211.0
       },
       "Side Star Elegance": {
-        "history_max": 14148.0,
-        "premium_peak": 14148.0
+        "history_max": 14265.0,
+        "premium_peak": 14265.0
       },
       "Eftalia Marin": {
-        "history_max": 10327.0,
-        "premium_peak": 10327.0
+        "history_max": 10351.0,
+        "premium_peak": 10351.0
       },
       "Eftalia Sol": {
         "history_max": 9937.0,
@@ -1432,7 +1510,7 @@
         "premium_peak": 10499.0
       },
       "Raymar Resort & Aqua": {
-        "history_max": 9294.0,
+        "history_max": 9430.0,
         "premium_peak": null
       },
       "OZ Incekum Beach Resort": {
@@ -1500,7 +1578,7 @@
         "premium_peak": 12069.0
       },
       "Ozkaymak Falez": {
-        "history_max": 9764.0,
+        "history_max": 9899.0,
         "premium_peak": null
       },
       "Pirates Beach Club": {
@@ -1572,8 +1650,8 @@
         "premium_peak": 10994.0
       },
       "Ozkaymak Marina (Kemer)": {
-        "history_max": 10459.0,
-        "premium_peak": 10459.0
+        "history_max": 10594.0,
+        "premium_peak": 10594.0
       },
       "Paloma Sencia": {
         "history_max": 12410.0,
@@ -1584,8 +1662,8 @@
         "premium_peak": 13633.0
       },
       "Royal Atlantis Icon": {
-        "history_max": 10633.0,
-        "premium_peak": 10633.0
+        "history_max": 10769.0,
+        "premium_peak": 10769.0
       },
       "Megasaray WestBeach Antalya (ex. Harrington Park Resort)": {
         "history_max": 13044.0,
@@ -1820,7 +1898,7 @@
         "premium_peak": null
       },
       "The Nora Hotels Family Club (Kargicak)": {
-        "history_max": 6792.0,
+        "history_max": 6928.0,
         "premium_peak": null
       },
       "Bosphorus Sorgun": {
@@ -1832,7 +1910,7 @@
         "premium_peak": null
       },
       "Cenger Blue Collection": {
-        "history_max": 8378.0,
+        "history_max": 8853.0,
         "premium_peak": null
       },
       "Cenger Beach Resort (Side)": {
@@ -2208,7 +2286,7 @@
         "premium_peak": 12515.0
       },
       "Club Nena (Side)": {
-        "history_max": 9044.0,
+        "history_max": 9154.0,
         "premium_peak": null
       },
       "Antique Roman Palace": {

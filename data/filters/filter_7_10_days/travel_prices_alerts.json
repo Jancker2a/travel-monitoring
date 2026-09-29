@@ -442,10 +442,62 @@
       "created_at": "2026-09-29T13:08:07.156859+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Reef Oasis Suakin Resort_2026-09-29_13-07_comeback_11.6"
+    },
+    {
+      "hotel_name": "Gravity Hotel & Aquapark Hurghada (ex. Samra Bay Resort)",
+      "duration_bucket": "",
+      "old_price": 9151.0,
+      "new_price": 8077.0,
+      "price_change": -1074.0,
+      "price_change_pct": -11.736422248934543,
+      "timestamp": "2026-09-29 18:45:08.996152+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-29T18:45:37.986817+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Gravity Hotel & Aquapark Hurghada (ex. Samra Bay Resort)_2026-09-29_18-45_-11.7"
+    },
+    {
+      "hotel_name": "Reef Oasis Suakin Resort",
+      "duration_bucket": "",
+      "old_price": 9157.0,
+      "new_price": 9957.0,
+      "price_change": 800.0,
+      "price_change_pct": 8.736485748607622,
+      "timestamp": "2026-09-29 18:45:08.996152+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-29T18:45:37.986853+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Reef Oasis Suakin Resort_2026-09-29_18-45_+8.7"
+    },
+    {
+      "hotel_name": "Double Tree by Hilton Mangroovy El Gouna Resort",
+      "duration_bucket": "",
+      "old_price": 9162.0,
+      "new_price": 9162.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-29 18:45:08.996152+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-29T18:45:37.986872+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Double Tree by Hilton Mangroovy El Gouna Resort_2026-09-29_18-45_zone_out_gone"
+    },
+    {
+      "hotel_name": "Jaz Mirabel Park",
+      "duration_bucket": "",
+      "old_price": 9909.0,
+      "new_price": 10555.0,
+      "price_change": 646.0,
+      "price_change_pct": 6.5193258653749115,
+      "timestamp": "2026-09-29 18:45:08.996152+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-29T18:45:37.986883+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Mirabel Park_2026-09-29_18-45_zone_out_+6.5"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-29T13:07:39.936890+00:00",
+    "last_processed_run": "2026-09-29T18:45:08.996152+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 9617.0,
@@ -560,8 +612,8 @@
         "premium_peak": 19257.0
       },
       "Jaz Mirabel Park": {
-        "history_max": 10452.0,
-        "premium_peak": 10452.0
+        "history_max": 10555.0,
+        "premium_peak": 10555.0
       },
       "Jaz Palmariva Beach": {
         "history_max": 9482.0,
@@ -1108,8 +1160,8 @@
         "premium_peak": 19677.0
       },
       "Caves Beach Resort": {
-        "history_max": 11427.0,
-        "premium_peak": 11427.0
+        "history_max": 11447.0,
+        "premium_peak": 11447.0
       }
     }
   }

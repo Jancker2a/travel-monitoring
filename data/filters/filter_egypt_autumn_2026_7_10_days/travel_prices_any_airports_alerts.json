@@ -585,10 +585,88 @@
       "created_at": "2026-09-29T13:08:24.474551+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Stella Beach Resort & Spa_2026-09-29_13-07_zone_out_gone"
+    },
+    {
+      "hotel_name": "Radisson Individuals Marina Port Ghalib (ex. Sunrise Marina Resort)",
+      "duration_bucket": "",
+      "old_price": 9532.0,
+      "new_price": 10331.0,
+      "price_change": 799.0,
+      "price_change_pct": 8.382291229542593,
+      "timestamp": "2026-09-29 18:45:25.770534+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-29T18:45:56.629863+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Radisson Individuals Marina Port Ghalib (ex. Sunrise Marina Resort)_2026-09-29_18-45_+8.4"
+    },
+    {
+      "hotel_name": "Jaz Grand Marsa (ex Resta Grand Resort)",
+      "duration_bucket": "",
+      "old_price": 8067.0,
+      "new_price": 8067.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-29 18:45:25.770534+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-29T18:45:56.629934+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Grand Marsa (ex Resta Grand Resort)_2026-09-29_18-45_zone_out_gone"
+    },
+    {
+      "hotel_name": "Jaz Solaya Resort (ex Sol Y Mar Solaya)",
+      "duration_bucket": "",
+      "old_price": 10662.0,
+      "new_price": 10662.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-29 18:45:25.770534+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-29T18:45:56.629954+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Solaya Resort (ex Sol Y Mar Solaya)_2026-09-29_18-45_zone_out_gone"
+    },
+    {
+      "hotel_name": "Pickalbatros Villaggio Resort Portofino Egipt, Marsa Alam",
+      "duration_bucket": "",
+      "old_price": 7907.0,
+      "new_price": 7907.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-29 18:45:25.770534+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-29T18:45:56.629968+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Villaggio Resort Portofino Egipt, Marsa Alam_2026-09-29_18-45_zone_out_gone"
+    },
+    {
+      "hotel_name": "Safir Sharm Waterfalls Resort (ex Hilton Waterfalls Resort)",
+      "duration_bucket": "",
+      "old_price": 9164.0,
+      "new_price": 9164.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-29 18:45:25.770534+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-29T18:45:56.629991+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Safir Sharm Waterfalls Resort (ex Hilton Waterfalls Resort)_2026-09-29_18-45_zone_out_gone"
+    },
+    {
+      "hotel_name": "The V Luxury Resort",
+      "duration_bucket": "",
+      "old_price": 10926.0,
+      "new_price": 10926.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-29 18:45:25.770534+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-29T18:45:56.629998+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "The V Luxury Resort_2026-09-29_18-45_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-29T13:07:53.740049+00:00",
+    "last_processed_run": "2026-09-29T18:45:25.770534+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 6278.0,
@@ -647,7 +725,7 @@
         "premium_peak": null
       },
       "Pickalbatros Villaggio Resort Portofino": {
-        "history_max": 8707.0,
+        "history_max": 8867.0,
         "premium_peak": null
       },
       "Pickalbatros Vita Resort Portofino": {
@@ -663,7 +741,7 @@
         "premium_peak": null
       },
       "Radisson Individuals Marina Port Ghalib (ex. Sunrise Marina Resort)": {
-        "history_max": 10035.0,
+        "history_max": 10331.0,
         "premium_peak": null
       },
       "Pickalbatros Palace Port Ghalib (ex. Red Sea The Palace)": {
@@ -683,7 +761,7 @@
         "premium_peak": null
       },
       "Jaz Aquaviva": {
-        "history_max": 9965.0,
+        "history_max": 10077.0,
         "premium_peak": null
       },
       "Jaz Belvedere": {
@@ -691,7 +769,7 @@
         "premium_peak": null
       },
       "Jaz Grand Marsa (ex Resta Grand Resort) Egipt, Marsa Alam, Madinat Coraya": {
-        "history_max": 7497.0,
+        "history_max": 7808.0,
         "premium_peak": null
       },
       "Jaz Makadi Oasis Resort": {
@@ -707,7 +785,7 @@
         "premium_peak": null
       },
       "Jaz Mirabel Park": {
-        "history_max": 9988.0,
+        "history_max": 10555.0,
         "premium_peak": null
       },
       "Jaz Neo Naama Bay": {
@@ -755,7 +833,7 @@
         "premium_peak": null
       },
       "Lazuli (Marsa Alam)": {
-        "history_max": 8157.0,
+        "history_max": 8757.0,
         "premium_peak": null
       },
       "Red Sea Grand Waterworld Makadi (ex. Sunwing Waterworld Makadi)": {
@@ -787,7 +865,7 @@
         "premium_peak": null
       },
       "Sunrise Select Garden Beach Resort & Spa": {
-        "history_max": 10697.0,
+        "history_max": 10747.0,
         "premium_peak": null
       },
       "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort)": {
@@ -819,7 +897,7 @@
         "premium_peak": null
       },
       "Tropitel Sahl Hasheesh": {
-        "history_max": 10496.0,
+        "history_max": 10602.0,
         "premium_peak": null
       },
       "True Beach Resort": {
