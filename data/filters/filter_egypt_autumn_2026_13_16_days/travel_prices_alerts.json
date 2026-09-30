@@ -1,8 +1,22 @@
 {
   "version": 2,
-  "alerts": [],
+  "alerts": [
+    {
+      "hotel_name": "Casa Mare Resort (ex. Royal Tulip Beach Resort) Egipt, Marsa Alam",
+      "duration_bucket": "",
+      "old_price": 10757.0,
+      "new_price": 10757.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-30 20:56:11.707831+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-30T20:56:27.399163+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Casa Mare Resort (ex. Royal Tulip Beach Resort) Egipt, Marsa Alam_2026-09-30_20-56_zone_out_gone"
+    }
+  ],
   "meta": {
-    "last_processed_run": "2026-09-30T08:45:15.752007+00:00",
+    "last_processed_run": "2026-09-30T20:56:11.707831+00:00",
     "premium_state": {
       "Dream Lagoon & Aqua Park Resort (ex. Floriana Dream Lagoon) Egipt, Marsa Alam": {
         "history_max": 10537.0,
