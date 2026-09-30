@@ -611,10 +611,75 @@
       "created_at": "2026-09-30T08:11:42.922058+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Pickalbatros White Beach Resort_2026-09-30_08-11_comeback_15.9"
+    },
+    {
+      "hotel_name": "Jasmine Palace",
+      "duration_bucket": "",
+      "old_price": 9157.0,
+      "new_price": 7957.0,
+      "price_change": -1200.0,
+      "price_change_pct": -13.104728622911436,
+      "timestamp": "2026-09-30 08:44:40.792364+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-30T08:45:18.287913+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jasmine Palace_2026-09-30_08-44_-13.1"
+    },
+    {
+      "hotel_name": "IL Mercato Splash Aqua Park",
+      "duration_bucket": "",
+      "old_price": 6766.0,
+      "new_price": 6123.0,
+      "price_change": -643.0,
+      "price_change_pct": -9.503399349689625,
+      "timestamp": "2026-09-30 08:44:40.792364+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-30T08:45:18.287942+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "IL Mercato Splash Aqua Park_2026-09-30_08-44_-9.5"
+    },
+    {
+      "hotel_name": "Marriott Hurghada Beach Resort",
+      "duration_bucket": "",
+      "old_price": 8838.0,
+      "new_price": 9554.0,
+      "price_change": 716.0,
+      "price_change_pct": 8.101380402806065,
+      "timestamp": "2026-09-30 08:44:40.792364+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-30T08:45:18.287960+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Marriott Hurghada Beach Resort_2026-09-30_08-44_+8.1"
+    },
+    {
+      "hotel_name": "Titanic Beach Spa & Aqua Park",
+      "duration_bucket": "",
+      "old_price": 9357.0,
+      "new_price": 8557.0,
+      "price_change": -800.0,
+      "price_change_pct": -8.549748851127498,
+      "timestamp": "2026-09-30 08:44:40.792364+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-30T08:45:18.287973+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Titanic Beach Spa & Aqua Park_2026-09-30_08-44_-8.5"
+    },
+    {
+      "hotel_name": "Serenity Alma Heights (ex. Serenity Fun City)",
+      "duration_bucket": "",
+      "old_price": 8870.0,
+      "new_price": 10999.0,
+      "price_change": 2129.0,
+      "price_change_pct": 24.002254791431792,
+      "timestamp": "2026-09-30 08:44:40.792364+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-30T08:45:18.287993+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Serenity Alma Heights (ex. Serenity Fun City)_2026-09-30_08-44_zone_out_+24.0"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-30T08:11:19.154339+00:00",
+    "last_processed_run": "2026-09-30T08:44:40.792364+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 9637.0,
@@ -753,7 +818,7 @@
         "premium_peak": null
       },
       "Marriott Hurghada Beach Resort": {
-        "history_max": 9311.0,
+        "history_max": 9554.0,
         "premium_peak": null
       },
       "Monte Carlo Resort Spa": {
@@ -965,8 +1030,8 @@
         "premium_peak": 10887.0
       },
       "Serenity Alma Heights (ex. Serenity Fun City)": {
-        "history_max": 9149.0,
-        "premium_peak": null
+        "history_max": 10999.0,
+        "premium_peak": 10999.0
       },
       "Serenity Alma Heights Ross Park Collection": {
         "history_max": 10843.0,

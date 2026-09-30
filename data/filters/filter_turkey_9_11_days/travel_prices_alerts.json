@@ -1638,10 +1638,49 @@
       "created_at": "2026-09-30T08:12:49.216659+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sy Belek Boutique Luxury_2026-09-30_08-12_comeback_14.7"
+    },
+    {
+      "hotel_name": "Asteria Family Resort Side",
+      "duration_bucket": "",
+      "old_price": 7817.0,
+      "new_price": 11403.0,
+      "price_change": 3586.0,
+      "price_change_pct": 45.87437635921709,
+      "timestamp": "2026-09-30 08:45:49.084689+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-30T08:46:52.692564+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Asteria Family Resort Side_2026-09-30_08-45_zone_out_+45.9"
+    },
+    {
+      "hotel_name": "Fame Residence (Göynük)",
+      "duration_bucket": "",
+      "old_price": 9785.0,
+      "new_price": 10027.0,
+      "price_change": 242.0,
+      "price_change_pct": 2.4731732243229434,
+      "timestamp": "2026-09-30 08:45:49.084689+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-30T08:46:52.692614+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Fame Residence (Göynük)_2026-09-30_08-45_zone_out_+2.5"
+    },
+    {
+      "hotel_name": "Karmir Resort (Kemer)",
+      "duration_bucket": "",
+      "old_price": 9879.0,
+      "new_price": 10121.0,
+      "price_change": 242.0,
+      "price_change_pct": 2.449640651887843,
+      "timestamp": "2026-09-30 08:45:49.084689+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-30T08:46:52.692628+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Karmir Resort (Kemer)_2026-09-30_08-45_zone_out_+2.4"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-30T08:12:13.594995+00:00",
+    "last_processed_run": "2026-09-30T08:45:49.084689+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 9500.0,
@@ -1740,8 +1779,8 @@
         "premium_peak": null
       },
       "Karmir Resort (Kemer)": {
-        "history_max": 9879.0,
-        "premium_peak": null
+        "history_max": 10121.0,
+        "premium_peak": 10121.0
       },
       "Kamelya Selin": {
         "history_max": 12519.0,
@@ -1960,8 +1999,8 @@
         "premium_peak": 10106.0
       },
       "Fame Residence (Göynük)": {
-        "history_max": 9785.0,
-        "premium_peak": null
+        "history_max": 10027.0,
+        "premium_peak": 10027.0
       },
       "Side Moon Palace": {
         "history_max": 10020.0,
@@ -2524,8 +2563,8 @@
         "premium_peak": 14400.0
       },
       "Asteria Family Resort Side": {
-        "history_max": 9158.0,
-        "premium_peak": null
+        "history_max": 11403.0,
+        "premium_peak": 11403.0
       },
       "Armonia Holiday Village": {
         "history_max": 11852.0,
@@ -2780,12 +2819,12 @@
         "premium_peak": 12515.0
       },
       "Club Nena (Side)": {
-        "history_max": 9154.0,
+        "history_max": 9344.0,
         "premium_peak": null
       },
       "Antique Roman Palace": {
-        "history_max": 12098.0,
-        "premium_peak": 12098.0
+        "history_max": 12341.0,
+        "premium_peak": 12341.0
       },
       "Well Palace Side (ex. Side Crown Charm Palace)": {
         "history_max": 8064.0,
@@ -2860,8 +2899,8 @@
         "premium_peak": 11290.0
       },
       "Club Marco Polo (Kemer)": {
-        "history_max": 13291.0,
-        "premium_peak": 13291.0
+        "history_max": 13533.0,
+        "premium_peak": 13533.0
       },
       "Trendy Aspendos Beach": {
         "history_max": 14045.0,
