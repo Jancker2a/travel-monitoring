@@ -650,10 +650,36 @@
       "created_at": "2026-09-29T18:47:51.118879+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Kiani Beach Grecja, Kreta Zachodnia, Kiani Akti_2026-09-29_18-46_zone_out_gone"
+    },
+    {
+      "hotel_name": "Almyra Village Grecja, Kreta Wschodnia, Koutsounari",
+      "duration_bucket": "",
+      "old_price": 6057.0,
+      "new_price": 6957.0,
+      "price_change": 900.0,
+      "price_change_pct": 14.85884101040119,
+      "timestamp": "2026-09-30 02:16:26.933771+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-09-30T02:17:24.445405+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Almyra Village Grecja, Kreta Wschodnia, Koutsounari_2026-09-30_02-16_+14.9"
+    },
+    {
+      "hotel_name": "Aquila Rithymna Beach Grecja, Kreta Zachodnia, Adelianos Kampos",
+      "duration_bucket": "",
+      "old_price": 4733.0,
+      "new_price": 4733.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-09-30 02:16:26.933771+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-30T02:17:24.445442+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Aquila Rithymna Beach Grecja, Kreta Zachodnia, Adelianos Kampos_2026-09-30_02-16_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-29T18:46:55.141802+00:00",
+    "last_processed_run": "2026-09-30T02:16:26.933771+00:00",
     "premium_state": {
       "Ajul Luxury & Spa Resort (Ayios Nikolaos) Grecja, Chalkidiki, Loutra": {
         "history_max": 9087.0,
@@ -856,8 +882,8 @@
         "premium_peak": null
       },
       "Mitsis Selection Laguna": {
-        "history_max": 11475.0,
-        "premium_peak": 11475.0
+        "history_max": 11485.0,
+        "premium_peak": 11485.0
       },
       "Knossos Beach": {
         "history_max": 14011.0,
@@ -1184,8 +1210,8 @@
         "premium_peak": 13277.0
       },
       "Rodos Palace": {
-        "history_max": 11031.0,
-        "premium_peak": 11031.0
+        "history_max": 11349.0,
+        "premium_peak": 11349.0
       },
       "Levante Beach Resort By Playitas Grecja, Rodos, Afandu": {
         "history_max": 8503.0,
@@ -1198,6 +1224,26 @@
       "Stella Palace Aqua Park Resort Grecja, Kreta Wschodnia, Analipsis": {
         "history_max": 8658.0,
         "premium_peak": null
+      },
+      "Sentido Asterias Beach Resort Grecja, Rodos, Afandou": {
+        "history_max": 8256.0,
+        "premium_peak": null
+      },
+      "Aquila Porto Rethymno": {
+        "history_max": 15479.0,
+        "premium_peak": 15479.0
+      },
+      "Bella Beach": {
+        "history_max": 12820.0,
+        "premium_peak": 12820.0
+      },
+      "Electra Palace (Ialyssos)": {
+        "history_max": 11929.0,
+        "premium_peak": 11929.0
+      },
+      "Mayia Exclusive Resort & Spa": {
+        "history_max": 17414.0,
+        "premium_peak": 17414.0
       }
     }
   }

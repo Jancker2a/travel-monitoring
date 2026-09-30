@@ -156,18 +156,70 @@
       "created_at": "2026-09-29T18:47:50.154348+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Summer Beach Grecja, Kreta Zachodnia, Georgioupolis_2026-09-29_18-46_zone_out_+31.2"
+    },
+    {
+      "hotel_name": "Sandy Beach Faliraki by Sun Palace Grecja, Rodos, Faliraki",
+      "duration_bucket": "",
+      "old_price": 9244.0,
+      "new_price": 8253.0,
+      "price_change": -991.0,
+      "price_change_pct": -10.720467330160103,
+      "timestamp": "2026-09-30 02:16:36.826270+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-30T02:17:32.968910+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sandy Beach Faliraki by Sun Palace Grecja, Rodos, Faliraki_2026-09-30_02-16_-10.7"
+    },
+    {
+      "hotel_name": "Olive Garden Grecja, Rodos, Lardos",
+      "duration_bucket": "",
+      "old_price": 9405.0,
+      "new_price": 8436.0,
+      "price_change": -969.0,
+      "price_change_pct": -10.303030303030303,
+      "timestamp": "2026-09-30 02:16:36.826270+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-30T02:17:32.968937+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Olive Garden Grecja, Rodos, Lardos_2026-09-30_02-16_-10.3"
+    },
+    {
+      "hotel_name": "Apollo (Georgioupolis) Grecja, Kreta Zachodnia, Georgioupolis",
+      "duration_bucket": "",
+      "old_price": 9640.0,
+      "new_price": 10200.0,
+      "price_change": 560.0,
+      "price_change_pct": 5.809128630705394,
+      "timestamp": "2026-09-30 02:16:36.826270+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-30T02:17:32.968955+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Apollo (Georgioupolis) Grecja, Kreta Zachodnia, Georgioupolis_2026-09-30_02-16_zone_out_+5.8"
+    },
+    {
+      "hotel_name": "Michelangelo Resort Grecja, Korfu",
+      "duration_bucket": "",
+      "old_price": 9552.0,
+      "new_price": 10092.0,
+      "price_change": 540.0,
+      "price_change_pct": 5.653266331658291,
+      "timestamp": "2026-09-30 02:16:36.826270+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-30T02:17:32.968965+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Michelangelo Resort Grecja, Korfu_2026-09-30_02-16_zone_out_+5.7"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-29T18:46:59.647524+00:00",
+    "last_processed_run": "2026-09-30T02:16:36.826270+00:00",
     "premium_state": {
       "Acrotel Elea Beach (ex Elea Village)": {
-        "history_max": 14234.0,
-        "premium_peak": 14234.0
+        "history_max": 14527.0,
+        "premium_peak": 14527.0
       },
       "Lagomandra Hotel & Spa": {
-        "history_max": 12702.0,
-        "premium_peak": 12702.0
+        "history_max": 12822.0,
+        "premium_peak": 12822.0
       },
       "Lindos Imperial Resort & Spa": {
         "history_max": 18357.0,
@@ -326,8 +378,8 @@
         "premium_peak": 15244.0
       },
       "Star Beach Village": {
-        "history_max": 15177.0,
-        "premium_peak": 15177.0
+        "history_max": 15457.0,
+        "premium_peak": 15457.0
       },
       "Stella Palace Aqua Park Resort": {
         "history_max": 17894.0,
@@ -362,8 +414,8 @@
         "premium_peak": 15421.0
       },
       "Tigaki Beach": {
-        "history_max": 14028.0,
-        "premium_peak": 14028.0
+        "history_max": 14211.0,
+        "premium_peak": 14211.0
       },
       "Tsilivi Beach Grecja, Zakynthos, Planos": {
         "history_max": 11784.0,
@@ -442,8 +494,8 @@
         "premium_peak": 14907.0
       },
       "Potidea Palace": {
-        "history_max": 16847.0,
-        "premium_peak": 16847.0
+        "history_max": 17095.0,
+        "premium_peak": 17095.0
       },
       "Princess Andriana Resort & Spa": {
         "history_max": 18050.0,
@@ -474,8 +526,8 @@
         "premium_peak": 13957.0
       },
       "Eri Beach & Village": {
-        "history_max": 13493.0,
-        "premium_peak": 13493.0
+        "history_max": 14033.0,
+        "premium_peak": 14033.0
       },
       "Alia Palace": {
         "history_max": 19807.0,
@@ -518,8 +570,8 @@
         "premium_peak": 10260.0
       },
       "Castellum Suites (ex Continental Apartments)": {
-        "history_max": 13017.0,
-        "premium_peak": 13017.0
+        "history_max": 13517.0,
+        "premium_peak": 13517.0
       },
       "Almyrida Village & Water Park (ex. Langley Resort Almirida Bay)": {
         "history_max": 12337.0,
@@ -530,20 +582,20 @@
         "premium_peak": null
       },
       "Caretta Paradise Grecja, Zakynthos, Tragaki": {
-        "history_max": 8661.0,
+        "history_max": 8702.0,
         "premium_peak": null
       },
       "Anissa Beach & Village": {
-        "history_max": 18250.0,
-        "premium_peak": 18250.0
+        "history_max": 18994.0,
+        "premium_peak": 18994.0
       },
       "Amus": {
         "history_max": 18746.0,
         "premium_peak": 18746.0
       },
       "Eri Beach Grecja, Kreta Wschodnia, Hersonissos": {
-        "history_max": 10348.0,
-        "premium_peak": 10348.0
+        "history_max": 11387.0,
+        "premium_peak": 11387.0
       },
       "Alexander House Grecja, Kreta Wschodnia, Agia Pelagia": {
         "history_max": 10412.0,
@@ -700,6 +752,38 @@
       "Olive Garden Grecja, Rodos, Lardos": {
         "history_max": 9405.0,
         "premium_peak": null
+      },
+      "Corfu Acharavi Collection by Wyndham": {
+        "history_max": 11557.0,
+        "premium_peak": 11557.0
+      },
+      "Sunshine Corfu & Spa": {
+        "history_max": 11658.0,
+        "premium_peak": 11658.0
+      },
+      "Evita Bay Grecja, Rodos, Faliraki": {
+        "history_max": 8517.0,
+        "premium_peak": null
+      },
+      "Blue Bay Resort": {
+        "history_max": 17460.0,
+        "premium_peak": 17460.0
+      },
+      "Semiramis Village Grecja, Kreta Wschodnia, Hersonissos": {
+        "history_max": 11221.0,
+        "premium_peak": 11221.0
+      },
+      "Annabelle Beach Resort (ex. AKS Annabelle Beach Resort)": {
+        "history_max": 16539.0,
+        "premium_peak": 16539.0
+      },
+      "Silva Beach": {
+        "history_max": 17551.0,
+        "premium_peak": 17551.0
+      },
+      "Hersonissos Village": {
+        "history_max": 12246.0,
+        "premium_peak": 12246.0
       }
     }
   }
