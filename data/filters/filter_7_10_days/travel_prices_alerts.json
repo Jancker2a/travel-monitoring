@@ -546,13 +546,78 @@
       "created_at": "2026-09-30T02:15:00.630316+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Double Tree by Hilton Mangroovy El Gouna Resort_2026-09-30_02-14_comeback_10.9"
+    },
+    {
+      "hotel_name": "Gravity Hotel & Aquapark Hurghada (ex. Samra Bay Resort)",
+      "duration_bucket": "",
+      "old_price": 9151.0,
+      "new_price": 8384.0,
+      "price_change": -767.0,
+      "price_change_pct": -8.38159763960223,
+      "timestamp": "2026-09-30 08:11:19.154339+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-30T08:11:42.922007+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Gravity Hotel & Aquapark Hurghada (ex. Samra Bay Resort)_2026-09-30_08-11_-8.4"
+    },
+    {
+      "hotel_name": "Stella Gardens Resort & Spa (ex Stella Di Mare Gardens)",
+      "duration_bucket": "",
+      "old_price": 8763.0,
+      "new_price": 8015.0,
+      "price_change": -748.0,
+      "price_change_pct": -8.535889535547186,
+      "timestamp": "2026-09-30 08:11:19.154339+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-30T08:11:42.922027+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Stella Gardens Resort & Spa (ex Stella Di Mare Gardens)_2026-09-30_08-11_-8.5"
+    },
+    {
+      "hotel_name": "IL Mercato Splash Aqua Park",
+      "duration_bucket": "",
+      "old_price": 8364.0,
+      "new_price": 6766.0,
+      "price_change": -1598.0,
+      "price_change_pct": -19.10569105691057,
+      "timestamp": "2026-09-30 08:11:19.154339+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-30T08:11:42.922034+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "IL Mercato Splash Aqua Park_2026-09-30_08-11_-19.1"
+    },
+    {
+      "hotel_name": "Gravity Sahl Hasheesh (Ex. Ocean Breeze)",
+      "duration_bucket": "",
+      "old_price": 9214.0,
+      "new_price": 10454.0,
+      "price_change": 1240.0,
+      "price_change_pct": 13.457781636639895,
+      "timestamp": "2026-09-30 08:11:19.154339+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-30T08:11:42.922045+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Gravity Sahl Hasheesh (Ex. Ocean Breeze)_2026-09-30_08-11_zone_out_+13.5"
+    },
+    {
+      "hotel_name": "Pickalbatros White Beach Resort",
+      "duration_bucket": "",
+      "old_price": 11762.0,
+      "new_price": 9888.0,
+      "price_change": -1874.0,
+      "price_change_pct": -15.932664512837952,
+      "timestamp": "2026-09-30 08:11:19.154339+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-30T08:11:42.922058+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros White Beach Resort_2026-09-30_08-11_comeback_15.9"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-30T02:14:26.288155+00:00",
+    "last_processed_run": "2026-09-30T08:11:19.154339+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
-        "history_max": 9617.0,
+        "history_max": 9637.0,
         "premium_peak": null
       },
       "Pickalbatros Luxury Suites": {
@@ -596,12 +661,12 @@
         "premium_peak": 11762.0
       },
       "Radisson Individuals Marina Port Ghalib (ex. Sunrise Marina Resort)": {
-        "history_max": 10570.0,
-        "premium_peak": 10570.0
+        "history_max": 10740.0,
+        "premium_peak": 10740.0
       },
       "Red Sea Grand Makadi (Makadi Bay)": {
-        "history_max": 10628.0,
-        "premium_peak": 10628.0
+        "history_max": 10870.0,
+        "premium_peak": 10870.0
       },
       "Red Sea Grand Waterworld Makadi (ex. Sunwing Waterworld Makadi)": {
         "history_max": 9102.0,
@@ -784,12 +849,12 @@
         "premium_peak": 12241.0
       },
       "Sunrise Select Garden Beach Resort & Spa": {
-        "history_max": 11295.0,
-        "premium_peak": 11295.0
+        "history_max": 11457.0,
+        "premium_peak": 11457.0
       },
       "Sunrise Tucana Resort": {
-        "history_max": 17231.0,
-        "premium_peak": 17231.0
+        "history_max": 17393.0,
+        "premium_peak": 17393.0
       },
       "Sunrise White Hills Resort": {
         "history_max": 15822.0,
@@ -872,8 +937,8 @@
         "premium_peak": 15411.0
       },
       "Sunrise Crystal Bay Resort": {
-        "history_max": 16770.0,
-        "premium_peak": 16770.0
+        "history_max": 16869.0,
+        "premium_peak": 16869.0
       },
       "Sunrise Aqua Joy": {
         "history_max": 12917.0,
@@ -908,7 +973,7 @@
         "premium_peak": 10843.0
       },
       "Serenity Alpha Beach (ex. Serenity Makadi Beach)": {
-        "history_max": 9392.0,
+        "history_max": 9554.0,
         "premium_peak": null
       },
       "Serenity Sky Arc": {
@@ -916,8 +981,8 @@
         "premium_peak": 12204.0
       },
       "Serry Beach Resort": {
-        "history_max": 14940.0,
-        "premium_peak": 14940.0
+        "history_max": 15102.0,
+        "premium_peak": 15102.0
       },
       "Seven Seas Jolie Bay": {
         "history_max": 10511.0,
@@ -932,8 +997,8 @@
         "premium_peak": null
       },
       "Sheraton Soma Bay": {
-        "history_max": 12866.0,
-        "premium_peak": 12866.0
+        "history_max": 13068.0,
+        "premium_peak": 13068.0
       },
       "Sirena Beach Resort & Spa": {
         "history_max": 10053.0,
@@ -988,8 +1053,8 @@
         "premium_peak": 11759.0
       },
       "Continental (ex Movenpick Resort)": {
-        "history_max": 10674.0,
-        "premium_peak": 10674.0
+        "history_max": 10836.0,
+        "premium_peak": 10836.0
       },
       "Creek Hotel and Residences": {
         "history_max": 8213.0,
@@ -1108,7 +1173,7 @@
         "premium_peak": null
       },
       "Amarina Queen Resort": {
-        "history_max": 8179.0,
+        "history_max": 8278.0,
         "premium_peak": null
       },
       "Amphoras Beach": {

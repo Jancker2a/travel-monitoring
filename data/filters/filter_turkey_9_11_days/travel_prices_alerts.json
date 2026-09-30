@@ -1573,10 +1573,75 @@
       "created_at": "2026-09-30T02:16:35.948304+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Seher Sun Palace Resort & Spa_2026-09-30_02-15_comeback_10.8"
+    },
+    {
+      "hotel_name": "Miarosa Beach (Kemer)",
+      "duration_bucket": "",
+      "old_price": 8627.0,
+      "new_price": 7497.0,
+      "price_change": -1130.0,
+      "price_change_pct": -13.09841196244349,
+      "timestamp": "2026-09-30 08:12:13.594995+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-09-30T08:12:49.216588+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Miarosa Beach (Kemer)_2026-09-30_08-12_-13.1"
+    },
+    {
+      "hotel_name": "Crystal Sunset Pearl Collection (ex Crystal Sunset Luxury Resort)",
+      "duration_bucket": "",
+      "old_price": 9644.0,
+      "new_price": 11961.0,
+      "price_change": 2317.0,
+      "price_change_pct": 24.025300705101618,
+      "timestamp": "2026-09-30 08:12:13.594995+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-09-30T08:12:49.216625+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Crystal Sunset Pearl Collection (ex Crystal Sunset Luxury Resort)_2026-09-30_08-12_zone_out_+24.0"
+    },
+    {
+      "hotel_name": "Royal Atlantis Icon",
+      "duration_bucket": "",
+      "old_price": 10769.0,
+      "new_price": 9541.0,
+      "price_change": -1228.0,
+      "price_change_pct": -11.403101495032036,
+      "timestamp": "2026-09-30 08:12:13.594995+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-30T08:12:49.216645+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Royal Atlantis Icon_2026-09-30_08-12_comeback_11.4"
+    },
+    {
+      "hotel_name": "Mary Side (ex. Mary Palace)",
+      "duration_bucket": "",
+      "old_price": 11005.0,
+      "new_price": 9323.0,
+      "price_change": -1682.0,
+      "price_change_pct": -15.283961835529306,
+      "timestamp": "2026-09-30 08:12:13.594995+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-30T08:12:49.216653+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Mary Side (ex. Mary Palace)_2026-09-30_08-12_comeback_15.3"
+    },
+    {
+      "hotel_name": "Sy Belek Boutique Luxury",
+      "duration_bucket": "",
+      "old_price": 11697.0,
+      "new_price": 9977.0,
+      "price_change": -1720.0,
+      "price_change_pct": -14.70462511755151,
+      "timestamp": "2026-09-30 08:12:13.594995+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-09-30T08:12:49.216659+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sy Belek Boutique Luxury_2026-09-30_08-12_comeback_14.7"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-30T02:15:34.294855+00:00",
+    "last_processed_run": "2026-09-30T08:12:13.594995+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 9500.0,
@@ -1803,8 +1868,8 @@
         "premium_peak": 12360.0
       },
       "Dobedan Beach Resort Comfort (ex. Alva Donna Beach Resort)": {
-        "history_max": 12338.0,
-        "premium_peak": 12338.0
+        "history_max": 13260.0,
+        "premium_peak": 13260.0
       },
       "Dizalya Palm Garden": {
         "history_max": 12072.0,
@@ -2203,8 +2268,8 @@
         "premium_peak": 11005.0
       },
       "Mary Alanya (ex. Sirius Deluxe)": {
-        "history_max": 11376.0,
-        "premium_peak": 11376.0
+        "history_max": 11466.0,
+        "premium_peak": 11466.0
       },
       "Royal Seginus": {
         "history_max": 11979.0,
@@ -2595,8 +2660,8 @@
         "premium_peak": 11158.0
       },
       "Crystal Sunset Pearl Collection (ex Crystal Sunset Luxury Resort)": {
-        "history_max": 11129.0,
-        "premium_peak": 11129.0
+        "history_max": 11961.0,
+        "premium_peak": 11961.0
       },
       "Adora Hotel & Resort (ex. Adora Golf)": {
         "history_max": 11907.0,
@@ -2615,7 +2680,7 @@
         "premium_peak": null
       },
       "Crystal World of Colours Comfort Collection": {
-        "history_max": 9095.0,
+        "history_max": 9585.0,
         "premium_peak": null
       },
       "Starlight Resort & Convention Center (Side)": {
@@ -2663,8 +2728,8 @@
         "premium_peak": null
       },
       "Adalya Ocean Deluxe": {
-        "history_max": 11472.0,
-        "premium_peak": 11472.0
+        "history_max": 12229.0,
+        "premium_peak": 12229.0
       },
       "Daima Biz (Kemer)": {
         "history_max": 8273.0,
@@ -2783,8 +2848,8 @@
         "premium_peak": 14779.0
       },
       "Yasmin Resort": {
-        "history_max": 12150.0,
-        "premium_peak": 12150.0
+        "history_max": 16341.0,
+        "premium_peak": 16341.0
       },
       "Venosa Beach Resort": {
         "history_max": 10989.0,
@@ -2807,8 +2872,8 @@
         "premium_peak": 10423.0
       },
       "Sailors Beach Club": {
-        "history_max": 14675.0,
-        "premium_peak": 14675.0
+        "history_max": 14837.0,
+        "premium_peak": 14837.0
       },
       "Kahya Resort Aqua & Spa": {
         "history_max": 10909.0,
@@ -2951,8 +3016,8 @@
         "premium_peak": 16789.0
       },
       "Side Star Resort": {
-        "history_max": 16085.0,
-        "premium_peak": 16085.0
+        "history_max": 16470.0,
+        "premium_peak": 16470.0
       },
       "Paloma Grida": {
         "history_max": 16775.0,
@@ -2977,6 +3042,14 @@
       "Royal Holiday Palace": {
         "history_max": 15791.0,
         "premium_peak": 15791.0
+      },
+      "Infinity by Yelken": {
+        "history_max": 12171.0,
+        "premium_peak": 12171.0
+      },
+      "Aqua Fantasy": {
+        "history_max": 16634.0,
+        "premium_peak": 16634.0
       }
     }
   }
