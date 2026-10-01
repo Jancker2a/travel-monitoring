@@ -949,10 +949,88 @@
       "created_at": "2026-10-01T00:40:56.188284+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Xperience Sea Breeze Egipt, Sharm El Sheikh_2026-10-01_00-40_zone_out_gone"
+    },
+    {
+      "hotel_name": "Amwaj Oyoun Resort & Spa (ex AA Amwaj Resort) Egipt, Sharm El Sheikh",
+      "duration_bucket": "",
+      "old_price": 10719.0,
+      "new_price": 9059.0,
+      "price_change": -1660.0,
+      "price_change_pct": -15.486519264856796,
+      "timestamp": "2026-10-01 20:27:23.978719+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-01T20:27:39.505336+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amwaj Oyoun Resort & Spa (ex AA Amwaj Resort) Egipt, Sharm El Sheikh_2026-10-01_20-27_-15.5"
+    },
+    {
+      "hotel_name": "Xperience Kiroseiz Parkland Egipt, Sharm El Sheikh",
+      "duration_bucket": "",
+      "old_price": 10859.0,
+      "new_price": 9823.0,
+      "price_change": -1036.0,
+      "price_change_pct": -9.540473340086564,
+      "timestamp": "2026-10-01 20:27:23.978719+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-01T20:27:39.505364+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xperience Kiroseiz Parkland Egipt, Sharm El Sheikh_2026-10-01_20-27_-9.5"
+    },
+    {
+      "hotel_name": "Xperience Kiroseiz Premier Egipt, Sharm El Sheikh",
+      "duration_bucket": "",
+      "old_price": 10531.0,
+      "new_price": 9493.0,
+      "price_change": -1038.0,
+      "price_change_pct": -9.856613806855949,
+      "timestamp": "2026-10-01 20:27:23.978719+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-01T20:27:39.505375+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xperience Kiroseiz Premier Egipt, Sharm El Sheikh_2026-10-01_20-27_-9.9"
+    },
+    {
+      "hotel_name": "Parrotel Lagoon Resort Egipt, Sharm El Sheikh, Szarm el-Szejk",
+      "duration_bucket": "",
+      "old_price": 9770.0,
+      "new_price": 8870.0,
+      "price_change": -900.0,
+      "price_change_pct": -9.211873080859775,
+      "timestamp": "2026-10-01 20:27:23.978719+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-01T20:27:39.505384+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Parrotel Lagoon Resort Egipt, Sharm El Sheikh, Szarm el-Szejk_2026-10-01_20-27_-9.2"
+    },
+    {
+      "hotel_name": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 9908.0,
+      "new_price": 9908.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-01 20:27:23.978719+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-01T20:27:39.505397+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada_2026-10-01_20-27_zone_out_gone"
+    },
+    {
+      "hotel_name": "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort) Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 10247.0,
+      "new_price": 10247.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-01 20:27:23.978719+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-01T20:27:39.505404+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort) Egipt, Hurghada_2026-10-01_20-27_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-01T00:40:40.473273+00:00",
+    "last_processed_run": "2026-10-01T20:27:23.978719+00:00",
     "premium_state": {
       "Amwaj Oyoun Resort & Spa (ex AA Amwaj Resort) Egipt, Sharm El Sheikh": {
         "history_max": 10719.0,
@@ -1031,7 +1109,7 @@
         "premium_peak": null
       },
       "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna": {
-        "history_max": 10317.0,
+        "history_max": 10386.0,
         "premium_peak": null
       },
       "El Malikia Resort Abu Dabbab (ex.Sol Y Mar) Egipt, Marsa Alam": {
@@ -1075,7 +1153,7 @@
         "premium_peak": null
       },
       "Xperience Sea Breeze Egipt, Sharm El Sheikh": {
-        "history_max": 10086.0,
+        "history_max": 10153.0,
         "premium_peak": null
       },
       "Bellagio Beach Resort & Spa (ex. Panorama Bungalows Hurghada) Egipt, Hurghada": {
@@ -1091,7 +1169,7 @@
         "premium_peak": null
       },
       "Naama Bay Promenade Mountain Resort Egipt, Sharm El Sheikh, Szarm el-Szejk": {
-        "history_max": 9566.0,
+        "history_max": 10634.0,
         "premium_peak": null
       },
       "Naama Bay Promenade Beach Resort Egipt, Sharm El Sheikh, Szarm el-Szejk": {
@@ -1103,7 +1181,7 @@
         "premium_peak": null
       },
       "Domina Coral Bay Oasis Egipt, Sharm El Sheikh": {
-        "history_max": 10042.0,
+        "history_max": 10108.0,
         "premium_peak": null
       },
       "Titanic Palace Resort Egipt, Hurghada": {
@@ -1111,11 +1189,23 @@
         "premium_peak": null
       },
       "Royal Regency Club Egipt, Sharm El Sheikh, Szarm el-Szejk": {
-        "history_max": 9980.0,
+        "history_max": 10419.0,
         "premium_peak": null
       },
       "Continental Resort (ex Movenpick Resort) Egipt, Hurghada": {
         "history_max": 10437.0,
+        "premium_peak": null
+      },
+      "Sharm Grand Plaza Resort Egipt, Sharm El Sheikh": {
+        "history_max": 10240.0,
+        "premium_peak": null
+      },
+      "Domina Coral Bay Bellavista Egipt, Sharm El Sheikh, Szarm el-Szejk": {
+        "history_max": 10963.0,
+        "premium_peak": null
+      },
+      "Charmillion Club Aqua Park (ex Sea Club Aqua Park) Egipt, Sharm El Sheikh, Szarm el-Szejk": {
+        "history_max": 10758.0,
         "premium_peak": null
       }
     }
