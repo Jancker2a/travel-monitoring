@@ -910,10 +910,49 @@
       "created_at": "2026-09-30T20:58:37.921525+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Hersonissos Palace_2026-09-30_20-57_comeback_9.2"
+    },
+    {
+      "hotel_name": "Lindos Royal (ex. COOEE) Grecja, Rodos, Lindos",
+      "duration_bucket": "",
+      "old_price": 5026.0,
+      "new_price": 6278.0,
+      "price_change": 1252.0,
+      "price_change_pct": 24.910465578989253,
+      "timestamp": "2026-10-01 00:41:30.129027+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-01T00:42:11.219832+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Lindos Royal (ex. COOEE) Grecja, Rodos, Lindos_2026-10-01_00-41_+24.9"
+    },
+    {
+      "hotel_name": "Galini Palace Grecja, Kreta Zachodnia, Kolymvari",
+      "duration_bucket": "",
+      "old_price": 7928.0,
+      "new_price": 7281.0,
+      "price_change": -647.0,
+      "price_change_pct": -8.160948536831484,
+      "timestamp": "2026-10-01 00:41:30.129027+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-01T00:42:11.219850+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Galini Palace Grecja, Kreta Zachodnia, Kolymvari_2026-10-01_00-41_-8.2"
+    },
+    {
+      "hotel_name": "Mitsis Norida",
+      "duration_bucket": "",
+      "old_price": 9869.0,
+      "new_price": 8726.0,
+      "price_change": -1143.0,
+      "price_change_pct": -11.581720539061708,
+      "timestamp": "2026-10-01 00:41:30.129027+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-01T00:42:11.219857+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Mitsis Norida_2026-10-01_00-41_-11.6"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-30T20:57:35.560305+00:00",
+    "last_processed_run": "2026-10-01T00:41:30.129027+00:00",
     "premium_state": {
       "Ajul Luxury & Spa Resort (Ayios Nikolaos) Grecja, Chalkidiki, Loutra": {
         "history_max": 9087.0,
@@ -1300,8 +1339,8 @@
         "premium_peak": 11923.0
       },
       "Mitsis Faliraki": {
-        "history_max": 13222.0,
-        "premium_peak": 13222.0
+        "history_max": 13375.0,
+        "premium_peak": 13375.0
       },
       "Creta Maris Beach Resort (ex Terra Maris)": {
         "history_max": 15957.0,
@@ -1488,7 +1527,7 @@
         "premium_peak": null
       },
       "Blue Lagoon Village": {
-        "history_max": 8397.0,
+        "history_max": 8481.0,
         "premium_peak": null
       },
       "Possidi Holidays": {

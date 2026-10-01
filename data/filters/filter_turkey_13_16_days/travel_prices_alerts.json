@@ -221,10 +221,62 @@
       "created_at": "2026-09-30T20:57:55.505450+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Avia Resort & Spa_2026-09-30_20-56_comeback_21.0"
+    },
+    {
+      "hotel_name": "Amelia Beach Resort & Spa Turcja, Side, Kizilot",
+      "duration_bucket": "",
+      "old_price": 9777.0,
+      "new_price": 9777.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-01 00:40:56.727947+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-01T00:41:35.473845+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amelia Beach Resort & Spa Turcja, Side, Kizilot_2026-10-01_00-40_zone_out_gone"
+    },
+    {
+      "hotel_name": "Holiday Garden Resort (Okurcalar) Turcja, Alanya, Okurcalar",
+      "duration_bucket": "",
+      "old_price": 9797.0,
+      "new_price": 9797.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-01 00:40:56.727947+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-01T00:41:35.473862+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Holiday Garden Resort (Okurcalar) Turcja, Alanya, Okurcalar_2026-10-01_00-40_zone_out_gone"
+    },
+    {
+      "hotel_name": "Ring Beach Turcja, Kemer, Beldibi",
+      "duration_bucket": "",
+      "old_price": 9788.0,
+      "new_price": 9788.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-01 00:40:56.727947+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-01T00:41:35.473868+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Ring Beach Turcja, Kemer, Beldibi_2026-10-01_00-40_zone_out_gone"
+    },
+    {
+      "hotel_name": "Vita Silva",
+      "duration_bucket": "",
+      "old_price": 11913.0,
+      "new_price": 9777.0,
+      "price_change": -2136.0,
+      "price_change_pct": -17.929992445227903,
+      "timestamp": "2026-10-01 00:40:56.727947+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-01T00:41:35.473881+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Vita Silva_2026-10-01_00-40_comeback_17.9"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-09-30T20:56:45.668368+00:00",
+    "last_processed_run": "2026-10-01T00:40:56.727947+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 12199.0,
@@ -291,16 +343,16 @@
         "premium_peak": 17118.0
       },
       "Granada Luxury Belek": {
-        "history_max": 16261.0,
-        "premium_peak": 16261.0
+        "history_max": 16336.0,
+        "premium_peak": 16336.0
       },
       "Selectum Colours Side": {
         "history_max": 18284.0,
         "premium_peak": 18284.0
       },
       "Infinity by Yelken": {
-        "history_max": 12509.0,
-        "premium_peak": 12509.0
+        "history_max": 12609.0,
+        "premium_peak": 12609.0
       },
       "Kaya Izmir Thermal & Convention": {
         "history_max": 15777.0,
@@ -1183,8 +1235,8 @@
         "premium_peak": 17057.0
       },
       "Spice": {
-        "history_max": 18666.0,
-        "premium_peak": 18666.0
+        "history_max": 18891.0,
+        "premium_peak": 18891.0
       },
       "Cenger Blue Collection": {
         "history_max": 11655.0,
@@ -1339,8 +1391,8 @@
         "premium_peak": 12912.0
       },
       "DoubleTree by Hilton Antalya Kemer": {
-        "history_max": 19935.0,
-        "premium_peak": 19935.0
+        "history_max": 19940.0,
+        "premium_peak": 19940.0
       },
       "Seaden Sea World Resort & Spa": {
         "history_max": 14657.0,
@@ -1431,8 +1483,8 @@
         "premium_peak": 15695.0
       },
       "IC Green Palace": {
-        "history_max": 19086.0,
-        "premium_peak": 19086.0
+        "history_max": 19525.0,
+        "premium_peak": 19525.0
       },
       "Adalya Elite Lara": {
         "history_max": 18883.0,
@@ -1465,6 +1517,50 @@
       "Transatlantik (Kemer)": {
         "history_max": 10013.0,
         "premium_peak": 10013.0
+      },
+      "Blue Marlin Deluxe Spa & Resort": {
+        "history_max": 13650.0,
+        "premium_peak": 13650.0
+      },
+      "Fame Residence (Göynük)": {
+        "history_max": 19450.0,
+        "premium_peak": 19450.0
+      },
+      "Gold City Turcja, Alanya, Kargicak": {
+        "history_max": 9482.0,
+        "premium_peak": null
+      },
+      "Ring Beach (Kemer)": {
+        "history_max": 9788.0,
+        "premium_peak": null
+      },
+      "Port Side Resort": {
+        "history_max": 15983.0,
+        "premium_peak": 15983.0
+      },
+      "Asia Beach Resort and Spa": {
+        "history_max": 12746.0,
+        "premium_peak": 12746.0
+      },
+      "Side Mare Resort": {
+        "history_max": 16238.0,
+        "premium_peak": 16238.0
+      },
+      "Sun Star Resort Turcja, Alanya, Mahmutlar": {
+        "history_max": 7901.0,
+        "premium_peak": null
+      },
+      "Sentido Lycus Beach (ex. Lti)": {
+        "history_max": 10763.0,
+        "premium_peak": 10763.0
+      },
+      "Alaiye Resort & Spa": {
+        "history_max": 10722.0,
+        "premium_peak": 10722.0
+      },
+      "Mary Side (ex. Mary Palace)": {
+        "history_max": 17682.0,
+        "premium_peak": 17682.0
       }
     }
   }
