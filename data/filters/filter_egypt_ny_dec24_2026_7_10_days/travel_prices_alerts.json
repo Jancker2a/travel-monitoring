@@ -169,17 +169,43 @@
       "created_at": "2026-10-03T16:34:30.766117+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Stella Di Mare Beach Resort & Spa (ex. Stella Makadi Resort) Egipt, Hurghada, Makadi Bay_2026-10-03_16-34_zone_out_gone"
+    },
+    {
+      "hotel_name": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 10069.0,
+      "new_price": 8769.0,
+      "price_change": -1300.0,
+      "price_change_pct": -12.910914688648326,
+      "timestamp": "2026-10-03 20:03:43.052011+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-03T20:03:58.535726+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada_2026-10-03_20-03_-12.9"
+    },
+    {
+      "hotel_name": "Naama Bay Promenade Mountain Resort Egipt, Sharm El Sheikh, Szarm el-Szejk",
+      "duration_bucket": "",
+      "old_price": 10784.0,
+      "new_price": 10784.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-03 20:03:43.052011+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-03T20:03:58.535770+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Naama Bay Promenade Mountain Resort Egipt, Sharm El Sheikh, Szarm el-Szejk_2026-10-03_20-03_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-03T16:34:15.955784+00:00",
+    "last_processed_run": "2026-10-03T20:03:43.052011+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 10069.0,
         "premium_peak": null
       },
       "Rewaya Majestic Resort Egipt, Hurghada": {
-        "history_max": 8987.0,
+        "history_max": 9320.0,
         "premium_peak": null
       },
       "Rewaya Luxury Resort Egipt, Hurghada": {
@@ -191,11 +217,11 @@
         "premium_peak": null
       },
       "Regency Plaza Aqua Park Spa Egipt, Sharm El Sheikh, Szarm el-Szejk": {
-        "history_max": 10282.0,
+        "history_max": 10607.0,
         "premium_peak": null
       },
       "Xperience Sea Breeze Egipt, Sharm El Sheikh": {
-        "history_max": 10736.0,
+        "history_max": 10907.0,
         "premium_peak": null
       },
       "Red Sea Grand Waterworld Makadi (ex. Sunwing Waterworld Makadi) Egipt, Hurghada, Makadi Bay": {
@@ -207,7 +233,7 @@
         "premium_peak": null
       },
       "Parrotel Lagoon Resort Egipt, Sharm El Sheikh, Szarm el-Szejk": {
-        "history_max": 9020.0,
+        "history_max": 9620.0,
         "premium_peak": null
       },
       "Park Regency (ex. Hyatt) Egipt, Sharm El Sheikh": {
@@ -219,7 +245,7 @@
         "premium_peak": null
       },
       "Park Inn (Sharm El Sheikh) Egipt, Sharm El Sheikh": {
-        "history_max": 10624.0,
+        "history_max": 10629.0,
         "premium_peak": null
       },
       "Naama Bay Promenade Mountain Resort Egipt, Sharm El Sheikh, Szarm el-Szejk": {
@@ -239,7 +265,7 @@
         "premium_peak": null
       },
       "Xperience Kiroseiz Premier Egipt, Sharm El Sheikh": {
-        "history_max": 10074.0,
+        "history_max": 10493.0,
         "premium_peak": null
       },
       "IL Mercato (ex. Iberotel Il Mercato) Egipt, Sharm El Sheikh": {
@@ -255,7 +281,7 @@
         "premium_peak": null
       },
       "Xperience Kiroseiz Parkland Egipt, Sharm El Sheikh": {
-        "history_max": 10404.0,
+        "history_max": 10823.0,
         "premium_peak": null
       },
       "Royal Regency Club Egipt, Sharm El Sheikh, Szarm el-Szejk": {

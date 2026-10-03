@@ -1,8 +1,35 @@
 {
   "version": 2,
-  "alerts": [],
+  "alerts": [
+    {
+      "hotel_name": "Armas Bella Sun (ex.Club Bella Sun)",
+      "duration_bucket": "",
+      "old_price": 9751.0,
+      "new_price": 9751.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-03 20:04:14.825673+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-03T20:05:12.233886+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Armas Bella Sun (ex.Club Bella Sun)_2026-10-03_20-04_zone_out_gone"
+    },
+    {
+      "hotel_name": "Campus Hill Turcja, Alanya",
+      "duration_bucket": "",
+      "old_price": 8231.0,
+      "new_price": 8231.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-03 20:04:14.825673+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-03T20:05:12.233915+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Campus Hill Turcja, Alanya_2026-10-03_20-04_zone_out_gone"
+    }
+  ],
   "meta": {
-    "last_processed_run": "2026-10-03T16:34:41.092136+00:00",
+    "last_processed_run": "2026-10-03T20:04:14.825673+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 12473.0,
@@ -137,8 +164,8 @@
         "premium_peak": 11012.0
       },
       "Selectum Family Resort (ex Letoonia Golf Resort)": {
-        "history_max": 16808.0,
-        "premium_peak": 16808.0
+        "history_max": 16983.0,
+        "premium_peak": 16983.0
       },
       "Justiniano Deluxe Resort": {
         "history_max": 12395.0,
@@ -285,7 +312,7 @@
         "premium_peak": 10254.0
       },
       "First Class Turcja, Alanya, Mahmutlar": {
-        "history_max": 7223.0,
+        "history_max": 7470.0,
         "premium_peak": null
       },
       "FashionTV Luxe Resort": {
@@ -313,8 +340,8 @@
         "premium_peak": 15390.0
       },
       "Raxeria (Side)": {
-        "history_max": 12717.0,
-        "premium_peak": 12717.0
+        "history_max": 13001.0,
+        "premium_peak": 13001.0
       },
       "Orange County Belek": {
         "history_max": 13323.0,
@@ -345,7 +372,7 @@
         "premium_peak": 12853.0
       },
       "Nova Life Turcja, Alanya, Konaklı": {
-        "history_max": 9219.0,
+        "history_max": 9647.0,
         "premium_peak": null
       },
       "Ring Beach Turcja, Kemer, Beldibi": {
@@ -365,8 +392,8 @@
         "premium_peak": 13941.0
       },
       "Movenpick Resort Antalya Tekirova (ex. Royal Diwa Tekirova Resort)": {
-        "history_max": 14720.0,
-        "premium_peak": 14720.0
+        "history_max": 16092.0,
+        "premium_peak": 16092.0
       },
       "Movenpick": {
         "history_max": 16161.0,
@@ -441,8 +468,8 @@
         "premium_peak": 19827.0
       },
       "Rai Foresta Tekirova": {
-        "history_max": 12056.0,
-        "premium_peak": 12056.0
+        "history_max": 12096.0,
+        "premium_peak": 12096.0
       },
       "Palemon Resort & Spa": {
         "history_max": 10810.0,
@@ -593,7 +620,7 @@
         "premium_peak": 13613.0
       },
       "M. C. Beach Resort (ex. Otium MC Beach Resort) Turcja, Alanya, Konakli": {
-        "history_max": 8406.0,
+        "history_max": 8627.0,
         "premium_peak": null
       },
       "Rubi Platinum (Alanya)": {
@@ -693,8 +720,8 @@
         "premium_peak": 15475.0
       },
       "The Norm Oriental (ex. Asteria Kemer Resort)": {
-        "history_max": 11939.0,
-        "premium_peak": 11939.0
+        "history_max": 12362.0,
+        "premium_peak": 12362.0
       },
       "Aria Resort & SPA": {
         "history_max": 13321.0,
@@ -853,8 +880,8 @@
         "premium_peak": 14581.0
       },
       "Viking Star": {
-        "history_max": 10580.0,
-        "premium_peak": 10580.0
+        "history_max": 10584.0,
+        "premium_peak": 10584.0
       },
       "Barut Goia (ex. Barut Sunwing Side Beach)": {
         "history_max": 15406.0,
@@ -933,8 +960,8 @@
         "premium_peak": 11283.0
       },
       "Crystal World of Colours Comfort Collection": {
-        "history_max": 12051.0,
-        "premium_peak": 12051.0
+        "history_max": 12083.0,
+        "premium_peak": 12083.0
       },
       "Daima Biz (Kemer)": {
         "history_max": 10287.0,
@@ -989,7 +1016,7 @@
         "premium_peak": 11985.0
       },
       "World Star Beach Resort & Spa Turcja, Alanya, Kestel": {
-        "history_max": 9617.0,
+        "history_max": 9783.0,
         "premium_peak": null
       },
       "Club Side Coast Turcja, Side, Colakli": {
@@ -1075,6 +1102,10 @@
       "Alaiye Resort & Spa": {
         "history_max": 10722.0,
         "premium_peak": 10722.0
+      },
+      "Armas Bella Sun (ex.Club Bella Sun) Turcja, Side": {
+        "history_max": 9751.0,
+        "premium_peak": null
       }
     }
   }

@@ -39,10 +39,62 @@
       "created_at": "2026-10-03T16:36:12.909159+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Rodos Palace Grecja, Rodos, Ixia_2026-10-03_16-35_zone_out_gone"
+    },
+    {
+      "hotel_name": "Pegasos Beach (Faliraki) Grecja, Rodos, Faliraki",
+      "duration_bucket": "",
+      "old_price": 6957.0,
+      "new_price": 7557.0,
+      "price_change": 600.0,
+      "price_change_pct": 8.624407072013799,
+      "timestamp": "2026-10-03 20:04:49.405040+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-03T20:05:49.434675+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pegasos Beach (Faliraki) Grecja, Rodos, Faliraki_2026-10-03_20-04_+8.6"
+    },
+    {
+      "hotel_name": "Euphoria Resort",
+      "duration_bucket": "",
+      "old_price": 9146.0,
+      "new_price": 9146.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-03 20:04:49.405040+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-03T20:05:49.434718+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Euphoria Resort_2026-10-03_20-04_zone_out_gone"
+    },
+    {
+      "hotel_name": "Kresten Royal Euphoria Resort (ex. Kresten Royal Villas)",
+      "duration_bucket": "",
+      "old_price": 9918.0,
+      "new_price": 10078.0,
+      "price_change": 160.0,
+      "price_change_pct": 1.6132284734825568,
+      "timestamp": "2026-10-03 20:04:49.405040+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-03T20:05:49.434732+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Kresten Royal Euphoria Resort (ex. Kresten Royal Villas)_2026-10-03_20-04_zone_out_+1.6"
+    },
+    {
+      "hotel_name": "Sunshine Crete Beach (ex Club Calimera) Grecja, Kreta Wschodnia, Koutsounari",
+      "duration_bucket": "",
+      "old_price": 8885.0,
+      "new_price": 8885.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-03 20:04:49.405040+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-03T20:05:49.434742+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sunshine Crete Beach (ex Club Calimera) Grecja, Kreta Wschodnia, Koutsounari_2026-10-03_20-04_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-03T16:35:16.843127+00:00",
+    "last_processed_run": "2026-10-03T20:04:49.405040+00:00",
     "premium_state": {
       "Akasha Beach (ex Armava)": {
         "history_max": 10198.0,
@@ -65,8 +117,8 @@
         "premium_peak": 12698.0
       },
       "Kresten Royal Euphoria Resort (ex. Kresten Royal Villas)": {
-        "history_max": 9918.0,
-        "premium_peak": null
+        "history_max": 10078.0,
+        "premium_peak": 10078.0
       },
       "Levante Beach Resort By Playitas Grecja, Rodos, Afandu": {
         "history_max": 7713.0,
@@ -93,8 +145,8 @@
         "premium_peak": 14750.0
       },
       "MarBella, Mar-Bella Collection (Agios Ioannis)": {
-        "history_max": 12369.0,
-        "premium_peak": 12369.0
+        "history_max": 12401.0,
+        "premium_peak": 12401.0
       },
       "Mare blue (ex. Sunshine Crete Beach)": {
         "history_max": 8885.0,
@@ -141,8 +193,8 @@
         "premium_peak": null
       },
       "Grecotel Kos Imperial": {
-        "history_max": 17790.0,
-        "premium_peak": 17790.0
+        "history_max": 17872.0,
+        "premium_peak": 17872.0
       },
       "Grecotel LuxMe Costa Botanica (ex. Gelina Village)": {
         "history_max": 10688.0,
@@ -205,12 +257,12 @@
         "premium_peak": null
       },
       "Princess Andriana Resort & Spa": {
-        "history_max": 9735.0,
+        "history_max": 9885.0,
         "premium_peak": null
       },
       "Ramada Athens Attica Riviera (ex Aquamarina)": {
-        "history_max": 13356.0,
-        "premium_peak": 13356.0
+        "history_max": 13367.0,
+        "premium_peak": 13367.0
       },
       "Restia (Acharavi)": {
         "history_max": 11059.0,
@@ -329,7 +381,7 @@
         "premium_peak": 11642.0
       },
       "Pegasos Beach (Faliraki) Grecja, Rodos, Faliraki": {
-        "history_max": 6957.0,
+        "history_max": 7557.0,
         "premium_peak": null
       },
       "Portes Lithos Luxury Resort": {
@@ -341,7 +393,7 @@
         "premium_peak": null
       },
       "Kairaba Sandy Villas Grecja, Korfu, Agios Georgios": {
-        "history_max": 8314.0,
+        "history_max": 8474.0,
         "premium_peak": null
       },
       "Creta Maris Beach Resort (ex Terra Maris)": {
@@ -461,8 +513,8 @@
         "premium_peak": 10095.0
       },
       "Almyros Beach (ex Cyprotel Almyros)": {
-        "history_max": 10066.0,
-        "premium_peak": 10066.0
+        "history_max": 10097.0,
+        "premium_peak": 10097.0
       },
       "Euphoria Resort": {
         "history_max": 9146.0,
@@ -493,8 +545,12 @@
         "premium_peak": null
       },
       "Rodos Palace": {
-        "history_max": 11062.0,
-        "premium_peak": 11062.0
+        "history_max": 11222.0,
+        "premium_peak": 11222.0
+      },
+      "Euphoria Resort Grecja, Kreta Zachodnia, Kolymvari": {
+        "history_max": 8846.0,
+        "premium_peak": null
       }
     }
   }

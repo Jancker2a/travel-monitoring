@@ -1,8 +1,74 @@
 {
   "version": 2,
-  "alerts": [],
+  "alerts": [
+    {
+      "hotel_name": "Continental (ex Movenpick Resort)",
+      "duration_bucket": "",
+      "old_price": 10884.0,
+      "new_price": 10884.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-03 20:02:59.555405+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-03T20:03:26.390036+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Continental (ex Movenpick Resort)_2026-10-03_20-02_zone_out_gone"
+    },
+    {
+      "hotel_name": "Jaz Aquamarine (ex. Iberotel Aquamarine) Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 8937.0,
+      "new_price": 8937.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-03 20:02:59.555405+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-03T20:03:26.390061+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Aquamarine (ex. Iberotel Aquamarine) Egipt, Hurghada_2026-10-03_20-02_zone_out_gone"
+    },
+    {
+      "hotel_name": "Jaz Makadi Oasis Resort",
+      "duration_bucket": "",
+      "old_price": 9966.0,
+      "new_price": 9966.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-03 20:02:59.555405+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-03T20:03:26.390072+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Makadi Oasis Resort_2026-10-03_20-02_zone_out_gone"
+    },
+    {
+      "hotel_name": "Old Palace Resort",
+      "duration_bucket": "",
+      "old_price": 8962.0,
+      "new_price": 8962.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-03 20:02:59.555405+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-03T20:03:26.390080+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Old Palace Resort_2026-10-03_20-02_zone_out_gone"
+    },
+    {
+      "hotel_name": "Pickalbatros Dana Beach Resort",
+      "duration_bucket": "",
+      "old_price": 10897.0,
+      "new_price": 10897.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-03 20:02:59.555405+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-03T20:03:26.390087+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Dana Beach Resort_2026-10-03_20-02_zone_out_gone"
+    }
+  ],
   "meta": {
-    "last_processed_run": "2026-10-03T16:33:26.631138+00:00",
+    "last_processed_run": "2026-10-03T20:02:59.555405+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 7506.0,
@@ -21,7 +87,7 @@
         "premium_peak": null
       },
       "Pickalbatros Palace Resort": {
-        "history_max": 10437.0,
+        "history_max": 10617.0,
         "premium_peak": null
       },
       "Pickalbatros Palace Port Ghalib (ex. Red Sea The Palace)": {
@@ -41,7 +107,7 @@
         "premium_peak": null
       },
       "Pickalbatros Laguna Club Resort": {
-        "history_max": 9839.0,
+        "history_max": 10239.0,
         "premium_peak": null
       },
       "Pickalbatros Golf Beach Resort": {
@@ -53,7 +119,7 @@
         "premium_peak": null
       },
       "Pickalbatros Citadel Sahl Hasheesh (ex. Citadel Azur Resort)": {
-        "history_max": 10217.0,
+        "history_max": 10397.0,
         "premium_peak": null
       },
       "Parrotel Lagoon Resort Egipt, Sharm El Sheikh, Szarm el-Szejk": {
@@ -89,7 +155,7 @@
         "premium_peak": null
       },
       "Marriott Hurghada Beach Resort Egipt, Hurghada": {
-        "history_max": 7997.0,
+        "history_max": 8177.0,
         "premium_peak": null
       },
       "Le Meridien Dahab Resort Egipt, Dahab": {
@@ -121,7 +187,7 @@
         "premium_peak": null
       },
       "Radisson Individuals Marina Port Ghalib (ex. Sunrise Marina Resort)": {
-        "history_max": 10700.0,
+        "history_max": 10830.0,
         "premium_peak": null
       },
       "Red Sea Grand Makadi (Makadi Bay)": {
@@ -145,7 +211,7 @@
         "premium_peak": null
       },
       "Tropitel Sahl Hasheesh": {
-        "history_max": 10356.0,
+        "history_max": 10506.0,
         "premium_peak": null
       },
       "Titanic Palace Resort": {
@@ -157,7 +223,7 @@
         "premium_peak": null
       },
       "The Cascades Golf Resort Spa & Thalasso (ex Westin Soma Bay) Egipt, Hurghada, Soma Bay": {
-        "history_max": 8772.0,
+        "history_max": 8777.0,
         "premium_peak": null
       },
       "Swissotel Resort El Quseir": {
@@ -165,7 +231,7 @@
         "premium_peak": null
       },
       "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort)": {
-        "history_max": 9552.0,
+        "history_max": 9599.0,
         "premium_peak": null
       },
       "Stella Di Mare Gardens Resort & Spa Egipt, Hurghada, Makadi Bay": {
@@ -177,7 +243,7 @@
         "premium_peak": null
       },
       "Steigenberger Aqua Magic": {
-        "history_max": 9877.0,
+        "history_max": 10057.0,
         "premium_peak": null
       },
       "Siva Golden Bay Makadi Egipt, Hurghada, Makadi Bay": {
@@ -273,7 +339,7 @@
         "premium_peak": null
       },
       "Amwaj Oyoun Resort & Spa (ex AA Amwaj Resort) Egipt, Sharm El Sheikh": {
-        "history_max": 7527.0,
+        "history_max": 7622.0,
         "premium_peak": null
       },
       "Gravity Hotel & Aquapark Hurghada (ex. Samra Bay Resort)": {
@@ -357,7 +423,7 @@
         "premium_peak": null
       },
       "Albatros Makadi Resort (ex Royal Pharaohs Makadi)": {
-        "history_max": 9137.0,
+        "history_max": 9317.0,
         "premium_peak": null
       },
       "Albatros Sea World Resort Marsa Alam": {
@@ -374,6 +440,14 @@
       },
       "IL Mercato (ex. Iberotel Il Mercato) Egipt, Sharm El Sheikh": {
         "history_max": 8357.0,
+        "premium_peak": null
+      },
+      "Old Palace Resort Egipt, Hurghada": {
+        "history_max": 8912.0,
+        "premium_peak": null
+      },
+      "Jaz Aquamarine Resort": {
+        "history_max": 9117.0,
         "premium_peak": null
       }
     }

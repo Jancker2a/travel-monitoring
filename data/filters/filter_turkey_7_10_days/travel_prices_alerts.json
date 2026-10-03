@@ -1,8 +1,152 @@
 {
   "version": 2,
-  "alerts": [],
+  "alerts": [
+    {
+      "hotel_name": "Adalya Art Side (Ex. Grand Art Side)",
+      "duration_bucket": "",
+      "old_price": 7592.0,
+      "new_price": 8572.0,
+      "price_change": 980.0,
+      "price_change_pct": 12.908324552160169,
+      "timestamp": "2026-10-03 20:03:46.241300+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-03T20:04:48.327274+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Adalya Art Side (Ex. Grand Art Side)_2026-10-03_20-03_+12.9"
+    },
+    {
+      "hotel_name": "Flora Garden Ephesus",
+      "duration_bucket": "",
+      "old_price": 7885.0,
+      "new_price": 7234.0,
+      "price_change": -651.0,
+      "price_change_pct": -8.256182625237793,
+      "timestamp": "2026-10-03 20:03:46.241300+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-03T20:04:48.327337+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Flora Garden Ephesus_2026-10-03_20-03_-8.3"
+    },
+    {
+      "hotel_name": "Campus Hill",
+      "duration_bucket": "",
+      "old_price": 6491.0,
+      "new_price": 7655.0,
+      "price_change": 1164.0,
+      "price_change_pct": 17.93252195347404,
+      "timestamp": "2026-10-03 20:03:46.241300+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-03T20:04:48.327351+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Campus Hill_2026-10-03_20-03_+17.9"
+    },
+    {
+      "hotel_name": "Eftalia Aqua",
+      "duration_bucket": "",
+      "old_price": 9371.0,
+      "new_price": 7856.0,
+      "price_change": -1515.0,
+      "price_change_pct": -16.166897876427274,
+      "timestamp": "2026-10-03 20:03:46.241300+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-03T20:04:48.327367+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Eftalia Aqua_2026-10-03_20-03_-16.2"
+    },
+    {
+      "hotel_name": "Armas Life Belek",
+      "duration_bucket": "",
+      "old_price": 6152.0,
+      "new_price": 6152.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-03 20:03:46.241300+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-03T20:04:48.327404+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Armas Life Belek_2026-10-03_20-03_zone_out_gone"
+    },
+    {
+      "hotel_name": "Baia Salima Kemer (ex Club Salima)",
+      "duration_bucket": "",
+      "old_price": 8788.0,
+      "new_price": 8788.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-03 20:03:46.241300+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-03T20:04:48.327414+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Baia Salima Kemer (ex Club Salima)_2026-10-03_20-03_zone_out_gone"
+    },
+    {
+      "hotel_name": "Garden of Sun Spa & Wellness",
+      "duration_bucket": "",
+      "old_price": 6125.0,
+      "new_price": 6125.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-03 20:03:46.241300+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-03T20:04:48.327422+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Garden of Sun Spa & Wellness_2026-10-03_20-03_zone_out_gone"
+    },
+    {
+      "hotel_name": "Nova Life Turcja, Alanya, Konaklı",
+      "duration_bucket": "",
+      "old_price": 6071.0,
+      "new_price": 6071.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-03 20:03:46.241300+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-03T20:04:48.327430+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Nova Life Turcja, Alanya, Konaklı_2026-10-03_20-03_zone_out_gone"
+    },
+    {
+      "hotel_name": "Pemar Beach Resort Turcja, Alanya, Okurcalar",
+      "duration_bucket": "",
+      "old_price": 6093.0,
+      "new_price": 6093.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-03 20:03:46.241300+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-03T20:04:48.327438+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pemar Beach Resort Turcja, Alanya, Okurcalar_2026-10-03_20-03_zone_out_gone"
+    },
+    {
+      "hotel_name": "Perre La Mer Resort & Spa (ex. La Mer)",
+      "duration_bucket": "",
+      "old_price": 6155.0,
+      "new_price": 6155.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-03 20:03:46.241300+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-03T20:04:48.327445+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Perre La Mer Resort & Spa (ex. La Mer)_2026-10-03_20-03_zone_out_gone"
+    },
+    {
+      "hotel_name": "World Star Beach Resort & Spa Turcja, Alanya, Kestel",
+      "duration_bucket": "",
+      "old_price": 5576.0,
+      "new_price": 5576.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-03 20:03:46.241300+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-03T20:04:48.327452+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "World Star Beach Resort & Spa Turcja, Alanya, Kestel_2026-10-03_20-03_zone_out_gone"
+    }
+  ],
   "meta": {
-    "last_processed_run": "2026-10-03T16:34:23.324119+00:00",
+    "last_processed_run": "2026-10-03T20:03:46.241300+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 8225.0,
@@ -205,7 +349,7 @@
         "premium_peak": null
       },
       "Side Aluna": {
-        "history_max": 7888.0,
+        "history_max": 8081.0,
         "premium_peak": null
       },
       "Eftalia Blue": {
@@ -349,7 +493,7 @@
         "premium_peak": null
       },
       "SeaLife Kemer Resort (ex. PGS Rose Residence Beach)": {
-        "history_max": 7365.0,
+        "history_max": 7612.0,
         "premium_peak": null
       },
       "Nox Inn Deluxe (ex NOX Inn Beach Resort & Spa)": {
@@ -525,7 +669,7 @@
         "premium_peak": null
       },
       "Royal Seginus": {
-        "history_max": 9114.0,
+        "history_max": 9333.0,
         "premium_peak": null
       },
       "Linda Sunny Beach": {
@@ -737,7 +881,7 @@
         "premium_peak": null
       },
       "Calido Maris": {
-        "history_max": 7042.0,
+        "history_max": 7044.0,
         "premium_peak": null
       },
       "Armas Bella Sun (ex.Club Bella Sun)": {
@@ -745,7 +889,7 @@
         "premium_peak": null
       },
       "Campus Hill": {
-        "history_max": 6491.0,
+        "history_max": 7655.0,
         "premium_peak": null
       },
       "The Norm Oriental (ex. Asteria Kemer Resort)": {
@@ -797,7 +941,7 @@
         "premium_peak": null
       },
       "Terrace Elite Resort": {
-        "history_max": 7162.0,
+        "history_max": 7333.0,
         "premium_peak": null
       },
       "Cenger Beach Resort Turcja, Side": {
@@ -921,7 +1065,7 @@
         "premium_peak": null
       },
       "Turunc": {
-        "history_max": 7876.0,
+        "history_max": 7900.0,
         "premium_peak": null
       },
       "Victory Volare": {
@@ -973,7 +1117,7 @@
         "premium_peak": null
       },
       "Terrace Beach Resort (Side)": {
-        "history_max": 8889.0,
+        "history_max": 9015.0,
         "premium_peak": null
       },
       "Crystal Aura Aqua Collection": {
@@ -1085,7 +1229,7 @@
         "premium_peak": null
       },
       "Adalya Art Side (Ex. Grand Art Side)": {
-        "history_max": 7592.0,
+        "history_max": 8572.0,
         "premium_peak": null
       },
       "Diamond Hill Resort": {
@@ -1181,7 +1325,7 @@
         "premium_peak": null
       },
       "Concordia Celes Beach Turcja, Alanya, Okurcalar": {
-        "history_max": 5559.0,
+        "history_max": 5808.0,
         "premium_peak": null
       },
       "Sunis Elita Beach Resort (ex Asteria Elita)": {
@@ -1202,6 +1346,34 @@
       },
       "Club Grand Side": {
         "history_max": 9278.0,
+        "premium_peak": null
+      },
+      "World Star Beach Resort & Spa": {
+        "history_max": 6174.0,
+        "premium_peak": null
+      },
+      "Siu Collection by Aydinbey": {
+        "history_max": 9038.0,
+        "premium_peak": null
+      },
+      "Armas Pemar Beach Resort": {
+        "history_max": 6552.0,
+        "premium_peak": null
+      },
+      "Nova Life": {
+        "history_max": 6227.0,
+        "premium_peak": null
+      },
+      "Garden of Sun Spa & Wellness Turcja, Bodrum, Didim": {
+        "history_max": 6125.0,
+        "premium_peak": null
+      },
+      "La Mer (Goynuk) Turcja, Kemer, Goynuk": {
+        "history_max": 6155.0,
+        "premium_peak": null
+      },
+      "Day & Night Connected Club Life Belek Turcja, Belek, Boğazkent": {
+        "history_max": 6152.0,
         "premium_peak": null
       }
     }
