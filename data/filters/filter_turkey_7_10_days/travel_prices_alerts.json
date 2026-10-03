@@ -143,10 +143,114 @@
       "created_at": "2026-10-03T20:04:48.327452+00:00",
       "threshold_percent": 8.0,
       "unique_key": "World Star Beach Resort & Spa Turcja, Alanya, Kestel_2026-10-03_20-03_zone_out_gone"
+    },
+    {
+      "hotel_name": "Seven For Life Thermal",
+      "duration_bucket": "",
+      "old_price": 8803.0,
+      "new_price": 7380.0,
+      "price_change": -1423.0,
+      "price_change_pct": -16.1649437691696,
+      "timestamp": "2026-10-03 23:13:26.690997+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-03T23:14:24.382373+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Seven For Life Thermal_2026-10-03_23-13_-16.2"
+    },
+    {
+      "hotel_name": "Campus Hill",
+      "duration_bucket": "",
+      "old_price": 7655.0,
+      "new_price": 7655.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-03 23:13:26.690997+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-03T23:14:24.382463+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Campus Hill_2026-10-03_23-13_zone_out_gone"
+    },
+    {
+      "hotel_name": "Diamond Excellence Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 9357.0,
+      "new_price": 9357.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-03 23:13:26.690997+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-03T23:14:24.382477+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Diamond Excellence Resort & Spa_2026-10-03_23-13_zone_out_gone"
+    },
+    {
+      "hotel_name": "Golden Rock Beach",
+      "duration_bucket": "",
+      "old_price": 6186.0,
+      "new_price": 6186.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-03 23:13:26.690997+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-03T23:14:24.382487+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Golden Rock Beach_2026-10-03_23-13_zone_out_gone"
+    },
+    {
+      "hotel_name": "La Mer (Goynuk) Turcja, Kemer, Goynuk",
+      "duration_bucket": "",
+      "old_price": 6155.0,
+      "new_price": 6155.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-03 23:13:26.690997+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-03T23:14:24.382495+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "La Mer (Goynuk) Turcja, Kemer, Goynuk_2026-10-03_23-13_zone_out_gone"
+    },
+    {
+      "hotel_name": "Ozkaymak Falez Turcja, Antalya",
+      "duration_bucket": "",
+      "old_price": 6063.0,
+      "new_price": 6063.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-03 23:13:26.690997+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-03T23:14:24.382503+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Ozkaymak Falez Turcja, Antalya_2026-10-03_23-13_zone_out_gone"
+    },
+    {
+      "hotel_name": "Seven Seas Life",
+      "duration_bucket": "",
+      "old_price": 9351.0,
+      "new_price": 9351.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-03 23:13:26.690997+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-03T23:14:24.382511+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Seven Seas Life_2026-10-03_23-13_zone_out_gone"
+    },
+    {
+      "hotel_name": "Terrace Beach Resort (Side)",
+      "duration_bucket": "",
+      "old_price": 9015.0,
+      "new_price": 9015.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-03 23:13:26.690997+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-03T23:14:24.382519+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Terrace Beach Resort (Side)_2026-10-03_23-13_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-03T20:03:46.241300+00:00",
+    "last_processed_run": "2026-10-03T23:13:26.690997+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 8225.0,
@@ -345,7 +449,7 @@
         "premium_peak": null
       },
       "Eftalia Marin": {
-        "history_max": 7715.0,
+        "history_max": 7755.0,
         "premium_peak": null
       },
       "Side Aluna": {
@@ -945,7 +1049,7 @@
         "premium_peak": null
       },
       "Cenger Beach Resort Turcja, Side": {
-        "history_max": 5608.0,
+        "history_max": 5658.0,
         "premium_peak": null
       },
       "Arin Resort Bodrum": {
@@ -1374,6 +1478,26 @@
       },
       "Day & Night Connected Club Life Belek Turcja, Belek, Boğazkent": {
         "history_max": 6152.0,
+        "premium_peak": null
+      },
+      "Yasmin Resort": {
+        "history_max": 9065.0,
+        "premium_peak": null
+      },
+      "Venosa Beach Resort": {
+        "history_max": 9118.0,
+        "premium_peak": null
+      },
+      "Golden Rock Beach Turcja, Marmaris": {
+        "history_max": 5786.0,
+        "premium_peak": null
+      },
+      "Campus Hill Turcja, Alanya": {
+        "history_max": 6135.0,
+        "premium_peak": null
+      },
+      "Ozkaymak Falez": {
+        "history_max": 6310.0,
         "premium_peak": null
       }
     }
