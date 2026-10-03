@@ -172,6 +172,16 @@ class TravelPriceMonitor:
                         self._timing_summary["scrape_total"] = time.monotonic() - scrape_t0
                         logger.info(f"⚡ Быстрый HTTP-парсинг успешен: {len(offers)} предложений")
                         return offers
+                    if (
+                        self.config.get("allow_empty_offers", False)
+                        and last_http_note
+                        and "после фильтра 0 офферов" in last_http_note
+                    ):
+                        self._timing_summary["scrape_http"] = time.monotonic() - http_phase_t0
+                        self._timing_summary["scrape_http_pause"] = http_total_pause
+                        self._timing_summary["scrape_total"] = time.monotonic() - scrape_t0
+                        logger.info("⚡ Быстрый HTTP-парсинг: 0 предложений соответствуют критериям (страница получена корректно)")
+                        return []
                     logger.warning(
                         f"HTTP-попытка {http_attempt + 1}/{http_max_retries}: "
                         f"результатов нет ({last_http_note})"
@@ -2078,9 +2088,14 @@ class TravelPriceMonitor:
             offers = await self._collect_virtual_filter_offers()
 
             if not offers:
-                if is_fixed_trip_config(self.config) and is_trip_window_expired(self.config):
+                if (
+                    self.config.get("allow_empty_offers", False)
+                    or not self.config.get("dynamic_search_dates", True)
+                    or bool(self.config.get("retire_after"))
+                    or (is_fixed_trip_config(self.config) and is_trip_window_expired(self.config))
+                ):
                     logger.warning(
-                        "⚠️ Нет офферов — окно fixed-trip закрыто, считаем run успешным"
+                        "ℹ️ На текущий момент нет доступных офферов по критериям фильтра (0 предложений). Завершаем ран успешно."
                     )
                     return True
                 logger.error("❌ Не удалось собрать данные после всех попыток")
@@ -2100,9 +2115,14 @@ class TravelPriceMonitor:
                 )
                 if not offers:
                     # fly.pl may still return later dates outside anchor±slip after the window closes.
-                    if is_trip_window_expired(self.config):
+                    if (
+                        self.config.get("allow_empty_offers", False)
+                        or not self.config.get("dynamic_search_dates", True)
+                        or bool(self.config.get("retire_after"))
+                        or is_trip_window_expired(self.config)
+                    ):
                         logger.warning(
-                            "⚠️ После trip-фильтра 0 офферов (из %s) — окно вылета закрыто, skip",
+                            "ℹ️ После trip-фильтра 0 офферов (из %s) — завершаем ран успешно",
                             raw_count,
                         )
                         return True
