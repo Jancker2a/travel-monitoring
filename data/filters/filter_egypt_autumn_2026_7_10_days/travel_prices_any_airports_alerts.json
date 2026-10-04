@@ -455,10 +455,49 @@
       "created_at": "2026-10-04T19:46:27.004064+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sunrise Select Garden Beach Resort & Spa_2026-10-04_19-45_zone_out_gone"
+    },
+    {
+      "hotel_name": "Pickalbatros Vita Resort Portofino",
+      "duration_bucket": "",
+      "old_price": 10157.0,
+      "new_price": 8837.0,
+      "price_change": -1320.0,
+      "price_change_pct": -12.995963375012307,
+      "timestamp": "2026-10-04 23:21:21.520385+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-04T23:21:54.661598+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Vita Resort Portofino_2026-10-04_23-21_-13.0"
+    },
+    {
+      "hotel_name": "Pickalbatros Villaggio Resort Portofino",
+      "duration_bucket": "",
+      "old_price": 9837.0,
+      "new_price": 8717.0,
+      "price_change": -1120.0,
+      "price_change_pct": -11.385585036088239,
+      "timestamp": "2026-10-04 23:21:21.520385+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-04T23:21:54.661628+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Villaggio Resort Portofino_2026-10-04_23-21_-11.4"
+    },
+    {
+      "hotel_name": "Old Palace Resort Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 8483.0,
+      "new_price": 8483.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-04 23:21:21.520385+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-04T23:21:54.661661+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Old Palace Resort Egipt, Hurghada_2026-10-04_23-21_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-04T19:45:56.747776+00:00",
+    "last_processed_run": "2026-10-04T23:21:21.520385+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 7506.0,
@@ -469,7 +508,7 @@
         "premium_peak": null
       },
       "Pickalbatros Citadel Sahl Hasheesh (ex. Citadel Azur Resort)": {
-        "history_max": 10217.0,
+        "history_max": 10297.0,
         "premium_peak": null
       },
       "Pickalbatros Dana Beach Resort": {
@@ -637,7 +676,7 @@
         "premium_peak": null
       },
       "The Cascades Golf Resort Spa & Thalasso (ex Westin Soma Bay) Egipt, Hurghada, Soma Bay": {
-        "history_max": 7770.0,
+        "history_max": 7832.0,
         "premium_peak": null
       },
       "The V Luxury Resort": {
@@ -950,6 +989,10 @@
       },
       "Desert Rose Resort": {
         "history_max": 8722.0,
+        "premium_peak": null
+      },
+      "Mercure Dahab Bay View Egipt, Dahab": {
+        "history_max": 8164.0,
         "premium_peak": null
       }
     }
