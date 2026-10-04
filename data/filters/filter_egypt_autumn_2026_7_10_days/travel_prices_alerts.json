@@ -169,10 +169,88 @@
       "created_at": "2026-10-04T09:19:57.761727+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Swissotel Resort El Quseir_2026-10-04_09-19_zone_out_gone"
+    },
+    {
+      "hotel_name": "Coral Sea Water World Resort",
+      "duration_bucket": "",
+      "old_price": 10829.0,
+      "new_price": 9278.0,
+      "price_change": -1551.0,
+      "price_change_pct": -14.322652137778189,
+      "timestamp": "2026-10-04 15:28:41.420803+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-04T15:29:11.681561+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Coral Sea Water World Resort_2026-10-04_15-28_-14.3"
+    },
+    {
+      "hotel_name": "Rewaya Majestic Resort Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 8060.0,
+      "new_price": 7360.0,
+      "price_change": -700.0,
+      "price_change_pct": -8.6848635235732,
+      "timestamp": "2026-10-04 15:28:41.420803+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-04T15:29:11.681594+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Majestic Resort Egipt, Hurghada_2026-10-04_15-28_-8.7"
+    },
+    {
+      "hotel_name": "Pickalbatros Golf Beach Resort",
+      "duration_bucket": "",
+      "old_price": 10508.0,
+      "new_price": 9504.0,
+      "price_change": -1004.0,
+      "price_change_pct": -9.554625047582794,
+      "timestamp": "2026-10-04 15:28:41.420803+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-04T15:29:11.681608+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Golf Beach Resort_2026-10-04_15-28_-9.6"
+    },
+    {
+      "hotel_name": "Jaz Aquamarine Resort",
+      "duration_bucket": "",
+      "old_price": 8937.0,
+      "new_price": 8937.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-04 15:28:41.420803+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-04T15:29:11.681639+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Aquamarine Resort_2026-10-04_15-28_zone_out_gone"
+    },
+    {
+      "hotel_name": "Pickalbatros Vita Resort Portofino Egipt, Marsa Alam",
+      "duration_bucket": "",
+      "old_price": 8687.0,
+      "new_price": 8687.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-04 15:28:41.420803+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-04T15:29:11.681649+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Vita Resort Portofino Egipt, Marsa Alam_2026-10-04_15-28_zone_out_gone"
+    },
+    {
+      "hotel_name": "Renaissance Golden View Beach Resort by Marriott",
+      "duration_bucket": "",
+      "old_price": 9402.0,
+      "new_price": 9402.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-04 15:28:41.420803+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-04T15:29:11.681657+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Renaissance Golden View Beach Resort by Marriott_2026-10-04_15-28_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-04T09:58:52.506709+00:00",
+    "last_processed_run": "2026-10-04T15:28:41.420803+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 7506.0,
@@ -303,7 +381,7 @@
         "premium_peak": null
       },
       "Xperience Kiroseiz Premier Egipt, Sharm El Sheikh": {
-        "history_max": 7454.0,
+        "history_max": 7549.0,
         "premium_peak": null
       },
       "Xperience Kiroseiz Parkland Egipt, Sharm El Sheikh": {
@@ -355,7 +433,7 @@
         "premium_peak": null
       },
       "Jaz Makadi Oasis Resort": {
-        "history_max": 9966.0,
+        "history_max": 10884.0,
         "premium_peak": null
       },
       "Sirena Beach Resort & Spa": {
@@ -379,7 +457,7 @@
         "premium_peak": null
       },
       "Sea Star Beau Rivage Egipt, Hurghada": {
-        "history_max": 8028.0,
+        "history_max": 8514.0,
         "premium_peak": null
       },
       "Sataya Resort (ex. Labranda Sataya Marsa Alam)": {
@@ -399,7 +477,7 @@
         "premium_peak": null
       },
       "Rewaya Luxury Resort Egipt, Hurghada": {
-        "history_max": 6678.0,
+        "history_max": 6997.0,
         "premium_peak": null
       },
       "Renaissance Golden View Beach Resort by Marriott": {
@@ -447,7 +525,7 @@
         "premium_peak": null
       },
       "Gravity Hotel & Aquapark Hurghada (ex. Samra Bay Resort)": {
-        "history_max": 9072.0,
+        "history_max": 9073.0,
         "premium_peak": null
       },
       "Golf Villas And Suites Sharm": {
@@ -479,7 +557,7 @@
         "premium_peak": null
       },
       "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna": {
-        "history_max": 8330.0,
+        "history_max": 8780.0,
         "premium_peak": null
       },
       "Cleopatra Luxury Resort (Makadi Bay)": {
@@ -559,7 +637,11 @@
         "premium_peak": null
       },
       "Pickalbatros Villaggio Resort Portofino Egipt, Marsa Alam": {
-        "history_max": 8717.0,
+        "history_max": 8807.0,
+        "premium_peak": null
+      },
+      "Pickalbatros Vita Resort Portofino": {
+        "history_max": 9127.0,
         "premium_peak": null
       }
     }

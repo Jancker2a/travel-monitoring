@@ -299,10 +299,36 @@
       "created_at": "2026-10-04T09:21:07.464119+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Royal Atlantis Icon_2026-10-04_09-20_comeback_16.4"
+    },
+    {
+      "hotel_name": "Mary Side (ex. Mary Palace)",
+      "duration_bucket": "",
+      "old_price": 9431.0,
+      "new_price": 10731.0,
+      "price_change": 1300.0,
+      "price_change_pct": 13.78432827907963,
+      "timestamp": "2026-10-04 15:29:38.713159+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-04T15:30:42.795186+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Mary Side (ex. Mary Palace)_2026-10-04_15-29_zone_out_+13.8"
+    },
+    {
+      "hotel_name": "Royal Atlantis Icon",
+      "duration_bucket": "",
+      "old_price": 9394.0,
+      "new_price": 10956.0,
+      "price_change": 1562.0,
+      "price_change_pct": 16.627634660421545,
+      "timestamp": "2026-10-04 15:29:38.713159+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-04T15:30:42.795225+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Royal Atlantis Icon_2026-10-04_15-29_zone_out_+16.6"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-04T10:00:15.355059+00:00",
+    "last_processed_run": "2026-10-04T15:29:38.713159+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 9711.0,

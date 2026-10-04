@@ -221,10 +221,114 @@
       "created_at": "2026-10-04T09:20:08.921406+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Pickalbatros Villaggio Resort Portofino Egipt, Marsa Alam_2026-10-04_09-19_zone_out_gone"
+    },
+    {
+      "hotel_name": "Coral Sea Water World Resort",
+      "duration_bucket": "",
+      "old_price": 10693.0,
+      "new_price": 9278.0,
+      "price_change": -1415.0,
+      "price_change_pct": -13.232956139530533,
+      "timestamp": "2026-10-04 15:28:59.489987+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-04T15:29:33.955810+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Coral Sea Water World Resort_2026-10-04_15-28_-13.2"
+    },
+    {
+      "hotel_name": "Pickalbatros Golf Beach Resort",
+      "duration_bucket": "",
+      "old_price": 10358.0,
+      "new_price": 8618.0,
+      "price_change": -1740.0,
+      "price_change_pct": -16.798609770225912,
+      "timestamp": "2026-10-04 15:28:59.489987+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-04T15:29:33.955848+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Golf Beach Resort_2026-10-04_15-28_-16.8"
+    },
+    {
+      "hotel_name": "Golf Villas And Suites Sharm",
+      "duration_bucket": "",
+      "old_price": 10066.0,
+      "new_price": 8618.0,
+      "price_change": -1448.0,
+      "price_change_pct": -14.38505861315319,
+      "timestamp": "2026-10-04 15:28:59.489987+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-04T15:29:33.955868+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Golf Villas And Suites Sharm_2026-10-04_15-28_-14.4"
+    },
+    {
+      "hotel_name": "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna",
+      "duration_bucket": "",
+      "old_price": 8330.0,
+      "new_price": 8330.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-04 15:28:59.489987+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-04T15:29:33.955893+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna_2026-10-04_15-28_zone_out_gone"
+    },
+    {
+      "hotel_name": "Domina Coral Bay Aquamarine",
+      "duration_bucket": "",
+      "old_price": 10480.0,
+      "new_price": 10480.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-04 15:28:59.489987+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-04T15:29:33.955904+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Domina Coral Bay Aquamarine_2026-10-04_15-28_zone_out_gone"
+    },
+    {
+      "hotel_name": "Domina Coral Bay Harem",
+      "duration_bucket": "",
+      "old_price": 10756.0,
+      "new_price": 10756.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-04 15:28:59.489987+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-04T15:29:33.955913+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Domina Coral Bay Harem_2026-10-04_15-28_zone_out_gone"
+    },
+    {
+      "hotel_name": "Domina Coral Bay Oasis",
+      "duration_bucket": "",
+      "old_price": 9692.0,
+      "new_price": 9692.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-04 15:28:59.489987+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-04T15:29:33.955921+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Domina Coral Bay Oasis_2026-10-04_15-28_zone_out_gone"
+    },
+    {
+      "hotel_name": "Royal Regency Club",
+      "duration_bucket": "",
+      "old_price": 8406.0,
+      "new_price": 8406.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-04 15:28:59.489987+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-04T15:29:33.955929+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Royal Regency Club_2026-10-04_15-28_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-04T09:59:09.742163+00:00",
+    "last_processed_run": "2026-10-04T15:28:59.489987+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 7506.0,
@@ -259,7 +363,7 @@
         "premium_peak": null
       },
       "Pickalbatros Oasis Port Ghalib (ex. Red Sea Port Ghalib Resort)": {
-        "history_max": 10103.0,
+        "history_max": 10181.0,
         "premium_peak": null
       },
       "Pickalbatros Palace Port Ghalib (ex. Red Sea The Palace)": {
@@ -291,7 +395,7 @@
         "premium_peak": null
       },
       "Parrotel Lagoon Resort Egipt, Sharm El Sheikh, Szarm el-Szejk": {
-        "history_max": 6572.0,
+        "history_max": 6672.0,
         "premium_peak": null
       },
       "Red Sea Grand Makadi (Makadi Bay)": {
@@ -467,7 +571,7 @@
         "premium_peak": null
       },
       "Rewaya Luxury Resort Egipt, Hurghada": {
-        "history_max": 6678.0,
+        "history_max": 6927.0,
         "premium_peak": null
       },
       "Rewaya Majestic Resort Egipt, Hurghada": {
@@ -479,11 +583,11 @@
         "premium_peak": null
       },
       "Royal Lagoons Aqua (ex. Premium Blue) Egipt, Hurghada": {
-        "history_max": 7468.0,
+        "history_max": 7756.0,
         "premium_peak": null
       },
       "Royal Regency Club Egipt, Sharm El Sheikh, Szarm el-Szejk": {
-        "history_max": 8256.0,
+        "history_max": 8406.0,
         "premium_peak": null
       },
       "Safir Sharm Waterfalls Resort (ex Hilton Waterfalls Resort)": {
@@ -551,7 +655,7 @@
         "premium_peak": null
       },
       "Dream Lagoon & Aqua Park Resort (ex. Floriana Dream Lagoon) Egipt, Marsa Alam": {
-        "history_max": 7097.0,
+        "history_max": 7214.0,
         "premium_peak": null
       },
       "Double Tree by Hilton Mangroovy El Gouna Resort": {
@@ -667,7 +771,7 @@
         "premium_peak": null
       },
       "Gravity Hotel & Aquapark Hurghada (ex. Samra Bay Resort) Egipt, Hurghada": {
-        "history_max": 8389.0,
+        "history_max": 8453.0,
         "premium_peak": null
       },
       "Concorde Sport": {
@@ -675,7 +779,7 @@
         "premium_peak": null
       },
       "Amarina Jannah Resort Aquapark Egipt, Marsa Alam, Port Ghalib": {
-        "history_max": 8009.0,
+        "history_max": 8193.0,
         "premium_peak": null
       },
       "Fantazia Resort Egipt, Marsa Alam": {
@@ -708,6 +812,10 @@
       },
       "Sunrise Select Garden Beach Resort & Spa": {
         "history_max": 10981.0,
+        "premium_peak": null
+      },
+      "Creek Hotel and Residences": {
+        "history_max": 8645.0,
         "premium_peak": null
       }
     }
