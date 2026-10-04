@@ -377,10 +377,49 @@
       "created_at": "2026-10-04T02:47:59.897305+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Marriott Hurghada Beach Resort Egipt, Hurghada_2026-10-04_02-47_zone_out_gone"
+    },
+    {
+      "hotel_name": "Rewaya Luxury Resort Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 8727.0,
+      "new_price": 10160.0,
+      "price_change": 1433.0,
+      "price_change_pct": 16.420304801191705,
+      "timestamp": "2026-10-04 09:20:09.494385+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-04T09:20:24.809885+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Luxury Resort Egipt, Hurghada_2026-10-04_09-20_+16.4"
+    },
+    {
+      "hotel_name": "Royal Regency Club Egipt, Sharm El Sheikh, Szarm el-Szejk",
+      "duration_bucket": "",
+      "old_price": 10959.0,
+      "new_price": 10959.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-04 09:20:09.494385+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-04T09:20:24.809908+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Royal Regency Club Egipt, Sharm El Sheikh, Szarm el-Szejk_2026-10-04_09-20_zone_out_gone"
+    },
+    {
+      "hotel_name": "Xperience Sea Breeze Egipt, Sharm El Sheikh",
+      "duration_bucket": "",
+      "old_price": 10693.0,
+      "new_price": 10693.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-04 09:20:09.494385+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-04T09:20:24.809914+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xperience Sea Breeze Egipt, Sharm El Sheikh_2026-10-04_09-20_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-04T02:47:45.107710+00:00",
+    "last_processed_run": "2026-10-04T09:20:09.494385+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 10527.0,
@@ -391,7 +430,7 @@
         "premium_peak": null
       },
       "Rewaya Luxury Resort Egipt, Hurghada": {
-        "history_max": 8727.0,
+        "history_max": 10160.0,
         "premium_peak": null
       },
       "Stella Di Mare Beach Resort & Spa (ex. Stella Makadi Resort) Egipt, Hurghada, Makadi Bay": {
