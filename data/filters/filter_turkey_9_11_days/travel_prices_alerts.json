@@ -325,10 +325,36 @@
       "created_at": "2026-10-04T15:30:42.795225+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Royal Atlantis Icon_2026-10-04_15-29_zone_out_+16.6"
+    },
+    {
+      "hotel_name": "Terrace Elite Resort",
+      "duration_bucket": "",
+      "old_price": 9516.0,
+      "new_price": 9516.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-04 19:46:44.396914+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-04T19:47:47.923414+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Terrace Elite Resort_2026-10-04_19-46_zone_out_gone"
+    },
+    {
+      "hotel_name": "Fame Residence (Göynük)",
+      "duration_bucket": "",
+      "old_price": 10276.0,
+      "new_price": 8029.0,
+      "price_change": -2247.0,
+      "price_change_pct": -21.86648501362398,
+      "timestamp": "2026-10-04 19:46:44.396914+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-04T19:47:47.923480+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Fame Residence (Göynük)_2026-10-04_19-46_comeback_21.9"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-04T15:29:38.713159+00:00",
+    "last_processed_run": "2026-10-04T19:46:44.396914+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 9711.0,
@@ -1545,6 +1571,10 @@
       "IC Green Palace": {
         "history_max": 14010.0,
         "premium_peak": 14010.0
+      },
+      "Diamond Hill Resort": {
+        "history_max": 9247.0,
+        "premium_peak": null
       }
     }
   }

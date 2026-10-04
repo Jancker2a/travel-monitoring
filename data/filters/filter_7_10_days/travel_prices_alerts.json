@@ -364,10 +364,49 @@
       "created_at": "2026-10-04T15:29:19.147205+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Pickalbatros Golf Beach Resort_2026-10-04_15-28_comeback_9.6"
+    },
+    {
+      "hotel_name": "Rewaya Majestic Resort",
+      "duration_bucket": "",
+      "old_price": 7510.0,
+      "new_price": 8360.0,
+      "price_change": 850.0,
+      "price_change_pct": 11.318242343541945,
+      "timestamp": "2026-10-04 19:45:41.248023+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-04T19:46:16.402020+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Majestic Resort_2026-10-04_19-45_+11.3"
+    },
+    {
+      "hotel_name": "Coral Sea Water World Resort",
+      "duration_bucket": "",
+      "old_price": 9278.0,
+      "new_price": 10829.0,
+      "price_change": 1551.0,
+      "price_change_pct": 16.716964863117052,
+      "timestamp": "2026-10-04 19:45:41.248023+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-04T19:46:16.402064+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Coral Sea Water World Resort_2026-10-04_19-45_zone_out_+16.7"
+    },
+    {
+      "hotel_name": "Pickalbatros Villaggio Resort Portofino",
+      "duration_bucket": "",
+      "old_price": 8807.0,
+      "new_price": 15567.0,
+      "price_change": 6760.0,
+      "price_change_pct": 76.75712501419325,
+      "timestamp": "2026-10-04 19:45:41.248023+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-04T19:46:16.402076+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Villaggio Resort Portofino_2026-10-04_19-45_zone_out_+76.8"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-04T15:28:41.278349+00:00",
+    "last_processed_run": "2026-10-04T19:45:41.248023+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 9270.0,
@@ -398,16 +437,16 @@
         "premium_peak": 11087.0
       },
       "Nubian Island": {
-        "history_max": 13657.0,
-        "premium_peak": 13657.0
+        "history_max": 13784.0,
+        "premium_peak": 13784.0
       },
       "Steigenberger Golf Resort": {
         "history_max": 10890.0,
         "premium_peak": 10890.0
       },
       "Nubian Village": {
-        "history_max": 13657.0,
-        "premium_peak": 13657.0
+        "history_max": 13784.0,
+        "premium_peak": 13784.0
       },
       "Old Palace Resort": {
         "history_max": 16947.0,
@@ -422,7 +461,7 @@
         "premium_peak": null
       },
       "Parrotel Beach Resort (ex. Radisson Blu)": {
-        "history_max": 9975.0,
+        "history_max": 9976.0,
         "premium_peak": null
       },
       "Parrotel Lagoon Resort": {
@@ -458,8 +497,8 @@
         "premium_peak": 14295.0
       },
       "Jaz Elite Riviera": {
-        "history_max": 18207.0,
-        "premium_peak": 18207.0
+        "history_max": 18256.0,
+        "premium_peak": 18256.0
       },
       "Sunrise Crystal Bay Resort": {
         "history_max": 19675.0,
@@ -494,8 +533,8 @@
         "premium_peak": 14060.0
       },
       "Jaz Mirabel Park": {
-        "history_max": 10419.0,
-        "premium_peak": 10419.0
+        "history_max": 10496.0,
+        "premium_peak": 10496.0
       },
       "Sultan Gardens Resort": {
         "history_max": 15789.0,
@@ -510,7 +549,7 @@
         "premium_peak": 13667.0
       },
       "Stella Gardens Resort & Spa (ex Stella Di Mare Gardens)": {
-        "history_max": 8511.0,
+        "history_max": 8512.0,
         "premium_peak": null
       },
       "Laguna Vista Garden": {
@@ -522,8 +561,8 @@
         "premium_peak": null
       },
       "Pickalbatros Aqua Park Resort (Sharm El Sheikh)": {
-        "history_max": 11300.0,
-        "premium_peak": 11300.0
+        "history_max": 11301.0,
+        "premium_peak": 11301.0
       },
       "Sheraton Miramar Resort (El Gouna)": {
         "history_max": 15185.0,
@@ -538,8 +577,8 @@
         "premium_peak": 11447.0
       },
       "Red Sea Grand Waterworld Makadi (ex. Sunwing Waterworld Makadi)": {
-        "history_max": 10974.0,
-        "premium_peak": 10974.0
+        "history_max": 12016.0,
+        "premium_peak": 12016.0
       },
       "Reef Oasis Suakin Resort": {
         "history_max": 10357.0,
@@ -654,8 +693,8 @@
         "premium_peak": 11241.0
       },
       "Serenity Sky Arc": {
-        "history_max": 12654.0,
-        "premium_peak": 12654.0
+        "history_max": 12690.0,
+        "premium_peak": 12690.0
       },
       "Pickalbatros Royal Moderna": {
         "history_max": 10357.0,
@@ -670,12 +709,12 @@
         "premium_peak": 11567.0
       },
       "Pickalbatros Villaggio Resort Portofino": {
-        "history_max": 9037.0,
-        "premium_peak": null
+        "history_max": 15567.0,
+        "premium_peak": 15567.0
       },
       "Pickalbatros Vita Resort Portofino": {
-        "history_max": 10527.0,
-        "premium_peak": 10527.0
+        "history_max": 12787.0,
+        "premium_peak": 12787.0
       },
       "Serenity Alma Heights (ex. Serenity Fun City)": {
         "history_max": 10193.0,
@@ -742,8 +781,8 @@
         "premium_peak": 10157.0
       },
       "Coral Sea Holiday Resort": {
-        "history_max": 10500.0,
-        "premium_peak": 10500.0
+        "history_max": 10501.0,
+        "premium_peak": 10501.0
       },
       "The V Luxury Resort": {
         "history_max": 12812.0,
@@ -846,8 +885,8 @@
         "premium_peak": 11507.0
       },
       "Amphoras Beach": {
-        "history_max": 12364.0,
-        "premium_peak": 12364.0
+        "history_max": 12471.0,
+        "premium_peak": 12471.0
       },
       "Swissotel Sharm El Sheikh": {
         "history_max": 12508.0,
@@ -890,7 +929,7 @@
         "premium_peak": null
       },
       "Jaz Aquamarine Resort": {
-        "history_max": 9738.0,
+        "history_max": 9761.0,
         "premium_peak": null
       },
       "Jaz Aquaviva": {
@@ -922,8 +961,8 @@
         "premium_peak": 12053.0
       },
       "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort)": {
-        "history_max": 10002.0,
-        "premium_peak": 10002.0
+        "history_max": 10070.0,
+        "premium_peak": 10070.0
       },
       "Rixos Radamis Sharm El Sheikh": {
         "history_max": 13456.0,
@@ -1023,6 +1062,10 @@
       },
       "Xperience Sea Breeze Resort": {
         "history_max": 8367.0,
+        "premium_peak": null
+      },
+      "Desert Rose Resort": {
+        "history_max": 9348.0,
         "premium_peak": null
       }
     }

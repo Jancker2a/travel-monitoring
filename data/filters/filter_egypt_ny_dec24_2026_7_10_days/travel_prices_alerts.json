@@ -442,10 +442,75 @@
       "created_at": "2026-10-04T10:00:14.495371+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Xperience Kiroseiz Parkland Egipt, Sharm El Sheikh_2026-10-04_09-59_zone_out_gone"
+    },
+    {
+      "hotel_name": "Rewaya Majestic Resort Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 8987.0,
+      "new_price": 7960.0,
+      "price_change": -1027.0,
+      "price_change_pct": -11.42761766996773,
+      "timestamp": "2026-10-04 19:46:27.894458+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-04T19:46:43.508154+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Majestic Resort Egipt, Hurghada_2026-10-04_19-46_-11.4"
+    },
+    {
+      "hotel_name": "Rewaya Luxury Resort Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 10160.0,
+      "new_price": 8727.0,
+      "price_change": -1433.0,
+      "price_change_pct": -14.104330708661417,
+      "timestamp": "2026-10-04 19:46:27.894458+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-04T19:46:43.508180+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Luxury Resort Egipt, Hurghada_2026-10-04_19-46_-14.1"
+    },
+    {
+      "hotel_name": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 9991.0,
+      "new_price": 8769.0,
+      "price_change": -1222.0,
+      "price_change_pct": -12.231007907116405,
+      "timestamp": "2026-10-04 19:46:27.894458+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-04T19:46:43.508191+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada_2026-10-04_19-46_-12.2"
+    },
+    {
+      "hotel_name": "Royal Regency Club Egipt, Sharm El Sheikh, Szarm el-Szejk",
+      "duration_bucket": "",
+      "old_price": 10959.0,
+      "new_price": 10959.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-04 19:46:27.894458+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-04T19:46:43.508205+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Royal Regency Club Egipt, Sharm El Sheikh, Szarm el-Szejk_2026-10-04_19-46_zone_out_gone"
+    },
+    {
+      "hotel_name": "Xperience Sea Breeze Egipt, Sharm El Sheikh",
+      "duration_bucket": "",
+      "old_price": 10693.0,
+      "new_price": 10693.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-04 19:46:27.894458+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-04T19:46:43.508213+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xperience Sea Breeze Egipt, Sharm El Sheikh_2026-10-04_19-46_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-04T15:29:29.254842+00:00",
+    "last_processed_run": "2026-10-04T19:46:27.894458+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 10527.0,
@@ -541,6 +606,10 @@
       },
       "Amwaj Oyoun Resort & Spa (ex AA Amwaj Resort) Egipt, Sharm El Sheikh": {
         "history_max": 9617.0,
+        "premium_peak": null
+      },
+      "Three Corners Fayrouz Plaza Beach Resort Egipt, Marsa Alam": {
+        "history_max": 10557.0,
         "premium_peak": null
       }
     }
