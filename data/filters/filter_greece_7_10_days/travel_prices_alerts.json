@@ -117,10 +117,75 @@
       "created_at": "2026-10-03T23:15:19.181204+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Ostria Beach Resort & Spa Grecja, Kreta Wschodnia, Ierapetra_2026-10-03_23-14_zone_out_gone"
+    },
+    {
+      "hotel_name": "Lydia Maris Resort & Spa Grecja, Rodos, Kolymbia",
+      "duration_bucket": "",
+      "old_price": 7676.0,
+      "new_price": 8756.0,
+      "price_change": 1080.0,
+      "price_change_pct": 14.069828035435123,
+      "timestamp": "2026-10-04 02:48:43.133081+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-04T02:49:26.303447+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Lydia Maris Resort & Spa Grecja, Rodos, Kolymbia_2026-10-04_02-48_+14.1"
+    },
+    {
+      "hotel_name": "Euphoria Resort Grecja, Kreta Zachodnia, Kolymvari",
+      "duration_bucket": "",
+      "old_price": 8846.0,
+      "new_price": 8846.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-04 02:48:43.133081+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-04T02:49:26.303472+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Euphoria Resort Grecja, Kreta Zachodnia, Kolymvari_2026-10-04_02-48_zone_out_gone"
+    },
+    {
+      "hotel_name": "Mitsis Bali Paradise (ex. Bali Paradise)",
+      "duration_bucket": "",
+      "old_price": 8955.0,
+      "new_price": 8955.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-04 02:48:43.133081+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-04T02:49:26.303478+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Mitsis Bali Paradise (ex. Bali Paradise)_2026-10-04_02-48_zone_out_gone"
+    },
+    {
+      "hotel_name": "Ostria Beach Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 9957.0,
+      "new_price": 9957.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-04 02:48:43.133081+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-04T02:49:26.303482+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Ostria Beach Resort & Spa_2026-10-04_02-48_zone_out_gone"
+    },
+    {
+      "hotel_name": "Pegasos Beach (Faliraki) Grecja, Rodos, Faliraki",
+      "duration_bucket": "",
+      "old_price": 7557.0,
+      "new_price": 7557.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-04 02:48:43.133081+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-04T02:49:26.303485+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pegasos Beach (Faliraki) Grecja, Rodos, Faliraki_2026-10-04_02-48_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-03T23:14:25.365876+00:00",
+    "last_processed_run": "2026-10-04T02:48:43.133081+00:00",
     "premium_state": {
       "Akasha Beach (ex Armava)": {
         "history_max": 10198.0,
@@ -143,11 +208,11 @@
         "premium_peak": 12698.0
       },
       "Kresten Royal Euphoria Resort (ex. Kresten Royal Villas)": {
-        "history_max": 10078.0,
-        "premium_peak": 10078.0
+        "history_max": 10358.0,
+        "premium_peak": 10358.0
       },
       "Levante Beach Resort By Playitas Grecja, Rodos, Afandu": {
-        "history_max": 7713.0,
+        "history_max": 7764.0,
         "premium_peak": null
       },
       "Kakkos Beach": {
@@ -159,7 +224,7 @@
         "premium_peak": 10317.0
       },
       "Lydia Maris Resort & Spa Grecja, Rodos, Kolymbia": {
-        "history_max": 7676.0,
+        "history_max": 8756.0,
         "premium_peak": null
       },
       "Lyttos Beach": {
@@ -171,8 +236,8 @@
         "premium_peak": 14750.0
       },
       "MarBella, Mar-Bella Collection (Agios Ioannis)": {
-        "history_max": 12401.0,
-        "premium_peak": 12401.0
+        "history_max": 12522.0,
+        "premium_peak": 12522.0
       },
       "Mare blue (ex. Sunshine Crete Beach)": {
         "history_max": 8885.0,
@@ -195,8 +260,8 @@
         "premium_peak": null
       },
       "Istion Club": {
-        "history_max": 10207.0,
-        "premium_peak": 10207.0
+        "history_max": 10227.0,
+        "premium_peak": 10227.0
       },
       "Gennadi Grand Resort": {
         "history_max": 16977.0,
@@ -239,7 +304,7 @@
         "premium_peak": 10384.0
       },
       "Hydramis Palace Beach Resort Grecja, Kreta Zachodnia, Kavros": {
-        "history_max": 6873.0,
+        "history_max": 6977.0,
         "premium_peak": null
       },
       "I Resort Beach": {
@@ -267,8 +332,8 @@
         "premium_peak": null
       },
       "Mitsis Faliraki": {
-        "history_max": 12792.0,
-        "premium_peak": 12792.0
+        "history_max": 13106.0,
+        "premium_peak": 13106.0
       },
       "Mitsis Norida Beach Grecja, Kos, Kardamena": {
         "history_max": 8241.0,
@@ -299,8 +364,8 @@
         "premium_peak": 10277.0
       },
       "Rethymno Mare Royal & Water Park (ex. Bomo)": {
-        "history_max": 11727.0,
-        "premium_peak": 11727.0
+        "history_max": 12107.0,
+        "premium_peak": 12107.0
       },
       "Rodos Palace Grecja, Rodos, Ixia": {
         "history_max": 4497.0,
@@ -311,7 +376,7 @@
         "premium_peak": 10787.0
       },
       "Sentido Asterias Beach Resort Grecja, Rodos, Afandou": {
-        "history_max": 7914.0,
+        "history_max": 7953.0,
         "premium_peak": null
       },
       "Sheraton Rhodes Resort (ex. Imperial)": {
@@ -351,7 +416,7 @@
         "premium_peak": 13592.0
       },
       "Mitsis Ramira Beach Grecja, Kos, Psalidi": {
-        "history_max": 8790.0,
+        "history_max": 8820.0,
         "premium_peak": null
       },
       "Mitsis Rodos Maris Grecja, Rodos, Kiotari": {
@@ -359,7 +424,7 @@
         "premium_peak": null
       },
       "Mitsis Rodos Village Grecja, Rodos, Kiotari": {
-        "history_max": 8699.0,
+        "history_max": 8719.0,
         "premium_peak": null
       },
       "Mitsis Royal Mare": {
@@ -367,16 +432,16 @@
         "premium_peak": null
       },
       "Mitsis Selection Blue Domes": {
-        "history_max": 11410.0,
-        "premium_peak": 11410.0
+        "history_max": 11666.0,
+        "premium_peak": 11666.0
       },
       "Mitsis Selection Laguna": {
         "history_max": 10919.0,
         "premium_peak": 10919.0
       },
       "Mitsis Selection Rinela": {
-        "history_max": 12380.0,
-        "premium_peak": 12380.0
+        "history_max": 12507.0,
+        "premium_peak": 12507.0
       },
       "Mitsis Summer Palace Grecja, kos, Kardamaina": {
         "history_max": 7254.0,
@@ -411,15 +476,15 @@
         "premium_peak": null
       },
       "Portes Lithos Luxury Resort": {
-        "history_max": 10662.0,
-        "premium_peak": 10662.0
+        "history_max": 10682.0,
+        "premium_peak": 10682.0
       },
       "Galini Palace Grecja, Kreta Zachodnia, Kolymvari": {
         "history_max": 6841.0,
         "premium_peak": null
       },
       "Kairaba Sandy Villas Grecja, Korfu, Agios Georgios": {
-        "history_max": 8474.0,
+        "history_max": 8497.0,
         "premium_peak": null
       },
       "Creta Maris Beach Resort (ex Terra Maris)": {
@@ -427,8 +492,8 @@
         "premium_peak": 12898.0
       },
       "Domes Aulus Zante Autograph Collection": {
-        "history_max": 11857.0,
-        "premium_peak": 11857.0
+        "history_max": 12097.0,
+        "premium_peak": 12097.0
       },
       "Dimitra Beach Hotel & Suites": {
         "history_max": 11496.0,
@@ -491,11 +556,11 @@
         "premium_peak": 12265.0
       },
       "Avra Imperial Beach Resort & Spa": {
-        "history_max": 13387.0,
-        "premium_peak": 13387.0
+        "history_max": 13848.0,
+        "premium_peak": 13848.0
       },
       "Arion Palace Grecja, Kreta Wschodnia, Ierapetra": {
-        "history_max": 8510.0,
+        "history_max": 8633.0,
         "premium_peak": null
       },
       "Aulus Chania Resort, Curio Collection by Hilton (ex. Isla Brown Chania)": {
@@ -543,7 +608,7 @@
         "premium_peak": 10226.0
       },
       "Euphoria Resort": {
-        "history_max": 9146.0,
+        "history_max": 9666.0,
         "premium_peak": null
       },
       "Alia Palace": {
@@ -571,8 +636,8 @@
         "premium_peak": null
       },
       "Rodos Palace": {
-        "history_max": 11222.0,
-        "premium_peak": 11222.0
+        "history_max": 11502.0,
+        "premium_peak": 11502.0
       },
       "Euphoria Resort Grecja, Kreta Zachodnia, Kolymvari": {
         "history_max": 8846.0,
@@ -581,6 +646,14 @@
       "Ostria Beach Resort & Spa": {
         "history_max": 9957.0,
         "premium_peak": null
+      },
+      "Mitsis Bali Paradise (ex. Bali Paradise) Grecja, Kreta, Bali": {
+        "history_max": 9145.0,
+        "premium_peak": null
+      },
+      "Pegasos Beach (Faliraki)": {
+        "history_max": 16317.0,
+        "premium_peak": 16317.0
       }
     }
   }
