@@ -1,5 +1,552 @@
 {
   "version": 2,
-  "alerts": [],
-  "meta": {}
+  "alerts": [
+    {
+      "hotel_name": "Amarina Queen Resort Egipt, Marsa Alam",
+      "duration_bucket": "",
+      "old_price": 7128.0,
+      "new_price": 6494.0,
+      "price_change": -634.0,
+      "price_change_pct": -8.894500561167227,
+      "timestamp": "2026-10-05 09:16:51.217908+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-05T09:17:17.949063+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amarina Queen Resort Egipt, Marsa Alam_2026-10-05_09-16_-8.9"
+    },
+    {
+      "hotel_name": "Concorde Moreen Beach Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 8897.0,
+      "new_price": 8897.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-05 09:16:51.217908+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-05T09:17:17.949122+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Concorde Moreen Beach Resort & Spa_2026-10-05_09-16_zone_out_gone"
+    },
+    {
+      "hotel_name": "Creek Hotel and Residences",
+      "duration_bucket": "",
+      "old_price": 8645.0,
+      "new_price": 8645.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-05 09:16:51.217908+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-05T09:17:17.949136+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Creek Hotel and Residences_2026-10-05_09-16_zone_out_gone"
+    },
+    {
+      "hotel_name": "Jasmine Palace Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 8357.0,
+      "new_price": 8357.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-05 09:16:51.217908+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-05T09:17:17.949145+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jasmine Palace Egipt, Hurghada_2026-10-05_09-16_zone_out_gone"
+    },
+    {
+      "hotel_name": "Radisson Individuals Marina Port Ghalib (ex. Sunrise Marina Resort)",
+      "duration_bucket": "",
+      "old_price": 9546.0,
+      "new_price": 9546.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-05 09:16:51.217908+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-05T09:17:17.949153+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Radisson Individuals Marina Port Ghalib (ex. Sunrise Marina Resort)_2026-10-05_09-16_zone_out_gone"
+    },
+    {
+      "hotel_name": "Royal Lagoons Aqua (ex. Premium Blue) Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 7220.0,
+      "new_price": 7220.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-05 09:16:51.217908+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-05T09:17:17.949161+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Royal Lagoons Aqua (ex. Premium Blue) Egipt, Hurghada_2026-10-05_09-16_zone_out_gone"
+    }
+  ],
+  "meta": {
+    "last_processed_run": "2026-10-05T09:16:51.217908+00:00",
+    "premium_state": {
+      "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
+        "history_max": 7506.0,
+        "premium_peak": null
+      },
+      "Monte Carlo Resort Spa": {
+        "history_max": 9797.0,
+        "premium_peak": null
+      },
+      "Sataya Resort (ex. Labranda Sataya Marsa Alam)": {
+        "history_max": 9397.0,
+        "premium_peak": null
+      },
+      "Mercure Dahab Bay View Egipt, Dahab": {
+        "history_max": 8164.0,
+        "premium_peak": null
+      },
+      "Marriott Hurghada Beach Resort Egipt, Hurghada": {
+        "history_max": 7907.0,
+        "premium_peak": null
+      },
+      "Sea Star Beau Rivage Egipt, Hurghada": {
+        "history_max": 7210.0,
+        "premium_peak": null
+      },
+      "Le Meridien Dahab Resort Egipt, Dahab": {
+        "history_max": 8214.0,
+        "premium_peak": null
+      },
+      "Lazuli (Marsa Alam)": {
+        "history_max": 8897.0,
+        "premium_peak": null
+      },
+      "Sentido Akassia Beach (ex. LTI Akassia Beach)": {
+        "history_max": 8901.0,
+        "premium_peak": null
+      },
+      "Jaz Palmariva Beach": {
+        "history_max": 9177.0,
+        "premium_peak": null
+      },
+      "Jaz Mirabel Park": {
+        "history_max": 10332.0,
+        "premium_peak": null
+      },
+      "Sentido Mamlouk Palace Resort & Spa (ex Sunrise)": {
+        "history_max": 10093.0,
+        "premium_peak": null
+      },
+      "Jaz Mirabel Beach Resort": {
+        "history_max": 10117.0,
+        "premium_peak": null
+      },
+      "Jaz Makadi Oasis Resort": {
+        "history_max": 10137.0,
+        "premium_peak": null
+      },
+      "Serenity Alma Heights (ex. Serenity Fun City)": {
+        "history_max": 9367.0,
+        "premium_peak": null
+      },
+      "Jaz Grand Marsa (ex Resta Grand Resort) Egipt, Marsa Alam, Madinat Coraya": {
+        "history_max": 8197.0,
+        "premium_peak": null
+      },
+      "Jaz Aquaviva": {
+        "history_max": 10904.0,
+        "premium_peak": null
+      },
+      "Serenity Alpha Beach (ex. Serenity Makadi Beach)": {
+        "history_max": 9450.0,
+        "premium_peak": null
+      },
+      "Jaz Aquamarine Resort": {
+        "history_max": 8867.0,
+        "premium_peak": null
+      },
+      "Jasmine Palace Egipt, Hurghada": {
+        "history_max": 8357.0,
+        "premium_peak": null
+      },
+      "Seven Seas Jolie Bay": {
+        "history_max": 10489.0,
+        "premium_peak": null
+      },
+      "IL Mercato (ex. Iberotel Il Mercato) Egipt, Sharm El Sheikh": {
+        "history_max": 7867.0,
+        "premium_peak": null
+      },
+      "Radisson Individuals Marina Port Ghalib (ex. Sunrise Marina Resort)": {
+        "history_max": 9546.0,
+        "premium_peak": null
+      },
+      "Hilton Plaza (Hurghada)": {
+        "history_max": 9986.0,
+        "premium_peak": null
+      },
+      "Sharm Grand Plaza Resort": {
+        "history_max": 8657.0,
+        "premium_peak": null
+      },
+      "Hilton Marsa Alam Nubian Resort": {
+        "history_max": 9687.0,
+        "premium_peak": null
+      },
+      "Hawaii Paradise Aqua Park Resort Egipt, Hurghada": {
+        "history_max": 7081.0,
+        "premium_peak": null
+      },
+      "Sirena Beach Resort & Spa": {
+        "history_max": 9392.0,
+        "premium_peak": null
+      },
+      "Movenpick Resort Soma Bay Egipt, Hurghada": {
+        "history_max": 7982.0,
+        "premium_peak": null
+      },
+      "Safir Sharm Waterfalls Resort (ex Hilton Waterfalls Resort)": {
+        "history_max": 9342.0,
+        "premium_peak": null
+      },
+      "Naama Bay Hotel & Resort": {
+        "history_max": 9596.0,
+        "premium_peak": null
+      },
+      "Naama Bay Promenade Beach Resort": {
+        "history_max": 10774.0,
+        "premium_peak": null
+      },
+      "Red Sea Grand Waterworld Makadi (ex. Sunwing Waterworld Makadi)": {
+        "history_max": 8852.0,
+        "premium_peak": null
+      },
+      "Pickalbatros Vita Resort Portofino": {
+        "history_max": 8837.0,
+        "premium_peak": null
+      },
+      "Reef Oasis Suakin Resort": {
+        "history_max": 9897.0,
+        "premium_peak": null
+      },
+      "Pickalbatros Villaggio Resort Portofino": {
+        "history_max": 8717.0,
+        "premium_peak": null
+      },
+      "Pickalbatros Sands Port Ghalib (ex. Red Sea Siva Sands)": {
+        "history_max": 10327.0,
+        "premium_peak": null
+      },
+      "Regency Plaza Aqua Park Spa Egipt, Sharm El Sheikh, Szarm el-Szejk": {
+        "history_max": 7897.0,
+        "premium_peak": null
+      },
+      "Pickalbatros Royal Moderna": {
+        "history_max": 10304.0,
+        "premium_peak": null
+      },
+      "Pickalbatros Palace Resort": {
+        "history_max": 10367.0,
+        "premium_peak": null
+      },
+      "Rehana Royal Beach Resort & Spa": {
+        "history_max": 9270.0,
+        "premium_peak": null
+      },
+      "Pickalbatros Oasis Port Ghalib (ex. Red Sea Port Ghalib Resort)": {
+        "history_max": 10535.0,
+        "premium_peak": null
+      },
+      "Renaissance Golden View Beach Resort by Marriott": {
+        "history_max": 9258.0,
+        "premium_peak": null
+      },
+      "Pickalbatros Luxury Suites": {
+        "history_max": 10617.0,
+        "premium_peak": null
+      },
+      "Pickalbatros Laguna Vista Beach": {
+        "history_max": 10097.0,
+        "premium_peak": null
+      },
+      "Gravity Sahl Hasheesh (Ex. Ocean Breeze)": {
+        "history_max": 10522.0,
+        "premium_peak": null
+      },
+      "Rewaya Luxury Resort Egipt, Hurghada": {
+        "history_max": 6967.0,
+        "premium_peak": null
+      },
+      "Pickalbatros Golf Beach Resort": {
+        "history_max": 9354.0,
+        "premium_peak": null
+      },
+      "Rewaya Majestic Resort Egipt, Hurghada": {
+        "history_max": 7499.0,
+        "premium_peak": null
+      },
+      "Pickalbatros Dana Beach Resort": {
+        "history_max": 10807.0,
+        "premium_peak": null
+      },
+      "Pickalbatros Citadel Sahl Hasheesh (ex. Citadel Azur Resort)": {
+        "history_max": 10297.0,
+        "premium_peak": null
+      },
+      "Royal Brayka Beach Resort (ex Zee Brayka)": {
+        "history_max": 8697.0,
+        "premium_peak": null
+      },
+      "Parrotel Lagoon Resort Egipt, Sharm El Sheikh, Szarm el-Szejk": {
+        "history_max": 6697.0,
+        "premium_peak": null
+      },
+      "Parrotel Beach Resort (ex. Radisson Blu)": {
+        "history_max": 9412.0,
+        "premium_peak": null
+      },
+      "Old Palace Resort": {
+        "history_max": 8553.0,
+        "premium_peak": null
+      },
+      "Xperience Sea Breeze Egipt, Sharm El Sheikh": {
+        "history_max": 8272.0,
+        "premium_peak": null
+      },
+      "Novotel Marsa Alam Egipt, Marsa Alam": {
+        "history_max": 7477.0,
+        "premium_peak": null
+      },
+      "Royal Lagoons Aqua (ex. Premium Blue) Egipt, Hurghada": {
+        "history_max": 7220.0,
+        "premium_peak": null
+      },
+      "Naama Bay Promenade Mountain Resort": {
+        "history_max": 9122.0,
+        "premium_peak": null
+      },
+      "Royal Regency Club": {
+        "history_max": 8530.0,
+        "premium_peak": null
+      },
+      "Pickalbatros Laguna Club Resort": {
+        "history_max": 9817.0,
+        "premium_peak": null
+      },
+      "Gravity Hotel & Aquapark Hurghada (ex. Samra Bay Resort) Egipt, Hurghada": {
+        "history_max": 8452.0,
+        "premium_peak": null
+      },
+      "Red Sea Grand Makadi (Makadi Bay)": {
+        "history_max": 8678.0,
+        "premium_peak": null
+      },
+      "Amarina Jannah Resort Aquapark Egipt, Marsa Alam, Port Ghalib": {
+        "history_max": 8193.0,
+        "premium_peak": null
+      },
+      "Calimera Blend Paradise Resort": {
+        "history_max": 9357.0,
+        "premium_peak": null
+      },
+      "Cooee Prima Life Makadi Bay": {
+        "history_max": 9447.0,
+        "premium_peak": null
+      },
+      "The Cascades Golf Resort Spa & Thalasso (ex Westin Soma Bay) Egipt, Hurghada, Soma Bay": {
+        "history_max": 7832.0,
+        "premium_peak": null
+      },
+      "Continental (ex Movenpick Resort)": {
+        "history_max": 10718.0,
+        "premium_peak": null
+      },
+      "Amarina Queen Resort Egipt, Marsa Alam": {
+        "history_max": 7128.0,
+        "premium_peak": null
+      },
+      "Concorde Sport": {
+        "history_max": 10003.0,
+        "premium_peak": null
+      },
+      "The V Luxury Resort": {
+        "history_max": 10926.0,
+        "premium_peak": null
+      },
+      "V Grand Beach Resort Sahl Hasheesh": {
+        "history_max": 9853.0,
+        "premium_peak": null
+      },
+      "Concorde Moreen Beach Resort & Spa": {
+        "history_max": 8897.0,
+        "premium_peak": null
+      },
+      "Amwaj Oyoun Resort & Spa (ex AA Amwaj Resort) Egipt, Sharm El Sheikh": {
+        "history_max": 7622.0,
+        "premium_peak": null
+      },
+      "Coral Sea Holiday Resort": {
+        "history_max": 10501.0,
+        "premium_peak": null
+      },
+      "Concorde El Salam Sport": {
+        "history_max": 9880.0,
+        "premium_peak": null
+      },
+      "Titanic Beach Spa & Aqua Park": {
+        "history_max": 9097.0,
+        "premium_peak": null
+      },
+      "Cleopatra Signature Marsa Alam": {
+        "history_max": 10134.0,
+        "premium_peak": null
+      },
+      "Titanic Palace Resort": {
+        "history_max": 9348.0,
+        "premium_peak": null
+      },
+      "Cleopatra Luxury Resort (Makadi Bay)": {
+        "history_max": 9954.0,
+        "premium_peak": null
+      },
+      "Titanic Royal": {
+        "history_max": 10934.0,
+        "premium_peak": null
+      },
+      "Aurora Oriental Resort": {
+        "history_max": 9270.0,
+        "premium_peak": null
+      },
+      "Charmillion Club Resort": {
+        "history_max": 10068.0,
+        "premium_peak": null
+      },
+      "True Beach Resort": {
+        "history_max": 8985.0,
+        "premium_peak": null
+      },
+      "Charmillion Club Aqua Park": {
+        "history_max": 10266.0,
+        "premium_peak": null
+      },
+      "Tropitel Sahl Hasheesh": {
+        "history_max": 9973.0,
+        "premium_peak": null
+      },
+      "Siva Golden Bay Makadi Egipt, Hurghada, Makadi Bay": {
+        "history_max": 7627.0,
+        "premium_peak": null
+      },
+      "Swissotel Resort El Quseir": {
+        "history_max": 9554.0,
+        "premium_peak": null
+      },
+      "Casa Mare Resort (ex. Royal Tulip Beach Resort) Egipt, Marsa Alam": {
+        "history_max": 7897.0,
+        "premium_peak": null
+      },
+      "Coral Sea Water World Resort": {
+        "history_max": 10693.0,
+        "premium_peak": null
+      },
+      "Golf Villas And Suites Sharm": {
+        "history_max": 9354.0,
+        "premium_peak": null
+      },
+      "Fantazia Resort Egipt, Marsa Alam": {
+        "history_max": 8231.0,
+        "premium_peak": null
+      },
+      "Steigenberger Aqua Magic": {
+        "history_max": 9787.0,
+        "premium_peak": null
+      },
+      "Dreams Vacation Egipt, Sharm El Sheikh, Szarm el-Szejk": {
+        "history_max": 8037.0,
+        "premium_peak": null
+      },
+      "Akassia Swiss Resort (ex. Calimera Club Akassia Swiss Resort)": {
+        "history_max": 9103.0,
+        "premium_peak": null
+      },
+      "Dreams Beach Sharm Resort (Sharm El Sheikh)": {
+        "history_max": 8637.0,
+        "premium_peak": null
+      },
+      "Stella Beach Resort & Spa": {
+        "history_max": 9270.0,
+        "premium_peak": null
+      },
+      "Dream Lagoon & Aqua Park Resort (ex. Floriana Dream Lagoon) Egipt, Marsa Alam": {
+        "history_max": 7097.0,
+        "premium_peak": null
+      },
+      "Albatros Makadi Resort (ex Royal Pharaohs Makadi)": {
+        "history_max": 9077.0,
+        "premium_peak": null
+      },
+      "Double Tree by Hilton Mangroovy El Gouna Resort": {
+        "history_max": 9329.0,
+        "premium_peak": null
+      },
+      "Xperience Kiroseiz Premier Egipt, Sharm El Sheikh": {
+        "history_max": 7444.0,
+        "premium_peak": null
+      },
+      "Domina Coral Bay Bella Vista": {
+        "history_max": 9692.0,
+        "premium_peak": null
+      },
+      "Xperience Kiroseiz Parkland Egipt, Sharm El Sheikh": {
+        "history_max": 7767.0,
+        "premium_peak": null
+      },
+      "Desert Rose Resort": {
+        "history_max": 8722.0,
+        "premium_peak": null
+      },
+      "Creek Hotel and Residences": {
+        "history_max": 8645.0,
+        "premium_peak": null
+      },
+      "Stella Di Mare Gardens Resort & Spa Egipt, Hurghada, Makadi Bay": {
+        "history_max": 7999.0,
+        "premium_peak": null
+      },
+      "Albatros Sea World Resort Marsa Alam": {
+        "history_max": 9057.0,
+        "premium_peak": null
+      },
+      "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort)": {
+        "history_max": 9108.0,
+        "premium_peak": null
+      },
+      "Royal Lagoons Aqua (ex. Premium Blue)": {
+        "history_max": 9212.0,
+        "premium_peak": null
+      },
+      "Pickalbatros White Beach Resort": {
+        "history_max": 10927.0,
+        "premium_peak": null
+      },
+      "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna": {
+        "history_max": 8159.0,
+        "premium_peak": null
+      },
+      "Concorde Moreen Beach Resort & Spa Egipt, Marsa Alam": {
+        "history_max": 8262.0,
+        "premium_peak": null
+      },
+      "Concorde El Salam Front Area": {
+        "history_max": 10695.0,
+        "premium_peak": null
+      },
+      "Cleopatra Luxury Resort": {
+        "history_max": 10760.0,
+        "premium_peak": null
+      },
+      "Pickalbatros Palace Port Ghalib (ex. Red Sea The Palace)": {
+        "history_max": 10850.0,
+        "premium_peak": null
+      },
+      "Jasmine Palace": {
+        "history_max": 8357.0,
+        "premium_peak": null
+      }
+    }
+  }
 }

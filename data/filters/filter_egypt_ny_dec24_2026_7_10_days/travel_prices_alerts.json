@@ -1,5 +1,83 @@
 {
   "version": 2,
-  "alerts": [],
-  "meta": {}
+  "alerts": [
+    {
+      "hotel_name": "Rewaya Luxury Resort Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 8767.0,
+      "new_price": 10120.0,
+      "price_change": 1353.0,
+      "price_change_pct": 15.432873274780427,
+      "timestamp": "2026-10-05 09:17:15.847894+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-05T09:17:30.288581+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Luxury Resort Egipt, Hurghada_2026-10-05_09-17_+15.4"
+    }
+  ],
+  "meta": {
+    "last_processed_run": "2026-10-05T09:17:15.847894+00:00",
+    "premium_state": {
+      "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
+        "history_max": 9991.0,
+        "premium_peak": null
+      },
+      "Rewaya Luxury Resort Egipt, Hurghada": {
+        "history_max": 10120.0,
+        "premium_peak": null
+      },
+      "Xperience Kiroseiz Premier Egipt, Sharm El Sheikh": {
+        "history_max": 10493.0,
+        "premium_peak": null
+      },
+      "Regency Plaza Aqua Park Spa Egipt, Sharm El Sheikh, Szarm el-Szejk": {
+        "history_max": 10607.0,
+        "premium_peak": null
+      },
+      "Red Sea Grand Waterworld Makadi (ex. Sunwing Waterworld Makadi) Egipt, Hurghada, Makadi Bay": {
+        "history_max": 10958.0,
+        "premium_peak": null
+      },
+      "Stella Di Mare Beach Resort & Spa (ex. Stella Makadi Resort) Egipt, Hurghada, Makadi Bay": {
+        "history_max": 10952.0,
+        "premium_peak": null
+      },
+      "Parrotel Lagoon Resort Egipt, Sharm El Sheikh, Szarm el-Szejk": {
+        "history_max": 9620.0,
+        "premium_peak": null
+      },
+      "Sea Star Beau Rivage Egipt, Hurghada": {
+        "history_max": 9771.0,
+        "premium_peak": null
+      },
+      "Rewaya Majestic Resort Egipt, Hurghada": {
+        "history_max": 9027.0,
+        "premium_peak": null
+      },
+      "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort) Egipt, Hurghada": {
+        "history_max": 10065.0,
+        "premium_peak": null
+      },
+      "Le Meridien Dahab Resort Egipt, Dahab": {
+        "history_max": 9897.0,
+        "premium_peak": null
+      },
+      "IL Mercato (ex. Iberotel Il Mercato) Egipt, Sharm El Sheikh": {
+        "history_max": 10682.0,
+        "premium_peak": null
+      },
+      "Xperience Kiroseiz Parkland Egipt, Sharm El Sheikh": {
+        "history_max": 10823.0,
+        "premium_peak": null
+      },
+      "Park Inn (Sharm El Sheikh) Egipt, Sharm El Sheikh": {
+        "history_max": 10629.0,
+        "premium_peak": null
+      },
+      "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna": {
+        "history_max": 10880.0,
+        "premium_peak": null
+      }
+    }
+  }
 }

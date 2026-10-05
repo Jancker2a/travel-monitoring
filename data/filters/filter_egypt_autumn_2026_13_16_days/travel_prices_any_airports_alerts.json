@@ -1,5 +1,60 @@
 {
   "version": 2,
-  "alerts": [],
-  "meta": {}
+  "alerts": [
+    {
+      "hotel_name": "IL Mercato (ex. Iberotel Il Mercato) Egipt, Sharm El Sheikh",
+      "duration_bucket": "",
+      "old_price": 9065.0,
+      "new_price": 10362.0,
+      "price_change": 1297.0,
+      "price_change_pct": 14.307777164920022,
+      "timestamp": "2026-10-05 09:17:09.559144+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-05T09:17:26.790792+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "IL Mercato (ex. Iberotel Il Mercato) Egipt, Sharm El Sheikh_2026-10-05_09-17_+14.3"
+    },
+    {
+      "hotel_name": "Xperience Kiroseiz Premier Egipt, Sharm El Sheikh",
+      "duration_bucket": "",
+      "old_price": 10520.0,
+      "new_price": 10520.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-05 09:17:09.559144+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-05T09:17:26.790839+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xperience Kiroseiz Premier Egipt, Sharm El Sheikh_2026-10-05_09-17_zone_out_gone"
+    }
+  ],
+  "meta": {
+    "last_processed_run": "2026-10-05T09:17:09.559144+00:00",
+    "premium_state": {
+      "Casa Mare Resort (ex. Royal Tulip Beach Resort) Egipt, Marsa Alam": {
+        "history_max": 10557.0,
+        "premium_peak": null
+      },
+      "Dream Lagoon & Aqua Park Resort (ex. Floriana Dream Lagoon) Egipt, Marsa Alam": {
+        "history_max": 10357.0,
+        "premium_peak": null
+      },
+      "IL Mercato (ex. Iberotel Il Mercato) Egipt, Sharm El Sheikh": {
+        "history_max": 10362.0,
+        "premium_peak": null
+      },
+      "Le Meridien Dahab Resort Egipt, Dahab": {
+        "history_max": 10847.0,
+        "premium_peak": null
+      },
+      "Parrotel Lagoon Resort Egipt, Sharm El Sheikh, Szarm el-Szejk": {
+        "history_max": 9642.0,
+        "premium_peak": null
+      },
+      "Xperience Kiroseiz Premier Egipt, Sharm El Sheikh": {
+        "history_max": 10520.0,
+        "premium_peak": null
+      }
+    }
+  }
 }
