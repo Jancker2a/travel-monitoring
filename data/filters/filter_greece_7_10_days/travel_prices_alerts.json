@@ -195,10 +195,36 @@
       "created_at": "2026-10-05T18:42:14.588478+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Zante Park Resort & SPA - BW Premier Collection Grecja, Zakynthos, Laganas_2026-10-05_18-41_zone_out_gone"
+    },
+    {
+      "hotel_name": "Lydia Maris Resort & Spa Grecja, Rodos, Kolymbia",
+      "duration_bucket": "",
+      "old_price": 7328.0,
+      "new_price": 8148.0,
+      "price_change": 820.0,
+      "price_change_pct": 11.18995633187773,
+      "timestamp": "2026-10-06 00:58:00.190824+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-06T00:58:53.402440+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Lydia Maris Resort & Spa Grecja, Rodos, Kolymbia_2026-10-06_00-58_+11.2"
+    },
+    {
+      "hotel_name": "Euphoria Resort",
+      "duration_bucket": "",
+      "old_price": 9890.0,
+      "new_price": 10250.0,
+      "price_change": 360.0,
+      "price_change_pct": 3.640040444893832,
+      "timestamp": "2026-10-06 00:58:00.190824+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-06T00:58:53.402479+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Euphoria Resort_2026-10-06_00-58_zone_out_+3.6"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-05T18:41:05.901453+00:00",
+    "last_processed_run": "2026-10-06T00:58:00.190824+00:00",
     "premium_state": {
       "Akasha Beach (ex Armava)": {
         "history_max": 10198.0,
@@ -209,12 +235,12 @@
         "premium_peak": null
       },
       "Kerkyra Blue N' Spa by Louis (Corfu)": {
-        "history_max": 16676.0,
-        "premium_peak": 16676.0
+        "history_max": 16740.0,
+        "premium_peak": 16740.0
       },
       "King Minos Retreat (ex. King Minos Palace)": {
-        "history_max": 10941.0,
-        "premium_peak": 10941.0
+        "history_max": 13066.0,
+        "premium_peak": 13066.0
       },
       "Kipriotis Maris Suites (ex Iberostar)": {
         "history_max": 10612.0,
@@ -225,15 +251,15 @@
         "premium_peak": 12798.0
       },
       "Kresten Royal Euphoria Resort (ex. Kresten Royal Villas)": {
-        "history_max": 11337.0,
-        "premium_peak": 11337.0
+        "history_max": 11362.0,
+        "premium_peak": 11362.0
       },
       "Kakkos Bay Grecja, Kreta Wschodnia, Ierapetra": {
         "history_max": 7617.0,
         "premium_peak": null
       },
       "Levante Beach Resort By Playitas Grecja, Rodos, Afandu": {
-        "history_max": 7705.0,
+        "history_max": 7760.0,
         "premium_peak": null
       },
       "Lindos Royal (ex. COOEE) Grecja, Rodos, Lindos": {
@@ -253,8 +279,8 @@
         "premium_peak": 14750.0
       },
       "MarBella, Mar-Bella Collection (Agios Ioannis)": {
-        "history_max": 12419.0,
-        "premium_peak": 12419.0
+        "history_max": 12599.0,
+        "premium_peak": 12599.0
       },
       "Mayia Exclusive Resort & Spa": {
         "history_max": 17210.0,
@@ -297,8 +323,8 @@
         "premium_peak": null
       },
       "Grecotel Kos Imperial": {
-        "history_max": 17935.0,
-        "premium_peak": 17935.0
+        "history_max": 18061.0,
+        "premium_peak": 18061.0
       },
       "Zeus Dolce Athens (ex Dolce Attica Riviera)": {
         "history_max": 15247.0,
@@ -333,11 +359,11 @@
         "premium_peak": 17501.0
       },
       "Helea Lifestyle Beach Resort": {
-        "history_max": 11075.0,
-        "premium_peak": 11075.0
+        "history_max": 12357.0,
+        "premium_peak": 12357.0
       },
       "Galini Palace Grecja, Kreta Zachodnia, Kolymvari": {
-        "history_max": 6492.0,
+        "history_max": 6565.0,
         "premium_peak": null
       },
       "Mitsis Bali Paradise (ex. Bali Paradise) Grecja, Kreta, Bali": {
@@ -345,7 +371,7 @@
         "premium_peak": null
       },
       "Mitsis Norida Beach Grecja, Kos, Kardamena": {
-        "history_max": 8183.0,
+        "history_max": 8222.0,
         "premium_peak": null
       },
       "Porto Platanias Village": {
@@ -361,8 +387,8 @@
         "premium_peak": null
       },
       "Ramada Athens Attica Riviera (ex Aquamarina)": {
-        "history_max": 14176.0,
-        "premium_peak": 14176.0
+        "history_max": 14327.0,
+        "premium_peak": 14327.0
       },
       "Restia (Acharavi)": {
         "history_max": 10875.0,
@@ -385,7 +411,7 @@
         "premium_peak": 11457.0
       },
       "Sentido Asterias Beach Resort Grecja, Rodos, Afandou": {
-        "history_max": 7899.0,
+        "history_max": 7945.0,
         "premium_peak": null
       },
       "Sheraton Rhodes Resort (ex. Imperial)": {
@@ -429,7 +455,7 @@
         "premium_peak": null
       },
       "Mitsis Rodos Village Grecja, Rodos, Kiotari": {
-        "history_max": 8702.0,
+        "history_max": 8711.0,
         "premium_peak": null
       },
       "Mitsis Royal Mare": {
@@ -477,7 +503,7 @@
         "premium_peak": 16317.0
       },
       "Mitsis Summer Palace Grecja, kos, Kardamaina": {
-        "history_max": 7287.0,
+        "history_max": 7306.0,
         "premium_peak": null
       },
       "Galaxy Beach Resort BW Premier Collection Grecja, Zakynthos, Laganas": {
@@ -497,8 +523,8 @@
         "premium_peak": 19777.0
       },
       "Amus": {
-        "history_max": 10410.0,
-        "premium_peak": 10410.0
+        "history_max": 10431.0,
+        "premium_peak": 10431.0
       },
       "Domes Aulus Zante Autograph Collection": {
         "history_max": 12097.0,
@@ -589,8 +615,8 @@
         "premium_peak": 10217.0
       },
       "Euphoria Resort": {
-        "history_max": 10122.0,
-        "premium_peak": 10122.0
+        "history_max": 10250.0,
+        "premium_peak": 10250.0
       },
       "Aulus Chania Resort, Curio Collection by Hilton (ex. Isla Brown Chania)": {
         "history_max": 15504.0,
@@ -617,12 +643,12 @@
         "premium_peak": null
       },
       "Atlantica Caldera Palace Resort & Spa (ex Atlantica Sensatori)": {
-        "history_max": 10096.0,
-        "premium_peak": 10096.0
+        "history_max": 10308.0,
+        "premium_peak": 10308.0
       },
       "Avra Imperial Beach Resort & Spa": {
-        "history_max": 13718.0,
-        "premium_peak": 13718.0
+        "history_max": 13807.0,
+        "premium_peak": 13807.0
       },
       "Electra Palace (Ialyssos)": {
         "history_max": 11725.0,
@@ -653,8 +679,8 @@
         "premium_peak": null
       },
       "Mitsis Selection Alila": {
-        "history_max": 15075.0,
-        "premium_peak": 15075.0
+        "history_max": 15601.0,
+        "premium_peak": 15601.0
       }
     }
   }

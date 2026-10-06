@@ -117,10 +117,88 @@
       "created_at": "2026-10-05T18:41:04.865189+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Xperience Kiroseiz Premier Egipt, Sharm El Sheikh_2026-10-05_18-39_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sea Star Beau Rivage Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 10042.0,
+      "new_price": 10957.0,
+      "price_change": 915.0,
+      "price_change_pct": 9.111730730930095,
+      "timestamp": "2026-10-06 00:56:44.121921+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-06T00:56:58.556975+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sea Star Beau Rivage Egipt, Hurghada_2026-10-06_00-56_+9.1"
+    },
+    {
+      "hotel_name": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 10257.0,
+      "new_price": 10257.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-06 00:56:44.121921+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-06T00:56:58.557017+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada_2026-10-06_00-56_zone_out_gone"
+    },
+    {
+      "hotel_name": "Rewaya Luxury Resort Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 8767.0,
+      "new_price": 8767.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-06 00:56:44.121921+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-06T00:56:58.557034+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Luxury Resort Egipt, Hurghada_2026-10-06_00-56_zone_out_gone"
+    },
+    {
+      "hotel_name": "Stella Di Mare Beach Resort & Spa (ex. Stella Makadi Resort) Egipt, Hurghada, Makadi Bay",
+      "duration_bucket": "",
+      "old_price": 10952.0,
+      "new_price": 10952.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-06 00:56:44.121921+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-06T00:56:58.557048+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Stella Di Mare Beach Resort & Spa (ex. Stella Makadi Resort) Egipt, Hurghada, Makadi Bay_2026-10-06_00-56_zone_out_gone"
+    },
+    {
+      "hotel_name": "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort) Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 10130.0,
+      "new_price": 10130.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-06 00:56:44.121921+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-06T00:56:58.557060+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort) Egipt, Hurghada_2026-10-06_00-56_zone_out_gone"
+    },
+    {
+      "hotel_name": "Xperience Kiroseiz Parkland Egipt, Sharm El Sheikh",
+      "duration_bucket": "",
+      "old_price": 10823.0,
+      "new_price": 10823.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-06 00:56:44.121921+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-06T00:56:58.557073+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xperience Kiroseiz Parkland Egipt, Sharm El Sheikh_2026-10-06_00-56_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-05T18:39:40.069274+00:00",
+    "last_processed_run": "2026-10-06T00:56:44.121921+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 10257.0,
@@ -151,7 +229,7 @@
         "premium_peak": null
       },
       "Sea Star Beau Rivage Egipt, Hurghada": {
-        "history_max": 10042.0,
+        "history_max": 10957.0,
         "premium_peak": null
       },
       "Rewaya Majestic Resort Egipt, Hurghada": {
