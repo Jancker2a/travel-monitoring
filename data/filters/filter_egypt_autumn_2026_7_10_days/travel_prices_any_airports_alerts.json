@@ -520,10 +520,75 @@
       "created_at": "2026-10-06T15:22:00.643480+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Royal Lagoons Aqua (ex. Premium Blue) Egipt, Hurghada_2026-10-06_15-21_zone_out_gone"
+    },
+    {
+      "hotel_name": "Rewaya Majestic Resort Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 8207.0,
+      "new_price": 7477.0,
+      "price_change": -730.0,
+      "price_change_pct": -8.894845863287436,
+      "timestamp": "2026-10-06 20:28:49.938057+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-06T20:29:22.513567+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Majestic Resort Egipt, Hurghada_2026-10-06_20-28_-8.9"
+    },
+    {
+      "hotel_name": "Naama Bay Hotel & Resort",
+      "duration_bucket": "",
+      "old_price": 8879.0,
+      "new_price": 9889.0,
+      "price_change": 1010.0,
+      "price_change_pct": 11.375154859781507,
+      "timestamp": "2026-10-06 20:28:49.938057+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-06T20:29:22.513612+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Naama Bay Hotel & Resort_2026-10-06_20-28_+11.4"
+    },
+    {
+      "hotel_name": "Lazuli Egipt, Marsa Alam, Al-Kusajr",
+      "duration_bucket": "",
+      "old_price": 8097.0,
+      "new_price": 8097.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-06 20:28:49.938057+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-06T20:29:22.513638+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Lazuli Egipt, Marsa Alam, Al-Kusajr_2026-10-06_20-28_zone_out_gone"
+    },
+    {
+      "hotel_name": "Pickalbatros Laguna Club Resort",
+      "duration_bucket": "",
+      "old_price": 9717.0,
+      "new_price": 9717.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-06 20:28:49.938057+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-06T20:29:22.513648+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Laguna Club Resort_2026-10-06_20-28_zone_out_gone"
+    },
+    {
+      "hotel_name": "Pickalbatros Sands Port Ghalib (ex. Red Sea Siva Sands)",
+      "duration_bucket": "",
+      "old_price": 10639.0,
+      "new_price": 10639.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-06 20:28:49.938057+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-06T20:29:22.513656+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Sands Port Ghalib (ex. Red Sea Siva Sands)_2026-10-06_20-28_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-06T15:21:31.070906+00:00",
+    "last_processed_run": "2026-10-06T20:28:49.938057+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 7506.0,
@@ -546,7 +611,7 @@
         "premium_peak": null
       },
       "Sea Star Beau Rivage Egipt, Hurghada": {
-        "history_max": 7413.0,
+        "history_max": 7414.0,
         "premium_peak": null
       },
       "Le Meridien Dahab Resort Egipt, Dahab": {
@@ -642,11 +707,11 @@
         "premium_peak": null
       },
       "Safir Sharm Waterfalls Resort (ex Hilton Waterfalls Resort)": {
-        "history_max": 9342.0,
+        "history_max": 9401.0,
         "premium_peak": null
       },
       "Naama Bay Hotel & Resort": {
-        "history_max": 9596.0,
+        "history_max": 9889.0,
         "premium_peak": null
       },
       "Naama Bay Promenade Beach Resort": {
@@ -658,7 +723,7 @@
         "premium_peak": null
       },
       "Pickalbatros Vita Resort Portofino": {
-        "history_max": 8911.0,
+        "history_max": 8917.0,
         "premium_peak": null
       },
       "Reef Oasis Suakin Resort": {
@@ -710,7 +775,7 @@
         "premium_peak": null
       },
       "Rewaya Luxury Resort Egipt, Hurghada": {
-        "history_max": 6967.0,
+        "history_max": 7367.0,
         "premium_peak": null
       },
       "Pickalbatros Golf Beach Resort": {
@@ -750,7 +815,7 @@
         "premium_peak": null
       },
       "Novotel Marsa Alam Egipt, Marsa Alam": {
-        "history_max": 7477.0,
+        "history_max": 7551.0,
         "premium_peak": null
       },
       "Royal Lagoons Aqua (ex. Premium Blue) Egipt, Hurghada": {
@@ -790,7 +855,7 @@
         "premium_peak": null
       },
       "The Cascades Golf Resort Spa & Thalasso (ex Westin Soma Bay) Egipt, Hurghada, Soma Bay": {
-        "history_max": 7832.0,
+        "history_max": 7906.0,
         "premium_peak": null
       },
       "Continental (ex Movenpick Resort)": {
@@ -902,7 +967,7 @@
         "premium_peak": null
       },
       "Akassia Swiss Resort (ex. Calimera Club Akassia Swiss Resort)": {
-        "history_max": 9103.0,
+        "history_max": 9211.0,
         "premium_peak": null
       },
       "Dreams Beach Sharm Resort (Sharm El Sheikh)": {
@@ -950,11 +1015,11 @@
         "premium_peak": null
       },
       "Albatros Sea World Resort Marsa Alam": {
-        "history_max": 9057.0,
+        "history_max": 9177.0,
         "premium_peak": null
       },
       "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort)": {
-        "history_max": 9108.0,
+        "history_max": 9248.0,
         "premium_peak": null
       },
       "Royal Lagoons Aqua (ex. Premium Blue)": {
@@ -994,7 +1059,7 @@
         "premium_peak": null
       },
       "Three Corners Fayrouz Plaza Beach Resort": {
-        "history_max": 9774.0,
+        "history_max": 10244.0,
         "premium_peak": null
       },
       "Sunrise Select Garden Beach Resort & Spa": {
@@ -1018,7 +1083,7 @@
         "premium_peak": null
       },
       "Sentido Akassia Beach (ex. LTI Akassia Beach) Egipt, Marsa Alam": {
-        "history_max": 7700.0,
+        "history_max": 8105.0,
         "premium_peak": null
       },
       "Rehana Royal Beach Resort & Spa Egipt, Sharm El Sheikh": {
@@ -1063,6 +1128,10 @@
       },
       "Desert Rose Resort Egipt, Hurghada": {
         "history_max": 8271.0,
+        "premium_peak": null
+      },
+      "Albatros Laguna Club Resort Egipt, Sharm El Sheikh, Szarm el-Szejk": {
+        "history_max": 7776.0,
         "premium_peak": null
       }
     }

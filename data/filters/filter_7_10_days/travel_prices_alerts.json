@@ -533,10 +533,62 @@
       "created_at": "2026-10-06T15:21:45.590074+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Royal Regency Club_2026-10-06_15-21_comeback_19.9"
+    },
+    {
+      "hotel_name": "Rewaya Majestic Resort",
+      "duration_bucket": "",
+      "old_price": 8267.0,
+      "new_price": 7477.0,
+      "price_change": -790.0,
+      "price_change_pct": -9.556066287649692,
+      "timestamp": "2026-10-06 20:28:33.956444+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-06T20:29:22.916999+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Majestic Resort_2026-10-06_20-28_-9.6"
+    },
+    {
+      "hotel_name": "Amarina Queen Resort",
+      "duration_bucket": "",
+      "old_price": 7512.0,
+      "new_price": 8647.0,
+      "price_change": 1135.0,
+      "price_change_pct": 15.10915867944622,
+      "timestamp": "2026-10-06 20:28:33.956444+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-06T20:29:22.917034+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amarina Queen Resort_2026-10-06_20-28_+15.1"
+    },
+    {
+      "hotel_name": "Lazuli (Marsa Alam)",
+      "duration_bucket": "",
+      "old_price": 8557.0,
+      "new_price": 8557.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-06 20:28:33.956444+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-06T20:29:22.917056+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Lazuli (Marsa Alam)_2026-10-06_20-28_zone_out_gone"
+    },
+    {
+      "hotel_name": "Desert Rose Resort",
+      "duration_bucket": "",
+      "old_price": 12734.0,
+      "new_price": 8448.0,
+      "price_change": -4286.0,
+      "price_change_pct": -33.65792366891785,
+      "timestamp": "2026-10-06 20:28:33.956444+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-06T20:29:22.917082+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Desert Rose Resort_2026-10-06_20-28_comeback_33.7"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-06T15:21:14.642908+00:00",
+    "last_processed_run": "2026-10-06T20:28:33.956444+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 9636.0,
@@ -567,15 +619,15 @@
         "premium_peak": 10997.0
       },
       "Pickalbatros Sands Port Ghalib (ex. Red Sea Siva Sands)": {
-        "history_max": 11230.0,
-        "premium_peak": 11230.0
+        "history_max": 12138.0,
+        "premium_peak": 12138.0
       },
       "Pickalbatros Villaggio Resort Portofino": {
-        "history_max": 9087.0,
+        "history_max": 9417.0,
         "premium_peak": null
       },
       "Pickalbatros Vita Resort Portofino": {
-        "history_max": 9247.0,
+        "history_max": 9557.0,
         "premium_peak": null
       },
       "Pickalbatros Water Valley Resort Neverland": {
@@ -603,7 +655,7 @@
         "premium_peak": 10557.0
       },
       "Regency Plaza Aqua Park Spa": {
-        "history_max": 8754.0,
+        "history_max": 8957.0,
         "premium_peak": null
       },
       "Rewaya Inn Resort (ex. Hawaii Paradise Aqua Park Resort)": {
@@ -611,7 +663,7 @@
         "premium_peak": null
       },
       "Rewaya Luxury Resort": {
-        "history_max": 7205.0,
+        "history_max": 7367.0,
         "premium_peak": null
       },
       "Rewaya Majestic Resort": {
@@ -651,7 +703,7 @@
         "premium_peak": 11587.0
       },
       "Jaz Palmariva Beach": {
-        "history_max": 9851.0,
+        "history_max": 9897.0,
         "premium_peak": null
       },
       "Jaz Royal Palmariva": {
@@ -683,12 +735,12 @@
         "premium_peak": 11667.0
       },
       "Movenpick Resort El Quseir": {
-        "history_max": 17683.0,
-        "premium_peak": 17683.0
+        "history_max": 17742.0,
+        "premium_peak": 17742.0
       },
       "Movenpick Resort Sharm el Sheikh": {
-        "history_max": 12183.0,
-        "premium_peak": 12183.0
+        "history_max": 12222.0,
+        "premium_peak": 12222.0
       },
       "Movenpick Waterpark Resort & Spa Soma Bay": {
         "history_max": 9357.0,
@@ -703,7 +755,7 @@
         "premium_peak": null
       },
       "Novotel Marsa Alam": {
-        "history_max": 7867.0,
+        "history_max": 8197.0,
         "premium_peak": null
       },
       "Nubian Island": {
@@ -947,8 +999,8 @@
         "premium_peak": 10418.0
       },
       "Stella Beach Resort & Spa": {
-        "history_max": 10283.0,
-        "premium_peak": 10283.0
+        "history_max": 10564.0,
+        "premium_peak": 10564.0
       },
       "Stella Gardens Resort & Spa (ex Stella Di Mare Gardens)": {
         "history_max": 8512.0,
@@ -959,8 +1011,8 @@
         "premium_peak": 15925.0
       },
       "Sunrise Anjum Resort": {
-        "history_max": 12088.0,
-        "premium_peak": 12088.0
+        "history_max": 12118.0,
+        "premium_peak": 12118.0
       },
       "Jaz Mirabel Beach Resort": {
         "history_max": 10117.0,
@@ -1123,7 +1175,7 @@
         "premium_peak": 13341.0
       },
       "Akassia Swiss Resort (ex. Calimera Club Akassia Swiss Resort)": {
-        "history_max": 9696.0,
+        "history_max": 9708.0,
         "premium_peak": null
       },
       "Concorde Moreen Beach Resort & Spa": {
@@ -1135,7 +1187,7 @@
         "premium_peak": null
       },
       "Jaz Grand Marsa (ex Resta Grand Resort)": {
-        "history_max": 8467.0,
+        "history_max": 8560.0,
         "premium_peak": null
       },
       "Jaz Makadi Saraya (ex Iberotel)": {
@@ -1175,7 +1227,7 @@
         "premium_peak": 12734.0
       },
       "Amarina Queen Resort": {
-        "history_max": 7767.0,
+        "history_max": 8647.0,
         "premium_peak": null
       },
       "Jaz Elite Maraya": {
@@ -1185,6 +1237,10 @@
       "Three Corners Fayrouz Plaza Beach Resort": {
         "history_max": 10675.0,
         "premium_peak": 10675.0
+      },
+      "Jolie Ville Resort and Casino": {
+        "history_max": 16259.0,
+        "premium_peak": 16259.0
       }
     }
   }
