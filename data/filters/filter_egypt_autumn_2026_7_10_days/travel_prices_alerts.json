@@ -988,10 +988,101 @@
       "created_at": "2026-10-07T07:23:07.220342+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Royal Regency Club_2026-10-07_07-22_zone_out_gone"
+    },
+    {
+      "hotel_name": "Hilton Plaza (Hurghada)",
+      "duration_bucket": "",
+      "old_price": 10363.0,
+      "new_price": 9156.0,
+      "price_change": -1207.0,
+      "price_change_pct": -11.647206407410982,
+      "timestamp": "2026-10-07 15:41:18.071883+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-07T15:41:41.531722+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Hilton Plaza (Hurghada)_2026-10-07_15-41_-11.6"
+    },
+    {
+      "hotel_name": "Amarina Jannah Resort Aquapark Egipt, Marsa Alam, Port Ghalib",
+      "duration_bucket": "",
+      "old_price": 7262.0,
+      "new_price": 8112.0,
+      "price_change": 850.0,
+      "price_change_pct": 11.704764527678325,
+      "timestamp": "2026-10-07 15:41:18.071883+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-07T15:41:41.531756+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amarina Jannah Resort Aquapark Egipt, Marsa Alam, Port Ghalib_2026-10-07_15-41_+11.7"
+    },
+    {
+      "hotel_name": "Creek Hotel and Residences",
+      "duration_bucket": "",
+      "old_price": 9056.0,
+      "new_price": 9056.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-07 15:41:18.071883+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-07T15:41:41.531775+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Creek Hotel and Residences_2026-10-07_15-41_zone_out_gone"
+    },
+    {
+      "hotel_name": "Desert Rose Resort Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 8448.0,
+      "new_price": 8448.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-07 15:41:18.071883+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-07T15:41:41.531780+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Desert Rose Resort Egipt, Hurghada_2026-10-07_15-41_zone_out_gone"
+    },
+    {
+      "hotel_name": "Movenpick Resort & Spa El Gouna",
+      "duration_bucket": "",
+      "old_price": 10695.0,
+      "new_price": 10695.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-07 15:41:18.071883+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-07T15:41:41.531785+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Movenpick Resort & Spa El Gouna_2026-10-07_15-41_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sataya Resort (ex. Labranda Sataya Marsa Alam) Egipt, Marsa Alam",
+      "duration_bucket": "",
+      "old_price": 8924.0,
+      "new_price": 8924.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-07 15:41:18.071883+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-07T15:41:41.531789+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sataya Resort (ex. Labranda Sataya Marsa Alam) Egipt, Marsa Alam_2026-10-07_15-41_zone_out_gone"
+    },
+    {
+      "hotel_name": "Serenity Alpha Beach (ex. Serenity Makadi Beach)",
+      "duration_bucket": "",
+      "old_price": 10120.0,
+      "new_price": 10120.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-07 15:41:18.071883+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-07T15:41:41.531793+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Serenity Alpha Beach (ex. Serenity Makadi Beach)_2026-10-07_15-41_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-07T07:22:38.913147+00:00",
+    "last_processed_run": "2026-10-07T15:41:18.071883+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 7637.0,
@@ -1046,7 +1137,7 @@
         "premium_peak": null
       },
       "Serenity Alma Heights (ex. Serenity Fun City)": {
-        "history_max": 9823.0,
+        "history_max": 10137.0,
         "premium_peak": null
       },
       "Jaz Aquaviva": {
@@ -1054,7 +1145,7 @@
         "premium_peak": null
       },
       "Jaz Aquamarine (ex. Iberotel Aquamarine) Egipt, Hurghada": {
-        "history_max": 8937.0,
+        "history_max": 9007.0,
         "premium_peak": null
       },
       "Serenity Alpha Beach (ex. Serenity Makadi Beach)": {
@@ -1206,7 +1297,7 @@
         "premium_peak": null
       },
       "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort)": {
-        "history_max": 9527.0,
+        "history_max": 9637.0,
         "premium_peak": null
       },
       "Coral Sea Holiday Resort": {
@@ -1274,7 +1365,7 @@
         "premium_peak": null
       },
       "Albatros Sea World Resort Marsa Alam": {
-        "history_max": 9507.0,
+        "history_max": 9717.0,
         "premium_peak": null
       },
       "Xperience Kiroseiz Parkland Egipt, Sharm El Sheikh": {
@@ -1434,7 +1525,7 @@
         "premium_peak": null
       },
       "Sunrise Select Garden Beach Resort & Spa": {
-        "history_max": 10455.0,
+        "history_max": 10905.0,
         "premium_peak": null
       },
       "Movenpick Resort & Spa El Gouna": {
@@ -1447,6 +1538,10 @@
       },
       "Sataya Resort (ex. Labranda Sataya Marsa Alam) Egipt, Marsa Alam": {
         "history_max": 8924.0,
+        "premium_peak": null
+      },
+      "Albatros Laguna Club Resort Egipt, Sharm El Sheikh, Szarm el-Szejk": {
+        "history_max": 8776.0,
         "premium_peak": null
       }
     }
