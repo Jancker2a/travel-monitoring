@@ -260,10 +260,88 @@
       "created_at": "2026-10-07T00:52:26.950630+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sentido Oriental Dream Resort Egipt, Marsa Alam_2026-10-07_00-51_zone_out_gone"
+    },
+    {
+      "hotel_name": "Parrotel Lagoon Resort Egipt, Sharm El Sheikh, Szarm el-Szejk",
+      "duration_bucket": "",
+      "old_price": 9915.0,
+      "new_price": 7739.0,
+      "price_change": -2176.0,
+      "price_change_pct": -21.94654563792234,
+      "timestamp": "2026-10-07 07:23:16.742277+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-07T07:23:47.892114+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Parrotel Lagoon Resort Egipt, Sharm El Sheikh, Szarm el-Szejk_2026-10-07_07-23_-21.9"
+    },
+    {
+      "hotel_name": "Xperience Kiroseiz Premier Egipt, Sharm El Sheikh",
+      "duration_bucket": "",
+      "old_price": 9923.0,
+      "new_price": 8899.0,
+      "price_change": -1024.0,
+      "price_change_pct": -10.319459840773959,
+      "timestamp": "2026-10-07 07:23:16.742277+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-07T07:23:47.892137+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xperience Kiroseiz Premier Egipt, Sharm El Sheikh_2026-10-07_07-23_-10.3"
+    },
+    {
+      "hotel_name": "Xperience Sea Breeze Egipt, Sharm El Sheikh",
+      "duration_bucket": "",
+      "old_price": 10583.0,
+      "new_price": 9567.0,
+      "price_change": -1016.0,
+      "price_change_pct": -9.600302371728244,
+      "timestamp": "2026-10-07 07:23:16.742277+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-07T07:23:47.892146+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xperience Sea Breeze Egipt, Sharm El Sheikh_2026-10-07_07-23_-9.6"
+    },
+    {
+      "hotel_name": "Royal Regency Club Egipt, Sharm El Sheikh, Szarm el-Szejk",
+      "duration_bucket": "",
+      "old_price": 10849.0,
+      "new_price": 9828.0,
+      "price_change": -1021.0,
+      "price_change_pct": -9.411005622638031,
+      "timestamp": "2026-10-07 07:23:16.742277+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-07T07:23:47.892152+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Royal Regency Club Egipt, Sharm El Sheikh, Szarm el-Szejk_2026-10-07_07-23_-9.4"
+    },
+    {
+      "hotel_name": "Xperience Kiroseiz Parkland Egipt, Sharm El Sheikh",
+      "duration_bucket": "",
+      "old_price": 10253.0,
+      "new_price": 9233.0,
+      "price_change": -1020.0,
+      "price_change_pct": -9.948307812347606,
+      "timestamp": "2026-10-07 07:23:16.742277+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-07T07:23:47.892159+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xperience Kiroseiz Parkland Egipt, Sharm El Sheikh_2026-10-07_07-23_-9.9"
+    },
+    {
+      "hotel_name": "Regency Plaza Aqua Park Spa Egipt, Sharm El Sheikh, Szarm el-Szejk",
+      "duration_bucket": "",
+      "old_price": 10037.0,
+      "new_price": 9008.0,
+      "price_change": -1029.0,
+      "price_change_pct": -10.252067350802033,
+      "timestamp": "2026-10-07 07:23:16.742277+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-07T07:23:47.892166+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Regency Plaza Aqua Park Spa Egipt, Sharm El Sheikh, Szarm el-Szejk_2026-10-07_07-23_-10.3"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-07T00:51:55.268525+00:00",
+    "last_processed_run": "2026-10-07T07:23:16.742277+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 10506.0,
@@ -347,6 +425,26 @@
       },
       "Royal Regency Club Egipt, Sharm El Sheikh, Szarm el-Szejk": {
         "history_max": 10849.0,
+        "premium_peak": null
+      },
+      "Gravity Sahl Hasheesh (Ex. Ocean Breeze) Egipt, Hurghada": {
+        "history_max": 10437.0,
+        "premium_peak": null
+      },
+      "Renaissance Golden View Beach Egipt, Sharm El Sheikh": {
+        "history_max": 10599.0,
+        "premium_peak": null
+      },
+      "Naama Bay Promenade Beach Resort Egipt, Sharm El Sheikh, Szarm el-Szejk": {
+        "history_max": 10615.0,
+        "premium_peak": null
+      },
+      "Naama Bay Promenade Mountain Resort Egipt, Sharm El Sheikh, Szarm el-Szejk": {
+        "history_max": 9613.0,
+        "premium_peak": null
+      },
+      "Sharm Grand Plaza Resort Egipt, Sharm El Sheikh": {
+        "history_max": 10596.0,
         "premium_peak": null
       }
     }

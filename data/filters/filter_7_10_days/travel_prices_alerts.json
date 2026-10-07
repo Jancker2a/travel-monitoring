@@ -598,10 +598,101 @@
       "created_at": "2026-10-07T00:51:55.456549+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Amarina Queen Resort_2026-10-07_00-51_-10.6"
+    },
+    {
+      "hotel_name": "Amarina Jannah Resort Aquapark",
+      "duration_bucket": "",
+      "old_price": 7938.0,
+      "new_price": 7228.0,
+      "price_change": -710.0,
+      "price_change_pct": -8.944318468127992,
+      "timestamp": "2026-10-07 07:22:38.925857+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-07T07:23:12.066720+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amarina Jannah Resort Aquapark_2026-10-07_07-22_-8.9"
+    },
+    {
+      "hotel_name": "Royal Regency Club",
+      "duration_bucket": "",
+      "old_price": 9749.0,
+      "new_price": 8505.0,
+      "price_change": -1244.0,
+      "price_change_pct": -12.760283105959585,
+      "timestamp": "2026-10-07 07:22:38.925857+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-07T07:23:12.066751+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Royal Regency Club_2026-10-07_07-22_-12.8"
+    },
+    {
+      "hotel_name": "Regency Plaza Aqua Park Spa",
+      "duration_bucket": "",
+      "old_price": 8957.0,
+      "new_price": 7964.0,
+      "price_change": -993.0,
+      "price_change_pct": -11.08630121692531,
+      "timestamp": "2026-10-07 07:22:38.925857+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-07T07:23:12.066762+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Regency Plaza Aqua Park Spa_2026-10-07_07-22_-11.1"
+    },
+    {
+      "hotel_name": "Gravity Sahl Hasheesh (Ex. Ocean Breeze)",
+      "duration_bucket": "",
+      "old_price": 9622.0,
+      "new_price": 10222.0,
+      "price_change": 600.0,
+      "price_change_pct": 6.235709831635834,
+      "timestamp": "2026-10-07 07:22:38.925857+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-07T07:23:12.066779+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Gravity Sahl Hasheesh (Ex. Ocean Breeze)_2026-10-07_07-22_zone_out_+6.2"
+    },
+    {
+      "hotel_name": "Sentido Akassia Beach (ex. LTI Akassia Beach)",
+      "duration_bucket": "",
+      "old_price": 9806.0,
+      "new_price": 10130.0,
+      "price_change": 324.0,
+      "price_change_pct": 3.304099530899449,
+      "timestamp": "2026-10-07 07:22:38.925857+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-07T07:23:12.066787+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sentido Akassia Beach (ex. LTI Akassia Beach)_2026-10-07_07-22_zone_out_+3.3"
+    },
+    {
+      "hotel_name": "Serenity Alpha Beach (ex. Serenity Makadi Beach)",
+      "duration_bucket": "",
+      "old_price": 9855.0,
+      "new_price": 10120.0,
+      "price_change": 265.0,
+      "price_change_pct": 2.6889903602232366,
+      "timestamp": "2026-10-07 07:22:38.925857+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-07T07:23:12.066794+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Serenity Alpha Beach (ex. Serenity Makadi Beach)_2026-10-07_07-22_zone_out_+2.7"
+    },
+    {
+      "hotel_name": "Tropitel Sahl Hasheesh",
+      "duration_bucket": "",
+      "old_price": 9422.0,
+      "new_price": 10075.0,
+      "price_change": 653.0,
+      "price_change_pct": 6.9305879855656976,
+      "timestamp": "2026-10-07 07:22:38.925857+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-07T07:23:12.066799+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Tropitel Sahl Hasheesh_2026-10-07_07-22_zone_out_+6.9"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-07T00:51:06.953594+00:00",
+    "last_processed_run": "2026-10-07T07:22:38.925857+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 9636.0,
@@ -784,8 +875,8 @@
         "premium_peak": 16947.0
       },
       "Palm Royale Soma Bay": {
-        "history_max": 12335.0,
-        "premium_peak": 12335.0
+        "history_max": 12789.0,
+        "premium_peak": 12789.0
       },
       "Parrotel Beach Resort (ex. Radisson Blu)": {
         "history_max": 9976.0,
@@ -860,8 +951,8 @@
         "premium_peak": 10070.0
       },
       "Swissotel Sharm El Sheikh": {
-        "history_max": 12644.0,
-        "premium_peak": 12644.0
+        "history_max": 12981.0,
+        "premium_peak": 12981.0
       },
       "The Cascades Golf Resort Spa & Thalasso (ex Westin Soma Bay)": {
         "history_max": 8839.0,
@@ -944,8 +1035,8 @@
         "premium_peak": null
       },
       "Sentido Akassia Beach (ex. LTI Akassia Beach)": {
-        "history_max": 10049.0,
-        "premium_peak": 10049.0
+        "history_max": 10130.0,
+        "premium_peak": 10130.0
       },
       "Sentido Mamlouk Palace Resort & Spa (ex Sunrise)": {
         "history_max": 11773.0,
@@ -1072,8 +1163,8 @@
         "premium_peak": null
       },
       "Baron Palace Resort (Sahl Hasheesh)": {
-        "history_max": 12330.0,
-        "premium_peak": 12330.0
+        "history_max": 12535.0,
+        "premium_peak": 12535.0
       },
       "Jaz Belvedere": {
         "history_max": 12357.0,
@@ -1176,8 +1267,8 @@
         "premium_peak": null
       },
       "Continental (ex Movenpick Resort)": {
-        "history_max": 11714.0,
-        "premium_peak": 11714.0
+        "history_max": 12834.0,
+        "premium_peak": 12834.0
       },
       "Coral Sea Water World Resort": {
         "history_max": 10965.0,
@@ -1208,7 +1299,7 @@
         "premium_peak": 15177.0
       },
       "Creek Hotel and Residences": {
-        "history_max": 9009.0,
+        "history_max": 9056.0,
         "premium_peak": null
       },
       "Jaz Makadi Oasis Resort": {
@@ -1252,8 +1343,8 @@
         "premium_peak": 10675.0
       },
       "Jolie Ville Resort and Casino": {
-        "history_max": 16259.0,
-        "premium_peak": 16259.0
+        "history_max": 16345.0,
+        "premium_peak": 16345.0
       }
     }
   }
