@@ -754,13 +754,91 @@
       "created_at": "2026-10-08T11:17:35.023781+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Marriott Hurghada Beach Resort Egipt, Hurghada_2026-10-08_11-17_zone_out_gone"
+    },
+    {
+      "hotel_name": "Xperience Kiroseiz Parkland Egipt, Sharm El Sheikh",
+      "duration_bucket": "",
+      "old_price": 9567.0,
+      "new_price": 8419.0,
+      "price_change": -1148.0,
+      "price_change_pct": -11.999581896101182,
+      "timestamp": "2026-10-08 16:42:43.590412+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-08T16:43:50.309010+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xperience Kiroseiz Parkland Egipt, Sharm El Sheikh_2026-10-08_16-42_-12.0"
+    },
+    {
+      "hotel_name": "Regency Plaza Aqua Park Spa Egipt, Sharm El Sheikh, Szarm el-Szejk",
+      "duration_bucket": "",
+      "old_price": 9828.0,
+      "new_price": 7868.0,
+      "price_change": -1960.0,
+      "price_change_pct": -19.943019943019944,
+      "timestamp": "2026-10-08 16:42:43.590412+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-08T16:43:50.309034+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Regency Plaza Aqua Park Spa Egipt, Sharm El Sheikh, Szarm el-Szejk_2026-10-08_16-42_-19.9"
+    },
+    {
+      "hotel_name": "Xperience Kiroseiz Premier Egipt, Sharm El Sheikh",
+      "duration_bucket": "",
+      "old_price": 9233.0,
+      "new_price": 8085.0,
+      "price_change": -1148.0,
+      "price_change_pct": -12.43366186504928,
+      "timestamp": "2026-10-08 16:42:43.590412+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-08T16:43:50.309043+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xperience Kiroseiz Premier Egipt, Sharm El Sheikh_2026-10-08_16-42_-12.4"
+    },
+    {
+      "hotel_name": "Royal Regency Club Egipt, Sharm El Sheikh, Szarm el-Szejk",
+      "duration_bucket": "",
+      "old_price": 10646.0,
+      "new_price": 8686.0,
+      "price_change": -1960.0,
+      "price_change_pct": -18.41067067443171,
+      "timestamp": "2026-10-08 16:42:43.590412+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-08T16:43:50.309050+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Royal Regency Club Egipt, Sharm El Sheikh, Szarm el-Szejk_2026-10-08_16-42_-18.4"
+    },
+    {
+      "hotel_name": "Rewaya Majestic Resort Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 9674.0,
+      "new_price": 7824.0,
+      "price_change": -1850.0,
+      "price_change_pct": -19.12342360967542,
+      "timestamp": "2026-10-08 16:42:43.590412+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-08T16:43:50.309057+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Majestic Resort Egipt, Hurghada_2026-10-08_16-42_-19.1"
+    },
+    {
+      "hotel_name": "Xperience Sea Breeze Egipt, Sharm El Sheikh",
+      "duration_bucket": "",
+      "old_price": 10033.0,
+      "new_price": 10033.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-08 16:42:43.590412+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-08T16:43:50.309068+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xperience Sea Breeze Egipt, Sharm El Sheikh_2026-10-08_16-42_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-08T11:17:19.987545+00:00",
+    "last_processed_run": "2026-10-08T16:42:43.590412+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
-        "history_max": 10506.0,
+        "history_max": 10520.0,
         "premium_peak": null
       },
       "Rewaya Luxury Resort Egipt, Hurghada": {
@@ -877,6 +955,18 @@
       },
       "Marriott Hurghada Beach Resort Egipt, Hurghada": {
         "history_max": 10889.0,
+        "premium_peak": null
+      },
+      "Bellagio Beach Resort & Spa (ex. Panorama Bungalows Hurghada) Egipt, Hurghada": {
+        "history_max": 10769.0,
+        "premium_peak": null
+      },
+      "Naama Bay (ex Tropitel) Egipt, Sharm El Sheikh": {
+        "history_max": 10780.0,
+        "premium_peak": null
+      },
+      "Jaz Mirabel Beach Resort Egipt, Sharm El Sheikh": {
+        "history_max": 10629.0,
         "premium_peak": null
       }
     }
