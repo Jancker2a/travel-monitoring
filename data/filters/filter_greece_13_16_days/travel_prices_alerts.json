@@ -299,10 +299,36 @@
       "created_at": "2026-10-08T02:09:04.485525+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Kalia Beach Grecja, Kreta Wschodnia, Kato Gouves_2026-10-08_02-08_zone_out_+3.3"
+    },
+    {
+      "hotel_name": "Gaia Royal Grecja, Kos, Mastichari",
+      "duration_bucket": "",
+      "old_price": 8250.0,
+      "new_price": 8250.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-08 11:19:08.301279+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-08T11:19:57.778757+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Gaia Royal Grecja, Kos, Mastichari_2026-10-08_11-19_zone_out_gone"
+    },
+    {
+      "hotel_name": "Heronissos Grecja, Kreta Wschodnia, Hersonissos",
+      "duration_bucket": "",
+      "old_price": 9445.0,
+      "new_price": 11468.0,
+      "price_change": 2023.0,
+      "price_change_pct": 21.418740074113288,
+      "timestamp": "2026-10-08 11:19:08.301279+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-08T11:19:57.778786+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Heronissos Grecja, Kreta Wschodnia, Hersonissos_2026-10-08_11-19_zone_out_+21.4"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-08T02:08:16.940692+00:00",
+    "last_processed_run": "2026-10-08T11:19:08.301279+00:00",
     "premium_state": {
       "Adele Beach Grecja, Kreta Zachodnia, Adelianos Kampos": {
         "history_max": 12727.0,
@@ -325,8 +351,8 @@
         "premium_peak": 17315.0
       },
       "Kalia Beach Grecja, Kreta Wschodnia, Kato Gouves": {
-        "history_max": 10051.0,
-        "premium_peak": 10051.0
+        "history_max": 10790.0,
+        "premium_peak": 10790.0
       },
       "Istion Club": {
         "history_max": 18777.0,
@@ -349,8 +375,8 @@
         "premium_peak": 19724.0
       },
       "Heronissos Grecja, Kreta Wschodnia, Hersonissos": {
-        "history_max": 9445.0,
-        "premium_peak": null
+        "history_max": 11468.0,
+        "premium_peak": 11468.0
       },
       "Harmony Crest Resort & Spa": {
         "history_max": 14882.0,
@@ -453,16 +479,16 @@
         "premium_peak": 16747.0
       },
       "Marilena (Ammoudara) Grecja, Kreta Wschodnia, Ammoudara": {
-        "history_max": 10314.0,
-        "premium_peak": 10314.0
+        "history_max": 12106.0,
+        "premium_peak": 12106.0
       },
       "Marianna Palace Grecja, Rodos, Kolymbia": {
         "history_max": 9957.0,
         "premium_peak": null
       },
       "Mare blue (ex. Sunshine Crete Beach)": {
-        "history_max": 19084.0,
-        "premium_peak": 19084.0
+        "history_max": 19328.0,
+        "premium_peak": 19328.0
       },
       "Porto Platanias Beach (Chania)": {
         "history_max": 16447.0,
@@ -557,8 +583,8 @@
         "premium_peak": 10965.0
       },
       "Sunshine Village (ex. Best Western Sunshine Village)": {
-        "history_max": 16635.0,
-        "premium_peak": 16635.0
+        "history_max": 18760.0,
+        "premium_peak": 18760.0
       },
       "Atali Grand Resort Grecja, Kreta Wschodnia, Bali": {
         "history_max": 12068.0,
@@ -653,8 +679,8 @@
         "premium_peak": 15350.0
       },
       "Apollo (Georgioupolis) Grecja, Kreta Zachodnia, Georgioupolis": {
-        "history_max": 10807.0,
-        "premium_peak": 10807.0
+        "history_max": 12439.0,
+        "premium_peak": 12439.0
       },
       "Possidi Holidays Grecja, Chalkidiki, Possidi": {
         "history_max": 13597.0,
@@ -747,6 +773,18 @@
       "Mitsis Selection Blue Domes": {
         "history_max": 17848.0,
         "premium_peak": 17848.0
+      },
+      "Gouves Bay": {
+        "history_max": 15167.0,
+        "premium_peak": 15167.0
+      },
+      "Mythos Beach Resort Grecja, Rodos, Afandu": {
+        "history_max": 14693.0,
+        "premium_peak": 14693.0
+      },
+      "Stella Palace Aqua Park Resort Grecja, Kreta Wschodnia, Analipsis": {
+        "history_max": 14509.0,
+        "premium_peak": 14509.0
       }
     }
   }
