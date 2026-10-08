@@ -520,10 +520,75 @@
       "created_at": "2026-10-07T15:44:00.238061+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Amus_2026-10-07_15-43_comeback_8.4"
+    },
+    {
+      "hotel_name": "Lindos Royal (ex. COOEE) Grecja, Rodos, Lindos",
+      "duration_bucket": "",
+      "old_price": 7065.0,
+      "new_price": 9067.0,
+      "price_change": 2002.0,
+      "price_change_pct": 28.336871903750882,
+      "timestamp": "2026-10-08 02:08:16.865417+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-08T02:09:18.364622+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Lindos Royal (ex. COOEE) Grecja, Rodos, Lindos_2026-10-08_02-08_+28.3"
+    },
+    {
+      "hotel_name": "Lydia Maris Resort & Spa Grecja, Rodos, Kolymbia",
+      "duration_bucket": "",
+      "old_price": 6150.0,
+      "new_price": 6990.0,
+      "price_change": 840.0,
+      "price_change_pct": 13.658536585365855,
+      "timestamp": "2026-10-08 02:08:16.865417+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-08T02:09:18.364651+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Lydia Maris Resort & Spa Grecja, Rodos, Kolymbia_2026-10-08_02-08_+13.7"
+    },
+    {
+      "hotel_name": "Amus",
+      "duration_bucket": "",
+      "old_price": 9811.0,
+      "new_price": 10767.0,
+      "price_change": 956.0,
+      "price_change_pct": 9.744164713077158,
+      "timestamp": "2026-10-08 02:08:16.865417+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-08T02:09:18.364672+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amus_2026-10-08_02-08_zone_out_+9.7"
+    },
+    {
+      "hotel_name": "Lindos Imperial Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 9847.0,
+      "new_price": 10357.0,
+      "price_change": 510.0,
+      "price_change_pct": 5.1792424088554885,
+      "timestamp": "2026-10-08 02:08:16.865417+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-08T02:09:18.364684+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Lindos Imperial Resort & Spa_2026-10-08_02-08_zone_out_+5.2"
+    },
+    {
+      "hotel_name": "Porto Platanias Beach Grecja, Kreta Zachodnia, Platanias",
+      "duration_bucket": "",
+      "old_price": 9465.0,
+      "new_price": 9465.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-08 02:08:16.865417+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-08T02:09:18.364693+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Porto Platanias Beach Grecja, Kreta Zachodnia, Platanias_2026-10-08_02-08_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-07T21:27:59.071000+00:00",
+    "last_processed_run": "2026-10-08T02:08:16.865417+00:00",
     "premium_state": {
       "Akasha Beach (ex Armava)": {
         "history_max": 10705.0,
@@ -562,7 +627,7 @@
         "premium_peak": null
       },
       "Lindos Royal (ex. COOEE) Grecja, Rodos, Lindos": {
-        "history_max": 7470.0,
+        "history_max": 9067.0,
         "premium_peak": null
       },
       "Lydia Maris Resort & Spa Grecja, Rodos, Kolymbia": {
@@ -582,12 +647,12 @@
         "premium_peak": 12599.0
       },
       "Mayia Exclusive Resort & Spa": {
-        "history_max": 17210.0,
-        "premium_peak": 17210.0
+        "history_max": 19403.0,
+        "premium_peak": 19403.0
       },
       "Lindos Imperial Resort & Spa": {
-        "history_max": 9967.0,
-        "premium_peak": null
+        "history_max": 10357.0,
+        "premium_peak": 10357.0
       },
       "Michelangelo Resort & Spa": {
         "history_max": 12681.0,
@@ -598,8 +663,8 @@
         "premium_peak": null
       },
       "Ikos Oceania": {
-        "history_max": 19530.0,
-        "premium_peak": 19530.0
+        "history_max": 19805.0,
+        "premium_peak": 19805.0
       },
       "Galini Sea View (Agia Marina) Grecja, Kreta Zachodnia, Agia Marina": {
         "history_max": 8733.0,
@@ -662,7 +727,7 @@
         "premium_peak": 12357.0
       },
       "Galini Palace Grecja, Kreta Zachodnia, Kolymvari": {
-        "history_max": 6879.0,
+        "history_max": 7131.0,
         "premium_peak": null
       },
       "Mitsis Bali Paradise (ex. Bali Paradise) Grecja, Kreta, Bali": {
@@ -710,7 +775,7 @@
         "premium_peak": 11901.0
       },
       "Sentido Asterias Beach Resort Grecja, Rodos, Afandou": {
-        "history_max": 8161.0,
+        "history_max": 8170.0,
         "premium_peak": null
       },
       "Sheraton Rhodes Resort (ex. Imperial)": {
@@ -754,7 +819,7 @@
         "premium_peak": null
       },
       "Mitsis Rodos Village Grecja, Rodos, Kiotari": {
-        "history_max": 8927.0,
+        "history_max": 8931.0,
         "premium_peak": null
       },
       "Mitsis Royal Mare": {
@@ -822,8 +887,8 @@
         "premium_peak": 19777.0
       },
       "Amus": {
-        "history_max": 10712.0,
-        "premium_peak": 10712.0
+        "history_max": 10767.0,
+        "premium_peak": 10767.0
       },
       "Domes Aulus Zante Autograph Collection": {
         "history_max": 12097.0,
@@ -858,8 +923,8 @@
         "premium_peak": 14891.0
       },
       "Creta Maris Beach Resort (ex Terra Maris)": {
-        "history_max": 14397.0,
-        "premium_peak": 14397.0
+        "history_max": 14877.0,
+        "premium_peak": 14877.0
       },
       "Blue Lagoon Village Grecja, Kos, Kéfalos": {
         "history_max": 7905.0,
@@ -870,8 +935,8 @@
         "premium_peak": 10113.0
       },
       "Cooks Club Corfu (ex Ionian Park)": {
-        "history_max": 12517.0,
-        "premium_peak": 12517.0
+        "history_max": 14917.0,
+        "premium_peak": 14917.0
       },
       "Cavo Spada Luxury Resort & Spa Grecja, Kreta Zachodnia, Rapaniana": {
         "history_max": 9355.0,

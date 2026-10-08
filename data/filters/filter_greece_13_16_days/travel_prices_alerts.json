@@ -273,10 +273,36 @@
       "created_at": "2026-10-07T21:28:49.793367+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Marianna Palace Grecja, Rodos, Kolymbia_2026-10-07_21-28_zone_out_gone"
+    },
+    {
+      "hotel_name": "City Green (Hersonissos) Grecja, Kreta Wschodnia, Hersonissos",
+      "duration_bucket": "",
+      "old_price": 9801.0,
+      "new_price": 10103.0,
+      "price_change": 302.0,
+      "price_change_pct": 3.0813182328333846,
+      "timestamp": "2026-10-08 02:08:16.940692+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-08T02:09:04.485499+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "City Green (Hersonissos) Grecja, Kreta Wschodnia, Hersonissos_2026-10-08_02-08_zone_out_+3.1"
+    },
+    {
+      "hotel_name": "Kalia Beach Grecja, Kreta Wschodnia, Kato Gouves",
+      "duration_bucket": "",
+      "old_price": 9726.0,
+      "new_price": 10051.0,
+      "price_change": 325.0,
+      "price_change_pct": 3.3415587086160805,
+      "timestamp": "2026-10-08 02:08:16.940692+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-08T02:09:04.485525+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Kalia Beach Grecja, Kreta Wschodnia, Kato Gouves_2026-10-08_02-08_zone_out_+3.3"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-07T21:28:03.557589+00:00",
+    "last_processed_run": "2026-10-08T02:08:16.940692+00:00",
     "premium_state": {
       "Adele Beach Grecja, Kreta Zachodnia, Adelianos Kampos": {
         "history_max": 12727.0,
@@ -299,8 +325,8 @@
         "premium_peak": 17315.0
       },
       "Kalia Beach Grecja, Kreta Wschodnia, Kato Gouves": {
-        "history_max": 9726.0,
-        "premium_peak": null
+        "history_max": 10051.0,
+        "premium_peak": 10051.0
       },
       "Istion Club": {
         "history_max": 18777.0,
@@ -407,8 +433,8 @@
         "premium_peak": 14875.0
       },
       "Michelangelo Resort Grecja, Korfu": {
-        "history_max": 11051.0,
-        "premium_peak": 11051.0
+        "history_max": 11262.0,
+        "premium_peak": 11262.0
       },
       "Pollis (ex Miramare)": {
         "history_max": 15021.0,
@@ -503,8 +529,8 @@
         "premium_peak": 18271.0
       },
       "Blue Aegean Aparthotel Grecja, Kreta Wschodnia, Kato Gouves": {
-        "history_max": 12917.0,
-        "premium_peak": 12917.0
+        "history_max": 12937.0,
+        "premium_peak": 12937.0
       },
       "Theartemis Palace": {
         "history_max": 18127.0,
@@ -639,12 +665,12 @@
         "premium_peak": 17182.0
       },
       "Lagomandra Hotel & Spa Grecja, Chalkidiki, Neos Marmaras": {
-        "history_max": 13583.0,
-        "premium_peak": 13583.0
+        "history_max": 13813.0,
+        "premium_peak": 13813.0
       },
       "Kinetta Beach Resort Grecja, Attyka, Kinetta": {
-        "history_max": 13963.0,
-        "premium_peak": 13963.0
+        "history_max": 14113.0,
+        "premium_peak": 14113.0
       },
       "Senseana Sea Side Resort & Spa (ex. Golden Star)": {
         "history_max": 19292.0,
@@ -655,16 +681,16 @@
         "premium_peak": 10159.0
       },
       "Venezia (Faliraki) Grecja, Rodos, Faliraki": {
-        "history_max": 13065.0,
-        "premium_peak": 13065.0
+        "history_max": 13745.0,
+        "premium_peak": 13745.0
       },
       "Mitsis Selection Laguna": {
-        "history_max": 19342.0,
-        "premium_peak": 19342.0
+        "history_max": 19386.0,
+        "premium_peak": 19386.0
       },
       "Kakkos Bay Grecja, Kreta Wschodnia, Ierapetra": {
-        "history_max": 12404.0,
-        "premium_peak": 12404.0
+        "history_max": 12438.0,
+        "premium_peak": 12438.0
       },
       "Kakkos Terra Blu": {
         "history_max": 14553.0,
@@ -679,8 +705,8 @@
         "premium_peak": 15423.0
       },
       "Wyndham Grand Crete Mirabello Bay Grecja, Kreta Wschodnia, Agios Nikolaos": {
-        "history_max": 12927.0,
-        "premium_peak": 12927.0
+        "history_max": 13179.0,
+        "premium_peak": 13179.0
       },
       "Gouves Bay Grecja, Kreta Wschodnia, Kato Gouves": {
         "history_max": 13315.0,
@@ -709,6 +735,18 @@
       "Smy Princess of Kos (ex. Princess of Kos) Grecja, Kos, Mastichari": {
         "history_max": 12730.0,
         "premium_peak": 12730.0
+      },
+      "Atali Grand Resort": {
+        "history_max": 14999.0,
+        "premium_peak": 14999.0
+      },
+      "Arion Palace Grecja, Kreta Wschodnia, Ierapetra": {
+        "history_max": 14505.0,
+        "premium_peak": 14505.0
+      },
+      "Mitsis Selection Blue Domes": {
+        "history_max": 17848.0,
+        "premium_peak": 17848.0
       }
     }
   }
