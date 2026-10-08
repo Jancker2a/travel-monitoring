@@ -338,10 +338,36 @@
       "created_at": "2026-10-08T16:46:39.210509+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Semiramis Village Grecja, Kreta Wschodnia, Hersonissos_2026-10-08_16-45_zone_out_+14.0"
+    },
+    {
+      "hotel_name": "Olive Garden Grecja, Rodos, Lardos",
+      "duration_bucket": "",
+      "old_price": 7683.0,
+      "new_price": 7683.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-08 22:17:19.885228+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-08T22:18:24.375830+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Olive Garden Grecja, Rodos, Lardos_2026-10-08_22-17_zone_out_gone"
+    },
+    {
+      "hotel_name": "Semiramis Village Grecja, Kreta Wschodnia, Hersonissos",
+      "duration_bucket": "",
+      "old_price": 11201.0,
+      "new_price": 9924.0,
+      "price_change": -1277.0,
+      "price_change_pct": -11.400767788590304,
+      "timestamp": "2026-10-08 22:17:19.885228+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-08T22:18:24.375868+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Semiramis Village Grecja, Kreta Wschodnia, Hersonissos_2026-10-08_22-17_comeback_11.4"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-08T16:45:29.293046+00:00",
+    "last_processed_run": "2026-10-08T22:17:19.885228+00:00",
     "premium_state": {
       "Adele Beach Grecja, Kreta Zachodnia, Adelianos Kampos": {
         "history_max": 12727.0,
@@ -360,16 +386,16 @@
         "premium_peak": 11357.0
       },
       "Princess Andriana Resort & Spa": {
-        "history_max": 17315.0,
-        "premium_peak": 17315.0
+        "history_max": 18515.0,
+        "premium_peak": 18515.0
       },
       "Kalia Beach Grecja, Kreta Wschodnia, Kato Gouves": {
         "history_max": 12133.0,
         "premium_peak": 12133.0
       },
       "Istion Club": {
-        "history_max": 18777.0,
-        "premium_peak": 18777.0
+        "history_max": 19786.0,
+        "premium_peak": 19786.0
       },
       "Rethymno Mare & Water Park (Rethymno)": {
         "history_max": 18377.0,
@@ -484,8 +510,8 @@
         "premium_peak": 19363.0
       },
       "Portes Lithos Luxury Resort": {
-        "history_max": 19475.0,
-        "premium_peak": 19475.0
+        "history_max": 19677.0,
+        "premium_peak": 19677.0
       },
       "Mediterranean Princess": {
         "history_max": 16747.0,
@@ -560,16 +586,16 @@
         "premium_peak": 15565.0
       },
       "Blue Bay Resort": {
-        "history_max": 16810.0,
-        "premium_peak": 16810.0
+        "history_max": 17010.0,
+        "premium_peak": 17010.0
       },
       "Amus": {
         "history_max": 18271.0,
         "premium_peak": 18271.0
       },
       "Blue Aegean Aparthotel Grecja, Kreta Wschodnia, Kato Gouves": {
-        "history_max": 12937.0,
-        "premium_peak": 12937.0
+        "history_max": 13007.0,
+        "premium_peak": 13007.0
       },
       "Theartemis Palace": {
         "history_max": 18127.0,
@@ -804,8 +830,8 @@
         "premium_peak": null
       },
       "Lagomandra Beach Grecja, Chalkidiki, Neos Marmaras": {
-        "history_max": 14303.0,
-        "premium_peak": 14303.0
+        "history_max": 14663.0,
+        "premium_peak": 14663.0
       },
       "K.Ilios (Tigaki)": {
         "history_max": 15604.0,

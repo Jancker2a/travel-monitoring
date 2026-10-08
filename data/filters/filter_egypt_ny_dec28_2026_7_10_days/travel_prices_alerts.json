@@ -52,10 +52,23 @@
       "created_at": "2026-10-07T21:27:21.467607+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sentido Oriental Dream Resort Egipt, Marsa Alam_2026-10-07_21-26_+12.3"
+    },
+    {
+      "hotel_name": "Sentido Oriental Dream Resort Egipt, Marsa Alam",
+      "duration_bucket": "",
+      "old_price": 10955.0,
+      "new_price": 10955.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-08 22:16:07.337280+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-08T22:16:38.358539+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sentido Oriental Dream Resort Egipt, Marsa Alam_2026-10-08_22-16_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-07T21:26:50.969813+00:00",
+    "last_processed_run": "2026-10-08T22:16:07.337280+00:00",
     "premium_state": {
       "Sentido Oriental Dream Resort Egipt, Marsa Alam": {
         "history_max": 10955.0,
@@ -67,6 +80,10 @@
       },
       "Parrotel Lagoon Resort Egipt, Sharm El Sheikh, Szarm el-Szejk": {
         "history_max": 9556.0,
+        "premium_peak": null
+      },
+      "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
+        "history_max": 10960.0,
         "premium_peak": null
       }
     }
