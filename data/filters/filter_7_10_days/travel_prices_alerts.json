@@ -1287,10 +1287,62 @@
       "created_at": "2026-10-09T02:21:10.733470+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Stella Beach Resort & Spa_2026-10-09_02-19_comeback_12.0"
+    },
+    {
+      "hotel_name": "Creek Hotel and Residences",
+      "duration_bucket": "",
+      "old_price": 7174.0,
+      "new_price": 8477.0,
+      "price_change": 1303.0,
+      "price_change_pct": 18.162810147755785,
+      "timestamp": "2026-10-09 09:22:57.265305+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-09T09:23:34.155136+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Creek Hotel and Residences_2026-10-09_09-22_+18.2"
+    },
+    {
+      "hotel_name": "Siva Golden Bay Makadi",
+      "duration_bucket": "",
+      "old_price": 8837.0,
+      "new_price": 7637.0,
+      "price_change": -1200.0,
+      "price_change_pct": -13.579268982686433,
+      "timestamp": "2026-10-09 09:22:57.265305+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-09T09:23:34.155169+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Siva Golden Bay Makadi_2026-10-09_09-22_-13.6"
+    },
+    {
+      "hotel_name": "Desert Rose Resort",
+      "duration_bucket": "",
+      "old_price": 8448.0,
+      "new_price": 12304.0,
+      "price_change": 3856.0,
+      "price_change_pct": 45.64393939393939,
+      "timestamp": "2026-10-09 09:22:57.265305+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-09T09:23:34.155192+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Desert Rose Resort_2026-10-09_09-22_zone_out_+45.6"
+    },
+    {
+      "hotel_name": "Pickalbatros Luxury Suites",
+      "duration_bucket": "",
+      "old_price": 11682.0,
+      "new_price": 9357.0,
+      "price_change": -2325.0,
+      "price_change_pct": -19.90241397021058,
+      "timestamp": "2026-10-09 09:22:57.265305+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-09T09:23:34.155221+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Luxury Suites_2026-10-09_09-22_comeback_19.9"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-09T02:19:54.674505+00:00",
+    "last_processed_run": "2026-10-09T09:22:57.265305+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 9636.0,
@@ -1305,8 +1357,8 @@
         "premium_peak": 11682.0
       },
       "Pickalbatros Oasis Port Ghalib (ex. Red Sea Port Ghalib Resort)": {
-        "history_max": 15479.0,
-        "premium_peak": 15479.0
+        "history_max": 16529.0,
+        "premium_peak": 16529.0
       },
       "Pickalbatros Palace Port Ghalib (ex. Red Sea The Palace)": {
         "history_max": 12574.0,
@@ -1337,8 +1389,8 @@
         "premium_peak": 14483.0
       },
       "Pickalbatros White Beach Resort": {
-        "history_max": 12150.0,
-        "premium_peak": 12150.0
+        "history_max": 12633.0,
+        "premium_peak": 12633.0
       },
       "Radisson Individuals Marina Port Ghalib (ex. Sunrise Marina Resort)": {
         "history_max": 11184.0,
@@ -1641,8 +1693,8 @@
         "premium_peak": 11773.0
       },
       "Sentido Naga Bay": {
-        "history_max": 15697.0,
-        "premium_peak": 15697.0
+        "history_max": 15777.0,
+        "premium_peak": 15777.0
       },
       "Serenity Alma Heights (ex. Serenity Fun City)": {
         "history_max": 10384.0,
@@ -1765,8 +1817,8 @@
         "premium_peak": 12740.0
       },
       "Jaz Belvedere": {
-        "history_max": 12825.0,
-        "premium_peak": 12825.0
+        "history_max": 13731.0,
+        "premium_peak": 13731.0
       },
       "El Kasr Red Sea": {
         "history_max": 14367.0,
@@ -1913,8 +1965,8 @@
         "premium_peak": null
       },
       "Jaz Makadina": {
-        "history_max": 15557.0,
-        "premium_peak": 15557.0
+        "history_max": 15872.0,
+        "premium_peak": 15872.0
       },
       "Concorde El Salam Sport": {
         "history_max": 10792.0,
@@ -1929,7 +1981,7 @@
         "premium_peak": 12734.0
       },
       "Amarina Queen Resort": {
-        "history_max": 9099.0,
+        "history_max": 9167.0,
         "premium_peak": null
       },
       "Jaz Elite Maraya": {
@@ -1973,7 +2025,7 @@
         "premium_peak": 14814.0
       },
       "Swissotel Resort El Quseir": {
-        "history_max": 9032.0,
+        "history_max": 9666.0,
         "premium_peak": null
       },
       "Grand Rotana Resort & Spa": {

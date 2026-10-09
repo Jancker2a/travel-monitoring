@@ -1534,13 +1534,91 @@
       "created_at": "2026-10-09T02:20:24.818902+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Xperience Sea Breeze Egipt, Sharm El Sheikh_2026-10-09_02-19_zone_out_gone"
+    },
+    {
+      "hotel_name": "Siva Golden Bay Makadi Egipt, Hurghada, Makadi Bay",
+      "duration_bucket": "",
+      "old_price": 8837.0,
+      "new_price": 7637.0,
+      "price_change": -1200.0,
+      "price_change_pct": -13.579268982686433,
+      "timestamp": "2026-10-09 09:22:57.257862+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-09T09:23:26.730992+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Siva Golden Bay Makadi Egipt, Hurghada, Makadi Bay_2026-10-09_09-22_-13.6"
+    },
+    {
+      "hotel_name": "Desert Rose Resort Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 8448.0,
+      "new_price": 8448.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-09 09:22:57.257862+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-09T09:23:26.731036+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Desert Rose Resort Egipt, Hurghada_2026-10-09_09-22_zone_out_gone"
+    },
+    {
+      "hotel_name": "Pickalbatros Citadel Sahl Hasheesh (ex. Citadel Azur Resort)",
+      "duration_bucket": "",
+      "old_price": 10297.0,
+      "new_price": 10297.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-09 09:22:57.257862+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-09T09:23:26.731049+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Citadel Sahl Hasheesh (ex. Citadel Azur Resort)_2026-10-09_09-22_zone_out_gone"
+    },
+    {
+      "hotel_name": "Pickalbatros Dana Beach Resort",
+      "duration_bucket": "",
+      "old_price": 10807.0,
+      "new_price": 10807.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-09 09:22:57.257862+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-09T09:23:26.731058+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Dana Beach Resort_2026-10-09_09-22_zone_out_gone"
+    },
+    {
+      "hotel_name": "Pickalbatros Golf Beach Resort",
+      "duration_bucket": "",
+      "old_price": 9337.0,
+      "new_price": 9337.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-09 09:22:57.257862+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-09T09:23:26.731066+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Golf Beach Resort_2026-10-09_09-22_zone_out_gone"
+    },
+    {
+      "hotel_name": "Royal Pharaohs Makadi (ex. Harmony) Egipt, Hurghada, Makadi Bay",
+      "duration_bucket": "",
+      "old_price": 9257.0,
+      "new_price": 9257.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-09 09:22:57.257862+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-09T09:23:26.731073+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Royal Pharaohs Makadi (ex. Harmony) Egipt, Hurghada, Makadi Bay_2026-10-09_09-22_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-09T02:19:54.528488+00:00",
+    "last_processed_run": "2026-10-09T09:22:57.257862+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
-        "history_max": 8676.0,
+        "history_max": 8740.0,
         "premium_peak": null
       },
       "Royal Regency Club Egipt, Sharm El Sheikh, Szarm el-Szejk": {
@@ -1584,11 +1662,11 @@
         "premium_peak": null
       },
       "Jaz Makadi Oasis Resort": {
-        "history_max": 10197.0,
+        "history_max": 10667.0,
         "premium_peak": null
       },
       "Jaz Grand Marsa (ex Resta Grand Resort) Egipt, Marsa Alam, Madinat Coraya": {
-        "history_max": 8937.0,
+        "history_max": 8947.0,
         "premium_peak": null
       },
       "Serenity Alma Heights (ex. Serenity Fun City)": {
@@ -1612,7 +1690,7 @@
         "premium_peak": null
       },
       "Pickalbatros Vita Resort Portofino": {
-        "history_max": 9557.0,
+        "history_max": 9707.0,
         "premium_peak": null
       },
       "IL Mercato (ex. Iberotel Il Mercato) Egipt, Sharm El Sheikh": {
@@ -1660,7 +1738,7 @@
         "premium_peak": null
       },
       "Pickalbatros Palace Resort": {
-        "history_max": 10437.0,
+        "history_max": 10964.0,
         "premium_peak": null
       },
       "Pickalbatros Oasis Port Ghalib (ex. Red Sea Port Ghalib Resort)": {
@@ -1684,7 +1762,7 @@
         "premium_peak": null
       },
       "Hilton Marsa Alam Nubian Resort": {
-        "history_max": 10157.0,
+        "history_max": 10407.0,
         "premium_peak": null
       },
       "Pickalbatros Laguna Club Resort": {
@@ -1820,7 +1898,7 @@
         "premium_peak": null
       },
       "Albatros Sea World Resort Marsa Alam": {
-        "history_max": 9717.0,
+        "history_max": 9967.0,
         "premium_peak": null
       },
       "Xperience Kiroseiz Parkland Egipt, Sharm El Sheikh": {
@@ -1880,7 +1958,7 @@
         "premium_peak": null
       },
       "Albatros Makadi Resort (ex Royal Pharaohs Makadi)": {
-        "history_max": 9257.0,
+        "history_max": 9697.0,
         "premium_peak": null
       },
       "Desert Rose Resort": {
@@ -1900,7 +1978,7 @@
         "premium_peak": null
       },
       "Pickalbatros Villaggio Resort Portofino": {
-        "history_max": 9417.0,
+        "history_max": 9567.0,
         "premium_peak": null
       },
       "Lazuli (Marsa Alam)": {
@@ -2013,6 +2091,14 @@
       },
       "The Cascades Golf Resort Spa & Thalasso (ex Westin Soma Bay)": {
         "history_max": 9345.0,
+        "premium_peak": null
+      },
+      "Jolie Ville Golf & Resort (ex Maritim Jolie Ville Golf) Egipt, Sharm El Sheikh": {
+        "history_max": 9337.0,
+        "premium_peak": null
+      },
+      "Sharm Grand Plaza Resort Egipt, Sharm El Sheikh": {
+        "history_max": 9147.0,
         "premium_peak": null
       }
     }
