@@ -1443,10 +1443,62 @@
       "created_at": "2026-10-09T17:07:17.535238+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Gravity Sahl Hasheesh (Ex. Ocean Breeze)_2026-10-09_17-06_comeback_12.8"
+    },
+    {
+      "hotel_name": "Jaz Grand Marsa (ex Resta Grand Resort)",
+      "duration_bucket": "",
+      "old_price": 9067.0,
+      "new_price": 8206.0,
+      "price_change": -861.0,
+      "price_change_pct": -9.495974412705415,
+      "timestamp": "2026-10-09 21:48:59.143890+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-09T21:49:52.977407+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Grand Marsa (ex Resta Grand Resort)_2026-10-09_21-48_-9.5"
+    },
+    {
+      "hotel_name": "Gravity Hotel & Aquapark Hurghada (ex. Samra Bay Resort)",
+      "duration_bucket": "",
+      "old_price": 9368.0,
+      "new_price": 9368.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-09 21:48:59.143890+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-09T21:49:52.977446+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Gravity Hotel & Aquapark Hurghada (ex. Samra Bay Resort)_2026-10-09_21-48_zone_out_gone"
+    },
+    {
+      "hotel_name": "Jaz Neo Naama Bay",
+      "duration_bucket": "",
+      "old_price": 9659.0,
+      "new_price": 10264.0,
+      "price_change": 605.0,
+      "price_change_pct": 6.263588363184594,
+      "timestamp": "2026-10-09 21:48:59.143890+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-09T21:49:52.977460+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Neo Naama Bay_2026-10-09_21-48_zone_out_+6.3"
+    },
+    {
+      "hotel_name": "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort)",
+      "duration_bucket": "",
+      "old_price": 9935.0,
+      "new_price": 10135.0,
+      "price_change": 200.0,
+      "price_change_pct": 2.0130850528434827,
+      "timestamp": "2026-10-09 21:48:59.143890+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-09T21:49:52.977471+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort)_2026-10-09_21-48_zone_out_+2.0"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-09T17:06:23.279139+00:00",
+    "last_processed_run": "2026-10-09T21:48:59.143890+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 9636.0,
@@ -1853,8 +1905,8 @@
         "premium_peak": 16257.0
       },
       "Steigenberger Golf Resort": {
-        "history_max": 15837.0,
-        "premium_peak": 15837.0
+        "history_max": 16767.0,
+        "premium_peak": 16767.0
       },
       "Stella Beach Resort & Spa": {
         "history_max": 10564.0,
@@ -2105,8 +2157,8 @@
         "premium_peak": 12324.0
       },
       "Jaz Neo Naama Bay": {
-        "history_max": 9659.0,
-        "premium_peak": null
+        "history_max": 10264.0,
+        "premium_peak": 10264.0
       },
       "Naama Bay Hotel & Resort": {
         "history_max": 11597.0,

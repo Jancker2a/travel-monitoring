@@ -1443,10 +1443,75 @@
       "created_at": "2026-10-09T17:10:35.026538+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Well Palace Side (ex. Side Crown Charm Palace) Turcja, Side_2026-10-09_17-09_zone_out_gone"
+    },
+    {
+      "hotel_name": "First Class Turcja, Alanya, Mahmutlar",
+      "duration_bucket": "",
+      "old_price": 7295.0,
+      "new_price": 5292.0,
+      "price_change": -2003.0,
+      "price_change_pct": -27.457162440027417,
+      "timestamp": "2026-10-09 21:51:19.256924+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-09T21:54:13.941584+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "First Class Turcja, Alanya, Mahmutlar_2026-10-09_21-51_-27.5"
+    },
+    {
+      "hotel_name": "Armas Kaplan Paradise Turcja, Kemer, Tekirova",
+      "duration_bucket": "",
+      "old_price": 9963.0,
+      "new_price": 9963.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-09 21:51:19.256924+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-09T21:54:13.941617+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Armas Kaplan Paradise Turcja, Kemer, Tekirova_2026-10-09_21-51_zone_out_gone"
+    },
+    {
+      "hotel_name": "Meder Resort Turcja, Kemer",
+      "duration_bucket": "",
+      "old_price": 9975.0,
+      "new_price": 9975.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-09 21:51:19.256924+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-09T21:54:13.941629+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Meder Resort Turcja, Kemer_2026-10-09_21-51_zone_out_gone"
+    },
+    {
+      "hotel_name": "Well Palace Side (ex. Side Crown Charm Palace) Turcja, Side",
+      "duration_bucket": "",
+      "old_price": 10238.0,
+      "new_price": 8289.0,
+      "price_change": -1949.0,
+      "price_change_pct": -19.036921273686268,
+      "timestamp": "2026-10-09 21:51:19.256924+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-09T21:54:13.941651+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Well Palace Side (ex. Side Crown Charm Palace) Turcja, Side_2026-10-09_21-51_comeback_19.0"
+    },
+    {
+      "hotel_name": "Armas Kaplan Paradise",
+      "duration_bucket": "",
+      "old_price": 18252.0,
+      "new_price": 9963.0,
+      "price_change": -8289.0,
+      "price_change_pct": -45.41420118343195,
+      "timestamp": "2026-10-09 21:51:19.256924+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-09T21:54:13.941668+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Armas Kaplan Paradise_2026-10-09_21-51_comeback_45.4"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-09T17:09:36.865078+00:00",
+    "last_processed_run": "2026-10-09T21:51:19.256924+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 15150.0,
@@ -1529,8 +1594,8 @@
         "premium_peak": 13668.0
       },
       "My Home Resort": {
-        "history_max": 11703.0,
-        "premium_peak": 11703.0
+        "history_max": 12479.0,
+        "premium_peak": 12479.0
       },
       "Long Beach (Avsallar)": {
         "history_max": 14206.0,
@@ -1565,8 +1630,8 @@
         "premium_peak": 16030.0
       },
       "Paloma Perissia": {
-        "history_max": 19262.0,
-        "premium_peak": 19262.0
+        "history_max": 19283.0,
+        "premium_peak": 19283.0
       },
       "Paloma Orenda Resort": {
         "history_max": 19253.0,
@@ -1917,8 +1982,8 @@
         "premium_peak": 15570.0
       },
       "Xoria Deluxe": {
-        "history_max": 10481.0,
-        "premium_peak": 10481.0
+        "history_max": 10697.0,
+        "premium_peak": 10697.0
       },
       "Xanadu Resort": {
         "history_max": 18630.0,
@@ -2197,8 +2262,8 @@
         "premium_peak": 13590.0
       },
       "Cenger Blue Collection": {
-        "history_max": 11222.0,
-        "premium_peak": 11222.0
+        "history_max": 11488.0,
+        "premium_peak": 11488.0
       },
       "Cenger Beach Resort Turcja, Side": {
         "history_max": 8253.0,
@@ -2605,7 +2670,7 @@
         "premium_peak": null
       },
       "Sultan of Side Turcja, Side, Colakli": {
-        "history_max": 9114.0,
+        "history_max": 9376.0,
         "premium_peak": null
       },
       "Yasmin Resort": {
@@ -2841,8 +2906,16 @@
         "premium_peak": null
       },
       "Sultan of Dreams Turcja, Side, Manavgat": {
-        "history_max": 9526.0,
+        "history_max": 9792.0,
         "premium_peak": null
+      },
+      "Orange Palace": {
+        "history_max": 16314.0,
+        "premium_peak": 16314.0
+      },
+      "Armonia Holiday Village": {
+        "history_max": 11840.0,
+        "premium_peak": 11840.0
       }
     }
   }

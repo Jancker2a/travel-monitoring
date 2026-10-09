@@ -1781,10 +1781,49 @@
       "created_at": "2026-10-09T17:07:28.504249+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Titanic Palace Resort_2026-10-09_17-06_zone_out_gone"
+    },
+    {
+      "hotel_name": "Jaz Grand Marsa (ex Resta Grand Resort) Egipt, Marsa Alam, Madinat Coraya",
+      "duration_bucket": "",
+      "old_price": 9087.0,
+      "new_price": 8206.0,
+      "price_change": -881.0,
+      "price_change_pct": -9.695168922636734,
+      "timestamp": "2026-10-09 21:48:59.249874+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-09T21:49:28.731331+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Grand Marsa (ex Resta Grand Resort) Egipt, Marsa Alam, Madinat Coraya_2026-10-09_21-48_-9.7"
+    },
+    {
+      "hotel_name": "Movenpick Resort & Spa El Gouna",
+      "duration_bucket": "",
+      "old_price": 10945.0,
+      "new_price": 10945.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-09 21:48:59.249874+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-09T21:49:28.731370+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Movenpick Resort & Spa El Gouna_2026-10-09_21-48_zone_out_gone"
+    },
+    {
+      "hotel_name": "Pickalbatros Laguna Vista Beach",
+      "duration_bucket": "",
+      "old_price": 10976.0,
+      "new_price": 10976.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-09 21:48:59.249874+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-09T21:49:28.731382+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Laguna Vista Beach_2026-10-09_21-48_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-09T17:06:23.277996+00:00",
+    "last_processed_run": "2026-10-09T21:48:59.249874+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 8740.0,
@@ -1827,11 +1866,11 @@
         "premium_peak": null
       },
       "Sentido Akassia Beach (ex. LTI Akassia Beach)": {
-        "history_max": 10130.0,
+        "history_max": 10373.0,
         "premium_peak": null
       },
       "Jaz Makadi Oasis Resort": {
-        "history_max": 10667.0,
+        "history_max": 10847.0,
         "premium_peak": null
       },
       "Jaz Grand Marsa (ex Resta Grand Resort) Egipt, Marsa Alam, Madinat Coraya": {
@@ -1995,7 +2034,7 @@
         "premium_peak": null
       },
       "Tropitel Sahl Hasheesh": {
-        "history_max": 10745.0,
+        "history_max": 10945.0,
         "premium_peak": null
       },
       "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort)": {
@@ -2243,11 +2282,11 @@
         "premium_peak": null
       },
       "Albatros Laguna Club Resort Egipt, Sharm El Sheikh, Szarm el-Szejk": {
-        "history_max": 8776.0,
+        "history_max": 9058.0,
         "premium_peak": null
       },
       "Amarina Queen Resort": {
-        "history_max": 10350.0,
+        "history_max": 10650.0,
         "premium_peak": null
       },
       "Naama Bay Promenade Mountain Resort Egipt, Sharm El Sheikh, Szarm el-Szejk": {
