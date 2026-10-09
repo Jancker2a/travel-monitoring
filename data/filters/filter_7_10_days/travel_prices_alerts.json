@@ -1339,10 +1339,114 @@
       "created_at": "2026-10-09T09:23:34.155221+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Pickalbatros Luxury Suites_2026-10-09_09-22_comeback_19.9"
+    },
+    {
+      "hotel_name": "Hilton Plaza (Hurghada)",
+      "duration_bucket": "",
+      "old_price": 9815.0,
+      "new_price": 8937.0,
+      "price_change": -878.0,
+      "price_change_pct": -8.945491594498217,
+      "timestamp": "2026-10-09 17:06:23.279139+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-09T17:07:17.535109+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Hilton Plaza (Hurghada)_2026-10-09_17-06_-8.9"
+    },
+    {
+      "hotel_name": "Sea Star Beau Rivage",
+      "duration_bucket": "",
+      "old_price": 8112.0,
+      "new_price": 6746.0,
+      "price_change": -1366.0,
+      "price_change_pct": -16.839250493096646,
+      "timestamp": "2026-10-09 17:06:23.279139+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-09T17:07:17.535139+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sea Star Beau Rivage_2026-10-09_17-06_-16.8"
+    },
+    {
+      "hotel_name": "V Grand Beach Resort Sahl Hasheesh",
+      "duration_bucket": "",
+      "old_price": 9987.0,
+      "new_price": 8578.0,
+      "price_change": -1409.0,
+      "price_change_pct": -14.108340843096027,
+      "timestamp": "2026-10-09 17:06:23.279139+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-09T17:07:17.535153+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "V Grand Beach Resort Sahl Hasheesh_2026-10-09_17-06_-14.1"
+    },
+    {
+      "hotel_name": "Creek Hotel and Residences",
+      "duration_bucket": "",
+      "old_price": 8477.0,
+      "new_price": 7047.0,
+      "price_change": -1430.0,
+      "price_change_pct": -16.869175415831073,
+      "timestamp": "2026-10-09 17:06:23.279139+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-09T17:07:17.535165+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Creek Hotel and Residences_2026-10-09_17-06_-16.9"
+    },
+    {
+      "hotel_name": "Rewaya Luxury Resort",
+      "duration_bucket": "",
+      "old_price": 6967.0,
+      "new_price": 7537.0,
+      "price_change": 570.0,
+      "price_change_pct": 8.181426725993973,
+      "timestamp": "2026-10-09 17:06:23.279139+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-09T17:07:17.535176+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Luxury Resort_2026-10-09_17-06_+8.2"
+    },
+    {
+      "hotel_name": "Charmillion Club Resort",
+      "duration_bucket": "",
+      "old_price": 9825.0,
+      "new_price": 11961.0,
+      "price_change": 2136.0,
+      "price_change_pct": 21.740458015267176,
+      "timestamp": "2026-10-09 17:06:23.279139+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-09T17:07:17.535194+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Charmillion Club Resort_2026-10-09_17-06_zone_out_+21.7"
+    },
+    {
+      "hotel_name": "Pickalbatros Luxury Suites",
+      "duration_bucket": "",
+      "old_price": 9357.0,
+      "new_price": 11682.0,
+      "price_change": 2325.0,
+      "price_change_pct": 24.84770759858929,
+      "timestamp": "2026-10-09 17:06:23.279139+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-09T17:07:17.535213+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Luxury Suites_2026-10-09_17-06_zone_out_+24.8"
+    },
+    {
+      "hotel_name": "Gravity Sahl Hasheesh (Ex. Ocean Breeze)",
+      "duration_bucket": "",
+      "old_price": 11010.0,
+      "new_price": 9596.0,
+      "price_change": -1414.0,
+      "price_change_pct": -12.84287011807448,
+      "timestamp": "2026-10-09 17:06:23.279139+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-09T17:07:17.535238+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Gravity Sahl Hasheesh (Ex. Ocean Breeze)_2026-10-09_17-06_comeback_12.8"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-09T09:22:57.265305+00:00",
+    "last_processed_run": "2026-10-09T17:06:23.279139+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 9636.0,
@@ -1377,7 +1481,7 @@
         "premium_peak": 12138.0
       },
       "Pickalbatros Villaggio Resort Portofino": {
-        "history_max": 9417.0,
+        "history_max": 9467.0,
         "premium_peak": null
       },
       "Pickalbatros Vita Resort Portofino": {
@@ -1417,7 +1521,7 @@
         "premium_peak": 10394.0
       },
       "Rewaya Luxury Resort": {
-        "history_max": 7407.0,
+        "history_max": 7537.0,
         "premium_peak": null
       },
       "Rewaya Majestic Resort": {
@@ -1529,8 +1633,8 @@
         "premium_peak": 12789.0
       },
       "Parrotel Beach Resort (ex. Radisson Blu)": {
-        "history_max": 10740.0,
-        "premium_peak": 10740.0
+        "history_max": 11194.0,
+        "premium_peak": 11194.0
       },
       "Parrotel Lagoon Resort": {
         "history_max": 7557.0,
@@ -1817,8 +1921,8 @@
         "premium_peak": 12740.0
       },
       "Jaz Belvedere": {
-        "history_max": 13731.0,
-        "premium_peak": 13731.0
+        "history_max": 13934.0,
+        "premium_peak": 13934.0
       },
       "El Kasr Red Sea": {
         "history_max": 14367.0,
@@ -1873,12 +1977,12 @@
         "premium_peak": 12317.0
       },
       "IL Mercato Splash Aqua Park": {
-        "history_max": 9485.0,
+        "history_max": 9589.0,
         "premium_peak": null
       },
       "Charmillion Club Resort": {
-        "history_max": 10657.0,
-        "premium_peak": 10657.0
+        "history_max": 11961.0,
+        "premium_peak": 11961.0
       },
       "Hilton Plaza (Hurghada)": {
         "history_max": 10834.0,
@@ -1889,12 +1993,12 @@
         "premium_peak": null
       },
       "Gravity Hotel & Aquapark Hurghada (ex. Samra Bay Resort)": {
-        "history_max": 9251.0,
+        "history_max": 9368.0,
         "premium_peak": null
       },
       "Hilton Marsa Alam Nubian Resort": {
-        "history_max": 10017.0,
-        "premium_peak": 10017.0
+        "history_max": 10167.0,
+        "premium_peak": 10167.0
       },
       "Jaz Elite Casa Del Mar Beach": {
         "history_max": 16365.0,
@@ -1941,7 +2045,7 @@
         "premium_peak": null
       },
       "Jaz Grand Marsa (ex Resta Grand Resort)": {
-        "history_max": 8697.0,
+        "history_max": 9067.0,
         "premium_peak": null
       },
       "Jaz Makadi Saraya (ex Iberotel)": {
@@ -2053,7 +2157,7 @@
         "premium_peak": null
       },
       "Caribbean World Soma Bay": {
-        "history_max": 8807.0,
+        "history_max": 9447.0,
         "premium_peak": null
       },
       "Bellagio Beach Resort & Spa (ex. Panorama Bungalows Hurghada)": {
@@ -2065,8 +2169,8 @@
         "premium_peak": 11063.0
       },
       "Ancient Sands Golf Resort": {
-        "history_max": 12809.0,
-        "premium_peak": 12809.0
+        "history_max": 13050.0,
+        "premium_peak": 13050.0
       }
     }
   }
