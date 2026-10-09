@@ -2678,10 +2678,114 @@
       "created_at": "2026-10-08T22:17:18.923539+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Linda Resort (Side)_2026-10-08_22-16_zone_out_+6.9"
+    },
+    {
+      "hotel_name": "Seher Sun Palace Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 8769.0,
+      "new_price": 9585.0,
+      "price_change": 816.0,
+      "price_change_pct": 9.305508039685256,
+      "timestamp": "2026-10-09 02:21:11.607731+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-09T02:22:24.688109+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Seher Sun Palace Resort & Spa_2026-10-09_02-21_+9.3"
+    },
+    {
+      "hotel_name": "Aria Claros Beach and Spa Resort",
+      "duration_bucket": "",
+      "old_price": 7333.0,
+      "new_price": 10581.0,
+      "price_change": 3248.0,
+      "price_change_pct": 44.29292240556389,
+      "timestamp": "2026-10-09 02:21:11.607731+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-09T02:22:24.688162+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Aria Claros Beach and Spa Resort_2026-10-09_02-21_zone_out_+44.3"
+    },
+    {
+      "hotel_name": "Armas Pemar Beach Resort",
+      "duration_bucket": "",
+      "old_price": 7704.0,
+      "new_price": 7704.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-09 02:21:11.607731+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-09T02:22:24.688175+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Armas Pemar Beach Resort_2026-10-09_02-21_zone_out_gone"
+    },
+    {
+      "hotel_name": "Batihan Beach Resort",
+      "duration_bucket": "",
+      "old_price": 7573.0,
+      "new_price": 10655.0,
+      "price_change": 3082.0,
+      "price_change_pct": 40.697213785818036,
+      "timestamp": "2026-10-09 02:21:11.607731+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-09T02:22:24.688186+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Batihan Beach Resort_2026-10-09_02-21_zone_out_+40.7"
+    },
+    {
+      "hotel_name": "Duja Didim",
+      "duration_bucket": "",
+      "old_price": 8724.0,
+      "new_price": 11226.0,
+      "price_change": 2502.0,
+      "price_change_pct": 28.67950481430536,
+      "timestamp": "2026-10-09 02:21:11.607731+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-09T02:22:24.688195+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Duja Didim_2026-10-09_02-21_zone_out_+28.7"
+    },
+    {
+      "hotel_name": "Garden of Sun Spa & Wellness",
+      "duration_bucket": "",
+      "old_price": 7274.0,
+      "new_price": 10130.0,
+      "price_change": 2856.0,
+      "price_change_pct": 39.26312895243333,
+      "timestamp": "2026-10-09 02:21:11.607731+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-09T02:22:24.688204+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Garden of Sun Spa & Wellness_2026-10-09_02-21_zone_out_+39.3"
+    },
+    {
+      "hotel_name": "Grand Park Lara",
+      "duration_bucket": "",
+      "old_price": 9086.0,
+      "new_price": 9086.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-09 02:21:11.607731+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-09T02:22:24.688212+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Grand Park Lara_2026-10-09_02-21_zone_out_gone"
+    },
+    {
+      "hotel_name": "Terrace Elite Resort",
+      "duration_bucket": "",
+      "old_price": 9957.0,
+      "new_price": 10250.0,
+      "price_change": 293.0,
+      "price_change_pct": 2.9426534096615447,
+      "timestamp": "2026-10-09 02:21:11.607731+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-09T02:22:24.688220+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Terrace Elite Resort_2026-10-09_02-21_zone_out_+2.9"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-08T22:16:13.371940+00:00",
+    "last_processed_run": "2026-10-09T02:21:11.607731+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 10912.0,
@@ -2936,8 +3040,8 @@
         "premium_peak": 10483.0
       },
       "Garden of Sun Spa & Wellness": {
-        "history_max": 7793.0,
-        "premium_peak": null
+        "history_max": 10130.0,
+        "premium_peak": 10130.0
       },
       "Galeri Resort": {
         "history_max": 8892.0,
@@ -3072,7 +3176,7 @@
         "premium_peak": null
       },
       "Holiday Garden Resort (Okurcalar)": {
-        "history_max": 8745.0,
+        "history_max": 8746.0,
         "premium_peak": null
       },
       "Eftalia Village": {
@@ -3364,8 +3468,8 @@
         "premium_peak": null
       },
       "Porto Bello": {
-        "history_max": 11876.0,
-        "premium_peak": 11876.0
+        "history_max": 12797.0,
+        "premium_peak": 12797.0
       },
       "Port Side Resort": {
         "history_max": 13419.0,
@@ -3644,8 +3748,8 @@
         "premium_peak": 10237.0
       },
       "Batihan Beach Resort": {
-        "history_max": 8092.0,
-        "premium_peak": null
+        "history_max": 10655.0,
+        "premium_peak": 10655.0
       },
       "Beach Club Doganay": {
         "history_max": 8743.0,
@@ -3780,8 +3884,8 @@
         "premium_peak": null
       },
       "Duja Didim": {
-        "history_max": 9244.0,
-        "premium_peak": null
+        "history_max": 11226.0,
+        "premium_peak": 11226.0
       },
       "Adalya Ocean Deluxe": {
         "history_max": 11902.0,
@@ -3860,8 +3964,8 @@
         "premium_peak": 13429.0
       },
       "Dizalya Palm Garden": {
-        "history_max": 12247.0,
-        "premium_peak": 12247.0
+        "history_max": 13552.0,
+        "premium_peak": 13552.0
       },
       "Dedeman Kemer Resort": {
         "history_max": 8240.0,
@@ -3904,8 +4008,8 @@
         "premium_peak": 13169.0
       },
       "Paloma Perissia": {
-        "history_max": 13252.0,
-        "premium_peak": 13252.0
+        "history_max": 13368.0,
+        "premium_peak": 13368.0
       },
       "Ducale Lara": {
         "history_max": 12926.0,

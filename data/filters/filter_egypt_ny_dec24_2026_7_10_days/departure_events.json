@@ -199,6 +199,26 @@
       "hotel_count": 26,
       "hotel_delta": 12,
       "hot_score": 0
+    },
+    {
+      "event_time": "2026-10-09T02:20:58+0000",
+      "departure_key": "egipt|sharm-el-sheikh|2026-12-24|2026-12-31|7|Warszawa - Modlin|2+1",
+      "event_type": "mass_price_drop",
+      "severity": "medium",
+      "country": "egipt",
+      "region": "sharm-el-sheikh",
+      "departure_date": "2026-12-24",
+      "return_date": "2026-12-31",
+      "nights": 7,
+      "days_to_departure": 76,
+      "old_min_price": "",
+      "new_min_price": 8039.0,
+      "min_drop_pct": -10.07,
+      "p10_drop_pct": -9.16,
+      "median_drop_pct": -6.87,
+      "hotel_count": 20,
+      "hotel_delta": 8,
+      "hot_score": 0
     }
   ]
 }
