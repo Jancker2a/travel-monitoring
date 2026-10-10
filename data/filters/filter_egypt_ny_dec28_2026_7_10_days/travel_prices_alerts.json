@@ -65,10 +65,23 @@
       "created_at": "2026-10-08T22:16:38.358539+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sentido Oriental Dream Resort Egipt, Marsa Alam_2026-10-08_22-16_zone_out_gone"
+    },
+    {
+      "hotel_name": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 10960.0,
+      "new_price": 10960.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-10 01:52:50.562255+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-10T01:53:04.423158+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada_2026-10-10_01-52_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-08T22:16:07.337280+00:00",
+    "last_processed_run": "2026-10-10T01:52:50.562255+00:00",
     "premium_state": {
       "Sentido Oriental Dream Resort Egipt, Marsa Alam": {
         "history_max": 10955.0,
@@ -84,6 +97,10 @@
       },
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 10960.0,
+        "premium_peak": null
+      },
+      "Le Meridien Dahab Resort Egipt, Dahab": {
+        "history_max": 10987.0,
         "premium_peak": null
       }
     }

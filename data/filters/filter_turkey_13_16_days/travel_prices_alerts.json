@@ -1508,10 +1508,75 @@
       "created_at": "2026-10-09T21:54:13.941668+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Armas Kaplan Paradise_2026-10-09_21-51_comeback_45.4"
+    },
+    {
+      "hotel_name": "World Star Beach Resort & Spa Turcja, Alanya, Kestel",
+      "duration_bucket": "",
+      "old_price": 8330.0,
+      "new_price": 9005.0,
+      "price_change": 675.0,
+      "price_change_pct": 8.103241296518608,
+      "timestamp": "2026-10-10 01:53:05.114328+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-10T01:54:10.041458+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "World Star Beach Resort & Spa Turcja, Alanya, Kestel_2026-10-10_01-53_+8.1"
+    },
+    {
+      "hotel_name": "Armas Green Fugla Turcja, Alanya",
+      "duration_bucket": "",
+      "old_price": 9621.0,
+      "new_price": 9621.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-10 01:53:05.114328+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-10T01:54:10.041490+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Armas Green Fugla Turcja, Alanya_2026-10-10_01-53_zone_out_gone"
+    },
+    {
+      "hotel_name": "Armas Kaplan Paradise",
+      "duration_bucket": "",
+      "old_price": 9963.0,
+      "new_price": 9963.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-10 01:53:05.114328+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-10T01:54:10.041499+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Armas Kaplan Paradise_2026-10-10_01-53_zone_out_gone"
+    },
+    {
+      "hotel_name": "Master Family Club",
+      "duration_bucket": "",
+      "old_price": 9883.0,
+      "new_price": 9883.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-10 01:53:05.114328+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-10T01:54:10.041506+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Master Family Club_2026-10-10_01-53_zone_out_gone"
+    },
+    {
+      "hotel_name": "Rai Foresta Tekirova Turcja, Kemer, Tekirova",
+      "duration_bucket": "",
+      "old_price": 9108.0,
+      "new_price": 9108.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-10 01:53:05.114328+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-10T01:54:10.041511+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rai Foresta Tekirova Turcja, Kemer, Tekirova_2026-10-10_01-53_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-09T21:51:19.256924+00:00",
+    "last_processed_run": "2026-10-10T01:53:05.114328+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 15150.0,
@@ -1622,16 +1687,16 @@
         "premium_peak": 19975.0
       },
       "Papillon Ayscha": {
-        "history_max": 18925.0,
-        "premium_peak": 18925.0
+        "history_max": 19475.0,
+        "premium_peak": 19475.0
       },
       "Paloma Sencia": {
-        "history_max": 16030.0,
-        "premium_peak": 16030.0
+        "history_max": 16195.0,
+        "premium_peak": 16195.0
       },
       "Paloma Perissia": {
-        "history_max": 19283.0,
-        "premium_peak": 19283.0
+        "history_max": 19350.0,
+        "premium_peak": 19350.0
       },
       "Paloma Orenda Resort": {
         "history_max": 19253.0,
@@ -1658,8 +1723,8 @@
         "premium_peak": 14857.0
       },
       "Ozkaymak Falez": {
-        "history_max": 14409.0,
-        "premium_peak": 14409.0
+        "history_max": 14418.0,
+        "premium_peak": 14418.0
       },
       "Oz Sui Resort": {
         "history_max": 10526.0,
@@ -2006,8 +2071,8 @@
         "premium_peak": 10355.0
       },
       "Water Side Resort & Spa": {
-        "history_max": 12543.0,
-        "premium_peak": 12543.0
+        "history_max": 12555.0,
+        "premium_peak": 12555.0
       },
       "Vogue Supreme Bodrum": {
         "history_max": 18452.0,
@@ -2102,8 +2167,8 @@
         "premium_peak": 19139.0
       },
       "Royal Atlantis Icon": {
-        "history_max": 15037.0,
-        "premium_peak": 15037.0
+        "history_max": 15566.0,
+        "premium_peak": 15566.0
       },
       "Royal Asarlik Beach": {
         "history_max": 13782.0,
@@ -2122,8 +2187,8 @@
         "premium_peak": 12225.0
       },
       "Raymar Resort & Aqua": {
-        "history_max": 12500.0,
-        "premium_peak": 12500.0
+        "history_max": 12509.0,
+        "premium_peak": 12509.0
       },
       "Raxeria (Side)": {
         "history_max": 13410.0,
@@ -2154,7 +2219,7 @@
         "premium_peak": 15276.0
       },
       "Scylax Family Club (Kargicak) Turcja, Alanya, Mahmutlar": {
-        "history_max": 9829.0,
+        "history_max": 9836.0,
         "premium_peak": null
       },
       "Seaden Quality Resort & Spa": {
@@ -2198,16 +2263,16 @@
         "premium_peak": 14344.0
       },
       "Serenity Queen": {
-        "history_max": 18392.0,
-        "premium_peak": 18392.0
+        "history_max": 18405.0,
+        "premium_peak": 18405.0
       },
       "Porto Bello": {
         "history_max": 17750.0,
         "premium_peak": 17750.0
       },
       "Senza Grand Santana (Alanya)": {
-        "history_max": 19410.0,
-        "premium_peak": 19410.0
+        "history_max": 19424.0,
+        "premium_peak": 19424.0
       },
       "Selectum Noa": {
         "history_max": 13415.0,
@@ -2246,8 +2311,8 @@
         "premium_peak": 14490.0
       },
       "Sentido Trendy Verbena Beach (ex. Trendy Verbena Beach)": {
-        "history_max": 16142.0,
-        "premium_peak": 16142.0
+        "history_max": 16511.0,
+        "premium_peak": 16511.0
       },
       "Fame Residence (Göynük)": {
         "history_max": 17816.0,
@@ -2390,8 +2455,8 @@
         "premium_peak": 12319.0
       },
       "Club Marco Polo (Kemer)": {
-        "history_max": 19258.0,
-        "premium_peak": 19258.0
+        "history_max": 19271.0,
+        "premium_peak": 19271.0
       },
       "Baia Lara": {
         "history_max": 16724.0,
@@ -2410,8 +2475,8 @@
         "premium_peak": 13598.0
       },
       "Armas Beach": {
-        "history_max": 11685.0,
-        "premium_peak": 11685.0
+        "history_max": 12242.0,
+        "premium_peak": 12242.0
       },
       "Aria Resort & SPA": {
         "history_max": 14230.0,
@@ -2514,8 +2579,8 @@
         "premium_peak": 11142.0
       },
       "Asteria Bloom Side": {
-        "history_max": 10242.0,
-        "premium_peak": 10242.0
+        "history_max": 10274.0,
+        "premium_peak": 10274.0
       },
       "Aska Just in Beach": {
         "history_max": 11599.0,
@@ -2886,7 +2951,7 @@
         "premium_peak": null
       },
       "Aydinbey Queens Palace & Spa Turcja, Belek": {
-        "history_max": 9446.0,
+        "history_max": 9554.0,
         "premium_peak": null
       },
       "Orange County Resort Alanya Turcja, Alanya, Okurcalar": {
