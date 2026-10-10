@@ -2093,10 +2093,101 @@
       "created_at": "2026-10-10T08:46:03.807871+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Porto Platanias Village_2026-10-10_08-45_zone_out_+5.3"
+    },
+    {
+      "hotel_name": "Pegasos Beach (Faliraki) Grecja, Rodos, Faliraki",
+      "duration_bucket": "",
+      "old_price": 7157.0,
+      "new_price": 7847.0,
+      "price_change": 690.0,
+      "price_change_pct": 9.64091099622747,
+      "timestamp": "2026-10-10 15:33:53.837889+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-10T15:34:55.865384+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pegasos Beach (Faliraki) Grecja, Rodos, Faliraki_2026-10-10_15-33_+9.6"
+    },
+    {
+      "hotel_name": "Filion Suites Resort Grecja, Kreta Wschodnia, Bali",
+      "duration_bucket": "",
+      "old_price": 8225.0,
+      "new_price": 9167.0,
+      "price_change": 942.0,
+      "price_change_pct": 11.45288753799392,
+      "timestamp": "2026-10-10 15:33:53.837889+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-10T15:34:55.865433+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Filion Suites Resort Grecja, Kreta Wschodnia, Bali_2026-10-10_15-33_+11.5"
+    },
+    {
+      "hotel_name": "Apollonia Beach (Ammoudara)",
+      "duration_bucket": "",
+      "old_price": 9712.0,
+      "new_price": 10623.0,
+      "price_change": 911.0,
+      "price_change_pct": 9.38014827018122,
+      "timestamp": "2026-10-10 15:33:53.837889+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-10T15:34:55.865473+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Apollonia Beach (Ammoudara)_2026-10-10_15-33_zone_out_+9.4"
+    },
+    {
+      "hotel_name": "Blue Sea Beach (Stalida) Grecja, Kreta, Stalida",
+      "duration_bucket": "",
+      "old_price": 8265.0,
+      "new_price": 8265.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-10 15:33:53.837889+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-10T15:34:55.865496+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Blue Sea Beach (Stalida) Grecja, Kreta, Stalida_2026-10-10_15-33_zone_out_gone"
+    },
+    {
+      "hotel_name": "Helea Lifestyle Beach Resort",
+      "duration_bucket": "",
+      "old_price": 9557.0,
+      "new_price": 9557.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-10 15:33:53.837889+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-10T15:34:55.865514+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Helea Lifestyle Beach Resort_2026-10-10_15-33_zone_out_gone"
+    },
+    {
+      "hotel_name": "Hersonissos Palace Grecja, Kreta Wschodnia, Hersonissos",
+      "duration_bucket": "",
+      "old_price": 9177.0,
+      "new_price": 9177.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-10 15:33:53.837889+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-10T15:34:55.865532+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Hersonissos Palace Grecja, Kreta Wschodnia, Hersonissos_2026-10-10_15-33_zone_out_gone"
+    },
+    {
+      "hotel_name": "Mare blue (ex. Sunshine Crete Beach)",
+      "duration_bucket": "",
+      "old_price": 9483.0,
+      "new_price": 9483.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-10 15:33:53.837889+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-10T15:34:55.865558+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Mare blue (ex. Sunshine Crete Beach)_2026-10-10_15-33_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-10T08:45:06.817702+00:00",
+    "last_processed_run": "2026-10-10T15:33:53.837889+00:00",
     "premium_state": {
       "Akasha Beach (ex Armava)": {
         "history_max": 15229.0,
@@ -2419,8 +2510,8 @@
         "premium_peak": 11283.0
       },
       "Creta Royal": {
-        "history_max": 17137.0,
-        "premium_peak": 17137.0
+        "history_max": 17167.0,
+        "premium_peak": 17167.0
       },
       "Dreams Corfu Resort & Spa (ex Louis Corcyra Beach)": {
         "history_max": 11246.0,
@@ -2475,11 +2566,11 @@
         "premium_peak": null
       },
       "Alia Palace": {
-        "history_max": 11997.0,
-        "premium_peak": 11997.0
+        "history_max": 12287.0,
+        "premium_peak": 12287.0
       },
       "Filion Suites Resort Grecja, Kreta Wschodnia, Bali": {
-        "history_max": 8225.0,
+        "history_max": 9167.0,
         "premium_peak": null
       },
       "Akti Coast Club": {
@@ -2507,8 +2598,8 @@
         "premium_peak": 14071.0
       },
       "Eliros Mare": {
-        "history_max": 12996.0,
-        "premium_peak": 12996.0
+        "history_max": 13041.0,
+        "premium_peak": 13041.0
       },
       "All Senses Nautica Blue Exclusive Resort & Spa (ex Aegean Breeze) Grecja, Rodos, Fanes": {
         "history_max": 7142.0,
@@ -2591,8 +2682,8 @@
         "premium_peak": null
       },
       "Blue Sea Beach (Stalida)": {
-        "history_max": 8378.0,
-        "premium_peak": null
+        "history_max": 13898.0,
+        "premium_peak": 13898.0
       },
       "Mitsis Summer Palace": {
         "history_max": 7230.0,
@@ -2679,7 +2770,7 @@
         "premium_peak": null
       },
       "Rethymno Mare & Water Park (Rethymno) Grecja, Kreta Zachodnia, SCALETA": {
-        "history_max": 9187.0,
+        "history_max": 9347.0,
         "premium_peak": null
       },
       "Dimitra Beach Hotel & Suites Grecja, Kos, Agios Fokas": {
@@ -2687,12 +2778,24 @@
         "premium_peak": null
       },
       "Pegasos Beach (Faliraki) Grecja, Rodos, Faliraki": {
-        "history_max": 7157.0,
+        "history_max": 7847.0,
         "premium_peak": null
       },
       "Porto Platanias Village Grecja, Kreta Zachodnia, Platanias": {
         "history_max": 8627.0,
         "premium_peak": null
+      },
+      "Sunshine Crete Beach (ex Club Calimera) Grecja, Kreta Wschodnia, Koutsounari": {
+        "history_max": 9483.0,
+        "premium_peak": null
+      },
+      "Helea Family Beach Resort (ex. Amilia Mare Beach Resort) Grecja, Rodos, Koskinou": {
+        "history_max": 9557.0,
+        "premium_peak": null
+      },
+      "Amirandes Grecotel Boutique Resort": {
+        "history_max": 19863.0,
+        "premium_peak": 19863.0
       }
     }
   }

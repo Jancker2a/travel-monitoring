@@ -1560,10 +1560,114 @@
       "created_at": "2026-10-10T08:41:59.037919+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Pickalbatros Vita Resort Portofino_2026-10-10_08-41_zone_out_+9.6"
+    },
+    {
+      "hotel_name": "Jaz Grand Marsa (ex Resta Grand Resort)",
+      "duration_bucket": "",
+      "old_price": 8206.0,
+      "new_price": 9087.0,
+      "price_change": 881.0,
+      "price_change_pct": 10.73604679502803,
+      "timestamp": "2026-10-10 15:30:37.078592+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-10T15:31:20.141077+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Grand Marsa (ex Resta Grand Resort)_2026-10-10_15-30_+10.7"
+    },
+    {
+      "hotel_name": "Swissotel Resort El Quseir",
+      "duration_bucket": "",
+      "old_price": 9666.0,
+      "new_price": 8870.0,
+      "price_change": -796.0,
+      "price_change_pct": -8.235050693151253,
+      "timestamp": "2026-10-10 15:30:37.078592+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-10T15:31:20.141109+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Swissotel Resort El Quseir_2026-10-10_15-30_-8.2"
+    },
+    {
+      "hotel_name": "Sea Star Beau Rivage",
+      "duration_bucket": "",
+      "old_price": 6746.0,
+      "new_price": 7866.0,
+      "price_change": 1120.0,
+      "price_change_pct": 16.602431070263858,
+      "timestamp": "2026-10-10 15:30:37.078592+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-10T15:31:20.141126+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sea Star Beau Rivage_2026-10-10_15-30_+16.6"
+    },
+    {
+      "hotel_name": "Hilton Plaza (Hurghada)",
+      "duration_bucket": "",
+      "old_price": 8937.0,
+      "new_price": 9666.0,
+      "price_change": 729.0,
+      "price_change_pct": 8.157099697885197,
+      "timestamp": "2026-10-10 15:30:37.078592+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-10T15:31:20.141136+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Hilton Plaza (Hurghada)_2026-10-10_15-30_+8.2"
+    },
+    {
+      "hotel_name": "Creek Hotel and Residences",
+      "duration_bucket": "",
+      "old_price": 7047.0,
+      "new_price": 8168.0,
+      "price_change": 1121.0,
+      "price_change_pct": 15.907478359585639,
+      "timestamp": "2026-10-10 15:30:37.078592+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-10T15:31:20.141146+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Creek Hotel and Residences_2026-10-10_15-30_+15.9"
+    },
+    {
+      "hotel_name": "Akassia Swiss Resort (ex. Calimera Club Akassia Swiss Resort)",
+      "duration_bucket": "",
+      "old_price": 9708.0,
+      "new_price": 10011.0,
+      "price_change": 303.0,
+      "price_change_pct": 3.1211372064276883,
+      "timestamp": "2026-10-10 15:30:37.078592+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-10T15:31:20.141166+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Akassia Swiss Resort (ex. Calimera Club Akassia Swiss Resort)_2026-10-10_15-30_zone_out_+3.1"
+    },
+    {
+      "hotel_name": "Jaz Mirabel Beach Resort",
+      "duration_bucket": "",
+      "old_price": 9941.0,
+      "new_price": 10377.0,
+      "price_change": 436.0,
+      "price_change_pct": 4.385876672366965,
+      "timestamp": "2026-10-10 15:30:37.078592+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-10T15:31:20.141176+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Mirabel Beach Resort_2026-10-10_15-30_zone_out_+4.4"
+    },
+    {
+      "hotel_name": "Cleopatra Luxury Resort (Makadi Bay)",
+      "duration_bucket": "",
+      "old_price": 11157.0,
+      "new_price": 9356.0,
+      "price_change": -1801.0,
+      "price_change_pct": -16.14233216814556,
+      "timestamp": "2026-10-10 15:30:37.078592+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-10T15:31:20.141199+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Cleopatra Luxury Resort (Makadi Bay)_2026-10-10_15-30_comeback_16.1"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-10T08:41:13.637024+00:00",
+    "last_processed_run": "2026-10-10T15:30:37.078592+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 9636.0,
@@ -1614,8 +1718,8 @@
         "premium_peak": 12633.0
       },
       "Radisson Individuals Marina Port Ghalib (ex. Sunrise Marina Resort)": {
-        "history_max": 11614.0,
-        "premium_peak": 11614.0
+        "history_max": 12127.0,
+        "premium_peak": 12127.0
       },
       "Red Sea Grand Makadi (Makadi Bay)": {
         "history_max": 10240.0,
@@ -1730,7 +1834,7 @@
         "premium_peak": null
       },
       "Novotel Marsa Alam": {
-        "history_max": 8237.0,
+        "history_max": 8347.0,
         "premium_peak": null
       },
       "Nubian Island": {
@@ -1966,8 +2070,8 @@
         "premium_peak": 11087.0
       },
       "Steigenberger Coraya Beach": {
-        "history_max": 16257.0,
-        "premium_peak": 16257.0
+        "history_max": 18147.0,
+        "premium_peak": 18147.0
       },
       "Steigenberger Golf Resort": {
         "history_max": 16767.0,
@@ -2150,19 +2254,19 @@
         "premium_peak": 13774.0
       },
       "Akassia Swiss Resort (ex. Calimera Club Akassia Swiss Resort)": {
-        "history_max": 9708.0,
-        "premium_peak": null
+        "history_max": 10011.0,
+        "premium_peak": 10011.0
       },
       "Concorde Moreen Beach Resort & Spa": {
         "history_max": 9557.0,
         "premium_peak": null
       },
       "Albatros Sea World Resort Marsa Alam": {
-        "history_max": 10344.0,
-        "premium_peak": 10344.0
+        "history_max": 10427.0,
+        "premium_peak": 10427.0
       },
       "Jaz Grand Marsa (ex Resta Grand Resort)": {
-        "history_max": 9067.0,
+        "history_max": 9087.0,
         "premium_peak": null
       },
       "Jaz Makadi Saraya (ex Iberotel)": {
@@ -2178,8 +2282,8 @@
         "premium_peak": 12410.0
       },
       "Jaz Elite Riviera": {
-        "history_max": 18256.0,
-        "premium_peak": 18256.0
+        "history_max": 18431.0,
+        "premium_peak": 18431.0
       },
       "Amarina Jannah Resort Aquapark": {
         "history_max": 8378.0,
@@ -2194,8 +2298,8 @@
         "premium_peak": 10792.0
       },
       "Jaz Elite Negma": {
-        "history_max": 14145.0,
-        "premium_peak": 14145.0
+        "history_max": 14206.0,
+        "premium_peak": 14206.0
       },
       "Desert Rose Resort": {
         "history_max": 12734.0,
@@ -2278,8 +2382,8 @@
         "premium_peak": null
       },
       "Bellagio Beach Resort & Spa (ex. Panorama Bungalows Hurghada)": {
-        "history_max": 10791.0,
-        "premium_peak": 10791.0
+        "history_max": 10799.0,
+        "premium_peak": 10799.0
       },
       "Jaz Neo Saraya Palms": {
         "history_max": 11063.0,
