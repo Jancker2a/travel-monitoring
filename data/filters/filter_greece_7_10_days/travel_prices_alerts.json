@@ -2223,10 +2223,114 @@
       "created_at": "2026-10-10T20:16:30.175462+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Helea Lifestyle Beach Resort_2026-10-10_20-15_comeback_22.7"
+    },
+    {
+      "hotel_name": "Lydia Maris Resort & Spa Grecja, Rodos, Kolymbia",
+      "duration_bucket": "",
+      "old_price": 6510.0,
+      "new_price": 7357.0,
+      "price_change": 847.0,
+      "price_change_pct": 13.010752688172042,
+      "timestamp": "2026-10-10 23:45:14.336050+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-10T23:46:25.148491+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Lydia Maris Resort & Spa Grecja, Rodos, Kolymbia_2026-10-10_23-45_+13.0"
+    },
+    {
+      "hotel_name": "Apollonia Beach (Ammoudara) Grecja, Kreta Wschodnia, Ammoudara",
+      "duration_bucket": "",
+      "old_price": 9526.0,
+      "new_price": 9526.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-10 23:45:14.336050+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-10T23:46:25.148529+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Apollonia Beach (Ammoudara) Grecja, Kreta Wschodnia, Ammoudara_2026-10-10_23-45_zone_out_gone"
+    },
+    {
+      "hotel_name": "Giannoulis Cavo Spada Luxury Sports & Leisure Resort",
+      "duration_bucket": "",
+      "old_price": 9584.0,
+      "new_price": 9584.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-10 23:45:14.336050+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-10T23:46:25.148541+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Giannoulis Cavo Spada Luxury Sports & Leisure Resort_2026-10-10_23-45_zone_out_gone"
+    },
+    {
+      "hotel_name": "Helea Lifestyle Beach Resort",
+      "duration_bucket": "",
+      "old_price": 9557.0,
+      "new_price": 9557.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-10 23:45:14.336050+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-10T23:46:25.148550+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Helea Lifestyle Beach Resort_2026-10-10_23-45_zone_out_gone"
+    },
+    {
+      "hotel_name": "Hersonissos Palace Grecja, Kreta Wschodnia, Hersonissos",
+      "duration_bucket": "",
+      "old_price": 8991.0,
+      "new_price": 8991.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-10 23:45:14.336050+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-10T23:46:25.148558+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Hersonissos Palace Grecja, Kreta Wschodnia, Hersonissos_2026-10-10_23-45_zone_out_gone"
+    },
+    {
+      "hotel_name": "Istion Club",
+      "duration_bucket": "",
+      "old_price": 9816.0,
+      "new_price": 10215.0,
+      "price_change": 399.0,
+      "price_change_pct": 4.06479217603912,
+      "timestamp": "2026-10-10 23:45:14.336050+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-10T23:46:25.148568+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Istion Club_2026-10-10_23-45_zone_out_+4.1"
+    },
+    {
+      "hotel_name": "Kairaba Sandy Villas Grecja, Korfu, Agios Georgios",
+      "duration_bucket": "",
+      "old_price": 8397.0,
+      "new_price": 8397.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-10 23:45:14.336050+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-10T23:46:25.148576+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Kairaba Sandy Villas Grecja, Korfu, Agios Georgios_2026-10-10_23-45_zone_out_gone"
+    },
+    {
+      "hotel_name": "Mythos Beach Resort",
+      "duration_bucket": "",
+      "old_price": 9676.0,
+      "new_price": 9676.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-10 23:45:14.336050+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-10T23:46:25.148584+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Mythos Beach Resort_2026-10-10_23-45_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-10T20:15:10.879489+00:00",
+    "last_processed_run": "2026-10-10T23:45:14.336050+00:00",
     "premium_state": {
       "Akasha Beach (ex Armava)": {
         "history_max": 15229.0,
@@ -2365,7 +2469,7 @@
         "premium_peak": 12357.0
       },
       "Galini Palace Grecja, Kreta Zachodnia, Kolymvari": {
-        "history_max": 7509.0,
+        "history_max": 7629.0,
         "premium_peak": null
       },
       "Mitsis Bali Paradise (ex. Bali Paradise) Grecja, Kreta, Bali": {
@@ -2377,8 +2481,8 @@
         "premium_peak": null
       },
       "Porto Platanias Village": {
-        "history_max": 10367.0,
-        "premium_peak": 10367.0
+        "history_max": 10997.0,
+        "premium_peak": 10997.0
       },
       "Possidi Holidays Grecja, Chalkidiki, Possidi": {
         "history_max": 8157.0,
@@ -2577,7 +2681,7 @@
         "premium_peak": 14917.0
       },
       "Cavo Spada Luxury Resort & Spa Grecja, Kreta Zachodnia, Rapaniana": {
-        "history_max": 9355.0,
+        "history_max": 9584.0,
         "premium_peak": null
       },
       "Aquila Porto Rethymno": {
@@ -2697,7 +2801,7 @@
         "premium_peak": null
       },
       "Mythos Beach Resort Grecja, Rodos, Afandu": {
-        "history_max": 9148.0,
+        "history_max": 9676.0,
         "premium_peak": null
       },
       "Stella Palace Aqua Park Resort": {
@@ -2769,7 +2873,7 @@
         "premium_peak": null
       },
       "Sandy Villas Resort (ex. Kairaba Sandy Villas)": {
-        "history_max": 8107.0,
+        "history_max": 9717.0,
         "premium_peak": null
       },
       "Mitsis Rodos Maris": {
