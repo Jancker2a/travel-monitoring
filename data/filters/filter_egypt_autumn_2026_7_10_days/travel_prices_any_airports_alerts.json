@@ -2119,10 +2119,62 @@
       "created_at": "2026-10-09T21:49:53.683461+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Titanic Palace Resort_2026-10-09_21-49_zone_out_gone"
+    },
+    {
+      "hotel_name": "Stella Beach Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 9402.0,
+      "new_price": 8647.0,
+      "price_change": -755.0,
+      "price_change_pct": -8.030206339076793,
+      "timestamp": "2026-10-10 08:41:45.959501+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-10T08:42:19.414117+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Stella Beach Resort & Spa_2026-10-10_08-41_-8.0"
+    },
+    {
+      "hotel_name": "Le Meridien Dahab Resort Egipt, Dahab",
+      "duration_bucket": "",
+      "old_price": 8314.0,
+      "new_price": 8314.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-10 08:41:45.959501+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-10T08:42:19.414164+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Le Meridien Dahab Resort Egipt, Dahab_2026-10-10_08-41_zone_out_gone"
+    },
+    {
+      "hotel_name": "Pickalbatros Luxury Suites",
+      "duration_bucket": "",
+      "old_price": 10977.0,
+      "new_price": 10977.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-10 08:41:45.959501+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-10T08:42:19.414177+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Luxury Suites_2026-10-10_08-41_zone_out_gone"
+    },
+    {
+      "hotel_name": "Pickalbatros White Beach Resort",
+      "duration_bucket": "",
+      "old_price": 10750.0,
+      "new_price": 10750.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-10 08:41:45.959501+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-10T08:42:19.414186+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros White Beach Resort_2026-10-10_08-41_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-10T01:52:13.283848+00:00",
+    "last_processed_run": "2026-10-10T08:41:45.959501+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 8000.0,
@@ -2133,7 +2185,7 @@
         "premium_peak": null
       },
       "Sataya Resort (ex. Labranda Sataya Marsa Alam)": {
-        "history_max": 9397.0,
+        "history_max": 9497.0,
         "premium_peak": null
       },
       "Mercure Dahab Bay View Egipt, Dahab": {
@@ -2257,7 +2309,7 @@
         "premium_peak": null
       },
       "Pickalbatros Vita Resort Portofino": {
-        "history_max": 9307.0,
+        "history_max": 9437.0,
         "premium_peak": null
       },
       "Reef Oasis Suakin Resort": {
@@ -2281,7 +2333,7 @@
         "premium_peak": null
       },
       "Pickalbatros Palace Resort": {
-        "history_max": 10367.0,
+        "history_max": 10413.0,
         "premium_peak": null
       },
       "Rehana Royal Beach Resort & Spa": {
@@ -2549,7 +2601,7 @@
         "premium_peak": null
       },
       "Albatros Sea World Resort Marsa Alam": {
-        "history_max": 9277.0,
+        "history_max": 9477.0,
         "premium_peak": null
       },
       "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort)": {
@@ -2625,11 +2677,11 @@
         "premium_peak": null
       },
       "Gravity Hotel & Aquapark Hurghada (ex. Samra Bay Resort)": {
-        "history_max": 10441.0,
+        "history_max": 10466.0,
         "premium_peak": null
       },
       "Strand Taba Heights Resort (ex. InterContinental)": {
-        "history_max": 10859.0,
+        "history_max": 10867.0,
         "premium_peak": null
       },
       "Caves Beach Resort": {
@@ -2637,7 +2689,7 @@
         "premium_peak": null
       },
       "Old Palace Resort Egipt, Hurghada": {
-        "history_max": 8161.0,
+        "history_max": 8166.0,
         "premium_peak": null
       },
       "Titanic Pearl": {
@@ -2734,6 +2786,14 @@
       },
       "Titanic Palace Resort Egipt, Hurghada": {
         "history_max": 8225.0,
+        "premium_peak": null
+      },
+      "Jaz Neo Naama Bay": {
+        "history_max": 9003.0,
+        "premium_peak": null
+      },
+      "Ecotel Dahab Bay View Resort": {
+        "history_max": 8649.0,
         "premium_peak": null
       }
     }

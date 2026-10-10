@@ -1495,10 +1495,75 @@
       "created_at": "2026-10-09T21:49:52.977471+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort)_2026-10-09_21-48_zone_out_+2.0"
+    },
+    {
+      "hotel_name": "Rewaya Luxury Resort",
+      "duration_bucket": "",
+      "old_price": 7537.0,
+      "new_price": 6887.0,
+      "price_change": -650.0,
+      "price_change_pct": -8.624121003051611,
+      "timestamp": "2026-10-10 08:41:13.637024+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-10T08:41:59.037838+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Luxury Resort_2026-10-10_08-41_-8.6"
+    },
+    {
+      "hotel_name": "V Grand Beach Resort Sahl Hasheesh",
+      "duration_bucket": "",
+      "old_price": 8298.0,
+      "new_price": 9783.0,
+      "price_change": 1485.0,
+      "price_change_pct": 17.895878524945772,
+      "timestamp": "2026-10-10 08:41:13.637024+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-10T08:41:59.037871+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "V Grand Beach Resort Sahl Hasheesh_2026-10-10_08-41_+17.9"
+    },
+    {
+      "hotel_name": "Albatros Sea World Resort Marsa Alam",
+      "duration_bucket": "",
+      "old_price": 9507.0,
+      "new_price": 10344.0,
+      "price_change": 837.0,
+      "price_change_pct": 8.804039129062796,
+      "timestamp": "2026-10-10 08:41:13.637024+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-10T08:41:59.037898+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Albatros Sea World Resort Marsa Alam_2026-10-10_08-41_zone_out_+8.8"
+    },
+    {
+      "hotel_name": "Pickalbatros Villaggio Resort Portofino",
+      "duration_bucket": "",
+      "old_price": 9467.0,
+      "new_price": 10327.0,
+      "price_change": 860.0,
+      "price_change_pct": 9.08418717650787,
+      "timestamp": "2026-10-10 08:41:13.637024+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-10T08:41:59.037910+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Villaggio Resort Portofino_2026-10-10_08-41_zone_out_+9.1"
+    },
+    {
+      "hotel_name": "Pickalbatros Vita Resort Portofino",
+      "duration_bucket": "",
+      "old_price": 9547.0,
+      "new_price": 10467.0,
+      "price_change": 920.0,
+      "price_change_pct": 9.636535037184455,
+      "timestamp": "2026-10-10 08:41:13.637024+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-10T08:41:59.037919+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Vita Resort Portofino_2026-10-10_08-41_zone_out_+9.6"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-10T01:51:40.212676+00:00",
+    "last_processed_run": "2026-10-10T08:41:13.637024+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 9636.0,
@@ -1533,12 +1598,12 @@
         "premium_peak": 12138.0
       },
       "Pickalbatros Villaggio Resort Portofino": {
-        "history_max": 9467.0,
-        "premium_peak": null
+        "history_max": 10327.0,
+        "premium_peak": 10327.0
       },
       "Pickalbatros Vita Resort Portofino": {
-        "history_max": 9557.0,
-        "premium_peak": null
+        "history_max": 10467.0,
+        "premium_peak": 10467.0
       },
       "Pickalbatros Water Valley Resort Neverland": {
         "history_max": 14483.0,
@@ -1549,8 +1614,8 @@
         "premium_peak": 12633.0
       },
       "Radisson Individuals Marina Port Ghalib (ex. Sunrise Marina Resort)": {
-        "history_max": 11184.0,
-        "premium_peak": 11184.0
+        "history_max": 11614.0,
+        "premium_peak": 11614.0
       },
       "Red Sea Grand Makadi (Makadi Bay)": {
         "history_max": 10240.0,
@@ -1665,7 +1730,7 @@
         "premium_peak": null
       },
       "Novotel Marsa Alam": {
-        "history_max": 8197.0,
+        "history_max": 8237.0,
         "premium_peak": null
       },
       "Nubian Island": {
@@ -2049,8 +2114,8 @@
         "premium_peak": null
       },
       "Hilton Marsa Alam Nubian Resort": {
-        "history_max": 10167.0,
-        "premium_peak": 10167.0
+        "history_max": 10407.0,
+        "premium_peak": 10407.0
       },
       "Jaz Elite Casa Del Mar Beach": {
         "history_max": 16365.0,
@@ -2093,8 +2158,8 @@
         "premium_peak": null
       },
       "Albatros Sea World Resort Marsa Alam": {
-        "history_max": 9507.0,
-        "premium_peak": null
+        "history_max": 10344.0,
+        "premium_peak": 10344.0
       },
       "Jaz Grand Marsa (ex Resta Grand Resort)": {
         "history_max": 9067.0,
@@ -2231,6 +2296,10 @@
       "Swisstouch Oriental Resort (ex. Hotelux Oriental Coast)": {
         "history_max": 8513.0,
         "premium_peak": null
+      },
+      "Invidia Coral Beach Tiran": {
+        "history_max": 11428.0,
+        "premium_peak": 11428.0
       }
     }
   }

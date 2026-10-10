@@ -1339,10 +1339,49 @@
       "created_at": "2026-10-10T01:52:57.465965+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Park Inn (Sharm El Sheikh) Egipt, Sharm El Sheikh_2026-10-10_01-52_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sea Star Beau Rivage Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 10312.0,
+      "new_price": 8252.0,
+      "price_change": -2060.0,
+      "price_change_pct": -19.976726144297903,
+      "timestamp": "2026-10-10 08:42:19.216337+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-10T08:42:34.962687+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sea Star Beau Rivage Egipt, Hurghada_2026-10-10_08-42_-20.0"
+    },
+    {
+      "hotel_name": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 10692.0,
+      "new_price": 9660.0,
+      "price_change": -1032.0,
+      "price_change_pct": -9.652076318742985,
+      "timestamp": "2026-10-10 08:42:19.216337+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-10T08:42:34.962718+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada_2026-10-10_08-42_-9.7"
+    },
+    {
+      "hotel_name": "Pyramisa Beach Resort Sahl Hasheesh Egipt, Hurghada, Sahl Hasheesh",
+      "duration_bucket": "",
+      "old_price": 10398.0,
+      "new_price": 10398.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-10 08:42:19.216337+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-10T08:42:34.962736+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pyramisa Beach Resort Sahl Hasheesh Egipt, Hurghada, Sahl Hasheesh_2026-10-10_08-42_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-10T01:52:41.832315+00:00",
+    "last_processed_run": "2026-10-10T08:42:19.216337+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 10742.0,
@@ -1489,7 +1528,7 @@
         "premium_peak": null
       },
       "Parrotel Beach Resort (ex. Radisson Blu) Egipt, Sharm El Sheikh": {
-        "history_max": 10753.0,
+        "history_max": 10759.0,
         "premium_peak": null
       },
       "Red Sea Grand Waterworld Makadi (ex. Sunwing Waterworld Makadi)": {
@@ -1509,7 +1548,7 @@
         "premium_peak": null
       },
       "Charmillion Garden Aqua Park (ex Sea Gardens) Egipt, Sharm El Sheikh, Nabq Bay": {
-        "history_max": 10963.0,
+        "history_max": 10969.0,
         "premium_peak": null
       },
       "Charmillion Club Resort (ex. Sea Club Resort) Egipt, Sharm El Sheikh": {
