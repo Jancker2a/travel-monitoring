@@ -2327,10 +2327,62 @@
       "created_at": "2026-10-10T23:46:25.148584+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Mythos Beach Resort_2026-10-10_23-45_zone_out_gone"
+    },
+    {
+      "hotel_name": "High Beach",
+      "duration_bucket": "",
+      "old_price": 9910.0,
+      "new_price": 11379.0,
+      "price_change": 1469.0,
+      "price_change_pct": 14.823410696266398,
+      "timestamp": "2026-10-11 06:04:53.722276+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-11T06:05:52.587249+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "High Beach_2026-10-11_06-04_zone_out_+14.8"
+    },
+    {
+      "hotel_name": "Mythos Beach Resort Grecja, Rodos, Afandu",
+      "duration_bucket": "",
+      "old_price": 9676.0,
+      "new_price": 9676.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-11 06:04:53.722276+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-11T06:05:52.587270+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Mythos Beach Resort Grecja, Rodos, Afandu_2026-10-11_06-04_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sandy Villas Resort (ex. Kairaba Sandy Villas)",
+      "duration_bucket": "",
+      "old_price": 9717.0,
+      "new_price": 9717.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-11 06:04:53.722276+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-11T06:05:52.587278+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sandy Villas Resort (ex. Kairaba Sandy Villas)_2026-10-11_06-04_zone_out_gone"
+    },
+    {
+      "hotel_name": "Mitsis Selection Blue Domes",
+      "duration_bucket": "",
+      "old_price": 12031.0,
+      "new_price": 9802.0,
+      "price_change": -2229.0,
+      "price_change_pct": -18.52713822624886,
+      "timestamp": "2026-10-11 06:04:53.722276+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-11T06:05:52.587298+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Mitsis Selection Blue Domes_2026-10-11_06-04_comeback_18.5"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-10T23:45:14.336050+00:00",
+    "last_processed_run": "2026-10-11T06:04:53.722276+00:00",
     "premium_state": {
       "Akasha Beach (ex Armava)": {
         "history_max": 15229.0,
@@ -2365,7 +2417,7 @@
         "premium_peak": null
       },
       "Levante Beach Resort By Playitas Grecja, Rodos, Afandu": {
-        "history_max": 7885.0,
+        "history_max": 7969.0,
         "premium_peak": null
       },
       "Lindos Royal (ex. COOEE) Grecja, Rodos, Lindos": {
@@ -2401,7 +2453,7 @@
         "premium_peak": 12963.0
       },
       "Kairaba Sandy Villas Grecja, Korfu, Agios Georgios": {
-        "history_max": 8407.0,
+        "history_max": 9717.0,
         "premium_peak": null
       },
       "Ikos Oceania": {
@@ -2445,8 +2497,8 @@
         "premium_peak": 10892.0
       },
       "High Beach": {
-        "history_max": 10465.0,
-        "premium_peak": 10465.0
+        "history_max": 11379.0,
+        "premium_peak": 11379.0
       },
       "Hydramis Palace Beach Resort Grecja, Kreta Zachodnia, Kavros": {
         "history_max": 7067.0,
@@ -2481,8 +2533,8 @@
         "premium_peak": null
       },
       "Porto Platanias Village": {
-        "history_max": 10997.0,
-        "premium_peak": 10997.0
+        "history_max": 11057.0,
+        "premium_peak": 11057.0
       },
       "Possidi Holidays Grecja, Chalkidiki, Possidi": {
         "history_max": 8157.0,
@@ -2517,7 +2569,7 @@
         "premium_peak": 11901.0
       },
       "Sentido Asterias Beach Resort Grecja, Rodos, Afandou": {
-        "history_max": 8177.0,
+        "history_max": 8221.0,
         "premium_peak": null
       },
       "Sheraton Rhodes Resort (ex. Imperial)": {
@@ -2557,11 +2609,11 @@
         "premium_peak": null
       },
       "Mitsis Rodos Maris Grecja, Rodos, Kiotari": {
-        "history_max": 9036.0,
+        "history_max": 9040.0,
         "premium_peak": null
       },
       "Mitsis Rodos Village Grecja, Rodos, Kiotari": {
-        "history_max": 9226.0,
+        "history_max": 9366.0,
         "premium_peak": null
       },
       "Mitsis Royal Mare": {
@@ -2601,8 +2653,8 @@
         "premium_peak": null
       },
       "Panorama Leptos (Kato Galatas)": {
-        "history_max": 11492.0,
-        "premium_peak": 11492.0
+        "history_max": 11564.0,
+        "premium_peak": 11564.0
       },
       "Pegasos Beach (Faliraki)": {
         "history_max": 16317.0,
@@ -2633,8 +2685,8 @@
         "premium_peak": 11968.0
       },
       "Domes Aulus Zante Autograph Collection": {
-        "history_max": 12097.0,
-        "premium_peak": 12097.0
+        "history_max": 12837.0,
+        "premium_peak": 12837.0
       },
       "Arion Palace Grecja, Kreta Wschodnia, Ierapetra": {
         "history_max": 8462.0,

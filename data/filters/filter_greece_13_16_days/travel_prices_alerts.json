@@ -507,10 +507,23 @@
       "created_at": "2026-10-10T23:48:26.397045+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Semiramis Village Grecja, Kreta Wschodnia, Hersonissos_2026-10-10_23-46_zone_out_+16.7"
+    },
+    {
+      "hotel_name": "City Green (Hersonissos) Grecja, Kreta Wschodnia, Hersonissos",
+      "duration_bucket": "",
+      "old_price": 9773.0,
+      "new_price": 10043.0,
+      "price_change": 270.0,
+      "price_change_pct": 2.762713598690269,
+      "timestamp": "2026-10-11 06:04:54.894138+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-11T06:05:29.819259+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "City Green (Hersonissos) Grecja, Kreta Wschodnia, Hersonissos_2026-10-11_06-04_zone_out_+2.8"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-10T23:46:26.059246+00:00",
+    "last_processed_run": "2026-10-11T06:04:54.894138+00:00",
     "premium_state": {
       "Adele Beach Grecja, Kreta Zachodnia, Adelianos Kampos": {
         "history_max": 12780.0,
@@ -1017,8 +1030,8 @@
         "premium_peak": 15567.0
       },
       "Kakkos Beach Grecja, Kreta Wschodnia, Ierapetra": {
-        "history_max": 15645.0,
-        "premium_peak": 15645.0
+        "history_max": 16077.0,
+        "premium_peak": 16077.0
       },
       "Philoxenia (Psakoudia) Grecja, Chalkidiki, Psakoudia": {
         "history_max": 15947.0,
@@ -1035,6 +1048,10 @@
       "Mare Blue & Suites Grecja, Kreta Zachodnia, Georgioupolis": {
         "history_max": 16737.0,
         "premium_peak": 16737.0
+      },
+      "Porto Platanias Beach Grecja, Kreta Zachodnia, Platanias": {
+        "history_max": 16837.0,
+        "premium_peak": 16837.0
       }
     }
   }
