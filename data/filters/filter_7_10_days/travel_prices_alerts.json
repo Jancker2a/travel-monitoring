@@ -2132,10 +2132,101 @@
       "created_at": "2026-10-11T18:13:59.750035+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Jaz Mirabel Beach Resort_2026-10-11_18-12_comeback_11.4"
+    },
+    {
+      "hotel_name": "V Grand Beach Resort Sahl Hasheesh",
+      "duration_bucket": "",
+      "old_price": 8552.0,
+      "new_price": 7732.0,
+      "price_change": -820.0,
+      "price_change_pct": -9.588400374181479,
+      "timestamp": "2026-10-11 22:10:05.721008+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-11T22:11:03.939129+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "V Grand Beach Resort Sahl Hasheesh_2026-10-11_22-10_-9.6"
+    },
+    {
+      "hotel_name": "Tropitel Sahl Hasheesh",
+      "duration_bucket": "",
+      "old_price": 8924.0,
+      "new_price": 8104.0,
+      "price_change": -820.0,
+      "price_change_pct": -9.188704616763783,
+      "timestamp": "2026-10-11 22:10:05.721008+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-11T22:11:03.939162+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Tropitel Sahl Hasheesh_2026-10-11_22-10_-9.2"
+    },
+    {
+      "hotel_name": "Creek Hotel and Residences",
+      "duration_bucket": "",
+      "old_price": 6986.0,
+      "new_price": 7658.0,
+      "price_change": 672.0,
+      "price_change_pct": 9.619238476953909,
+      "timestamp": "2026-10-11 22:10:05.721008+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-11T22:11:03.939176+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Creek Hotel and Residences_2026-10-11_22-10_+9.6"
+    },
+    {
+      "hotel_name": "Gravity Sahl Hasheesh (Ex. Ocean Breeze)",
+      "duration_bucket": "",
+      "old_price": 9860.0,
+      "new_price": 10360.0,
+      "price_change": 500.0,
+      "price_change_pct": 5.070993914807302,
+      "timestamp": "2026-10-11 22:10:05.721008+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-11T22:11:03.939197+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Gravity Sahl Hasheesh (Ex. Ocean Breeze)_2026-10-11_22-10_zone_out_+5.1"
+    },
+    {
+      "hotel_name": "Movenpick Resort & Spa El Gouna",
+      "duration_bucket": "",
+      "old_price": 11667.0,
+      "new_price": 9968.0,
+      "price_change": -1699.0,
+      "price_change_pct": -14.562441073112197,
+      "timestamp": "2026-10-11 22:10:05.721008+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-11T22:11:03.939220+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Movenpick Resort & Spa El Gouna_2026-10-11_22-10_comeback_14.6"
+    },
+    {
+      "hotel_name": "The V Luxury Resort",
+      "duration_bucket": "",
+      "old_price": 12812.0,
+      "new_price": 9316.0,
+      "price_change": -3496.0,
+      "price_change_pct": -27.286918513893227,
+      "timestamp": "2026-10-11 22:10:05.721008+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-11T22:11:03.939235+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "The V Luxury Resort_2026-10-11_22-10_comeback_27.3"
+    },
+    {
+      "hotel_name": "Serenity Sky Arc",
+      "duration_bucket": "",
+      "old_price": 12690.0,
+      "new_price": 9217.0,
+      "price_change": -3473.0,
+      "price_change_pct": -27.368006304176518,
+      "timestamp": "2026-10-11 22:10:05.721008+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-11T22:11:03.939247+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Serenity Sky Arc_2026-10-11_22-10_comeback_27.4"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-11T18:12:49.636057+00:00",
+    "last_processed_run": "2026-10-11T22:10:05.721008+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 9636.0,
@@ -2846,8 +2937,8 @@
         "premium_peak": null
       },
       "Caribbean World Soma Bay": {
-        "history_max": 12891.0,
-        "premium_peak": 12891.0
+        "history_max": 13617.0,
+        "premium_peak": 13617.0
       },
       "Bellagio Beach Resort & Spa (ex. Panorama Bungalows Hurghada)": {
         "history_max": 10799.0,

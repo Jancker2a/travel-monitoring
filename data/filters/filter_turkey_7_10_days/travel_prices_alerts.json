@@ -9191,10 +9191,101 @@
       "created_at": "2026-10-11T18:15:10.265823+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Cesars Resort (Side)_2026-10-11_18-14_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sultan of Side",
+      "duration_bucket": "",
+      "old_price": 8285.0,
+      "new_price": 6177.0,
+      "price_change": -2108.0,
+      "price_change_pct": -25.44357272178636,
+      "timestamp": "2026-10-11 22:11:29.067006+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-11T22:12:39.175469+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sultan of Side_2026-10-11_22-11_-25.4"
+    },
+    {
+      "hotel_name": "Aydinbey Kings Palace",
+      "duration_bucket": "",
+      "old_price": 8064.0,
+      "new_price": 9128.0,
+      "price_change": 1064.0,
+      "price_change_pct": 13.194444444444445,
+      "timestamp": "2026-10-11 22:11:29.067006+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-11T22:12:39.175517+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Aydinbey Kings Palace_2026-10-11_22-11_+13.2"
+    },
+    {
+      "hotel_name": "Kustur Club Holiday Village",
+      "duration_bucket": "",
+      "old_price": 6712.0,
+      "new_price": 7319.0,
+      "price_change": 607.0,
+      "price_change_pct": 9.043504171632897,
+      "timestamp": "2026-10-11 22:11:29.067006+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-11T22:12:39.175556+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Kustur Club Holiday Village_2026-10-11_22-11_+9.0"
+    },
+    {
+      "hotel_name": "Aydinbey Famous",
+      "duration_bucket": "",
+      "old_price": 8693.0,
+      "new_price": 8693.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-11 22:11:29.067006+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-11T22:12:39.175606+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Aydinbey Famous_2026-10-11_22-11_zone_out_gone"
+    },
+    {
+      "hotel_name": "Lonicera Premium",
+      "duration_bucket": "",
+      "old_price": 9212.0,
+      "new_price": 9212.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-11 22:11:29.067006+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-11T22:12:39.175617+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Lonicera Premium_2026-10-11_22-11_zone_out_gone"
+    },
+    {
+      "hotel_name": "Richmond Ephesus",
+      "duration_bucket": "",
+      "old_price": 5728.0,
+      "new_price": 5728.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-11 22:11:29.067006+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-11T22:12:39.175625+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Richmond Ephesus_2026-10-11_22-11_zone_out_gone"
+    },
+    {
+      "hotel_name": "Senza Grand Santana (Alanya) Turcja, Alanya",
+      "duration_bucket": "",
+      "old_price": 5706.0,
+      "new_price": 5706.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-11 22:11:29.067006+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-11T22:12:39.175632+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Senza Grand Santana (Alanya) Turcja, Alanya_2026-10-11_22-11_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-11T18:14:23.059805+00:00",
+    "last_processed_run": "2026-10-11T22:11:29.067006+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 8604.0,
@@ -10826,6 +10917,10 @@
       },
       "Selectum Family Resort (ex Letoonia Golf Resort)": {
         "history_max": 9149.0,
+        "premium_peak": null
+      },
+      "Richmond Ephesus Turcja, Kusadasi, Selcuk": {
+        "history_max": 5598.0,
         "premium_peak": null
       }
     }
