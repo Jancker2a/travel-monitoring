@@ -2431,10 +2431,88 @@
       "created_at": "2026-10-11T13:11:35.186111+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Euphoria Resort_2026-10-11_13-09_comeback_9.1"
+    },
+    {
+      "hotel_name": "Filion Suites Resort",
+      "duration_bucket": "",
+      "old_price": 9782.0,
+      "new_price": 9782.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-11 18:15:16.992811+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-11T18:16:14.849393+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Filion Suites Resort_2026-10-11_18-15_zone_out_gone"
+    },
+    {
+      "hotel_name": "Helea Family Beach Resort (ex. Amilia Mare Beach Resort) Grecja, Rodos, Koskinou",
+      "duration_bucket": "",
+      "old_price": 9557.0,
+      "new_price": 9557.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-11 18:15:16.992811+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-11T18:16:14.849409+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Helea Family Beach Resort (ex. Amilia Mare Beach Resort) Grecja, Rodos, Koskinou_2026-10-11_18-15_zone_out_gone"
+    },
+    {
+      "hotel_name": "Restia (Acharavi)",
+      "duration_bucket": "",
+      "old_price": 9928.0,
+      "new_price": 10078.0,
+      "price_change": 150.0,
+      "price_change_pct": 1.5108783239323127,
+      "timestamp": "2026-10-11 18:15:16.992811+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-11T18:16:14.849417+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Restia (Acharavi)_2026-10-11_18-15_zone_out_+1.5"
+    },
+    {
+      "hotel_name": "Sunshine Crete Beach (ex Club Calimera) Grecja, Kreta Wschodnia, Koutsounari",
+      "duration_bucket": "",
+      "old_price": 9483.0,
+      "new_price": 9483.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-11 18:15:16.992811+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-11T18:16:14.849422+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sunshine Crete Beach (ex Club Calimera) Grecja, Kreta Wschodnia, Koutsounari_2026-10-11_18-15_zone_out_gone"
+    },
+    {
+      "hotel_name": "Helea Lifestyle Beach Resort",
+      "duration_bucket": "",
+      "old_price": 12357.0,
+      "new_price": 9557.0,
+      "price_change": -2800.0,
+      "price_change_pct": -22.6592214938901,
+      "timestamp": "2026-10-11 18:15:16.992811+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-11T18:16:14.849436+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Helea Lifestyle Beach Resort_2026-10-11_18-15_comeback_22.7"
+    },
+    {
+      "hotel_name": "Mare blue (ex. Sunshine Crete Beach)",
+      "duration_bucket": "",
+      "old_price": 10450.0,
+      "new_price": 9483.0,
+      "price_change": -967.0,
+      "price_change_pct": -9.253588516746412,
+      "timestamp": "2026-10-11 18:15:16.992811+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-11T18:16:14.849443+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Mare blue (ex. Sunshine Crete Beach)_2026-10-11_18-15_comeback_9.3"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-11T13:09:43.324680+00:00",
+    "last_processed_run": "2026-10-11T18:15:16.992811+00:00",
     "premium_state": {
       "Akasha Beach (ex Armava)": {
         "history_max": 15229.0,
@@ -2873,7 +2951,7 @@
         "premium_peak": null
       },
       "Hersonissos Palace Grecja, Kreta Wschodnia, Hersonissos": {
-        "history_max": 9201.0,
+        "history_max": 9397.0,
         "premium_peak": null
       },
       "Giannoulis Cavo Spada Luxury Sports & Leisure Resort": {
@@ -3049,7 +3127,7 @@
         "premium_peak": null
       },
       "Istion Club Grecja, Chalkidiki, Nea Poteidaia": {
-        "history_max": 9499.0,
+        "history_max": 9539.0,
         "premium_peak": null
       }
     }

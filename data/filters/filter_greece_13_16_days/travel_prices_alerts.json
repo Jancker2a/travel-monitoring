@@ -533,10 +533,49 @@
       "created_at": "2026-10-11T13:18:11.527996+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Almyrida Village & Water Park (ex. Langley Resort Almirida Bay) Grecja, Kreta Zachodnia, Almyrida_2026-10-11_13-10_zone_out_gone"
+    },
+    {
+      "hotel_name": "Almyrida Village & Water Park (ex. Langley Resort Almirida Bay)",
+      "duration_bucket": "",
+      "old_price": 9707.0,
+      "new_price": 9707.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-11 18:15:24.559319+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-11T18:16:32.030614+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Almyrida Village & Water Park (ex. Langley Resort Almirida Bay)_2026-10-11_18-15_zone_out_gone"
+    },
+    {
+      "hotel_name": "Semiramis Village Grecja, Kreta Wschodnia, Hersonissos",
+      "duration_bucket": "",
+      "old_price": 11201.0,
+      "new_price": 9941.0,
+      "price_change": -1260.0,
+      "price_change_pct": -11.24899562539059,
+      "timestamp": "2026-10-11 18:15:24.559319+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-11T18:16:32.030638+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Semiramis Village Grecja, Kreta Wschodnia, Hersonissos_2026-10-11_18-15_comeback_11.2"
+    },
+    {
+      "hotel_name": "Almyrida Village & Water Park (ex. Langley Resort Almirida Bay) Grecja, Kreta Zachodnia, Almyrida",
+      "duration_bucket": "",
+      "old_price": 10667.0,
+      "new_price": 9707.0,
+      "price_change": -960.0,
+      "price_change_pct": -8.999718758788788,
+      "timestamp": "2026-10-11 18:15:24.559319+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-11T18:16:32.030646+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Almyrida Village & Water Park (ex. Langley Resort Almirida Bay) Grecja, Kreta Zachodnia, Almyrida_2026-10-11_18-15_comeback_9.0"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-11T13:10:29.532325+00:00",
+    "last_processed_run": "2026-10-11T18:15:24.559319+00:00",
     "premium_state": {
       "Adele Beach Grecja, Kreta Zachodnia, Adelianos Kampos": {
         "history_max": 12780.0,
@@ -647,8 +686,8 @@
         "premium_peak": 12664.0
       },
       "Peninsula Resort & Spa (Agia Pelagia) Grecja, Kreta Wschodnia, Agia Pelagia": {
-        "history_max": 13825.0,
-        "premium_peak": 13825.0
+        "history_max": 15661.0,
+        "premium_peak": 15661.0
       },
       "Mythos Beach Resort": {
         "history_max": 15619.0,
@@ -667,8 +706,8 @@
         "premium_peak": 14875.0
       },
       "Michelangelo Resort Grecja, Korfu": {
-        "history_max": 12507.0,
-        "premium_peak": 12507.0
+        "history_max": 12597.0,
+        "premium_peak": 12597.0
       },
       "Pollis (ex Miramare)": {
         "history_max": 15021.0,
@@ -1047,8 +1086,8 @@
         "premium_peak": 16077.0
       },
       "Philoxenia (Psakoudia) Grecja, Chalkidiki, Psakoudia": {
-        "history_max": 15947.0,
-        "premium_peak": 15947.0
+        "history_max": 16247.0,
+        "premium_peak": 16247.0
       },
       "Creta Palm Grecja, Kreta Zachodnia, Kato Stalos": {
         "history_max": 16407.0,
@@ -1105,6 +1144,10 @@
       "Hydramis Palace Beach Resort": {
         "history_max": 10567.0,
         "premium_peak": 10567.0
+      },
+      "Dessole Malia Beach Grecja, Kreta Wschodnia, Malia": {
+        "history_max": 15888.0,
+        "premium_peak": 15888.0
       }
     }
   }

@@ -9165,10 +9165,36 @@
       "created_at": "2026-10-11T13:11:25.157170+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sultan of Side Turcja, Side, Colakli_2026-10-11_13-08_zone_out_gone"
+    },
+    {
+      "hotel_name": "Aydinbey Kings Palace",
+      "duration_bucket": "",
+      "old_price": 9278.0,
+      "new_price": 8064.0,
+      "price_change": -1214.0,
+      "price_change_pct": -13.084716533735719,
+      "timestamp": "2026-10-11 18:14:23.059805+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-11T18:15:10.265781+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Aydinbey Kings Palace_2026-10-11_18-14_-13.1"
+    },
+    {
+      "hotel_name": "Cesars Resort (Side)",
+      "duration_bucket": "",
+      "old_price": 6457.0,
+      "new_price": 6457.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-11 18:14:23.059805+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-11T18:15:10.265823+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Cesars Resort (Side)_2026-10-11_18-14_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-11T13:08:35.301300+00:00",
+    "last_processed_run": "2026-10-11T18:14:23.059805+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 8604.0,
@@ -9235,7 +9261,7 @@
         "premium_peak": null
       },
       "Lonicera Premium": {
-        "history_max": 8852.0,
+        "history_max": 9212.0,
         "premium_peak": null
       },
       "Long Beach Club Nature": {
@@ -9703,7 +9729,7 @@
         "premium_peak": null
       },
       "Vita Silva": {
-        "history_max": 6407.0,
+        "history_max": 6408.0,
         "premium_peak": null
       },
       "Villa Side Residence": {

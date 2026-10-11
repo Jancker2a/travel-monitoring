@@ -2028,18 +2028,122 @@
       "created_at": "2026-10-11T13:08:08.664044+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sharm Grand Plaza Resort_2026-10-11_13-07_zone_out_+19.0"
+    },
+    {
+      "hotel_name": "Serenity Alpha Beach (ex. Serenity Makadi Beach)",
+      "duration_bucket": "",
+      "old_price": 8106.0,
+      "new_price": 9207.0,
+      "price_change": 1101.0,
+      "price_change_pct": 13.582531458179126,
+      "timestamp": "2026-10-11 18:12:49.636057+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-11T18:13:59.749970+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Serenity Alpha Beach (ex. Serenity Makadi Beach)_2026-10-11_18-12_+13.6"
+    },
+    {
+      "hotel_name": "Sataya Resort (ex. Labranda Sataya Marsa Alam)",
+      "duration_bucket": "",
+      "old_price": 8287.0,
+      "new_price": 9057.0,
+      "price_change": 770.0,
+      "price_change_pct": 9.291661638711235,
+      "timestamp": "2026-10-11 18:12:49.636057+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-11T18:13:59.749989+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sataya Resort (ex. Labranda Sataya Marsa Alam)_2026-10-11_18-12_+9.3"
+    },
+    {
+      "hotel_name": "Regency Plaza Aqua Park Spa",
+      "duration_bucket": "",
+      "old_price": 7763.0,
+      "new_price": 9778.0,
+      "price_change": 2015.0,
+      "price_change_pct": 25.9564601313925,
+      "timestamp": "2026-10-11 18:12:49.636057+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-11T18:13:59.749996+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Regency Plaza Aqua Park Spa_2026-10-11_18-12_+26.0"
+    },
+    {
+      "hotel_name": "Caribbean World Soma Bay",
+      "duration_bucket": "",
+      "old_price": 9447.0,
+      "new_price": 12891.0,
+      "price_change": 3444.0,
+      "price_change_pct": 36.45601778342331,
+      "timestamp": "2026-10-11 18:12:49.636057+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-11T18:13:59.750007+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Caribbean World Soma Bay_2026-10-11_18-12_zone_out_+36.5"
+    },
+    {
+      "hotel_name": "Jaz Neo Saraya Palms",
+      "duration_bucket": "",
+      "old_price": 9880.0,
+      "new_price": 10030.0,
+      "price_change": 150.0,
+      "price_change_pct": 1.5182186234817814,
+      "timestamp": "2026-10-11 18:12:49.636057+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-11T18:13:59.750012+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Neo Saraya Palms_2026-10-11_18-12_zone_out_+1.5"
+    },
+    {
+      "hotel_name": "Pickalbatros Golf Beach Resort",
+      "duration_bucket": "",
+      "old_price": 9337.0,
+      "new_price": 10053.0,
+      "price_change": 716.0,
+      "price_change_pct": 7.66841597943665,
+      "timestamp": "2026-10-11 18:12:49.636057+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-11T18:13:59.750017+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Golf Beach Resort_2026-10-11_18-12_zone_out_+7.7"
+    },
+    {
+      "hotel_name": "The V Luxury Resort",
+      "duration_bucket": "",
+      "old_price": 9956.0,
+      "new_price": 10136.0,
+      "price_change": 180.0,
+      "price_change_pct": 1.8079550020088389,
+      "timestamp": "2026-10-11 18:12:49.636057+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-11T18:13:59.750021+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "The V Luxury Resort_2026-10-11_18-12_zone_out_+1.8"
+    },
+    {
+      "hotel_name": "Jaz Mirabel Beach Resort",
+      "duration_bucket": "",
+      "old_price": 10645.0,
+      "new_price": 9429.0,
+      "price_change": -1216.0,
+      "price_change_pct": -11.423203381869422,
+      "timestamp": "2026-10-11 18:12:49.636057+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-11T18:13:59.750035+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Mirabel Beach Resort_2026-10-11_18-12_comeback_11.4"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-11T13:07:18.641235+00:00",
+    "last_processed_run": "2026-10-11T18:12:49.636057+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 9636.0,
         "premium_peak": null
       },
       "Pickalbatros Laguna Vista Beach": {
-        "history_max": 11245.0,
-        "premium_peak": 11245.0
+        "history_max": 11417.0,
+        "premium_peak": 11417.0
       },
       "Pickalbatros Luxury Suites": {
         "history_max": 11682.0,
@@ -2098,7 +2202,7 @@
         "premium_peak": 10557.0
       },
       "Regency Plaza Aqua Park Spa": {
-        "history_max": 8957.0,
+        "history_max": 9778.0,
         "premium_peak": null
       },
       "Rewaya Inn Resort (ex. Hawaii Paradise Aqua Park Resort)": {
@@ -2138,8 +2242,8 @@
         "premium_peak": 15577.0
       },
       "Pickalbatros Golf Beach Resort": {
-        "history_max": 9757.0,
-        "premium_peak": null
+        "history_max": 10053.0,
+        "premium_peak": 10053.0
       },
       "Pickalbatros Citadel Sahl Hasheesh (ex. Citadel Azur Resort)": {
         "history_max": 11587.0,
@@ -2170,8 +2274,8 @@
         "premium_peak": null
       },
       "Monte Carlo Resort Spa": {
-        "history_max": 10895.0,
-        "premium_peak": 10895.0
+        "history_max": 11457.0,
+        "premium_peak": 11457.0
       },
       "Movenpick Resort & Spa El Gouna": {
         "history_max": 11667.0,
@@ -2290,8 +2394,8 @@
         "premium_peak": 10491.0
       },
       "Swissotel Sharm El Sheikh": {
-        "history_max": 13748.0,
-        "premium_peak": 13748.0
+        "history_max": 13921.0,
+        "premium_peak": 13921.0
       },
       "The Cascades Golf Resort Spa & Thalasso (ex Westin Soma Bay)": {
         "history_max": 9345.0,
@@ -2554,12 +2658,12 @@
         "premium_peak": 18117.0
       },
       "Golf Villas And Suites Sharm": {
-        "history_max": 9504.0,
+        "history_max": 9811.0,
         "premium_peak": null
       },
       "Cardina Resort by Sunrise": {
-        "history_max": 12317.0,
-        "premium_peak": 12317.0
+        "history_max": 12497.0,
+        "premium_peak": 12497.0
       },
       "IL Mercato Splash Aqua Park": {
         "history_max": 9589.0,
@@ -2742,8 +2846,8 @@
         "premium_peak": null
       },
       "Caribbean World Soma Bay": {
-        "history_max": 9447.0,
-        "premium_peak": null
+        "history_max": 12891.0,
+        "premium_peak": 12891.0
       },
       "Bellagio Beach Resort & Spa (ex. Panorama Bungalows Hurghada)": {
         "history_max": 10799.0,
