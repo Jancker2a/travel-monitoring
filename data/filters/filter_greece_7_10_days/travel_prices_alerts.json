@@ -2379,10 +2379,62 @@
       "created_at": "2026-10-11T06:05:52.587298+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Mitsis Selection Blue Domes_2026-10-11_06-04_comeback_18.5"
+    },
+    {
+      "hotel_name": "Kairaba Sandy Villas Grecja, Korfu, Agios Georgios",
+      "duration_bucket": "",
+      "old_price": 9717.0,
+      "new_price": 8332.0,
+      "price_change": -1385.0,
+      "price_change_pct": -14.253370381805084,
+      "timestamp": "2026-10-11 13:09:43.324680+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-11T13:11:35.186048+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Kairaba Sandy Villas Grecja, Korfu, Agios Georgios_2026-10-11_13-09_-14.3"
+    },
+    {
+      "hotel_name": "Filion Suites Resort Grecja, Kreta Wschodnia, Bali",
+      "duration_bucket": "",
+      "old_price": 9167.0,
+      "new_price": 9167.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-11 13:09:43.324680+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-11T13:11:35.186081+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Filion Suites Resort Grecja, Kreta Wschodnia, Bali_2026-10-11_13-09_zone_out_gone"
+    },
+    {
+      "hotel_name": "Princess Andriana Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 9987.0,
+      "new_price": 10497.0,
+      "price_change": 510.0,
+      "price_change_pct": 5.106638630219285,
+      "timestamp": "2026-10-11 13:09:43.324680+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-11T13:11:35.186091+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Princess Andriana Resort & Spa_2026-10-11_13-09_zone_out_+5.1"
+    },
+    {
+      "hotel_name": "Euphoria Resort",
+      "duration_bucket": "",
+      "old_price": 10970.0,
+      "new_price": 9970.0,
+      "price_change": -1000.0,
+      "price_change_pct": -9.115770282588878,
+      "timestamp": "2026-10-11 13:09:43.324680+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-11T13:11:35.186111+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Euphoria Resort_2026-10-11_13-09_comeback_9.1"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-11T06:04:53.722276+00:00",
+    "last_processed_run": "2026-10-11T13:09:43.324680+00:00",
     "premium_state": {
       "Akasha Beach (ex Armava)": {
         "history_max": 15229.0,
@@ -2445,8 +2497,8 @@
         "premium_peak": 19585.0
       },
       "Lindos Imperial Resort & Spa": {
-        "history_max": 10757.0,
-        "premium_peak": 10757.0
+        "history_max": 10857.0,
+        "premium_peak": 10857.0
       },
       "Michelangelo Resort & Spa": {
         "history_max": 12963.0,
@@ -2473,8 +2525,8 @@
         "premium_peak": 11647.0
       },
       "Gouves Water Park Holiday Resort": {
-        "history_max": 11768.0,
-        "premium_peak": 11768.0
+        "history_max": 12324.0,
+        "premium_peak": 12324.0
       },
       "Grand Blue Beach Grecja, kos, Kardamaina": {
         "history_max": 8591.0,
@@ -2493,8 +2545,8 @@
         "premium_peak": 10929.0
       },
       "Hersonissos Palace": {
-        "history_max": 10892.0,
-        "premium_peak": 10892.0
+        "history_max": 11257.0,
+        "premium_peak": 11257.0
       },
       "High Beach": {
         "history_max": 11379.0,
@@ -2541,8 +2593,8 @@
         "premium_peak": null
       },
       "Princess Andriana Resort & Spa": {
-        "history_max": 9987.0,
-        "premium_peak": null
+        "history_max": 10497.0,
+        "premium_peak": 10497.0
       },
       "Ramada Athens Attica Riviera (ex Aquamarina)": {
         "history_max": 15597.0,
@@ -2725,8 +2777,8 @@
         "premium_peak": null
       },
       "Apollonia Beach (Ammoudara)": {
-        "history_max": 11056.0,
-        "premium_peak": 11056.0
+        "history_max": 11474.0,
+        "premium_peak": 11474.0
       },
       "Cooks Club Corfu (ex Ionian Park)": {
         "history_max": 14917.0,
@@ -2781,8 +2833,8 @@
         "premium_peak": 15504.0
       },
       "Atrium Prestige Thalasso Spa Resort & Villas": {
-        "history_max": 18390.0,
-        "premium_peak": 18390.0
+        "history_max": 18886.0,
+        "premium_peak": 18886.0
       },
       "Gaia Palace Grecja, Kos, Mastichari": {
         "history_max": 6283.0,
@@ -2865,7 +2917,7 @@
         "premium_peak": null
       },
       "Filion Suites Resort": {
-        "history_max": 7164.0,
+        "history_max": 9782.0,
         "premium_peak": null
       },
       "Asterias Beach Resort": {
@@ -2994,6 +3046,10 @@
       },
       "Apollonia Beach (Ammoudara) Grecja, Kreta Wschodnia, Ammoudara": {
         "history_max": 9526.0,
+        "premium_peak": null
+      },
+      "Istion Club Grecja, Chalkidiki, Nea Poteidaia": {
+        "history_max": 9499.0,
         "premium_peak": null
       }
     }

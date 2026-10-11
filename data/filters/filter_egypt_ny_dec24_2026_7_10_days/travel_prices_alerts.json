@@ -1430,10 +1430,36 @@
       "created_at": "2026-10-11T06:03:57.738260+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna_2026-10-11_06-03_-13.1"
+    },
+    {
+      "hotel_name": "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna",
+      "duration_bucket": "",
+      "old_price": 8516.0,
+      "new_price": 9561.0,
+      "price_change": 1045.0,
+      "price_change_pct": 12.271019257867543,
+      "timestamp": "2026-10-11 13:08:18.769334+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-11T13:08:34.501607+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna_2026-10-11_13-08_+12.3"
+    },
+    {
+      "hotel_name": "Stella Di Mare Beach Resort & Spa (ex. Stella Makadi Resort) Egipt, Hurghada, Makadi Bay",
+      "duration_bucket": "",
+      "old_price": 10952.0,
+      "new_price": 10952.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-11 13:08:18.769334+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-11T13:08:34.501634+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Stella Di Mare Beach Resort & Spa (ex. Stella Makadi Resort) Egipt, Hurghada, Makadi Bay_2026-10-11_13-08_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-11T06:03:43.015297+00:00",
+    "last_processed_run": "2026-10-11T13:08:18.769334+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 10742.0,

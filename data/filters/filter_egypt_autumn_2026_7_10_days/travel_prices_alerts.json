@@ -2158,10 +2158,101 @@
       "created_at": "2026-10-10T23:43:17.881740+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Xanadu Club Makadi Bay_2026-10-10_23-42_zone_out_gone"
+    },
+    {
+      "hotel_name": "Cleopatra Luxury Resort (Makadi Bay)",
+      "duration_bucket": "",
+      "old_price": 9401.0,
+      "new_price": 10977.0,
+      "price_change": 1576.0,
+      "price_change_pct": 16.764174024039995,
+      "timestamp": "2026-10-11 13:07:18.470610+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-11T13:08:01.860396+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Cleopatra Luxury Resort (Makadi Bay)_2026-10-11_13-07_+16.8"
+    },
+    {
+      "hotel_name": "Amwaj Oyoun Resort & Spa (ex AA Amwaj Resort) Egipt, Sharm El Sheikh",
+      "duration_bucket": "",
+      "old_price": 7582.0,
+      "new_price": 7582.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-11 13:07:18.470610+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-11T13:08:01.860429+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amwaj Oyoun Resort & Spa (ex AA Amwaj Resort) Egipt, Sharm El Sheikh_2026-10-11_13-07_zone_out_gone"
+    },
+    {
+      "hotel_name": "Jaz Grand Marsa (ex Resta Grand Resort)",
+      "duration_bucket": "",
+      "old_price": 9087.0,
+      "new_price": 9087.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-11 13:07:18.470610+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-11T13:08:01.860437+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Grand Marsa (ex Resta Grand Resort)_2026-10-11_13-07_zone_out_gone"
+    },
+    {
+      "hotel_name": "Naama Bay Promenade Mountain Resort Egipt, Sharm El Sheikh, Szarm el-Szejk",
+      "duration_bucket": "",
+      "old_price": 9051.0,
+      "new_price": 9051.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-11 13:07:18.470610+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-11T13:08:01.860444+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Naama Bay Promenade Mountain Resort Egipt, Sharm El Sheikh, Szarm el-Szejk_2026-10-11_13-07_zone_out_gone"
+    },
+    {
+      "hotel_name": "Red Sea Grand Makadi (Makadi Bay)",
+      "duration_bucket": "",
+      "old_price": 9934.0,
+      "new_price": 9934.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-11 13:07:18.470610+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-11T13:08:01.860449+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Red Sea Grand Makadi (Makadi Bay)_2026-10-11_13-07_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sataya Resort (ex. Labranda Sataya Marsa Alam)",
+      "duration_bucket": "",
+      "old_price": 9557.0,
+      "new_price": 9557.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-11 13:07:18.470610+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-11T13:08:01.860455+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sataya Resort (ex. Labranda Sataya Marsa Alam)_2026-10-11_13-07_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sharm Grand Plaza Resort",
+      "duration_bucket": "",
+      "old_price": 9125.0,
+      "new_price": 9125.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-11 13:07:18.470610+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-11T13:08:01.860461+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sharm Grand Plaza Resort_2026-10-11_13-07_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-11T06:02:09.463519+00:00",
+    "last_processed_run": "2026-10-11T13:07:18.470610+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 8740.0,
@@ -2420,7 +2511,7 @@
         "premium_peak": null
       },
       "Cleopatra Luxury Resort (Makadi Bay)": {
-        "history_max": 10829.0,
+        "history_max": 10977.0,
         "premium_peak": null
       },
       "Titanic Palace Resort": {
