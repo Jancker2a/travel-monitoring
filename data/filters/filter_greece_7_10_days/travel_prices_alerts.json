@@ -52,10 +52,101 @@
       "created_at": "2026-10-12T09:32:07.256950+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Mitsis Selection Blue Domes_2026-10-12_09-30_zone_out_gone"
+    },
+    {
+      "hotel_name": "Lydia Maris Resort & Spa Grecja, Rodos, Kolymbia",
+      "duration_bucket": "",
+      "old_price": 7942.0,
+      "new_price": 7270.0,
+      "price_change": -672.0,
+      "price_change_pct": -8.461344749433392,
+      "timestamp": "2026-10-12 19:58:14.836865+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-12T19:59:11.195049+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Lydia Maris Resort & Spa Grecja, Rodos, Kolymbia_2026-10-12_19-58_-8.5"
+    },
+    {
+      "hotel_name": "Mitsis Norida Beach Grecja, Kos, Kardamena",
+      "duration_bucket": "",
+      "old_price": 7578.0,
+      "new_price": 8683.0,
+      "price_change": 1105.0,
+      "price_change_pct": 14.58168382158881,
+      "timestamp": "2026-10-12 19:58:14.836865+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-12T19:59:11.195078+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Mitsis Norida Beach Grecja, Kos, Kardamena_2026-10-12_19-58_+14.6"
+    },
+    {
+      "hotel_name": "Helea Family Beach Resort (ex. Amilia Mare Beach Resort) Grecja, Rodos, Koskinou",
+      "duration_bucket": "",
+      "old_price": 9357.0,
+      "new_price": 9357.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-12 19:58:14.836865+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-12T19:59:11.195101+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Helea Family Beach Resort (ex. Amilia Mare Beach Resort) Grecja, Rodos, Koskinou_2026-10-12_19-58_zone_out_gone"
+    },
+    {
+      "hotel_name": "Istion Club",
+      "duration_bucket": "",
+      "old_price": 9934.0,
+      "new_price": 9934.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-12 19:58:14.836865+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-12T19:59:11.195111+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Istion Club_2026-10-12_19-58_zone_out_gone"
+    },
+    {
+      "hotel_name": "Mitsis Blue Domes Exclusive Resort & Spa Grecja, Kos, Kardamena",
+      "duration_bucket": "",
+      "old_price": 9598.0,
+      "new_price": 9598.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-12 19:58:14.836865+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-12T19:59:11.195120+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Mitsis Blue Domes Exclusive Resort & Spa Grecja, Kos, Kardamena_2026-10-12_19-58_zone_out_gone"
+    },
+    {
+      "hotel_name": "Mitsis Rodos Village Grecja, Rodos, Kiotari",
+      "duration_bucket": "",
+      "old_price": 9364.0,
+      "new_price": 9364.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-12 19:58:14.836865+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-12T19:59:11.195128+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Mitsis Rodos Village Grecja, Rodos, Kiotari_2026-10-12_19-58_zone_out_gone"
+    },
+    {
+      "hotel_name": "Mythos Beach Resort",
+      "duration_bucket": "",
+      "old_price": 9835.0,
+      "new_price": 9835.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-12 19:58:14.836865+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-12T19:59:11.195137+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Mythos Beach Resort_2026-10-12_19-58_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-12T09:30:59.849716+00:00",
+    "last_processed_run": "2026-10-12T19:58:14.836865+00:00",
     "premium_state": {
       "Alia Palace": {
         "history_max": 12107.0,
@@ -66,8 +157,8 @@
         "premium_peak": 12810.0
       },
       "Mayia Exclusive Resort & Spa": {
-        "history_max": 19585.0,
-        "premium_peak": 19585.0
+        "history_max": 19811.0,
+        "premium_peak": 19811.0
       },
       "MarBella, Mar-Bella Collection (Agios Ioannis)": {
         "history_max": 12291.0,
@@ -78,8 +169,8 @@
         "premium_peak": 14750.0
       },
       "Lyttos Beach": {
-        "history_max": 12324.0,
-        "premium_peak": 12324.0
+        "history_max": 13094.0,
+        "premium_peak": 13094.0
       },
       "Lydia Maris Resort & Spa Grecja, Rodos, Kolymbia": {
         "history_max": 7942.0,
@@ -94,7 +185,7 @@
         "premium_peak": 10697.0
       },
       "Levante Beach Resort By Playitas Grecja, Rodos, Afandu": {
-        "history_max": 7969.0,
+        "history_max": 8022.0,
         "premium_peak": null
       },
       "Kresten Royal Euphoria Resort (ex. Kresten Royal Villas)": {
@@ -114,8 +205,8 @@
         "premium_peak": null
       },
       "Kerkyra Blue N' Spa by Louis (Corfu)": {
-        "history_max": 15938.0,
-        "premium_peak": 15938.0
+        "history_max": 16088.0,
+        "premium_peak": 16088.0
       },
       "Kakkos Bay Grecja, Kreta Wschodnia, Ierapetra": {
         "history_max": 7107.0,
@@ -170,8 +261,8 @@
         "premium_peak": 15197.0
       },
       "Georgioupolis Resort & Aqua Park": {
-        "history_max": 10707.0,
-        "premium_peak": 10707.0
+        "history_max": 10837.0,
+        "premium_peak": 10837.0
       },
       "Mitsis Faliraki": {
         "history_max": 11051.0,
@@ -194,20 +285,20 @@
         "premium_peak": null
       },
       "Sentido Asterias Beach Resort Grecja, Rodos, Afandou": {
-        "history_max": 8221.0,
+        "history_max": 8639.0,
         "premium_peak": null
       },
       "Senseana Sea Side Resort & Spa (ex. Golden Star)": {
-        "history_max": 11901.0,
-        "premium_peak": 11901.0
+        "history_max": 14920.0,
+        "premium_peak": 14920.0
       },
       "Rodos Palace Grecja, Rodos, Ixia": {
         "history_max": 6557.0,
         "premium_peak": null
       },
       "Rethymno Mare Royal & Water Park (ex. Bomo)": {
-        "history_max": 10482.0,
-        "premium_peak": 10482.0
+        "history_max": 11047.0,
+        "premium_peak": 11047.0
       },
       "Rethymno Mare & Water Park (Rethymno) Grecja, Kreta Zachodnia, SCALETA": {
         "history_max": 8977.0,
@@ -218,8 +309,8 @@
         "premium_peak": 10078.0
       },
       "Princess Andriana Resort & Spa": {
-        "history_max": 10209.0,
-        "premium_peak": 10209.0
+        "history_max": 10359.0,
+        "premium_peak": 10359.0
       },
       "Possidi Holidays Grecja, Chalkidiki, Possidi": {
         "history_max": 8017.0,
@@ -230,7 +321,7 @@
         "premium_peak": 11057.0
       },
       "Mitsis Norida Beach Grecja, Kos, Kardamena": {
-        "history_max": 7578.0,
+        "history_max": 8683.0,
         "premium_peak": null
       },
       "Porto Platanias Beach Grecja, Kreta Zachodnia, Platanias": {
@@ -246,8 +337,8 @@
         "premium_peak": 11384.0
       },
       "Nana Golden Beach": {
-        "history_max": 16117.0,
-        "premium_peak": 16117.0
+        "history_max": 16767.0,
+        "premium_peak": 16767.0
       },
       "Mythos Palace": {
         "history_max": 10847.0,
@@ -262,20 +353,20 @@
         "premium_peak": null
       },
       "Mitsis Selection Rinela": {
-        "history_max": 11386.0,
-        "premium_peak": 11386.0
+        "history_max": 11431.0,
+        "premium_peak": 11431.0
       },
       "Mitsis Selection Laguna": {
         "history_max": 10840.0,
         "premium_peak": 10840.0
       },
       "Mitsis Selection Blue Domes": {
-        "history_max": 9616.0,
+        "history_max": 9986.0,
         "premium_peak": null
       },
       "Mitsis Selection Alila": {
-        "history_max": 13262.0,
-        "premium_peak": 13262.0
+        "history_max": 13979.0,
+        "premium_peak": 13979.0
       },
       "Mitsis Royal Mare (ex. Aldemar Royal Mare) Grecja, Kreta Wschodnia, Anissaras": {
         "history_max": 8510.0,
@@ -330,8 +421,8 @@
         "premium_peak": null
       },
       "Aquila Porto Rethymno": {
-        "history_max": 11417.0,
-        "premium_peak": 11417.0
+        "history_max": 11537.0,
+        "premium_peak": 11537.0
       },
       "Blue Sea Beach (Stalida)": {
         "history_max": 16270.0,
@@ -346,16 +437,16 @@
         "premium_peak": null
       },
       "Bella Beach": {
-        "history_max": 11283.0,
-        "premium_peak": 11283.0
+        "history_max": 11933.0,
+        "premium_peak": 11933.0
       },
       "Atlantica Caldera Palace Resort & Spa (ex Atlantica Sensatori)": {
         "history_max": 9803.0,
         "premium_peak": null
       },
       "Atrium Platinum Resort & Spa": {
-        "history_max": 17133.0,
-        "premium_peak": 17133.0
+        "history_max": 17256.0,
+        "premium_peak": 17256.0
       },
       "Aulus Chania Resort, Curio Collection by Hilton (ex. Isla Brown Chania)": {
         "history_max": 12703.0,
@@ -366,15 +457,15 @@
         "premium_peak": 12437.0
       },
       "Electra Palace (Ialyssos)": {
-        "history_max": 11909.0,
-        "premium_peak": 11909.0
+        "history_max": 12133.0,
+        "premium_peak": 12133.0
       },
       "Apollonia Beach (Ammoudara)": {
         "history_max": 11488.0,
         "premium_peak": 11488.0
       },
       "Filion Suites Resort Grecja, Kreta Wschodnia, Bali": {
-        "history_max": 8882.0,
+        "history_max": 9332.0,
         "premium_peak": null
       },
       "Galini Palace Grecja, Kreta Zachodnia, Kolymvari": {
@@ -424,6 +515,30 @@
       "Blue Lagoon Village": {
         "history_max": 10345.0,
         "premium_peak": 10345.0
+      },
+      "Mythos Beach Resort Grecja, Rodos, Afandu": {
+        "history_max": 9489.0,
+        "premium_peak": null
+      },
+      "Pegasos Beach (Faliraki) Grecja, Rodos, Faliraki": {
+        "history_max": 7157.0,
+        "premium_peak": null
+      },
+      "Istion Club Grecja, Chalkidiki, Nea Poteidaia": {
+        "history_max": 9259.0,
+        "premium_peak": null
+      },
+      "Helea Lifestyle Beach Resort": {
+        "history_max": 13397.0,
+        "premium_peak": 13397.0
+      },
+      "Caramel a Grecotel Resort to Live": {
+        "history_max": 19807.0,
+        "premium_peak": 19807.0
+      },
+      "Mitsis Rodos Village": {
+        "history_max": 9927.0,
+        "premium_peak": null
       }
     }
   }
