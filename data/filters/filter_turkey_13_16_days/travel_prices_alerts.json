@@ -143,10 +143,75 @@
       "created_at": "2026-10-12T19:59:00.308083+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Holiday Park Resort (Okurcalar) Turcja, Alanya, Okurcalar_2026-10-12_19-58_comeback_14.3"
+    },
+    {
+      "hotel_name": "Gold City Turcja, Alanya, Kargicak",
+      "duration_bucket": "",
+      "old_price": 9230.0,
+      "new_price": 9230.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-13 02:11:06.929503+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-13T02:12:40.978245+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Gold City Turcja, Alanya, Kargicak_2026-10-13_02-11_zone_out_gone"
+    },
+    {
+      "hotel_name": "Hane Sun Elite (ex Noble Palace Side)",
+      "duration_bucket": "",
+      "old_price": 9846.0,
+      "new_price": 9846.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-13 02:11:06.929503+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-13T02:12:40.978271+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Hane Sun Elite (ex Noble Palace Side)_2026-10-13_02-11_zone_out_gone"
+    },
+    {
+      "hotel_name": "Palemon Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 9931.0,
+      "new_price": 9931.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-13 02:11:06.929503+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-13T02:12:40.978282+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Palemon Resort & Spa_2026-10-13_02-11_zone_out_gone"
+    },
+    {
+      "hotel_name": "Perre La Mer Resort & Spa (ex. La Mer)",
+      "duration_bucket": "",
+      "old_price": 9959.0,
+      "new_price": 10139.0,
+      "price_change": 180.0,
+      "price_change_pct": 1.807410382568531,
+      "timestamp": "2026-10-13 02:11:06.929503+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-13T02:12:40.978294+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Perre La Mer Resort & Spa (ex. La Mer)_2026-10-13_02-11_zone_out_+1.8"
+    },
+    {
+      "hotel_name": "Saray Regency Resort & Spa Turcja, Side, Titreyengol",
+      "duration_bucket": "",
+      "old_price": 9720.0,
+      "new_price": 9720.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-13 02:11:06.929503+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-13T02:12:40.978304+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Saray Regency Resort & Spa Turcja, Side, Titreyengol_2026-10-13_02-11_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-12T19:58:07.618645+00:00",
+    "last_processed_run": "2026-10-13T02:11:06.929503+00:00",
     "premium_state": {
       "Adalya Art Side (Ex. Grand Art Side)": {
         "history_max": 13167.0,
@@ -453,8 +518,8 @@
         "premium_peak": 14730.0
       },
       "Raxeria (Side)": {
-        "history_max": 13901.0,
-        "premium_peak": 13901.0
+        "history_max": 14063.0,
+        "premium_peak": 14063.0
       },
       "Orange Palace": {
         "history_max": 15777.0,
@@ -469,8 +534,8 @@
         "premium_peak": 12509.0
       },
       "Orange County Alanya": {
-        "history_max": 10589.0,
-        "premium_peak": 10589.0
+        "history_max": 11252.0,
+        "premium_peak": 11252.0
       },
       "Orange County (Kemer)": {
         "history_max": 11597.0,
@@ -601,7 +666,7 @@
         "premium_peak": 16463.0
       },
       "M. C. Beach Resort (ex. Otium MC Beach Resort) Turcja, Alanya, Konakli": {
-        "history_max": 8987.0,
+        "history_max": 9045.0,
         "premium_peak": null
       },
       "Saray Regency Resort & Spa Turcja, Side, Titreyengol": {
@@ -649,8 +714,8 @@
         "premium_peak": 13355.0
       },
       "Limak Limra": {
-        "history_max": 13073.0,
-        "premium_peak": 13073.0
+        "history_max": 14070.0,
+        "premium_peak": 14070.0
       },
       "Seaden Sea World Resort & Spa": {
         "history_max": 12805.0,
@@ -685,8 +750,8 @@
         "premium_peak": null
       },
       "Meryan": {
-        "history_max": 12033.0,
-        "premium_peak": 12033.0
+        "history_max": 19674.0,
+        "premium_peak": 19674.0
       },
       "Royal Taj Mahal": {
         "history_max": 15972.0,
@@ -745,7 +810,7 @@
         "premium_peak": 10581.0
       },
       "First Class Turcja, Alanya, Mahmutlar": {
-        "history_max": 7700.0,
+        "history_max": 7862.0,
         "premium_peak": null
       },
       "Diamond Premium": {
@@ -781,8 +846,8 @@
         "premium_peak": 12389.0
       },
       "Asteria Family Resort Side": {
-        "history_max": 10337.0,
-        "premium_peak": 10337.0
+        "history_max": 10485.0,
+        "premium_peak": 10485.0
       },
       "Asteria Family Belek": {
         "history_max": 12492.0,
@@ -897,8 +962,8 @@
         "premium_peak": 11840.0
       },
       "Well Palace Side (ex. Side Crown Charm Palace)": {
-        "history_max": 10445.0,
-        "premium_peak": 10445.0
+        "history_max": 10643.0,
+        "premium_peak": 10643.0
       },
       "Amara Comfort Resort Kemer (ex. Loxia Comfort Resort Kemer)": {
         "history_max": 11048.0,
@@ -933,8 +998,8 @@
         "premium_peak": 15943.0
       },
       "World Star Beach Resort & Spa": {
-        "history_max": 10067.0,
-        "premium_peak": 10067.0
+        "history_max": 17312.0,
+        "premium_peak": 17312.0
       },
       "Akka Alinda": {
         "history_max": 14104.0,
@@ -1041,8 +1106,8 @@
         "premium_peak": 17100.0
       },
       "Casa Fora Beach Resort": {
-        "history_max": 15927.0,
-        "premium_peak": 15927.0
+        "history_max": 16907.0,
+        "premium_peak": 16907.0
       },
       "Club Marco Polo (Kemer)": {
         "history_max": 19271.0,
@@ -1109,8 +1174,8 @@
         "premium_peak": null
       },
       "Starlight Resort & Convention Center (Side)": {
-        "history_max": 16728.0,
-        "premium_peak": 16728.0
+        "history_max": 17245.0,
+        "premium_peak": 17245.0
       },
       "Corendon Hydros Club": {
         "history_max": 15185.0,
@@ -1237,8 +1302,8 @@
         "premium_peak": 19747.0
       },
       "Perre La Mer Resort & Spa (ex. La Mer)": {
-        "history_max": 9959.0,
-        "premium_peak": null
+        "history_max": 10139.0,
+        "premium_peak": 10139.0
       },
       "Hane Sun Elite (ex Noble Palace Side)": {
         "history_max": 9846.0,
@@ -1251,6 +1316,18 @@
       "Melas Lara": {
         "history_max": 16533.0,
         "premium_peak": 16533.0
+      },
+      "Asteria Collection Side": {
+        "history_max": 9882.0,
+        "premium_peak": null
+      },
+      "Miarosa Beach (Kemer)": {
+        "history_max": 11066.0,
+        "premium_peak": 11066.0
+      },
+      "Palemon Resort & Spa Turcja, Side, Manavgat": {
+        "history_max": 9356.0,
+        "premium_peak": null
       }
     }
   }
