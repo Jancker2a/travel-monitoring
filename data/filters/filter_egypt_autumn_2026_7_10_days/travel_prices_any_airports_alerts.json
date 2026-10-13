@@ -611,10 +611,62 @@
       "created_at": "2026-10-13T17:44:28.477869+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Swissotel Resort El Quseir_2026-10-13_17-43_zone_out_gone"
+    },
+    {
+      "hotel_name": "Albatros Sea World Resort Marsa Alam Egipt, Marsa Alam, Al-Kusajr",
+      "duration_bucket": "",
+      "old_price": 8231.0,
+      "new_price": 8231.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-13 22:57:13.974317+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-13T22:58:44.986440+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Albatros Sea World Resort Marsa Alam Egipt, Marsa Alam, Al-Kusajr_2026-10-13_22-57_zone_out_gone"
+    },
+    {
+      "hotel_name": "Ecotel Dahab Bay View Resort",
+      "duration_bucket": "",
+      "old_price": 9407.0,
+      "new_price": 9407.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-13 22:57:13.974317+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-13T22:58:44.986464+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Ecotel Dahab Bay View Resort_2026-10-13_22-57_zone_out_gone"
+    },
+    {
+      "hotel_name": "Marriott Hurghada Beach Resort Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 8327.0,
+      "new_price": 8327.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-13 22:57:13.974317+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-13T22:58:44.986472+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Marriott Hurghada Beach Resort Egipt, Hurghada_2026-10-13_22-57_zone_out_gone"
+    },
+    {
+      "hotel_name": "Rewaya Majestic Resort",
+      "duration_bucket": "",
+      "old_price": 8707.0,
+      "new_price": 8707.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-13 22:57:13.974317+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-13T22:58:44.986478+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Majestic Resort_2026-10-13_22-57_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-13T17:43:28.092423+00:00",
+    "last_processed_run": "2026-10-13T22:57:13.974317+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 7412.0,
@@ -785,7 +837,7 @@
         "premium_peak": null
       },
       "Pickalbatros Laguna Vista Beach": {
-        "history_max": 10701.0,
+        "history_max": 10823.0,
         "premium_peak": null
       },
       "Sataya Resort (ex. Labranda Sataya Marsa Alam)": {
@@ -865,7 +917,7 @@
         "premium_peak": null
       },
       "Amarina Queen Resort": {
-        "history_max": 10720.0,
+        "history_max": 10967.0,
         "premium_peak": null
       },
       "Continental (ex Movenpick Resort)": {
@@ -1041,7 +1093,7 @@
         "premium_peak": null
       },
       "Naama Bay Promenade Mountain Resort Egipt, Sharm El Sheikh, Szarm el-Szejk": {
-        "history_max": 8355.0,
+        "history_max": 8383.0,
         "premium_peak": null
       },
       "Albatros Sea World Resort Marsa Alam Egipt, Marsa Alam, Al-Kusajr": {
@@ -1050,6 +1102,10 @@
       },
       "Rewaya Majestic Resort": {
         "history_max": 8707.0,
+        "premium_peak": null
+      },
+      "Marriott Hurghada Beach Resort": {
+        "history_max": 8659.0,
         "premium_peak": null
       }
     }

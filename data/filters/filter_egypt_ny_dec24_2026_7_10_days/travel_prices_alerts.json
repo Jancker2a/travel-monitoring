@@ -416,17 +416,69 @@
       "created_at": "2026-10-13T17:45:21.354921+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Stella Di Mare Beach Resort & Spa (ex. Stella Makadi Resort) Egipt, Hurghada, Makadi Bay_2026-10-13_17-44_zone_out_gone"
+    },
+    {
+      "hotel_name": "Rewaya Luxury Resort Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 9267.0,
+      "new_price": 10132.0,
+      "price_change": 865.0,
+      "price_change_pct": 9.334196611632676,
+      "timestamp": "2026-10-13 22:58:45.588469+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-13T22:59:00.397940+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Luxury Resort Egipt, Hurghada_2026-10-13_22-58_+9.3"
+    },
+    {
+      "hotel_name": "Charmillion Club Aqua Park (ex Sea Club Aqua Park) Egipt, Sharm El Sheikh, Szarm el-Szejk",
+      "duration_bucket": "",
+      "old_price": 10769.0,
+      "new_price": 10769.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-13 22:58:45.588469+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-13T22:59:00.397978+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Charmillion Club Aqua Park (ex Sea Club Aqua Park) Egipt, Sharm El Sheikh, Szarm el-Szejk_2026-10-13_22-58_zone_out_gone"
+    },
+    {
+      "hotel_name": "Movenpick Resort Soma Bay Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 9624.0,
+      "new_price": 9624.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-13 22:58:45.588469+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-13T22:59:00.397987+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Movenpick Resort Soma Bay Egipt, Hurghada_2026-10-13_22-58_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sentido Oriental Dream Resort Egipt, Marsa Alam",
+      "duration_bucket": "",
+      "old_price": 9900.0,
+      "new_price": 9900.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-13 22:58:45.588469+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-13T22:59:00.397993+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sentido Oriental Dream Resort Egipt, Marsa Alam_2026-10-13_22-58_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-13T17:44:29.273330+00:00",
+    "last_processed_run": "2026-10-13T22:58:45.588469+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 10092.0,
         "premium_peak": null
       },
       "Rewaya Luxury Resort Egipt, Hurghada": {
-        "history_max": 9267.0,
+        "history_max": 10132.0,
         "premium_peak": null
       },
       "Regency Plaza Aqua Park Spa Egipt, Sharm El Sheikh, Szarm el-Szejk": {
@@ -458,7 +510,7 @@
         "premium_peak": null
       },
       "Naama Bay Promenade Mountain Resort Egipt, Sharm El Sheikh, Szarm el-Szejk": {
-        "history_max": 10613.0,
+        "history_max": 10641.0,
         "premium_peak": null
       },
       "Le Meridien Dahab Resort Egipt, Dahab": {
@@ -474,7 +526,7 @@
         "premium_peak": null
       },
       "Gravity Sahl Hasheesh (Ex. Ocean Breeze) Egipt, Hurghada": {
-        "history_max": 10335.0,
+        "history_max": 10456.0,
         "premium_peak": null
       },
       "IL Mercato (ex. Iberotel Il Mercato) Egipt, Sharm El Sheikh": {
