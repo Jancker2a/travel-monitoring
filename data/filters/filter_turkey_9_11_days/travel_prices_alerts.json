@@ -455,22 +455,87 @@
       "created_at": "2026-10-13T02:12:08.551252+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Orange Palace_2026-10-13_02-11_comeback_10.0"
+    },
+    {
+      "hotel_name": "Orange County Belek",
+      "duration_bucket": "",
+      "old_price": 9561.0,
+      "new_price": 8778.0,
+      "price_change": -783.0,
+      "price_change_pct": -8.18951992469407,
+      "timestamp": "2026-10-13 09:38:33.640351+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-13T09:40:34.075158+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Orange County Belek_2026-10-13_09-38_-8.2"
+    },
+    {
+      "hotel_name": "Azura World (ex. Wyndham Alanya)",
+      "duration_bucket": "",
+      "old_price": 9328.0,
+      "new_price": 8087.0,
+      "price_change": -1241.0,
+      "price_change_pct": -13.30403087478559,
+      "timestamp": "2026-10-13 09:38:33.640351+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-13T09:40:34.075200+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Azura World (ex. Wyndham Alanya)_2026-10-13_09-38_-13.3"
+    },
+    {
+      "hotel_name": "Miarosa Beach (Kemer)",
+      "duration_bucket": "",
+      "old_price": 8231.0,
+      "new_price": 7245.0,
+      "price_change": -986.0,
+      "price_change_pct": -11.97910338962459,
+      "timestamp": "2026-10-13 09:38:33.640351+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-13T09:40:34.075222+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Miarosa Beach (Kemer)_2026-10-13_09-38_-12.0"
+    },
+    {
+      "hotel_name": "Marti Myra",
+      "duration_bucket": "",
+      "old_price": 9641.0,
+      "new_price": 10242.0,
+      "price_change": 601.0,
+      "price_change_pct": 6.233793174981848,
+      "timestamp": "2026-10-13 09:38:33.640351+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-13T09:40:34.075258+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Marti Myra_2026-10-13_09-38_zone_out_+6.2"
+    },
+    {
+      "hotel_name": "Seven Seas Palmeras Bay",
+      "duration_bucket": "",
+      "old_price": 9870.0,
+      "new_price": 9870.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-13 09:38:33.640351+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-13T09:40:34.075269+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Seven Seas Palmeras Bay_2026-10-13_09-38_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-13T02:11:02.032276+00:00",
+    "last_processed_run": "2026-10-13T09:38:33.640351+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
-        "history_max": 11311.0,
-        "premium_peak": 11311.0
+        "history_max": 11773.0,
+        "premium_peak": 11773.0
       },
       "Mirage Park Resort": {
         "history_max": 13421.0,
         "premium_peak": 13421.0
       },
       "Miracle Resort": {
-        "history_max": 10307.0,
-        "premium_peak": 10307.0
+        "history_max": 10318.0,
+        "premium_peak": 10318.0
       },
       "Mira Meridia Beach Resort": {
         "history_max": 7821.0,
@@ -513,8 +578,8 @@
         "premium_peak": 10129.0
       },
       "Marti Myra": {
-        "history_max": 9838.0,
-        "premium_peak": null
+        "history_max": 10242.0,
+        "premium_peak": 10242.0
       },
       "Marine Family Club Beach (ex. Otium Family Club Marine Beach)": {
         "history_max": 6930.0,
@@ -529,7 +594,7 @@
         "premium_peak": null
       },
       "M. C. Arancia Resort": {
-        "history_max": 7976.0,
+        "history_max": 8019.0,
         "premium_peak": null
       },
       "Lykia World & Links Golf Antalya": {
@@ -1025,8 +1090,8 @@
         "premium_peak": 12695.0
       },
       "Trendy Lara": {
-        "history_max": 10831.0,
-        "premium_peak": 10831.0
+        "history_max": 10842.0,
+        "premium_peak": 10842.0
       },
       "Trendy Aspendos Beach": {
         "history_max": 11327.0,
@@ -1743,6 +1808,10 @@
       "IC Green Palace": {
         "history_max": 13975.0,
         "premium_peak": 13975.0
+      },
+      "Ali Bey Resort Sorgun": {
+        "history_max": 13539.0,
+        "premium_peak": 13539.0
       }
     }
   }
