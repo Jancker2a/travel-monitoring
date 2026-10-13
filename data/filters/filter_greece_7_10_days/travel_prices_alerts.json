@@ -260,10 +260,101 @@
       "created_at": "2026-10-13T09:40:43.903522+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Galini Palace Grecja, Kreta Zachodnia, Kolymvari_2026-10-13_09-39_+11.8"
+    },
+    {
+      "hotel_name": "Galini Palace Grecja, Kreta Zachodnia, Kolymvari",
+      "duration_bucket": "",
+      "old_price": 8599.0,
+      "new_price": 7149.0,
+      "price_change": -1450.0,
+      "price_change_pct": -16.862425863472495,
+      "timestamp": "2026-10-13 17:46:46.366903+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-13T17:47:29.534861+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Galini Palace Grecja, Kreta Zachodnia, Kolymvari_2026-10-13_17-46_-16.9"
+    },
+    {
+      "hotel_name": "Atlantica Caldera Palace Resort & Spa (ex Atlantica Sensatori)",
+      "duration_bucket": "",
+      "old_price": 9880.0,
+      "new_price": 9880.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-13 17:46:46.366903+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-13T17:47:29.534898+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Atlantica Caldera Palace Resort & Spa (ex Atlantica Sensatori)_2026-10-13_17-46_zone_out_gone"
+    },
+    {
+      "hotel_name": "Filion Suites Resort Grecja, Kreta Wschodnia, Bali",
+      "duration_bucket": "",
+      "old_price": 9182.0,
+      "new_price": 9182.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-13 17:46:46.366903+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-13T17:47:29.534909+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Filion Suites Resort Grecja, Kreta Wschodnia, Bali_2026-10-13_17-46_zone_out_gone"
+    },
+    {
+      "hotel_name": "Istion Club Grecja, Chalkidiki, Nea Poteidaia",
+      "duration_bucket": "",
+      "old_price": 9739.0,
+      "new_price": 9739.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-13 17:46:46.366903+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-13T17:47:29.534918+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Istion Club Grecja, Chalkidiki, Nea Poteidaia_2026-10-13_17-46_zone_out_gone"
+    },
+    {
+      "hotel_name": "Mitsis Selection Blue Domes",
+      "duration_bucket": "",
+      "old_price": 9934.0,
+      "new_price": 9934.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-13 17:46:46.366903+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-13T17:47:29.534926+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Mitsis Selection Blue Domes_2026-10-13_17-46_zone_out_gone"
+    },
+    {
+      "hotel_name": "Pegasos Beach (Faliraki) Grecja, Rodos, Faliraki",
+      "duration_bucket": "",
+      "old_price": 7357.0,
+      "new_price": 7357.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-13 17:46:46.366903+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-13T17:47:29.534934+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pegasos Beach (Faliraki) Grecja, Rodos, Faliraki_2026-10-13_17-46_zone_out_gone"
+    },
+    {
+      "hotel_name": "Apollonia Beach (Ammoudara)",
+      "duration_bucket": "",
+      "old_price": 11488.0,
+      "new_price": 9976.0,
+      "price_change": -1512.0,
+      "price_change_pct": -13.161559888579388,
+      "timestamp": "2026-10-13 17:46:46.366903+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-13T17:47:29.534962+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Apollonia Beach (Ammoudara)_2026-10-13_17-46_comeback_13.2"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-13T09:39:51.549202+00:00",
+    "last_processed_run": "2026-10-13T17:46:46.366903+00:00",
     "premium_state": {
       "Alia Palace": {
         "history_max": 12107.0,
@@ -286,11 +377,11 @@
         "premium_peak": 14750.0
       },
       "Lyttos Beach": {
-        "history_max": 13094.0,
-        "premium_peak": 13094.0
+        "history_max": 14068.0,
+        "premium_peak": 14068.0
       },
       "Lydia Maris Resort & Spa Grecja, Rodos, Kolymbia": {
-        "history_max": 7942.0,
+        "history_max": 8431.0,
         "premium_peak": null
       },
       "Lindos Royal (ex. COOEE) Grecja, Rodos, Lindos": {
@@ -494,8 +585,8 @@
         "premium_peak": null
       },
       "Portes Lithos Luxury Resort": {
-        "history_max": 10577.0,
-        "premium_peak": 10577.0
+        "history_max": 10885.0,
+        "premium_peak": 10885.0
       },
       "Gennadi Grand Resort": {
         "history_max": 17567.0,
@@ -562,8 +653,8 @@
         "premium_peak": 10127.0
       },
       "Atrium Platinum Resort & Spa": {
-        "history_max": 17256.0,
-        "premium_peak": 17256.0
+        "history_max": 17498.0,
+        "premium_peak": 17498.0
       },
       "Aulus Chania Resort, Curio Collection by Hilton (ex. Isla Brown Chania)": {
         "history_max": 12703.0,
@@ -610,8 +701,8 @@
         "premium_peak": 19318.0
       },
       "Amus": {
-        "history_max": 12484.0,
-        "premium_peak": 12484.0
+        "history_max": 12887.0,
+        "premium_peak": 12887.0
       },
       "Eliros Mare": {
         "history_max": 12591.0,
@@ -626,7 +717,7 @@
         "premium_peak": null
       },
       "Mitsis Blue Domes Exclusive Resort & Spa Grecja, Kos, Kardamena": {
-        "history_max": 9598.0,
+        "history_max": 9680.0,
         "premium_peak": null
       },
       "Blue Lagoon Village": {
@@ -646,8 +737,8 @@
         "premium_peak": null
       },
       "Helea Lifestyle Beach Resort": {
-        "history_max": 13787.0,
-        "premium_peak": 13787.0
+        "history_max": 14787.0,
+        "premium_peak": 14787.0
       },
       "Caramel a Grecotel Resort to Live": {
         "history_max": 19807.0,
@@ -664,6 +755,18 @@
       "Lindos Royal (ex. COOEE)": {
         "history_max": 10537.0,
         "premium_peak": 10537.0
+      },
+      "Akasha Beach (ex Armava)": {
+        "history_max": 16211.0,
+        "premium_peak": 16211.0
+      },
+      "Filion Suites Resort": {
+        "history_max": 10997.0,
+        "premium_peak": 10997.0
+      },
+      "Hersonissos Palace Grecja, Kreta Wschodnia, Hersonissos": {
+        "history_max": 9441.0,
+        "premium_peak": null
       }
     }
   }
