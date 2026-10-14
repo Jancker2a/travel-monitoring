@@ -1,8 +1,22 @@
 {
   "version": 2,
-  "alerts": [],
+  "alerts": [
+    {
+      "hotel_name": "Almyrida Village & Water Park (ex. Langley Resort Almirida Bay) Grecja, Kreta Zachodnia, Almyrida",
+      "duration_bucket": "",
+      "old_price": 9167.0,
+      "new_price": 10837.0,
+      "price_change": 1670.0,
+      "price_change_pct": 18.217519362932258,
+      "timestamp": "2026-10-14 02:12:36.752151+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-14T02:13:19.613733+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Almyrida Village & Water Park (ex. Langley Resort Almirida Bay) Grecja, Kreta Zachodnia, Almyrida_2026-10-14_02-12_zone_out_+18.2"
+    }
+  ],
   "meta": {
-    "last_processed_run": "2026-10-13T23:07:21.463603+00:00",
+    "last_processed_run": "2026-10-14T02:12:36.752151+00:00",
     "premium_state": {
       "Adele Beach Grecja, Kreta Zachodnia, Adelianos Kampos": {
         "history_max": 12603.0,
@@ -73,8 +87,8 @@
         "premium_peak": 17529.0
       },
       "Philoxenia (Psakoudia) Grecja, Chalkidiki, Psakoudia": {
-        "history_max": 16247.0,
-        "premium_peak": 16247.0
+        "history_max": 18401.0,
+        "premium_peak": 18401.0
       },
       "Porto Platanias Beach Grecja, Kreta Zachodnia, Platanias": {
         "history_max": 16747.0,
@@ -121,12 +135,12 @@
         "premium_peak": 12396.0
       },
       "Cretan Seaside Boutique": {
-        "history_max": 19009.0,
-        "premium_peak": 19009.0
+        "history_max": 19327.0,
+        "premium_peak": 19327.0
       },
       "Corfu Acharavi Collection by Wyndham Grecja, Korfu, Acharavi": {
-        "history_max": 11267.0,
-        "premium_peak": 11267.0
+        "history_max": 11304.0,
+        "premium_peak": 11304.0
       },
       "Cavo Spada Luxury Resort & Spa Grecja, Kreta Zachodnia, Rapaniana": {
         "history_max": 16219.0,
@@ -173,8 +187,8 @@
         "premium_peak": 18119.0
       },
       "Almyrida Village & Water Park (ex. Langley Resort Almirida Bay) Grecja, Kreta Zachodnia, Almyrida": {
-        "history_max": 9707.0,
-        "premium_peak": null
+        "history_max": 10837.0,
+        "premium_peak": 10837.0
       },
       "Atali Grand Resort Grecja, Kreta Wschodnia, Bali": {
         "history_max": 16260.0,
@@ -185,8 +199,8 @@
         "premium_peak": 15888.0
       },
       "Peninsula Resort & Spa (Agia Pelagia) Grecja, Kreta Wschodnia, Agia Pelagia": {
-        "history_max": 17533.0,
-        "premium_peak": 17533.0
+        "history_max": 18384.0,
+        "premium_peak": 18384.0
       },
       "Annabelle Beach Resort (ex. AKS Annabelle Beach Resort) Grecja, Kreta Wschodnia, Anissaras": {
         "history_max": 17519.0,
@@ -201,8 +215,8 @@
         "premium_peak": 17237.0
       },
       "Elea Beach Grecja, Korfu, Dassia": {
-        "history_max": 17797.0,
-        "premium_peak": 17797.0
+        "history_max": 18018.0,
+        "premium_peak": 18018.0
       },
       "Hara Ilios": {
         "history_max": 18043.0,
@@ -231,6 +245,14 @@
       "Cretan Seaside Boutique Grecja, Kreta Wschodnia, Hersonissos": {
         "history_max": 17395.0,
         "premium_peak": 17395.0
+      },
+      "Mediterranean Princess Grecja, Riwiera Olimpijska, Paralia": {
+        "history_max": 18247.0,
+        "premium_peak": 18247.0
+      },
+      "Glaros (Hersonissos) Grecja, Kreta Wschodnia, Hersonissos": {
+        "history_max": 18339.0,
+        "premium_peak": 18339.0
       }
     }
   }
