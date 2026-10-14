@@ -795,6 +795,7 @@
       "unique_key": "The V Luxury Resort_2026-10-14_07-50_zone_out_gone"
     },
     {
+<<<<<<< Updated upstream
       "hotel_name": "Hawaii Paradise Aqua Park Resort Egipt, Hurghada",
       "duration_bucket": "",
       "old_price": 7143.0,
@@ -860,17 +861,105 @@
       "unique_key": "Gravity Sahl Hasheesh (Ex. Ocean Breeze)_2026-10-14_13-50_-8.5"
     },
     {
+=======
+>>>>>>> Stashed changes
       "hotel_name": "Fantazia Resort",
       "duration_bucket": "",
       "old_price": 9445.0,
       "new_price": 8572.0,
       "price_change": -873.0,
       "price_change_pct": -9.242985706723134,
+<<<<<<< Updated upstream
       "timestamp": "2026-10-14 13:50:01.474288+00:00",
       "alert_type": "price_drop",
       "created_at": "2026-10-14T13:50:26.151327+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Fantazia Resort_2026-10-14_13-50_-9.2"
+=======
+      "timestamp": "2026-10-14 14:10:21.349523+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-14T14:10:43.018531+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Fantazia Resort_2026-10-14_14-10_-9.2"
+    },
+    {
+      "hotel_name": "Cleopatra Signature Marsa Alam",
+      "duration_bucket": "",
+      "old_price": 10138.0,
+      "new_price": 9238.0,
+      "price_change": -900.0,
+      "price_change_pct": -8.877490629315448,
+      "timestamp": "2026-10-14 14:10:21.349523+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-14T14:10:43.018557+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Cleopatra Signature Marsa Alam_2026-10-14_14-10_-8.9"
+    },
+    {
+      "hotel_name": "Concorde Moreen Beach Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 9775.0,
+      "new_price": 8875.0,
+      "price_change": -900.0,
+      "price_change_pct": -9.207161125319693,
+      "timestamp": "2026-10-14 14:10:21.349523+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-14T14:10:43.018569+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Concorde Moreen Beach Resort & Spa_2026-10-14_14-10_-9.2"
+    },
+    {
+      "hotel_name": "Amarina Jannah Resort Aquapark Egipt, Marsa Alam, Port Ghalib",
+      "duration_bucket": "",
+      "old_price": 6748.0,
+      "new_price": 7348.0,
+      "price_change": 600.0,
+      "price_change_pct": 8.891523414344991,
+      "timestamp": "2026-10-14 14:10:21.349523+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-14T14:10:43.018577+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amarina Jannah Resort Aquapark Egipt, Marsa Alam, Port Ghalib_2026-10-14_14-10_+8.9"
+    },
+    {
+      "hotel_name": "Hawaii Paradise Aqua Park Resort Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 7143.0,
+      "new_price": 6117.0,
+      "price_change": -1026.0,
+      "price_change_pct": -14.363712725745485,
+      "timestamp": "2026-10-14 14:10:21.349523+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-14T14:10:43.018584+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Hawaii Paradise Aqua Park Resort Egipt, Hurghada_2026-10-14_14-10_-14.4"
+    },
+    {
+      "hotel_name": "Gravity Sahl Hasheesh (Ex. Ocean Breeze)",
+      "duration_bucket": "",
+      "old_price": 10309.0,
+      "new_price": 9431.0,
+      "price_change": -878.0,
+      "price_change_pct": -8.51682995440877,
+      "timestamp": "2026-10-14 14:10:21.349523+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-14T14:10:43.018592+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Gravity Sahl Hasheesh (Ex. Ocean Breeze)_2026-10-14_14-10_-8.5"
+    },
+    {
+      "hotel_name": "Cooee Prima Life Makadi Bay",
+      "duration_bucket": "",
+      "old_price": 9447.0,
+      "new_price": 9447.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-14 14:10:21.349523+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-14T14:10:43.018612+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Cooee Prima Life Makadi Bay_2026-10-14_14-10_zone_out_gone"
+>>>>>>> Stashed changes
     },
     {
       "hotel_name": "Desert Rose Resort Egipt, Hurghada",
@@ -879,11 +968,19 @@
       "new_price": 6171.0,
       "price_change": 0.0,
       "price_change_pct": 0.0,
+<<<<<<< Updated upstream
       "timestamp": "2026-10-14 13:50:01.474288+00:00",
       "alert_type": "zone_exit",
       "created_at": "2026-10-14T13:50:26.151342+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Desert Rose Resort Egipt, Hurghada_2026-10-14_13-50_zone_out_gone"
+=======
+      "timestamp": "2026-10-14 14:10:21.349523+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-14T14:10:43.018618+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Desert Rose Resort Egipt, Hurghada_2026-10-14_14-10_zone_out_gone"
+>>>>>>> Stashed changes
     },
     {
       "hotel_name": "Gravity Hotel & Aquapark Hurghada (ex. Samra Bay Resort)",
@@ -892,11 +989,19 @@
       "new_price": 9347.0,
       "price_change": 0.0,
       "price_change_pct": 0.0,
+<<<<<<< Updated upstream
       "timestamp": "2026-10-14 13:50:01.474288+00:00",
       "alert_type": "zone_exit",
       "created_at": "2026-10-14T13:50:26.151346+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Gravity Hotel & Aquapark Hurghada (ex. Samra Bay Resort)_2026-10-14_13-50_zone_out_gone"
+=======
+      "timestamp": "2026-10-14 14:10:21.349523+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-14T14:10:43.018624+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Gravity Hotel & Aquapark Hurghada (ex. Samra Bay Resort)_2026-10-14_14-10_zone_out_gone"
+>>>>>>> Stashed changes
     },
     {
       "hotel_name": "Pickalbatros Oasis Port Ghalib (ex. Red Sea Port Ghalib Resort)",
@@ -905,11 +1010,19 @@
       "new_price": 8527.0,
       "price_change": 0.0,
       "price_change_pct": 0.0,
+<<<<<<< Updated upstream
       "timestamp": "2026-10-14 13:50:01.474288+00:00",
       "alert_type": "zone_exit",
       "created_at": "2026-10-14T13:50:26.151350+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Pickalbatros Oasis Port Ghalib (ex. Red Sea Port Ghalib Resort)_2026-10-14_13-50_zone_out_gone"
+=======
+      "timestamp": "2026-10-14 14:10:21.349523+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-14T14:10:43.018629+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Oasis Port Ghalib (ex. Red Sea Port Ghalib Resort)_2026-10-14_14-10_zone_out_gone"
+>>>>>>> Stashed changes
     },
     {
       "hotel_name": "Pickalbatros White Beach Resort",
@@ -918,11 +1031,19 @@
       "new_price": 9629.0,
       "price_change": 0.0,
       "price_change_pct": 0.0,
+<<<<<<< Updated upstream
       "timestamp": "2026-10-14 13:50:01.474288+00:00",
       "alert_type": "zone_exit",
       "created_at": "2026-10-14T13:50:26.151354+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Pickalbatros White Beach Resort_2026-10-14_13-50_zone_out_gone"
+=======
+      "timestamp": "2026-10-14 14:10:21.349523+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-14T14:10:43.018635+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros White Beach Resort_2026-10-14_14-10_zone_out_gone"
+>>>>>>> Stashed changes
     },
     {
       "hotel_name": "Pyramisa Beach Resort Sahl Hasheesh Egipt, Hurghada, Sahl Hasheesh",
@@ -931,6 +1052,7 @@
       "new_price": 8370.0,
       "price_change": 0.0,
       "price_change_pct": 0.0,
+<<<<<<< Updated upstream
       "timestamp": "2026-10-14 13:50:01.474288+00:00",
       "alert_type": "zone_exit",
       "created_at": "2026-10-14T13:50:26.151358+00:00",
@@ -949,6 +1071,13 @@
       "created_at": "2026-10-14T13:50:26.151362+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Reef Oasis Suakin Resort_2026-10-14_13-50_zone_out_gone"
+=======
+      "timestamp": "2026-10-14 14:10:21.349523+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-14T14:10:43.018641+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pyramisa Beach Resort Sahl Hasheesh Egipt, Hurghada, Sahl Hasheesh_2026-10-14_14-10_zone_out_gone"
+>>>>>>> Stashed changes
     },
     {
       "hotel_name": "Royal Brayka Beach Resort (ex Zee Brayka)",
@@ -957,11 +1086,19 @@
       "new_price": 8497.0,
       "price_change": 0.0,
       "price_change_pct": 0.0,
+<<<<<<< Updated upstream
       "timestamp": "2026-10-14 13:50:01.474288+00:00",
       "alert_type": "zone_exit",
       "created_at": "2026-10-14T13:50:26.151366+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Royal Brayka Beach Resort (ex Zee Brayka)_2026-10-14_13-50_zone_out_gone"
+=======
+      "timestamp": "2026-10-14 14:10:21.349523+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-14T14:10:43.018646+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Royal Brayka Beach Resort (ex Zee Brayka)_2026-10-14_14-10_zone_out_gone"
+>>>>>>> Stashed changes
     },
     {
       "hotel_name": "Serenity Makadi Beach (ex. Heights) Egipt, Hurghada, Makadi Bay",
@@ -970,11 +1107,19 @@
       "new_price": 8465.0,
       "price_change": 0.0,
       "price_change_pct": 0.0,
+<<<<<<< Updated upstream
       "timestamp": "2026-10-14 13:50:01.474288+00:00",
       "alert_type": "zone_exit",
       "created_at": "2026-10-14T13:50:26.151370+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Serenity Makadi Beach (ex. Heights) Egipt, Hurghada, Makadi Bay_2026-10-14_13-50_zone_out_gone"
+=======
+      "timestamp": "2026-10-14 14:10:21.349523+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-14T14:10:43.018652+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Serenity Makadi Beach (ex. Heights) Egipt, Hurghada, Makadi Bay_2026-10-14_14-10_zone_out_gone"
+>>>>>>> Stashed changes
     },
     {
       "hotel_name": "Stella Beach Resort & Spa",
@@ -983,6 +1128,7 @@
       "new_price": 8907.0,
       "price_change": 0.0,
       "price_change_pct": 0.0,
+<<<<<<< Updated upstream
       "timestamp": "2026-10-14 13:50:01.474288+00:00",
       "alert_type": "zone_exit",
       "created_at": "2026-10-14T13:50:26.151373+00:00",
@@ -992,6 +1138,17 @@
   ],
   "meta": {
     "last_processed_run": "2026-10-14T13:50:01.474288+00:00",
+=======
+      "timestamp": "2026-10-14 14:10:21.349523+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-14T14:10:43.018657+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Stella Beach Resort & Spa_2026-10-14_14-10_zone_out_gone"
+    }
+  ],
+  "meta": {
+    "last_processed_run": "2026-10-14T14:10:21.349523+00:00",
+>>>>>>> Stashed changes
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 7412.0,
@@ -1362,7 +1519,7 @@
         "premium_peak": null
       },
       "Albatros Makadi Resort (ex Royal Pharaohs Makadi)": {
-        "history_max": 9577.0,
+        "history_max": 9637.0,
         "premium_peak": null
       },
       "Dream Lagoon & Aqua Park Resort (ex. Floriana Dream Lagoon) Egipt, Marsa Alam": {
@@ -1441,14 +1598,24 @@
         "history_max": 8107.0,
         "premium_peak": null
       },
+<<<<<<< Updated upstream
       "Sunrise Anjum Resort": {
         "history_max": 10923.0,
         "premium_peak": null
       },
+=======
+>>>>>>> Stashed changes
       "Sunrise Royal Makadi Aqua Resort": {
         "history_max": 10851.0,
         "premium_peak": null
       },
+<<<<<<< Updated upstream
+=======
+      "Sunrise Anjum Resort": {
+        "history_max": 10923.0,
+        "premium_peak": null
+      },
+>>>>>>> Stashed changes
       "Desert Rose Resort": {
         "history_max": 10953.0,
         "premium_peak": null
