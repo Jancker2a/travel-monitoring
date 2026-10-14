@@ -25281,11 +25281,27 @@
       "hot_score": 61.0
     },
     {
-<<<<<<< Updated upstream
       "event_time": "2026-10-14T13:52:57+0000",
-=======
+      "departure_key": "turcja|bodrum|2026-10-15|2026-10-22|7|Warszawa|2+1",
+      "event_type": "late_deal_window",
+      "severity": "high",
+      "country": "turcja",
+      "region": "bodrum",
+      "departure_date": "2026-10-15",
+      "return_date": "2026-10-22",
+      "nights": 7.0,
+      "days_to_departure": 1.0,
+      "old_min_price": "",
+      "new_min_price": 4481.0,
+      "min_drop_pct": 0.0,
+      "p10_drop_pct": 0.0,
+      "median_drop_pct": 0.0,
+      "hotel_count": 12.0,
+      "hotel_delta": 3,
+      "hot_score": 87.0
+    },
+    {
       "event_time": "2026-10-14T14:12:24+0000",
->>>>>>> Stashed changes
       "departure_key": "turcja|bodrum|2026-10-15|2026-10-22|7|Warszawa|2+1",
       "event_type": "late_deal_window",
       "severity": "high",
