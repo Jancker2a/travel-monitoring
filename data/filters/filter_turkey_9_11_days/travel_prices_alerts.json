@@ -1209,10 +1209,88 @@
       "created_at": "2026-10-14T18:50:34.212048+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Palm Wings Beach Resort & SPA (Kusadasi)_2026-10-14_18-49_comeback_11.1"
+    },
+    {
+      "hotel_name": "Sultan of Dreams",
+      "duration_bucket": "",
+      "old_price": 7218.0,
+      "new_price": 9141.0,
+      "price_change": 1923.0,
+      "price_change_pct": 26.64172901080632,
+      "timestamp": "2026-10-14 22:29:31.581340+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-14T22:30:34.800815+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sultan of Dreams_2026-10-14_22-29_+26.6"
+    },
+    {
+      "hotel_name": "Palemon Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 7520.0,
+      "new_price": 6768.0,
+      "price_change": -752.0,
+      "price_change_pct": -10.0,
+      "timestamp": "2026-10-14 22:29:31.581340+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-14T22:30:34.800847+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Palemon Resort & Spa_2026-10-14_22-29_-10.0"
+    },
+    {
+      "hotel_name": "Eftalia Village",
+      "duration_bucket": "",
+      "old_price": 7946.0,
+      "new_price": 9226.0,
+      "price_change": 1280.0,
+      "price_change_pct": 16.108733954190786,
+      "timestamp": "2026-10-14 22:29:31.581340+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-14T22:30:34.800861+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Eftalia Village_2026-10-14_22-29_+16.1"
+    },
+    {
+      "hotel_name": "Sultan of Side",
+      "duration_bucket": "",
+      "old_price": 6954.0,
+      "new_price": 8881.0,
+      "price_change": 1927.0,
+      "price_change_pct": 27.710670117917747,
+      "timestamp": "2026-10-14 22:29:31.581340+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-14T22:30:34.800872+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sultan of Side_2026-10-14_22-29_+27.7"
+    },
+    {
+      "hotel_name": "Luna Vista Belek",
+      "duration_bucket": "",
+      "old_price": 9680.0,
+      "new_price": 11149.0,
+      "price_change": 1469.0,
+      "price_change_pct": 15.175619834710744,
+      "timestamp": "2026-10-14 22:29:31.581340+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-14T22:30:34.800917+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Luna Vista Belek_2026-10-14_22-29_zone_out_+15.2"
+    },
+    {
+      "hotel_name": "Fame Residence Lara (Antalya)",
+      "duration_bucket": "",
+      "old_price": 10942.0,
+      "new_price": 9538.0,
+      "price_change": -1404.0,
+      "price_change_pct": -12.83129226832389,
+      "timestamp": "2026-10-14 22:29:31.581340+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-14T22:30:34.800947+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Fame Residence Lara (Antalya)_2026-10-14_22-29_comeback_12.8"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-14T18:49:46.688704+00:00",
+    "last_processed_run": "2026-10-14T22:29:31.581340+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 11773.0,
@@ -1403,7 +1481,7 @@
         "premium_peak": 10666.0
       },
       "Eftalia Village": {
-        "history_max": 9066.0,
+        "history_max": 9226.0,
         "premium_peak": null
       },
       "Eftalia Sol": {
@@ -1651,8 +1729,8 @@
         "premium_peak": null
       },
       "Casa Fora Beach Resort": {
-        "history_max": 12504.0,
-        "premium_peak": 12504.0
+        "history_max": 12524.0,
+        "premium_peak": 12524.0
       },
       "Sunland Resort (ex. Imperial Sunland Resort & Spa)": {
         "history_max": 9564.0,
@@ -2547,8 +2625,8 @@
         "premium_peak": null
       },
       "Baia Bodrum": {
-        "history_max": 12549.0,
-        "premium_peak": 12549.0
+        "history_max": 12679.0,
+        "premium_peak": 12679.0
       }
     }
   }
