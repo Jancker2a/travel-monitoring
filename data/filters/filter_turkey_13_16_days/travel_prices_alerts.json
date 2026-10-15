@@ -1235,10 +1235,49 @@
       "created_at": "2026-10-15T13:41:54.565172+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Marvida Family Eco_2026-10-15_13-40_comeback_16.4"
+    },
+    {
+      "hotel_name": "Incekum Beach Resort Turcja, Alanya, Incekum",
+      "duration_bucket": "",
+      "old_price": 9460.0,
+      "new_price": 9460.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-15 18:33:07.969713+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-15T18:34:38.929305+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Incekum Beach Resort Turcja, Alanya, Incekum_2026-10-15_18-33_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sensitive Premium Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 9460.0,
+      "new_price": 9460.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-15 18:33:07.969713+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-15T18:34:38.929334+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sensitive Premium Resort & Spa_2026-10-15_18-33_zone_out_gone"
+    },
+    {
+      "hotel_name": "OZ Incekum Beach Resort",
+      "duration_bucket": "",
+      "old_price": 10522.0,
+      "new_price": 9460.0,
+      "price_change": -1062.0,
+      "price_change_pct": -10.09313818665653,
+      "timestamp": "2026-10-15 18:33:07.969713+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-15T18:34:38.929363+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "OZ Incekum Beach Resort_2026-10-15_18-33_comeback_10.1"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-15T13:40:55.366538+00:00",
+    "last_processed_run": "2026-10-15T18:33:07.969713+00:00",
     "premium_state": {
       "Adalya Art Side (Ex. Grand Art Side)": {
         "history_max": 13227.0,
@@ -1333,8 +1372,8 @@
         "premium_peak": 16766.0
       },
       "Club Turan Prince World": {
-        "history_max": 12276.0,
-        "premium_peak": 12276.0
+        "history_max": 15255.0,
+        "premium_peak": 15255.0
       },
       "Club Side Coast Turcja, Side, Colakli": {
         "history_max": 8569.0,
@@ -1969,8 +2008,8 @@
         "premium_peak": 10483.0
       },
       "Sealife Family Resort": {
-        "history_max": 14177.0,
-        "premium_peak": 14177.0
+        "history_max": 15821.0,
+        "premium_peak": 15821.0
       },
       "Gypsophila Club Marine (ex. Amara Club Marine Nature)": {
         "history_max": 11176.0,
@@ -2503,6 +2542,10 @@
       "Linda Resort (Side)": {
         "history_max": 10101.0,
         "premium_peak": 10101.0
+      },
+      "Sensitive Premium Resort & Spa Turcja, Belek, Bogazkent": {
+        "history_max": 9460.0,
+        "premium_peak": null
       }
     }
   }

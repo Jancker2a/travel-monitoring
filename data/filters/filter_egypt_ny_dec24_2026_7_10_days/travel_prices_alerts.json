@@ -1352,10 +1352,101 @@
       "created_at": "2026-10-15T13:38:26.347895+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Xperience Sea Breeze Egipt, Sharm El Sheikh_2026-10-15_13-37_zone_out_gone"
+    },
+    {
+      "hotel_name": "Rewaya Luxury Resort Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 8780.0,
+      "new_price": 7960.0,
+      "price_change": -820.0,
+      "price_change_pct": -9.339407744874716,
+      "timestamp": "2026-10-15 18:31:00.496231+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-15T18:31:19.477197+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Luxury Resort Egipt, Hurghada_2026-10-15_18-31_-9.3"
+    },
+    {
+      "hotel_name": "Rewaya Majestic Resort Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 8914.0,
+      "new_price": 9851.0,
+      "price_change": 937.0,
+      "price_change_pct": 10.511554857527484,
+      "timestamp": "2026-10-15 18:31:00.496231+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-15T18:31:19.477258+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Majestic Resort Egipt, Hurghada_2026-10-15_18-31_+10.5"
+    },
+    {
+      "hotel_name": "Xperience Kiroseiz Premier Egipt, Sharm El Sheikh",
+      "duration_bucket": "",
+      "old_price": 9831.0,
+      "new_price": 8511.0,
+      "price_change": -1320.0,
+      "price_change_pct": -13.426914861153493,
+      "timestamp": "2026-10-15 18:31:00.496231+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-15T18:31:19.477318+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xperience Kiroseiz Premier Egipt, Sharm El Sheikh_2026-10-15_18-31_-13.4"
+    },
+    {
+      "hotel_name": "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna",
+      "duration_bucket": "",
+      "old_price": 9597.0,
+      "new_price": 8777.0,
+      "price_change": -820.0,
+      "price_change_pct": -8.544336771907886,
+      "timestamp": "2026-10-15 18:31:00.496231+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-15T18:31:19.477351+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna_2026-10-15_18-31_-8.5"
+    },
+    {
+      "hotel_name": "Regency Plaza Aqua Park Spa Egipt, Sharm El Sheikh, Szarm el-Szejk",
+      "duration_bucket": "",
+      "old_price": 9613.0,
+      "new_price": 8293.0,
+      "price_change": -1320.0,
+      "price_change_pct": -13.731405388536357,
+      "timestamp": "2026-10-15 18:31:00.496231+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-15T18:31:19.477376+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Regency Plaza Aqua Park Spa Egipt, Sharm El Sheikh, Szarm el-Szejk_2026-10-15_18-31_-13.7"
+    },
+    {
+      "hotel_name": "Xperience Kiroseiz Parkland Egipt, Sharm El Sheikh",
+      "duration_bucket": "",
+      "old_price": 10165.0,
+      "new_price": 8845.0,
+      "price_change": -1320.0,
+      "price_change_pct": -12.985735366453516,
+      "timestamp": "2026-10-15 18:31:00.496231+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-15T18:31:19.477400+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xperience Kiroseiz Parkland Egipt, Sharm El Sheikh_2026-10-15_18-31_-13.0"
+    },
+    {
+      "hotel_name": "Red Sea Grand Waterworld Makadi (ex. Sunwing Waterworld Makadi) Egipt, Hurghada, Makadi Bay",
+      "duration_bucket": "",
+      "old_price": 10958.0,
+      "new_price": 10958.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-15 18:31:00.496231+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-15T18:31:19.477424+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Red Sea Grand Waterworld Makadi (ex. Sunwing Waterworld Makadi) Egipt, Hurghada, Makadi Bay_2026-10-15_18-31_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-15T13:37:54.115492+00:00",
+    "last_processed_run": "2026-10-15T18:31:00.496231+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 10092.0,
@@ -1430,11 +1521,11 @@
         "premium_peak": null
       },
       "Rewaya Majestic Resort Egipt, Hurghada": {
-        "history_max": 9233.0,
+        "history_max": 9851.0,
         "premium_peak": null
       },
       "Parrotel Lagoon Resort Egipt, Sharm El Sheikh, Szarm el-Szejk": {
-        "history_max": 8789.0,
+        "history_max": 9065.0,
         "premium_peak": null
       },
       "Royal Regency Club Egipt, Sharm El Sheikh, Szarm el-Szejk": {
@@ -1458,15 +1549,15 @@
         "premium_peak": null
       },
       "Sea Star Beau Rivage Egipt, Hurghada": {
-        "history_max": 9492.0,
+        "history_max": 9683.0,
         "premium_peak": null
       },
       "Marriott Hurghada Beach Resort Egipt, Hurghada": {
-        "history_max": 10787.0,
+        "history_max": 10803.0,
         "premium_peak": null
       },
       "Pyramisa Beach Resort Sahl Hasheesh Egipt, Hurghada, Sahl Hasheesh": {
-        "history_max": 10339.0,
+        "history_max": 10599.0,
         "premium_peak": null
       },
       "Old Palace Resort Egipt, Hurghada": {
@@ -1530,7 +1621,7 @@
         "premium_peak": null
       },
       "Hilton Plaza (Hurghada) Egipt, Hurghada": {
-        "history_max": 10710.0,
+        "history_max": 10857.0,
         "premium_peak": null
       },
       "Marriott Hurghada Beach Resort": {
@@ -1551,6 +1642,10 @@
       },
       "Gravity Sahl Hasheesh (Ex. Ocean Breeze)": {
         "history_max": 10939.0,
+        "premium_peak": null
+      },
+      "Imperial Shams Abu Soma Egipt, Hurghada, Soma Bay": {
+        "history_max": 10951.0,
         "premium_peak": null
       }
     }
