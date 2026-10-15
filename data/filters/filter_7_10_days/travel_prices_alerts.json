@@ -1924,10 +1924,153 @@
       "created_at": "2026-10-15T07:37:43.073114+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Pickalbatros Oasis Port Ghalib (ex. Red Sea Port Ghalib Resort)_2026-10-15_07-36_zone_out_+27.1"
+    },
+    {
+      "hotel_name": "AMC Royal Hotel & Spa (ex. AMC Azur Resort)",
+      "duration_bucket": "",
+      "old_price": 7920.0,
+      "new_price": 7138.0,
+      "price_change": -782.0,
+      "price_change_pct": -9.873737373737374,
+      "timestamp": "2026-10-15 13:35:11.863911+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-15T13:35:47.693080+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort)_2026-10-15_13-35_-9.9"
+    },
+    {
+      "hotel_name": "Jaz Palmariva Beach",
+      "duration_bucket": "",
+      "old_price": 8613.0,
+      "new_price": 7893.0,
+      "price_change": -720.0,
+      "price_change_pct": -8.359456635318704,
+      "timestamp": "2026-10-15 13:35:11.863911+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-15T13:35:47.693106+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Palmariva Beach_2026-10-15_13-35_-8.4"
+    },
+    {
+      "hotel_name": "Creek Hotel and Residences",
+      "duration_bucket": "",
+      "old_price": 7821.0,
+      "new_price": 7007.0,
+      "price_change": -814.0,
+      "price_change_pct": -10.40787623066104,
+      "timestamp": "2026-10-15 13:35:11.863911+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-15T13:35:47.693116+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Creek Hotel and Residences_2026-10-15_13-35_-10.4"
+    },
+    {
+      "hotel_name": "Jaz Grand Marsa (ex Resta Grand Resort)",
+      "duration_bucket": "",
+      "old_price": 8467.0,
+      "new_price": 9857.0,
+      "price_change": 1390.0,
+      "price_change_pct": 16.416676508798865,
+      "timestamp": "2026-10-15 13:35:11.863911+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-15T13:35:47.693124+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Grand Marsa (ex Resta Grand Resort)_2026-10-15_13-35_+16.4"
+    },
+    {
+      "hotel_name": "Serenity Alpha Beach (ex. Serenity Makadi Beach)",
+      "duration_bucket": "",
+      "old_price": 8818.0,
+      "new_price": 9824.0,
+      "price_change": 1006.0,
+      "price_change_pct": 11.408482649126785,
+      "timestamp": "2026-10-15 13:35:11.863911+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-15T13:35:47.693133+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Serenity Alpha Beach (ex. Serenity Makadi Beach)_2026-10-15_13-35_+11.4"
+    },
+    {
+      "hotel_name": "Stella Gardens Resort & Spa (ex Stella Di Mare Gardens)",
+      "duration_bucket": "",
+      "old_price": 8623.0,
+      "new_price": 9547.0,
+      "price_change": 924.0,
+      "price_change_pct": 10.7155282384321,
+      "timestamp": "2026-10-15 13:35:11.863911+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-15T13:35:47.693140+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Stella Gardens Resort & Spa (ex Stella Di Mare Gardens)_2026-10-15_13-35_+10.7"
+    },
+    {
+      "hotel_name": "Sea Star Beau Rivage",
+      "duration_bucket": "",
+      "old_price": 8396.0,
+      "new_price": 10923.0,
+      "price_change": 2527.0,
+      "price_change_pct": 30.097665555026204,
+      "timestamp": "2026-10-15 13:35:11.863911+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-15T13:35:47.693158+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sea Star Beau Rivage_2026-10-15_13-35_zone_out_+30.1"
+    },
+    {
+      "hotel_name": "The Cascades Golf Resort Spa & Thalasso (ex Westin Soma Bay)",
+      "duration_bucket": "",
+      "old_price": 8952.0,
+      "new_price": 10127.0,
+      "price_change": 1175.0,
+      "price_change_pct": 13.125558534405721,
+      "timestamp": "2026-10-15 13:35:11.863911+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-15T13:35:47.693166+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "The Cascades Golf Resort Spa & Thalasso (ex Westin Soma Bay)_2026-10-15_13-35_zone_out_+13.1"
+    },
+    {
+      "hotel_name": "Titanic Palace Resort",
+      "duration_bucket": "",
+      "old_price": 9817.0,
+      "new_price": 13377.0,
+      "price_change": 3560.0,
+      "price_change_pct": 36.26362432515025,
+      "timestamp": "2026-10-15 13:35:11.863911+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-15T13:35:47.693173+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Titanic Palace Resort_2026-10-15_13-35_zone_out_+36.3"
+    },
+    {
+      "hotel_name": "Pickalbatros Golf Beach Resort",
+      "duration_bucket": "",
+      "old_price": 10317.0,
+      "new_price": 9412.0,
+      "price_change": -905.0,
+      "price_change_pct": -8.771929824561402,
+      "timestamp": "2026-10-15 13:35:11.863911+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-15T13:35:47.693193+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Golf Beach Resort_2026-10-15_13-35_comeback_8.8"
+    },
+    {
+      "hotel_name": "Jaz Neo Saraya Palms",
+      "duration_bucket": "",
+      "old_price": 10530.0,
+      "new_price": 9058.0,
+      "price_change": -1472.0,
+      "price_change_pct": -13.979107312440645,
+      "timestamp": "2026-10-15 13:35:11.863911+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-15T13:35:47.693203+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Neo Saraya Palms_2026-10-15_13-35_comeback_14.0"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-15T07:36:56.451600+00:00",
+    "last_processed_run": "2026-10-15T13:35:11.863911+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 7920.0,
@@ -1966,11 +2109,11 @@
         "premium_peak": 14829.0
       },
       "Siva Golden Bay Makadi": {
-        "history_max": 7637.0,
+        "history_max": 7867.0,
         "premium_peak": null
       },
       "V Grand Beach Resort Sahl Hasheesh": {
-        "history_max": 8681.0,
+        "history_max": 9047.0,
         "premium_peak": null
       },
       "Sunrise Royal Makadi Aqua Resort": {
@@ -1986,7 +2129,7 @@
         "premium_peak": 11362.0
       },
       "Movenpick Waterpark Resort & Spa Soma Bay": {
-        "history_max": 8013.0,
+        "history_max": 8275.0,
         "premium_peak": null
       },
       "Steigenberger Aqua Magic": {
@@ -2034,8 +2177,8 @@
         "premium_peak": 13807.0
       },
       "Baron Palace Resort (Sahl Hasheesh)": {
-        "history_max": 12196.0,
-        "premium_peak": 12196.0
+        "history_max": 12819.0,
+        "premium_peak": 12819.0
       },
       "Pickalbatros Aqua Blu Resort": {
         "history_max": 12913.0,
@@ -2062,8 +2205,8 @@
         "premium_peak": 10493.0
       },
       "Hilton Plaza (Hurghada)": {
-        "history_max": 10508.0,
-        "premium_peak": 10508.0
+        "history_max": 10742.0,
+        "premium_peak": 10742.0
       },
       "Xanadu Club Makadi Bay": {
         "history_max": 14024.0,
@@ -2118,8 +2261,8 @@
         "premium_peak": 10509.0
       },
       "Sunrise Anjum Resort": {
-        "history_max": 11956.0,
-        "premium_peak": 11956.0
+        "history_max": 12118.0,
+        "premium_peak": 12118.0
       },
       "Jaz Elite Asteria (Hurghada)": {
         "history_max": 16434.0,
@@ -2174,7 +2317,7 @@
         "premium_peak": 14297.0
       },
       "Jaz Grand Marsa (ex Resta Grand Resort)": {
-        "history_max": 9217.0,
+        "history_max": 9857.0,
         "premium_peak": null
       },
       "Titanic Royal": {
@@ -2182,8 +2325,8 @@
         "premium_peak": 10626.0
       },
       "Jaz Elite Negma": {
-        "history_max": 13750.0,
-        "premium_peak": 13750.0
+        "history_max": 14172.0,
+        "premium_peak": 14172.0
       },
       "Jaz Elite Riviera": {
         "history_max": 18431.0,
@@ -2194,8 +2337,8 @@
         "premium_peak": 15850.0
       },
       "Pickalbatros Blu Spa Resort Hurghada": {
-        "history_max": 17817.0,
-        "premium_peak": 17817.0
+        "history_max": 18297.0,
+        "premium_peak": 18297.0
       },
       "Charmillion Club Aqua Park": {
         "history_max": 10525.0,
@@ -2214,8 +2357,8 @@
         "premium_peak": 10297.0
       },
       "Titanic Pearl": {
-        "history_max": 10057.0,
-        "premium_peak": 10057.0
+        "history_max": 10297.0,
+        "premium_peak": 10297.0
       },
       "Marriott Hurghada Beach Resort": {
         "history_max": 8947.0,
@@ -2294,8 +2437,8 @@
         "premium_peak": null
       },
       "Serry Beach Resort": {
-        "history_max": 15487.0,
-        "premium_peak": 15487.0
+        "history_max": 15859.0,
+        "premium_peak": 15859.0
       },
       "Sataya Resort (ex. Labranda Sataya Marsa Alam)": {
         "history_max": 9457.0,
@@ -2346,12 +2489,12 @@
         "premium_peak": null
       },
       "Titanic Palace Resort": {
-        "history_max": 9817.0,
-        "premium_peak": null
+        "history_max": 13377.0,
+        "premium_peak": 13377.0
       },
       "Sea Star Beau Rivage": {
-        "history_max": 10669.0,
-        "premium_peak": 10669.0
+        "history_max": 10923.0,
+        "premium_peak": 10923.0
       },
       "Amarina Jannah Resort Aquapark": {
         "history_max": 7717.0,
@@ -2370,8 +2513,8 @@
         "premium_peak": 10137.0
       },
       "Double Tree by Hilton Mangroovy El Gouna Resort": {
-        "history_max": 10237.0,
-        "premium_peak": 10237.0
+        "history_max": 10742.0,
+        "premium_peak": 10742.0
       },
       "Titanic Beach Spa & Aqua Park": {
         "history_max": 9357.0,
@@ -2482,7 +2625,7 @@
         "premium_peak": null
       },
       "Serenity Alpha Beach (ex. Serenity Makadi Beach)": {
-        "history_max": 9207.0,
+        "history_max": 9824.0,
         "premium_peak": null
       },
       "Pickalbatros Laguna Vista Beach": {
@@ -2582,8 +2725,8 @@
         "premium_peak": 11759.0
       },
       "Pickalbatros Oasis Port Ghalib (ex. Red Sea Port Ghalib Resort)": {
-        "history_max": 15468.0,
-        "premium_peak": 15468.0
+        "history_max": 16728.0,
+        "premium_peak": 16728.0
       },
       "Cleopatra Luxury Resort": {
         "history_max": 11517.0,

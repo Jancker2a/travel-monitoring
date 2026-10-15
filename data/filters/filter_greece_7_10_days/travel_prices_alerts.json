@@ -650,10 +650,49 @@
       "created_at": "2026-10-15T01:43:11.802122+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Galini Palace Grecja, Kreta Zachodnia, Kolymvari_2026-10-15_01-42_zone_out_gone"
+    },
+    {
+      "hotel_name": "Mitsis Rodos Maris Grecja, Rodos, Kiotari",
+      "duration_bucket": "",
+      "old_price": 6885.0,
+      "new_price": 8650.0,
+      "price_change": 1765.0,
+      "price_change_pct": 25.635439360929556,
+      "timestamp": "2026-10-15 13:41:38.258806+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-15T13:42:27.300613+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Mitsis Rodos Maris Grecja, Rodos, Kiotari_2026-10-15_13-41_+25.6"
+    },
+    {
+      "hotel_name": "Grecotel Costa Botanica (ex. Gelina Village) Grecja, Korfu, Acharavi",
+      "duration_bucket": "",
+      "old_price": 9976.0,
+      "new_price": 9976.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-15 13:41:38.258806+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-15T13:42:27.300648+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Grecotel Costa Botanica (ex. Gelina Village) Grecja, Korfu, Acharavi_2026-10-15_13-41_zone_out_gone"
+    },
+    {
+      "hotel_name": "Mitsis Blue Domes Exclusive Resort & Spa Grecja, Kos, Kardamena",
+      "duration_bucket": "",
+      "old_price": 9048.0,
+      "new_price": 9048.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-15 13:41:38.258806+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-15T13:42:27.300657+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Mitsis Blue Domes Exclusive Resort & Spa Grecja, Kos, Kardamena_2026-10-15_13-41_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-15T07:41:52.681459+00:00",
+    "last_processed_run": "2026-10-15T13:41:38.258806+00:00",
     "premium_state": {
       "Istion Club": {
         "history_max": 10579.0,
@@ -804,8 +843,8 @@
         "premium_peak": 10127.0
       },
       "Mythos Palace": {
-        "history_max": 11527.0,
-        "premium_peak": 11527.0
+        "history_max": 12457.0,
+        "premium_peak": 12457.0
       },
       "Porto Platanias Village": {
         "history_max": 11077.0,
@@ -840,7 +879,7 @@
         "premium_peak": 10018.0
       },
       "Possidi Holidays Grecja, Chalkidiki, Possidi": {
-        "history_max": 8597.0,
+        "history_max": 8617.0,
         "premium_peak": null
       },
       "Mitsis Selection Laguna": {
@@ -860,12 +899,12 @@
         "premium_peak": 16807.0
       },
       "Aquila Porto Rethymno": {
-        "history_max": 12217.0,
-        "premium_peak": 12217.0
+        "history_max": 13167.0,
+        "premium_peak": 13167.0
       },
       "Blue Sea Beach (Stalida)": {
-        "history_max": 16270.0,
-        "premium_peak": 16270.0
+        "history_max": 16318.0,
+        "premium_peak": 16318.0
       },
       "Anemos Luxury Grand Resort": {
         "history_max": 12437.0,
@@ -876,8 +915,8 @@
         "premium_peak": null
       },
       "Portes Lithos Luxury Resort": {
-        "history_max": 11297.0,
-        "premium_peak": 11297.0
+        "history_max": 11337.0,
+        "premium_peak": 11337.0
       },
       "Stella Palace Aqua Park Resort Grecja, Kreta Wschodnia, Analipsis": {
         "history_max": 8541.0,
@@ -896,8 +935,8 @@
         "premium_peak": 19221.0
       },
       "Grecotel LuxMe Costa Botanica (ex. Gelina Village)": {
-        "history_max": 10476.0,
-        "premium_peak": 10476.0
+        "history_max": 10707.0,
+        "premium_peak": 10707.0
       },
       "Hydramis Palace Beach Resort Grecja, Kreta Zachodnia, Kavros": {
         "history_max": 6677.0,
@@ -912,8 +951,8 @@
         "premium_peak": 16088.0
       },
       "Kresten Royal Euphoria Resort (ex. Kresten Royal Villas)": {
-        "history_max": 14447.0,
-        "premium_peak": 14447.0
+        "history_max": 14677.0,
+        "premium_peak": 14677.0
       },
       "Sunshine Crete Beach (ex Club Calimera) Grecja, Kreta Wschodnia, Koutsounari": {
         "history_max": 9483.0,
@@ -948,8 +987,8 @@
         "premium_peak": null
       },
       "Lindos Imperial Resort & Spa": {
-        "history_max": 12487.0,
-        "premium_peak": 12487.0
+        "history_max": 12727.0,
+        "premium_peak": 12727.0
       },
       "Alia Palace": {
         "history_max": 12167.0,
@@ -960,8 +999,8 @@
         "premium_peak": null
       },
       "Georgioupolis Resort & Aqua Park": {
-        "history_max": 11507.0,
-        "premium_peak": 11507.0
+        "history_max": 12447.0,
+        "premium_peak": 12447.0
       },
       "Gennadi Grand Resort": {
         "history_max": 17567.0,
@@ -1000,8 +1039,8 @@
         "premium_peak": null
       },
       "Amus": {
-        "history_max": 12887.0,
-        "premium_peak": 12887.0
+        "history_max": 13325.0,
+        "premium_peak": 13325.0
       },
       "Gouves Water Park Holiday Resort": {
         "history_max": 13524.0,
@@ -1040,8 +1079,8 @@
         "premium_peak": null
       },
       "Helea Lifestyle Beach Resort": {
-        "history_max": 15127.0,
-        "premium_peak": 15127.0
+        "history_max": 15367.0,
+        "premium_peak": 15367.0
       },
       "Caramel a Grecotel Resort to Live": {
         "history_max": 19877.0,
@@ -1052,12 +1091,12 @@
         "premium_peak": 10017.0
       },
       "Lindos Royal (ex. COOEE)": {
-        "history_max": 10537.0,
-        "premium_peak": 10537.0
+        "history_max": 10757.0,
+        "premium_peak": 10757.0
       },
       "Akasha Beach (ex Armava)": {
-        "history_max": 16211.0,
-        "premium_peak": 16211.0
+        "history_max": 19206.0,
+        "premium_peak": 19206.0
       },
       "Hersonissos Palace Grecja, Kreta Wschodnia, Hersonissos": {
         "history_max": 9441.0,
@@ -1072,8 +1111,8 @@
         "premium_peak": null
       },
       "Mare blue (ex. Sunshine Crete Beach)": {
-        "history_max": 11929.0,
-        "premium_peak": 11929.0
+        "history_max": 12139.0,
+        "premium_peak": 12139.0
       },
       "Euphoria Resort Grecja, Kreta Zachodnia, Kolymvari": {
         "history_max": 10050.0,
