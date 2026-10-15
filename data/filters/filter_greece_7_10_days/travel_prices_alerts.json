@@ -624,10 +624,36 @@
       "created_at": "2026-10-14T18:52:16.669632+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Wyndham Grand Crete Mirabello Bay Grecja, Kreta Wschodnia, Agios Nikolaos_2026-10-14_18-51_-9.3"
+    },
+    {
+      "hotel_name": "Lydia Maris Resort & Spa Grecja, Rodos, Kolymbia",
+      "duration_bucket": "",
+      "old_price": 7282.0,
+      "new_price": 8082.0,
+      "price_change": 800.0,
+      "price_change_pct": 10.985992859104641,
+      "timestamp": "2026-10-15 01:42:02.282307+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-15T01:43:11.802088+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Lydia Maris Resort & Spa Grecja, Rodos, Kolymbia_2026-10-15_01-42_+11.0"
+    },
+    {
+      "hotel_name": "Galini Palace Grecja, Kreta Zachodnia, Kolymvari",
+      "duration_bucket": "",
+      "old_price": 7069.0,
+      "new_price": 7069.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-15 01:42:02.282307+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-15T01:43:11.802122+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Galini Palace Grecja, Kreta Zachodnia, Kolymvari_2026-10-15_01-42_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-14T22:31:10.130135+00:00",
+    "last_processed_run": "2026-10-15T01:42:02.282307+00:00",
     "premium_state": {
       "Istion Club": {
         "history_max": 10385.0,
@@ -646,8 +672,8 @@
         "premium_peak": 11760.0
       },
       "Aquila Elounda Village": {
-        "history_max": 16971.0,
-        "premium_peak": 16971.0
+        "history_max": 17121.0,
+        "premium_peak": 17121.0
       },
       "Rethymno Mare & Water Park (Rethymno) Grecja, Kreta Zachodnia, SCALETA": {
         "history_max": 9217.0,
@@ -714,8 +740,8 @@
         "premium_peak": null
       },
       "MarBella, Mar-Bella Collection (Agios Ioannis)": {
-        "history_max": 12411.0,
-        "premium_peak": 12411.0
+        "history_max": 12497.0,
+        "premium_peak": 12497.0
       },
       "Senseana Sea Side Resort & Spa (ex. Golden Star)": {
         "history_max": 15741.0,
@@ -742,8 +768,8 @@
         "premium_peak": 10393.0
       },
       "Pilot Beach Resort": {
-        "history_max": 13091.0,
-        "premium_peak": 13091.0
+        "history_max": 14847.0,
+        "premium_peak": 14847.0
       },
       "Aulus Chania Resort, Curio Collection by Hilton (ex. Isla Brown Chania)": {
         "history_max": 12703.0,
@@ -814,7 +840,7 @@
         "premium_peak": 10018.0
       },
       "Possidi Holidays Grecja, Chalkidiki, Possidi": {
-        "history_max": 8567.0,
+        "history_max": 8597.0,
         "premium_peak": null
       },
       "Mitsis Selection Laguna": {
@@ -850,8 +876,8 @@
         "premium_peak": null
       },
       "Portes Lithos Luxury Resort": {
-        "history_max": 11275.0,
-        "premium_peak": 11275.0
+        "history_max": 11297.0,
+        "premium_peak": 11297.0
       },
       "Stella Palace Aqua Park Resort Grecja, Kreta Wschodnia, Analipsis": {
         "history_max": 8541.0,
@@ -1058,12 +1084,16 @@
         "premium_peak": null
       },
       "Rodos Palace": {
-        "history_max": 12313.0,
-        "premium_peak": 12313.0
+        "history_max": 12973.0,
+        "premium_peak": 12973.0
       },
       "Princess Andriana Resort & Spa Grecja, Rodos, Kiotari": {
         "history_max": 10393.0,
         "premium_peak": 10393.0
+      },
+      "Mitsis Laguna Resort & Spa Grecja, Kreta Wschodnia, Anissaras": {
+        "history_max": 10087.0,
+        "premium_peak": 10087.0
       }
     }
   }

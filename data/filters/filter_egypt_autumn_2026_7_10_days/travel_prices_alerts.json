@@ -1235,10 +1235,75 @@
       "created_at": "2026-10-14T22:26:40.495118+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Titanic Palace Resort Egipt, Hurghada_2026-10-14_22-25_zone_out_gone"
+    },
+    {
+      "hotel_name": "Amarina Jannah Resort Aquapark Egipt, Marsa Alam, Port Ghalib",
+      "duration_bucket": "",
+      "old_price": 8232.0,
+      "new_price": 7017.0,
+      "price_change": -1215.0,
+      "price_change_pct": -14.759475218658894,
+      "timestamp": "2026-10-15 01:37:29.759793+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-15T01:37:59.703197+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amarina Jannah Resort Aquapark Egipt, Marsa Alam, Port Ghalib_2026-10-15_01-37_-14.8"
+    },
+    {
+      "hotel_name": "Jaz Aquamarine (ex. Iberotel Aquamarine) Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 9637.0,
+      "new_price": 9637.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-15 01:37:29.759793+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-15T01:37:59.703230+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Aquamarine (ex. Iberotel Aquamarine) Egipt, Hurghada_2026-10-15_01-37_zone_out_gone"
+    },
+    {
+      "hotel_name": "Jaz Grand Marsa (ex Resta Grand Resort)",
+      "duration_bucket": "",
+      "old_price": 9953.0,
+      "new_price": 9953.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-15 01:37:29.759793+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-15T01:37:59.703242+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Grand Marsa (ex Resta Grand Resort)_2026-10-15_01-37_zone_out_gone"
+    },
+    {
+      "hotel_name": "Pickalbatros Dana Beach Resort",
+      "duration_bucket": "",
+      "old_price": 9818.0,
+      "new_price": 9818.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-15 01:37:29.759793+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-15T01:37:59.703251+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Dana Beach Resort_2026-10-15_01-37_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sataya Resort (ex. Labranda Sataya Marsa Alam) Egipt, Marsa Alam",
+      "duration_bucket": "",
+      "old_price": 9657.0,
+      "new_price": 9657.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-15 01:37:29.759793+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-15T01:37:59.703259+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sataya Resort (ex. Labranda Sataya Marsa Alam) Egipt, Marsa Alam_2026-10-15_01-37_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-14T22:25:39.019093+00:00",
+    "last_processed_run": "2026-10-15T01:37:29.759793+00:00",
     "premium_state": {
       "Pickalbatros Golf Beach Resort": {
         "history_max": 10937.0,
@@ -1610,6 +1675,10 @@
       },
       "Amwaj Oyoun Resort & Spa (ex AA Amwaj Resort) Egipt, Sharm El Sheikh": {
         "history_max": 7582.0,
+        "premium_peak": null
+      },
+      "Jaz Aquamarine Resort": {
+        "history_max": 9637.0,
         "premium_peak": null
       }
     }
