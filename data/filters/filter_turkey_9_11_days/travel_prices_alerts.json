@@ -1482,10 +1482,101 @@
       "created_at": "2026-10-15T01:42:01.408273+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Utopia World_2026-10-15_01-41_zone_out_+5.4"
+    },
+    {
+      "hotel_name": "First Class",
+      "duration_bucket": "",
+      "old_price": 8974.0,
+      "new_price": 5783.0,
+      "price_change": -3191.0,
+      "price_change_pct": -35.558279474036105,
+      "timestamp": "2026-10-15 07:40:41.949932+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-15T07:41:51.727237+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "First Class_2026-10-15_07-40_-35.6"
+    },
+    {
+      "hotel_name": "Wind of Lara",
+      "duration_bucket": "",
+      "old_price": 9919.0,
+      "new_price": 8799.0,
+      "price_change": -1120.0,
+      "price_change_pct": -11.291460832745237,
+      "timestamp": "2026-10-15 07:40:41.949932+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-15T07:41:51.727279+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Wind of Lara_2026-10-15_07-40_-11.3"
+    },
+    {
+      "hotel_name": "Drita Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 7115.0,
+      "new_price": 6264.0,
+      "price_change": -851.0,
+      "price_change_pct": -11.96064652143359,
+      "timestamp": "2026-10-15 07:40:41.949932+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-15T07:41:51.727293+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Drita Resort & Spa_2026-10-15_07-40_-12.0"
+    },
+    {
+      "hotel_name": "Side Aluna",
+      "duration_bucket": "",
+      "old_price": 9652.0,
+      "new_price": 8532.0,
+      "price_change": -1120.0,
+      "price_change_pct": -11.603812681309574,
+      "timestamp": "2026-10-15 07:40:41.949932+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-15T07:41:51.727318+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Side Aluna_2026-10-15_07-40_-11.6"
+    },
+    {
+      "hotel_name": "Mary Alanya (ex. Sirius Deluxe)",
+      "duration_bucket": "",
+      "old_price": 9729.0,
+      "new_price": 12930.0,
+      "price_change": 3201.0,
+      "price_change_pct": 32.90163428923836,
+      "timestamp": "2026-10-15 07:40:41.949932+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-15T07:41:51.727350+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Mary Alanya (ex. Sirius Deluxe)_2026-10-15_07-40_zone_out_+32.9"
+    },
+    {
+      "hotel_name": "Sherwood Dreams Resort",
+      "duration_bucket": "",
+      "old_price": 9729.0,
+      "new_price": 10540.0,
+      "price_change": 811.0,
+      "price_change_pct": 8.335902970500566,
+      "timestamp": "2026-10-15 07:40:41.949932+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-15T07:41:51.727362+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sherwood Dreams Resort_2026-10-15_07-40_zone_out_+8.3"
+    },
+    {
+      "hotel_name": "Adalya Art Side (Ex. Grand Art Side)",
+      "duration_bucket": "",
+      "old_price": 10168.0,
+      "new_price": 9048.0,
+      "price_change": -1120.0,
+      "price_change_pct": -11.014948859166012,
+      "timestamp": "2026-10-15 07:40:41.949932+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-15T07:41:51.727387+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Adalya Art Side (Ex. Grand Art Side)_2026-10-15_07-40_comeback_11.0"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-15T01:41:06.365652+00:00",
+    "last_processed_run": "2026-10-15T07:40:41.949932+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 11773.0,
@@ -1684,8 +1775,8 @@
         "premium_peak": null
       },
       "Sherwood Dreams Resort": {
-        "history_max": 10467.0,
-        "premium_peak": 10467.0
+        "history_max": 10540.0,
+        "premium_peak": 10540.0
       },
       "Eftalia Ocean (Alanya)": {
         "history_max": 8960.0,
@@ -2140,8 +2231,8 @@
         "premium_peak": 11124.0
       },
       "Mary Alanya (ex. Sirius Deluxe)": {
-        "history_max": 9980.0,
-        "premium_peak": null
+        "history_max": 12930.0,
+        "premium_peak": 12930.0
       },
       "Pine Beach Belek (ex. Maritim Pine Beach Resort)": {
         "history_max": 13482.0,
