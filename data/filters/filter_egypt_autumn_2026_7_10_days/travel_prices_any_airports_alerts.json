@@ -1833,10 +1833,88 @@
       "created_at": "2026-10-15T22:31:17.140612+00:00",
       "threshold_percent": 8.0,
       "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada_2026-10-15_22-30_+35.7"
+    },
+    {
+      "hotel_name": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 7412.0,
+      "new_price": 6287.0,
+      "price_change": -1125.0,
+      "price_change_pct": -15.178089584457636,
+      "timestamp": "2026-10-16 07:22:23.076302+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-16T07:22:47.913758+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada_2026-10-16_07-22_-15.2"
+    },
+    {
+      "hotel_name": "Royal Regency Club Egipt, Sharm El Sheikh, Szarm el-Szejk",
+      "duration_bucket": "",
+      "old_price": 7454.0,
+      "new_price": 8055.0,
+      "price_change": 601.0,
+      "price_change_pct": 8.062785081835257,
+      "timestamp": "2026-10-16 07:22:23.076302+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-16T07:22:47.913784+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Royal Regency Club Egipt, Sharm El Sheikh, Szarm el-Szejk_2026-10-16_07-22_+8.1"
+    },
+    {
+      "hotel_name": "Amwaj Oyoun Resort & Spa (ex AA Amwaj Resort) Egipt, Sharm El Sheikh",
+      "duration_bucket": "",
+      "old_price": 6644.0,
+      "new_price": 6644.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-16 07:22:23.076302+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-16T07:22:47.913806+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amwaj Oyoun Resort & Spa (ex AA Amwaj Resort) Egipt, Sharm El Sheikh_2026-10-16_07-22_zone_out_gone"
+    },
+    {
+      "hotel_name": "Jaz Grand Marsa (ex Resta Grand Resort)",
+      "duration_bucket": "",
+      "old_price": 10287.0,
+      "new_price": 10287.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-16 07:22:23.076302+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-16T07:22:47.913813+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Grand Marsa (ex Resta Grand Resort)_2026-10-16_07-22_zone_out_gone"
+    },
+    {
+      "hotel_name": "Naama Bay Promenade Beach Resort",
+      "duration_bucket": "",
+      "old_price": 10359.0,
+      "new_price": 10359.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-16 07:22:23.076302+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-16T07:22:47.913819+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Naama Bay Promenade Beach Resort_2026-10-16_07-22_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sea Star Beau Rivage",
+      "duration_bucket": "",
+      "old_price": 10923.0,
+      "new_price": 10923.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-16 07:22:23.076302+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-16T07:22:47.913824+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sea Star Beau Rivage_2026-10-16_07-22_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-15T22:30:33.110971+00:00",
+    "last_processed_run": "2026-10-16T07:22:23.076302+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 7412.0,
@@ -1863,7 +1941,7 @@
         "premium_peak": null
       },
       "Jaz Aquamarine Resort": {
-        "history_max": 9387.0,
+        "history_max": 9617.0,
         "premium_peak": null
       },
       "Serenity Makadi Beach (ex. Heights) Egipt, Hurghada, Makadi Bay": {
@@ -1887,7 +1965,7 @@
         "premium_peak": null
       },
       "Jaz Makadi Oasis Resort": {
-        "history_max": 10807.0,
+        "history_max": 10827.0,
         "premium_peak": null
       },
       "Sentido Mamlouk Palace Resort & Spa (ex Sunrise)": {
@@ -1959,7 +2037,7 @@
         "premium_peak": null
       },
       "Hilton Plaza (Hurghada)": {
-        "history_max": 10193.0,
+        "history_max": 10463.0,
         "premium_peak": null
       },
       "Sirena Beach Resort & Spa": {
@@ -2023,7 +2101,7 @@
         "premium_peak": null
       },
       "Double Tree by Hilton Mangroovy El Gouna Resort": {
-        "history_max": 10323.0,
+        "history_max": 10557.0,
         "premium_peak": null
       },
       "Stella Beach Resort & Spa": {
@@ -2123,7 +2201,7 @@
         "premium_peak": null
       },
       "Pickalbatros Golf Beach Resort": {
-        "history_max": 10537.0,
+        "history_max": 10867.0,
         "premium_peak": null
       },
       "Rewaya Luxury Resort Egipt, Hurghada": {

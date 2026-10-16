@@ -2457,10 +2457,62 @@
       "created_at": "2026-10-16T01:32:59.392966+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sea Star Beau Rivage_2026-10-16_01-32_comeback_23.1"
+    },
+    {
+      "hotel_name": "Amwaj Oyoun Resort & Casino",
+      "duration_bucket": "",
+      "old_price": 7893.0,
+      "new_price": 9347.0,
+      "price_change": 1454.0,
+      "price_change_pct": 18.42138603826175,
+      "timestamp": "2026-10-16 07:22:06.768142+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-16T07:22:53.870648+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amwaj Oyoun Resort & Casino_2026-10-16_07-22_+18.4"
+    },
+    {
+      "hotel_name": "AMC Royal Hotel & Spa (ex. AMC Azur Resort)",
+      "duration_bucket": "",
+      "old_price": 7770.0,
+      "new_price": 6287.0,
+      "price_change": -1483.0,
+      "price_change_pct": -19.086229086229086,
+      "timestamp": "2026-10-16 07:22:06.768142+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-16T07:22:53.870673+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort)_2026-10-16_07-22_-19.1"
+    },
+    {
+      "hotel_name": "Flow Aqua Legends Resort",
+      "duration_bucket": "",
+      "old_price": 9981.0,
+      "new_price": 9981.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-16 07:22:06.768142+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-16T07:22:53.870693+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Flow Aqua Legends Resort_2026-10-16_07-22_zone_out_gone"
+    },
+    {
+      "hotel_name": "Old Palace Resort",
+      "duration_bucket": "",
+      "old_price": 9083.0,
+      "new_price": 17697.0,
+      "price_change": 8614.0,
+      "price_change_pct": 94.83650776175271,
+      "timestamp": "2026-10-16 07:22:06.768142+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-16T07:22:53.870701+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Old Palace Resort_2026-10-16_07-22_zone_out_+94.8"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-16T01:32:04.690719+00:00",
+    "last_processed_run": "2026-10-16T07:22:06.768142+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 7920.0,
@@ -2563,8 +2615,8 @@
         "premium_peak": 11607.0
       },
       "Sheraton Miramar Resort (El Gouna)": {
-        "history_max": 14557.0,
-        "premium_peak": 14557.0
+        "history_max": 15845.0,
+        "premium_peak": 15845.0
       },
       "Baron Palace Resort (Sahl Hasheesh)": {
         "history_max": 12819.0,
@@ -2607,8 +2659,8 @@
         "premium_peak": null
       },
       "Baron Palms": {
-        "history_max": 16137.0,
-        "premium_peak": 16137.0
+        "history_max": 16587.0,
+        "premium_peak": 16587.0
       },
       "Sierra": {
         "history_max": 12623.0,
@@ -2619,8 +2671,8 @@
         "premium_peak": 12439.0
       },
       "Old Palace Resort": {
-        "history_max": 9083.0,
-        "premium_peak": null
+        "history_max": 17697.0,
+        "premium_peak": 17697.0
       },
       "Sirena Beach Resort & Spa": {
         "history_max": 9697.0,
@@ -2819,8 +2871,8 @@
         "premium_peak": 10530.0
       },
       "Sunrise White Hills Resort": {
-        "history_max": 15337.0,
-        "premium_peak": 15337.0
+        "history_max": 15427.0,
+        "premium_peak": 15427.0
       },
       "Parrotel Lagoon Resort": {
         "history_max": 6645.0,
@@ -2847,7 +2899,7 @@
         "premium_peak": 13921.0
       },
       "Red Sea Grand Waterworld Makadi (ex. Sunwing Waterworld Makadi)": {
-        "history_max": 8844.0,
+        "history_max": 9018.0,
         "premium_peak": null
       },
       "Albatros Sea World Resort Marsa Alam": {
@@ -2871,8 +2923,8 @@
         "premium_peak": 15752.0
       },
       "Pickalbatros White Beach Resort": {
-        "history_max": 12047.0,
-        "premium_peak": 12047.0
+        "history_max": 12067.0,
+        "premium_peak": 12067.0
       },
       "Dream Lagoon & Aqua Park Resort (ex. Floriana Dream Lagoon)": {
         "history_max": 7313.0,
@@ -2927,8 +2979,8 @@
         "premium_peak": 16341.0
       },
       "Rixos Sharm el Sheikh": {
-        "history_max": 19047.0,
-        "premium_peak": 19047.0
+        "history_max": 19287.0,
+        "premium_peak": 19287.0
       },
       "Continental (ex Movenpick Resort)": {
         "history_max": 10746.0,
@@ -2971,7 +3023,7 @@
         "premium_peak": null
       },
       "Royal Regency Club": {
-        "history_max": 8505.0,
+        "history_max": 8529.0,
         "premium_peak": null
       },
       "Swisstouch Oriental Resort (ex. Hotelux Oriental Coast)": {
