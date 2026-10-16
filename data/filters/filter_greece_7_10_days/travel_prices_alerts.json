@@ -845,10 +845,49 @@
       "created_at": "2026-10-16T13:26:57.573383+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Rodos Palace Grecja, Rodos, Ixia_2026-10-16_13-26_zone_out_gone"
+    },
+    {
+      "hotel_name": "Mitsis Summer Palace Grecja, kos, Kardamaina",
+      "duration_bucket": "",
+      "old_price": 6538.0,
+      "new_price": 7446.0,
+      "price_change": 908.0,
+      "price_change_pct": 13.888039155705108,
+      "timestamp": "2026-10-16 18:22:17.246876+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-16T18:23:10.956700+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Mitsis Summer Palace Grecja, kos, Kardamaina_2026-10-16_18-22_+13.9"
+    },
+    {
+      "hotel_name": "Rhodes Bay & Spa (ex Amathus Beach) Grecja, Rodos, Ixia",
+      "duration_bucket": "",
+      "old_price": 9977.0,
+      "new_price": 10827.0,
+      "price_change": 850.0,
+      "price_change_pct": 8.519595068657914,
+      "timestamp": "2026-10-16 18:22:17.246876+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-16T18:23:10.956735+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rhodes Bay & Spa (ex Amathus Beach) Grecja, Rodos, Ixia_2026-10-16_18-22_zone_out_+8.5"
+    },
+    {
+      "hotel_name": "Kairaba Sandy Villas Grecja, Korfu, Agios Georgios",
+      "duration_bucket": "",
+      "old_price": 10787.0,
+      "new_price": 8812.0,
+      "price_change": -1975.0,
+      "price_change_pct": -18.309075739315844,
+      "timestamp": "2026-10-16 18:22:17.246876+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-16T18:23:10.956758+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Kairaba Sandy Villas Grecja, Korfu, Agios Georgios_2026-10-16_18-22_comeback_18.3"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-16T13:26:03.256784+00:00",
+    "last_processed_run": "2026-10-16T18:22:17.246876+00:00",
     "premium_state": {
       "Istion Club": {
         "history_max": 13129.0,
@@ -971,8 +1010,8 @@
         "premium_peak": 12703.0
       },
       "Atrium Platinum Resort & Spa": {
-        "history_max": 18405.0,
-        "premium_peak": 18405.0
+        "history_max": 18555.0,
+        "premium_peak": 18555.0
       },
       "Panorama Leptos (Kato Galatas)": {
         "history_max": 11384.0,
@@ -1019,7 +1058,7 @@
         "premium_peak": null
       },
       "Mitsis Summer Palace Grecja, kos, Kardamaina": {
-        "history_max": 7409.0,
+        "history_max": 7446.0,
         "premium_peak": null
       },
       "Arion Palace Grecja, Kreta Wschodnia, Ierapetra": {
@@ -1071,8 +1110,8 @@
         "premium_peak": null
       },
       "Portes Lithos Luxury Resort": {
-        "history_max": 11337.0,
-        "premium_peak": 11337.0
+        "history_max": 12576.0,
+        "premium_peak": 12576.0
       },
       "Stella Palace Aqua Park Resort Grecja, Kreta Wschodnia, Analipsis": {
         "history_max": 8541.0,
@@ -1255,8 +1294,8 @@
         "premium_peak": 19206.0
       },
       "Hersonissos Palace Grecja, Kreta Wschodnia, Hersonissos": {
-        "history_max": 9441.0,
-        "premium_peak": null
+        "history_max": 10034.0,
+        "premium_peak": 10034.0
       },
       "Filion Suites Resort": {
         "history_max": 12047.0,
@@ -1279,8 +1318,8 @@
         "premium_peak": 10707.0
       },
       "Rodos Palace": {
-        "history_max": 13300.0,
-        "premium_peak": 13300.0
+        "history_max": 13900.0,
+        "premium_peak": 13900.0
       },
       "Princess Andriana Resort & Spa Grecja, Rodos, Kiotari": {
         "history_max": 10393.0,
@@ -1311,8 +1350,8 @@
         "premium_peak": 10787.0
       },
       "Rhodes Bay & Spa (ex Amathus Beach) Grecja, Rodos, Ixia": {
-        "history_max": 9977.0,
-        "premium_peak": null
+        "history_max": 10827.0,
+        "premium_peak": 10827.0
       },
       "Rethymno Mare Royal & Water Park (ex. Bomo) Grecja, Kreta Zachodnia, Scaleta": {
         "history_max": 11017.0,
