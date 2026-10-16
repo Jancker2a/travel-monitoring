@@ -767,10 +767,62 @@
       "created_at": "2026-10-15T18:35:14.860978+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Pegasos Beach (Faliraki) Grecja, Rodos, Faliraki_2026-10-15_18-34_zone_out_gone"
+    },
+    {
+      "hotel_name": "Mitsis Rodos Maris Grecja, Rodos, Kiotari",
+      "duration_bucket": "",
+      "old_price": 7487.0,
+      "new_price": 8647.0,
+      "price_change": 1160.0,
+      "price_change_pct": 15.493522104981968,
+      "timestamp": "2026-10-16 01:41:27.014585+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-16T01:42:50.276288+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Mitsis Rodos Maris Grecja, Rodos, Kiotari_2026-10-16_01-41_+15.5"
+    },
+    {
+      "hotel_name": "Annabelle Beach Resort (ex. AKS Annabelle Beach Resort) Grecja, Kreta Wschodnia, Anissaras",
+      "duration_bucket": "",
+      "old_price": 9627.0,
+      "new_price": 9627.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-16 01:41:27.014585+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-16T01:42:50.276320+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Annabelle Beach Resort (ex. AKS Annabelle Beach Resort) Grecja, Kreta Wschodnia, Anissaras_2026-10-16_01-41_zone_out_gone"
+    },
+    {
+      "hotel_name": "Kairaba Sandy Villas Grecja, Korfu, Agios Georgios",
+      "duration_bucket": "",
+      "old_price": 9852.0,
+      "new_price": 9852.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-16 01:41:27.014585+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-16T01:42:50.276331+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Kairaba Sandy Villas Grecja, Korfu, Agios Georgios_2026-10-16_01-41_zone_out_gone"
+    },
+    {
+      "hotel_name": "Lydia Maris Resort & Spa Grecja, Rodos, Kolymbia",
+      "duration_bucket": "",
+      "old_price": 7156.0,
+      "new_price": 7156.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-16 01:41:27.014585+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-16T01:42:50.276338+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Lydia Maris Resort & Spa Grecja, Rodos, Kolymbia_2026-10-16_01-41_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-15T22:34:54.825272+00:00",
+    "last_processed_run": "2026-10-16T01:41:27.014585+00:00",
     "premium_state": {
       "Istion Club": {
         "history_max": 13129.0,
@@ -885,8 +937,8 @@
         "premium_peak": 10393.0
       },
       "Pilot Beach Resort": {
-        "history_max": 14967.0,
-        "premium_peak": 14967.0
+        "history_max": 15427.0,
+        "premium_peak": 15427.0
       },
       "Aulus Chania Resort, Curio Collection by Hilton (ex. Isla Brown Chania)": {
         "history_max": 12703.0,
@@ -965,8 +1017,8 @@
         "premium_peak": 10840.0
       },
       "Creta Maris Beach Resort (ex Terra Maris)": {
-        "history_max": 14893.0,
-        "premium_peak": 14893.0
+        "history_max": 15997.0,
+        "premium_peak": 15997.0
       },
       "Mitsis Selection Blue Domes": {
         "history_max": 10112.0,
@@ -1081,8 +1133,8 @@
         "premium_peak": 12447.0
       },
       "Gennadi Grand Resort": {
-        "history_max": 17567.0,
-        "premium_peak": 17567.0
+        "history_max": 17652.0,
+        "premium_peak": 17652.0
       },
       "Iberostar Selection Creta Marine": {
         "history_max": 12747.0,
@@ -1113,12 +1165,12 @@
         "premium_peak": 11693.0
       },
       "Lindos Royal (ex. COOEE) Grecja, Rodos, Lindos": {
-        "history_max": 8937.0,
-        "premium_peak": null
+        "history_max": 10757.0,
+        "premium_peak": 10757.0
       },
       "Amus": {
-        "history_max": 13325.0,
-        "premium_peak": 13325.0
+        "history_max": 13533.0,
+        "premium_peak": 13533.0
       },
       "Gouves Water Park Holiday Resort": {
         "history_max": 13584.0,
@@ -1197,8 +1249,8 @@
         "premium_peak": 10090.0
       },
       "Grecotel Costa Botanica (ex. Gelina Village) Grecja, Korfu, Acharavi": {
-        "history_max": 9976.0,
-        "premium_peak": null
+        "history_max": 10707.0,
+        "premium_peak": 10707.0
       },
       "Rodos Palace": {
         "history_max": 12973.0,
@@ -1219,6 +1271,18 @@
       "King Minos Retreat (ex. King Minos Palace) Grecja, Kreta Wschodnia, Hersonissos": {
         "history_max": 10474.0,
         "premium_peak": 10474.0
+      },
+      "Annabelle Beach Resort (ex. AKS Annabelle Beach Resort)": {
+        "history_max": 15728.0,
+        "premium_peak": 15728.0
+      },
+      "Knossos Beach Grecja, Kreta Wschodnia, Kokkini Hani": {
+        "history_max": 10502.0,
+        "premium_peak": 10502.0
+      },
+      "Sandy Villas Resort (ex. Kairaba Sandy Villas)": {
+        "history_max": 10787.0,
+        "premium_peak": 10787.0
       }
     }
   }

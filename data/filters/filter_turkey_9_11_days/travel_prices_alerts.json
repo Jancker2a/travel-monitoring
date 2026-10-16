@@ -2470,10 +2470,62 @@
       "created_at": "2026-10-15T22:34:53.942289+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Trendy Lara_2026-10-15_22-33_zone_out_+7.2"
+    },
+    {
+      "hotel_name": "Corendon Playa Kemer",
+      "duration_bucket": "",
+      "old_price": 8343.0,
+      "new_price": 9223.0,
+      "price_change": 880.0,
+      "price_change_pct": 10.547764593072037,
+      "timestamp": "2026-10-16 01:39:20.531510+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-16T01:49:02.608545+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Corendon Playa Kemer_2026-10-16_01-39_+10.5"
+    },
+    {
+      "hotel_name": "Eftalia Village",
+      "duration_bucket": "",
+      "old_price": 7946.0,
+      "new_price": 9006.0,
+      "price_change": 1060.0,
+      "price_change_pct": 13.340045305814247,
+      "timestamp": "2026-10-16 01:39:20.531510+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-16T01:49:02.608587+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Eftalia Village_2026-10-16_01-39_+13.3"
+    },
+    {
+      "hotel_name": "Calido Maris",
+      "duration_bucket": "",
+      "old_price": 7426.0,
+      "new_price": 7426.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-16 01:39:20.531510+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-16T01:49:02.608626+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Calido Maris_2026-10-16_01-39_zone_out_gone"
+    },
+    {
+      "hotel_name": "Ring Beach (Kemer)",
+      "duration_bucket": "",
+      "old_price": 6912.0,
+      "new_price": 6912.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-16 01:39:20.531510+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-16T01:49:02.608635+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Ring Beach (Kemer)_2026-10-16_01-39_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-15T22:33:49.425189+00:00",
+    "last_processed_run": "2026-10-16T01:39:20.531510+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 11773.0,
@@ -2812,8 +2864,8 @@
         "premium_peak": 10842.0
       },
       "Aska Lara Resort & Spa": {
-        "history_max": 12727.0,
-        "premium_peak": 12727.0
+        "history_max": 12797.0,
+        "premium_peak": 12797.0
       },
       "Trendy Perge Resort & Suites": {
         "history_max": 12695.0,
@@ -3600,7 +3652,7 @@
         "premium_peak": null
       },
       "Alba Queen": {
-        "history_max": 7686.0,
+        "history_max": 7914.0,
         "premium_peak": null
       },
       "Armas Labada": {
@@ -3732,8 +3784,8 @@
         "premium_peak": 11260.0
       },
       "Gural Premier Belek": {
-        "history_max": 13836.0,
-        "premium_peak": 13836.0
+        "history_max": 13880.0,
+        "premium_peak": 13880.0
       },
       "Susesi Luxury Resort": {
         "history_max": 13252.0,
@@ -3822,6 +3874,18 @@
       "Gural Premier Tekirova": {
         "history_max": 13121.0,
         "premium_peak": 13121.0
+      },
+      "Papillon Belvil Club": {
+        "history_max": 13845.0,
+        "premium_peak": 13845.0
+      },
+      "Nirvana Mediterranean Excellence ( ex Nirvana Lagoon Luxury)": {
+        "history_max": 14010.0,
+        "premium_peak": 14010.0
+      },
+      "Nirvana Dolce Vita (ex. Amara Dolce Vita)": {
+        "history_max": 14022.0,
+        "premium_peak": 14022.0
       }
     }
   }
