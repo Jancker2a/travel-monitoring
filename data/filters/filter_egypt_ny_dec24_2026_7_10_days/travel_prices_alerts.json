@@ -1716,10 +1716,62 @@
       "created_at": "2026-10-16T18:17:07.191638+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Parrotel Beach Resort (ex. Radisson Blu) Egipt, Sharm El Sheikh_2026-10-16_18-16_zone_out_gone"
+    },
+    {
+      "hotel_name": "Rewaya Luxury Resort Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 9000.0,
+      "new_price": 7720.0,
+      "price_change": -1280.0,
+      "price_change_pct": -14.222222222222221,
+      "timestamp": "2026-10-16 21:26:11.813956+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-16T21:26:46.164200+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Luxury Resort Egipt, Hurghada_2026-10-16_21-26_-14.2"
+    },
+    {
+      "hotel_name": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 10305.0,
+      "new_price": 9144.0,
+      "price_change": -1161.0,
+      "price_change_pct": -11.26637554585153,
+      "timestamp": "2026-10-16 21:26:11.813956+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-16T21:26:46.164227+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada_2026-10-16_21-26_-11.3"
+    },
+    {
+      "hotel_name": "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna",
+      "duration_bucket": "",
+      "old_price": 9796.0,
+      "new_price": 8516.0,
+      "price_change": -1280.0,
+      "price_change_pct": -13.066557778685178,
+      "timestamp": "2026-10-16 21:26:11.813956+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-16T21:26:46.164241+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna_2026-10-16_21-26_-13.1"
+    },
+    {
+      "hotel_name": "Sentido Oriental Dream Resort Egipt, Marsa Alam",
+      "duration_bucket": "",
+      "old_price": 10973.0,
+      "new_price": 10973.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-16 21:26:11.813956+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-16T21:26:46.164259+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sentido Oriental Dream Resort Egipt, Marsa Alam_2026-10-16_21-26_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-16T18:16:51.456982+00:00",
+    "last_processed_run": "2026-10-16T21:26:11.813956+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 10690.0,
@@ -1730,7 +1782,7 @@
         "premium_peak": null
       },
       "Regency Plaza Aqua Park Spa Egipt, Sharm El Sheikh, Szarm el-Szejk": {
-        "history_max": 9793.0,
+        "history_max": 10152.0,
         "premium_peak": null
       },
       "Red Sea Grand Waterworld Makadi (ex. Sunwing Waterworld Makadi) Egipt, Hurghada, Makadi Bay": {
@@ -1746,7 +1798,7 @@
         "premium_peak": null
       },
       "Xperience Kiroseiz Parkland Egipt, Sharm El Sheikh": {
-        "history_max": 10345.0,
+        "history_max": 10755.0,
         "premium_peak": null
       },
       "Parrotel Beach Resort (ex. Radisson Blu) Egipt, Sharm El Sheikh": {
@@ -1778,7 +1830,7 @@
         "premium_peak": null
       },
       "Xperience Kiroseiz Premier Egipt, Sharm El Sheikh": {
-        "history_max": 10011.0,
+        "history_max": 10421.0,
         "premium_peak": null
       },
       "Gravity Sahl Hasheesh (Ex. Ocean Breeze) Egipt, Hurghada": {
@@ -1802,7 +1854,7 @@
         "premium_peak": null
       },
       "Royal Regency Club Egipt, Sharm El Sheikh, Szarm el-Szejk": {
-        "history_max": 10615.0,
+        "history_max": 10955.0,
         "premium_peak": null
       },
       "Amwaj Oyoun Resort & Spa (ex AA Amwaj Resort) Egipt, Sharm El Sheikh": {
@@ -1850,7 +1902,7 @@
         "premium_peak": null
       },
       "Bellagio Beach Resort & Spa (ex. Panorama Bungalows Hurghada) Egipt, Hurghada": {
-        "history_max": 10656.0,
+        "history_max": 10816.0,
         "premium_peak": null
       },
       "Continental (ex Movenpick Resort)": {
@@ -1862,7 +1914,7 @@
         "premium_peak": null
       },
       "Pharaoh Azur Resort (ex Sonesta Pharaoh) Egipt, Hurghada": {
-        "history_max": 10863.0,
+        "history_max": 10895.0,
         "premium_peak": null
       },
       "Sentido Oriental Dream Resort Egipt, Marsa Alam": {
@@ -1919,6 +1971,10 @@
       },
       "Imperial Shams Abu Soma Egipt, Hurghada, Soma Bay": {
         "history_max": 10951.0,
+        "premium_peak": null
+      },
+      "Nubian Island Egipt, Sharm El Sheikh": {
+        "history_max": 10846.0,
         "premium_peak": null
       }
     }
