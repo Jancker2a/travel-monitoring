@@ -2782,10 +2782,114 @@
       "created_at": "2026-10-16T07:27:28.287582+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Orange Palace_2026-10-16_07-26_comeback_9.3"
+    },
+    {
+      "hotel_name": "Palemon Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 6119.0,
+      "new_price": 6741.0,
+      "price_change": 622.0,
+      "price_change_pct": 10.165059650269653,
+      "timestamp": "2026-10-16 13:25:08.737192+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-16T13:26:03.055435+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Palemon Resort & Spa_2026-10-16_13-25_+10.2"
+    },
+    {
+      "hotel_name": "Water Side Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 7386.0,
+      "new_price": 8233.0,
+      "price_change": 847.0,
+      "price_change_pct": 11.467641483888437,
+      "timestamp": "2026-10-16 13:25:08.737192+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-16T13:26:03.055461+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Water Side Resort & Spa_2026-10-16_13-25_+11.5"
+    },
+    {
+      "hotel_name": "Adalya Ocean Deluxe",
+      "duration_bucket": "",
+      "old_price": 9816.0,
+      "new_price": 10530.0,
+      "price_change": 714.0,
+      "price_change_pct": 7.273838630806846,
+      "timestamp": "2026-10-16 13:25:08.737192+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-16T13:26:03.055485+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Adalya Ocean Deluxe_2026-10-16_13-25_zone_out_+7.3"
+    },
+    {
+      "hotel_name": "Blue Dreams Resort (ex. Kairaba)",
+      "duration_bucket": "",
+      "old_price": 8112.0,
+      "new_price": 8112.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-16 13:25:08.737192+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-16T13:26:03.055490+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Blue Dreams Resort (ex. Kairaba)_2026-10-16_13-25_zone_out_gone"
+    },
+    {
+      "hotel_name": "Seaphoria Beach Resort",
+      "duration_bucket": "",
+      "old_price": 9691.0,
+      "new_price": 9691.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-16 13:25:08.737192+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-16T13:26:03.055494+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Seaphoria Beach Resort_2026-10-16_13-25_zone_out_gone"
+    },
+    {
+      "hotel_name": "Selectum Colours Side",
+      "duration_bucket": "",
+      "old_price": 8060.0,
+      "new_price": 8060.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-16 13:25:08.737192+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-16T13:26:03.055498+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Selectum Colours Side_2026-10-16_13-25_zone_out_gone"
+    },
+    {
+      "hotel_name": "Crystal Flora Pearl Collection",
+      "duration_bucket": "",
+      "old_price": 11391.0,
+      "new_price": 9871.0,
+      "price_change": -1520.0,
+      "price_change_pct": -13.343867965938022,
+      "timestamp": "2026-10-16 13:25:08.737192+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-16T13:26:03.055513+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Crystal Flora Pearl Collection_2026-10-16_13-25_comeback_13.3"
+    },
+    {
+      "hotel_name": "Lonicera Premium",
+      "duration_bucket": "",
+      "old_price": 12768.0,
+      "new_price": 9153.0,
+      "price_change": -3615.0,
+      "price_change_pct": -28.31296992481203,
+      "timestamp": "2026-10-16 13:25:08.737192+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-16T13:26:03.055522+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Lonicera Premium_2026-10-16_13-25_comeback_28.3"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-16T07:26:22.876757+00:00",
+    "last_processed_run": "2026-10-16T13:25:08.737192+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 11773.0,
@@ -3052,7 +3156,7 @@
         "premium_peak": 13039.0
       },
       "Sultan of Dreams": {
-        "history_max": 9193.0,
+        "history_max": 9242.0,
         "premium_peak": null
       },
       "The Norm Oriental (ex. Asteria Kemer Resort)": {
@@ -3248,8 +3352,8 @@
         "premium_peak": null
       },
       "Sural Resort": {
-        "history_max": 12746.0,
-        "premium_peak": 12746.0
+        "history_max": 13531.0,
+        "premium_peak": 13531.0
       },
       "Swandor Kemer (ex. Pgs Kiris Resort)": {
         "history_max": 11075.0,
@@ -4146,6 +4250,18 @@
       "Nirvana Dolce Vita (ex. Amara Dolce Vita)": {
         "history_max": 14022.0,
         "premium_peak": 14022.0
+      },
+      "Delphin Deluxe Resort": {
+        "history_max": 13266.0,
+        "premium_peak": 13266.0
+      },
+      "Melas Resort": {
+        "history_max": 14115.0,
+        "premium_peak": 14115.0
+      },
+      "Port Nature Luxury Resort": {
+        "history_max": 13085.0,
+        "premium_peak": 13085.0
       }
     }
   }

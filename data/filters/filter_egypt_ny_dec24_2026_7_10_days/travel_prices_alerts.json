@@ -1651,10 +1651,36 @@
       "created_at": "2026-10-16T07:23:27.095735+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sentido Oriental Dream Resort Egipt, Marsa Alam_2026-10-16_07-22_zone_out_gone"
+    },
+    {
+      "hotel_name": "Rewaya Majestic Resort Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 8401.0,
+      "new_price": 9567.0,
+      "price_change": 1166.0,
+      "price_change_pct": 13.879300083323415,
+      "timestamp": "2026-10-16 13:24:51.068890+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-16T13:25:08.208345+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Majestic Resort Egipt, Hurghada_2026-10-16_13-24_+13.9"
+    },
+    {
+      "hotel_name": "Pharaoh Azur Resort (ex Sonesta Pharaoh) Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 10863.0,
+      "new_price": 10863.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-16 13:24:51.068890+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-16T13:25:08.208368+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pharaoh Azur Resort (ex Sonesta Pharaoh) Egipt, Hurghada_2026-10-16_13-24_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-16T07:22:54.583325+00:00",
+    "last_processed_run": "2026-10-16T13:24:51.068890+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 10690.0,
