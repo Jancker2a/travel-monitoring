@@ -949,10 +949,36 @@
       "created_at": "2026-10-17T00:45:25.922402+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Kairaba Sandy Villas Grecja, Korfu, Agios Georgios_2026-10-17_00-44_zone_out_+19.7"
+    },
+    {
+      "hotel_name": "Hersonissos Palace Grecja, Kreta Wschodnia, Hersonissos",
+      "duration_bucket": "",
+      "old_price": 9806.0,
+      "new_price": 9806.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-17 05:47:50.868745+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-17T05:48:28.914319+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Hersonissos Palace Grecja, Kreta Wschodnia, Hersonissos_2026-10-17_05-47_zone_out_gone"
+    },
+    {
+      "hotel_name": "Mitsis Rinela Beach Resort & Spa Grecja, Kreta Wschodnia, Kokkini Hani",
+      "duration_bucket": "",
+      "old_price": 9988.0,
+      "new_price": 10989.0,
+      "price_change": 1001.0,
+      "price_change_pct": 10.022026431718063,
+      "timestamp": "2026-10-17 05:47:50.868745+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-17T05:48:28.914341+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Mitsis Rinela Beach Resort & Spa Grecja, Kreta Wschodnia, Kokkini Hani_2026-10-17_05-47_zone_out_+10.0"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-17T00:44:34.300169+00:00",
+    "last_processed_run": "2026-10-17T05:47:50.868745+00:00",
     "premium_state": {
       "Istion Club": {
         "history_max": 13129.0,
@@ -1239,8 +1265,8 @@
         "premium_peak": 12517.0
       },
       "High Beach": {
-        "history_max": 12956.0,
-        "premium_peak": 12956.0
+        "history_max": 15199.0,
+        "premium_peak": 15199.0
       },
       "Almyros Beach (ex Cyprotel Almyros)": {
         "history_max": 9977.0,
@@ -1395,8 +1421,8 @@
         "premium_peak": 10133.0
       },
       "Mitsis Rinela Beach Resort & Spa Grecja, Kreta Wschodnia, Kokkini Hani": {
-        "history_max": 10282.0,
-        "premium_peak": 10282.0
+        "history_max": 10989.0,
+        "premium_peak": 10989.0
       },
       "King Minos Retreat (ex. King Minos Palace) Grecja, Kreta Wschodnia, Hersonissos": {
         "history_max": 10474.0,
@@ -1433,6 +1459,18 @@
       "Bella Beach Grecja, Kreta Wschodnia, Anissaras": {
         "history_max": 10969.0,
         "premium_peak": 10969.0
+      },
+      "Anemos Luxury Grand Resort Grecja, Kreta Zachodnia, Georgioupolis": {
+        "history_max": 11577.0,
+        "premium_peak": 11577.0
+      },
+      "Apollonia Beach (Ammoudara) Grecja, Kreta Wschodnia, Ammoudara": {
+        "history_max": 11456.0,
+        "premium_peak": 11456.0
+      },
+      "Mythos Palace Grecja, Kreta Zachodnia, Georgioupolis": {
+        "history_max": 11457.0,
+        "premium_peak": 11457.0
       }
     }
   }
