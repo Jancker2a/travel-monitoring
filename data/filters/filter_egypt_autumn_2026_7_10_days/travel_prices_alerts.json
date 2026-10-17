@@ -2,19 +2,6 @@
   "version": 2,
   "alerts": [
     {
-      "hotel_name": "Sea Star Beau Rivage Egipt, Hurghada",
-      "duration_bucket": "",
-      "old_price": 7866.0,
-      "new_price": 6746.0,
-      "price_change": -1120.0,
-      "price_change_pct": -14.238494787693872,
-      "timestamp": "2026-10-12 09:28:09.580641+00:00",
-      "alert_type": "price_drop",
-      "created_at": "2026-10-14T18:47:21.565687+00:00",
-      "threshold_percent": 8.0,
-      "unique_key": "Sea Star Beau Rivage Egipt, Hurghada_2026-10-12_09-28_-14.2"
-    },
-    {
       "hotel_name": "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna",
       "duration_bucket": "",
       "old_price": 8168.0,
@@ -23,9 +10,22 @@
       "price_change_pct": -13.724289911851125,
       "timestamp": "2026-10-12 09:28:09.580641+00:00",
       "alert_type": "price_drop",
-      "created_at": "2026-10-14T18:47:21.565718+00:00",
+      "created_at": "2026-10-17T17:24:40.918036+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna_2026-10-12_09-28_-13.7"
+    },
+    {
+      "hotel_name": "Sea Star Beau Rivage Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 7866.0,
+      "new_price": 6746.0,
+      "price_change": -1120.0,
+      "price_change_pct": -14.238494787693872,
+      "timestamp": "2026-10-12 09:28:09.580641+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-17T17:24:40.918073+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sea Star Beau Rivage Egipt, Hurghada_2026-10-12_09-28_-14.2"
     },
     {
       "hotel_name": "Labranda Club Makadi (ex Club Azur) Egipt, Hurghada, Makadi Bay",
@@ -36,7 +36,7 @@
       "price_change_pct": -8.462925400045075,
       "timestamp": "2026-10-12 09:28:09.580641+00:00",
       "alert_type": "price_drop",
-      "created_at": "2026-10-14T18:47:21.565726+00:00",
+      "created_at": "2026-10-17T17:24:40.918093+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Labranda Club Makadi (ex Club Azur) Egipt, Hurghada, Makadi Bay_2026-10-12_09-28_-8.5"
     },
@@ -49,7 +49,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-12 09:28:09.580641+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.565740+00:00",
+      "created_at": "2026-10-17T17:24:40.918111+00:00",
       "threshold_percent": 8.0,
       "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada_2026-10-12_09-28_zone_out_gone"
     },
@@ -62,7 +62,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-12 09:28:09.580641+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.565746+00:00",
+      "created_at": "2026-10-17T17:24:40.918121+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Hilton Plaza (Hurghada)_2026-10-12_09-28_zone_out_gone"
     },
@@ -75,7 +75,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-12 09:28:09.580641+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.565751+00:00",
+      "created_at": "2026-10-17T17:24:40.918130+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Le Meridien Dahab Resort Egipt, Dahab_2026-10-12_09-28_zone_out_gone"
     },
@@ -88,7 +88,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-12 09:28:09.580641+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.565756+00:00",
+      "created_at": "2026-10-17T17:24:40.918137+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Parrotel Beach Resort (ex. Radisson Blu)_2026-10-12_09-28_zone_out_gone"
     },
@@ -101,7 +101,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-12 09:28:09.580641+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.565761+00:00",
+      "created_at": "2026-10-17T17:24:40.918144+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Serenity Alpha Beach (ex. Serenity Makadi Beach)_2026-10-12_09-28_zone_out_gone"
     },
@@ -114,7 +114,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-12 09:28:09.580641+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.565766+00:00",
+      "created_at": "2026-10-17T17:24:40.918151+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sol Y Mar Naama Bay Egipt, Sharm El Sheikh_2026-10-12_09-28_zone_out_gone"
     },
@@ -127,9 +127,22 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-12 09:28:09.580641+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.565770+00:00",
+      "created_at": "2026-10-17T17:24:40.918158+00:00",
       "threshold_percent": 8.0,
       "unique_key": "V Grand Beach Resort Sahl Hasheesh_2026-10-12_09-28_zone_out_gone"
+    },
+    {
+      "hotel_name": "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna",
+      "duration_bucket": "",
+      "old_price": 7047.0,
+      "new_price": 7821.0,
+      "price_change": 774.0,
+      "price_change_pct": 10.983397190293742,
+      "timestamp": "2026-10-12 19:55:48.708080+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-17T17:24:40.921237+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna_2026-10-12_19-55_+11.0"
     },
     {
       "hotel_name": "Sea Star Beau Rivage Egipt, Hurghada",
@@ -140,7 +153,7 @@
       "price_change_pct": 14.008301215535132,
       "timestamp": "2026-10-12 19:55:48.708080+00:00",
       "alert_type": "price_increase",
-      "created_at": "2026-10-14T18:47:21.566217+00:00",
+      "created_at": "2026-10-17T17:24:40.921263+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sea Star Beau Rivage Egipt, Hurghada_2026-10-12_19-55_+14.0"
     },
@@ -153,22 +166,9 @@
       "price_change_pct": 14.510952978931213,
       "timestamp": "2026-10-12 19:55:48.708080+00:00",
       "alert_type": "price_increase",
-      "created_at": "2026-10-14T18:47:21.566232+00:00",
+      "created_at": "2026-10-17T17:24:40.921276+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Rewaya Majestic Resort Egipt, Hurghada_2026-10-12_19-55_+14.5"
-    },
-    {
-      "hotel_name": "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna",
-      "duration_bucket": "",
-      "old_price": 7047.0,
-      "new_price": 7821.0,
-      "price_change": 774.0,
-      "price_change_pct": 10.983397190293742,
-      "timestamp": "2026-10-12 19:55:48.708080+00:00",
-      "alert_type": "price_increase",
-      "created_at": "2026-10-14T18:47:21.566240+00:00",
-      "threshold_percent": 8.0,
-      "unique_key": "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna_2026-10-12_19-55_+11.0"
     },
     {
       "hotel_name": "AMC Royal Hotel & Spa (ex. AMC Azur Resort)",
@@ -179,7 +179,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-12 19:55:48.708080+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.566254+00:00",
+      "created_at": "2026-10-17T17:24:40.921301+00:00",
       "threshold_percent": 8.0,
       "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort)_2026-10-12_19-55_zone_out_gone"
     },
@@ -192,7 +192,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-12 19:55:48.708080+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.566259+00:00",
+      "created_at": "2026-10-17T17:24:40.921311+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Albatros Makadi Resort (ex Royal Pharaohs Makadi)_2026-10-12_19-55_zone_out_gone"
     },
@@ -205,7 +205,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-12 19:55:48.708080+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.566264+00:00",
+      "created_at": "2026-10-17T17:24:40.921319+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Concorde Moreen Beach Resort & Spa_2026-10-12_19-55_zone_out_gone"
     },
@@ -218,7 +218,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-12 19:55:48.708080+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.566269+00:00",
+      "created_at": "2026-10-17T17:24:40.921327+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Hilton Plaza (Hurghada) Egipt, Hurghada_2026-10-12_19-55_zone_out_gone"
     },
@@ -231,7 +231,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-12 19:55:48.708080+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.566274+00:00",
+      "created_at": "2026-10-17T17:24:40.921334+00:00",
       "threshold_percent": 8.0,
       "unique_key": "IL Mercato (ex. Iberotel Il Mercato) Egipt, Sharm El Sheikh_2026-10-12_19-55_zone_out_gone"
     },
@@ -244,7 +244,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-12 19:55:48.708080+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.566278+00:00",
+      "created_at": "2026-10-17T17:24:40.921342+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Mercure Dahab Bay View Egipt, Dahab_2026-10-12_19-55_zone_out_gone"
     },
@@ -257,7 +257,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-12 19:55:48.708080+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.566283+00:00",
+      "created_at": "2026-10-17T17:24:40.921349+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Pickalbatros Luxury Suites_2026-10-12_19-55_zone_out_gone"
     },
@@ -270,7 +270,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-12 19:55:48.708080+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.566288+00:00",
+      "created_at": "2026-10-17T17:24:40.921356+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Regency Plaza Aqua Park Spa_2026-10-12_19-55_zone_out_gone"
     },
@@ -283,7 +283,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-12 19:55:48.708080+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.566293+00:00",
+      "created_at": "2026-10-17T17:24:40.921363+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Retac Qunay Dahab Resort & Spa_2026-10-12_19-55_zone_out_gone"
     },
@@ -296,7 +296,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-12 19:55:48.708080+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.566297+00:00",
+      "created_at": "2026-10-17T17:24:40.921370+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sentido Mamlouk Palace Resort & Spa (ex Sunrise)_2026-10-12_19-55_zone_out_gone"
     },
@@ -309,7 +309,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-12 19:55:48.708080+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.566302+00:00",
+      "created_at": "2026-10-17T17:24:40.921377+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Titanic Beach Spa & Aqua Park_2026-10-12_19-55_zone_out_gone"
     },
@@ -322,7 +322,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-12 19:55:48.708080+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.566307+00:00",
+      "created_at": "2026-10-17T17:24:40.921384+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Titanic Palace Resort Egipt, Hurghada_2026-10-12_19-55_zone_out_gone"
     },
@@ -335,7 +335,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-12 19:55:48.708080+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.566312+00:00",
+      "created_at": "2026-10-17T17:24:40.921391+00:00",
       "threshold_percent": 8.0,
       "unique_key": "True Beach Resort_2026-10-12_19-55_zone_out_gone"
     },
@@ -348,7 +348,7 @@
       "price_change_pct": -8.074372643349369,
       "timestamp": "2026-10-13 02:09:42.202062+00:00",
       "alert_type": "price_drop",
-      "created_at": "2026-10-14T18:47:21.566379+00:00",
+      "created_at": "2026-10-17T17:24:40.921517+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sea Star Beau Rivage Egipt, Hurghada_2026-10-13_02-09_-8.1"
     },
@@ -361,22 +361,9 @@
       "price_change_pct": -12.672109175094432,
       "timestamp": "2026-10-13 02:09:42.202062+00:00",
       "alert_type": "price_drop",
-      "created_at": "2026-10-14T18:47:21.566391+00:00",
+      "created_at": "2026-10-17T17:24:40.921534+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Rewaya Majestic Resort Egipt, Hurghada_2026-10-13_02-09_-12.7"
-    },
-    {
-      "hotel_name": "Stella Beach Resort & Spa",
-      "duration_bucket": "",
-      "old_price": 9817.0,
-      "new_price": 10691.0,
-      "price_change": 874.0,
-      "price_change_pct": 8.902923500050933,
-      "timestamp": "2026-10-13 09:36:40.942052+00:00",
-      "alert_type": "price_increase",
-      "created_at": "2026-10-14T18:47:21.566454+00:00",
-      "threshold_percent": 8.0,
-      "unique_key": "Stella Beach Resort & Spa_2026-10-13_09-36_+8.9"
     },
     {
       "hotel_name": "Sea Star Beau Rivage Egipt, Hurghada",
@@ -387,7 +374,7 @@
       "price_change_pct": 9.476661951909476,
       "timestamp": "2026-10-13 09:36:40.942052+00:00",
       "alert_type": "price_increase",
-      "created_at": "2026-10-14T18:47:21.566461+00:00",
+      "created_at": "2026-10-17T17:24:40.921656+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sea Star Beau Rivage Egipt, Hurghada_2026-10-13_09-36_+9.5"
     },
@@ -400,9 +387,22 @@
       "price_change_pct": 21.48737268034045,
       "timestamp": "2026-10-13 09:36:40.942052+00:00",
       "alert_type": "price_increase",
-      "created_at": "2026-10-14T18:47:21.566472+00:00",
+      "created_at": "2026-10-17T17:24:40.921672+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Rewaya Majestic Resort Egipt, Hurghada_2026-10-13_09-36_+21.5"
+    },
+    {
+      "hotel_name": "Stella Beach Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 9817.0,
+      "new_price": 10691.0,
+      "price_change": 874.0,
+      "price_change_pct": 8.902923500050933,
+      "timestamp": "2026-10-13 09:36:40.942052+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-17T17:24:40.921688+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Stella Beach Resort & Spa_2026-10-13_09-36_+8.9"
     },
     {
       "hotel_name": "Pickalbatros Citadel Sahl Hasheesh (ex. Citadel Azur Resort)",
@@ -413,7 +413,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-13 09:36:40.942052+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.566484+00:00",
+      "created_at": "2026-10-17T17:24:40.921703+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Pickalbatros Citadel Sahl Hasheesh (ex. Citadel Azur Resort)_2026-10-13_09-36_zone_out_gone"
     },
@@ -426,7 +426,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-13 09:36:40.942052+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.566490+00:00",
+      "created_at": "2026-10-17T17:24:40.921712+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Pickalbatros Dana Beach Resort_2026-10-13_09-36_zone_out_gone"
     },
@@ -439,7 +439,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-13 09:36:40.942052+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.566495+00:00",
+      "created_at": "2026-10-17T17:24:40.921720+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Pickalbatros Luxury Suites_2026-10-13_09-36_zone_out_gone"
     },
@@ -452,7 +452,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-13 09:36:40.942052+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.566500+00:00",
+      "created_at": "2026-10-17T17:24:40.921728+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Pickalbatros Royal Moderna_2026-10-13_09-36_zone_out_gone"
     },
@@ -465,7 +465,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-13 09:36:40.942052+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.566504+00:00",
+      "created_at": "2026-10-17T17:24:40.921734+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Royal Pharaohs Makadi (ex. Harmony) Egipt, Hurghada, Makadi Bay_2026-10-13_09-36_zone_out_gone"
     },
@@ -478,7 +478,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-13 09:36:40.942052+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.566509+00:00",
+      "created_at": "2026-10-17T17:24:40.921742+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sataya Resort (ex. Labranda Sataya Marsa Alam)_2026-10-13_09-36_zone_out_gone"
     },
@@ -491,22 +491,9 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-13 09:36:40.942052+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.566514+00:00",
+      "created_at": "2026-10-17T17:24:40.921749+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Steigenberger Aqua Magic_2026-10-13_09-36_zone_out_gone"
-    },
-    {
-      "hotel_name": "Sea Star Beau Rivage Egipt, Hurghada",
-      "duration_bucket": "",
-      "old_price": 7740.0,
-      "new_price": 9149.0,
-      "price_change": 1409.0,
-      "price_change_pct": 18.204134366925064,
-      "timestamp": "2026-10-13 17:43:09.221494+00:00",
-      "alert_type": "price_increase",
-      "created_at": "2026-10-14T18:47:21.566570+00:00",
-      "threshold_percent": 8.0,
-      "unique_key": "Sea Star Beau Rivage Egipt, Hurghada_2026-10-13_17-43_+18.2"
     },
     {
       "hotel_name": "Amarina Jannah Resort Aquapark Egipt, Marsa Alam, Port Ghalib",
@@ -517,9 +504,22 @@
       "price_change_pct": 10.18176848435151,
       "timestamp": "2026-10-13 17:43:09.221494+00:00",
       "alert_type": "price_increase",
-      "created_at": "2026-10-14T18:47:21.566579+00:00",
+      "created_at": "2026-10-17T17:24:40.921851+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Amarina Jannah Resort Aquapark Egipt, Marsa Alam, Port Ghalib_2026-10-13_17-43_+10.2"
+    },
+    {
+      "hotel_name": "Sea Star Beau Rivage Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 7740.0,
+      "new_price": 9149.0,
+      "price_change": 1409.0,
+      "price_change_pct": 18.204134366925064,
+      "timestamp": "2026-10-13 17:43:09.221494+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-17T17:24:40.921869+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sea Star Beau Rivage Egipt, Hurghada_2026-10-13_17-43_+18.2"
     },
     {
       "hotel_name": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada",
@@ -530,7 +530,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-13 17:43:09.221494+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.566592+00:00",
+      "created_at": "2026-10-17T17:24:40.921890+00:00",
       "threshold_percent": 8.0,
       "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada_2026-10-13_17-43_zone_out_gone"
     },
@@ -543,7 +543,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-13 17:43:09.221494+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.566598+00:00",
+      "created_at": "2026-10-17T17:24:40.921899+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Concorde Moreen Beach Resort & Spa Egipt, Marsa Alam_2026-10-13_17-43_zone_out_gone"
     },
@@ -556,7 +556,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-13 17:43:09.221494+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.566603+00:00",
+      "created_at": "2026-10-17T17:24:40.921907+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Golf Villas And Suites Sharm_2026-10-13_17-43_zone_out_gone"
     },
@@ -569,7 +569,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-13 17:43:09.221494+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.566607+00:00",
+      "created_at": "2026-10-17T17:24:40.921914+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Pickalbatros Palace Resort_2026-10-13_17-43_zone_out_gone"
     },
@@ -582,7 +582,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-13 17:43:09.221494+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.566612+00:00",
+      "created_at": "2026-10-17T17:24:40.921921+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sataya Resort (ex. Labranda Sataya Marsa Alam) Egipt, Marsa Alam_2026-10-13_17-43_zone_out_gone"
     },
@@ -595,7 +595,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-13 17:43:09.221494+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.566617+00:00",
+      "created_at": "2026-10-17T17:24:40.921928+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Stella Di Mare Gardens Resort & Spa Egipt, Hurghada, Makadi Bay_2026-10-13_17-43_zone_out_gone"
     },
@@ -608,7 +608,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-13 17:43:09.221494+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.566622+00:00",
+      "created_at": "2026-10-17T17:24:40.921936+00:00",
       "threshold_percent": 8.0,
       "unique_key": "The Cascades Golf Resort Spa & Thalasso (ex Westin Soma Bay) Egipt, Hurghada, Soma Bay_2026-10-13_17-43_zone_out_gone"
     },
@@ -621,7 +621,7 @@
       "price_change_pct": -8.230407694830037,
       "timestamp": "2026-10-13 22:56:59.069284+00:00",
       "alert_type": "price_drop",
-      "created_at": "2026-10-14T18:47:21.566682+00:00",
+      "created_at": "2026-10-17T17:24:40.922053+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sea Star Beau Rivage Egipt, Hurghada_2026-10-13_22-56_-8.2"
     },
@@ -634,7 +634,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-13 22:56:59.069284+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.566699+00:00",
+      "created_at": "2026-10-17T17:24:40.922081+00:00",
       "threshold_percent": 8.0,
       "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort)_2026-10-13_22-56_zone_out_gone"
     },
@@ -647,7 +647,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-13 22:56:59.069284+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.566704+00:00",
+      "created_at": "2026-10-17T17:24:40.922091+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Maritim Jolie Ville Royal Peninsula Egipt, Sharm El Sheikh_2026-10-13_22-56_zone_out_gone"
     },
@@ -660,7 +660,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-13 22:56:59.069284+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.566709+00:00",
+      "created_at": "2026-10-17T17:24:40.922099+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Mercure Dahab Bay View Egipt, Dahab_2026-10-13_22-56_zone_out_gone"
     },
@@ -673,7 +673,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-13 22:56:59.069284+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.566714+00:00",
+      "created_at": "2026-10-17T17:24:40.922107+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Pickalbatros Royal Moderna_2026-10-13_22-56_zone_out_gone"
     },
@@ -686,7 +686,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-13 22:56:59.069284+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.566719+00:00",
+      "created_at": "2026-10-17T17:24:40.922114+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sentido Akassia Beach (ex. LTI Akassia Beach) Egipt, Marsa Alam_2026-10-13_22-56_zone_out_gone"
     },
@@ -699,7 +699,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-13 22:56:59.069284+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.566724+00:00",
+      "created_at": "2026-10-17T17:24:40.922121+00:00",
       "threshold_percent": 8.0,
       "unique_key": "The Cascades Golf Resort Spa & Thalasso (ex Westin Soma Bay)_2026-10-13_22-56_zone_out_gone"
     },
@@ -712,22 +712,9 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-13 22:56:59.069284+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.566729+00:00",
+      "created_at": "2026-10-17T17:24:40.922128+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Tropitel Sahl Hasheesh_2026-10-13_22-56_zone_out_gone"
-    },
-    {
-      "hotel_name": "Novotel Marsa Alam Egipt, Marsa Alam",
-      "duration_bucket": "",
-      "old_price": 8817.0,
-      "new_price": 7952.0,
-      "price_change": -865.0,
-      "price_change_pct": -9.810593172280822,
-      "timestamp": "2026-10-14 02:02:14.855272+00:00",
-      "alert_type": "price_drop",
-      "created_at": "2026-10-14T18:47:21.566782+00:00",
-      "threshold_percent": 8.0,
-      "unique_key": "Novotel Marsa Alam Egipt, Marsa Alam_2026-10-14_02-02_-9.8"
     },
     {
       "hotel_name": "Amarina Jannah Resort Aquapark Egipt, Marsa Alam, Port Ghalib",
@@ -738,7 +725,7 @@
       "price_change_pct": -11.540330417881437,
       "timestamp": "2026-10-14 02:02:14.855272+00:00",
       "alert_type": "price_drop",
-      "created_at": "2026-10-14T18:47:21.566794+00:00",
+      "created_at": "2026-10-17T17:24:40.922250+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Amarina Jannah Resort Aquapark Egipt, Marsa Alam, Port Ghalib_2026-10-14_02-02_-11.5"
     },
@@ -751,9 +738,22 @@
       "price_change_pct": -13.667164350522567,
       "timestamp": "2026-10-14 02:02:14.855272+00:00",
       "alert_type": "price_drop",
-      "created_at": "2026-10-14T18:47:21.566800+00:00",
+      "created_at": "2026-10-17T17:24:40.922271+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Rewaya Majestic Resort Egipt, Hurghada_2026-10-14_02-02_-13.7"
+    },
+    {
+      "hotel_name": "Novotel Marsa Alam Egipt, Marsa Alam",
+      "duration_bucket": "",
+      "old_price": 8817.0,
+      "new_price": 7952.0,
+      "price_change": -865.0,
+      "price_change_pct": -9.810593172280822,
+      "timestamp": "2026-10-14 02:02:14.855272+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-17T17:24:40.922282+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Novotel Marsa Alam Egipt, Marsa Alam_2026-10-14_02-02_-9.8"
     },
     {
       "hotel_name": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada",
@@ -764,22 +764,9 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-14 02:02:14.855272+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.566812+00:00",
+      "created_at": "2026-10-17T17:24:40.922301+00:00",
       "threshold_percent": 8.0,
       "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada_2026-10-14_02-02_zone_out_gone"
-    },
-    {
-      "hotel_name": "Stella Beach Resort & Spa",
-      "duration_bucket": "",
-      "old_price": 10691.0,
-      "new_price": 9817.0,
-      "price_change": -874.0,
-      "price_change_pct": -8.175100551866056,
-      "timestamp": "2026-10-14 07:50:21.321194+00:00",
-      "alert_type": "price_drop",
-      "created_at": "2026-10-14T18:47:21.566865+00:00",
-      "threshold_percent": 8.0,
-      "unique_key": "Stella Beach Resort & Spa_2026-10-14_07-50_-8.2"
     },
     {
       "hotel_name": "Rewaya Majestic Resort Egipt, Hurghada",
@@ -790,9 +777,22 @@
       "price_change_pct": 15.830783557270186,
       "timestamp": "2026-10-14 07:50:21.321194+00:00",
       "alert_type": "price_increase",
-      "created_at": "2026-10-14T18:47:21.566876+00:00",
+      "created_at": "2026-10-17T17:24:40.922411+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Rewaya Majestic Resort Egipt, Hurghada_2026-10-14_07-50_+15.8"
+    },
+    {
+      "hotel_name": "Stella Beach Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 10691.0,
+      "new_price": 9817.0,
+      "price_change": -874.0,
+      "price_change_pct": -8.175100551866056,
+      "timestamp": "2026-10-14 07:50:21.321194+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-17T17:24:40.922432+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Stella Beach Resort & Spa_2026-10-14_07-50_-8.2"
     },
     {
       "hotel_name": "AMC Royal Hotel & Spa (ex. AMC Azur Resort)",
@@ -803,7 +803,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-14 07:50:21.321194+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.566887+00:00",
+      "created_at": "2026-10-17T17:24:40.922448+00:00",
       "threshold_percent": 8.0,
       "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort)_2026-10-14_07-50_zone_out_gone"
     },
@@ -816,7 +816,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-14 07:50:21.321194+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.566892+00:00",
+      "created_at": "2026-10-17T17:24:40.922457+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Golf Villas And Suites Sharm_2026-10-14_07-50_zone_out_gone"
     },
@@ -829,7 +829,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-14 07:50:21.321194+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.566897+00:00",
+      "created_at": "2026-10-17T17:24:40.922465+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Mercure Dahab Bay View Egipt, Dahab_2026-10-14_07-50_zone_out_gone"
     },
@@ -842,7 +842,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-14 07:50:21.321194+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.566902+00:00",
+      "created_at": "2026-10-17T17:24:40.922472+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Parrotel Beach Resort (ex. Radisson Blu)_2026-10-14_07-50_zone_out_gone"
     },
@@ -855,7 +855,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-14 07:50:21.321194+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.566906+00:00",
+      "created_at": "2026-10-17T17:24:40.922479+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Red Sea Grand Waterworld Makadi (ex. Sunwing Waterworld Makadi)_2026-10-14_07-50_zone_out_gone"
     },
@@ -868,7 +868,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-14 07:50:21.321194+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.566911+00:00",
+      "created_at": "2026-10-17T17:24:40.922487+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sea Star Beau Rivage Egipt, Hurghada_2026-10-14_07-50_zone_out_gone"
     },
@@ -881,35 +881,9 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-14 07:50:21.321194+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.566916+00:00",
+      "created_at": "2026-10-17T17:24:40.922494+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Tropitel Sahl Hasheesh_2026-10-14_07-50_zone_out_gone"
-    },
-    {
-      "hotel_name": "Jaz Aquamarine (ex. Iberotel Aquamarine) Egipt, Hurghada",
-      "duration_bucket": "",
-      "old_price": 8907.0,
-      "new_price": 9637.0,
-      "price_change": 730.0,
-      "price_change_pct": 8.195801055349724,
-      "timestamp": "2026-10-14 13:49:44.889694+00:00",
-      "alert_type": "price_increase",
-      "created_at": "2026-10-14T18:47:21.566972+00:00",
-      "threshold_percent": 8.0,
-      "unique_key": "Jaz Aquamarine (ex. Iberotel Aquamarine) Egipt, Hurghada_2026-10-14_13-49_+8.2"
-    },
-    {
-      "hotel_name": "Stella Beach Resort & Spa",
-      "duration_bucket": "",
-      "old_price": 9817.0,
-      "new_price": 10691.0,
-      "price_change": 874.0,
-      "price_change_pct": 8.902923500050933,
-      "timestamp": "2026-10-14 13:49:44.889694+00:00",
-      "alert_type": "price_increase",
-      "created_at": "2026-10-14T18:47:21.566979+00:00",
-      "threshold_percent": 8.0,
-      "unique_key": "Stella Beach Resort & Spa_2026-10-14_13-49_+8.9"
     },
     {
       "hotel_name": "Amarina Jannah Resort Aquapark Egipt, Marsa Alam, Port Ghalib",
@@ -920,7 +894,7 @@
       "price_change_pct": 15.889981473564202,
       "timestamp": "2026-10-14 13:49:44.889694+00:00",
       "alert_type": "price_increase",
-      "created_at": "2026-10-14T18:47:21.566988+00:00",
+      "created_at": "2026-10-17T17:24:40.922596+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Amarina Jannah Resort Aquapark Egipt, Marsa Alam, Port Ghalib_2026-10-14_13-49_+15.9"
     },
@@ -933,9 +907,35 @@
       "price_change_pct": 8.94511405518478,
       "timestamp": "2026-10-14 13:49:44.889694+00:00",
       "alert_type": "price_increase",
-      "created_at": "2026-10-14T18:47:21.566994+00:00",
+      "created_at": "2026-10-17T17:24:40.922615+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Pickalbatros Golf Beach Resort_2026-10-14_13-49_+8.9"
+    },
+    {
+      "hotel_name": "Jaz Aquamarine (ex. Iberotel Aquamarine) Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 8907.0,
+      "new_price": 9637.0,
+      "price_change": 730.0,
+      "price_change_pct": 8.195801055349724,
+      "timestamp": "2026-10-14 13:49:44.889694+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-17T17:24:40.922627+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Aquamarine (ex. Iberotel Aquamarine) Egipt, Hurghada_2026-10-14_13-49_+8.2"
+    },
+    {
+      "hotel_name": "Stella Beach Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 9817.0,
+      "new_price": 10691.0,
+      "price_change": 874.0,
+      "price_change_pct": 8.902923500050933,
+      "timestamp": "2026-10-14 13:49:44.889694+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-17T17:24:40.922636+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Stella Beach Resort & Spa_2026-10-14_13-49_+8.9"
     },
     {
       "hotel_name": "Gravity Sahl Hasheesh (Ex. Ocean Breeze)",
@@ -946,7 +946,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-14 13:49:44.889694+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.567006+00:00",
+      "created_at": "2026-10-17T17:24:40.922651+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Gravity Sahl Hasheesh (Ex. Ocean Breeze)_2026-10-14_13-49_zone_out_gone"
     },
@@ -959,7 +959,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-14 13:49:44.889694+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.567011+00:00",
+      "created_at": "2026-10-17T17:24:40.922659+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Jaz Aquaviva_2026-10-14_13-49_zone_out_gone"
     },
@@ -972,7 +972,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-14 13:49:44.889694+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.567016+00:00",
+      "created_at": "2026-10-17T17:24:40.922667+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Jaz Grand Marsa (ex Resta Grand Resort) Egipt, Marsa Alam, Madinat Coraya_2026-10-14_13-49_zone_out_gone"
     },
@@ -985,7 +985,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-14 13:49:44.889694+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.567021+00:00",
+      "created_at": "2026-10-17T17:24:40.922674+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Jaz Makadi Oasis Resort_2026-10-14_13-49_zone_out_gone"
     },
@@ -998,7 +998,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-14 13:49:44.889694+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.567025+00:00",
+      "created_at": "2026-10-17T17:24:40.922681+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Naama Bay Promenade Beach Resort_2026-10-14_13-49_zone_out_gone"
     },
@@ -1011,7 +1011,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-14 13:49:44.889694+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.567030+00:00",
+      "created_at": "2026-10-17T17:24:40.922688+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Pickalbatros Dana Beach Resort_2026-10-14_13-49_zone_out_gone"
     },
@@ -1024,7 +1024,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-14 13:49:44.889694+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.567035+00:00",
+      "created_at": "2026-10-17T17:24:40.922695+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Pickalbatros Royal Moderna_2026-10-14_13-49_zone_out_gone"
     },
@@ -1037,7 +1037,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-14 13:49:44.889694+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.567039+00:00",
+      "created_at": "2026-10-17T17:24:40.922702+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Pickalbatros White Beach Resort_2026-10-14_13-49_zone_out_gone"
     },
@@ -1050,7 +1050,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-14 13:49:44.889694+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.567044+00:00",
+      "created_at": "2026-10-17T17:24:40.922709+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sataya Resort (ex. Labranda Sataya Marsa Alam)_2026-10-14_13-49_zone_out_gone"
     },
@@ -1063,7 +1063,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-14 13:49:44.889694+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.567049+00:00",
+      "created_at": "2026-10-17T17:24:40.922716+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sea Star Beau Rivage_2026-10-14_13-49_zone_out_gone"
     },
@@ -1076,7 +1076,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-14 13:49:44.889694+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.567054+00:00",
+      "created_at": "2026-10-17T17:24:40.922723+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Stella Di Mare Gardens Resort & Spa Egipt, Hurghada, Makadi Bay_2026-10-14_13-49_zone_out_gone"
     },
@@ -1089,7 +1089,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-14 13:49:44.889694+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.567058+00:00",
+      "created_at": "2026-10-17T17:24:40.922730+00:00",
       "threshold_percent": 8.0,
       "unique_key": "The Cascades Golf Resort Spa & Thalasso (ex Westin Soma Bay) Egipt, Hurghada, Soma Bay_2026-10-14_13-49_zone_out_gone"
     },
@@ -1102,7 +1102,7 @@
       "price_change_pct": -20.276964647601893,
       "timestamp": "2026-10-14 18:46:41.804614+00:00",
       "alert_type": "price_drop",
-      "created_at": "2026-10-14T18:47:21.567170+00:00",
+      "created_at": "2026-10-17T17:24:40.922882+00:00",
       "threshold_percent": 8.0,
       "unique_key": "IL Mercato (ex. Iberotel Il Mercato) Egipt, Sharm El Sheikh_2026-10-14_18-46_-20.3"
     },
@@ -1115,7 +1115,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-14 18:46:41.804614+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.567187+00:00",
+      "created_at": "2026-10-17T17:24:40.922903+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Gravity Sahl Hasheesh (Ex. Ocean Breeze) Egipt, Hurghada_2026-10-14_18-46_zone_out_gone"
     },
@@ -1128,7 +1128,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-14 18:46:41.804614+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.567193+00:00",
+      "created_at": "2026-10-17T17:24:40.922913+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Le Meridien Dahab Resort Egipt, Dahab_2026-10-14_18-46_zone_out_gone"
     },
@@ -1141,7 +1141,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-14 18:46:41.804614+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.567198+00:00",
+      "created_at": "2026-10-17T17:24:40.922921+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Parrotel Beach Resort (ex. Radisson Blu)_2026-10-14_18-46_zone_out_gone"
     },
@@ -1154,7 +1154,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-14 18:46:41.804614+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.567203+00:00",
+      "created_at": "2026-10-17T17:24:40.922928+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Regency Plaza Aqua Park Spa_2026-10-14_18-46_zone_out_gone"
     },
@@ -1167,7 +1167,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-14 18:46:41.804614+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.567207+00:00",
+      "created_at": "2026-10-17T17:24:40.922935+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Rewaya Majestic Resort Egipt, Hurghada_2026-10-14_18-46_zone_out_gone"
     },
@@ -1180,7 +1180,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-14 18:46:41.804614+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.567212+00:00",
+      "created_at": "2026-10-17T17:24:40.922942+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Serenity Sky Arc_2026-10-14_18-46_zone_out_gone"
     },
@@ -1193,7 +1193,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-14 18:46:41.804614+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T18:47:21.567217+00:00",
+      "created_at": "2026-10-17T17:24:40.922949+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Titanic Palace Resort_2026-10-14_18-46_zone_out_gone"
     },
@@ -1206,7 +1206,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-14 22:25:39.019093+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T22:26:40.495081+00:00",
+      "created_at": "2026-10-17T17:24:40.923057+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Dana Beach Resort Egipt, Hurghada_2026-10-14_22-25_zone_out_gone"
     },
@@ -1219,7 +1219,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-14 22:25:39.019093+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T22:26:40.495108+00:00",
+      "created_at": "2026-10-17T17:24:40.923070+00:00",
       "threshold_percent": 8.0,
       "unique_key": "The Cascades Golf Resort Spa & Thalasso (ex Westin Soma Bay)_2026-10-14_22-25_zone_out_gone"
     },
@@ -1232,7 +1232,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-14 22:25:39.019093+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-14T22:26:40.495118+00:00",
+      "created_at": "2026-10-17T17:24:40.923078+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Titanic Palace Resort Egipt, Hurghada_2026-10-14_22-25_zone_out_gone"
     },
@@ -1245,7 +1245,7 @@
       "price_change_pct": -14.759475218658894,
       "timestamp": "2026-10-15 01:37:29.759793+00:00",
       "alert_type": "price_drop",
-      "created_at": "2026-10-15T01:37:59.703197+00:00",
+      "created_at": "2026-10-17T17:24:40.923174+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Amarina Jannah Resort Aquapark Egipt, Marsa Alam, Port Ghalib_2026-10-15_01-37_-14.8"
     },
@@ -1258,7 +1258,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-15 01:37:29.759793+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-15T01:37:59.703230+00:00",
+      "created_at": "2026-10-17T17:24:40.923203+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Jaz Aquamarine (ex. Iberotel Aquamarine) Egipt, Hurghada_2026-10-15_01-37_zone_out_gone"
     },
@@ -1271,7 +1271,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-15 01:37:29.759793+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-15T01:37:59.703242+00:00",
+      "created_at": "2026-10-17T17:24:40.923234+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Jaz Grand Marsa (ex Resta Grand Resort)_2026-10-15_01-37_zone_out_gone"
     },
@@ -1284,7 +1284,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-15 01:37:29.759793+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-15T01:37:59.703251+00:00",
+      "created_at": "2026-10-17T17:24:40.923243+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Pickalbatros Dana Beach Resort_2026-10-15_01-37_zone_out_gone"
     },
@@ -1297,7 +1297,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-15 01:37:29.759793+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-15T01:37:59.703259+00:00",
+      "created_at": "2026-10-17T17:24:40.923251+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sataya Resort (ex. Labranda Sataya Marsa Alam) Egipt, Marsa Alam_2026-10-15_01-37_zone_out_gone"
     },
@@ -1310,7 +1310,7 @@
       "price_change_pct": 17.31509191962377,
       "timestamp": "2026-10-15 07:36:56.559823+00:00",
       "alert_type": "price_increase",
-      "created_at": "2026-10-15T07:37:28.047761+00:00",
+      "created_at": "2026-10-17T17:24:40.923369+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Amarina Jannah Resort Aquapark Egipt, Marsa Alam, Port Ghalib_2026-10-15_07-36_+17.3"
     },
@@ -1323,22 +1323,9 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-15 07:36:56.559823+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-15T07:37:28.047801+00:00",
+      "created_at": "2026-10-17T17:24:40.923399+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Steigenberger Aqua Magic_2026-10-15_07-36_zone_out_gone"
-    },
-    {
-      "hotel_name": "Labranda Club Makadi (ex Club Azur) Egipt, Hurghada, Makadi Bay",
-      "duration_bucket": "",
-      "old_price": 8613.0,
-      "new_price": 9311.0,
-      "price_change": 698.0,
-      "price_change_pct": 8.104028793683966,
-      "timestamp": "2026-10-15 13:35:12.019832+00:00",
-      "alert_type": "price_increase",
-      "created_at": "2026-10-15T13:35:51.503338+00:00",
-      "threshold_percent": 8.0,
-      "unique_key": "Labranda Club Makadi (ex Club Azur) Egipt, Hurghada, Makadi Bay_2026-10-15_13-35_+8.1"
     },
     {
       "hotel_name": "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna",
@@ -1349,7 +1336,7 @@
       "price_change_pct": -10.40787623066104,
       "timestamp": "2026-10-15 13:35:12.019832+00:00",
       "alert_type": "price_drop",
-      "created_at": "2026-10-15T13:35:51.503389+00:00",
+      "created_at": "2026-10-17T17:24:40.923491+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna_2026-10-15_13-35_-10.4"
     },
@@ -1362,9 +1349,22 @@
       "price_change_pct": 14.767883884345121,
       "timestamp": "2026-10-15 13:35:12.019832+00:00",
       "alert_type": "price_increase",
-      "created_at": "2026-10-15T13:35:51.503403+00:00",
+      "created_at": "2026-10-17T17:24:40.923509+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Pyramisa Beach Resort Sahl Hasheesh Egipt, Hurghada, Sahl Hasheesh_2026-10-15_13-35_+14.8"
+    },
+    {
+      "hotel_name": "Labranda Club Makadi (ex Club Azur) Egipt, Hurghada, Makadi Bay",
+      "duration_bucket": "",
+      "old_price": 8613.0,
+      "new_price": 9311.0,
+      "price_change": 698.0,
+      "price_change_pct": 8.104028793683966,
+      "timestamp": "2026-10-15 13:35:12.019832+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-17T17:24:40.923521+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Labranda Club Makadi (ex Club Azur) Egipt, Hurghada, Makadi Bay_2026-10-15_13-35_+8.1"
     },
     {
       "hotel_name": "Akassia Swiss Resort (ex. Calimera Club Akassia Swiss Resort)",
@@ -1375,7 +1375,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-15 13:35:12.019832+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-15T13:35:51.503424+00:00",
+      "created_at": "2026-10-17T17:24:40.923536+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Akassia Swiss Resort (ex. Calimera Club Akassia Swiss Resort)_2026-10-15_13-35_zone_out_gone"
     },
@@ -1388,7 +1388,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-15 13:35:12.019832+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-15T13:35:51.503431+00:00",
+      "created_at": "2026-10-17T17:24:40.923545+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Jaz Aquamarine Resort_2026-10-15_13-35_zone_out_gone"
     },
@@ -1401,7 +1401,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-15 13:35:12.019832+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-15T13:35:51.503437+00:00",
+      "created_at": "2026-10-17T17:24:40.923552+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Jaz Grand Marsa (ex Resta Grand Resort) Egipt, Marsa Alam, Madinat Coraya_2026-10-15_13-35_zone_out_gone"
     },
@@ -1414,7 +1414,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-15 13:35:12.019832+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-15T13:35:51.503443+00:00",
+      "created_at": "2026-10-17T17:24:40.923560+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Pickalbatros Laguna Club Resort_2026-10-15_13-35_zone_out_gone"
     },
@@ -1427,7 +1427,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-15 13:35:12.019832+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-15T13:35:51.503449+00:00",
+      "created_at": "2026-10-17T17:24:40.923567+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Pickalbatros Luxury Suites_2026-10-15_13-35_zone_out_gone"
     },
@@ -1440,7 +1440,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-15 13:35:12.019832+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-15T13:35:51.503455+00:00",
+      "created_at": "2026-10-17T17:24:40.923574+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sataya Resort (ex. Labranda Sataya Marsa Alam)_2026-10-15_13-35_zone_out_gone"
     },
@@ -1453,7 +1453,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-15 13:35:12.019832+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-15T13:35:51.503461+00:00",
+      "created_at": "2026-10-17T17:24:40.923581+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sea Star Beau Rivage Egipt, Hurghada_2026-10-15_13-35_zone_out_gone"
     },
@@ -1466,7 +1466,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-15 13:35:12.019832+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-15T13:35:51.503467+00:00",
+      "created_at": "2026-10-17T17:24:40.923588+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Serenity Makadi Beach (ex. Heights) Egipt, Hurghada, Makadi Bay_2026-10-15_13-35_zone_out_gone"
     },
@@ -1479,7 +1479,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-15 13:35:12.019832+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-15T13:35:51.503473+00:00",
+      "created_at": "2026-10-17T17:24:40.923594+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Stella Di Mare Gardens Resort & Spa Egipt, Hurghada, Makadi Bay_2026-10-15_13-35_zone_out_gone"
     },
@@ -1492,7 +1492,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-15 13:35:12.019832+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-15T13:35:51.503478+00:00",
+      "created_at": "2026-10-17T17:24:40.923601+00:00",
       "threshold_percent": 8.0,
       "unique_key": "The Cascades Golf Resort Spa & Thalasso (ex Westin Soma Bay) Egipt, Hurghada, Soma Bay_2026-10-15_13-35_zone_out_gone"
     },
@@ -1505,7 +1505,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-15 13:35:12.019832+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-15T13:35:51.503484+00:00",
+      "created_at": "2026-10-17T17:24:40.923608+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Titanic Palace Resort_2026-10-15_13-35_zone_out_gone"
     },
@@ -1518,7 +1518,7 @@
       "price_change_pct": 9.349070936075728,
       "timestamp": "2026-10-15 18:26:36.003548+00:00",
       "alert_type": "price_increase",
-      "created_at": "2026-10-15T18:27:02.737805+00:00",
+      "created_at": "2026-10-17T17:24:40.923711+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Royal Brayka Beach Resort (ex Zee Brayka) Egipt, Marsa Alam_2026-10-15_18-26_+9.3"
     },
@@ -1531,7 +1531,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-15 18:26:36.003548+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-15T18:27:02.737848+00:00",
+      "created_at": "2026-10-17T17:24:40.923733+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Albatros Laguna Club Resort Egipt, Sharm El Sheikh, Szarm el-Szejk_2026-10-15_18-26_zone_out_gone"
     },
@@ -1544,7 +1544,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-15 18:26:36.003548+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-15T18:27:02.737860+00:00",
+      "created_at": "2026-10-17T17:24:40.923745+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Cleopatra Signature Marsa Alam_2026-10-15_18-26_zone_out_gone"
     },
@@ -1557,7 +1557,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-15 18:26:36.003548+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-15T18:27:02.737870+00:00",
+      "created_at": "2026-10-17T17:24:40.923752+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Gravity Sahl Hasheesh (Ex. Ocean Breeze)_2026-10-15_18-26_zone_out_gone"
     },
@@ -1570,7 +1570,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-15 18:26:36.003548+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-15T18:27:02.737877+00:00",
+      "created_at": "2026-10-17T17:24:40.923759+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Jaz Grand Marsa (ex Resta Grand Resort)_2026-10-15_18-26_zone_out_gone"
     },
@@ -1583,7 +1583,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-15 18:26:36.003548+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-15T18:27:02.737885+00:00",
+      "created_at": "2026-10-17T17:24:40.923767+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Pickalbatros Palace Resort_2026-10-15_18-26_zone_out_gone"
     },
@@ -1596,7 +1596,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-15 18:26:36.003548+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-15T18:27:02.737892+00:00",
+      "created_at": "2026-10-17T17:24:40.923774+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Pyramisa Beach Resort Sahl Hasheesh Egipt, Hurghada, Sahl Hasheesh_2026-10-15_18-26_zone_out_gone"
     },
@@ -1609,7 +1609,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-15 22:30:15.743510+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-15T22:31:13.729996+00:00",
+      "created_at": "2026-10-17T17:24:40.923877+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Gravity Sahl Hasheesh (Ex. Ocean Breeze) Egipt, Hurghada_2026-10-15_22-30_zone_out_gone"
     },
@@ -1622,7 +1622,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-15 22:30:15.743510+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-15T22:31:13.730021+00:00",
+      "created_at": "2026-10-17T17:24:40.923889+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Jaz Mirabel Beach Resort_2026-10-15_22-30_zone_out_gone"
     },
@@ -1635,7 +1635,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-15 22:30:15.743510+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-15T22:31:13.730032+00:00",
+      "created_at": "2026-10-17T17:24:40.923897+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Pickalbatros Laguna Club Resort_2026-10-15_22-30_zone_out_gone"
     },
@@ -1648,7 +1648,7 @@
       "price_change_pct": 22.78838397418661,
       "timestamp": "2026-10-16 01:32:04.767348+00:00",
       "alert_type": "price_increase",
-      "created_at": "2026-10-16T01:33:07.780823+00:00",
+      "created_at": "2026-10-17T17:24:40.923992+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Amwaj Oyoun Resort & Spa (ex AA Amwaj Resort) Egipt, Sharm El Sheikh_2026-10-16_01-32_+22.8"
     },
@@ -1661,7 +1661,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-16 01:32:04.767348+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-16T01:33:07.780858+00:00",
+      "created_at": "2026-10-17T17:24:40.924011+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Akassia Swiss Resort (ex. Calimera Club Akassia Swiss Resort) Egipt, Marsa Alam_2026-10-16_01-32_zone_out_gone"
     },
@@ -1674,7 +1674,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-16 01:32:04.767348+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-16T01:33:07.780869+00:00",
+      "created_at": "2026-10-17T17:24:40.924021+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Golf Villas Sharm El Sheikh By Rixos Egipt, Sharm El Sheikh, Szarm el-Szejk_2026-10-16_01-32_zone_out_gone"
     },
@@ -1687,7 +1687,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-16 01:32:04.767348+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-16T01:33:07.780877+00:00",
+      "created_at": "2026-10-17T17:24:40.924028+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Jaz Aquamarine (ex. Iberotel Aquamarine) Egipt, Hurghada_2026-10-16_01-32_zone_out_gone"
     },
@@ -1700,7 +1700,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-16 01:32:04.767348+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-16T01:33:07.780885+00:00",
+      "created_at": "2026-10-17T17:24:40.924036+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sea Star Beau Rivage_2026-10-16_01-32_zone_out_gone"
     },
@@ -1713,7 +1713,7 @@
       "price_change_pct": -27.502306273062732,
       "timestamp": "2026-10-16 07:22:06.698248+00:00",
       "alert_type": "price_drop",
-      "created_at": "2026-10-16T07:22:31.032250+00:00",
+      "created_at": "2026-10-17T17:24:40.924133+00:00",
       "threshold_percent": 8.0,
       "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada_2026-10-16_07-22_-27.5"
     },
@@ -1726,7 +1726,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-16 07:22:06.698248+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-16T07:22:31.032280+00:00",
+      "created_at": "2026-10-17T17:24:40.924156+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Albatros Laguna Club Resort Egipt, Sharm El Sheikh, Szarm el-Szejk_2026-10-16_07-22_zone_out_gone"
     },
@@ -1739,7 +1739,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-16 07:22:06.698248+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-16T07:22:31.032289+00:00",
+      "created_at": "2026-10-17T17:24:40.924165+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Albatros Sea World Resort Marsa Alam_2026-10-16_07-22_zone_out_gone"
     },
@@ -1752,7 +1752,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-16 07:22:06.698248+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-16T07:22:31.032295+00:00",
+      "created_at": "2026-10-17T17:24:40.924173+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Amwaj Oyoun Resort & Spa (ex AA Amwaj Resort) Egipt, Sharm El Sheikh_2026-10-16_07-22_zone_out_gone"
     },
@@ -1765,7 +1765,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-16 07:22:06.698248+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-16T07:22:31.032300+00:00",
+      "created_at": "2026-10-17T17:24:40.924181+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Jaz Aquamarine Resort_2026-10-16_07-22_zone_out_gone"
     },
@@ -1778,7 +1778,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-16 07:22:06.698248+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-16T07:22:31.032306+00:00",
+      "created_at": "2026-10-17T17:24:40.924188+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Old Palace Resort Egipt, Hurghada_2026-10-16_07-22_zone_out_gone"
     },
@@ -1791,7 +1791,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-16 07:22:06.698248+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-16T07:22:31.032311+00:00",
+      "created_at": "2026-10-17T17:24:40.924195+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Pickalbatros Golf Beach Resort_2026-10-16_07-22_zone_out_gone"
     },
@@ -1804,7 +1804,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-16 07:22:06.698248+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-16T07:22:31.032316+00:00",
+      "created_at": "2026-10-17T17:24:40.924202+00:00",
       "threshold_percent": 8.0,
       "unique_key": "V Grand Beach Resort Sahl Hasheesh_2026-10-16_07-22_zone_out_gone"
     },
@@ -1817,35 +1817,9 @@
       "price_change_pct": 30.576299845004932,
       "timestamp": "2026-10-16 13:23:54.273858+00:00",
       "alert_type": "price_increase",
-      "created_at": "2026-10-16T13:24:33.693790+00:00",
+      "created_at": "2026-10-17T17:24:40.924339+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Rewaya Luxury Resort Egipt, Hurghada_2026-10-16_13-23_+30.6"
-    },
-    {
-      "hotel_name": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada",
-      "duration_bucket": "",
-      "old_price": 6287.0,
-      "new_price": 8672.0,
-      "price_change": 2385.0,
-      "price_change_pct": 37.9354222999841,
-      "timestamp": "2026-10-16 13:23:54.273858+00:00",
-      "alert_type": "price_increase",
-      "created_at": "2026-10-16T13:24:33.693807+00:00",
-      "threshold_percent": 8.0,
-      "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada_2026-10-16_13-23_+37.9"
-    },
-    {
-      "hotel_name": "Rewaya Majestic Resort Egipt, Hurghada",
-      "duration_bucket": "",
-      "old_price": 8437.0,
-      "new_price": 9137.0,
-      "price_change": 700.0,
-      "price_change_pct": 8.296787957804908,
-      "timestamp": "2026-10-16 13:23:54.273858+00:00",
-      "alert_type": "price_increase",
-      "created_at": "2026-10-16T13:24:33.693814+00:00",
-      "threshold_percent": 8.0,
-      "unique_key": "Rewaya Majestic Resort Egipt, Hurghada_2026-10-16_13-23_+8.3"
     },
     {
       "hotel_name": "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna",
@@ -1856,9 +1830,35 @@
       "price_change_pct": 11.517054374197231,
       "timestamp": "2026-10-16 13:23:54.273858+00:00",
       "alert_type": "price_increase",
-      "created_at": "2026-10-16T13:24:33.693819+00:00",
+      "created_at": "2026-10-17T17:24:40.924357+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna_2026-10-16_13-23_+11.5"
+    },
+    {
+      "hotel_name": "Rewaya Majestic Resort Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 8437.0,
+      "new_price": 9137.0,
+      "price_change": 700.0,
+      "price_change_pct": 8.296787957804908,
+      "timestamp": "2026-10-16 13:23:54.273858+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-17T17:24:40.924369+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Majestic Resort Egipt, Hurghada_2026-10-16_13-23_+8.3"
+    },
+    {
+      "hotel_name": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 6287.0,
+      "new_price": 8672.0,
+      "price_change": 2385.0,
+      "price_change_pct": 37.9354222999841,
+      "timestamp": "2026-10-16 13:23:54.273858+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-17T17:24:40.924378+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada_2026-10-16_13-23_+37.9"
     },
     {
       "hotel_name": "Labranda Club Makadi (ex Club Azur) Egipt, Hurghada, Makadi Bay",
@@ -1869,7 +1869,7 @@
       "price_change_pct": 8.21282106626376,
       "timestamp": "2026-10-16 13:23:54.273858+00:00",
       "alert_type": "price_increase",
-      "created_at": "2026-10-16T13:24:33.693824+00:00",
+      "created_at": "2026-10-17T17:24:40.924389+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Labranda Club Makadi (ex Club Azur) Egipt, Hurghada, Makadi Bay_2026-10-16_13-23_+8.2"
     },
@@ -1882,7 +1882,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-16 13:23:54.273858+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-16T13:24:33.693836+00:00",
+      "created_at": "2026-10-17T17:24:40.924405+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Akassia Swiss Resort (ex. Calimera Club Akassia Swiss Resort)_2026-10-16_13-23_zone_out_gone"
     },
@@ -1895,7 +1895,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-16 13:23:54.273858+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-16T13:24:33.693840+00:00",
+      "created_at": "2026-10-17T17:24:40.924413+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Double Tree by Hilton Mangroovy El Gouna Resort_2026-10-16_13-23_zone_out_gone"
     },
@@ -1908,7 +1908,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-16 13:23:54.273858+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-16T13:24:33.693844+00:00",
+      "created_at": "2026-10-17T17:24:40.924420+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Gravity Sahl Hasheesh (Ex. Ocean Breeze)_2026-10-16_13-23_zone_out_gone"
     },
@@ -1921,7 +1921,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-16 13:23:54.273858+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-16T13:24:33.693848+00:00",
+      "created_at": "2026-10-17T17:24:40.924428+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Jaz Mirabel Beach Resort_2026-10-16_13-23_zone_out_gone"
     },
@@ -1934,7 +1934,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-16 13:23:54.273858+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-16T13:24:33.693852+00:00",
+      "created_at": "2026-10-17T17:24:40.924435+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Pickalbatros Laguna Club Resort_2026-10-16_13-23_zone_out_gone"
     },
@@ -1947,7 +1947,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-16 13:23:54.273858+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-16T13:24:33.693855+00:00",
+      "created_at": "2026-10-17T17:24:40.924442+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Pickalbatros Palace Resort_2026-10-16_13-23_zone_out_gone"
     },
@@ -1960,7 +1960,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-16 13:23:54.273858+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-16T13:24:33.693859+00:00",
+      "created_at": "2026-10-17T17:24:40.924449+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Pyramisa Beach Resort Sahl Hasheesh Egipt, Hurghada, Sahl Hasheesh_2026-10-16_13-23_zone_out_gone"
     },
@@ -1973,7 +1973,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-16 13:23:54.273858+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-16T13:24:33.693862+00:00",
+      "created_at": "2026-10-17T17:24:40.924456+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sea Star Beau Rivage Egipt, Hurghada_2026-10-16_13-23_zone_out_gone"
     },
@@ -1986,7 +1986,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-16 13:23:54.273858+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-16T13:24:33.693866+00:00",
+      "created_at": "2026-10-17T17:24:40.924463+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sentido Akassia Beach (ex. LTI Akassia Beach) Egipt, Marsa Alam_2026-10-16_13-23_zone_out_gone"
     },
@@ -1999,7 +1999,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-16 13:23:54.273858+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-16T13:24:33.693869+00:00",
+      "created_at": "2026-10-17T17:24:40.924470+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Serenity Alpha Beach (ex. Serenity Makadi Beach)_2026-10-16_13-23_zone_out_gone"
     },
@@ -2012,7 +2012,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-16 13:23:54.273858+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-16T13:24:33.693873+00:00",
+      "created_at": "2026-10-17T17:24:40.924477+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Stella Di Mare Gardens Resort & Spa Egipt, Hurghada, Makadi Bay_2026-10-16_13-23_zone_out_gone"
     },
@@ -2025,9 +2025,22 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-16 13:23:54.273858+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-16T13:24:33.693876+00:00",
+      "created_at": "2026-10-17T17:24:40.924484+00:00",
       "threshold_percent": 8.0,
       "unique_key": "The Cascades Golf Resort Spa & Thalasso (ex Westin Soma Bay) Egipt, Hurghada, Soma Bay_2026-10-16_13-23_zone_out_gone"
+    },
+    {
+      "hotel_name": "Rewaya Luxury Resort Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 9267.0,
+      "new_price": 7277.0,
+      "price_change": -1990.0,
+      "price_change_pct": -21.47404769612604,
+      "timestamp": "2026-10-16 18:13:13.414046+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-17T17:24:40.924580+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Luxury Resort Egipt, Hurghada_2026-10-16_18-13_-21.5"
     },
     {
       "hotel_name": "Gravity Sahl Hasheesh (Ex. Ocean Breeze) Egipt, Hurghada",
@@ -2038,7 +2051,7 @@
       "price_change_pct": -16.592284042447684,
       "timestamp": "2026-10-16 18:13:13.414046+00:00",
       "alert_type": "price_drop",
-      "created_at": "2026-10-16T18:15:39.377357+00:00",
+      "created_at": "2026-10-17T17:24:40.924594+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Gravity Sahl Hasheesh (Ex. Ocean Breeze) Egipt, Hurghada_2026-10-16_18-13_-16.6"
     },
@@ -2051,7 +2064,7 @@
       "price_change_pct": 18.057332992065522,
       "timestamp": "2026-10-16 18:13:13.414046+00:00",
       "alert_type": "price_increase",
-      "created_at": "2026-10-16T18:15:39.377384+00:00",
+      "created_at": "2026-10-17T17:24:40.924606+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna_2026-10-16_18-13_+18.1"
     },
@@ -2064,22 +2077,9 @@
       "price_change_pct": -10.620387453874539,
       "timestamp": "2026-10-16 18:13:13.414046+00:00",
       "alert_type": "price_drop",
-      "created_at": "2026-10-16T18:15:39.377398+00:00",
+      "created_at": "2026-10-17T17:24:40.924617+00:00",
       "threshold_percent": 8.0,
       "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada_2026-10-16_18-13_-10.6"
-    },
-    {
-      "hotel_name": "Rewaya Luxury Resort Egipt, Hurghada",
-      "duration_bucket": "",
-      "old_price": 9267.0,
-      "new_price": 7277.0,
-      "price_change": -1990.0,
-      "price_change_pct": -21.47404769612604,
-      "timestamp": "2026-10-16 18:13:13.414046+00:00",
-      "alert_type": "price_drop",
-      "created_at": "2026-10-16T18:15:39.377410+00:00",
-      "threshold_percent": 8.0,
-      "unique_key": "Rewaya Luxury Resort Egipt, Hurghada_2026-10-16_18-13_-21.5"
     },
     {
       "hotel_name": "Cleopatra Signature Marsa Alam Egipt, Marsa Alam",
@@ -2090,7 +2090,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-16 18:13:13.414046+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-16T18:15:39.377427+00:00",
+      "created_at": "2026-10-17T17:24:40.924634+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Cleopatra Signature Marsa Alam Egipt, Marsa Alam_2026-10-16_18-13_zone_out_gone"
     },
@@ -2103,7 +2103,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-16 18:13:13.414046+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-16T18:15:39.377436+00:00",
+      "created_at": "2026-10-17T17:24:40.924642+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Jaz Mirabel Beach Resort Egipt, Sharm El Sheikh_2026-10-16_18-13_zone_out_gone"
     },
@@ -2116,7 +2116,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-16 18:13:13.414046+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-16T18:15:39.377444+00:00",
+      "created_at": "2026-10-17T17:24:40.924650+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Rewaya Majestic Resort Egipt, Hurghada_2026-10-16_18-13_zone_out_gone"
     },
@@ -2129,7 +2129,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-16 18:13:13.414046+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-16T18:15:39.377451+00:00",
+      "created_at": "2026-10-17T17:24:40.924657+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Serenity Alma Heights (ex. Serenity Fun City)_2026-10-16_18-13_zone_out_gone"
     },
@@ -2142,7 +2142,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-16 18:13:13.414046+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-16T18:15:39.377458+00:00",
+      "created_at": "2026-10-17T17:24:40.924664+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Serenity Makadi Beach (ex. Heights) Egipt, Hurghada, Makadi Bay_2026-10-16_18-13_zone_out_gone"
     },
@@ -2155,7 +2155,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-16 18:13:13.414046+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-16T18:15:39.377465+00:00",
+      "created_at": "2026-10-17T17:24:40.924670+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sirena Beach Resort & Spa_2026-10-16_18-13_zone_out_gone"
     },
@@ -2168,7 +2168,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-16 18:13:13.414046+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-16T18:15:39.377473+00:00",
+      "created_at": "2026-10-17T17:24:40.924677+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Stella Beach Resort & Spa_2026-10-16_18-13_zone_out_gone"
     },
@@ -2181,7 +2181,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-16 18:13:13.414046+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-16T18:15:39.377479+00:00",
+      "created_at": "2026-10-17T17:24:40.924684+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Tropitel Sahl Hasheesh_2026-10-16_18-13_zone_out_gone"
     },
@@ -2194,7 +2194,7 @@
       "price_change_pct": 10.999749436231522,
       "timestamp": "2026-10-16 21:24:31.667072+00:00",
       "alert_type": "price_increase",
-      "created_at": "2026-10-16T21:25:01.757154+00:00",
+      "created_at": "2026-10-17T17:24:40.924780+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Amarina Jannah Resort Aquapark Egipt, Marsa Alam, Port Ghalib_2026-10-16_21-24_+11.0"
     },
@@ -2207,7 +2207,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-16 21:24:31.667072+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-16T21:25:01.757188+00:00",
+      "created_at": "2026-10-17T17:24:40.924806+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Akassia Swiss Resort (ex. Calimera Club Akassia Swiss Resort) Egipt, Marsa Alam_2026-10-16_21-24_zone_out_gone"
     },
@@ -2220,7 +2220,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-16 21:24:31.667072+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-16T21:25:01.757200+00:00",
+      "created_at": "2026-10-17T17:24:40.924815+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Jaz Mirabel Beach Resort_2026-10-16_21-24_zone_out_gone"
     },
@@ -2233,7 +2233,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-16 21:24:31.667072+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-16T21:25:01.757209+00:00",
+      "created_at": "2026-10-17T17:24:40.924822+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Labranda Club Makadi (ex Club Azur) Egipt, Hurghada, Makadi Bay_2026-10-16_21-24_zone_out_gone"
     },
@@ -2246,7 +2246,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-16 21:24:31.667072+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-16T21:25:01.757216+00:00",
+      "created_at": "2026-10-17T17:24:40.924829+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Pickalbatros Luxury Suites_2026-10-16_21-24_zone_out_gone"
     },
@@ -2259,7 +2259,7 @@
       "price_change_pct": 9.259038300918746,
       "timestamp": "2026-10-17 05:43:24.468924+00:00",
       "alert_type": "price_increase",
-      "created_at": "2026-10-17T05:44:01.891201+00:00",
+      "created_at": "2026-10-17T17:24:40.924958+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Movenpick Resort Soma Bay Egipt, Hurghada_2026-10-17_05-43_+9.3"
     },
@@ -2272,7 +2272,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-17 05:43:24.468924+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-17T05:44:01.891248+00:00",
+      "created_at": "2026-10-17T17:24:40.924982+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Cleopatra Signature Marsa Alam_2026-10-17_05-43_zone_out_gone"
     },
@@ -2285,7 +2285,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-17 05:43:24.468924+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-17T05:44:01.891255+00:00",
+      "created_at": "2026-10-17T17:24:40.924991+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Golf Villas Sharm El Sheikh By Rixos Egipt, Sharm El Sheikh, Szarm el-Szejk_2026-10-17_05-43_zone_out_gone"
     },
@@ -2298,7 +2298,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-17 05:43:24.468924+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-17T05:44:01.891259+00:00",
+      "created_at": "2026-10-17T17:24:40.924999+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Jaz Palmariva Beach_2026-10-17_05-43_zone_out_gone"
     },
@@ -2311,7 +2311,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-17 05:43:24.468924+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-17T05:44:01.891263+00:00",
+      "created_at": "2026-10-17T17:24:40.925006+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Serenity Fun City Egipt, Hurghada, Makadi Bay_2026-10-17_05-43_zone_out_gone"
     },
@@ -2324,7 +2324,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-17 05:43:24.468924+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-17T05:44:01.891268+00:00",
+      "created_at": "2026-10-17T17:24:40.925013+00:00",
       "threshold_percent": 8.0,
       "unique_key": "V Grand Beach Resort Sahl Hasheesh_2026-10-17_05-43_zone_out_gone"
     },
@@ -2337,7 +2337,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-17 10:58:36.999727+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-17T11:01:03.249045+00:00",
+      "created_at": "2026-10-17T17:24:40.925115+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Akassia Swiss Resort (ex. Calimera Club Akassia Swiss Resort)_2026-10-17_10-58_zone_out_gone"
     },
@@ -2350,7 +2350,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-17 10:58:36.999727+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-17T11:01:03.249068+00:00",
+      "created_at": "2026-10-17T17:24:40.925128+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Cleopatra Signature Marsa Alam Egipt, Marsa Alam_2026-10-17_10-58_zone_out_gone"
     },
@@ -2363,7 +2363,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-17 10:58:36.999727+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-17T11:01:03.249079+00:00",
+      "created_at": "2026-10-17T17:24:40.925136+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Le Meridien Dahab Resort Egipt, Dahab_2026-10-17_10-58_zone_out_gone"
     },
@@ -2376,7 +2376,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-17 10:58:36.999727+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-17T11:01:03.249087+00:00",
+      "created_at": "2026-10-17T17:24:40.925143+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Parrotel Beach Resort (ex. Radisson Blu)_2026-10-17_10-58_zone_out_gone"
     },
@@ -2389,7 +2389,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-17 10:58:36.999727+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-17T11:01:03.249095+00:00",
+      "created_at": "2026-10-17T17:24:40.925150+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Regency Plaza Aqua Park Spa_2026-10-17_10-58_zone_out_gone"
     },
@@ -2402,7 +2402,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-17 10:58:36.999727+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-17T11:01:03.249103+00:00",
+      "created_at": "2026-10-17T17:24:40.925157+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Serenity Alma Heights (ex. Serenity Fun City)_2026-10-17_10-58_zone_out_gone"
     },
@@ -2415,7 +2415,7 @@
       "price_change_pct": 10.285255122539173,
       "timestamp": "2026-10-17 14:19:30.903964+00:00",
       "alert_type": "price_increase",
-      "created_at": "2026-10-17T14:19:56.274319+00:00",
+      "created_at": "2026-10-17T17:24:40.925281+00:00",
       "threshold_percent": 8.0,
       "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada_2026-10-17_14-19_+10.3"
     },
@@ -2428,7 +2428,7 @@
       "price_change_pct": 8.535100770999595,
       "timestamp": "2026-10-17 14:19:30.903964+00:00",
       "alert_type": "price_increase",
-      "created_at": "2026-10-17T14:19:56.274348+00:00",
+      "created_at": "2026-10-17T17:24:40.925298+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Xperience Kiroseiz Premier Egipt, Sharm El Sheikh_2026-10-17_14-19_+8.5"
     },
@@ -2441,7 +2441,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-17 14:19:30.903964+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-17T14:19:56.274363+00:00",
+      "created_at": "2026-10-17T17:24:40.925315+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Stella Di Mare Beach Resort & Spa (ex. Stella Makadi Resort) Egipt, Hurghada, Makadi Bay_2026-10-17_14-19_zone_out_gone"
     },
@@ -2454,7 +2454,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-17 14:19:30.903964+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-17T14:19:56.274371+00:00",
+      "created_at": "2026-10-17T17:24:40.925324+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort)_2026-10-17_14-19_zone_out_gone"
     },
@@ -2467,7 +2467,7 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-17 14:19:30.903964+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-17T14:19:56.274376+00:00",
+      "created_at": "2026-10-17T17:24:40.925332+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Titanic Royal_2026-10-17_14-19_zone_out_gone"
     },
@@ -2480,64 +2480,50 @@
       "price_change_pct": 0.0,
       "timestamp": "2026-10-17 14:19:30.903964+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-17T14:19:56.274382+00:00",
+      "created_at": "2026-10-17T17:24:40.925339+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Tropitel Sahl Hasheesh Egipt, Hurghada_2026-10-17_14-19_zone_out_gone"
+    },
+    {
+      "hotel_name": "Serenity Fun City Egipt, Hurghada, Makadi Bay",
+      "duration_bucket": "",
+      "old_price": 9780.0,
+      "new_price": 9780.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-17 17:24:09.897106+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-17T17:24:40.925534+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Serenity Fun City Egipt, Hurghada, Makadi Bay_2026-10-17_17-24_zone_out_gone"
+    },
+    {
+      "hotel_name": "Stella Beach Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 9940.0,
+      "new_price": 9940.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-17 17:24:09.897106+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-17T17:24:40.925548+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Stella Beach Resort & Spa_2026-10-17_17-24_zone_out_gone"
     }
   ],
   "meta": {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-    "last_processed_run": "2026-10-17T15:24:52.681178+00:00",
-=======
-    "last_processed_run": "2026-10-17T15:47:03.386903+00:00",
->>>>>>> Stashed changes
-=======
-    "last_processed_run": "2026-10-17T16:11:00.556997+00:00",
->>>>>>> Stashed changes
+    "last_processed_run": "2026-10-17T17:24:09.897106+00:00",
     "premium_state": {
-      "Pickalbatros Golf Beach Resort": {
-        "history_max": 10937.0,
-        "premium_peak": null
-      },
-      "Parrotel Beach Resort (ex. Radisson Blu)": {
-        "history_max": 10842.0,
-        "premium_peak": null
-      },
-      "Parrotel Lagoon Resort Egipt, Sharm El Sheikh, Szarm el-Szejk": {
-        "history_max": 6672.0,
-        "premium_peak": null
-      },
-      "Pickalbatros Dana Beach Resort": {
-        "history_max": 10767.0,
-        "premium_peak": null
-      },
-      "Pickalbatros Laguna Club Resort": {
-        "history_max": 10487.0,
-        "premium_peak": null
-      },
-      "Concorde Moreen Beach Resort & Spa": {
-        "history_max": 10313.0,
-        "premium_peak": null
-      },
-      "Pickalbatros Luxury Suites": {
-        "history_max": 10246.0,
-        "premium_peak": null
-      },
-      "Pickalbatros Palace Resort": {
-        "history_max": 10914.0,
-        "premium_peak": null
-      },
-      "Pickalbatros Royal Moderna": {
-        "history_max": 10903.0,
-        "premium_peak": null
-      },
-      "Old Palace Resort Egipt, Hurghada": {
-        "history_max": 9083.0,
+      "Cooee Prima Life Makadi Bay": {
+        "history_max": 10357.0,
         "premium_peak": null
       },
       "Red Sea Grand Waterworld Makadi (ex. Sunwing Waterworld Makadi)": {
         "history_max": 9614.0,
+        "premium_peak": null
+      },
+      "Reef Oasis Suakin Resort": {
+        "history_max": 10757.0,
         "premium_peak": null
       },
       "Regency Plaza Aqua Park Spa": {
@@ -2548,12 +2534,16 @@
         "history_max": 10975.0,
         "premium_peak": null
       },
-      "Casa Mare Resort (ex. Royal Tulip Beach Resort) Egipt, Marsa Alam": {
-        "history_max": 8357.0,
-        "premium_peak": null
-      },
       "Rewaya Luxury Resort Egipt, Hurghada": {
         "history_max": 9267.0,
+        "premium_peak": null
+      },
+      "Concorde Moreen Beach Resort & Spa": {
+        "history_max": 10313.0,
+        "premium_peak": null
+      },
+      "Xperience Kiroseiz Premier Egipt, Sharm El Sheikh": {
+        "history_max": 8024.0,
         "premium_peak": null
       },
       "Rewaya Majestic Resort Egipt, Hurghada": {
@@ -2572,112 +2562,44 @@
         "history_max": 9857.0,
         "premium_peak": null
       },
-      "Reef Oasis Suakin Resort": {
-        "history_max": 10757.0,
-        "premium_peak": null
-      },
-      "Cooee Prima Life Makadi Bay": {
-        "history_max": 10357.0,
-        "premium_peak": null
-      },
-      "Novotel Marsa Alam Egipt, Marsa Alam": {
-        "history_max": 8817.0,
-        "premium_peak": null
-      },
-      "Naama Bay Promenade Mountain Resort Egipt, Sharm El Sheikh, Szarm el-Szejk": {
-        "history_max": 9133.0,
-        "premium_peak": null
-      },
-      "Golf Villas And Suites Sharm": {
-        "history_max": 10079.0,
-        "premium_peak": null
-      },
-      "Dream Lagoon & Aqua Park Resort (ex. Floriana Dream Lagoon) Egipt, Marsa Alam": {
-        "history_max": 7877.0,
-        "premium_peak": null
-      },
-      "Gravity Sahl Hasheesh (Ex. Ocean Breeze)": {
-        "history_max": 10896.0,
-        "premium_peak": null
-      },
-      "Hilton Plaza (Hurghada)": {
-        "history_max": 10742.0,
-        "premium_peak": null
-      },
-      "IL Mercato (ex. Iberotel Il Mercato) Egipt, Sharm El Sheikh": {
-        "history_max": 8882.0,
-        "premium_peak": null
-      },
-      "Jasmine Palace Egipt, Hurghada": {
-        "history_max": 8757.0,
-        "premium_peak": null
-      },
-      "Jaz Aquamarine (ex. Iberotel Aquamarine) Egipt, Hurghada": {
-        "history_max": 9947.0,
-        "premium_peak": null
-      },
-      "Double Tree by Hilton Mangroovy El Gouna Resort": {
-        "history_max": 10742.0,
-        "premium_peak": null
-      },
-      "Jaz Aquaviva": {
-        "history_max": 10951.0,
-        "premium_peak": null
-      },
-      "Jaz Grand Marsa (ex Resta Grand Resort) Egipt, Marsa Alam, Madinat Coraya": {
-        "history_max": 9397.0,
-        "premium_peak": null
-      },
-      "Jaz Makadi Oasis Resort": {
-        "history_max": 10997.0,
-        "premium_peak": null
-      },
-      "Jaz Mirabel Beach Resort": {
-        "history_max": 10637.0,
-        "premium_peak": null
-      },
-      "Labranda Club Makadi (ex Club Azur) Egipt, Hurghada, Makadi Bay": {
-        "history_max": 10027.0,
-        "premium_peak": null
-      },
-      "Le Meridien Dahab Resort Egipt, Dahab": {
-        "history_max": 9553.0,
-        "premium_peak": null
-      },
-      "Marriott Hurghada Beach Resort Egipt, Hurghada": {
-        "history_max": 8947.0,
+      "Sea Star Beau Rivage Egipt, Hurghada": {
+        "history_max": 9149.0,
         "premium_peak": null
       },
       "Creek Hotel & Residences Egipt, Hurghada, Al-Dżuna": {
         "history_max": 9513.0,
         "premium_peak": null
       },
-      "Mercure Dahab Bay View Egipt, Dahab": {
-        "history_max": 9407.0,
+      "Casa Mare Resort (ex. Royal Tulip Beach Resort) Egipt, Marsa Alam": {
+        "history_max": 8357.0,
         "premium_peak": null
       },
-      "Movenpick Resort Soma Bay Egipt, Hurghada": {
-        "history_max": 9157.0,
+      "Serenity Alma Heights (ex. Serenity Fun City)": {
+        "history_max": 10797.0,
         "premium_peak": null
       },
-      "Naama Bay Promenade Beach Resort": {
-        "history_max": 10759.0,
+      "Serenity Alpha Beach (ex. Serenity Makadi Beach)": {
+        "history_max": 10739.0,
         "premium_peak": null
       },
       "Amarina Jannah Resort Aquapark Egipt, Marsa Alam, Port Ghalib": {
         "history_max": 8860.0,
         "premium_peak": null
       },
-      "Sea Star Beau Rivage Egipt, Hurghada": {
-        "history_max": 9149.0,
+      "Sirena Beach Resort & Spa": {
+        "history_max": 10842.0,
         "premium_peak": null
       },
-      "Fantazia Resort": {
-        "history_max": 10292.0,
+      "Siva Golden Bay Makadi Egipt, Hurghada, Makadi Bay": {
+        "history_max": 7867.0,
         "premium_peak": null
       },
-      "Sentido Mamlouk Palace Resort & Spa (ex Sunrise)": {
-        "history_max": 10273.0,
+      "Albatros Sea World Resort Marsa Alam": {
+        "history_max": 10527.0,
+        "premium_peak": null
+      },
+      "Sol Y Mar Naama Bay Egipt, Sharm El Sheikh": {
+        "history_max": 9003.0,
         "premium_peak": null
       },
       "Steigenberger Aqua Magic": {
@@ -2692,40 +2614,172 @@
         "history_max": 8623.0,
         "premium_peak": null
       },
+      "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort)": {
+        "history_max": 10638.0,
+        "premium_peak": null
+      },
       "Albatros Makadi Resort (ex Royal Pharaohs Makadi)": {
         "history_max": 10447.0,
+        "premium_peak": null
+      },
+      "Sentido Mamlouk Palace Resort & Spa (ex Sunrise)": {
+        "history_max": 10273.0,
         "premium_peak": null
       },
       "The Cascades Golf Resort Spa & Thalasso (ex Westin Soma Bay) Egipt, Hurghada, Soma Bay": {
         "history_max": 8952.0,
         "premium_peak": null
       },
+      "Pickalbatros Royal Moderna": {
+        "history_max": 10903.0,
+        "premium_peak": null
+      },
+      "Pickalbatros Luxury Suites": {
+        "history_max": 10246.0,
+        "premium_peak": null
+      },
+      "Jaz Aquamarine (ex. Iberotel Aquamarine) Egipt, Hurghada": {
+        "history_max": 9947.0,
+        "premium_peak": null
+      },
+      "Jaz Aquaviva": {
+        "history_max": 10951.0,
+        "premium_peak": null
+      },
+      "IL Mercato (ex. Iberotel Il Mercato) Egipt, Sharm El Sheikh": {
+        "history_max": 8882.0,
+        "premium_peak": null
+      },
+      "Jaz Grand Marsa (ex Resta Grand Resort) Egipt, Marsa Alam, Madinat Coraya": {
+        "history_max": 9397.0,
+        "premium_peak": null
+      },
+      "Jaz Makadi Oasis Resort": {
+        "history_max": 10997.0,
+        "premium_peak": null
+      },
+      "Jaz Mirabel Beach Resort": {
+        "history_max": 10637.0,
+        "premium_peak": null
+      },
+      "Hilton Plaza (Hurghada)": {
+        "history_max": 10742.0,
+        "premium_peak": null
+      },
+      "Labranda Club Makadi (ex Club Azur) Egipt, Hurghada, Makadi Bay": {
+        "history_max": 10027.0,
+        "premium_peak": null
+      },
+      "Le Meridien Dahab Resort Egipt, Dahab": {
+        "history_max": 9553.0,
+        "premium_peak": null
+      },
+      "Marriott Hurghada Beach Resort Egipt, Hurghada": {
+        "history_max": 8947.0,
+        "premium_peak": null
+      },
+      "Mercure Dahab Bay View Egipt, Dahab": {
+        "history_max": 9407.0,
+        "premium_peak": null
+      },
+      "Gravity Sahl Hasheesh (Ex. Ocean Breeze)": {
+        "history_max": 10896.0,
+        "premium_peak": null
+      },
+      "Pickalbatros Palace Resort": {
+        "history_max": 10914.0,
+        "premium_peak": null
+      },
+      "Movenpick Resort Soma Bay Egipt, Hurghada": {
+        "history_max": 9157.0,
+        "premium_peak": null
+      },
+      "Naama Bay Promenade Beach Resort": {
+        "history_max": 10759.0,
+        "premium_peak": null
+      },
+      "Naama Bay Promenade Mountain Resort Egipt, Sharm El Sheikh, Szarm el-Szejk": {
+        "history_max": 9133.0,
+        "premium_peak": null
+      },
+      "Novotel Marsa Alam Egipt, Marsa Alam": {
+        "history_max": 8817.0,
+        "premium_peak": null
+      },
+      "Fantazia Resort": {
+        "history_max": 10292.0,
+        "premium_peak": null
+      },
+      "Old Palace Resort Egipt, Hurghada": {
+        "history_max": 9083.0,
+        "premium_peak": null
+      },
+      "Parrotel Beach Resort (ex. Radisson Blu)": {
+        "history_max": 10842.0,
+        "premium_peak": null
+      },
+      "Parrotel Lagoon Resort Egipt, Sharm El Sheikh, Szarm el-Szejk": {
+        "history_max": 6672.0,
+        "premium_peak": null
+      },
+      "Dream Lagoon & Aqua Park Resort (ex. Floriana Dream Lagoon) Egipt, Marsa Alam": {
+        "history_max": 7877.0,
+        "premium_peak": null
+      },
+      "Pickalbatros Dana Beach Resort": {
+        "history_max": 10767.0,
+        "premium_peak": null
+      },
+      "Pickalbatros Golf Beach Resort": {
+        "history_max": 10937.0,
+        "premium_peak": null
+      },
+      "Double Tree by Hilton Mangroovy El Gouna Resort": {
+        "history_max": 10742.0,
+        "premium_peak": null
+      },
+      "Pickalbatros Laguna Club Resort": {
+        "history_max": 10487.0,
+        "premium_peak": null
+      },
+      "Golf Villas And Suites Sharm": {
+        "history_max": 10079.0,
+        "premium_peak": null
+      },
       "Titanic Beach Spa & Aqua Park": {
         "history_max": 9357.0,
         "premium_peak": null
       },
-      "Titanic Palace Resort Egipt, Hurghada": {
-        "history_max": 9817.0,
-        "premium_peak": null
-      },
-      "Sol Y Mar Naama Bay Egipt, Sharm El Sheikh": {
-        "history_max": 9003.0,
-        "premium_peak": null
-      },
-      "Titanic Pearl": {
-        "history_max": 10938.0,
-        "premium_peak": null
-      },
-      "Akassia Swiss Resort (ex. Calimera Club Akassia Swiss Resort)": {
-        "history_max": 10080.0,
+      "Jasmine Palace Egipt, Hurghada": {
+        "history_max": 8757.0,
         "premium_peak": null
       },
       "Tropitel Sahl Hasheesh": {
         "history_max": 10745.0,
         "premium_peak": null
       },
+      "Titanic Royal": {
+        "history_max": 10626.0,
+        "premium_peak": null
+      },
+      "Titanic Palace Resort Egipt, Hurghada": {
+        "history_max": 9817.0,
+        "premium_peak": null
+      },
       "True Beach Resort": {
         "history_max": 9422.0,
+        "premium_peak": null
+      },
+      "Akassia Swiss Resort (ex. Calimera Club Akassia Swiss Resort)": {
+        "history_max": 10080.0,
+        "premium_peak": null
+      },
+      "Titanic Pearl": {
+        "history_max": 10938.0,
+        "premium_peak": null
+      },
+      "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
+        "history_max": 9427.0,
         "premium_peak": null
       },
       "V Grand Beach Resort Sahl Hasheesh": {
@@ -2736,60 +2790,8 @@
         "history_max": 7805.0,
         "premium_peak": null
       },
-      "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
-        "history_max": 9427.0,
-        "premium_peak": null
-      },
-      "Xperience Kiroseiz Premier Egipt, Sharm El Sheikh": {
-        "history_max": 8024.0,
-        "premium_peak": null
-      },
-      "Titanic Royal": {
-        "history_max": 10626.0,
-        "premium_peak": null
-      },
-      "Siva Golden Bay Makadi Egipt, Hurghada, Makadi Bay": {
-        "history_max": 7867.0,
-        "premium_peak": null
-      },
-      "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort)": {
-        "history_max": 10638.0,
-        "premium_peak": null
-      },
-      "Albatros Sea World Resort Marsa Alam": {
-        "history_max": 10527.0,
-        "premium_peak": null
-      },
-      "Serenity Alpha Beach (ex. Serenity Makadi Beach)": {
-        "history_max": 10739.0,
-        "premium_peak": null
-      },
-      "Serenity Alma Heights (ex. Serenity Fun City)": {
-        "history_max": 10797.0,
-        "premium_peak": null
-      },
-      "Sirena Beach Resort & Spa": {
-        "history_max": 10842.0,
-        "premium_peak": null
-      },
-      "Serenity Makadi Beach (ex. Heights) Egipt, Hurghada, Makadi Bay": {
-        "history_max": 10013.0,
-        "premium_peak": null
-      },
-      "Hilton Plaza (Hurghada) Egipt, Hurghada": {
-        "history_max": 8870.0,
-        "premium_peak": null
-      },
-      "Pyramisa Beach Resort Sahl Hasheesh Egipt, Hurghada, Sahl Hasheesh": {
-        "history_max": 9963.0,
-        "premium_peak": null
-      },
       "Pickalbatros Citadel Sahl Hasheesh (ex. Citadel Azur Resort)": {
         "history_max": 10800.0,
-        "premium_peak": null
-      },
-      "Retac Qunay Dahab Resort & Spa": {
-        "history_max": 9255.0,
         "premium_peak": null
       },
       "Serenity Sky Arc": {
@@ -2800,28 +2802,40 @@
         "history_max": 9524.0,
         "premium_peak": null
       },
-      "Titanic Palace Resort": {
-        "history_max": 9817.0,
+      "Retac Qunay Dahab Resort & Spa": {
+        "history_max": 9255.0,
+        "premium_peak": null
+      },
+      "Pyramisa Beach Resort Sahl Hasheesh Egipt, Hurghada, Sahl Hasheesh": {
+        "history_max": 9963.0,
+        "premium_peak": null
+      },
+      "Serenity Makadi Beach (ex. Heights) Egipt, Hurghada, Makadi Bay": {
+        "history_max": 10013.0,
+        "premium_peak": null
+      },
+      "Hilton Plaza (Hurghada) Egipt, Hurghada": {
+        "history_max": 8870.0,
         "premium_peak": null
       },
       "Royal Pharaohs Makadi (ex. Harmony) Egipt, Hurghada, Makadi Bay": {
         "history_max": 9577.0,
         "premium_peak": null
       },
-      "Titanic Beach Spa & Aqua Park Egipt, Hurghada": {
-        "history_max": 9357.0,
+      "Titanic Palace Resort": {
+        "history_max": 9817.0,
         "premium_peak": null
       },
       "Concorde Moreen Beach Resort & Spa Egipt, Marsa Alam": {
         "history_max": 9557.0,
         "premium_peak": null
       },
-      "Sataya Resort (ex. Labranda Sataya Marsa Alam) Egipt, Marsa Alam": {
-        "history_max": 9657.0,
+      "Titanic Beach Spa & Aqua Park Egipt, Hurghada": {
+        "history_max": 9357.0,
         "premium_peak": null
       },
-      "Sentido Akassia Beach (ex. LTI Akassia Beach) Egipt, Marsa Alam": {
-        "history_max": 9171.0,
+      "Sataya Resort (ex. Labranda Sataya Marsa Alam) Egipt, Marsa Alam": {
+        "history_max": 9657.0,
         "premium_peak": null
       },
       "The Cascades Golf Resort Spa & Thalasso (ex Westin Soma Bay)": {
@@ -2832,8 +2846,8 @@
         "history_max": 9383.0,
         "premium_peak": null
       },
-      "Sea Star Beau Rivage": {
-        "history_max": 10923.0,
+      "Sentido Akassia Beach (ex. LTI Akassia Beach) Egipt, Marsa Alam": {
+        "history_max": 9171.0,
         "premium_peak": null
       },
       "Pickalbatros White Beach Resort": {
@@ -2844,16 +2858,20 @@
         "history_max": 9614.0,
         "premium_peak": null
       },
+      "Sea Star Beau Rivage": {
+        "history_max": 10923.0,
+        "premium_peak": null
+      },
+      "Cleopatra Signature Marsa Alam": {
+        "history_max": 10812.0,
+        "premium_peak": null
+      },
       "Sunrise Royal Makadi Aqua Resort": {
         "history_max": 10853.0,
         "premium_peak": null
       },
       "Gravity Sahl Hasheesh (Ex. Ocean Breeze) Egipt, Hurghada": {
         "history_max": 10083.0,
-        "premium_peak": null
-      },
-      "Cleopatra Signature Marsa Alam": {
-        "history_max": 10812.0,
         "premium_peak": null
       },
       "Jaz Grand Marsa (ex Resta Grand Resort)": {
@@ -2892,28 +2910,28 @@
         "history_max": 10007.0,
         "premium_peak": null
       },
-      "Tropitel Sahl Hasheesh Egipt, Hurghada": {
-        "history_max": 9726.0,
-        "premium_peak": null
-      },
       "Serenity Fun City Egipt, Hurghada, Makadi Bay": {
         "history_max": 9833.0,
         "premium_peak": null
       },
+      "Tropitel Sahl Hasheesh Egipt, Hurghada": {
+        "history_max": 9726.0,
+        "premium_peak": null
+      },
       "Stella Di Mare Beach Resort & Spa (ex. Stella Makadi Resort) Egipt, Hurghada, Makadi Bay": {
-        "history_max": 9454.0,
+        "history_max": 9940.0,
         "premium_peak": null
       },
       "Jaz Palmariva Beach": {
         "history_max": 9896.0,
         "premium_peak": null
       },
-      "Titanic Royal Egipt, Hurghada": {
-        "history_max": 9876.0,
-        "premium_peak": null
-      },
       "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort) Egipt, Hurghada": {
         "history_max": 9887.0,
+        "premium_peak": null
+      },
+      "Titanic Royal Egipt, Hurghada": {
+        "history_max": 9876.0,
         "premium_peak": null
       },
       "Amarina Jannah Heights Resort & Aqua Park Egipt, Marsa Alam, Port Ghalib": {
