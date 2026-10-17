@@ -10231,10 +10231,36 @@
       "created_at": "2026-10-17T14:23:23.382931+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Turquoise Hotel_2026-10-17_14-22_zone_out_gone"
+    },
+    {
+      "hotel_name": "Fame Residence Lara (Antalya)",
+      "duration_bucket": "",
+      "old_price": 9258.0,
+      "new_price": 9258.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-17 15:26:46.139917+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-17T15:27:58.112885+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Fame Residence Lara (Antalya)_2026-10-17_15-26_zone_out_gone"
+    },
+    {
+      "hotel_name": "Turan Prince",
+      "duration_bucket": "",
+      "old_price": 7982.0,
+      "new_price": 7982.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-17 15:26:46.139917+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-17T15:27:58.112916+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Turan Prince_2026-10-17_15-26_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-17T14:22:04.884464+00:00",
+    "last_processed_run": "2026-10-17T15:26:46.139917+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 8604.0,
@@ -11930,6 +11956,10 @@
       },
       "La Blanche Island Bodrum": {
         "history_max": 9023.0,
+        "premium_peak": null
+      },
+      "Xanadu Island": {
+        "history_max": 8384.0,
         "premium_peak": null
       }
     }
