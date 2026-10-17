@@ -438,6 +438,8 @@ class TravelPriceMonitor:
             'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
             'Accept-Language': 'pl-PL,pl;q=0.9,en;q=0.8',
         })
+        session.cookies.set('_crflytest', 'newfly2:old', domain='.fly.pl')
+        session.cookies.set('newpath', '0', domain='.fly.pl')
 
         logger.info(
             f"⚡ HTTP-режим: лимит цены {max_price_threshold:.0f} PLN, "

@@ -1,0 +1,25 @@
+{
+  "dynamic_search_dates": false,
+  "retire_after": "2026-12-29",
+  "allow_empty_offers": true,
+  "url": "https://fly.pl/szukaj-wycieczek/?filter[type]=1&filter[from]=Bydgoszcz,Gda%C5%84sk,Katowice,Krak%C3%B3w,Lublin,%C5%81%C3%B3d%C5%BA,Pozna%C5%84,Rzesz%C3%B3w,Szczecin,Warszawa+-+Modlin,Warszawa,Warszawa+-+Radom,Wroc%C5%82aw,Zielona+G%C3%B3ra&filter[addTransport]=F&filter[dest]=11_154&filter[hotelids]=0&filter[cityids]=0&filter[whenFrom]=20-12-2026&filter[whenTo]=28-12-2026&filter[person]=1&filter[child]=0",
+  "max_price_threshold": 15000,
+  "min_price_threshold": 0,
+  "required_offer_url_contains": [
+    "/wycieczka/egipt"
+  ],
+  "excluded_offer_url_contains": [
+    "/wycieczka/polska",
+    "/wycieczka/czechy",
+    "transport=accommodation&"
+  ],
+  "wait_timeout": 30000,
+  "max_retries": 3,
+  "max_offers": 0,
+  "max_pages": 10,
+  "display_price_ceiling": 15000,
+  "retry_delay": 5,
+  "data_dir": "data/filters/filter_egypt_sharm_dec20_28_1p",
+  "output_data_file": "travel_prices.csv",
+  "description": "CI filter • Египет • Шарм-эль-Шейх 20.12–28.12.2026 • 1 взр. • любой аэропорт • сбор/показ ≤15k"
+}

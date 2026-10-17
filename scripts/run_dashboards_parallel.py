@@ -74,6 +74,16 @@ DEFAULT_DASHBOARDS = [
         "history_price_ceiling": "11000",
     },
     {
+        "data": "data/filters/filter_egypt_sharm_dec20_28_1p/travel_prices.csv",
+        "output": "index_filter_egypt_sharm_dec20_28_1p.html",
+        "title": "Мониторинг цен • Египет • Шарм 20–28 дек • 1 взр.",
+        "charts": "hotel-charts/filter_egypt_sharm_dec20_28_1p",
+        "alerts": "data/filters/filter_egypt_sharm_dec20_28_1p/travel_prices_alerts.json",
+        "config": "config_ci_filter_egypt_sharm_dec20_28_1p.json",
+        "display_price_ceiling": "15000",
+        "history_price_ceiling": "15000",
+    },
+    {
         "data": "data/filters/filter_turkey_7_10_days/travel_prices.csv",
         "output": "index_filter_turkey_7_10_days.html",
         "title": "Мониторинг цен • Турция • 7–10 дней",

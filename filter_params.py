@@ -20,6 +20,7 @@ DATA_DIR_CONFIG_FILES: Dict[str, str] = {
     "filter_egypt_autumn_2026_13_16_days": "config_ci_filter_egypt_autumn_13_16.json",
     "filter_egypt_ny_dec24_2026_7_10_days": "config_ci_filter_egypt_ny_dec24_7_10.json",
     "filter_egypt_ny_dec28_2026_7_10_days": "config_ci_filter_egypt_ny_dec28_7_10.json",
+    "filter_egypt_sharm_dec20_28_1p": "config_ci_filter_egypt_sharm_dec20_28_1p.json",
     "filter_greece_7_10_days": "config_ci_filter_greece_7_10.json",
     "filter_greece_13_16_days": "config_ci_filter_greece_13_16.json",
 }
@@ -161,7 +162,19 @@ def _country_label(config: Dict[str, Any], url: str) -> str:
 def _duration_label(url: str) -> str:
     raw = fly_query_param(url, "duration")
     if not raw or ":" not in raw:
-        return raw or "—"
+        if raw:
+            return raw
+        wf, wt = fly_query_param(url, "whenFrom"), fly_query_param(url, "whenTo")
+        if wf and wt:
+            try:
+                d1 = datetime.strptime(wf, "%d-%m-%Y")
+                d2 = datetime.strptime(wt, "%d-%m-%Y")
+                diff = (d2 - d1).days
+                if diff > 0:
+                    return f"до {diff}"
+            except ValueError:
+                pass
+        return "—"
     lo, hi = raw.split(":", 1)
     try:
         lo_i, hi_i = int(lo), int(hi)
@@ -181,7 +194,7 @@ def _airports_parts(url: str) -> List[str]:
 
 def _airports_label(url: str) -> str:
     parts = _airports_parts(url)
-    if not parts:
+    if not parts or len(parts) >= 10:
         return "Любой аэропорт"
     if len(parts) <= 2:
         return ", ".join(parts)
@@ -304,7 +317,7 @@ def _airport_chip_code(name: str) -> str:
 
 
 def _airport_compact_label(parts: List[str]) -> str:
-    if not parts:
+    if not parts or len(parts) >= 10:
         return "любой аэропорт"
     codes = [_airport_chip_code(p) for p in parts[:4]]
     tail = f" +{len(parts) - 4}" if len(parts) > 4 else ""

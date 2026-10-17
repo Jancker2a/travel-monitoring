@@ -54,6 +54,14 @@ FILTER_GROUPS = [
                 'charts_subdir': 'hotel-charts/filter_egypt_ny_dec28_2026_7_10_days',
                 'config': 'config_ci_filter_egypt_ny_dec28_7_10.json',
             },
+            {
+                'id': 'egypt_sharm_dec20_28_1p',
+                'title': 'Египет • Шарм 20–28 дек • 1 взр.',
+                'subtitle': '20.12–28.12.2026 • любой аэропорт • 1 чел. • Шарм-эль-Шейх',
+                'href': 'index_filter_egypt_sharm_dec20_28_1p.html',
+                'charts_subdir': 'hotel-charts/filter_egypt_sharm_dec20_28_1p',
+                'config': 'config_ci_filter_egypt_sharm_dec20_28_1p.json',
+            },
         ],
     },
     {
