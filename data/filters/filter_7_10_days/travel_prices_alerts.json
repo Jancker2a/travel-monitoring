@@ -3122,12 +3122,29 @@
       "unique_key": "Swisstouch Oriental Resort (ex. Hotelux Oriental Coast)_2026-10-17_14-19_comeback_20.1"
     },
     {
+<<<<<<< Updated upstream
+=======
+      "hotel_name": "Creek Hotel and Residences",
+      "duration_bucket": "",
+      "old_price": 7698.0,
+      "new_price": 7063.0,
+      "price_change": -635.0,
+      "price_change_pct": -8.248895817095349,
+      "timestamp": "2026-10-17 15:47:03.445300+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-17T15:47:33.578927+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Creek Hotel and Residences_2026-10-17_15-47_-8.2"
+    },
+    {
+>>>>>>> Stashed changes
       "hotel_name": "Jaz Mirabel Beach Resort",
       "duration_bucket": "",
       "old_price": 9797.0,
       "new_price": 10046.0,
       "price_change": 249.0,
       "price_change_pct": 2.5415943656221294,
+<<<<<<< Updated upstream
       "timestamp": "2026-10-17 15:24:52.671424+00:00",
       "alert_type": "zone_exit",
       "created_at": "2026-10-17T15:25:38.223808+00:00",
@@ -3137,6 +3154,17 @@
   ],
   "meta": {
     "last_processed_run": "2026-10-17T15:24:52.671424+00:00",
+=======
+      "timestamp": "2026-10-17 15:47:03.445300+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-17T15:47:33.578961+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Mirabel Beach Resort_2026-10-17_15-47_zone_out_+2.5"
+    }
+  ],
+  "meta": {
+    "last_processed_run": "2026-10-17T15:47:03.445300+00:00",
+>>>>>>> Stashed changes
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 7920.0,
