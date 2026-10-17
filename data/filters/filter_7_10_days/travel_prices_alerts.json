@@ -3081,10 +3081,49 @@
       "created_at": "2026-10-17T10:59:37.117433+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Jaz Mirabel Beach Resort_2026-10-17_10-58_zone_out_+3.2"
+    },
+    {
+      "hotel_name": "Xperience Kiroseiz Premier",
+      "duration_bucket": "",
+      "old_price": 7393.0,
+      "new_price": 8024.0,
+      "price_change": 631.0,
+      "price_change_pct": 8.535100770999595,
+      "timestamp": "2026-10-17 14:19:30.970945+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-17T14:20:07.820964+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xperience Kiroseiz Premier_2026-10-17_14-19_+8.5"
+    },
+    {
+      "hotel_name": "Stella Beach Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 8656.0,
+      "new_price": 9734.0,
+      "price_change": 1078.0,
+      "price_change_pct": 12.453789279112753,
+      "timestamp": "2026-10-17 14:19:30.970945+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-17T14:20:07.820989+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Stella Beach Resort & Spa_2026-10-17_14-19_+12.5"
+    },
+    {
+      "hotel_name": "Swisstouch Oriental Resort (ex. Hotelux Oriental Coast)",
+      "duration_bucket": "",
+      "old_price": 12276.0,
+      "new_price": 9805.0,
+      "price_change": -2471.0,
+      "price_change_pct": -20.128706419029,
+      "timestamp": "2026-10-17 14:19:30.970945+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-17T14:20:07.821019+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Swisstouch Oriental Resort (ex. Hotelux Oriental Coast)_2026-10-17_14-19_comeback_20.1"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-17T10:58:36.996067+00:00",
+    "last_processed_run": "2026-10-17T14:19:30.970945+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 7920.0,
@@ -3275,8 +3314,8 @@
         "premium_peak": 10509.0
       },
       "Sunrise Anjum Resort": {
-        "history_max": 12118.0,
-        "premium_peak": 12118.0
+        "history_max": 12286.0,
+        "premium_peak": 12286.0
       },
       "Jaz Elite Asteria (Hurghada)": {
         "history_max": 19372.0,
@@ -3427,8 +3466,8 @@
         "premium_peak": null
       },
       "Cleopatra Luxury Resort (Makadi Bay)": {
-        "history_max": 11758.0,
-        "premium_peak": 11758.0
+        "history_max": 12207.0,
+        "premium_peak": 12207.0
       },
       "Jaz Palmariva Beach": {
         "history_max": 9163.0,
@@ -3459,7 +3498,7 @@
         "premium_peak": null
       },
       "Xperience Kiroseiz Premier": {
-        "history_max": 7577.0,
+        "history_max": 8024.0,
         "premium_peak": null
       },
       "Reef Oasis Suakin Resort": {
