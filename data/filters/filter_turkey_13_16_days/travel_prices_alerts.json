@@ -1677,10 +1677,49 @@
       "created_at": "2026-10-17T00:45:31.678889+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Vita Silva_2026-10-17_00-44_comeback_11.7"
+    },
+    {
+      "hotel_name": "Cenger Beach Resort Turcja, Side",
+      "duration_bucket": "",
+      "old_price": 9153.0,
+      "new_price": 9153.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-17 11:05:50.730436+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-17T11:06:48.601248+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Cenger Beach Resort Turcja, Side_2026-10-17_11-05_zone_out_gone"
+    },
+    {
+      "hotel_name": "Orange County Alanya",
+      "duration_bucket": "",
+      "old_price": 9525.0,
+      "new_price": 9525.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-17 11:05:50.730436+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-17T11:06:48.601294+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Orange County Alanya_2026-10-17_11-05_zone_out_gone"
+    },
+    {
+      "hotel_name": "Mary Alanya (ex. Sirius Deluxe)",
+      "duration_bucket": "",
+      "old_price": 18119.0,
+      "new_price": 9907.0,
+      "price_change": -8212.0,
+      "price_change_pct": -45.32258954688449,
+      "timestamp": "2026-10-17 11:05:50.730436+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-17T11:06:48.601327+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Mary Alanya (ex. Sirius Deluxe)_2026-10-17_11-05_comeback_45.3"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-17T05:46:51.819159+00:00",
+    "last_processed_run": "2026-10-17T11:05:50.730436+00:00",
     "premium_state": {
       "Adalya Art Side (Ex. Grand Art Side)": {
         "history_max": 13227.0,
@@ -2968,6 +3007,22 @@
       },
       "Gypsophila Holiday Village Turcja, Alanya, Okurcalar": {
         "history_max": 9521.0,
+        "premium_peak": null
+      },
+      "Side Star Resort": {
+        "history_max": 18469.0,
+        "premium_peak": 18469.0
+      },
+      "Dosinia Luxury Resort": {
+        "history_max": 11582.0,
+        "premium_peak": 11582.0
+      },
+      "Side Star Elegance": {
+        "history_max": 17668.0,
+        "premium_peak": 17668.0
+      },
+      "Orange County Resort Alanya Turcja, Alanya, Okurcalar": {
+        "history_max": 9525.0,
         "premium_peak": null
       }
     }

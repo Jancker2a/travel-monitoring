@@ -3666,10 +3666,75 @@
       "created_at": "2026-10-17T05:46:51.112147+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Samara (Bodrum)_2026-10-17_05-45_comeback_20.6"
+    },
+    {
+      "hotel_name": "Grand Seker",
+      "duration_bucket": "",
+      "old_price": 7644.0,
+      "new_price": 6564.0,
+      "price_change": -1080.0,
+      "price_change_pct": -14.128728414442701,
+      "timestamp": "2026-10-17 11:05:35.255468+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-17T11:06:42.209072+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Grand Seker_2026-10-17_11-05_-14.1"
+    },
+    {
+      "hotel_name": "Corendon Playa Kemer",
+      "duration_bucket": "",
+      "old_price": 9575.0,
+      "new_price": 8503.0,
+      "price_change": -1072.0,
+      "price_change_pct": -11.195822454308093,
+      "timestamp": "2026-10-17 11:05:35.255468+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-17T11:06:42.209115+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Corendon Playa Kemer_2026-10-17_11-05_-11.2"
+    },
+    {
+      "hotel_name": "Senza Grand Santana (Alanya)",
+      "duration_bucket": "",
+      "old_price": 9189.0,
+      "new_price": 9189.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-17 11:05:35.255468+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-17T11:06:42.209156+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Senza Grand Santana (Alanya)_2026-10-17_11-05_zone_out_gone"
+    },
+    {
+      "hotel_name": "The Nora Hotels Family Club (Kargicak)",
+      "duration_bucket": "",
+      "old_price": 8497.0,
+      "new_price": 8497.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-17 11:05:35.255468+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-17T11:06:42.209167+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "The Nora Hotels Family Club (Kargicak)_2026-10-17_11-05_zone_out_gone"
+    },
+    {
+      "hotel_name": "Rubi Platinum (Alanya)",
+      "duration_bucket": "",
+      "old_price": 11752.0,
+      "new_price": 9810.0,
+      "price_change": -1942.0,
+      "price_change_pct": -16.524846834581346,
+      "timestamp": "2026-10-17 11:05:35.255468+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-17T11:06:42.209193+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rubi Platinum (Alanya)_2026-10-17_11-05_comeback_16.5"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-17T05:45:49.726739+00:00",
+    "last_processed_run": "2026-10-17T11:05:35.255468+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 11773.0,
@@ -3892,8 +3957,8 @@
         "premium_peak": null
       },
       "Sherwood Exclusive Lara (ex Sherwood Breezes)": {
-        "history_max": 11616.0,
-        "premium_peak": 11616.0
+        "history_max": 11769.0,
+        "premium_peak": 11769.0
       },
       "DoubleTree by Hilton Antalya Kemer": {
         "history_max": 13419.0,
@@ -3936,7 +4001,7 @@
         "premium_peak": 13039.0
       },
       "Sultan of Dreams": {
-        "history_max": 9365.0,
+        "history_max": 9818.0,
         "premium_peak": null
       },
       "The Norm Oriental (ex. Asteria Kemer Resort)": {
@@ -4308,7 +4373,7 @@
         "premium_peak": 13712.0
       },
       "Limak Limra": {
-        "history_max": 8067.0,
+        "history_max": 8247.0,
         "premium_peak": null
       },
       "Limak Lara De Luxe": {
@@ -4412,8 +4477,8 @@
         "premium_peak": 13421.0
       },
       "Miracle Resort": {
-        "history_max": 10493.0,
-        "premium_peak": 10493.0
+        "history_max": 10723.0,
+        "premium_peak": 10723.0
       },
       "Paloma Orenda Resort": {
         "history_max": 13551.0,
@@ -4684,8 +4749,8 @@
         "premium_peak": null
       },
       "Royal Taj Mahal": {
-        "history_max": 11065.0,
-        "premium_peak": 11065.0
+        "history_max": 11259.0,
+        "premium_peak": 11259.0
       },
       "Kahya Resort Aqua & Spa": {
         "history_max": 9407.0,
@@ -4728,8 +4793,8 @@
         "premium_peak": 12135.0
       },
       "Royal Dragon": {
-        "history_max": 10307.0,
-        "premium_peak": 10307.0
+        "history_max": 10410.0,
+        "premium_peak": 10410.0
       },
       "Armas Life Belek": {
         "history_max": 8015.0,
@@ -4948,8 +5013,8 @@
         "premium_peak": 13975.0
       },
       "Delphin Imperial Lara": {
-        "history_max": 13877.0,
-        "premium_peak": 13877.0
+        "history_max": 14191.0,
+        "premium_peak": 14191.0
       },
       "Side Star Resort": {
         "history_max": 10919.0,
@@ -5062,6 +5127,14 @@
       "La Blanche Island Bodrum": {
         "history_max": 13519.0,
         "premium_peak": 13519.0
+      },
+      "Concorde Deluxe Resort": {
+        "history_max": 14490.0,
+        "premium_peak": 14490.0
+      },
+      "Lusso Sorgun": {
+        "history_max": 14319.0,
+        "premium_peak": 14319.0
       }
     }
   }
