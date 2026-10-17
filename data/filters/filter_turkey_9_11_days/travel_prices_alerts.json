@@ -3809,10 +3809,114 @@
       "created_at": "2026-10-17T20:51:01.503796+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Lonicera Premium_2026-10-17_20-50_zone_out_+34.4"
+    },
+    {
+      "hotel_name": "Corendon Playa Kemer",
+      "duration_bucket": "",
+      "old_price": 8503.0,
+      "new_price": 9445.0,
+      "price_change": 942.0,
+      "price_change_pct": 11.078442902504998,
+      "timestamp": "2026-10-17 23:18:45.028199+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-17T23:19:39.250115+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Corendon Playa Kemer_2026-10-17_23-18_+11.1"
+    },
+    {
+      "hotel_name": "Limak Limra",
+      "duration_bucket": "",
+      "old_price": 8160.0,
+      "new_price": 7134.0,
+      "price_change": -1026.0,
+      "price_change_pct": -12.573529411764707,
+      "timestamp": "2026-10-17 23:18:45.028199+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-17T23:19:39.250147+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Limak Limra_2026-10-17_23-18_-12.6"
+    },
+    {
+      "hotel_name": "Wind of Lara",
+      "duration_bucket": "",
+      "old_price": 8799.0,
+      "new_price": 9859.0,
+      "price_change": 1060.0,
+      "price_change_pct": 12.046823502670758,
+      "timestamp": "2026-10-17 23:18:45.028199+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-17T23:19:39.250176+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Wind of Lara_2026-10-17_23-18_+12.0"
+    },
+    {
+      "hotel_name": "Grand Seker",
+      "duration_bucket": "",
+      "old_price": 6564.0,
+      "new_price": 7404.0,
+      "price_change": 840.0,
+      "price_change_pct": 12.79707495429616,
+      "timestamp": "2026-10-17 23:18:45.028199+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-17T23:19:39.250192+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Grand Seker_2026-10-17_23-18_+12.8"
+    },
+    {
+      "hotel_name": "Cenger Beach Resort (Side)",
+      "duration_bucket": "",
+      "old_price": 7918.0,
+      "new_price": 7918.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-17 23:18:45.028199+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-17T23:19:39.250229+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Cenger Beach Resort (Side)_2026-10-17_23-18_zone_out_gone"
+    },
+    {
+      "hotel_name": "Royal Dragon",
+      "duration_bucket": "",
+      "old_price": 10410.0,
+      "new_price": 9384.0,
+      "price_change": -1026.0,
+      "price_change_pct": -9.855907780979827,
+      "timestamp": "2026-10-17 23:18:45.028199+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-17T23:19:39.250265+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Royal Dragon_2026-10-17_23-18_comeback_9.9"
+    },
+    {
+      "hotel_name": "Miracle Resort",
+      "duration_bucket": "",
+      "old_price": 10723.0,
+      "new_price": 9694.0,
+      "price_change": -1029.0,
+      "price_change_pct": -9.596195094656345,
+      "timestamp": "2026-10-17 23:18:45.028199+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-17T23:19:39.250292+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Miracle Resort_2026-10-17_23-18_comeback_9.6"
+    },
+    {
+      "hotel_name": "Fame Residence Lara (Antalya)",
+      "duration_bucket": "",
+      "old_price": 10942.0,
+      "new_price": 9570.0,
+      "price_change": -1372.0,
+      "price_change_pct": -12.538841162493144,
+      "timestamp": "2026-10-17 23:18:45.028199+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-17T23:19:39.250319+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Fame Residence Lara (Antalya)_2026-10-17_23-18_comeback_12.5"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-17T20:50:02.097407+00:00",
+    "last_processed_run": "2026-10-17T23:18:45.028199+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 11773.0,
@@ -4371,8 +4475,8 @@
         "premium_peak": 10463.0
       },
       "Casa Fora Beach Resort": {
-        "history_max": 12524.0,
-        "premium_peak": 12524.0
+        "history_max": 12526.0,
+        "premium_peak": 12526.0
       },
       "Cenger Beach Resort (Side)": {
         "history_max": 8190.0,
@@ -4547,8 +4651,8 @@
         "premium_peak": 12707.0
       },
       "Starlight Resort & Convention Center (Side)": {
-        "history_max": 12764.0,
-        "premium_peak": 12764.0
+        "history_max": 13151.0,
+        "premium_peak": 13151.0
       },
       "The Lumos Deluxe Resort & Spa": {
         "history_max": 8321.0,
@@ -4935,8 +5039,8 @@
         "premium_peak": null
       },
       "Orange Palace": {
-        "history_max": 11006.0,
-        "premium_peak": 11006.0
+        "history_max": 11220.0,
+        "premium_peak": 11220.0
       },
       "Oz Sui Resort": {
         "history_max": 7870.0,

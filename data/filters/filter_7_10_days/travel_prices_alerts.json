@@ -3211,10 +3211,62 @@
       "created_at": "2026-10-17T20:47:37.169094+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Jaz Mirabel Beach Resort_2026-10-17_20-46_comeback_13.2"
+    },
+    {
+      "hotel_name": "Parrotel Beach Resort (ex. Radisson Blu)",
+      "duration_bucket": "",
+      "old_price": 8725.0,
+      "new_price": 9681.0,
+      "price_change": 956.0,
+      "price_change_pct": 10.957020057306591,
+      "timestamp": "2026-10-17 23:15:34.762245+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-17T23:16:16.905115+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Parrotel Beach Resort (ex. Radisson Blu)_2026-10-17_23-15_+11.0"
+    },
+    {
+      "hotel_name": "Creek Hotel and Residences",
+      "duration_bucket": "",
+      "old_price": 7813.0,
+      "new_price": 6832.0,
+      "price_change": -981.0,
+      "price_change_pct": -12.555996416229362,
+      "timestamp": "2026-10-17 23:15:34.762245+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-17T23:16:16.905142+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Creek Hotel and Residences_2026-10-17_23-15_-12.6"
+    },
+    {
+      "hotel_name": "Stella Beach Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 9734.0,
+      "new_price": 8656.0,
+      "price_change": -1078.0,
+      "price_change_pct": -11.074583932607355,
+      "timestamp": "2026-10-17 23:15:34.762245+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-17T23:16:16.905161+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Stella Beach Resort & Spa_2026-10-17_23-15_-11.1"
+    },
+    {
+      "hotel_name": "Jaz Mirabel Beach Resort",
+      "duration_bucket": "",
+      "old_price": 8977.0,
+      "new_price": 10257.0,
+      "price_change": 1280.0,
+      "price_change_pct": 14.258661022613344,
+      "timestamp": "2026-10-17 23:15:34.762245+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-17T23:16:16.905181+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Mirabel Beach Resort_2026-10-17_23-15_zone_out_+14.3"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-17T20:46:58.733576+00:00",
+    "last_processed_run": "2026-10-17T23:15:34.762245+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 7920.0,
@@ -3397,8 +3449,8 @@
         "premium_peak": 11616.0
       },
       "Sunrise Montemare Resort": {
-        "history_max": 14466.0,
-        "premium_peak": 14466.0
+        "history_max": 15137.0,
+        "premium_peak": 15137.0
       },
       "Jaz Lamaya Resort (ex Iberotel)": {
         "history_max": 13774.0,

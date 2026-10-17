@@ -10582,10 +10582,88 @@
       "created_at": "2026-10-17T20:50:01.115477+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Serenity Queen_2026-10-17_20-48_zone_out_gone"
+    },
+    {
+      "hotel_name": "Fame Residence Lara (Antalya)",
+      "duration_bucket": "",
+      "old_price": 9258.0,
+      "new_price": 8220.0,
+      "price_change": -1038.0,
+      "price_change_pct": -11.21192482177576,
+      "timestamp": "2026-10-17 23:17:18.379062+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-17T23:18:43.692922+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Fame Residence Lara (Antalya)_2026-10-17_23-17_-11.2"
+    },
+    {
+      "hotel_name": "Grand Seker",
+      "duration_bucket": "",
+      "old_price": 5798.0,
+      "new_price": 6298.0,
+      "price_change": 500.0,
+      "price_change_pct": 8.623663332183511,
+      "timestamp": "2026-10-17 23:17:18.379062+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-17T23:18:43.692998+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Grand Seker_2026-10-17_23-17_+8.6"
+    },
+    {
+      "hotel_name": "Limak Arcadia Sport Resort",
+      "duration_bucket": "",
+      "old_price": 8853.0,
+      "new_price": 7870.0,
+      "price_change": -983.0,
+      "price_change_pct": -11.103580707104935,
+      "timestamp": "2026-10-17 23:17:18.379062+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-17T23:18:43.693031+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Limak Arcadia Sport Resort_2026-10-17_23-17_-11.1"
+    },
+    {
+      "hotel_name": "Kamelya Selin",
+      "duration_bucket": "",
+      "old_price": 9246.0,
+      "new_price": 9246.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-17 23:17:18.379062+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-17T23:18:43.693160+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Kamelya Selin_2026-10-17_23-17_zone_out_gone"
+    },
+    {
+      "hotel_name": "Q Premium Resort",
+      "duration_bucket": "",
+      "old_price": 9257.0,
+      "new_price": 9257.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-17 23:17:18.379062+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-17T23:18:43.693188+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Q Premium Resort_2026-10-17_23-17_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sailors Beach Club",
+      "duration_bucket": "",
+      "old_price": 9246.0,
+      "new_price": 9246.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-17 23:17:18.379062+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-17T23:18:43.693207+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sailors Beach Club_2026-10-17_23-17_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-17T20:48:40.928443+00:00",
+    "last_processed_run": "2026-10-17T23:17:18.379062+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 8604.0,
@@ -12285,6 +12363,10 @@
       },
       "Xanadu Island": {
         "history_max": 8384.0,
+        "premium_peak": null
+      },
+      "Melas Lara": {
+        "history_max": 9086.0,
         "premium_peak": null
       }
     }
