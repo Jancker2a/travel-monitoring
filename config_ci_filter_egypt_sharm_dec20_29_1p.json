@@ -1,0 +1,25 @@
+{
+  "dynamic_search_dates": false,
+  "retire_after": "2026-12-30",
+  "allow_empty_offers": true,
+  "url": "https://fly.pl/szukaj-wycieczek/?filter[dest]=11_154&filter[hotelids]=&filter[cityids]=0&filter[cregids]=&filter[ofrType]=&filter[addObjType]=&filter[whenFrom]=20-12-2026&filter[whenTo]=29-12-2026&filter[duration]=7:15&filter[from]=Bydgoszcz,Gda%C5%84sk,Katowice,Krak%C3%B3w,Lublin,%C5%81%C3%B3d%C5%BA,Pozna%C5%84,Rzesz%C3%B3w,Szczecin,Warszawa,Wroc%C5%82aw,ZielonaG%C3%B3ra&filter[person]=1&filter[child]=0&filter[price]=0&filter[PriceFrom]=0&filter[PriceTo]=30000&filter[addCategory]=0&filter[addCatering]=0&filter[addMisc]=0&filter[addTransport]=F&filter[fp]=1&order_by=ofr_price&filter[tourOperator]=0",
+  "max_price_threshold": 30000,
+  "min_price_threshold": 0,
+  "required_offer_url_contains": [
+    "/wycieczka/egipt"
+  ],
+  "excluded_offer_url_contains": [
+    "/wycieczka/polska",
+    "/wycieczka/czechy",
+    "transport=accommodation&"
+  ],
+  "wait_timeout": 30000,
+  "max_retries": 3,
+  "max_offers": 0,
+  "max_pages": 10,
+  "display_price_ceiling": 30000,
+  "retry_delay": 5,
+  "data_dir": "data/filters/filter_egypt_sharm_dec20_29_1p",
+  "output_data_file": "travel_prices.csv",
+  "description": "CI filter • Египет • Шарм-эль-Шейх 20.12–29.12.2026 • 7–15 дн. • 1 взр. • любой аэропорт • сбор/показ ≤30k"
+}

@@ -20,7 +20,7 @@ DATA_DIR_CONFIG_FILES: Dict[str, str] = {
     "filter_egypt_autumn_2026_13_16_days": "config_ci_filter_egypt_autumn_13_16.json",
     "filter_egypt_ny_dec24_2026_7_10_days": "config_ci_filter_egypt_ny_dec24_7_10.json",
     "filter_egypt_ny_dec28_2026_7_10_days": "config_ci_filter_egypt_ny_dec28_7_10.json",
-    "filter_egypt_sharm_dec20_28_1p": "config_ci_filter_egypt_sharm_dec20_28_1p.json",
+    "filter_egypt_sharm_dec20_29_1p": "config_ci_filter_egypt_sharm_dec20_29_1p.json",
     "filter_greece_7_10_days": "config_ci_filter_greece_7_10.json",
     "filter_greece_13_16_days": "config_ci_filter_greece_13_16.json",
 }

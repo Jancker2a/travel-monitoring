@@ -25,7 +25,7 @@ DEFAULT_CONFIGS = [
     "config_ci_filter_egypt_autumn_13_16_any_airports.json",
     "config_ci_filter_egypt_ny_dec24_7_10.json",
     "config_ci_filter_egypt_ny_dec28_7_10.json",
-    "config_ci_filter_egypt_sharm_dec20_28_1p.json",
+    "config_ci_filter_egypt_sharm_dec20_29_1p.json",
     "config_ci_filter_turkey_7_10.json",
     "config_ci_filter_turkey_9_11.json",
     "config_ci_filter_turkey_vacation_jul18.json",
