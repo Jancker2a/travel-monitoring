@@ -2821,13 +2821,39 @@
       "created_at": "2026-10-18T14:29:24.255040+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Titanic Beach Spa & Aqua Park_2026-10-18_14-29_zone_out_gone"
+    },
+    {
+      "hotel_name": "Gravity Sahl Hasheesh (Ex. Ocean Breeze)",
+      "duration_bucket": "",
+      "old_price": 9112.0,
+      "new_price": 10341.0,
+      "price_change": 1229.0,
+      "price_change_pct": 13.487708516242316,
+      "timestamp": "2026-10-18 18:45:25.420230+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-18T18:45:43.238828+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Gravity Sahl Hasheesh (Ex. Ocean Breeze)_2026-10-18_18-45_+13.5"
+    },
+    {
+      "hotel_name": "Rewaya Majestic Resort",
+      "duration_bucket": "",
+      "old_price": 9795.0,
+      "new_price": 9795.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-18 18:45:25.420230+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-18T18:45:43.238886+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Majestic Resort_2026-10-18_18-45_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-18T16:02:02.336883+00:00",
+    "last_processed_run": "2026-10-18T18:45:25.420230+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
-        "history_max": 7447.0,
+        "history_max": 7636.0,
         "premium_peak": null
       },
       "Royal Lagoons Aqua (ex. Premium Blue) Egipt, Hurghada": {

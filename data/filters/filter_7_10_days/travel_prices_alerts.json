@@ -3497,10 +3497,114 @@
       "created_at": "2026-10-18T16:02:24.105079+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Pickalbatros Luxury Suites_2026-10-18_16-01_comeback_8.8"
+    },
+    {
+      "hotel_name": "Creek Hotel and Residences",
+      "duration_bucket": "",
+      "old_price": 6954.0,
+      "new_price": 7813.0,
+      "price_change": 859.0,
+      "price_change_pct": 12.352602818521714,
+      "timestamp": "2026-10-18 18:45:09.683862+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-18T18:45:45.610018+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Creek Hotel and Residences_2026-10-18_18-45_+12.4"
+    },
+    {
+      "hotel_name": "Xperience Kiroseiz Premier",
+      "duration_bucket": "",
+      "old_price": 7413.0,
+      "new_price": 8673.0,
+      "price_change": 1260.0,
+      "price_change_pct": 16.997167138810198,
+      "timestamp": "2026-10-18 18:45:09.683862+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-18T18:45:45.610045+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xperience Kiroseiz Premier_2026-10-18_18-45_+17.0"
+    },
+    {
+      "hotel_name": "Charmillion Club Resort",
+      "duration_bucket": "",
+      "old_price": 9457.0,
+      "new_price": 10697.0,
+      "price_change": 1240.0,
+      "price_change_pct": 13.111980543512741,
+      "timestamp": "2026-10-18 18:45:09.683862+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-18T18:45:45.610061+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Charmillion Club Resort_2026-10-18_18-45_zone_out_+13.1"
+    },
+    {
+      "hotel_name": "Gravity Sahl Hasheesh (Ex. Ocean Breeze)",
+      "duration_bucket": "",
+      "old_price": 9155.0,
+      "new_price": 10401.0,
+      "price_change": 1246.0,
+      "price_change_pct": 13.61004915346805,
+      "timestamp": "2026-10-18 18:45:09.683862+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-18T18:45:45.610069+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Gravity Sahl Hasheesh (Ex. Ocean Breeze)_2026-10-18_18-45_zone_out_+13.6"
+    },
+    {
+      "hotel_name": "Jaz Mirabel Beach Resort",
+      "duration_bucket": "",
+      "old_price": 9057.0,
+      "new_price": 10127.0,
+      "price_change": 1070.0,
+      "price_change_pct": 11.814066467925361,
+      "timestamp": "2026-10-18 18:45:09.683862+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-18T18:45:45.610076+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Mirabel Beach Resort_2026-10-18_18-45_zone_out_+11.8"
+    },
+    {
+      "hotel_name": "Pickalbatros Luxury Suites",
+      "duration_bucket": "",
+      "old_price": 9296.0,
+      "new_price": 10044.0,
+      "price_change": 748.0,
+      "price_change_pct": 8.046471600688468,
+      "timestamp": "2026-10-18 18:45:09.683862+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-18T18:45:45.610083+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Luxury Suites_2026-10-18_18-45_zone_out_+8.0"
+    },
+    {
+      "hotel_name": "Pickalbatros Palace Resort",
+      "duration_bucket": "",
+      "old_price": 10987.0,
+      "new_price": 9992.0,
+      "price_change": -995.0,
+      "price_change_pct": -9.05615727678165,
+      "timestamp": "2026-10-18 18:45:09.683862+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-18T18:45:45.610100+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Palace Resort_2026-10-18_18-45_comeback_9.1"
+    },
+    {
+      "hotel_name": "Pickalbatros Vita Resort Portofino",
+      "duration_bucket": "",
+      "old_price": 11557.0,
+      "new_price": 9207.0,
+      "price_change": -2350.0,
+      "price_change_pct": -20.333996711949467,
+      "timestamp": "2026-10-18 18:45:09.683862+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-18T18:45:45.610110+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Vita Resort Portofino_2026-10-18_18-45_comeback_20.3"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-18T16:01:44.165033+00:00",
+    "last_processed_run": "2026-10-18T18:45:09.683862+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 7920.0,
@@ -3855,8 +3959,8 @@
         "premium_peak": 16777.0
       },
       "Xanadu Club Makadi Bay": {
-        "history_max": 14172.0,
-        "premium_peak": 14172.0
+        "history_max": 14431.0,
+        "premium_peak": 14431.0
       },
       "Rewaya Inn Resort (ex. Hawaii Paradise Aqua Park Resort)": {
         "history_max": 9442.0,

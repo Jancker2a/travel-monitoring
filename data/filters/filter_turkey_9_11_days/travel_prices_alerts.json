@@ -4121,10 +4121,62 @@
       "created_at": "2026-10-18T14:30:50.093027+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Samara (Bodrum)_2026-10-18_14-29_zone_out_gone"
+    },
+    {
+      "hotel_name": "Crystal Waterworld Aqua Collection",
+      "duration_bucket": "",
+      "old_price": 9890.0,
+      "new_price": 10229.0,
+      "price_change": 339.0,
+      "price_change_pct": 3.4277047522750252,
+      "timestamp": "2026-10-18 18:45:46.302963+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-18T18:46:49.776564+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Crystal Waterworld Aqua Collection_2026-10-18_18-45_zone_out_+3.4"
+    },
+    {
+      "hotel_name": "Seaden Sea Planet Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 9668.0,
+      "new_price": 10001.0,
+      "price_change": 333.0,
+      "price_change_pct": 3.44435250310302,
+      "timestamp": "2026-10-18 18:45:46.302963+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-18T18:46:49.776588+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Seaden Sea Planet Resort & Spa_2026-10-18_18-45_zone_out_+3.4"
+    },
+    {
+      "hotel_name": "VONResort Golden Beach",
+      "duration_bucket": "",
+      "old_price": 9951.0,
+      "new_price": 10200.0,
+      "price_change": 249.0,
+      "price_change_pct": 2.502261079288514,
+      "timestamp": "2026-10-18 18:45:46.302963+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-18T18:46:49.776597+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "VONResort Golden Beach_2026-10-18_18-45_zone_out_+2.5"
+    },
+    {
+      "hotel_name": "Club Nena (Side)",
+      "duration_bucket": "",
+      "old_price": 11479.0,
+      "new_price": 9968.0,
+      "price_change": -1511.0,
+      "price_change_pct": -13.163167523303423,
+      "timestamp": "2026-10-18 18:45:46.302963+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-18T18:46:49.776621+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Club Nena (Side)_2026-10-18_18-45_comeback_13.2"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-18T16:02:26.740511+00:00",
+    "last_processed_run": "2026-10-18T18:45:46.302963+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 11773.0,
@@ -4283,8 +4335,8 @@
         "premium_peak": null
       },
       "VONResort Golden Beach": {
-        "history_max": 10081.0,
-        "premium_peak": 10081.0
+        "history_max": 10200.0,
+        "premium_peak": 10200.0
       },
       "Kaila Beach (ex Katya)": {
         "history_max": 8578.0,
@@ -5187,8 +5239,8 @@
         "premium_peak": null
       },
       "Rai Premium Tekirova (ex. Queens Park Tekirova)": {
-        "history_max": 10854.0,
-        "premium_peak": 10854.0
+        "history_max": 10860.0,
+        "premium_peak": 10860.0
       },
       "Ramada Resort Lara": {
         "history_max": 10472.0,
@@ -5471,16 +5523,16 @@
         "premium_peak": 13533.0
       },
       "Gural Premier Tekirova": {
-        "history_max": 14549.0,
-        "premium_peak": 14549.0
+        "history_max": 14565.0,
+        "premium_peak": 14565.0
       },
       "Papillon Belvil Club": {
         "history_max": 13845.0,
         "premium_peak": 13845.0
       },
       "Nirvana Mediterranean Excellence ( ex Nirvana Lagoon Luxury)": {
-        "history_max": 14010.0,
-        "premium_peak": 14010.0
+        "history_max": 14149.0,
+        "premium_peak": 14149.0
       },
       "Nirvana Dolce Vita (ex. Amara Dolce Vita)": {
         "history_max": 14022.0,
@@ -5491,8 +5543,8 @@
         "premium_peak": 13396.0
       },
       "Port Nature Luxury Resort": {
-        "history_max": 13085.0,
-        "premium_peak": 13085.0
+        "history_max": 13342.0,
+        "premium_peak": 13342.0
       },
       "Melas Resort": {
         "history_max": 14115.0,
@@ -5523,8 +5575,8 @@
         "premium_peak": 14319.0
       },
       "Concorde Deluxe Resort": {
-        "history_max": 14490.0,
-        "premium_peak": 14490.0
+        "history_max": 14769.0,
+        "premium_peak": 14769.0
       },
       "Delphin Be Grand Resort": {
         "history_max": 14625.0,
@@ -5543,8 +5595,8 @@
         "premium_peak": 15116.0
       },
       "Sueno Deluxe Belek": {
-        "history_max": 14939.0,
-        "premium_peak": 14939.0
+        "history_max": 15336.0,
+        "premium_peak": 15336.0
       },
       "Side Star Elegance": {
         "history_max": 15811.0,
@@ -5559,16 +5611,16 @@
         "premium_peak": 16335.0
       },
       "Voyage Sorgun": {
-        "history_max": 15304.0,
-        "premium_peak": 15304.0
+        "history_max": 15335.0,
+        "premium_peak": 15335.0
       },
       "Voyage Kundu": {
-        "history_max": 17656.0,
-        "premium_peak": 17656.0
+        "history_max": 18118.0,
+        "premium_peak": 18118.0
       },
       "Liu Resorts": {
-        "history_max": 15185.0,
-        "premium_peak": 15185.0
+        "history_max": 15607.0,
+        "premium_peak": 15607.0
       },
       "Luna Blanca Resort & Spa": {
         "history_max": 18071.0,
@@ -5577,6 +5629,10 @@
       "Kaya Palazzo Golf": {
         "history_max": 16767.0,
         "premium_peak": 16767.0
+      },
+      "Kempinski The Dome Belek": {
+        "history_max": 18151.0,
+        "premium_peak": 18151.0
       }
     }
   }
