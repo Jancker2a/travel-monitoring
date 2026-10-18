@@ -44,7 +44,7 @@ from departure_airports import (
     hub_regions_subtitle,
     should_group_by_arrival_airport,
 )
-from filter_registry import active_filter_groups, active_filter_id, filter_href_by_charts_subdir
+from filter_registry import active_filter_groups, archived_filter_group, active_filter_id, filter_href_by_charts_subdir
 from filter_params import (
     DATA_DIR_CONFIG_FILES,
     load_filter_config,
@@ -3955,6 +3955,18 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
                 f'<a href="{flt["href"]}" class="nav-item{active}">'
                 f'<span class="country-name">{flt["title"]}</span></a>'
             )
+    arch_group = archived_filter_group()
+    if arch_group and arch_group.get('filters'):
+        _sidebar_nav_parts.append(
+            f'<div class="nav-group-label nav-group-archived"><span>{arch_group["icon"]}</span>{arch_group["label"]}</div>'
+        )
+        for flt in arch_group['filters']:
+            active = ' active' if flt['id'] == _current_filter else ''
+            _sidebar_nav_parts.append(
+                f'<a href="{flt["href"]}" class="nav-item nav-item-archived{active}">'
+                f'<span class="country-name">{flt["title"]}</span>'
+                f'<span class="nav-archived-tag">архив</span></a>'
+            )
     sidebar_nav_html = ''.join(_sidebar_nav_parts)
     
     # Детекция страны назначения для плашки "Куда"
@@ -7465,6 +7477,35 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             font-weight: 600;
             font-size: 0.82rem;
             line-height: 1.25;
+        }}
+        
+        .nav-group-archived {{
+            margin-top: 0.75rem;
+            padding-top: 0.6rem;
+            border-top: 1px dashed rgba(148,163,184,.35);
+        }}
+        .nav-item-archived {{
+            opacity: 0.85;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }}
+        .nav-item-archived:hover {{
+            opacity: 1;
+        }}
+        .nav-archived-tag {{
+            font-size: 0.62rem;
+            font-weight: 700;
+            padding: 1px 5px;
+            border-radius: 4px;
+            background: rgba(148,163,184,.2);
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: .04em;
+        }}
+        .dark-theme .nav-archived-tag {{
+            color: #94a3b8;
+            background: rgba(148,163,184,.15);
         }}
         
         .sidebar-toggle {{

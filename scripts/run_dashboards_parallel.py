@@ -133,11 +133,14 @@ def _run_one(spec: dict, log_dir: Path) -> tuple[str, int, float, str]:
     output = spec["output"]
     config_path = str(spec.get("config") or "").strip()
     if config_path and should_skip_monitor_config(str(ROOT / config_path)):
-        try:
-            reason = skip_monitor_reason(load_config_json(str(ROOT / config_path))) or "пропуск"
-        except Exception:
-            reason = "пропуск"
-        return output, 0, 0.0, f"skip:{reason}"
+        if (ROOT / output).is_file():
+            try:
+                reason = skip_monitor_reason(load_config_json(str(ROOT / config_path))) or "пропуск"
+            except Exception:
+                reason = "пропуск"
+            return output, 0, 0.0, f"skip:{reason}"
+        if not (ROOT / spec["data"]).is_file():
+            return output, 0, 0.0, "skip:no_data_csv"
 
     log_dir.mkdir(parents=True, exist_ok=True)
     log_path = log_dir / f"{Path(output).stem}.log"

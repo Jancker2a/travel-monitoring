@@ -144,16 +144,54 @@ FILTER_GROUPS = [
 ]
 
 
-def is_filter_active(flt: Dict[str, Any], *, today: Optional[date] = None) -> bool:
-    """Hide filters whose monitor config is retired / trip window expired."""
+ARCHIVED_GROUP_ID = 'archived'
+
+
+def is_filter_archived(flt: Dict[str, Any], *, today: Optional[date] = None) -> bool:
+    """Return True if filter is retired, expired, or marked as archived."""
+    if bool(flt.get('archived')):
+        return True
     config_path = str(flt.get('config') or '').strip()
     if not config_path:
-        return True
-    return not should_skip_monitor_config(config_path, today=today)
+        return False
+    return should_skip_monitor_config(config_path, today=today)
+
+
+def is_filter_active(flt: Dict[str, Any], *, today: Optional[date] = None) -> bool:
+    """True for active filters (not archived/retired/expired)."""
+    return not is_filter_archived(flt, today=today)
+
+
+def archived_filters(*, today: Optional[date] = None) -> List[Dict[str, Any]]:
+    """Return all filters from FILTER_GROUPS that are currently archived."""
+    archived: List[Dict[str, Any]] = []
+    for group in FILTER_GROUPS:
+        for flt in group['filters']:
+            if is_filter_archived(flt, today=today):
+                item = copy.deepcopy(flt)
+                item['origin_group_id'] = group['id']
+                item['origin_group_label'] = group['label']
+                item['is_archived'] = True
+                archived.append(item)
+    return archived
+
+
+def archived_filter_group(*, today: Optional[date] = None) -> Optional[Dict[str, Any]]:
+    """Synthetic group for archived trip/tour filters."""
+    archived = archived_filters(today=today)
+    if not archived:
+        return None
+    return {
+        'id': ARCHIVED_GROUP_ID,
+        'label': 'Архив туров',
+        'icon': '📦',
+        'subtitle': 'Завершённые поездки и архивные мониторинги',
+        'filters': archived,
+    }
 
 
 def active_filter_groups(*, today: Optional[date] = None) -> List[Dict[str, Any]]:
-    """FILTER_GROUPS without retired / expired trip filters (for landing + sidebar)."""
+    """FILTER_GROUPS without retired / expired / archived filters."""
     groups: List[Dict[str, Any]] = []
     for group in FILTER_GROUPS:
         active = [flt for flt in group['filters'] if is_filter_active(flt, today=today)]
@@ -162,6 +200,15 @@ def active_filter_groups(*, today: Optional[date] = None) -> List[Dict[str, Any]
         item = copy.deepcopy(group)
         item['filters'] = copy.deepcopy(active)
         groups.append(item)
+    return groups
+
+
+def all_filter_groups_with_archive(*, today: Optional[date] = None) -> List[Dict[str, Any]]:
+    """Active groups followed by the archived group at the bottom."""
+    groups = active_filter_groups(today=today)
+    arch_group = archived_filter_group(today=today)
+    if arch_group:
+        groups.append(arch_group)
     return groups
 
 

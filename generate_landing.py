@@ -1,6 +1,6 @@
 import datetime
 
-from filter_registry import active_filter_groups
+from filter_registry import active_filter_groups, archived_filter_group
 
 
 def generate_help_page(output_file='help.html'):
@@ -159,23 +159,31 @@ def generate_help_page(output_file='help.html'):
 def generate_landing(tiles=None, output_file='index.html'):
     now = datetime.datetime.now().strftime('%d.%m.%Y %H:%M')
     if tiles is None:
-        tiles = active_filter_groups()
+        active_tiles = active_filter_groups()
+        arch_group = archived_filter_group()
+    else:
+        active_tiles = [g for g in tiles if g.get('id') != 'archived']
+        arch_list = [g for g in tiles if g.get('id') == 'archived']
+        arch_group = arch_list[0] if arch_list else archived_filter_group()
 
-    cards_count = sum(len(g['filters']) for g in tiles)
+    active_cards_count = sum(len(g['filters']) for g in active_tiles)
+    archived_cards_count = len(arch_group['filters']) if arch_group else 0
     sections_html = []
     
-    # Готовим вкладки категорий (Все, Египет, Турция, Греция)
+    # Готовим вкладки категорий (Все, Поездки, Египет, Турция, Греция, Архив)
     categories = [('all', '🌟 Все направления')]
-    for g in tiles:
+    for g in active_tiles:
         cat_id = g.get('id') or g['label'].lower()
         categories.append((cat_id, f"{g.get('icon', '')} {g['label']}"))
+    if arch_group and arch_group.get('filters'):
+        categories.append(('archived', f"📦 Архив туров ({archived_cards_count})"))
 
     tabs_html = "".join([
         f'<button type="button" class="tab-btn{ " active" if cid=="all" else "" }" data-target="{cid}">{label}</button>'
         for cid, label in categories
     ])
 
-    for group in tiles:
+    for group in active_tiles:
         cat_id = group.get('id') or group['label'].lower()
         cards_html = "".join([
             f"""
@@ -202,6 +210,39 @@ def generate_landing(tiles=None, output_file='index.html'):
       </div>
       <div class="grid">
         {cards_html}
+      </div>
+    </section>
+        """)
+
+    if arch_group and arch_group.get('filters'):
+        arch_cards_html = "".join([
+            f"""
+        <a class="card card-archived" href="{flt['href']}">
+          <div class="card-body">
+            <div class="card-title-row">
+              <span class="card-title">{flt['title']}</span>
+              <span class="badge-archived">📦 Архив</span>
+            </div>
+            <div class="card-sub">{flt.get('subtitle', '')}</div>
+            <div class="card-footer">
+              <span class="card-tag card-tag-archived">🏁 Поездка завершена</span>
+              <span class="card-action card-action-archived">Смотреть историю →</span>
+            </div>
+          </div>
+        </a>
+            """ for flt in arch_group['filters']
+        ])
+        sections_html.append(f"""
+    <section class="filter-section filter-section-archived" data-category="archived" id="section-archived">
+      <div class="section-head">
+        <span class="section-icon">📦</span>
+        <div>
+          <h2 class="section-title">Архив туров</h2>
+          <div class="section-desc">Завершённые поездки и архивные мониторинги. Сбор цен остановлен, полная история наблюдений и графики сохранены.</div>
+        </div>
+      </div>
+      <div class="grid">
+        {arch_cards_html}
       </div>
     </section>
         """)
@@ -451,6 +492,55 @@ def generate_landing(tiles=None, output_file='index.html'):
       font-weight: 700;
       color: #4338ca;
     }}
+    .filter-section-archived {{
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px dashed var(--line);
+    }}
+    .section-desc {{
+      font-size: .88rem;
+      color: var(--muted);
+      margin-top: 3px;
+      font-weight: 500;
+    }}
+    .card-archived {{
+      background: var(--glass);
+      border: 1px solid var(--line);
+      opacity: .94;
+    }}
+    .card-archived:hover {{
+      opacity: 1;
+      border-color: rgba(100, 116, 139, .5);
+      transform: translateY(-2px);
+    }}
+    .badge-archived {{
+      font-size: .75rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: rgba(148, 163, 184, .18);
+      color: #475569;
+      border: 1px solid rgba(148, 163, 184, .3);
+      white-space: nowrap;
+    }}
+    [data-theme="dark"] .badge-archived {{
+      background: rgba(148, 163, 184, .15);
+      color: #94a3b8;
+      border-color: rgba(148, 163, 184, .25);
+    }}
+    .card-tag-archived {{
+      background: rgba(148, 163, 184, .14);
+      color: var(--muted);
+    }}
+    .card-action-archived {{
+      color: var(--muted);
+      font-size: .88rem;
+      font-weight: 700;
+      transition: color .15s ease;
+    }}
+    .card-archived:hover .card-action-archived {{
+      color: var(--brand);
+    }}
     .footer {{
       text-align: center;
       color: #64748b;
@@ -509,7 +599,8 @@ def generate_landing(tiles=None, output_file='index.html'):
       </div>
 
       <div class="meta">
-        <span>🎯 Активных фильтров: {cards_count}</span>
+        <span>🎯 Активных фильтров: {active_cards_count}</span>
+        {f'<span>•</span><span>📦 В архиве: {archived_cards_count}</span>' if archived_cards_count else ''}
         <span>•</span>
         <span>🟢 Обновляется каждый час</span>
         <span>•</span>

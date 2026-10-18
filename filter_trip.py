@@ -167,6 +167,8 @@ def is_trip_window_expired(config: Dict[str, Any], *, today: Optional[date] = No
 
 def skip_monitor_reason(config: Dict[str, Any], *, today: Optional[date] = None) -> str:
     """Human-readable reason to skip scraping, or empty string."""
+    if bool(config.get("archived")):
+        return "в архиве"
     if is_filter_retired(config, today=today):
         return "retire_after прошёл"
     if is_trip_window_expired(config, today=today):

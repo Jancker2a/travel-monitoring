@@ -8,12 +8,13 @@ ROOT="$PWD"
 # shellcheck disable=SC2016
 ACTIVE_JSON="$(python3 - <<'PY'
 import json
-from filter_registry import active_filter_groups, FILTER_GROUPS
+from filter_registry import all_filter_groups_with_archive, FILTER_GROUPS
 from filter_params import DATA_DIR_CONFIG_FILES
 
-active_hrefs = {flt["href"] for _, flt in ((g, f) for g in active_filter_groups() for f in g["filters"])}
+all_groups = all_filter_groups_with_archive()
+active_hrefs = {flt["href"] for _, flt in ((g, f) for g in all_groups for f in g["filters"])}
 active_data_dirs = []
-for group in active_filter_groups():
+for group in all_groups:
     for flt in group["filters"]:
         charts = flt.get("charts_subdir") or ""
         # hotel-charts/filter_X -> filter_X
