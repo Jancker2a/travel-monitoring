@@ -3432,10 +3432,75 @@
       "created_at": "2026-10-18T15:39:39.437499+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Creek Hotel and Residences_2026-10-18_15-39_-12.8"
+    },
+    {
+      "hotel_name": "Xperience Kiroseiz Premier",
+      "duration_bucket": "",
+      "old_price": 8673.0,
+      "new_price": 7413.0,
+      "price_change": -1260.0,
+      "price_change_pct": -14.527845036319611,
+      "timestamp": "2026-10-18 16:01:44.165033+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-18T16:02:24.104993+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xperience Kiroseiz Premier_2026-10-18_16-01_-14.5"
+    },
+    {
+      "hotel_name": "Steigenberger Aqua Magic",
+      "duration_bucket": "",
+      "old_price": 10834.0,
+      "new_price": 9943.0,
+      "price_change": -891.0,
+      "price_change_pct": -8.224109285582426,
+      "timestamp": "2026-10-18 16:01:44.165033+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-18T16:02:24.105044+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Steigenberger Aqua Magic_2026-10-18_16-01_comeback_8.2"
+    },
+    {
+      "hotel_name": "Jaz Mirabel Beach Resort",
+      "duration_bucket": "",
+      "old_price": 10337.0,
+      "new_price": 9057.0,
+      "price_change": -1280.0,
+      "price_change_pct": -12.382702911869982,
+      "timestamp": "2026-10-18 16:01:44.165033+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-18T16:02:24.105058+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Mirabel Beach Resort_2026-10-18_16-01_comeback_12.4"
+    },
+    {
+      "hotel_name": "The V Luxury Resort",
+      "duration_bucket": "",
+      "old_price": 10703.0,
+      "new_price": 9818.0,
+      "price_change": -885.0,
+      "price_change_pct": -8.268709707558628,
+      "timestamp": "2026-10-18 16:01:44.165033+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-18T16:02:24.105070+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "The V Luxury Resort_2026-10-18_16-01_comeback_8.3"
+    },
+    {
+      "hotel_name": "Pickalbatros Luxury Suites",
+      "duration_bucket": "",
+      "old_price": 10196.0,
+      "new_price": 9296.0,
+      "price_change": -900.0,
+      "price_change_pct": -8.826990976853669,
+      "timestamp": "2026-10-18 16:01:44.165033+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-18T16:02:24.105079+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Luxury Suites_2026-10-18_16-01_comeback_8.8"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-18T15:39:04.519020+00:00",
+    "last_processed_run": "2026-10-18T16:01:44.165033+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 7920.0,
