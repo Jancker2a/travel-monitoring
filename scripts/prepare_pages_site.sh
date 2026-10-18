@@ -26,8 +26,15 @@ print(json.dumps({"hrefs": sorted(active_hrefs), "data_dirs": sorted(set(active_
 PY
 )"
 
-mapfile -t ACTIVE_HREFS < <(python3 -c 'import json,sys; print("\n".join(json.loads(sys.argv[1])["hrefs"]))' "$ACTIVE_JSON")
-mapfile -t FILTER_IDS < <(python3 -c 'import json,sys; print("\n".join(json.loads(sys.argv[1])["data_dirs"]))' "$ACTIVE_JSON")
+ACTIVE_HREFS=()
+while IFS= read -r line; do
+  [ -n "$line" ] && ACTIVE_HREFS+=("$line")
+done < <(python3 -c 'import json,sys; print("\n".join(json.loads(sys.argv[1])["hrefs"]))' "$ACTIVE_JSON")
+
+FILTER_IDS=()
+while IFS= read -r line; do
+  [ -n "$line" ] && FILTER_IDS+=("$line")
+done < <(python3 -c 'import json,sys; print("\n".join(json.loads(sys.argv[1])["data_dirs"]))' "$ACTIVE_JSON")
 
 rm -rf site
 mkdir -p site/data/filters
@@ -40,7 +47,13 @@ for href in "${ACTIVE_HREFS[@]}"; do
   if [ -f "${ROOT}/${href}" ]; then
     cp -f "${ROOT}/${href}" site/
   else
-    echo "⚠️ skip missing ${href}"
+    echo "⚠️ missing ${href}, attempting generation..."
+    python3 scripts/run_dashboards_parallel.py -j 2 --skip-landing || true
+    if [ -f "${ROOT}/${href}" ]; then
+      cp -f "${ROOT}/${href}" site/
+    else
+      echo "❌ could not generate ${href}"
+    fi
   fi
 done
 

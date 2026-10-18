@@ -206,13 +206,18 @@ def main() -> int:
     active_specs = []
     for spec in DEFAULT_DASHBOARDS:
         config_path = str(spec.get("config") or "").strip()
+        output_file = ROOT / spec["output"]
         if config_path and should_skip_monitor_config(str(ROOT / config_path)):
-            try:
-                reason = skip_monitor_reason(load_config_json(str(ROOT / config_path))) or "пропуск"
-            except Exception:
-                reason = "пропуск"
-            print(f"  ⏭ {spec['output']} ({reason})")
-            continue
+            if output_file.is_file():
+                try:
+                    reason = skip_monitor_reason(load_config_json(str(ROOT / config_path))) or "пропуск"
+                except Exception:
+                    reason = "пропуск"
+                print(f"  ⏭ {spec['output']} ({reason})")
+                continue
+            if not (ROOT / spec["data"]).is_file():
+                print(f"  ⏭ {spec['output']} (нет CSV данных)")
+                continue
         active_specs.append(spec)
 
     print(f"Parallel dashboards: {len(active_specs)}/{len(DEFAULT_DASHBOARDS)} filters, jobs={jobs}")
