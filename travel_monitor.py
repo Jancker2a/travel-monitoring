@@ -172,15 +172,28 @@ class TravelPriceMonitor:
                         self._timing_summary["scrape_total"] = time.monotonic() - scrape_t0
                         logger.info(f"⚡ Быстрый HTTP-парсинг успешен: {len(offers)} предложений")
                         return offers
-                    if (
+                    is_empty_market_result = bool(
+                        last_http_note
+                        and (
+                            "после фильтра 0 офферов" in last_http_note
+                            or "пустая выдача fly.pl" in last_http_note
+                            or "brak ofert" in last_http_note.lower()
+                        )
+                    )
+                    allows_empty = (
                         self.config.get("allow_empty_offers", False)
-                        and last_http_note
-                        and "после фильтра 0 офферов" in last_http_note
-                    ):
+                        or not self.config.get("dynamic_search_dates", True)
+                        or bool(self.config.get("retire_after"))
+                        or is_fixed_trip_config(self.config)
+                    )
+                    if is_empty_market_result and allows_empty:
                         self._timing_summary["scrape_http"] = time.monotonic() - http_phase_t0
                         self._timing_summary["scrape_http_pause"] = http_total_pause
                         self._timing_summary["scrape_total"] = time.monotonic() - scrape_t0
-                        logger.info("⚡ Быстрый HTTP-парсинг: 0 предложений соответствуют критериям (страница получена корректно)")
+                        logger.info(
+                            f"⚡ Быстрый HTTP-парсинг: 0 предложений ({last_http_note}), "
+                            "страница получена корректно, пустая выдача допустима"
+                        )
                         return []
                     logger.warning(
                         f"HTTP-попытка {http_attempt + 1}/{http_max_retries}: "
@@ -392,8 +405,29 @@ class TravelPriceMonitor:
             if "card-offer-search" not in html:
                 if len(html) < 5000:
                     last_note = "короткий HTML (возможно анти-бот/ошибка fly.pl)"
-                else:
-                    last_note = "в HTML нет card-offer-search (разметка или пустая выдача)"
+                    _log_timing(
+                        f"HTTP GET стр.{page_number} попытка {page_attempt + 1}",
+                        req_t0,
+                        f"bytes={len(html)}, {last_note}",
+                    )
+                    continue
+                # На страницах > 1 отсутствие карточек — нормальный конец пагинации
+                if page_number > 1:
+                    _log_timing(
+                        f"HTTP GET стр.{page_number} попытка {page_attempt + 1}",
+                        req_t0,
+                        f"bytes={len(html)}, конец пагинации (нет card-offer-search)",
+                    )
+                    return html, "конец пагинации"
+                # На странице 1 проверяем явный признак пустой выдачи
+                if re.search(r'brak\s+ofert', html, re.I):
+                    _log_timing(
+                        f"HTTP GET стр.{page_number} попытка {page_attempt + 1}",
+                        req_t0,
+                        f"bytes={len(html)}, пустая выдача (Brak ofert)",
+                    )
+                    return html, "пустая выдача fly.pl (Brak ofert)"
+                last_note = "в HTML нет card-offer-search (разметка или пустая выдача)"
                 _log_timing(
                     f"HTTP GET стр.{page_number} попытка {page_attempt + 1}",
                     req_t0,
@@ -464,8 +498,11 @@ class TravelPriceMonitor:
             raw_offers = self._parse_offers_from_html(page_html)
             parse_elapsed = time.monotonic() - parse_t0
             if not raw_offers:
-                empty_note = "парсер не извлёк карточки из HTML"
-                logger.info(f"Страница {page_number}: карточки не найдены, завершаем")
+                if re.search(r'brak\s+ofert', page_html, re.I):
+                    empty_note = "пустая выдача fly.pl (Brak ofert)"
+                else:
+                    empty_note = "парсер не извлёк карточки из HTML"
+                logger.info(f"Страница {page_number}: карточки не найдены ({empty_note}), завершаем")
                 break
 
             page_offers = []
@@ -473,8 +510,10 @@ class TravelPriceMonitor:
             filtered_out = 0
             for off in raw_offers:
                 if off.get('price', 0) <= 0:
+                    filtered_out += 1
                     continue
                 if min_price_threshold > 0 and off['price'] < min_price_threshold:
+                    filtered_out += 1
                     continue
                 if not self._is_offer_in_expected_scope(off):
                     filtered_out += 1
@@ -496,10 +535,13 @@ class TravelPriceMonitor:
                     logger.info(f"Достигнута максимальная цена {max_price_threshold:.0f} PLN, завершаем")
                     break
             else:
-                empty_note = (
-                    f"после фильтра 0 офферов (сырых {len(raw_offers)}, отфильтровано {filtered_out})"
-                )
-                logger.info(f"Страница {page_number}: после фильтра не осталось предложений, завершаем")
+                if re.search(r'brak\s+ofert', page_html, re.I):
+                    empty_note = f"пустая выдача fly.pl (Brak ofert, отфильтровано {filtered_out} нецелевых)"
+                else:
+                    empty_note = (
+                        f"после фильтра 0 офферов (сырых {len(raw_offers)}, отфильтровано {filtered_out})"
+                    )
+                logger.info(f"Страница {page_number}: после фильтра не осталось предложений ({empty_note}), завершаем")
                 break
 
             _log_timing(
