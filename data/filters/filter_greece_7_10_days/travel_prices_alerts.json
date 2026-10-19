@@ -52,10 +52,49 @@
       "created_at": "2026-10-19T17:40:26.583906+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Kakkos Beach Grecja, Kreta Wschodnia, Ierapetra_2026-10-19_17-39_zone_out_gone"
+    },
+    {
+      "hotel_name": "Rethymno Mare & Water Park (Rethymno) Grecja, Kreta Zachodnia, SCALETA",
+      "duration_bucket": "",
+      "old_price": 8737.0,
+      "new_price": 9957.0,
+      "price_change": 1220.0,
+      "price_change_pct": 13.963603067414446,
+      "timestamp": "2026-10-19 22:33:30.774539+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-19T22:34:07.063337+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rethymno Mare & Water Park (Rethymno) Grecja, Kreta Zachodnia, SCALETA_2026-10-19_22-33_+14.0"
+    },
+    {
+      "hotel_name": "Kairaba Sandy Villas Grecja, Korfu, Agios Georgios",
+      "duration_bucket": "",
+      "old_price": 9052.0,
+      "new_price": 11977.0,
+      "price_change": 2925.0,
+      "price_change_pct": 32.31330092797172,
+      "timestamp": "2026-10-19 22:33:30.774539+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-19T22:34:07.063366+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Kairaba Sandy Villas Grecja, Korfu, Agios Georgios_2026-10-19_22-33_zone_out_+32.3"
+    },
+    {
+      "hotel_name": "Hersonissos Palace Grecja, Kreta Wschodnia, Hersonissos",
+      "duration_bucket": "",
+      "old_price": 11857.0,
+      "new_price": 9916.0,
+      "price_change": -1941.0,
+      "price_change_pct": -16.370076747912627,
+      "timestamp": "2026-10-19 22:33:30.774539+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-19T22:34:07.063388+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Hersonissos Palace Grecja, Kreta Wschodnia, Hersonissos_2026-10-19_22-33_comeback_16.4"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-19T17:39:44.797440+00:00",
+    "last_processed_run": "2026-10-19T22:33:30.774539+00:00",
     "premium_state": {
       "Alia Palace": {
         "history_max": 12477.0,
@@ -94,8 +133,8 @@
         "premium_peak": null
       },
       "Kairaba Sandy Villas Grecja, Korfu, Agios Georgios": {
-        "history_max": 9052.0,
-        "premium_peak": null
+        "history_max": 11977.0,
+        "premium_peak": 11977.0
       },
       "Iberostar Selection Creta Marine": {
         "history_max": 12517.0,
@@ -154,7 +193,7 @@
         "premium_peak": 10807.0
       },
       "Rethymno Mare & Water Park (Rethymno) Grecja, Kreta Zachodnia, SCALETA": {
-        "history_max": 8887.0,
+        "history_max": 9957.0,
         "premium_peak": null
       },
       "Princess Andriana Resort & Spa Grecja, Rodos, Kiotari": {
@@ -258,7 +297,7 @@
         "premium_peak": 16870.0
       },
       "Almyros Beach (ex Cyprotel Almyros) Grecja, Korfu, Acharavi": {
-        "history_max": 9717.0,
+        "history_max": 9817.0,
         "premium_peak": null
       },
       "Georgioupolis Resort & Aqua Park Grecja, Kreta Zachodnia, Georgioupolis": {

@@ -91,10 +91,88 @@
       "created_at": "2026-10-19T17:38:23.878210+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Regency Plaza Aqua Park Spa Egipt, Sharm El Sheikh, Szarm el-Szejk_2026-10-19_17-38_-11.0"
+    },
+    {
+      "hotel_name": "Rewaya Luxury Resort Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 9157.0,
+      "new_price": 7850.0,
+      "price_change": -1307.0,
+      "price_change_pct": -14.273233591787704,
+      "timestamp": "2026-10-19 22:32:12.949462+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-19T22:32:20.077014+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Luxury Resort Egipt, Hurghada_2026-10-19_22-32_-14.3"
+    },
+    {
+      "hotel_name": "Rewaya Majestic Resort Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 9344.0,
+      "new_price": 7984.0,
+      "price_change": -1360.0,
+      "price_change_pct": -14.554794520547945,
+      "timestamp": "2026-10-19 22:32:12.949462+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-19T22:32:20.077053+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Majestic Resort Egipt, Hurghada_2026-10-19_22-32_-14.6"
+    },
+    {
+      "hotel_name": "Sea Star Beau Rivage Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 8081.0,
+      "new_price": 8981.0,
+      "price_change": 900.0,
+      "price_change_pct": 11.137235490657096,
+      "timestamp": "2026-10-19 22:32:12.949462+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-19T22:32:20.077077+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sea Star Beau Rivage Egipt, Hurghada_2026-10-19_22-32_+11.1"
+    },
+    {
+      "hotel_name": "IL Mercato (ex. Iberotel Il Mercato) Egipt, Sharm El Sheikh",
+      "duration_bucket": "",
+      "old_price": 9932.0,
+      "new_price": 10893.0,
+      "price_change": 961.0,
+      "price_change_pct": 9.6757954087797,
+      "timestamp": "2026-10-19 22:32:12.949462+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-19T22:32:20.077100+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "IL Mercato (ex. Iberotel Il Mercato) Egipt, Sharm El Sheikh_2026-10-19_22-32_+9.7"
+    },
+    {
+      "hotel_name": "Amwaj Oyoun Resort & Spa (ex AA Amwaj Resort) Egipt, Sharm El Sheikh",
+      "duration_bucket": "",
+      "old_price": 10798.0,
+      "new_price": 10798.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-19 22:32:12.949462+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-19T22:32:20.077132+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amwaj Oyoun Resort & Spa (ex AA Amwaj Resort) Egipt, Sharm El Sheikh_2026-10-19_22-32_zone_out_gone"
+    },
+    {
+      "hotel_name": "Concorde El Salam Sport Egipt, Sharm El Sheikh, Szarm el-Szejk",
+      "duration_bucket": "",
+      "old_price": 10911.0,
+      "new_price": 10911.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-19 22:32:12.949462+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-19T22:32:20.077151+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Concorde El Salam Sport Egipt, Sharm El Sheikh, Szarm el-Szejk_2026-10-19_22-32_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-19T17:38:19.096845+00:00",
+    "last_processed_run": "2026-10-19T22:32:12.949462+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 10605.0,
@@ -113,7 +191,7 @@
         "premium_peak": null
       },
       "Sharm Grand Plaza Resort Egipt, Sharm El Sheikh": {
-        "history_max": 10718.0,
+        "history_max": 10892.0,
         "premium_peak": null
       },
       "Sentido Oriental Dream Resort Egipt, Marsa Alam": {
@@ -173,7 +251,7 @@
         "premium_peak": null
       },
       "IL Mercato (ex. Iberotel Il Mercato) Egipt, Sharm El Sheikh": {
-        "history_max": 9932.0,
+        "history_max": 10893.0,
         "premium_peak": null
       },
       "Concorde El Salam Sport Egipt, Sharm El Sheikh, Szarm el-Szejk": {
@@ -182,6 +260,14 @@
       },
       "Serenity Sky Arc Egipt, Hurghada, Sahl Hasheesh": {
         "history_max": 10937.0,
+        "premium_peak": null
+      },
+      "Marriott Hurghada Beach Resort Egipt, Hurghada": {
+        "history_max": 10699.0,
+        "premium_peak": null
+      },
+      "Pyramisa Beach Resort Sahl Hasheesh Egipt, Hurghada, Sahl Hasheesh": {
+        "history_max": 10003.0,
         "premium_peak": null
       }
     }

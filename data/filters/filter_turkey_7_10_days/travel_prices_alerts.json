@@ -1300,10 +1300,62 @@
       "created_at": "2026-10-19T17:39:53.844118+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Wyndham Istanbul Old City (ex. Celal Aga Konagi)_2026-10-19_17-38_zone_out_gone"
+    },
+    {
+      "hotel_name": "Horus Paradise Luxury Resort",
+      "duration_bucket": "",
+      "old_price": 7447.0,
+      "new_price": 6851.0,
+      "price_change": -596.0,
+      "price_change_pct": -8.003222774271519,
+      "timestamp": "2026-10-19 22:32:27.216804+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-19T22:33:29.890179+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Horus Paradise Luxury Resort_2026-10-19_22-32_-8.0"
+    },
+    {
+      "hotel_name": "Limak Limra",
+      "duration_bucket": "",
+      "old_price": 6722.0,
+      "new_price": 6181.0,
+      "price_change": -541.0,
+      "price_change_pct": -8.048199940493902,
+      "timestamp": "2026-10-19 22:32:27.216804+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-19T22:33:29.890228+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Limak Limra_2026-10-19_22-32_-8.0"
+    },
+    {
+      "hotel_name": "Melas Resort",
+      "duration_bucket": "",
+      "old_price": 9276.0,
+      "new_price": 9276.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-19 22:32:27.216804+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-19T22:33:29.890277+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Melas Resort_2026-10-19_22-32_zone_out_gone"
+    },
+    {
+      "hotel_name": "Nova Park",
+      "duration_bucket": "",
+      "old_price": 7333.0,
+      "new_price": 7333.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-19 22:32:27.216804+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-19T22:33:29.890287+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Nova Park_2026-10-19_22-32_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-19T17:38:34.346522+00:00",
+    "last_processed_run": "2026-10-19T22:32:27.216804+00:00",
     "premium_state": {
       "Adalya Art Side (Ex. Grand Art Side)": {
         "history_max": 8512.0,
@@ -1538,7 +1590,7 @@
         "premium_peak": null
       },
       "Gypsophila Holiday Village": {
-        "history_max": 7212.0,
+        "history_max": 7622.0,
         "premium_peak": null
       },
       "Gypsophila Club Marine (ex. Amara Club Marine Nature)": {
@@ -1806,7 +1858,7 @@
         "premium_peak": null
       },
       "Trendy Aspendos Beach": {
-        "history_max": 9202.0,
+        "history_max": 9345.0,
         "premium_peak": null
       },
       "Xoria Deluxe": {
