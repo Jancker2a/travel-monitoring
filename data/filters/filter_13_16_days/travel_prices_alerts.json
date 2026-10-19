@@ -13,10 +13,23 @@
       "created_at": "2026-10-19T10:17:53.210600+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Novotel Marsa Alam_2026-10-19_10-17_comeback_9.8"
+    },
+    {
+      "hotel_name": "Amarina Jannah Resort Aquapark",
+      "duration_bucket": "",
+      "old_price": 9679.0,
+      "new_price": 10013.0,
+      "price_change": 334.0,
+      "price_change_pct": 3.450769707614423,
+      "timestamp": "2026-10-19 17:37:57.633436+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-19T17:38:18.138348+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amarina Jannah Resort Aquapark_2026-10-19_17-37_zone_out_+3.5"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-19T10:17:33.146090+00:00",
+    "last_processed_run": "2026-10-19T17:37:57.633436+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 12971.0,
@@ -199,24 +212,24 @@
         "premium_peak": 14915.0
       },
       "Dream Lagoon & Aqua Park Resort (ex. Floriana Dream Lagoon)": {
-        "history_max": 10407.0,
-        "premium_peak": 10407.0
+        "history_max": 11637.0,
+        "premium_peak": 11637.0
       },
       "Titanic Pearl": {
         "history_max": 15725.0,
         "premium_peak": 15725.0
       },
       "Amarina Jannah Resort Aquapark": {
-        "history_max": 9679.0,
-        "premium_peak": null
+        "history_max": 10013.0,
+        "premium_peak": 10013.0
       },
       "Tropitel Sahl Hasheesh": {
         "history_max": 16080.0,
         "premium_peak": 16080.0
       },
       "Amarina Jannah Heights Resort & Aqua Park": {
-        "history_max": 11568.0,
-        "premium_peak": 11568.0
+        "history_max": 12041.0,
+        "premium_peak": 12041.0
       },
       "Albatros Sea World Resort Marsa Alam": {
         "history_max": 15557.0,
@@ -271,8 +284,8 @@
         "premium_peak": 16137.0
       },
       "Stella Di Mare Beach & Spa": {
-        "history_max": 17998.0,
-        "premium_peak": 17998.0
+        "history_max": 19870.0,
+        "premium_peak": 19870.0
       },
       "IL Mercato Splash Aqua Park": {
         "history_max": 10883.0,
@@ -281,6 +294,14 @@
       "Sunrise Alora Aqua Park Resort": {
         "history_max": 13604.0,
         "premium_peak": 13604.0
+      },
+      "Pickalbatros White Beach Resort": {
+        "history_max": 19749.0,
+        "premium_peak": 19749.0
+      },
+      "Pickalbatros Water Valley Resort Neverland": {
+        "history_max": 19390.0,
+        "premium_peak": 19390.0
       }
     }
   }

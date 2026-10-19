@@ -182,18 +182,122 @@
       "created_at": "2026-10-19T10:19:26.062221+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Kremlin Palace_2026-10-19_10-18_comeback_8.6"
+    },
+    {
+      "hotel_name": "Eftalia Village",
+      "duration_bucket": "",
+      "old_price": 8026.0,
+      "new_price": 9306.0,
+      "price_change": 1280.0,
+      "price_change_pct": 15.948168452529279,
+      "timestamp": "2026-10-19 17:38:37.473149+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-19T17:39:55.908981+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Eftalia Village_2026-10-19_17-38_+15.9"
+    },
+    {
+      "hotel_name": "Azura World (ex. Wyndham Alanya)",
+      "duration_bucket": "",
+      "old_price": 6948.0,
+      "new_price": 6948.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-19 17:38:37.473149+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-19T17:39:55.909046+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Azura World (ex. Wyndham Alanya)_2026-10-19_17-38_zone_out_gone"
+    },
+    {
+      "hotel_name": "Gypsophila Holiday Village",
+      "duration_bucket": "",
+      "old_price": 9352.0,
+      "new_price": 9352.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-19 17:38:37.473149+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-19T17:39:55.909081+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Gypsophila Holiday Village_2026-10-19_17-38_zone_out_gone"
+    },
+    {
+      "hotel_name": "M. C. Beach Resort (ex. Otium MC Beach Resort)",
+      "duration_bucket": "",
+      "old_price": 5468.0,
+      "new_price": 5468.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-19 17:38:37.473149+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-19T17:39:55.909094+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "M. C. Beach Resort (ex. Otium MC Beach Resort)_2026-10-19_17-38_zone_out_gone"
+    },
+    {
+      "hotel_name": "Siu Collection by Aydinbey",
+      "duration_bucket": "",
+      "old_price": 9972.0,
+      "new_price": 10121.0,
+      "price_change": 149.0,
+      "price_change_pct": 1.4941837144003207,
+      "timestamp": "2026-10-19 17:38:37.473149+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-19T17:39:55.909105+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Siu Collection by Aydinbey_2026-10-19_17-38_zone_out_+1.5"
+    },
+    {
+      "hotel_name": "Victory Volare",
+      "duration_bucket": "",
+      "old_price": 8017.0,
+      "new_price": 8017.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-19 17:38:37.473149+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-19T17:39:55.909114+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Victory Volare_2026-10-19_17-38_zone_out_gone"
+    },
+    {
+      "hotel_name": "Luna Vista Belek",
+      "duration_bucket": "",
+      "old_price": 11163.0,
+      "new_price": 9604.0,
+      "price_change": -1559.0,
+      "price_change_pct": -13.965779808295261,
+      "timestamp": "2026-10-19 17:38:37.473149+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-19T17:39:55.909143+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Luna Vista Belek_2026-10-19_17-38_comeback_14.0"
+    },
+    {
+      "hotel_name": "Lonicera Premium",
+      "duration_bucket": "",
+      "old_price": 12303.0,
+      "new_price": 9346.0,
+      "price_change": -2957.0,
+      "price_change_pct": -24.034788263025277,
+      "timestamp": "2026-10-19 17:38:37.473149+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-19T17:39:55.909156+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Lonicera Premium_2026-10-19_17-38_comeback_24.0"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-19T10:18:13.761222+00:00",
+    "last_processed_run": "2026-10-19T17:38:37.473149+00:00",
     "premium_state": {
       "Adalya Art Side (Ex. Grand Art Side)": {
         "history_max": 10108.0,
         "premium_peak": 10108.0
       },
       "Miracle Resort": {
-        "history_max": 10711.0,
-        "premium_peak": 10711.0
+        "history_max": 10720.0,
+        "premium_peak": 10720.0
       },
       "Mira Meridia Beach Resort": {
         "history_max": 7047.0,
@@ -228,8 +332,8 @@
         "premium_peak": null
       },
       "MegaSaray Club Belek": {
-        "history_max": 15426.0,
-        "premium_peak": 15426.0
+        "history_max": 15546.0,
+        "premium_peak": 15546.0
       },
       "Meder Resort": {
         "history_max": 7160.0,
@@ -584,8 +688,8 @@
         "premium_peak": 10116.0
       },
       "Papillon Zeugma Reluxury": {
-        "history_max": 12582.0,
-        "premium_peak": 12582.0
+        "history_max": 12596.0,
+        "premium_peak": 12596.0
       },
       "Pine Beach Belek (ex. Maritim Pine Beach Resort)": {
         "history_max": 12220.0,
@@ -940,8 +1044,8 @@
         "premium_peak": null
       },
       "Selectum Luxury Resort": {
-        "history_max": 12938.0,
-        "premium_peak": 12938.0
+        "history_max": 13005.0,
+        "premium_peak": 13005.0
       },
       "Selectum Family Resort (ex Letoonia Golf Resort)": {
         "history_max": 10796.0,
@@ -976,8 +1080,8 @@
         "premium_peak": 10001.0
       },
       "Saphir Resort": {
-        "history_max": 10335.0,
-        "premium_peak": 10335.0
+        "history_max": 10405.0,
+        "premium_peak": 10405.0
       },
       "Gold City": {
         "history_max": 5738.0,
@@ -1128,8 +1232,8 @@
         "premium_peak": null
       },
       "Club Sera": {
-        "history_max": 11797.0,
-        "premium_peak": 11797.0
+        "history_max": 12443.0,
+        "premium_peak": 12443.0
       },
       "Balmy Foresta": {
         "history_max": 10566.0,
@@ -1248,8 +1352,8 @@
         "premium_peak": null
       },
       "Casa Fora Beach Resort": {
-        "history_max": 12526.0,
-        "premium_peak": 12526.0
+        "history_max": 12826.0,
+        "premium_peak": 12826.0
       },
       "Avia Resort & Spa": {
         "history_max": 7942.0,
@@ -1264,8 +1368,8 @@
         "premium_peak": null
       },
       "Barut Goia (ex. Barut Sunwing Side Beach)": {
-        "history_max": 10328.0,
-        "premium_peak": 10328.0
+        "history_max": 10672.0,
+        "premium_peak": 10672.0
       },
       "Dosinia Luxury Resort": {
         "history_max": 9680.0,
@@ -1348,7 +1452,7 @@
         "premium_peak": null
       },
       "Eftalia Village": {
-        "history_max": 9006.0,
+        "history_max": 9306.0,
         "premium_peak": null
       },
       "Fame Residence (Kemer)": {
@@ -1360,8 +1464,8 @@
         "premium_peak": 13383.0
       },
       "Akra Kemer (ex. Kemer Barut Collection)": {
-        "history_max": 11919.0,
-        "premium_peak": 11919.0
+        "history_max": 13647.0,
+        "premium_peak": 13647.0
       },
       "Fore Resort & Spa": {
         "history_max": 10347.0,
