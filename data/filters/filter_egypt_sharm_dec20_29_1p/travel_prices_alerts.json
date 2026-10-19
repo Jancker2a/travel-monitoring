@@ -1,8 +1,35 @@
 {
   "version": 2,
-  "alerts": [],
+  "alerts": [
+    {
+      "hotel_name": "Pickalbatros Aqua Blu Resort",
+      "duration_bucket": "",
+      "old_price": 7525.0,
+      "new_price": 7525.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-19 10:18:06.894044+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-19T10:18:31.113026+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Aqua Blu Resort_2026-10-19_10-18_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sharm Grand Plaza Resort",
+      "duration_bucket": "",
+      "old_price": 5339.0,
+      "new_price": 5339.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-19 10:18:06.894044+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-19T10:18:31.113051+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sharm Grand Plaza Resort_2026-10-19_10-18_zone_out_gone"
+    }
+  ],
   "meta": {
-    "last_processed_run": "2026-10-19T04:58:52.793591+00:00",
+    "last_processed_run": "2026-10-19T10:18:06.894044+00:00",
     "premium_state": {
       "Albatros Sharm Resort (ex. Beach Albatros)": {
         "history_max": 6739.0,
@@ -53,7 +80,7 @@
         "premium_peak": null
       },
       "Pickalbatros Golf Beach Resort": {
-        "history_max": 6749.0,
+        "history_max": 6819.0,
         "premium_peak": null
       },
       "Pickalbatros Laguna Club Resort": {
@@ -101,7 +128,7 @@
         "premium_peak": null
       },
       "Ivy Cyrene Sharm": {
-        "history_max": 4829.0,
+        "history_max": 4835.0,
         "premium_peak": null
       },
       "Jaz Belvedere": {
@@ -129,7 +156,7 @@
         "premium_peak": null
       },
       "Jaz Neo Naama Bay": {
-        "history_max": 5469.0,
+        "history_max": 5509.0,
         "premium_peak": null
       },
       "Jaz Neo Sharks Bay": {
@@ -161,7 +188,7 @@
         "premium_peak": null
       },
       "Meraki Sharm Resort": {
-        "history_max": 11339.0,
+        "history_max": 11409.0,
         "premium_peak": null
       },
       "Monte Carlo Resort Spa": {
@@ -429,15 +456,15 @@
         "premium_peak": null
       },
       "Charmillion Club Aqua Park": {
-        "history_max": 5399.0,
+        "history_max": 5469.0,
         "premium_peak": null
       },
       "Domina Coral Bay Harem": {
-        "history_max": 5332.0,
+        "history_max": 5339.0,
         "premium_peak": null
       },
       "Charmillion Club Resort": {
-        "history_max": 5829.0,
+        "history_max": 5899.0,
         "premium_peak": null
       },
       "Domina Coral Bay Bella Vista": {
@@ -505,7 +532,7 @@
         "premium_peak": null
       },
       "Barcelo Tiran Sharm": {
-        "history_max": 6009.0,
+        "history_max": 6079.0,
         "premium_peak": null
       },
       "Edge By Rotana Sea Beach": {
@@ -537,7 +564,7 @@
         "premium_peak": null
       },
       "Aurora Oriental Resort": {
-        "history_max": 4679.0,
+        "history_max": 4704.0,
         "premium_peak": null
       },
       "Amphoras Aqua": {

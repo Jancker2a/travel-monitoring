@@ -91,18 +91,109 @@
       "created_at": "2026-10-19T04:59:50.684878+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Viking Star_2026-10-19_04-58_zone_out_gone"
+    },
+    {
+      "hotel_name": "Asteria Family Resort Side",
+      "duration_bucket": "",
+      "old_price": 6894.0,
+      "new_price": 6305.0,
+      "price_change": -589.0,
+      "price_change_pct": -8.543661154627213,
+      "timestamp": "2026-10-19 10:18:13.761222+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-19T10:19:26.061967+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Asteria Family Resort Side_2026-10-19_10-18_-8.5"
+    },
+    {
+      "hotel_name": "Sunmelia Beach Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 8679.0,
+      "new_price": 6363.0,
+      "price_change": -2316.0,
+      "price_change_pct": -26.685101970273074,
+      "timestamp": "2026-10-19 10:18:13.761222+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-19T10:19:26.062021+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sunmelia Beach Resort & Spa_2026-10-19_10-18_-26.7"
+    },
+    {
+      "hotel_name": "Gypsophila Holiday Village",
+      "duration_bucket": "",
+      "old_price": 8177.0,
+      "new_price": 9352.0,
+      "price_change": 1175.0,
+      "price_change_pct": 14.369573193102605,
+      "timestamp": "2026-10-19 10:18:13.761222+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-19T10:19:26.062052+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Gypsophila Holiday Village_2026-10-19_10-18_+14.4"
+    },
+    {
+      "hotel_name": "Saphir Resort",
+      "duration_bucket": "",
+      "old_price": 9913.0,
+      "new_price": 10335.0,
+      "price_change": 422.0,
+      "price_change_pct": 4.2570362150711185,
+      "timestamp": "2026-10-19 10:18:13.761222+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-19T10:19:26.062113+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Saphir Resort_2026-10-19_10-18_zone_out_+4.3"
+    },
+    {
+      "hotel_name": "The Norm Oriental (ex. Asteria Kemer Resort)",
+      "duration_bucket": "",
+      "old_price": 7812.0,
+      "new_price": 11147.0,
+      "price_change": 3335.0,
+      "price_change_pct": 42.690732206861234,
+      "timestamp": "2026-10-19 10:18:13.761222+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-19T10:19:26.062138+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "The Norm Oriental (ex. Asteria Kemer Resort)_2026-10-19_10-18_zone_out_+42.7"
+    },
+    {
+      "hotel_name": "Victory Be Mine",
+      "duration_bucket": "",
+      "old_price": 8017.0,
+      "new_price": 8017.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-19 10:18:13.761222+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-19T10:19:26.062158+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Victory Be Mine_2026-10-19_10-18_zone_out_gone"
+    },
+    {
+      "hotel_name": "Kremlin Palace",
+      "duration_bucket": "",
+      "old_price": 10305.0,
+      "new_price": 9414.0,
+      "price_change": -891.0,
+      "price_change_pct": -8.646288209606986,
+      "timestamp": "2026-10-19 10:18:13.761222+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-19T10:19:26.062221+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Kremlin Palace_2026-10-19_10-18_comeback_8.6"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-19T04:58:58.798924+00:00",
+    "last_processed_run": "2026-10-19T10:18:13.761222+00:00",
     "premium_state": {
       "Adalya Art Side (Ex. Grand Art Side)": {
         "history_max": 10108.0,
         "premium_peak": 10108.0
       },
       "Miracle Resort": {
-        "history_max": 10561.0,
-        "premium_peak": 10561.0
+        "history_max": 10711.0,
+        "premium_peak": 10711.0
       },
       "Mira Meridia Beach Resort": {
         "history_max": 7047.0,
@@ -293,8 +384,8 @@
         "premium_peak": 13201.0
       },
       "Luna Vista Belek": {
-        "history_max": 11006.0,
-        "premium_peak": 11006.0
+        "history_max": 11163.0,
+        "premium_peak": 11163.0
       },
       "Lonicera West (ex. Gold Island)": {
         "history_max": 9415.0,
@@ -337,7 +428,7 @@
         "premium_peak": null
       },
       "Gypsophila Holiday Village": {
-        "history_max": 8177.0,
+        "history_max": 9352.0,
         "premium_peak": null
       },
       "Gypsophila Club Marine (ex. Amara Club Marine Nature)": {
@@ -517,8 +608,8 @@
         "premium_peak": null
       },
       "Swandor Topkapi Palace (ex WOW)": {
-        "history_max": 11669.0,
-        "premium_peak": 11669.0
+        "history_max": 11808.0,
+        "premium_peak": 11808.0
       },
       "Swandor Kemer (ex. Pgs Kiris Resort)": {
         "history_max": 10013.0,
@@ -545,8 +636,8 @@
         "premium_peak": null
       },
       "Sultan of Dreams": {
-        "history_max": 11683.0,
-        "premium_peak": 11683.0
+        "history_max": 12911.0,
+        "premium_peak": 12911.0
       },
       "Sueno Deluxe Belek": {
         "history_max": 15336.0,
@@ -585,8 +676,8 @@
         "premium_peak": 11006.0
       },
       "The Norm Oriental (ex. Asteria Kemer Resort)": {
-        "history_max": 7812.0,
-        "premium_peak": null
+        "history_max": 11147.0,
+        "premium_peak": 11147.0
       },
       "Side Star Elegance": {
         "history_max": 15811.0,
@@ -793,7 +884,7 @@
         "premium_peak": null
       },
       "Saphir Hotel & Villas": {
-        "history_max": 9323.0,
+        "history_max": 9385.0,
         "premium_peak": null
       },
       "Seaden Quality Resort & Spa": {
@@ -885,8 +976,8 @@
         "premium_peak": 10001.0
       },
       "Saphir Resort": {
-        "history_max": 9953.0,
-        "premium_peak": null
+        "history_max": 10335.0,
+        "premium_peak": 10335.0
       },
       "Gold City": {
         "history_max": 5738.0,
