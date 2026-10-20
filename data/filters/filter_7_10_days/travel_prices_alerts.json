@@ -1001,10 +1001,49 @@
       "created_at": "2026-10-20T17:48:20.602590+00:00",
       "threshold_percent": 8.0,
       "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort)_2026-10-20_17-47_+10.7"
+    },
+    {
+      "hotel_name": "Xperience Kiroseiz Parkland",
+      "duration_bucket": "",
+      "old_price": 7505.0,
+      "new_price": 6875.0,
+      "price_change": -630.0,
+      "price_change_pct": -8.394403730846102,
+      "timestamp": "2026-10-20 18:32:30.455059+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-20T18:33:46.969170+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xperience Kiroseiz Parkland_2026-10-20_18-32_-8.4"
+    },
+    {
+      "hotel_name": "Amarina Jannah Heights Resort & Aqua Park",
+      "duration_bucket": "",
+      "old_price": 8272.0,
+      "new_price": 7382.0,
+      "price_change": -890.0,
+      "price_change_pct": -10.75918762088975,
+      "timestamp": "2026-10-20 18:32:30.455059+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-20T18:33:46.969226+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amarina Jannah Heights Resort & Aqua Park_2026-10-20_18-32_-10.8"
+    },
+    {
+      "hotel_name": "Creek Hotel and Residences",
+      "duration_bucket": "",
+      "old_price": 8613.0,
+      "new_price": 7272.0,
+      "price_change": -1341.0,
+      "price_change_pct": -15.569487983281086,
+      "timestamp": "2026-10-20 18:32:30.455059+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-20T18:33:46.969259+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Creek Hotel and Residences_2026-10-20_18-32_-15.6"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-20T17:47:26.010978+00:00",
+    "last_processed_run": "2026-10-20T18:32:30.455059+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 7695.0,
@@ -1139,8 +1178,8 @@
         "premium_peak": null
       },
       "Hilton Plaza (Hurghada)": {
-        "history_max": 11867.0,
-        "premium_peak": 11867.0
+        "history_max": 12013.0,
+        "premium_peak": 12013.0
       },
       "Swissotel Sharm El Sheikh": {
         "history_max": 13615.0,
@@ -1439,7 +1478,7 @@
         "premium_peak": 16579.0
       },
       "Parrotel Lagoon Resort": {
-        "history_max": 6522.0,
+        "history_max": 6523.0,
         "premium_peak": null
       },
       "Parrotel Beach Resort (ex. Radisson Blu)": {
