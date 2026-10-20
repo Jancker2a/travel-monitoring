@@ -20,6 +20,8 @@ from filter_trip import should_skip_monitor_config
 
 # All persistent active filters + Sharm 1-person trip
 GERMANY_TARGET_CONFIGS = [
+    "config_ci_filter_7_10.json",
+    "config_ci_filter_13_16.json",
     "config_ci_filter_turkey_7_10.json",
     "config_ci_filter_turkey_9_11.json",
     "config_ci_filter_turkey_13_16.json",

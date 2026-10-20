@@ -725,7 +725,7 @@ class TravelPriceMonitor:
                         try:
                             element = offers_data[i]
                             offer_data = await self.extract_offer_data(element, i)
-                            if offer_data and offer_data.get('price', 0) > 0:
+                            if offer_data and offer_data.get('price', 0) >= 1000.0:
                                 # Фильтр по минимальной цене
                                 if min_price_threshold > 0 and offer_data['price'] < min_price_threshold:
                                     continue
@@ -1275,15 +1275,39 @@ class TravelPriceMonitor:
             offer_url = card_info.get('offer_url', '')
             image_url = card_info.get('image_url', '')
             
-            # 1. Цена: ищем "X XXX zł za wszystkich" или "X XXX zł"
+            # 1. Цена: ищем общую цену тура (za wszystkich)
             price_value = 0
-            m_price = re.search(r'([\d\s\xa0]+)\s*zł\s*(?:za\s+wszystkich|za\s+osobę)?', full_text, re.I)
-            if m_price:
-                digits = re.sub(r'[^\d]', '', m_price.group(1))
-                if digits:
+            m_price_all = re.search(r'([\d\s\xa0]+)\s*zł\s*(?:/\s*)?za\s+wszystkich', full_text, re.I)
+            if m_price_all:
+                digits = re.sub(r'[^\d]', '', m_price_all.group(1))
+                if digits and float(digits) >= 1000.0:
                     price_value = float(digits)
+
+            # Если не найдено, ищем в card_html специфичный селектор цены
+            if not price_value and card_html:
+                m_price_html = re.search(r'class="[^"]*price(?:-value|-view-2)?[^"]*"[^>]*>([\d\s\xa0]+)\s*zł', card_html, re.I)
+                if m_price_html:
+                    digits = re.sub(r'[^\d]', '', m_price_html.group(1))
+                    if digits and float(digits) >= 1000.0:
+                        price_value = float(digits)
+
+            # Если не найдено, ищем "od X XXX zł" или "X XXX zł za osobę" (только >= 1000 PLN)
             if not price_value:
-                price_value = self.extract_price(full_text)
+                for pat in [
+                    r'od\s+([\d\s\xa0]+)\s*zł',
+                    r'([\d\s\xa0]+)\s*zł\s*(?:/\s*)?za\s+osobę',
+                ]:
+                    m = re.search(pat, full_text, re.I)
+                    if m:
+                        digits = re.sub(r'[^\d]', '', m.group(1))
+                        if digits and float(digits) >= 1000.0:
+                            price_value = float(digits)
+                            break
+
+            # Финальная санитарная проверка: пакетный тур с перелётом не может стоить < 1000 PLN
+            # (отсекает рекламные бэйджи: "Zaliczka 90 zł", "Gwarancja 90 zł")
+            if price_value < 1000.0:
+                price_value = 0
             
             # 2. Даты
             dates = ""
@@ -1326,8 +1350,11 @@ class TravelPriceMonitor:
             offer_url = self.make_absolute_url(offer_url) if offer_url else ""
             image_url = self.make_absolute_url(image_url) if image_url else ""
             
-            # 7. Название отеля
+            # 7. Название отеля (очищаем от стрелочных хлебных крошек локации вида "Turcja → Alanya → Mahmutlar")
             hotel_name = self.clean_text(hotel_name) if hotel_name else f"Предложение {index + 1}"
+            if "→" in hotel_name or "->" in hotel_name:
+                hotel_name = re.split(r'\s*(?:→|->)\s*', hotel_name)[0].strip()
+            hotel_name = re.sub(r'\s+(?:Turcja|Egipt|Grecja|Hiszpania|Cypr)(?:,\s*[^,]+)*$', '', hotel_name, flags=re.I).strip()
             if not hotel_name or hotel_name == f"Предложение {index + 1}":
                 words = full_text.split()[:5]
                 hotel_name = " ".join(words) if words else f"Предложение {index + 1}"
@@ -1544,10 +1571,10 @@ class TravelPriceMonitor:
             # 1. Новая верстка fly.pl SPA: внутри карточки есть строка "4 960zł za wszystkich"
             full_card_text = await element.inner_text()
             if full_card_text:
-                m_price = re.search(r'([\d\s\xa0]+)\s*zł\s*(?:za\s+wszystkich|za\s+osobę)?', full_card_text, re.I)
+                m_price = re.search(r'([\d\s\xa0]+)\s*zł\s*(?:/\s*)?za\s+wszystkich', full_card_text, re.I)
                 if m_price:
                     digits = re.sub(r'[^\d]', '', m_price.group(1))
-                    if digits and int(digits) > 0:
+                    if digits and int(digits) >= 1000:
                         return digits
 
             # 2. Ищем элементы с текстом "za wszystkich" или "za wszystkie"

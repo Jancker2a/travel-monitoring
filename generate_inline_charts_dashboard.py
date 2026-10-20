@@ -501,6 +501,7 @@ def collapse_canonical_per_run(df, ceiling_val=None, run_gap_minutes=5, group_co
     if '__price_num' not in work.columns:
         work['__price_num'] = pd.to_numeric(work['price'], errors='coerce')
     work = work.dropna(subset=['__price_num']).sort_values('scraped_at_display')
+    work = work[work['__price_num'] >= 1000.0]
     if work.empty:
         return pd.DataFrame(columns=df.columns)
 
@@ -1861,7 +1862,21 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             pass
         df['scraped_at_local'] = tz_series.combine_first(naive_series)
         # Убираем строки с некорректной датой
-        df = df.dropna(subset=['scraped_at_local'])
+        df = df.dropna(subset=['scraped_at_local']).copy()
+        # Очищаем некорректные и мусорные цены (промо-бэйджи < 1000 PLN)
+        df['price'] = pd.to_numeric(df['price'], errors='coerce')
+        df = df.dropna(subset=['price'])
+        df = df[df['price'] >= 1000.0]
+        # Нормализуем названия отелей: срезаем стрелочные хлебные крошки и хвосты локаций fly.pl
+        def _clean_hotel_title(name):
+            if not name or pd.isna(name):
+                return ""
+            s = str(name).strip()
+            if "→" in s or "->" in s:
+                s = re.split(r'\s*(?:→|->)\s*', s)[0].strip()
+            s = re.sub(r'\s+(?:Turcja|Egipt|Grecja|Hiszpania|Cypr)(?:,\s*[^,]+)*$', '', s, flags=re.I).strip()
+            return s
+        df['hotel_name'] = df['hotel_name'].apply(_clean_hotel_title)
         # Используем локализованное время без дополнительных сдвигов
         df['scraped_at_display'] = df['scraped_at_local']
         for col in ('ta_rating', 'ta_review_count', 'ta_source', 'duration_bucket'):
@@ -1885,6 +1900,10 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
     if alt_file_to_load:
         try:
             df_all_airports = pd.read_csv(alt_file_to_load, quoting=csv.QUOTE_ALL, on_bad_lines='skip')
+            df_all_airports['price'] = pd.to_numeric(df_all_airports['price'], errors='coerce')
+            df_all_airports = df_all_airports.dropna(subset=['price'])
+            df_all_airports = df_all_airports[df_all_airports['price'] >= 1000.0]
+            df_all_airports['hotel_name'] = df_all_airports['hotel_name'].apply(_clean_hotel_title)
             print(f"✈️ Загружено {len(df_all_airports)} записей альтернативных аэропортов из {alt_file_to_load}")
         except Exception as e:
             print(f"⚠️ Ошибка чтения файла альтернативных аэропортов {alt_file_to_load}: {e}")
@@ -2078,7 +2097,6 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
     def normalize_dates(value: str) -> str:
         """Нормализует строку дат к формату YYYY-MM-DD|YYYY-MM-DD для устойчивого сравнения."""
         try:
-            import re
             s = str(value)
             # Ищем две даты вида dd.mm.yyyy или dd-mm-yyyy
             m = re.findall(r"(\d{1,2})[\.-](\d{1,2})[\.-](\d{4})", s)
@@ -2518,7 +2536,6 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         try:
             warsaw_hotel_names = set(df['hotel_name'].dropna().unique())
             # Определяем slug направления (например, 'egipt') на основе URL текущего набора
-            import re
             def dest_slug_from_url(u: str):
                 try:
                     s = str(u or '')

@@ -17,6 +17,8 @@ sys.path.insert(0, str(ROOT))
 from filter_trip import load_config_json, should_skip_monitor_config, skip_monitor_reason
 
 DEFAULT_CONFIGS = [
+    "config_ci_filter_7_10.json",
+    "config_ci_filter_13_16.json",
     "config_ci_filter_turkey_7_10.json",
     "config_ci_filter_turkey_9_11.json",
     "config_ci_filter_turkey_13_16.json",
