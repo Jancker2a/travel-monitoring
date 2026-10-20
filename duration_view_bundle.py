@@ -530,7 +530,7 @@ def build_duration_view_bundle(
             return lo
         try:
             val = float(v)
-            if math.isnan(val):
+            if val != val or math.isnan(val):
                 return lo
             return max(lo, min(hi, val))
         except (TypeError, ValueError):

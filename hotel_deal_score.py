@@ -23,7 +23,7 @@ def _clamp(v: float, lo: float, hi: float) -> float:
         return lo
     try:
         val = float(v)
-        if math.isnan(val):
+        if val != val or math.isnan(val):
             return lo
         return max(lo, min(hi, val))
     except (TypeError, ValueError):

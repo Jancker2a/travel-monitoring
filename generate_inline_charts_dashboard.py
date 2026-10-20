@@ -7,6 +7,7 @@ import pandas as pd
 import json
 import csv
 import hashlib
+import math
 from datetime import datetime, timedelta, timezone
 from typing import Any, List, Optional
 import os
@@ -2716,7 +2717,7 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             return lo
         try:
             val = float(v)
-            if math.isnan(val):
+            if val != val or math.isnan(val):
                 return lo
             return max(lo, min(hi, val))
         except (TypeError, ValueError):
