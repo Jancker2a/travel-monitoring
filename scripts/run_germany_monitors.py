@@ -12,9 +12,11 @@ import sys
 import time
 from pathlib import Path
 
-from filter_trip import should_skip_monitor_config
-
 ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from filter_trip import should_skip_monitor_config
 
 # All persistent active filters + Sharm 1-person trip
 GERMANY_TARGET_CONFIGS = [

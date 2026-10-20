@@ -406,9 +406,9 @@ def map_polish_config_to_germany_params(polish_cfg: Dict[str, Any], cfg_name: st
     parsed = urlparse(url)
     qs = parse_qs(parsed.query)
 
-    # 1. Dates: whenFrom=31-05-2026 & whenTo=30-06-2026 -> 2026-05-31_2026-06-30
-    w_from = qs.get('filter[whenFrom]', [''])[0]
-    w_to = qs.get('filter[whenTo]', [''])[0]
+    # 1. Dates: whenFrom/startDateMin and whenTo/returnDate -> YYYY-MM-DD_YYYY-MM-DD
+    w_from = (qs.get('startDateMin') or qs.get('filter[whenFrom]') or [''])[0]
+    w_to = (qs.get('returnDate') or qs.get('filter[whenTo]') or [''])[0]
     period = ''
     if w_from and w_to:
         f_p = w_from.split('-')
@@ -416,15 +416,18 @@ def map_polish_config_to_germany_params(polish_cfg: Dict[str, Any], cfg_name: st
         if len(f_p) == 3 and len(t_p) == 3:
             period = f"{f_p[2]}-{f_p[1]}-{f_p[0]}_{t_p[2]}-{t_p[1]}-{t_p[0]}"
 
-    # 2. Duration: 7:10 -> 7-10, 7:15 -> 7-14
-    dur = qs.get('filter[duration]', ['7:10'])[0].replace(':', '-')
+    # 2. Duration: durationFrom/durationTo or filter[duration] -> 7-10
+    if 'durationFrom' in qs and 'durationTo' in qs:
+        dur = f"{qs['durationFrom'][0]}-{qs['durationTo'][0]}"
+    else:
+        dur = qs.get('filter[duration]', ['7:10'])[0].replace(':', '-')
     if dur == '7-15':
         dur = '7-14'
 
     # 3. Room allocation
     try:
-        adults = int(qs.get('filter[person]', [2])[0])
-        children = int(qs.get('filter[child]', [0])[0])
+        adults = int((qs.get('adults') or qs.get('filter[person]') or [2])[0])
+        children = 1 if 'children' in qs and qs['children'][0].strip() else int((qs.get('filter[child]') or [0])[0])
     except (ValueError, TypeError):
         adults, children = 2, 0
 
