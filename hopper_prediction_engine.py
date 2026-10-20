@@ -371,8 +371,9 @@ def predict_offer_action(
                     hist_prices = hotel_work["price_num"].tolist()
 
             # Compute D for historical rows
-            if "dates" in work.columns:
-                for _, row in work.iterrows():
+            target_work = hotel_work if (hotel_name and "hotel_name" in work.columns and not hotel_work.empty) else work
+            if "dates" in target_work.columns:
+                for _, row in target_work.iterrows():
                     row_dep = parse_departure_date(row["dates"])
                     row_scraped = row.get("scraped_at")
                     if row_dep:
@@ -381,18 +382,18 @@ def predict_offer_action(
                             hist_days.append(r_days)
 
     has_hotel_variation = (
-        len(hist_prices) >= 3 and (float(np.max(hist_prices)) - float(np.min(hist_prices))) >= 100.0
+        len(hist_prices) >= 3 and (float(np.max(hist_prices)) - float(np.min(hist_prices))) >= 50.0
     )
 
     if has_hotel_variation:
         eval_prices = hist_prices
         history_source = "hotel"
-    elif cohort_prices and len(cohort_prices) >= 5:
-        eval_prices = cohort_prices
-        history_source = "cohort"
     elif hist_prices:
         eval_prices = hist_prices
         history_source = "hotel_sparse"
+    elif cohort_prices and len(cohort_prices) >= 5:
+        eval_prices = cohort_prices
+        history_source = "cohort"
     else:
         eval_prices = [current_price] if current_price > 0 else [1000.0]
         history_source = "none"
@@ -458,10 +459,16 @@ def predict_offer_action(
     # Next action / dump date
     recommended_date = _find_next_dump_date(dep_date, days_to_dep, ref_date)
 
+    deal_score_raw = offer.get("deal_score")
+    try:
+        deal_score_val = float(deal_score_raw) if deal_score_raw is not None else None
+    except (ValueError, TypeError):
+        deal_score_val = None
+
     # Decision Matrix: BUY_NOW vs WAIT vs OVERPRICED
     # 1. Last minute floor
     if days_to_dep <= 3:
-        if current_price <= p_median * 1.10:
+        if current_price <= p_median * 1.10 or (deal_score_val is not None and deal_score_val >= 65):
             verdict = "BUY_NOW"
             badge = "🟢 ПОКУПАТЬ"
             reasoning = f"Вылет через {days_to_dep} дн. Риск закрытия продажи отеля критический, цена на дне."
@@ -470,19 +477,32 @@ def predict_offer_action(
             badge = "🟡 ПОСЛЕДНИЙ ШАНС"
             reasoning = f"Вылет через {days_to_dep} дн., но цена завышена. Ожидайте сброса в последние часы или ищите альтернативу."
 
-    # 2. Severe overprice
-    elif quantile >= 0.80 or current_price > p_median * 1.20:
+    # 2. Strong BUY NOW conditions: historical low / bottom quantile / high Deal Score
+    elif (
+        (has_hotel_variation and current_price <= p_15 * 1.03)
+        or (history_source in ("hotel", "hotel_sparse") and current_price <= p_min * 1.01)
+        or (quantile <= 0.15 and drop_probability < 0.45)
+        or (deal_score_val is not None and deal_score_val >= 70)
+    ):
+        verdict = "BUY_NOW"
+        badge = "🟢 ПОКУПАТЬ"
+        if deal_score_val is not None and deal_score_val >= 75:
+            reasoning = f"Отличный момент для покупки: Deal Score {int(deal_score_val)}, выгодная цена ({int(current_price)} PLN)."
+        elif has_hotel_variation:
+            reasoning = f"Цена в нижних 15% выборки отеля ({int(current_price)} PLN). Вероятность дальнейшего снижения всего {drop_prob_pct}%."
+        else:
+            reasoning = f"Цена на минимальном уровне ({int(current_price)} PLN). Благоприятный момент для бронирования."
+
+    # 3. Severe overprice (ONLY if verified against the hotel's own historical baseline!)
+    elif (
+        history_source == "hotel"
+        and (deal_score_val is None or deal_score_val < 60)
+        and (quantile >= 0.80 or current_price > p_median * 1.20)
+    ):
         verdict = "OVERPRICED"
         badge = "🔴 ДОРОГО"
         pct_over = int(round((current_price / p_median - 1.0) * 100)) if p_median > 0 else 0
-        reasoning = f"Цена на {pct_over}% выше типичной ({int(p_median)} PLN). Покупка сейчас несет высокий риск переплаты."
-
-    # 3. Strong BUY NOW conditions:
-    elif (has_hotel_variation and current_price <= p_15 * 1.03) or (quantile <= 0.15 and drop_probability < 0.40):
-        verdict = "BUY_NOW"
-        badge = "🟢 ПОКУПАТЬ"
-        source_label = "отеля" if has_hotel_variation else "рынка"
-        reasoning = f"Цена в нижних 15% выборки {source_label} ({int(current_price)} PLN). Вероятность дальнейшего снижения всего {drop_prob_pct}%."
+        reasoning = f"Цена на {pct_over}% выше типичной для этого отеля ({int(p_median)} PLN). Покупка сейчас несет высокий риск переплаты."
 
     # 4. High drop probability in prime yield windows (D-14 to D-4)
     elif drop_probability >= 0.55 and days_to_dep >= 4:
@@ -524,6 +544,7 @@ def predict_offer_action(
 def batch_predict_offers(
     df: pd.DataFrame,
     reference_date: Optional[date] = None,
+    history_df: Optional[pd.DataFrame] = None,
 ) -> pd.DataFrame:
     """
     Enriches a DataFrame of offers with Hopper prediction columns:
@@ -554,53 +575,108 @@ def batch_predict_offers(
 
     ref_eval_date = reference_date or date.today()
 
-    # Pre-parse numeric prices and cohort
-    prices_s = pd.to_numeric(result_df["price"], errors="coerce").fillna(0.0)
-    cohort_prices_all = [p for p in prices_s.tolist() if p > 0]
-
-    # Pre-parse dates
-    dates_s = result_df["dates"] if "dates" in result_df.columns else pd.Series([""] * len(result_df))
-    offer_urls_s = (
-        result_df["offer_url"]
-        if "offer_url" in result_df.columns
-        else (result_df["url"] if "url" in result_df.columns else pd.Series([""] * len(result_df)))
+    # Pre-parse numeric prices and cohort from history_df if available, else from result_df
+    hist_source_df = (
+        history_df
+        if (history_df is not None and not history_df.empty and "price" in history_df.columns)
+        else result_df
     )
-    parsed_deps = [
+
+    h_prices_s = pd.to_numeric(hist_source_df["price"], errors="coerce").fillna(0.0)
+    cohort_prices_all = [p for p in h_prices_s.tolist() if p > 0]
+    if not cohort_prices_all and "price" in result_df.columns:
+        res_prices_s = pd.to_numeric(result_df["price"], errors="coerce").fillna(0.0)
+        cohort_prices_all = [p for p in res_prices_s.tolist() if p > 0]
+
+    h_dates_s = (
+        hist_source_df["dates"]
+        if "dates" in hist_source_df.columns
+        else pd.Series([""] * len(hist_source_df))
+    )
+    h_urls_s = (
+        hist_source_df["offer_url"]
+        if "offer_url" in hist_source_df.columns
+        else (hist_source_df["url"] if "url" in hist_source_df.columns else pd.Series([""] * len(hist_source_df)))
+    )
+    h_parsed_deps = [
         parse_departure_date(d, offer_url=u, reference_date=ref_eval_date)
-        for d, u in zip(dates_s, offer_urls_s)
+        for d, u in zip(h_dates_s, h_urls_s)
     ]
-    scraped_s = result_df["scraped_at"] if "scraped_at" in result_df.columns else pd.Series([None] * len(result_df))
-
-    # Pre-index by hotel
-    hotel_names = (
-        result_df["hotel_name"].astype(str).tolist()
-        if "hotel_name" in result_df.columns
-        else [""] * len(result_df)
+    h_scraped_s = (
+        hist_source_df["scraped_at"]
+        if "scraped_at" in hist_source_df.columns
+        else (
+            hist_source_df["scraped_at_display"]
+            if "scraped_at_display" in hist_source_df.columns
+            else (
+                hist_source_df["scraped_at_local"]
+                if "scraped_at_local" in hist_source_df.columns
+                else pd.Series([None] * len(hist_source_df))
+            )
+        )
     )
+
+    h_hotel_names = (
+        hist_source_df["hotel_name"].astype(str).tolist()
+        if "hotel_name" in hist_source_df.columns
+        else [""] * len(hist_source_df)
+    )
+    h_buckets = (
+        hist_source_df["duration_bucket"].astype(str).tolist()
+        if "duration_bucket" in hist_source_df.columns
+        else [""] * len(hist_source_df)
+    )
+
     hotel_prices_map: Dict[str, List[float]] = {}
     hotel_days_map: Dict[str, List[int]] = {}
+    hotel_bucket_prices_map: Dict[Tuple[str, str], List[float]] = {}
+    hotel_bucket_days_map: Dict[Tuple[str, str], List[int]] = {}
 
-    for h_name, p, dep, sc in zip(hotel_names, prices_s, parsed_deps, scraped_s):
-        if p <= 0:
+    for h_name, b_val, p, dep, sc in zip(h_hotel_names, h_buckets, h_prices_s, h_parsed_deps, h_scraped_s):
+        if p <= 0 or not h_name:
             continue
         if h_name not in hotel_prices_map:
             hotel_prices_map[h_name] = []
             hotel_days_map[h_name] = []
         hotel_prices_map[h_name].append(p)
+
+        b_key = (h_name, b_val) if b_val else None
+        if b_key:
+            if b_key not in hotel_bucket_prices_map:
+                hotel_bucket_prices_map[b_key] = []
+                hotel_bucket_days_map[b_key] = []
+            hotel_bucket_prices_map[b_key].append(p)
+
         if dep:
             d_val = calculate_days_to_departure(dep, sc or ref_eval_date)
             if d_val is not None and d_val >= 0:
                 hotel_days_map[h_name].append(d_val)
+                if b_key:
+                    hotel_bucket_days_map[b_key].append(d_val)
 
     # Fast evaluation loop
     for _, row in result_df.iterrows():
         h_name = str(row.get("hotel_name") or "")
+        b_val = str(row.get("duration_bucket") or "")
+        b_key = (h_name, b_val) if b_val else None
+
+        if b_key and b_key in hotel_bucket_prices_map and len(hotel_bucket_prices_map[b_key]) >= 2:
+            h_prices = list(hotel_bucket_prices_map[b_key])
+            h_days = list(hotel_bucket_days_map[b_key])
+        else:
+            h_prices = list(hotel_prices_map.get(h_name, []))
+            h_days = list(hotel_days_map.get(h_name, []))
+
+        cur_p = float(row.get("price") or 0.0)
+        if cur_p > 0 and cur_p not in h_prices:
+            h_prices.append(cur_p)
+
         pred = predict_offer_action(
             offer=row.to_dict(),
             history_df=None,
             reference_date=reference_date,
-            precomputed_hist_prices=hotel_prices_map.get(h_name, []),
-            precomputed_hist_days=hotel_days_map.get(h_name, []),
+            precomputed_hist_prices=h_prices,
+            precomputed_hist_days=h_days,
             precomputed_cohort_prices=cohort_prices_all,
         )
         verdicts.append(pred.verdict)

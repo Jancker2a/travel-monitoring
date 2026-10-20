@@ -2513,7 +2513,8 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
     # ── Hopper Prediction Engine Enrichment ──────────────────────────────────
     if not all_hotels.empty:
         try:
-            all_hotels = batch_predict_offers(all_hotels)
+            hist_input = df_history if (df_history is not None and not df_history.empty) else df_canonical
+            all_hotels = batch_predict_offers(all_hotels, history_df=hist_input)
             print(f"🔮 Hopper Engine: рассчитаны прогнозы для {len(all_hotels)} отелей")
         except Exception as e:
             print(f"⚠️ Hopper Engine calculation failed: {e}")
@@ -2915,6 +2916,22 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
                 'delta48_pct': float(delta48[1]),
                 'confidence': confidence_level,
             })
+
+    # Synchronize Hopper predictions with Deal Score to eliminate contradictory overpriced badges
+    if not all_hotels.empty and 'hopper_verdict' in all_hotels.columns:
+        for idx, row in all_hotels.iterrows():
+            rid = row.get('row_id') or row['hotel_name']
+            ds_info = deal_score_by_hotel.get(rid)
+            if ds_info:
+                ds = ds_info.get('score', 0)
+                cur_verdict = str(row.get('hopper_verdict') or '')
+                p_val = int(row.get('price', 0))
+                if ds >= 70 and cur_verdict == "OVERPRICED":
+                    all_hotels.at[idx, 'hopper_verdict'] = 'BUY_NOW'
+                    all_hotels.at[idx, 'hopper_badge'] = '🟢 ПОКУПАТЬ'
+                    all_hotels.at[idx, 'hopper_reasoning'] = (
+                        f"Отличный момент для покупки: Deal Score {ds}, цена на минимуме истории ({p_val} PLN)."
+                    )
 
     entry_candidates = sorted(
         entry_candidates,
@@ -3334,6 +3351,10 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         hopper_verdict = str(hotel.get('hopper_verdict') or '')
         hopper_badge = str(hotel.get('hopper_badge') or '')
         hopper_reasoning = str(hotel.get('hopper_reasoning') or '')
+        if deal_score >= 70 and hopper_verdict == "OVERPRICED":
+            hopper_verdict = "BUY_NOW"
+            hopper_badge = "🟢 ПОКУПАТЬ"
+            hopper_reasoning = f"Отличный момент для покупки: Deal Score {deal_score}, цена на минимуме истории ({int(price)} PLN)."
         hopper_class = "buy-now" if hopper_verdict == "BUY_NOW" else ("wait" if hopper_verdict == "WAIT" else ("overpriced" if hopper_verdict == "OVERPRICED" else "neutral"))
 
         card_arbitrage_html = ""
@@ -9325,6 +9346,10 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         hopper_badge_tbl = str(hotel.get('hopper_badge') or '')
         hopper_verdict_tbl = str(hotel.get('hopper_verdict') or '')
         hopper_reasoning_tbl = str(hotel.get('hopper_reasoning') or '')
+        if deal_score >= 70 and hopper_verdict_tbl == "OVERPRICED":
+            hopper_verdict_tbl = "BUY_NOW"
+            hopper_badge_tbl = "🟢 ПОКУПАТЬ"
+            hopper_reasoning_tbl = f"Отличный момент для покупки: Deal Score {deal_score}, цена на минимуме истории ({int(price)} PLN)."
         if hopper_badge_tbl and "НЕТ ДАННЫХ" not in hopper_badge_tbl:
             hopper_cls = "buy-now" if hopper_verdict_tbl == "BUY_NOW" else ("wait" if hopper_verdict_tbl == "WAIT" else ("overpriced" if hopper_verdict_tbl == "OVERPRICED" else "neutral"))
             forecast_cell_html = f'<span class="hopper-pill {hopper_cls}" data-tip="{html_lib.escape(hopper_reasoning_tbl, quote=True)}" title="{html_lib.escape(hopper_reasoning_tbl, quote=True)}">{hopper_badge_tbl}</span>'
