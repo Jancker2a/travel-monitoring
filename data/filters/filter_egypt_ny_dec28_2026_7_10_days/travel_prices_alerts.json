@@ -78,10 +78,23 @@
       "created_at": "2026-10-20T16:39:37.773484+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sea Star Beau Rivage Egipt, Hurghada_2026-10-20_16-39_zone_out_gone"
+    },
+    {
+      "hotel_name": "Creek Hotel and Residences El Gouna",
+      "duration_bucket": "",
+      "old_price": 5654.0,
+      "new_price": 5654.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-20 17:49:20.466645+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-20T17:49:28.623444+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Creek Hotel and Residences El Gouna_2026-10-20_17-49_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-20T16:39:22.818525+00:00",
+    "last_processed_run": "2026-10-20T17:49:20.466645+00:00",
     "premium_state": {
       "Sentido Oriental Dream Resort Egipt, Marsa Alam": {
         "history_max": 10973.0,
@@ -169,6 +182,18 @@
       },
       "Swisstouch Oriental Resort Marsa Alam": {
         "history_max": 4877.0,
+        "premium_peak": null
+      },
+      "Creek Hotel and Residences El Gouna*****": {
+        "history_max": 4794.0,
+        "premium_peak": null
+      },
+      "Falcon Naama Star": {
+        "history_max": 9371.0,
+        "premium_peak": null
+      },
+      "Palma Di Sharm Hollywood Resort": {
+        "history_max": 9646.0,
         "premium_peak": null
       }
     }
