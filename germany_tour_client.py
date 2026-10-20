@@ -121,6 +121,68 @@ class GermanyTourClient:
             )
         return offers
 
+    def load_offers_from_csv(
+        self,
+        csv_path: Optional[str] = None,
+        destination_filter: Optional[str] = None,
+        airport_filter: Optional[str] = None,
+    ) -> List[GermanTourOffer]:
+        """Loads collected German tour offers from CSV file."""
+        paths_to_check = [
+            csv_path,
+            "data/germany/germany_prices.csv",
+            "data/germany_prices.csv",
+        ]
+        target_path = None
+        for p in paths_to_check:
+            if p and os.path.exists(p) and os.path.getsize(p) > 50:
+                target_path = p
+                break
+
+        if not target_path:
+            return []
+
+        offers: List[GermanTourOffer] = []
+        try:
+            import csv
+            with open(target_path, 'r', encoding='utf-8') as f:
+                reader = csv.DictReader(f)
+                for row in reader:
+                    hotel_name = (row.get('hotel_name') or '').strip()
+                    if not hotel_name:
+                        continue
+                    dest = (row.get('destination') or '').strip()
+                    if destination_filter and destination_filter.lower() not in dest.lower():
+                        continue
+                    ap = (row.get('departure_airport') or 'BER').strip()
+                    if airport_filter and ap.upper() != airport_filter.upper():
+                        continue
+                    try:
+                        price = float(row.get('price') or 0.0)
+                    except (ValueError, TypeError):
+                        continue
+                    if price <= 0:
+                        continue
+
+                    offers.append(
+                        GermanTourOffer(
+                            hotel_name=hotel_name,
+                            destination=dest or (row.get('location') or 'Unknown'),
+                            departure_airport=ap,
+                            dates=row.get('dates') or '',
+                            duration_days=8,
+                            board_type="All Inclusive",
+                            price_eur=price,
+                            tour_operator="German Operator",
+                            offer_url=row.get('offer_url') or 'https://urlaub.check24.de',
+                            scraped_at=row.get('scraped_at') or datetime.now().isoformat(),
+                        )
+                    )
+        except Exception as e:
+            logger.warning(f"Error loading German offers from {target_path}: {e}")
+
+        return offers
+
     def fetch_destination_packages(
         self,
         destination_code: str = "turkey",
@@ -129,51 +191,34 @@ class GermanyTourClient:
         when_to: Optional[str] = None,
         duration: str = "7:10",
         use_mock_fallback: bool = True,
+        csv_path: Optional[str] = None,
     ) -> List[GermanTourOffer]:
         """
         Fetches package offers for the requested destination and German airports.
-        Falls back to validated mock fixtures if live API is protected or unreachable.
+        1. Checks for real collected CSV data from germany_monitor.
+        2. Falls back to validated mock fixtures if offline or no CSV exists.
         """
         airports = departure_airports or [self.default_airport]
         all_offers: List[GermanTourOffer] = []
 
-        # Check for live query or fallback
+        # 1. Attempt loading from real scraped CSV data
         for ap in airports:
-            try:
-                # Live query endpoint (Check24 public search API)
-                url = "https://urlaub.check24.de/api/search/package"
-                params = {
-                    "destination": destination_code,
-                    "airport": ap,
-                    "duration": duration,
-                    "adults": 2,
-                    "children": 1,
-                }
-                resp = self.session.get(url, params=params, timeout=self.timeout)
-                if resp.status_code == 200:
-                    data = resp.json()
-                    # Parse offers if valid JSON structure returned
-                    items = data.get("offers") or data.get("results") or []
-                    for item in items:
-                        all_offers.append(
-                            GermanTourOffer(
-                                hotel_name=item.get("hotelName", ""),
-                                destination=item.get("regionName", destination_code),
-                                departure_airport=ap,
-                                dates=item.get("travelDates", ""),
-                                duration_days=int(item.get("duration", 8)),
-                                board_type=item.get("board", "All Inclusive"),
-                                price_eur=float(item.get("totalPrice", 0.0)),
-                                tour_operator=item.get("operator", "TUI DE"),
-                                offer_url=item.get("bookingUrl", "https://urlaub.check24.de"),
-                                scraped_at=datetime.now().isoformat(),
-                            )
-                        )
-                elif use_mock_fallback:
-                    all_offers.extend(self.fetch_offers_mock(destination_code, ap))
-            except Exception as e:
-                logger.debug(f"Live German query failed for {ap}: {e}, using fallback.")
-                if use_mock_fallback:
-                    all_offers.extend(self.fetch_offers_mock(destination_code, ap))
+            csv_offers = self.load_offers_from_csv(
+                csv_path=csv_path,
+                destination_filter=destination_code,
+                airport_filter=ap,
+            )
+            if csv_offers:
+                logger.info(
+                    f"Loaded {len(csv_offers)} live German offers from CSV for {destination_code} / {ap}"
+                )
+                all_offers.extend(csv_offers)
+
+        # 2. Fallback to mock fixtures if no CSV offers loaded
+        if not all_offers and use_mock_fallback:
+            logger.info("Using baseline benchmark fixtures for German offers.")
+            for ap in airports:
+                all_offers.extend(self.fetch_offers_mock(destination_code, ap))
 
         return all_offers
+
