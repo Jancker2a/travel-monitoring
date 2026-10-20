@@ -17,7 +17,7 @@ Features:
 from __future__ import annotations
 
 from dataclasses import asdict, dataclass
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 import json
 import logging
 import os
@@ -32,6 +32,9 @@ from hotel_entity_matcher import HotelEntityMatcher, calculate_hotel_similarity
 logger = logging.getLogger(__name__)
 
 # Fallback exchange rate if NBP is unreachable
+DEFAULT_EUR_PLN_RATE = 4.30
+NBP_API_URL = "https://api.nbp.pl/api/exchangerates/rates/a/eur/?format=json"
+
 # Allowed German border airports close to Poland (East Germany):
 # BER: Berlin Brandenburg (~80 km from border; direct train/motorway from Warsaw/Poznań)
 # DRS: Dresden (~100 km from Zgorzelec; direct A4 from Wrocław/Dolny Śląsk)
@@ -96,24 +99,43 @@ def get_eur_pln_exchange_rate(timeout: int = 5) -> float:
     return DEFAULT_EUR_PLN_RATE
 
 
-def parse_departure_date(text: str) -> Optional[date]:
+def parse_departure_date(text: str, reference_date: Optional[date] = None) -> Optional[date]:
     """Extracts the first departure date from date range strings."""
     if not text or not isinstance(text, str):
         return None
-    # Format DD.MM.YYYY
-    m = re.search(r"(\d{2})\.(\d{2})\.(\d{4})", text)
+    ref = reference_date or date.today()
+    clean = str(text).strip()
+    clean = re.sub(r'\s*\([^)]*\)', '', clean).strip()
+
+    # Format YYYY-MM-DD
+    m_iso = re.match(r"^(\d{4})-(\d{2})-(\d{2})", clean)
+    if m_iso:
+        try:
+            return date(int(m_iso.group(1)), int(m_iso.group(2)), int(m_iso.group(3)))
+        except ValueError:
+            pass
+
+    # Format DD.MM.YYYY - ... or single DD.MM.YYYY
+    m = re.search(r"(\d{1,2})\.(\d{1,2})\.(\d{4})", clean)
     if m:
         try:
-            return datetime.strptime(f"{m.group(3)}-{m.group(2)}-{m.group(1)}", "%Y-%m-%d").date()
+            return date(int(m.group(3)), int(m.group(2)), int(m.group(1)))
         except ValueError:
             pass
-    # Format YYYY-MM-DD
-    m2 = re.search(r"(\d{4})-(\d{2})-(\d{2})", text)
-    if m2:
+
+    # Format DD.MM - DD.MM (no year)
+    m_short = re.search(r"(\d{1,2})\.(\d{1,2})\s*-\s*(\d{1,2})\.(\d{1,2})", clean)
+    if m_short:
         try:
-            return datetime.strptime(m2.group(0), "%Y-%m-%d").date()
+            d = int(m_short.group(1))
+            mon = int(m_short.group(2))
+            year = ref.year
+            if mon < ref.month - 1:
+                year += 1
+            return date(year, mon, d)
         except ValueError:
             pass
+
     return None
 
 
@@ -137,19 +159,55 @@ def is_offer_comparable(
     duration_de: Any,
     max_date_diff_days: int = 4,
     max_duration_diff_days: int = 2,
+    offer_url_de: str = "",
 ) -> Tuple[bool, str]:
     """
     Verifies that Polish and German offers have matching parameters:
-    - Departure dates within max_date_diff_days (e.g. +-4 days)
+    - Departure dates within max_date_diff_days (e.g. +-4 days) or within German search window
+    - Fallback: checks departureDate / returnDate query params in offer_url_de
     - Durations within max_duration_diff_days (e.g. +-2 days)
     """
     d_pl = parse_departure_date(dates_pl)
-    d_de = parse_departure_date(dates_de)
+    date_matched = False
+    date_err = ""
 
-    if d_pl and d_de:
-        diff_days = abs((d_pl - d_de).days)
-        if diff_days > max_date_diff_days:
-            return False, f"Dates mismatch: PL {d_pl} vs DE {d_de} (diff: {diff_days} days)"
+    # Check if dates_de is a search window like 'YYYY-MM-DD_YYYY-MM-DD'
+    if dates_de and "_" in str(dates_de):
+        parts = str(dates_de).split("_")
+        w_start = parse_departure_date(parts[0])
+        w_end = parse_departure_date(parts[1]) if len(parts) > 1 else None
+        if d_pl and w_start and w_end:
+            win_lo = w_start - timedelta(days=max_date_diff_days)
+            win_hi = w_end + timedelta(days=max_date_diff_days)
+            if win_lo <= d_pl <= win_hi:
+                date_matched = True
+            else:
+                date_err = f"Date out of window: PL {d_pl} outside DE window [{w_start}, {w_end}]"
+    else:
+        d_de = parse_departure_date(dates_de)
+        if d_pl and d_de:
+            diff_days = abs((d_pl - d_de).days)
+            if diff_days <= max_date_diff_days:
+                date_matched = True
+            else:
+                date_err = f"Dates mismatch: PL {d_pl} vs DE {d_de} (diff: {diff_days} days)"
+
+    # Fallback to offer_url_de (e.g. departureDate=YYYY-MM-DD&returnDate=YYYY-MM-DD)
+    if not date_matched and offer_url_de and d_pl:
+        m_dep = re.search(r"departureDate=(\d{4}-\d{2}-\d{2})", offer_url_de)
+        if m_dep:
+            d_u = parse_departure_date(m_dep.group(1))
+            if d_u:
+                m_ret = re.search(r"returnDate=(\d{4}-\d{2}-\d{2})", offer_url_de)
+                if m_ret:
+                    r_u = parse_departure_date(m_ret.group(1))
+                    if r_u and (d_u - timedelta(days=max_date_diff_days)) <= d_pl <= (r_u + timedelta(days=max_date_diff_days)):
+                        date_matched = True
+                if not date_matched and abs((d_pl - d_u).days) <= max_date_diff_days:
+                    date_matched = True
+
+    if not date_matched and (dates_de or offer_url_de) and d_pl:
+        return False, date_err or "Dates mismatch"
 
     dur_pl = parse_duration_days(duration_pl)
     dur_de = parse_duration_days(duration_de)
@@ -249,13 +307,14 @@ class CrossBorderArbitrageEngine:
                     duration_de=dur_de,
                     max_date_diff_days=self.max_date_diff_days,
                     max_duration_diff_days=self.max_duration_diff_days,
+                    offer_url_de=str(de_item.get("offer_url") or ""),
                 )
                 if not comparable:
                     logger.debug(f"Skipping incompatible pair '{pl_name}' vs '{matched_de_name}': {reason}")
                     continue
 
                 try:
-                    de_eur = float(de_item.get("price_eur") or 0.0)
+                    de_eur = float(de_item.get("price_eur") or de_item.get("price") or 0.0)
                 except (ValueError, TypeError):
                     continue
 

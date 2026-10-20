@@ -30,16 +30,31 @@ def slug_label(value: str) -> str:
 
 
 def parse_dates_text(value: str) -> tuple[str, str]:
-    """Parse `DD.MM.YYYY - DD.MM.YYYY` into ISO dates."""
-    text = str(value or "")
+    """Parse `DD.MM.YYYY - DD.MM.YYYY` or `DD.MM - DD.MM` into ISO dates."""
+    text = str(value or "").strip()
     match = re.search(
-        r"(\d{2})\.(\d{2})\.(\d{4})\s*-\s*(\d{2})\.(\d{2})\.(\d{4})",
+        r"(\d{1,2})\.(\d{1,2})\.(\d{4})\s*-\s*(\d{1,2})\.(\d{1,2})\.(\d{4})",
         text,
     )
-    if not match:
-        return "", ""
-    d1, m1, y1, d2, m2, y2 = match.groups()
-    return f"{y1}-{m1}-{d1}", f"{y2}-{m2}-{d2}"
+    if match:
+        d1, m1, y1, d2, m2, y2 = match.groups()
+        return f"{int(y1):04d}-{int(m1):02d}-{int(d1):02d}", f"{int(y2):04d}-{int(m2):02d}-{int(d2):02d}"
+
+    match_short = re.search(
+        r"(\d{1,2})\.(\d{1,2})\s*-\s*(\d{1,2})\.(\d{1,2})",
+        text,
+    )
+    if match_short:
+        ref_year = datetime.now().year
+        ref_month = datetime.now().month
+        d1, m1, d2, m2 = [int(x) for x in match_short.groups()]
+        y1 = ref_year
+        if m1 < ref_month - 1:
+            y1 += 1
+        y2 = y1 if m2 >= m1 else y1 + 1
+        return f"{y1:04d}-{m1:02d}-{d1:02d}", f"{y2:04d}-{m2:02d}-{d2:02d}"
+
+    return "", ""
 
 
 def parse_duration(value: str) -> tuple[Optional[int], Optional[int]]:

@@ -481,7 +481,7 @@ def normalize_fly_offer_url(offer_url: str, config_url: str = "") -> str:
             cfg_qs = urllib.parse.parse_qs(cfg_parsed.query, keep_blank_values=True)
             for k, v in cfg_qs.items():
                 norm_k = urllib.parse.unquote(k)
-                if any(p in norm_k for p in ["person", "child", "childAge"]):
+                if any(p in norm_k for p in ["person", "child", "childAge", "adults", "children"]):
                     pax_params[norm_k] = v[0] if v else ""
         except Exception:
             pass
@@ -494,8 +494,8 @@ def normalize_fly_offer_url(offer_url: str, config_url: str = "") -> str:
             norm_k = urllib.parse.unquote(k)
             norm_qs[norm_k] = [urllib.parse.unquote(str(v)) for v in v_list]
 
-        has_person = any("person" in k for k in norm_qs.keys())
-        has_child = any("child" in k or "childAge" in k for k in norm_qs.keys())
+        has_person = any(k in ["person", "adults"] or "person" in k for k in norm_qs.keys())
+        has_child = any(k in ["child", "children"] or "child" in k or "childAge" in k for k in norm_qs.keys())
 
         if (not has_person or not has_child) and pax_params:
             for k, v in pax_params.items():

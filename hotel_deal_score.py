@@ -348,7 +348,13 @@ def extract_tripadvisor_from_card_html(card_html: str) -> Dict[str, Any]:
         r'property="schema:ratingCount"[^>]*content="([^"]+)"',
         card_html,
     )
-    if not rating_m:
+    if rating_m:
+        try:
+            empty["ta_rating"] = float(rating_m.group(1).replace(",", "."))
+        except (TypeError, ValueError):
+            pass
+    else:
+        # 1. Image url pattern (e.g. ratings/traveler/4.5-)
         img_m = re.search(
             r'tripadvisor\.com/img/cdsi/img2/ratings/traveler/([0-9.]+)-',
             card_html,
@@ -359,21 +365,33 @@ def extract_tripadvisor_from_card_html(card_html: str) -> Dict[str, Any]:
                 empty["ta_rating"] = float(img_m.group(1))
             except (TypeError, ValueError):
                 pass
-    else:
-        try:
-            empty["ta_rating"] = float(rating_m.group(1).replace(",", "."))
-        except (TypeError, ValueError):
-            pass
+        # 2. Bubble icon class pattern (e.g. bubble_45 -> 4.5, ui_bubble_rating bubble_40 -> 4.0)
+        if empty["ta_rating"] is None:
+            bubble_m = re.search(r'bubble_(\d{2})\b', card_html, re.I)
+            if bubble_m:
+                try:
+                    empty["ta_rating"] = float(bubble_m.group(1)) / 10.0
+                except (TypeError, ValueError):
+                    pass
+        # 3. Text score pattern near TripAdvisor / rating keywords (e.g. 4.5/5 or 4.5)
+        if empty["ta_rating"] is None:
+            text_m = re.search(r'(?:tripadvisor|ocena|rating)[^>]*?>\s*([1-5][.,]\d)\s*(?:/\s*5)?', card_html, re.I)
+            if text_m:
+                try:
+                    empty["ta_rating"] = float(text_m.group(1).replace(",", "."))
+                except (TypeError, ValueError):
+                    pass
+
     if count_m:
         try:
             empty["ta_review_count"] = int(float(count_m.group(1)))
         except (TypeError, ValueError):
             pass
     else:
-        opin_m = re.search(r"(\d+)\s*opinii", card_html, re.I)
+        opin_m = re.search(r"(\d+[\s\xa0]*\d*)\s*(?:opini|recenz)", card_html, re.I)
         if opin_m:
             try:
-                empty["ta_review_count"] = int(opin_m.group(1))
+                empty["ta_review_count"] = int(re.sub(r"[^\d]", "", opin_m.group(1)))
             except (TypeError, ValueError):
                 pass
     if empty["ta_rating"] is not None and empty["ta_rating"] > 0:

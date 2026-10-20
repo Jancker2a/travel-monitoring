@@ -228,16 +228,31 @@ class GermanyTourMonitor:
 
         cleaned_offers = []
         for item in raw_list:
+            offer_url = str(item.get('offer_url', ''))[:250]
+            dates_val = self.config.get('travel_period', '')
+            if 'departureDate=' in offer_url:
+                try:
+                    from urllib.parse import parse_qs, urlparse
+                    u_qs = parse_qs(urlparse(offer_url).query)
+                    dep = u_qs.get('departureDate', [''])[0]
+                    ret = u_qs.get('returnDate', [''])[0]
+                    if dep and ret:
+                        dates_val = f"{dep}_{ret}"
+                    elif dep:
+                        dates_val = dep
+                except Exception:
+                    pass
+
             cleaned_offers.append({
                 'hotel_name': str(item.get('hotel_name', '')).strip()[:100],
                 'price': float(item.get('price', 0.0)),
-                'dates': self.config.get('travel_period', ''),
+                'dates': dates_val,
                 'duration': str(item.get('duration', ''))[:50],
                 'destination': destination,
                 'location': str(item.get('location', ''))[:100],
                 'departure_airport': airport,
                 'scraped_at': now_iso,
-                'offer_url': str(item.get('offer_url', ''))[:250],
+                'offer_url': offer_url,
             })
         return cleaned_offers
 
@@ -402,7 +417,8 @@ def map_polish_config_to_germany_params(polish_cfg: Dict[str, Any], cfg_name: st
     - data_dir & output_data_file (stores directly in filter's data_dir and/or data/germany)
     """
     from urllib.parse import parse_qs, urlparse
-    url = polish_cfg.get('url', '')
+    from filter_params import resolve_config_url
+    url = resolve_config_url(polish_cfg) if polish_cfg else ""
     parsed = urlparse(url)
     qs = parse_qs(parsed.query)
 
@@ -414,7 +430,12 @@ def map_polish_config_to_germany_params(polish_cfg: Dict[str, Any], cfg_name: st
         f_p = w_from.split('-')
         t_p = w_to.split('-')
         if len(f_p) == 3 and len(t_p) == 3:
-            period = f"{f_p[2]}-{f_p[1]}-{f_p[0]}_{t_p[2]}-{t_p[1]}-{t_p[0]}"
+            if len(f_p[0]) == 4:
+                # ISO format YYYY-MM-DD
+                period = f"{w_from}_{w_to}"
+            else:
+                # DD-MM-YYYY format
+                period = f"{f_p[2]}-{f_p[1]}-{f_p[0]}_{t_p[2]}-{t_p[1]}-{t_p[0]}"
 
     # 2. Duration: durationFrom/durationTo or filter[duration] -> 7-10
     if 'durationFrom' in qs and 'durationTo' in qs:

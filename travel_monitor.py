@@ -25,7 +25,7 @@ from price_alerts import PriceAlertManager
 from price_alerts_v2 import PriceAlertManagerV2, ALERT_THRESHOLD_PERCENT
 from airport_comparison import AirportComparison
 from departure_analytics import BASE_OFFER_FIELDS, write_departure_analytics
-from departure_identity import DEPARTURE_FIELDS, enrich_offers
+from departure_identity import DEPARTURE_FIELDS, enrich_offers, parse_dates_text
 from filter_params import fly_query_param, resolve_config_url, should_use_dynamic_search_dates
 from filter_trip import (
     has_multiple_trip_duration_buckets,
@@ -347,11 +347,25 @@ class TravelPriceMonitor:
 
             # Даты и длительность из текста карточки
             md = re.search(
-                r'(\d{2}\.\d{2}\.\d{4}\s*-\s*\d{2}\.\d{2}\.\d{4})\s*\(([^)]*?dni[^)]*)\)',
+                r'(\d{1,2}\.\d{1,2}(?:\.\d{4})?\s*-\s*\d{1,2}\.\d{1,2}(?:\.\d{4})?)\s*(?:\(([^)]*?dni[^)]*)\))?',
                 card,
             )
             dates = md.group(1).strip() if md else ''
-            duration = md.group(2).strip() if md else ''
+            duration = md.group(2).strip() if (md and md.group(2)) else ''
+            if not duration:
+                m_dur = re.search(r'(\d+)\s*(?:dni|days|day|d|nocleg\w*|nights?|nocy)', card, re.I)
+                if m_dur:
+                    duration = m_dur.group(0)
+            if not duration:
+                duration = self.extract_duration_from_url()
+            if not dates:
+                dates = self.extract_dates_from_url()
+            if dates and not re.search(r'\d{4}', dates):
+                d_iso, r_iso = parse_dates_text(dates)
+                if d_iso and r_iso:
+                    p1 = d_iso.split('-')
+                    p2 = r_iso.split('-')
+                    dates = f"{p1[2]}.{p1[1]}.{p1[0]} - {p2[2]}.{p2[1]}.{p2[0]}"
             ta_fields = self._ta_fields_from_card(card)
 
             offers.append({
@@ -1323,6 +1337,12 @@ class TravelPriceMonitor:
                     break
             if not dates:
                 dates = self.extract_dates_from_url()
+            if dates and not re.search(r'\d{4}', dates):
+                d_iso, r_iso = parse_dates_text(dates)
+                if d_iso and r_iso:
+                    p1 = d_iso.split('-')
+                    p2 = r_iso.split('-')
+                    dates = f"{p1[2]}.{p1[1]}.{p1[0]} - {p2[2]}.{p2[1]}.{p2[0]}"
             
             # 3. Длительность
             duration = ""
