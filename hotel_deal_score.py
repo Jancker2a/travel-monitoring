@@ -70,13 +70,19 @@ def _price_plateau_segments(grp: pd.DataFrame, time_col: str, price_col: str):
     work = grp.sort_values(time_col).dropna(subset=[time_col, price_col])
     if work.empty:
         return []
-    times = pd.to_datetime(work[time_col], utc=True).tolist()
+    times_series = work[time_col]
+    if not pd.api.types.is_datetime64_any_dtype(times_series):
+        times = pd.to_datetime(times_series, utc=True).tolist()
+    else:
+        if times_series.dt.tz is None:
+            times = times_series.dt.tz_localize("UTC").tolist()
+        else:
+            times = times_series.dt.tz_convert("UTC").tolist()
     prices = work[price_col].astype(float).tolist()
     return list(_iter_price_plateaus(times, prices))
 
 
-def time_weighted_price_baseline(grp: pd.DataFrame, time_col: str = "scraped_at", price_col: str = "price"):
-    segments = _price_plateau_segments(grp, time_col, price_col)
+def time_weighted_price_baseline_from_segments(segments):
     if not segments:
         return None
     total_hours = sum(h for _, h in segments)
@@ -85,10 +91,7 @@ def time_weighted_price_baseline(grp: pd.DataFrame, time_col: str = "scraped_at"
     return sum(p * h for p, h in segments) / total_hours
 
 
-def time_weighted_price_quantile(
-    grp: pd.DataFrame, quantile: float, time_col: str = "scraped_at", price_col: str = "price"
-):
-    segments = _price_plateau_segments(grp, time_col, price_col)
+def time_weighted_price_quantile_from_segments(segments, quantile: float):
     if not segments:
         return None
     q = max(0.0, min(1.0, float(quantile)))
@@ -103,6 +106,29 @@ def time_weighted_price_quantile(
         if seen >= target:
             return float(price)
     return float(ordered[-1][0])
+
+
+def time_weighted_price_baseline(
+    grp: pd.DataFrame,
+    time_col: str = "scraped_at",
+    price_col: str = "price",
+    segments: Optional[list] = None,
+):
+    if segments is None:
+        segments = _price_plateau_segments(grp, time_col, price_col)
+    return time_weighted_price_baseline_from_segments(segments)
+
+
+def time_weighted_price_quantile(
+    grp: pd.DataFrame,
+    quantile: float,
+    time_col: str = "scraped_at",
+    price_col: str = "price",
+    segments: Optional[list] = None,
+):
+    if segments is None:
+        segments = _price_plateau_segments(grp, time_col, price_col)
+    return time_weighted_price_quantile_from_segments(segments, quantile)
 
 
 def robust_premium_peak(
@@ -413,10 +439,11 @@ def compute_hotel_deal_metrics(
     work = work.sort_values(time_col)
     prices = work[price_col].astype(float).tolist()
     samples = len(prices)
-    typical = time_weighted_price_baseline(work, time_col, price_col) or latest
+    segments = _price_plateau_segments(work, time_col, price_col)
+    typical = time_weighted_price_baseline_from_segments(segments) or latest
     median = float(typical)
-    p25 = time_weighted_price_quantile(work, 0.25, time_col, price_col) or latest
-    p10 = time_weighted_price_quantile(work, 0.10, time_col, price_col) or latest
+    p25 = time_weighted_price_quantile_from_segments(segments, 0.25) or latest
+    p10 = time_weighted_price_quantile_from_segments(segments, 0.10) or latest
 
     rel_discount = (median - latest) / median if median > 0 else 0.0
     score_discount = _clamp(50 + rel_discount * 200, 0, 100)

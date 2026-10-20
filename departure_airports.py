@@ -3,7 +3,7 @@
 
 from __future__ import annotations
 
-from typing import Any, Dict, Iterable, List, Optional, Set
+from typing import Any, Dict, Iterable, List, Optional, Set, Tuple
 
 import pandas as pd
 
@@ -183,10 +183,18 @@ def aggregate_cohorts_by_arrival_airport(cohorts: pd.DataFrame) -> pd.DataFrame:
 
     work = cohorts.copy()
     work["_country_norm"] = work["country"].map(_norm)
-    work["_hub_id"] = work.apply(
-        lambda row: hub_id_for_offer(row.get("country"), row.get("region")),
-        axis=1,
-    )
+    hub_cache: Dict[Tuple[Any, Any], Optional[str]] = {}
+
+    def _get_hub(c: Any, r: Any) -> Optional[str]:
+        key = (c, r)
+        if key not in hub_cache:
+            hub_cache[key] = hub_id_for_offer(c, r)
+        return hub_cache[key]
+
+    work["_hub_id"] = [
+        _get_hub(c, r)
+        for c, r in zip(work["country"].tolist(), work["region"].tolist())
+    ]
     if work["_hub_id"].fillna("").astype(str).eq("").all():
         return cohorts
 

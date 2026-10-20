@@ -129,6 +129,7 @@ def _backfill_ta_for_latest_rows(
     df: pd.DataFrame,
     config_file: Optional[str],
     data_file: str,
+    enable_live_crawl: bool = False,
 ) -> int:
     if not latest_rows:
         return 0
@@ -137,6 +138,8 @@ def _backfill_ta_for_latest_rows(
         if _parse_ta_rating_value(row.get("ta_rating")) is None
     ]
     if not missing:
+        return 0
+    if not enable_live_crawl:
         return 0
     search_url = _resolve_listing_url_for_backfill(df, config_file, data_file)
     if not search_url:
@@ -378,9 +381,7 @@ def _break_series_at_data_gaps(x_values, y_values, extra_series=None):
     return out_x, out_y, out_extras
 
 
-def _time_weighted_price_baseline(grp, time_col='scraped_at_display', price_col='price'):
-    """Typical price: weighted mean by how long each plateau was held (hours/days)."""
-    segments = _price_plateau_segments(grp, time_col=time_col, price_col=price_col)
+def _baseline_from_segments(segments):
     if not segments:
         return None
     total_hours = sum(h for _, h in segments)
@@ -389,20 +390,7 @@ def _time_weighted_price_baseline(grp, time_col='scraped_at_display', price_col=
     return sum(p * h for p, h in segments) / total_hours
 
 
-def _price_plateau_segments(grp, time_col='scraped_at_display', price_col='price'):
-    if grp is None or grp.empty:
-        return []
-    work = grp.sort_values(time_col).dropna(subset=[time_col, price_col])
-    if work.empty:
-        return []
-    times = pd.to_datetime(work[time_col], utc=True).tolist()
-    prices = work[price_col].astype(float).tolist()
-    return list(_iter_price_plateaus(times, prices))
-
-
-def _time_weighted_price_quantile(grp, quantile, time_col='scraped_at_display', price_col='price'):
-    """Quantile weighted by plateau duration (not by scrape count)."""
-    segments = _price_plateau_segments(grp, time_col=time_col, price_col=price_col)
+def _quantile_from_segments(segments, quantile):
     if not segments:
         return None
     q = max(0.0, min(1.0, float(quantile)))
@@ -419,9 +407,7 @@ def _time_weighted_price_quantile(grp, quantile, time_col='scraped_at_display', 
     return float(ordered[-1][0])
 
 
-def _time_weighted_price_volatility(grp, time_col='scraped_at_display', price_col='price'):
-    """Coefficient of variation using duration-weighted mean/std."""
-    segments = _price_plateau_segments(grp, time_col=time_col, price_col=price_col)
+def _volatility_from_segments(segments):
     if len(segments) < 2:
         return None
     total_hours = sum(h for _, h in segments)
@@ -432,6 +418,45 @@ def _time_weighted_price_volatility(grp, time_col='scraped_at_display', price_co
         return None
     var = sum(h * (p - mean) ** 2 for p, h in segments) / total_hours
     return float(var ** 0.5 / mean)
+
+
+def _time_weighted_price_baseline(grp, time_col='scraped_at_display', price_col='price', segments=None):
+    """Typical price: weighted mean by how long each plateau was held (hours/days)."""
+    if segments is None:
+        segments = _price_plateau_segments(grp, time_col=time_col, price_col=price_col)
+    return _baseline_from_segments(segments)
+
+
+def _price_plateau_segments(grp, time_col='scraped_at_display', price_col='price'):
+    if grp is None or grp.empty:
+        return []
+    work = grp.sort_values(time_col).dropna(subset=[time_col, price_col])
+    if work.empty:
+        return []
+    times_series = work[time_col]
+    if not pd.api.types.is_datetime64_any_dtype(times_series):
+        times = pd.to_datetime(times_series, utc=True).tolist()
+    else:
+        if times_series.dt.tz is None:
+            times = times_series.dt.tz_localize('UTC').tolist()
+        else:
+            times = times_series.dt.tz_convert('UTC').tolist()
+    prices = work[price_col].astype(float).tolist()
+    return list(_iter_price_plateaus(times, prices))
+
+
+def _time_weighted_price_quantile(grp, quantile, time_col='scraped_at_display', price_col='price', segments=None):
+    """Quantile weighted by plateau duration (not by scrape count)."""
+    if segments is None:
+        segments = _price_plateau_segments(grp, time_col=time_col, price_col=price_col)
+    return _quantile_from_segments(segments, quantile)
+
+
+def _time_weighted_price_volatility(grp, time_col='scraped_at_display', price_col='price', segments=None):
+    """Coefficient of variation using duration-weighted mean/std."""
+    if segments is None:
+        segments = _price_plateau_segments(grp, time_col=time_col, price_col=price_col)
+    return _volatility_from_segments(segments)
 
 
 def _last_run_slice(df, time_col='scraped_at_display', gap_minutes=5):
@@ -501,6 +526,7 @@ def build_daily_offers_count_timeline(
     tz='Europe/Warsaw',
     pick='last',
     run_gap_minutes=5,
+    canon_df=None,
 ):
     """One point per calendar day: canonical offer count from first/last scrape run that day."""
     empty = {'dates': [], 'counts': [], 'meta': []}
@@ -508,12 +534,15 @@ def build_daily_offers_count_timeline(
         return empty
 
     group_cols = group_cols or ['hotel_name']
-    canon = collapse_canonical_per_run(
-        df,
-        ceiling_val,
-        group_cols=group_cols,
-        run_gap_minutes=run_gap_minutes,
-    )
+    if canon_df is not None:
+        canon = canon_df
+    else:
+        canon = collapse_canonical_per_run(
+            df,
+            ceiling_val,
+            group_cols=group_cols,
+            run_gap_minutes=run_gap_minutes,
+        )
     if canon.empty:
         return empty
 
@@ -1790,7 +1819,7 @@ def _render_hotel_chart_page(
 </html>"""
 
 
-def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', output_file: str = 'index.html', title: str = 'Travel Price Monitor • Расширенный дашборд', charts_subdir: str = 'hotel-charts', tz: str = 'Europe/Warsaw', alerts_file: str = None, all_airports_data_file: str = None, disappeared_after_runs: int = 2, display_price_ceiling: float = None, history_price_ceiling: float = None, write_legacy_hotel_html: bool = False, config_file: str = None):
+def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', output_file: str = 'index.html', title: str = 'Travel Price Monitor • Расширенный дашборд', charts_subdir: str = 'hotel-charts', tz: str = 'Europe/Warsaw', alerts_file: str = None, all_airports_data_file: str = None, disappeared_after_runs: int = 2, display_price_ceiling: float = None, history_price_ceiling: float = None, write_legacy_hotel_html: bool = False, config_file: str = None, enable_ta_live_backfill: bool = False):
     """Генерирует дашборд с встроенными графиками"""
     
     # Загружаем данные (текущий месяц + архивные месяцы для полной истории сезона)
@@ -1881,8 +1910,17 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
     ceiling_val = _parse_price_ceiling(display_price_ceiling)
     history_val = _resolve_history_ceiling(ceiling_val, history_price_ceiling)
     df_canonical = collapse_canonical_per_run(df, ceiling_val, group_cols=group_cols)
-    df_history = collapse_canonical_per_run(df, history_val, group_cols=group_cols)
-    df_full = collapse_canonical_per_run(df, None, group_cols=group_cols)
+    if history_val == ceiling_val:
+        df_history = df_canonical.copy()
+    else:
+        df_history = collapse_canonical_per_run(df, history_val, group_cols=group_cols)
+
+    if ceiling_val is None:
+        df_full = df_canonical.copy()
+    elif history_val is None:
+        df_full = df_history.copy()
+    else:
+        df_full = collapse_canonical_per_run(df, None, group_cols=group_cols)
     if ceiling_val is not None:
         print(f"📊 Показ ≤{ceiling_val:.0f} PLN (таблица, алерты): {len(df_canonical)} записей")
     if history_val is not None:
@@ -1899,6 +1937,7 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             group_cols=group_cols,
             tz=tz,
             pick='last',
+            canon_df=df_canonical,
         )
         offers_count_dates = offers_count_timeline['dates']
         offers_count_values = offers_count_timeline['counts']
@@ -2049,8 +2088,13 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             pass
         return str(value).strip()
 
+    _cheaper_alts_cache = {}
+
     def find_cheaper_airport_alternatives(df_source, hotel_name, dates, current_price, current_airport):
         """Находит более дешевые предложения того же отеля на те же даты из других аэропортов"""
+        cache_key = (hotel_name, dates, current_price, current_airport)
+        if cache_key in _cheaper_alts_cache:
+            return _cheaper_alts_cache[cache_key]
         try:
             # Нормализация
             hotel_name_norm = normalize_text(hotel_name)
@@ -2058,13 +2102,16 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             current_airport_norm = (str(current_airport).strip() if current_airport else '') or 'Warszawa'
 
             # Фильтруем данные по отелю и датам
-            df_src = df_source.copy()
-            df_src['__hotel_norm'] = df_src['hotel_name'].astype(str).map(normalize_text)
-            df_src['__dates_norm'] = df_src['dates'].astype(str).map(normalize_dates)
-            same_hotel_dates = df_src[(df_src['__hotel_norm'] == hotel_name_norm) & (df_src['__dates_norm'] == dates_norm)].copy()
+            if '__hotel_norm' not in df_source.columns:
+                df_source['__hotel_norm'] = df_source['hotel_name'].astype(str).map(normalize_text)
+            if '__dates_norm' not in df_source.columns:
+                df_source['__dates_norm'] = df_source['dates'].astype(str).map(normalize_dates)
+            same_hotel_dates = df_source[(df_source['__hotel_norm'] == hotel_name_norm) & (df_source['__dates_norm'] == dates_norm)]
             
             if len(same_hotel_dates) == 0:
+                _cheaper_alts_cache[cache_key] = []
                 return []
+            same_hotel_dates = same_hotel_dates.copy()
             
             # Извлекаем аэропорт: сначала 'departure_airport', затем 'from_airport', затем из URL
             same_hotel_dates['airport'] = None
@@ -2127,10 +2174,12 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
                     'url': alt_url
                 })
             
+            _cheaper_alts_cache[cache_key] = alternatives
             return alternatives
             
         except Exception as e:
             print(f"Ошибка при поиске альтернативных аэропортов: {e}")
+            _cheaper_alts_cache[cache_key] = []
             return []
 
     # Средняя цена ТОП-10 дешёвых предложений по ранам с детальной информацией
@@ -2149,15 +2198,12 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             run_time = run_data_slice['scraped_at_display'].iloc[0]  # Время начала рана
             
             # Для каждого рана берем последние данные по каждому отелю в этом ране
-            latest_prices = []
-            hotel_prices = {}  # Словарь отель -> цена для этого рана
-            
-            # Берем последние данные по каждому отелю в этом ране
-            for hotel_name, hotel_grp in run_data_slice.groupby('hotel_name'):
-                if not hotel_grp.empty:
-                    latest_price = float(hotel_grp['price'].astype(float).min())
-                    latest_prices.append(latest_price)
-                    hotel_prices[hotel_name] = latest_price
+            hotel_prices = {}
+            for h_name, p_val in zip(run_data_slice['hotel_name'], run_data_slice['price']):
+                p_float = float(p_val)
+                if h_name not in hotel_prices or p_float < hotel_prices[h_name]:
+                    hotel_prices[h_name] = p_float
+            latest_prices = list(hotel_prices.values())
             
             if len(latest_prices) >= 10:
                 # Берем ТОП-10 дешевых из всех отелей на этот ран
@@ -2169,16 +2215,17 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
                 
                 # Находим отели, которые попали в ТОП-10
                 top10_hotels = []
+                price_positions = {p: sorted_prices.index(p) + 1 for p in top10_prices}
                 for hotel_name, price in hotel_prices.items():
                     if price in top10_prices:
                         top10_hotels.append({
                             'name': hotel_name,
                             'price': price,
-                            'position': sorted_prices.index(price) + 1
+                            'position': price_positions[price]
                         })
                 
-                # Сортируем по позиции в ТОП-10
-                top10_hotels.sort(key=lambda x: x['position'])
+                # Сортируем по позиции в ТОП-10 (с детерминированным тай-брейком по имени)
+                top10_hotels.sort(key=lambda x: (x['position'], x['name']))
                 
                 # Добавляем точку для каждого рана (убираем фильтрацию по одинаковым ценам)
                 run_data.append((run_time, avg_price))
@@ -2321,17 +2368,18 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             
             # Собираем текущие цены отелей в этом ране
             current_hotel_prices = {}
-            for hotel_name, hotel_grp in run_data_slice.groupby('hotel_name'):
-                if not hotel_grp.empty:
-                    latest_price = float(hotel_grp['price'].astype(float).min())
-                    current_hotel_prices[hotel_name] = latest_price
+            for h_name, p_val in zip(run_data_slice['hotel_name'], run_data_slice['price']):
+                p_float = float(p_val)
+                if h_name not in current_hotel_prices or p_float < current_hotel_prices[h_name]:
+                    current_hotel_prices[h_name] = p_float
             
             # Рассчитываем индекс ценовой динамики
             total_price_change = 0
             hotels_with_changes = 0
             price_changes = []
             
-            for hotel_name, current_price in current_hotel_prices.items():
+            for hotel_name in sorted(current_hotel_prices.keys()):
+                current_price = current_hotel_prices[hotel_name]
                 if hotel_name in prev_hotel_prices:
                     prev_price = prev_hotel_prices[hotel_name]
                     if prev_price > 0:  # Избегаем деления на ноль
@@ -2406,7 +2454,9 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             'departure_date': last.get('departure_date', None),
             'departure_key': last.get('departure_key', None),
         })
-    _backfill_ta_for_latest_rows(latest_rows, df, config_file, data_file)
+    _backfill_ta_for_latest_rows(
+        latest_rows, df, config_file, data_file, enable_live_crawl=enable_ta_live_backfill
+    )
     if latest_rows:
         all_hotels = pd.DataFrame(latest_rows).sort_values('price').reset_index(drop=True)
     else:
@@ -2636,11 +2686,11 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         latest = float(table_prices.get(row_id, prices[-1]))
         series = pd.Series(prices, dtype='float64')
         samples = len(series)
-        typical = _time_weighted_price_baseline(hist_grp) or latest
-        median = float(typical)
-        p25 = _time_weighted_price_quantile(hist_grp, 0.25) or latest
-        p10 = _time_weighted_price_quantile(hist_grp, 0.10) or latest
         plateau_segments = _price_plateau_segments(hist_grp)
+        typical = _baseline_from_segments(plateau_segments) or latest
+        median = float(typical)
+        p25 = _quantile_from_segments(plateau_segments, 0.25) or latest
+        p10 = _quantile_from_segments(plateau_segments, 0.10) or latest
         min_p = float(min(p for p, _ in plateau_segments)) if plateau_segments else latest
 
         # Насколько цена ниже своей типичной (взвешенной по времени) истории
@@ -2671,7 +2721,7 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
 
         # Стабильность: низкий шум без тренда = нейтральный балл (CV по времени, не по точкам)
         score_stability = 50
-        cv = _time_weighted_price_volatility(hist_grp)
+        cv = _volatility_from_segments(plateau_segments)
         if cv is not None:
             if cv < 0.01:
                 score_stability = 50
@@ -3271,8 +3321,8 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         hotel_ts = history_by_hotel.get(str(hotel_name), pd.DataFrame())
         if not hotel_ts.empty:
             hotel_ts = hotel_ts.dropna(subset=['scraped_at_display']).sort_values('scraped_at_display')
-        x_values = [pd.to_datetime(t).isoformat() for t in hotel_ts['scraped_at_display'].tolist()]
-        x_display = [pd.to_datetime(t).strftime('%d.%m.%Y %H:%M') for t in hotel_ts['scraped_at_display'].tolist()]
+        x_values = [t.isoformat() for t in hotel_ts['scraped_at_display']]
+        x_display = hotel_ts['scraped_at_display'].dt.strftime('%d.%m.%Y %H:%M').tolist()
         y_values = [float(p) for p in hotel_ts['price'].tolist()]
         dates_list = hotel_ts['dates'].fillna('Неизвестно').tolist()
         
@@ -3324,9 +3374,8 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         )
 
         if y_values:
-            price_series = pd.Series(y_values, dtype='float64')
-            min_p = float(price_series.min())
-            max_p = float(price_series.max())
+            min_p = float(min(y_values))
+            max_p = float(max(y_values))
         else:
             min_p = max_p = 0.0
         median_p = float(deal_info.get('typical_price') or deal_info.get('median') or 0.0)
@@ -3538,6 +3587,14 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
                 current_source["country"].iloc[0] if not current_source.empty else "",
                 active_filter_id(charts_subdir),
             )
+            # current_work is strictly used for the latest run (latest_departures & latest_rows).
+            # Slicing current_source to the latest run before aggregating eliminates aggregating
+            # 100,000+ historical cohort snapshots row-by-row.
+            if not current_source.empty:
+                _run_ts_temp = pd.to_datetime(current_source["run_started_at"], errors="coerce", utc=True)
+                latest_run_ts = _run_ts_temp.max()
+                if pd.notna(latest_run_ts):
+                    current_source = current_source[_run_ts_temp == latest_run_ts]
             if group_by_airport:
                 current_source = aggregate_cohorts_by_arrival_airport(current_source)
             work = _prepare_departure_cohorts(history_source)
@@ -10999,6 +11056,7 @@ if __name__ == "__main__":
     parser.add_argument('--history-price-ceiling', type=float, default=None, help='Потолок для истории/графиков/выпавших (по умолчанию 20000 при заданном display ceiling)')
     parser.add_argument('--write-legacy-hotel-html', action='store_true', help='Дополнительно писать hotel-charts/*.html (для старых ссылок)')
     parser.add_argument('--config-file', default=None, help='JSON конфиг фильтра (иначе — по data_dir из --data-file)')
+    parser.add_argument('--ta-live-backfill', action='store_true', default=False, help='Включить live-скрапинг fly.pl для TripAdvisor бэкфилла')
     args = parser.parse_args()
     generate_inline_charts_dashboard(
         data_file=args.data_file,
@@ -11013,4 +11071,5 @@ if __name__ == "__main__":
         history_price_ceiling=args.history_price_ceiling,
         write_legacy_hotel_html=args.write_legacy_hotel_html,
         config_file=args.config_file,
+        enable_ta_live_backfill=args.ta_live_backfill,
     )
