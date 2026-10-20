@@ -559,10 +559,101 @@
       "created_at": "2026-10-20T01:58:25.091084+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Desert Rose Resort_2026-10-20_01-57_comeback_14.5"
+    },
+    {
+      "hotel_name": "Sunrise Alora Aqua Park Resort",
+      "duration_bucket": "",
+      "old_price": 7309.0,
+      "new_price": 8089.0,
+      "price_change": 780.0,
+      "price_change_pct": 10.671774524558764,
+      "timestamp": "2026-10-20 07:46:04.130690+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-20T07:46:29.986547+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sunrise Alora Aqua Park Resort_2026-10-20_07-46_+10.7"
+    },
+    {
+      "hotel_name": "Xperience Kiroseiz Premier",
+      "duration_bucket": "",
+      "old_price": 7013.0,
+      "new_price": 7747.0,
+      "price_change": 734.0,
+      "price_change_pct": 10.46627691430201,
+      "timestamp": "2026-10-20 07:46:04.130690+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-20T07:46:29.986579+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xperience Kiroseiz Premier_2026-10-20_07-46_+10.5"
+    },
+    {
+      "hotel_name": "Jaz Aquamarine Resort",
+      "duration_bucket": "",
+      "old_price": 9018.0,
+      "new_price": 9762.0,
+      "price_change": 744.0,
+      "price_change_pct": 8.250166333998669,
+      "timestamp": "2026-10-20 07:46:04.130690+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-20T07:46:29.986593+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Aquamarine Resort_2026-10-20_07-46_+8.3"
+    },
+    {
+      "hotel_name": "Fantazia Royal Resort",
+      "duration_bucket": "",
+      "old_price": 9987.0,
+      "new_price": 10077.0,
+      "price_change": 90.0,
+      "price_change_pct": 0.9011715229798739,
+      "timestamp": "2026-10-20 07:46:04.130690+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-20T07:46:29.986609+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Fantazia Royal Resort_2026-10-20_07-46_zone_out_+0.9"
+    },
+    {
+      "hotel_name": "Jaz Aquaviva",
+      "duration_bucket": "",
+      "old_price": 8039.0,
+      "new_price": 10925.0,
+      "price_change": 2886.0,
+      "price_change_pct": 35.89998756064187,
+      "timestamp": "2026-10-20 07:46:04.130690+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-20T07:46:29.986617+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Aquaviva_2026-10-20_07-46_zone_out_+35.9"
+    },
+    {
+      "hotel_name": "Pickalbatros Laguna Vista Beach",
+      "duration_bucket": "",
+      "old_price": 9962.0,
+      "new_price": 10138.0,
+      "price_change": 176.0,
+      "price_change_pct": 1.7667135113431038,
+      "timestamp": "2026-10-20 07:46:04.130690+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-20T07:46:29.986623+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Laguna Vista Beach_2026-10-20_07-46_zone_out_+1.8"
+    },
+    {
+      "hotel_name": "Stella Beach Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 10194.0,
+      "new_price": 8056.0,
+      "price_change": -2138.0,
+      "price_change_pct": -20.97312144398666,
+      "timestamp": "2026-10-20 07:46:04.130690+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-20T07:46:29.986647+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Stella Beach Resort & Spa_2026-10-20_07-46_comeback_21.0"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-20T01:57:52.373783+00:00",
+    "last_processed_run": "2026-10-20T07:46:04.130690+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 7695.0,
@@ -589,8 +680,8 @@
         "premium_peak": 11207.0
       },
       "Pickalbatros Blu Spa Resort Hurghada": {
-        "history_max": 18357.0,
-        "premium_peak": 18357.0
+        "history_max": 18387.0,
+        "premium_peak": 18387.0
       },
       "Pickalbatros Citadel Sahl Hasheesh (ex. Citadel Azur Resort)": {
         "history_max": 11457.0,
@@ -637,7 +728,7 @@
         "premium_peak": 16229.0
       },
       "Pickalbatros Villaggio Resort Portofino": {
-        "history_max": 9167.0,
+        "history_max": 9417.0,
         "premium_peak": null
       },
       "Pickalbatros Vita Resort Portofino": {
@@ -737,7 +828,7 @@
         "premium_peak": null
       },
       "Marriott Hurghada Beach Resort": {
-        "history_max": 8467.0,
+        "history_max": 8937.0,
         "premium_peak": null
       },
       "Monte Carlo Resort Spa": {
@@ -745,8 +836,8 @@
         "premium_peak": 14032.0
       },
       "Movenpick Resort & Spa El Gouna": {
-        "history_max": 11444.0,
-        "premium_peak": 11444.0
+        "history_max": 11651.0,
+        "premium_peak": 11651.0
       },
       "Movenpick Resort Sharm el Sheikh": {
         "history_max": 13247.0,
@@ -757,8 +848,8 @@
         "premium_peak": null
       },
       "Naama Bay Hotel & Resort": {
-        "history_max": 11450.0,
-        "premium_peak": 11450.0
+        "history_max": 12041.0,
+        "premium_peak": 12041.0
       },
       "Naama Bay Promenade Beach Resort": {
         "history_max": 11823.0,
@@ -801,8 +892,8 @@
         "premium_peak": 12917.0
       },
       "Sunrise Montemare Resort": {
-        "history_max": 14567.0,
-        "premium_peak": 14567.0
+        "history_max": 15137.0,
+        "premium_peak": 15137.0
       },
       "Sunrise Remal Beach": {
         "history_max": 15137.0,
@@ -861,7 +952,7 @@
         "premium_peak": 10177.0
       },
       "Tropitel Sahl Hasheesh": {
-        "history_max": 9623.0,
+        "history_max": 9881.0,
         "premium_peak": null
       },
       "V Grand Beach Resort Sahl Hasheesh": {
@@ -965,8 +1056,8 @@
         "premium_peak": 15845.0
       },
       "Sheraton Soma Bay": {
-        "history_max": 15873.0,
-        "premium_peak": 15873.0
+        "history_max": 16243.0,
+        "premium_peak": 16243.0
       },
       "Sierra": {
         "history_max": 11581.0,
@@ -1049,7 +1140,7 @@
         "premium_peak": 10817.0
       },
       "Amwaj Oyoun Resort & Casino": {
-        "history_max": 8641.0,
+        "history_max": 8859.0,
         "premium_peak": null
       },
       "Grand Rotana Resort & Spa": {
@@ -1161,11 +1252,11 @@
         "premium_peak": 14007.0
       },
       "Albatros Sea World Resort Marsa Alam": {
-        "history_max": 9087.0,
+        "history_max": 9237.0,
         "premium_peak": null
       },
       "Jaz Aquamarine Resort": {
-        "history_max": 9467.0,
+        "history_max": 9762.0,
         "premium_peak": null
       },
       "Jaz Belvedere": {
@@ -1193,8 +1284,8 @@
         "premium_peak": 14938.0
       },
       "Jaz Aquaviva": {
-        "history_max": 9507.0,
-        "premium_peak": null
+        "history_max": 10925.0,
+        "premium_peak": 10925.0
       },
       "Amarina Jannah Resort Aquapark": {
         "history_max": 7224.0,
@@ -1225,8 +1316,8 @@
         "premium_peak": 13492.0
       },
       "Xanadu Makadi Bay": {
-        "history_max": 12526.0,
-        "premium_peak": 12526.0
+        "history_max": 13091.0,
+        "premium_peak": 13091.0
       },
       "Hilton Marsa Alam Nubian Resort": {
         "history_max": 11896.0,
@@ -1237,8 +1328,8 @@
         "premium_peak": 13438.0
       },
       "Coral Sea Sensatori (ex Coral Sea Imperial)": {
-        "history_max": 10538.0,
-        "premium_peak": 10538.0
+        "history_max": 11489.0,
+        "premium_peak": 11489.0
       },
       "Seven Seas Jolie Bay": {
         "history_max": 10123.0,

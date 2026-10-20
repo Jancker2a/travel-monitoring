@@ -364,10 +364,49 @@
       "created_at": "2026-10-20T01:58:03.714162+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Steigenberger Aqua Magic Egipt, Hurghada_2026-10-20_01-57_zone_out_gone"
+    },
+    {
+      "hotel_name": "Jaz Aquamarine (ex. Iberotel Aquamarine) Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 9467.0,
+      "new_price": 10265.0,
+      "price_change": 798.0,
+      "price_change_pct": 8.42928065913172,
+      "timestamp": "2026-10-20 07:46:04.039538+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-20T07:46:15.065646+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Aquamarine (ex. Iberotel Aquamarine) Egipt, Hurghada_2026-10-20_07-46_+8.4"
+    },
+    {
+      "hotel_name": "Pickalbatros Royal Moderna",
+      "duration_bucket": "",
+      "old_price": 10823.0,
+      "new_price": 10823.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-20 07:46:04.039538+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-20T07:46:15.065691+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Royal Moderna_2026-10-20_07-46_zone_out_gone"
+    },
+    {
+      "hotel_name": "Stella Di Mare Beach Resort & Spa (ex. Stella Makadi Resort) Egipt, Hurghada, Makadi Bay",
+      "duration_bucket": "",
+      "old_price": 10327.0,
+      "new_price": 10327.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-20 07:46:04.039538+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-20T07:46:15.065700+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Stella Di Mare Beach Resort & Spa (ex. Stella Makadi Resort) Egipt, Hurghada, Makadi Bay_2026-10-20_07-46_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-20T01:57:52.376749+00:00",
+    "last_processed_run": "2026-10-20T07:46:04.039538+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 9826.0,
@@ -382,7 +421,7 @@
         "premium_peak": null
       },
       "Marriott Hurghada Beach Resort Egipt, Hurghada": {
-        "history_max": 8467.0,
+        "history_max": 8937.0,
         "premium_peak": null
       },
       "Movenpick Resort Soma Bay Egipt, Hurghada": {
@@ -410,11 +449,11 @@
         "premium_peak": null
       },
       "Jaz Aquamarine (ex. Iberotel Aquamarine) Egipt, Hurghada": {
-        "history_max": 9467.0,
+        "history_max": 10265.0,
         "premium_peak": null
       },
       "Pickalbatros Palace Resort": {
-        "history_max": 10967.0,
+        "history_max": 10972.0,
         "premium_peak": null
       },
       "Pickalbatros Royal Moderna": {
@@ -442,7 +481,7 @@
         "premium_peak": null
       },
       "Rewaya Luxury Resort Egipt, Hurghada": {
-        "history_max": 6947.0,
+        "history_max": 7317.0,
         "premium_peak": null
       },
       "Royal Regency Club Egipt, Sharm El Sheikh, Szarm el-Szejk": {
@@ -462,7 +501,7 @@
         "premium_peak": null
       },
       "Royal Pharaohs Makadi (ex. Harmony) Egipt, Hurghada, Makadi Bay": {
-        "history_max": 10397.0,
+        "history_max": 10697.0,
         "premium_peak": null
       },
       "Amarina Jannah Resort Aquapark Egipt, Marsa Alam, Port Ghalib": {
@@ -587,6 +626,14 @@
       },
       "Albatros Sea World Resort Marsa Alam": {
         "history_max": 10729.0,
+        "premium_peak": null
+      },
+      "Gravity Sahl Hasheesh (Ex. Ocean Breeze)": {
+        "history_max": 10878.0,
+        "premium_peak": null
+      },
+      "Royal Albatros Moderna Egipt, Sharm El Sheikh": {
+        "history_max": 10542.0,
         "premium_peak": null
       }
     }

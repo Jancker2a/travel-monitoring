@@ -468,10 +468,88 @@
       "created_at": "2026-10-20T01:59:12.679509+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Numa Club (Side)_2026-10-20_01-58_comeback_10.7"
+    },
+    {
+      "hotel_name": "Limak Limra",
+      "duration_bucket": "",
+      "old_price": 8155.0,
+      "new_price": 7132.0,
+      "price_change": -1023.0,
+      "price_change_pct": -12.54445125689761,
+      "timestamp": "2026-10-20 07:46:30.646685+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-20T07:47:22.184457+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Limak Limra_2026-10-20_07-46_-12.5"
+    },
+    {
+      "hotel_name": "Azura World (ex. Wyndham Alanya)",
+      "duration_bucket": "",
+      "old_price": 8702.0,
+      "new_price": 7025.0,
+      "price_change": -1677.0,
+      "price_change_pct": -19.271431854746034,
+      "timestamp": "2026-10-20 07:46:30.646685+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-20T07:47:22.184494+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Azura World (ex. Wyndham Alanya)_2026-10-20_07-46_-19.3"
+    },
+    {
+      "hotel_name": "Wind of Lara",
+      "duration_bucket": "",
+      "old_price": 9859.0,
+      "new_price": 10159.0,
+      "price_change": 300.0,
+      "price_change_pct": 3.042904959935085,
+      "timestamp": "2026-10-20 07:46:30.646685+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-20T07:47:22.184524+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Wind of Lara_2026-10-20_07-46_zone_out_+3.0"
+    },
+    {
+      "hotel_name": "Fame Residence Lara (Antalya)",
+      "duration_bucket": "",
+      "old_price": 10596.0,
+      "new_price": 9568.0,
+      "price_change": -1028.0,
+      "price_change_pct": -9.701774254435636,
+      "timestamp": "2026-10-20 07:46:30.646685+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-20T07:47:22.184544+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Fame Residence Lara (Antalya)_2026-10-20_07-46_comeback_9.7"
+    },
+    {
+      "hotel_name": "Royal Dragon",
+      "duration_bucket": "",
+      "old_price": 10410.0,
+      "new_price": 9382.0,
+      "price_change": -1028.0,
+      "price_change_pct": -9.875120076849184,
+      "timestamp": "2026-10-20 07:46:30.646685+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-20T07:47:22.184556+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Royal Dragon_2026-10-20_07-46_comeback_9.9"
+    },
+    {
+      "hotel_name": "Miracle Resort",
+      "duration_bucket": "",
+      "old_price": 10720.0,
+      "new_price": 9692.0,
+      "price_change": -1028.0,
+      "price_change_pct": -9.58955223880597,
+      "timestamp": "2026-10-20 07:46:30.646685+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-20T07:47:22.184564+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Miracle Resort_2026-10-20_07-46_comeback_9.6"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-20T01:58:25.658033+00:00",
+    "last_processed_run": "2026-10-20T07:46:30.646685+00:00",
     "premium_state": {
       "Adalya Art Side (Ex. Grand Art Side)": {
         "history_max": 10108.0,
@@ -922,8 +1000,8 @@
         "premium_peak": null
       },
       "Sultan of Dreams": {
-        "history_max": 12911.0,
-        "premium_peak": 12911.0
+        "history_max": 13108.0,
+        "premium_peak": 13108.0
       },
       "Sueno Deluxe Belek": {
         "history_max": 15336.0,
@@ -986,8 +1064,8 @@
         "premium_peak": null
       },
       "Wind of Lara": {
-        "history_max": 9859.0,
-        "premium_peak": null
+        "history_max": 10159.0,
+        "premium_peak": 10159.0
       },
       "White City Resort": {
         "history_max": 8930.0,
@@ -1590,8 +1668,8 @@
         "premium_peak": 12535.0
       },
       "DoubleTree by Hilton Antalya Kemer": {
-        "history_max": 12308.0,
-        "premium_peak": 12308.0
+        "history_max": 13651.0,
+        "premium_peak": 13651.0
       },
       "Ali Bey Resort Sorgun": {
         "history_max": 12532.0,
@@ -1638,7 +1716,7 @@
         "premium_peak": null
       },
       "Fame Residence (Kemer)": {
-        "history_max": 9353.0,
+        "history_max": 9801.0,
         "premium_peak": null
       },
       "Dobedan Exclusive (ex. Alva Donna Exclusive & SPA)": {
