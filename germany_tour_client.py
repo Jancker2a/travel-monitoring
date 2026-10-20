@@ -155,8 +155,16 @@ class GermanyTourClient:
                     if not hotel_name:
                         continue
                     dest = (row.get('destination') or '').strip()
-                    if destination_filter and destination_filter.lower() not in dest.lower():
-                        continue
+                    loc = (row.get('location') or '').strip()
+                    if destination_filter:
+                        df_lower = destination_filter.lower()
+                        country_filter = df_lower.split('_')[0]
+                        comb_dest = f"{dest} {loc}".lower()
+                        if country_filter not in comb_dest and df_lower not in comb_dest:
+                            continue
+                        if 'sharm' in df_lower and 'sharm' not in comb_dest:
+                            continue
+
                     ap = (row.get('departure_airport') or 'BER').strip()
                     if airport_filter and ap.upper() != airport_filter.upper():
                         continue
@@ -167,13 +175,36 @@ class GermanyTourClient:
                     if price <= 0:
                         continue
 
+                    # Parse real duration days from text e.g. '5 Tage', '8 dni', '7 Nächte'
+                    dur_raw = str(row.get('duration') or '').strip()
+                    dur_days = 8
+                    m_dur = re.search(r'(\d+)\s*(?:Tage?|dni|days?|nocy|Nächte)', dur_raw, re.IGNORECASE)
+                    if m_dur:
+                        dur_days = int(m_dur.group(1))
+                    else:
+                        m_num = re.search(r'\b(\d+)\b', dur_raw)
+                        if m_num:
+                            dur_days = int(m_num.group(1))
+                        else:
+                            dates_str = str(row.get('dates') or '')
+                            if '_' in dates_str:
+                                p = dates_str.split('_')
+                                try:
+                                    d1 = datetime.strptime(p[0].strip(), "%Y-%m-%d").date()
+                                    d2 = datetime.strptime(p[1].strip(), "%Y-%m-%d").date()
+                                    diff = (d2 - d1).days
+                                    if 1 <= diff <= 30:
+                                        dur_days = diff
+                                except Exception:
+                                    pass
+
                     offers.append(
                         GermanTourOffer(
                             hotel_name=hotel_name,
                             destination=dest or (row.get('location') or 'Unknown'),
                             departure_airport=ap,
                             dates=row.get('dates') or '',
-                            duration_days=8,
+                            duration_days=dur_days,
                             board_type="All Inclusive",
                             price_eur=price,
                             tour_operator="German Operator",

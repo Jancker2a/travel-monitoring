@@ -2513,8 +2513,29 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
     # ── Cross-Border Arbitrage Engine (Poland vs Germany) ────────────────────
     arbitrage_matches = []
     arbitrage_by_hotel = {}
-    dest_str = str(data_file or config_file or title or "").lower()
-    dest_code = "egypt" if ("egypt" in dest_str or "egipt" in dest_str) else ("greece" if ("greece" in dest_str or "grecja" in dest_str) else "turkey")
+    dest_str = str(data_file or "") + " " + str(config_file or "") + " " + str(title or "")
+    if config_file and os.path.exists(config_file):
+        try:
+            with open(config_file, 'r', encoding='utf-8') as _cf:
+                _cfg_data = json.load(_cf)
+                dest_str += " " + str(_cfg_data.get('url', ''))
+                dest_str += " " + str(_cfg_data.get('description', ''))
+                dest_str += " " + " ".join(_cfg_data.get('required_offer_url_contains', []))
+                dest_str += " " + str(_cfg_data.get('data_dir', ''))
+        except Exception:
+            pass
+    dest_str = dest_str.lower()
+
+    if any(k in dest_str for k in ["sharm", "11_154", "шарм"]):
+        dest_code = "egypt_sharm"
+    elif any(k in dest_str for k in ["egypt", "egipt", "египет", "хургада", "hurghada", "11:", "11_"]):
+        dest_code = "egypt"
+    elif any(k in dest_str for k in ["greece", "grecja", "греция", "kreta", "крит", "rhodes", "rodos", "родос", "14:", "14_"]):
+        dest_code = "greece"
+    elif any(k in dest_str for k in ["turkey", "turcja", "турция", "antalya", "анталья", "анталия", "39:", "39_"]):
+        dest_code = "turkey"
+    else:
+        dest_code = "turkey"
     try:
         de_client = GermanyTourClient()
         cur_data_dir = os.path.dirname(os.path.abspath(data_file)) if data_file else None

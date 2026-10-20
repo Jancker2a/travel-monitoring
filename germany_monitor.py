@@ -94,6 +94,15 @@ class GermanyTourMonitor:
         """Constructs Check24 package search URL with airport, area, and dates."""
         base_url = self.config.get('url')
         if base_url:
+            # Normalize legacy parameters if present in explicit URL
+            if 'travelPeriod=' in base_url:
+                import re
+                m = re.search(r'travelPeriod=(\d{4}-\d{2}-\d{2})_(\d{4}-\d{2}-\d{2})', base_url)
+                if m:
+                    base_url = base_url.replace(m.group(0), f"departureDate={m.group(1)}&returnDate={m.group(2)}")
+            if 'duration=' in base_url and 'days=' not in base_url:
+                base_url = base_url.replace('duration=', 'days=')
+
             # If explicit URL provided in config
             if page_number > 1:
                 sep = '&' if '?' in base_url else '?'
@@ -115,9 +124,13 @@ class GermanyTourMonitor:
             f"airport={airport}&transportType=flight&roomAllocation={room_allocation}&areaId={area_id}"
         )
         if travel_period:
-            url += f"&travelPeriod={travel_period}"
+            if '_' in travel_period:
+                dep_d, ret_d = travel_period.split('_', 1)
+                url += f"&departureDate={dep_d}&returnDate={ret_d}"
+            else:
+                url += f"&departureDate={travel_period}"
         if duration:
-            url += f"&duration={duration}"
+            url += f"&days={duration}"
         if page_number > 1:
             url += f"&page={page_number}"
 
@@ -228,7 +241,7 @@ class GermanyTourMonitor:
 
         cleaned_offers = []
         for item in raw_list:
-            offer_url = str(item.get('offer_url', ''))[:250]
+            offer_url = str(item.get('offer_url', '')).strip()[:1000]
             dates_val = self.config.get('travel_period', '')
             if 'departureDate=' in offer_url:
                 try:
@@ -458,19 +471,27 @@ def map_polish_config_to_germany_params(polish_cfg: Dict[str, Any], cfg_name: st
         room = 'A-A'
 
     # 4. Destination & Area mapping
-    comb = (cfg_name + ' ' + url + ' ' + str(polish_cfg.get('description', ''))).lower()
-    if 'sharm' in comb or '11_154' in comb:
+    req_urls = " ".join(polish_cfg.get('required_offer_url_contains', []))
+    dest_loc = (qs.get('destinationLocation') or qs.get('filter[dest]') or [''])[0]
+    data_dir_name = str(polish_cfg.get('data_dir', ''))
+    comb = f"{cfg_name} {url} {dest_loc} {data_dir_name} {polish_cfg.get('description', '')} {req_urls}".lower()
+
+    if any(k in comb for k in ['11_154', 'sharm', 'шарм']):
         dest_name = 'Egypt'
         dest_key = 'egypt_sharm'
         area_id = 674
-    elif 'egypt' in comb or 'egipt' in comb:
+    elif any(k in comb for k in ['11:', '11_', 'egypt', 'egipt', 'египет', 'hurghada', 'хургада', 'marsa', 'марса']):
         dest_name = 'Egypt'
         dest_key = 'egypt_hurghada'
         area_id = 673
-    elif 'greece' in comb or 'grecja' in comb or 'kreta' in comb:
+    elif any(k in comb for k in ['14:', '14_', 'greece', 'grecja', 'греция', 'kreta', 'крит', 'rhodes', 'rodos', 'родос']):
         dest_name = 'Greece'
         dest_key = 'greece_crete'
         area_id = 603
+    elif any(k in comb for k in ['39:', '39_', 'turkey', 'turcja', 'турция', 'antalya', 'анталья', 'анталия', 'belek', 'kemer', 'side', 'alanya']):
+        dest_name = 'Turkey'
+        dest_key = 'turkey_antalya'
+        area_id = 578
     else:
         dest_name = 'Turkey'
         dest_key = 'turkey_antalya'

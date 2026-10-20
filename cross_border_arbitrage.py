@@ -176,13 +176,20 @@ def is_offer_comparable(
         parts = str(dates_de).split("_")
         w_start = parse_departure_date(parts[0])
         w_end = parse_departure_date(parts[1]) if len(parts) > 1 else None
-        if d_pl and w_start and w_end:
-            win_lo = w_start - timedelta(days=max_date_diff_days)
-            win_hi = w_end + timedelta(days=max_date_diff_days)
-            if win_lo <= d_pl <= win_hi:
-                date_matched = True
+        if d_pl and w_start:
+            if w_end and 0 <= (w_end - w_start).days <= 14:
+                win_lo = w_start - timedelta(days=max_date_diff_days)
+                win_hi = w_end + timedelta(days=max_date_diff_days)
+                if win_lo <= d_pl <= win_hi:
+                    date_matched = True
+                else:
+                    date_err = f"Date out of window: PL {d_pl} outside DE window [{w_start}, {w_end}]"
             else:
-                date_err = f"Date out of window: PL {d_pl} outside DE window [{w_start}, {w_end}]"
+                diff_days = abs((d_pl - w_start).days)
+                if diff_days <= max_date_diff_days:
+                    date_matched = True
+                else:
+                    date_err = f"Dates mismatch: PL {d_pl} vs DE start {w_start} (diff: {diff_days} days)"
     else:
         d_de = parse_departure_date(dates_de)
         if d_pl and d_de:
@@ -199,11 +206,11 @@ def is_offer_comparable(
             d_u = parse_departure_date(m_dep.group(1))
             if d_u:
                 m_ret = re.search(r"returnDate=(\d{4}-\d{2}-\d{2})", offer_url_de)
-                if m_ret:
-                    r_u = parse_departure_date(m_ret.group(1))
-                    if r_u and (d_u - timedelta(days=max_date_diff_days)) <= d_pl <= (r_u + timedelta(days=max_date_diff_days)):
+                r_u = parse_departure_date(m_ret.group(1)) if m_ret else None
+                if r_u and 0 <= (r_u - d_u).days <= 14:
+                    if (d_u - timedelta(days=max_date_diff_days)) <= d_pl <= (r_u + timedelta(days=max_date_diff_days)):
                         date_matched = True
-                if not date_matched and abs((d_pl - d_u).days) <= max_date_diff_days:
+                elif abs((d_pl - d_u).days) <= max_date_diff_days:
                     date_matched = True
 
     if not date_matched and (dates_de or offer_url_de) and d_pl:
