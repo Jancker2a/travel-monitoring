@@ -2711,7 +2711,15 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         )
 
     def _clamp(v, lo, hi):
-        return max(lo, min(hi, v))
+        if v is None:
+            return lo
+        try:
+            val = float(v)
+            if math.isnan(val):
+                return lo
+            return max(lo, min(hi, val))
+        except (TypeError, ValueError):
+            return lo
 
     deal_score_by_hotel = {}
     entry_candidates = []
@@ -2741,6 +2749,7 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         p25 = _quantile_from_segments(plateau_segments, 0.25) or latest
         p10 = _quantile_from_segments(plateau_segments, 0.10) or latest
         min_p = float(min(p for p, _ in plateau_segments)) if plateau_segments else latest
+        max_p = float(max(p for p, _ in plateau_segments)) if plateau_segments else latest
 
         # Насколько цена ниже своей типичной (взвешенной по времени) истории
         rel_discount = 0.0
@@ -2749,7 +2758,9 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         score_discount = _clamp(50 + rel_discount * 200, 0, 100)
 
         # Редкость: чем ближе к историческим минимумам, тем выше балл
-        if latest <= p10:
+        if min_p >= max_p or p10 >= median:
+            score_rarity = 50
+        elif latest <= p10:
             score_rarity = 100
         elif latest <= p25:
             score_rarity = 80
@@ -2761,7 +2772,7 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         # Моментум: короткий нисходящий тренд добавляет баллы
         recent = prices[-3:] if len(prices) >= 3 else prices
         score_momentum = 50
-        if len(recent) >= 3 and (recent[-1] <= recent[-2] <= recent[-3]):
+        if len(recent) >= 3 and (recent[-1] < recent[-2] <= recent[-3] or recent[-1] <= recent[-2] < recent[-3]):
             score_momentum = 85
         elif len(recent) >= 2 and recent[-1] < recent[-2]:
             score_momentum = 70
@@ -8657,7 +8668,7 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
                     <div class="hotel-card-meta">
                         <div class="hotel-card-price">{c["price"]:.0f} PLN</div>
                         <span class="deal-pill {c["deal_class"]}">Deal {c["deal_score"]} • {c["deal_label"]}</span>
-                        {f'<span class="hopper-pill {c["hopper_class"]}" data-tip="{html_lib.escape(c["hopper_reasoning"], quote=True)}" title="{html_lib.escape(c["hopper_reasoning"], quote=True)}">{c["hopper_badge"]}</span>' if c.get("hopper_badge") else f'<span class="forecast-pill {c["forecast_class"]}">{c["forecast_icon"]} {c["forecast_text"]}</span>'}
+                        {f'<span class="hopper-pill {c["hopper_class"]}" data-tip="{html_lib.escape(c["hopper_reasoning"], quote=True)}" title="{html_lib.escape(c["hopper_reasoning"], quote=True)}">{c["hopper_badge"]}</span>' if c.get("hopper_badge") and "НЕТ ДАННЫХ" not in str(c.get("hopper_badge")) else f'<span class="forecast-pill {c["forecast_class"]}">{c["forecast_icon"]} {c["forecast_text"]}</span>'}
                     </div>
                     {c["comeback_html"]}
                     {c.get("cheaper_alt_html", "")}
@@ -9273,7 +9284,7 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         hopper_badge_tbl = str(hotel.get('hopper_badge') or '')
         hopper_verdict_tbl = str(hotel.get('hopper_verdict') or '')
         hopper_reasoning_tbl = str(hotel.get('hopper_reasoning') or '')
-        if hopper_badge_tbl:
+        if hopper_badge_tbl and "НЕТ ДАННЫХ" not in hopper_badge_tbl:
             hopper_cls = "buy-now" if hopper_verdict_tbl == "BUY_NOW" else ("wait" if hopper_verdict_tbl == "WAIT" else ("overpriced" if hopper_verdict_tbl == "OVERPRICED" else "neutral"))
             forecast_cell_html = f'<span class="hopper-pill {hopper_cls}" data-tip="{html_lib.escape(hopper_reasoning_tbl, quote=True)}" title="{html_lib.escape(hopper_reasoning_tbl, quote=True)}">{hopper_badge_tbl}</span>'
             forecast_sort_val = hopper_verdict_tbl

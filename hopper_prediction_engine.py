@@ -72,18 +72,39 @@ class HopperPrediction:
         return asdict(self)
 
 
-def parse_departure_date(dates_str: Any) -> Optional[date]:
+def parse_departure_date(
+    dates_str: Any,
+    offer_url: Optional[str] = None,
+    reference_date: Optional[date] = None,
+) -> Optional[date]:
     """
-    Parses departure date from strings like:
+    Parses departure date from:
+    - offer_url parameter 'departureDate=YYYY-MM-DD'
+    - ISO '2026-06-01'
     - '01.06.2026 - 08.06.2026'
     - '01.06 - 08.06.2026'
-    - '2026-06-01'
     - '01.06.2026'
+    - '23.10 - 30.10' (inferred year based on reference_date or date.today())
+    - strings with duration parentheses like '23.10 - 30.10 (8 dni)'
     """
+    ref = reference_date or date.today()
+
+    # 1. From offer_url departureDate query param
+    if offer_url and isinstance(offer_url, str):
+        m = re.search(r'[?&]departureDate=(\d{4}-\d{2}-\d{2})', offer_url)
+        if m:
+            try:
+                y, mon, d = m.group(1).split('-')
+                return date(int(y), int(mon), int(d))
+            except (ValueError, TypeError):
+                pass
+
     if not dates_str or pd.isna(dates_str):
         return None
 
     text = str(dates_str).strip()
+    # Strip any trailing duration like '(8 dni)' or '(7 nights)'
+    text = re.sub(r'\s*\([^)]*\)', '', text).strip()
 
     # Format: YYYY-MM-DD
     iso_m = re.match(r"^(\d{4})-(\d{2})-(\d{2})", text)
@@ -91,23 +112,53 @@ def parse_departure_date(dates_str: Any) -> Optional[date]:
         try:
             return date(int(iso_m.group(1)), int(iso_m.group(2)), int(iso_m.group(3)))
         except ValueError:
-            return None
+            pass
 
-    # Format: DD.MM.YYYY - DD.MM.YYYY or DD.MM.YYYY
-    full_m = re.match(r"^(\d{1,2})\.(\d{1,2})\.(\d{4})", text)
+    # Format: DD.MM.YYYY - DD.MM.YYYY
+    full_range_m = re.search(r"(\d{1,2})\.(\d{1,2})\.(\d{4})\s*-\s*\d{1,2}\.\d{1,2}\.\d{4}", text)
+    if full_range_m:
+        try:
+            return date(int(full_range_m.group(3)), int(full_range_m.group(2)), int(full_range_m.group(1)))
+        except ValueError:
+            pass
+
+    # Format: DD.MM - DD.MM.YYYY (year only at the end)
+    short_with_year = re.search(r"(\d{1,2})\.(\d{1,2})\s*-\s*\d{1,2}\.\d{1,2}\.(\d{4})", text)
+    if short_with_year:
+        try:
+            return date(int(short_with_year.group(3)), int(short_with_year.group(2)), int(short_with_year.group(1)))
+        except ValueError:
+            pass
+
+    # Format: DD.MM.YYYY (single date)
+    full_m = re.search(r"(\d{1,2})\.(\d{1,2})\.(\d{4})", text)
     if full_m:
         try:
             return date(int(full_m.group(3)), int(full_m.group(2)), int(full_m.group(1)))
         except ValueError:
-            return None
+            pass
 
-    # Format: DD.MM - DD.MM.YYYY (year only at the end)
-    short_m = re.search(r"(\d{1,2})\.(\d{1,2})\s*-\s*\d{1,2}\.\d{1,2}\.(\d{4})", text)
-    if short_m:
+    # Format: DD/MM/YYYY
+    slash_m = re.search(r"(\d{1,2})/(\d{1,2})/(\d{4})", text)
+    if slash_m:
         try:
-            return date(int(short_m.group(3)), int(short_m.group(2)), int(short_m.group(1)))
+            return date(int(slash_m.group(3)), int(slash_m.group(2)), int(slash_m.group(1)))
         except ValueError:
-            return None
+            pass
+
+    # Format: DD.MM - DD.MM (no year anywhere)
+    short_no_year = re.search(r"(\d{1,2})\.(\d{1,2})\s*-\s*(\d{1,2})\.(\d{1,2})", text)
+    if short_no_year:
+        try:
+            d = int(short_no_year.group(1))
+            m = int(short_no_year.group(2))
+            year = ref.year
+            # If departure month is earlier than reference month by > 1, it's next year
+            if m < ref.month - 1:
+                year += 1
+            return date(year, m, d)
+        except ValueError:
+            pass
 
     return None
 
@@ -235,14 +286,6 @@ def predict_offer_action(
         precomputed_hist_days: Optional pre-extracted D-values for this hotel.
         precomputed_cohort_prices: Optional pre-extracted prices for the cohort.
     """
-    dates_str = offer.get("dates")
-    dep_date = parse_departure_date(dates_str)
-
-    try:
-        current_price = float(offer.get("price") or 0.0)
-    except (ValueError, TypeError):
-        current_price = 0.0
-
     ref_date = reference_date
     if ref_date is None:
         if offer.get("scraped_at"):
@@ -252,6 +295,19 @@ def predict_offer_action(
                 ref_date = date.today()
         else:
             ref_date = date.today()
+
+    dates_str = offer.get("dates")
+    offer_url = offer.get("offer_url") or offer.get("url")
+    dep_date = (
+        parse_departure_date(offer.get("departure_date"))
+        if offer.get("departure_date")
+        else parse_departure_date(dates_str, offer_url=offer_url, reference_date=ref_date)
+    )
+
+    try:
+        current_price = float(offer.get("price") or 0.0)
+    except (ValueError, TypeError):
+        current_price = 0.0
 
     if not dep_date:
         return HopperPrediction(
@@ -504,7 +560,15 @@ def batch_predict_offers(
 
     # Pre-parse dates
     dates_s = result_df["dates"] if "dates" in result_df.columns else pd.Series([""] * len(result_df))
-    parsed_deps = [parse_departure_date(d) for d in dates_s]
+    offer_urls_s = (
+        result_df["offer_url"]
+        if "offer_url" in result_df.columns
+        else (result_df["url"] if "url" in result_df.columns else pd.Series([""] * len(result_df)))
+    )
+    parsed_deps = [
+        parse_departure_date(d, offer_url=u, reference_date=ref_eval_date)
+        for d, u in zip(dates_s, offer_urls_s)
+    ]
     scraped_s = result_df["scraped_at"] if "scraped_at" in result_df.columns else pd.Series([None] * len(result_df))
 
     # Pre-index by hotel

@@ -526,7 +526,15 @@ def build_duration_view_bundle(
         )
 
     def _clamp(v, lo, hi):
-        return max(lo, min(hi, v))
+        if v is None:
+            return lo
+        try:
+            val = float(v)
+            if math.isnan(val):
+                return lo
+            return max(lo, min(hi, val))
+        except (TypeError, ValueError):
+            return lo
 
     deal_score_by_hotel = {}
     entry_candidates = []
@@ -550,9 +558,14 @@ def build_duration_view_bundle(
         typical = g._time_weighted_price_baseline(hist_grp) or latest
         median = float(typical)
         p25 = g._time_weighted_price_quantile(hist_grp, 0.25) or latest
+        p10 = g._time_weighted_price_quantile(hist_grp, 0.10) or latest
+        min_p = float(series.min()) if not series.empty else latest
+        max_p = float(series.max()) if not series.empty else latest
         rel_discount = (median - latest) / median if median > 0 else 0.0
         score_discount = _clamp(50 + rel_discount * 200, 0, 100)
-        if latest <= (g._time_weighted_price_quantile(hist_grp, 0.10) or latest):
+        if min_p >= max_p or p10 >= median:
+            score_rarity = 50
+        elif latest <= p10:
             score_rarity = 100
         elif latest <= p25:
             score_rarity = 80
@@ -562,7 +575,7 @@ def build_duration_view_bundle(
             score_rarity = 35
         recent = prices[-3:] if len(prices) >= 3 else prices
         score_momentum = 50
-        if len(recent) >= 3 and (recent[-1] <= recent[-2] <= recent[-3]):
+        if len(recent) >= 3 and (recent[-1] < recent[-2] <= recent[-3] or recent[-1] <= recent[-2] < recent[-3]):
             score_momentum = 85
         elif len(recent) >= 2 and recent[-1] < recent[-2]:
             score_momentum = 70

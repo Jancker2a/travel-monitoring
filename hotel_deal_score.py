@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import math
 import re
 from typing import Any, Dict, List, Optional, Tuple
 
@@ -18,7 +19,15 @@ TA_DEAL_MAX_ADJUST = 8.0
 
 
 def _clamp(v: float, lo: float, hi: float) -> float:
-    return max(lo, min(hi, v))
+    if v is None:
+        return lo
+    try:
+        val = float(v)
+        if math.isnan(val):
+            return lo
+        return max(lo, min(hi, val))
+    except (TypeError, ValueError):
+        return lo
 
 
 def _typical_observation_gap_hours(times: list) -> float:
@@ -396,18 +405,26 @@ def blend_tripadvisor_into_deal_score(
     max_adjust: float = TA_DEAL_MAX_ADJUST,
     full_weight_reviews: int = TA_DEAL_FULL_WEIGHT_REVIEWS,
 ) -> Tuple[int, float]:
-    """Смещает Deal Score по TA; без отзывов влияние ≈0."""
+    """Смещает Deal Score по TA; без отзывов или рейтинга влияние ≈0."""
+    try:
+        cur_score = int(deal_score)
+    except (TypeError, ValueError):
+        cur_score = 50
+
     weight = tripadvisor_review_weight(ta_review_count, full_weight_reviews=full_weight_reviews)
-    if weight < 0.05:
-        return int(deal_score), weight
+    if weight < 0.05 or ta_rating is None:
+        return cur_score, 0.0
+
     try:
         rating = float(ta_rating)
     except (TypeError, ValueError):
-        return int(deal_score), 0.0
-    if rating <= 0:
-        return int(deal_score), 0.0
+        return cur_score, 0.0
+
+    if math.isnan(rating) or rating <= 0:
+        return cur_score, 0.0
+
     delta = (rating - neutral_rating) * (max_adjust / 1.2)
-    adjusted = int(round(_clamp(deal_score + delta * weight, 0, 100)))
+    adjusted = int(round(_clamp(cur_score + delta * weight, 0, 100)))
     return adjusted, weight
 
 
@@ -444,11 +461,16 @@ def compute_hotel_deal_metrics(
     median = float(typical)
     p25 = time_weighted_price_quantile_from_segments(segments, 0.25) or latest
     p10 = time_weighted_price_quantile_from_segments(segments, 0.10) or latest
+    min_p = float(min(p for p, _ in segments)) if segments else latest
+    max_p = float(max(p for p, _ in segments)) if segments else latest
 
     rel_discount = (median - latest) / median if median > 0 else 0.0
     score_discount = _clamp(50 + rel_discount * 200, 0, 100)
 
-    if latest <= p10:
+    # Редкость: если разброса цен нет (все цены равны), редкость нейтральная 50
+    if min_p >= max_p or p10 >= median:
+        score_rarity = 50
+    elif latest <= p10:
         score_rarity = 100
     elif latest <= p25:
         score_rarity = 80
@@ -458,7 +480,7 @@ def compute_hotel_deal_metrics(
         score_rarity = 35
 
     recent = prices[-3:] if len(prices) >= 3 else prices
-    if len(recent) >= 3 and recent[-1] <= recent[-2] <= recent[-3]:
+    if len(recent) >= 3 and (recent[-1] < recent[-2] <= recent[-3] or recent[-1] <= recent[-2] < recent[-3]):
         score_momentum = 85
     elif len(recent) >= 2 and recent[-1] < recent[-2]:
         score_momentum = 70
