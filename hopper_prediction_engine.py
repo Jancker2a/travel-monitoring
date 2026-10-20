@@ -354,7 +354,12 @@ def predict_offer_action(
         quantile = 0.5
 
     price_tier = get_price_tier(quantile)
-    prior_prob = PRIOR_DROP_PROBABILITIES.get((d_bucket, price_tier), 0.50)
+    try:
+        from hopper_learner import HopperLearner
+        _learner = HopperLearner()
+        prior_prob = _learner.get_calibrated_prior(d_bucket, price_tier)
+    except Exception:
+        prior_prob = PRIOR_DROP_PROBABILITIES.get((d_bucket, price_tier), 0.50)
 
     # Empirical probability from history
     emp_prob, emp_min, comparisons = _estimate_empirical_drop_probability(
