@@ -172,6 +172,9 @@ class TravelPriceMonitor:
                         self._timing_summary["scrape_total"] = time.monotonic() - scrape_t0
                         logger.info(f"⚡ Быстрый HTTP-парсинг успешен: {len(offers)} предложений")
                         return offers
+                    if "SPA-выдача fly.pl" in (last_http_note or ""):
+                        logger.info("⚡ HTTP: обнаружен SPA-шаблон fly.pl, мгновенно переключаемся на Playwright")
+                        break
                     is_empty_market_result = bool(
                         last_http_note
                         and (
@@ -402,7 +405,15 @@ class TravelPriceMonitor:
                 continue
 
             html = resp.text or ""
-            if "card-offer-search" not in html:
+            if "card-offer-search" not in html and "offer-card" not in html:
+                if "offer-app" in html or "listing-app-preloader" in html or "global-offer-modules-search" in html:
+                    last_note = "SPA-выдача fly.pl (карточки рендерятся через Vue.js в браузере)"
+                    _log_timing(
+                        f"HTTP GET стр.{page_number} попытка {page_attempt + 1}",
+                        req_t0,
+                        f"bytes={len(html)}, {last_note}",
+                    )
+                    return None, last_note
                 if len(html) < 5000:
                     last_note = "короткий HTML (возможно анти-бот/ошибка fly.pl)"
                     _log_timing(
@@ -416,18 +427,10 @@ class TravelPriceMonitor:
                     _log_timing(
                         f"HTTP GET стр.{page_number} попытка {page_attempt + 1}",
                         req_t0,
-                        f"bytes={len(html)}, конец пагинации (нет card-offer-search)",
+                        f"bytes={len(html)}, конец пагинации (нет карточек)",
                     )
                     return html, "конец пагинации"
-                # На странице 1 проверяем явный признак пустой выдачи
-                if re.search(r'brak\s+ofert', html, re.I):
-                    _log_timing(
-                        f"HTTP GET стр.{page_number} попытка {page_attempt + 1}",
-                        req_t0,
-                        f"bytes={len(html)}, пустая выдача (Brak ofert)",
-                    )
-                    return html, "пустая выдача fly.pl (Brak ofert)"
-                last_note = "в HTML нет card-offer-search (разметка или пустая выдача)"
+                last_note = "в HTML нет карточек (разметка SPA или пустая выдача)"
                 _log_timing(
                     f"HTTP GET стр.{page_number} попытка {page_attempt + 1}",
                     req_t0,
@@ -472,8 +475,8 @@ class TravelPriceMonitor:
             'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
             'Accept-Language': 'pl-PL,pl;q=0.9,en;q=0.8',
         })
-        session.cookies.set('_crflytest', 'newfly2:old', domain='.fly.pl')
-        session.cookies.set('newpath', '0', domain='.fly.pl')
+        session.cookies.set('_crflytest', 'newfly2:new', domain='.fly.pl')
+        session.cookies.set('newpath', '1', domain='.fly.pl')
 
         logger.info(
             f"⚡ HTTP-режим: лимит цены {max_price_threshold:.0f} PLN, "
@@ -591,7 +594,8 @@ class TravelPriceMonitor:
                     '--no-sandbox',
                     '--disable-dev-shm-usage',
                     '--disable-gpu',
-                    '--disable-web-security'
+                    '--disable-web-security',
+                    '--disable-blink-features=AutomationControlled'
                 ]
             )
             _log_timing("Playwright browser launch", launch_t0)
@@ -626,32 +630,45 @@ class TravelPriceMonitor:
                 
                 wait_t0 = time.monotonic()
                 logger.info("Страница загружена, ждем контент...")
-                await page.wait_for_timeout(5000)
-                _log_timing("Playwright post-goto wait", wait_t0, "5000ms fixed")
+                await page.wait_for_timeout(2500)
+                try:
+                    cb_btn = await page.query_selector(
+                        '#CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll, button#CybotCookiebotDialogBodyButtonAccept'
+                    )
+                    if cb_btn:
+                        await cb_btn.click()
+                        await page.wait_for_timeout(500)
+                except Exception:
+                    pass
+                _log_timing("Playwright post-goto wait", wait_t0, "incl. cookie dismiss")
                 
                 # Парсим страницы пока не достигнем максимальной цены
+                seen_cards_count = 0
                 while page_number <= max_pages:
                     page_t0 = time.monotonic()
                     logger.info(f"Парсим страницу {page_number}...")
                     
                     find_t0 = time.monotonic()
-                    offers_data = await self.find_offers(page)
+                    all_found_cards = await self.find_offers(page)
                     find_elapsed = time.monotonic() - find_t0
                     
-                    if not offers_data:
+                    if not all_found_cards:
                         logger.warning(
                             f"Предложения не найдены за {find_elapsed:.2f}s, "
                             f"пробуем альтернативный подход..."
                         )
                         alt_t0 = time.monotonic()
-                        offers_data = await self.find_offers_alternative(page)
-                        _log_timing("Playwright find_offers_alternative", alt_t0, f"found={len(offers_data)}")
+                        all_found_cards = await self.find_offers_alternative(page)
+                        _log_timing("Playwright find_offers_alternative", alt_t0, f"found={len(all_found_cards)}")
                     else:
-                        _log_timing("Playwright find_offers", find_t0, f"found={len(offers_data)}")
+                        _log_timing("Playwright find_offers", find_t0, f"found={len(all_found_cards)}")
                     
-                        if not offers_data:
-                            logger.info("Предложения не найдены, завершаем парсинг")
-                            break
+                    offers_data = all_found_cards[seen_cards_count:]
+                    seen_cards_count = len(all_found_cards)
+
+                    if not offers_data:
+                        logger.info("Новые предложения не найдены, завершаем парсинг")
+                        break
                     
                     page_offers = []
                     max_price_on_page = 0
@@ -696,7 +713,7 @@ class TravelPriceMonitor:
                             logger.info(f"Достигнута максимальная цена {max_price_threshold} PLN, завершаем парсинг")
                             break
                     else:
-                        logger.info(f"На странице {page_number} не найдено предложений")
+                        logger.info(f"На странице {page_number} не найдено подходящих предложений")
                         break
                     
                     next_t0 = time.monotonic()
@@ -706,23 +723,36 @@ class TravelPriceMonitor:
                         next_t0,
                         "found" if next_page_url else "not found",
                     )
-                    if not next_page_url:
-                        logger.info("Кнопка 'Следующая страница' не найдена, завершаем парсинг")
-                        _log_timing(f"Playwright страница {page_number} total", page_t0)
-                        break
-                    
-                    logger.info(f"Переходим на страницу {page_number + 1}...")
-                    nav_t0 = time.monotonic()
-                    try:
-                        await page.goto(next_page_url, wait_until='domcontentloaded', timeout=self.config['wait_timeout'])
-                        await page.wait_for_timeout(3000)
-                        _log_timing(f"Playwright goto page {page_number + 1}", nav_t0, "incl. 3000ms wait")
-                        _log_timing(f"Playwright страница {page_number} total", page_t0)
-                        page_number += 1
-                    except Exception as e:
-                        _log_timing(f"Playwright goto page {page_number + 1} (ошибка)", nav_t0, str(e))
-                        logger.warning(f"Ошибка перехода на страницу {page_number + 1}: {e}")
-                        break
+                    if next_page_url:
+                        logger.info(f"Переходим на страницу {page_number + 1}...")
+                        nav_t0 = time.monotonic()
+                        try:
+                            await page.goto(next_page_url, wait_until='domcontentloaded', timeout=self.config['wait_timeout'])
+                            await page.wait_for_timeout(3000)
+                            _log_timing(f"Playwright goto page {page_number + 1}", nav_t0, "incl. 3000ms wait")
+                            _log_timing(f"Playwright страница {page_number} total", page_t0)
+                            page_number += 1
+                            seen_cards_count = 0
+                        except Exception as e:
+                            _log_timing(f"Playwright goto page {page_number + 1} (ошибка)", nav_t0, str(e))
+                            logger.warning(f"Ошибка перехода на страницу {page_number + 1}: {e}")
+                            break
+                    else:
+                        load_more_btn = await page.query_selector('button:has-text("Doładuj więcej ofert")')
+                        if load_more_btn and page_number < max_pages:
+                            logger.info(f"Найдена кнопка 'Doładuj więcej ofert', подгружаем порцию {page_number + 1}...")
+                            try:
+                                await load_more_btn.click()
+                                await page.wait_for_timeout(2500)
+                                _log_timing(f"Playwright страница {page_number} total", page_t0)
+                                page_number += 1
+                            except Exception as e:
+                                logger.warning(f"Ошибка нажатия 'Doładuj więcej ofert': {e}")
+                                break
+                        else:
+                            logger.info("Кнопка 'Следующая страница' / 'Doładuj więcej ofert' не найдена, завершаем парсинг")
+                            _log_timing(f"Playwright страница {page_number} total", page_t0)
+                            break
                 
                 _log_timing(
                     "Playwright scan total",
@@ -994,7 +1024,17 @@ class TravelPriceMonitor:
 
     async def find_offers(self, page) -> List:
         """Ищет предложения на странице"""
+        try:
+            body_text = await page.inner_text('body')
+            if 'brak ofert dla' in body_text.lower() or 'nie znaleźliśmy ofert' in body_text.lower():
+                logger.info("ℹ️ На странице обнаружен текст пустой выдачи — 0 предложений")
+                return []
+        except Exception:
+            pass
+
         selectors_to_try = [
+            'div.offer-card',
+            '.offer-card',
             '.card-offer-search',
             '.offer-item',
             '.trip-item', 
@@ -1013,7 +1053,7 @@ class TravelPriceMonitor:
         for selector in selectors_to_try:
             sel_t0 = time.monotonic()
             try:
-                await page.wait_for_selector(selector, timeout=10000)
+                await page.wait_for_selector(selector, timeout=2500)
                 elements = await page.query_selector_all(selector)
                 if elements and len(elements) > 0:
                     _log_timing(
@@ -1155,7 +1195,7 @@ class TravelPriceMonitor:
             
             # Ищем название отеля/тура
             hotel_name = await self.extract_text_by_selectors(element, [
-                'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
+                'h3', 'h2', 'h1', 'h4', 'h5', 'h6',
                 '.title', '.name', '.hotel-name', '.offer-title',
                 '[class*="title"]', '[class*="name"]', '[class*="hotel"]'
             ])
@@ -1428,14 +1468,21 @@ class TravelPriceMonitor:
     async def extract_price_for_all(self, element) -> str:
         """Извлекает цену за всех (za wszystkich)"""
         try:
-            # Ищем элементы с текстом "za wszystkich" или "za wszystkie"
+            # 1. Новая верстка fly.pl SPA: внутри карточки есть строка "4 960zł za wszystkich"
+            full_card_text = await element.inner_text()
+            if full_card_text:
+                m_price = re.search(r'([\d\s\xa0]+)\s*zł\s*(?:za\s+wszystkich|za\s+osobę)?', full_card_text, re.I)
+                if m_price:
+                    digits = re.sub(r'[^\d]', '', m_price.group(1))
+                    if digits and int(digits) > 0:
+                        return digits
+
+            # 2. Ищем элементы с текстом "za wszystkich" или "za wszystkie"
             price_elements = await element.query_selector_all('[class*="price"]')
             
             for price_element in price_elements:
                 text = await price_element.inner_text()
                 if text and ('za wszystkich' in text.lower() or 'za wszystkie' in text.lower()):
-                    # Ищем число в этом элементе
-                    import re
                     numbers = re.findall(r'[\d\s,]+', text.replace('.', '').replace(',', '.'))
                     if numbers:
                         return text.strip()
