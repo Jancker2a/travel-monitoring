@@ -123,7 +123,7 @@ class TravelPriceMonitor:
         env_val = os.environ.get("HTTP_MAX_RETRIES", "").strip()
         if env_val.isdigit():
             return max(1, int(env_val))
-        return max(1, int(self.config.get("http_max_retries", 6)))
+        return max(1, int(self.config.get("http_max_retries", 2)))
 
     def _http_retry_pause_seconds(self, attempt_index: int) -> float:
         base = float(self.config.get("http_retry_delay", self.config.get("retry_delay", 5)))
@@ -368,7 +368,7 @@ class TravelPriceMonitor:
         timeout_s: float,
     ) -> tuple[Optional[str], str]:
         """Загружает HTML страницы выдачи с короткими ретраями на уровне страницы."""
-        page_retries = max(1, int(self.config.get("http_page_retries", 3)))
+        page_retries = max(1, int(self.config.get("http_page_retries", 2)))
         page_retry_delay = float(self.config.get("http_page_retry_delay", 3))
         last_note = "неизвестно"
 
@@ -462,7 +462,7 @@ class TravelPriceMonitor:
         min_price_threshold = float(self.config.get('min_price_threshold', 0))
         max_pages = int(self.config.get('max_pages', 10))
         max_offers = int(self.config.get('max_offers', 0))
-        timeout_s = float(self.config.get('wait_timeout', 30000)) / 1000.0
+        timeout_s = min(float(self.config.get('http_timeout_s', 15.0)), float(self.config.get('wait_timeout', 30000)) / 1000.0)
         empty_note = "нет офферов"
 
         session = requests.Session()

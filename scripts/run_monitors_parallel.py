@@ -35,7 +35,7 @@ DEFAULT_CONFIGS = [
 ]
 
 
-def _run_one(config_name: str, log_dir: Path) -> tuple[str, int, float]:
+def _run_one(config_name: str, log_dir: Path, timeout_s: int = 180) -> tuple[str, int, float]:
     config_path = ROOT / config_name
     if not config_path.is_file():
         return config_name, 127, 0.0
@@ -44,29 +44,39 @@ def _run_one(config_name: str, log_dir: Path) -> tuple[str, int, float]:
             reason = skip_monitor_reason(load_config_json(str(config_path))) or "пропуск"
         except Exception:
             reason = "пропуск"
-        print(f"  ⏭ {config_name} ({reason})")
+        print(f"  ⏭ {config_name} ({reason})", flush=True)
         return config_name, 0, 0.0
 
     log_dir.mkdir(parents=True, exist_ok=True)
     log_path = log_dir / f"{config_path.stem}.log"
     t0 = time.monotonic()
+    print(f"  ▶️ Starting {config_name} (timeout={timeout_s}s)...", flush=True)
     with log_path.open("w", encoding="utf-8") as log_f:
         log_f.write(
             f"# {config_name}\n"
             f"# started {time.strftime('%Y-%m-%d %H:%M:%S')}\n"
             f"# pid={os.getpid()} jobs_env={os.environ.get('MONITOR_PARALLEL_JOBS', '')}\n"
-            f"# HTTP_MAX_RETRIES={os.environ.get('HTTP_MAX_RETRIES', '')}\n\n"
+            f"# HTTP_MAX_RETRIES={os.environ.get('HTTP_MAX_RETRIES', '')}\n"
+            f"# timeout={timeout_s}s\n\n"
         )
         log_f.flush()
-        proc = subprocess.run(
-            [sys.executable, str(ROOT / "travel_monitor.py"), "--config", str(config_path)],
-            cwd=str(ROOT),
-            stdout=log_f,
-            stderr=subprocess.STDOUT,
-            env=os.environ.copy(),
-        )
+        try:
+            proc = subprocess.run(
+                [sys.executable, str(ROOT / "travel_monitor.py"), "--config", str(config_path)],
+                cwd=str(ROOT),
+                stdout=log_f,
+                stderr=subprocess.STDOUT,
+                env=os.environ.copy(),
+                timeout=timeout_s,
+            )
+            returncode = proc.returncode
+        except subprocess.TimeoutExpired:
+            log_f.write(f"\n# TIMEOUT: process exceeded {timeout_s}s limit\n")
+            log_f.flush()
+            print(f"  ⏰ {config_name} TIMED OUT after {timeout_s}s!", flush=True)
+            returncode = 124
     elapsed = time.monotonic() - t0
-    return config_name, proc.returncode, elapsed
+    return config_name, returncode, elapsed
 
 
 def main() -> int:
@@ -77,6 +87,12 @@ def main() -> int:
         type=int,
         default=int(os.environ.get("MONITOR_PARALLEL_JOBS", "3")),
         help="Max concurrent monitors (default: 3, env MONITOR_PARALLEL_JOBS)",
+    )
+    parser.add_argument(
+        "--timeout",
+        type=int,
+        default=int(os.environ.get("MONITOR_TIMEOUT_PER_CONFIG", "180")),
+        help="Timeout in seconds per config (default: 180s, env MONITOR_TIMEOUT_PER_CONFIG)",
     )
     parser.add_argument(
         "--log-dir",
@@ -93,23 +109,26 @@ def main() -> int:
     jobs = max(1, args.jobs)
     log_dir = Path(args.log_dir)
 
-    print(f"Parallel monitoring: {len(args.configs)} configs, jobs={jobs}")
-    print(f"Logs: {log_dir}")
+    print(f"Parallel monitoring: {len(args.configs)} configs, jobs={jobs}, timeout={args.timeout}s", flush=True)
+    print(f"Logs: {log_dir}", flush=True)
     t0 = time.monotonic()
     failed: list[str] = []
 
     with ProcessPoolExecutor(max_workers=jobs) as pool:
-        futures = {pool.submit(_run_one, cfg, log_dir): cfg for cfg in args.configs}
+        futures = {pool.submit(_run_one, cfg, log_dir, args.timeout): cfg for cfg in args.configs}
         for fut in as_completed(futures):
             cfg, code, elapsed = fut.result()
             if code == 0:
-                print(f"  ✓ {cfg} ({elapsed:.0f}s)")
+                print(f"  ✓ {cfg} ({elapsed:.0f}s)", flush=True)
+            elif code == 124:
+                print(f"  ⏰ {cfg} TIMED OUT ({elapsed:.0f}s) → {log_dir / Path(cfg).stem}.log", flush=True)
+                failed.append(cfg)
             else:
-                print(f"  ✗ {cfg} exit={code} ({elapsed:.0f}s) → {log_dir / Path(cfg).stem}.log")
+                print(f"  ✗ {cfg} exit={code} ({elapsed:.0f}s) → {log_dir / Path(cfg).stem}.log", flush=True)
                 failed.append(cfg)
 
     total = time.monotonic() - t0
-    print(f"Done in {total:.0f}s — ok {len(args.configs) - len(failed)}/{len(args.configs)}")
+    print(f"Done in {total:.0f}s — ok {len(args.configs) - len(failed)}/{len(args.configs)}", flush=True)
     return 1 if failed else 0
 
 

@@ -21,6 +21,8 @@ jobs:
   monitor-and-deploy:
     runs-on: ubuntu-latest
     timeout-minutes: 60
+    env:
+      PYTHONUNBUFFERED: "1"
 
     steps:
       - name: Checkout code
@@ -67,8 +69,9 @@ jobs:
           MONITOR_PARALLEL_ENABLED: "true"
           # 3 — баланс скорости и fly.pl / RAM; для максимума: "6"
           MONITOR_PARALLEL_JOBS: "3"
-          # Больше HTTP-попыток перед дорогим Playwright fallback
-          HTTP_MAX_RETRIES: "6"
+          MONITOR_TIMEOUT_PER_CONFIG: "180"
+          # 2 быстрых HTTP-попытки (max 15s на запрос), чтобы не зависать при сбоях fly.pl
+          HTTP_MAX_RETRIES: "2"
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
           PLAYWRIGHT_BROWSERS_PATH: /home/runner/.cache/ms-playwright
         run: |
