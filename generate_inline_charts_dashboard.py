@@ -1337,7 +1337,8 @@ def _render_hotel_chart_page(
     favicon_href="favicon.svg",
 ):
     current_p = float(y_values[-1]) if y_values else 0.0
-    is_at_min = bool(y_values) and current_p <= min_p + 2.0
+    has_drop = (max_p - min_p) >= 50.0 and max_p > 0 and ((max_p - min_p) / max_p) >= 0.02
+    is_at_min = bool(y_values) and has_drop and current_p <= min_p + 2.0
     above_ceiling_now = (
         display_price_ceiling is not None
         and y_values

@@ -226,7 +226,9 @@
           const meta = d.meta || {};
           const currentP = y.length ? Number(y[y.length - 1]) : 0;
           const minP = d.min_p != null ? d.min_p : (y.length ? Math.min.apply(null, y) : 0);
-          const isAtMin = y.length && currentP <= minP + 2;
+          const maxP = d.max_p != null ? d.max_p : (y.length ? Math.max.apply(null, y) : 0);
+          const hasDrop = (maxP - minP) >= 50 && maxP > 0 && ((maxP - minP) / maxP) >= 0.02;
+          const isAtMin = y.length && hasDrop && currentP <= minP + 2;
           const ceiling = d.display_price_ceiling;
           const aboveCeiling = ceiling != null && y.length && currentP > Number(ceiling);
 
