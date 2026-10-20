@@ -693,7 +693,7 @@ class TravelPriceMonitor:
                 await page.wait_for_timeout(2500)
                 try:
                     cb_btn = await page.query_selector(
-                        '#CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll, button#CybotCookiebotDialogBodyButtonAccept'
+                        'button:has-text("Akceptuję"), #CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll, button#CybotCookiebotDialogBodyButtonAccept, button:has-text("Zezwól")'
                     )
                     if cb_btn:
                         await cb_btn.click()
@@ -773,7 +773,8 @@ class TravelPriceMonitor:
                             logger.info(f"Достигнута максимальная цена {max_price_threshold} PLN, завершаем парсинг")
                             break
                     else:
-                        logger.info(f"На странице {page_number} не найдено подходящих предложений")
+                        scope_info = f" (отфильтровано нерелевантных предложений: {filtered_out_on_scope})" if filtered_out_on_scope else ""
+                        logger.info(f"На странице {page_number} не найдено подходящих предложений{scope_info}")
                         break
                     
                     load_more_btn = await page.query_selector('button:has-text("Doładuj więcej ofert")')
@@ -1265,7 +1266,14 @@ class TravelPriceMonitor:
                 
                 // Ссылка на детальное предложение
                 const linkEl = el.querySelector('a[href*="/wycieczka/"], a.image-link, a.offer-con, a[href*="offer"]');
-                const offer_url = linkEl ? linkEl.getAttribute('href') : '';
+                let offer_url = linkEl ? (linkEl.getAttribute('href') || '') : '';
+                if (!offer_url) {
+                    offer_url = el.getAttribute('data-phref') || el.getAttribute('href') || '';
+                }
+                if (!offer_url) {
+                    const metaEl = el.querySelector('meta[property="schema:url"]');
+                    offer_url = metaEl ? (metaEl.getAttribute('content') || '') : '';
+                }
                 
                 // Изображение
                 const imgEl = el.querySelector('img[src], img[data-src], img[data-original], img[data-lazy], img[data-srcset], img[srcset]');
