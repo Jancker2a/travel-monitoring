@@ -65,10 +65,23 @@
       "created_at": "2026-10-20T07:46:28.870879+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sentido Oriental Dream Resort Egipt, Marsa Alam_2026-10-20_07-46_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sea Star Beau Rivage Egipt, Hurghada",
+      "duration_bucket": "",
+      "old_price": 10065.0,
+      "new_price": 10065.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-20 16:39:22.818525+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-20T16:39:37.773484+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sea Star Beau Rivage Egipt, Hurghada_2026-10-20_16-39_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-20T07:46:25.082018+00:00",
+    "last_processed_run": "2026-10-20T16:39:22.818525+00:00",
     "premium_state": {
       "Sentido Oriental Dream Resort Egipt, Marsa Alam": {
         "history_max": 10973.0,
@@ -92,6 +105,70 @@
       },
       "Sea Star Beau Rivage Egipt, Hurghada": {
         "history_max": 10065.0,
+        "premium_peak": null
+      },
+      "SEA STAR BEAU RIVAGE": {
+        "history_max": 12389.0,
+        "premium_peak": 12389.0
+      },
+      "Royal Lagoons Resort and Aqua Park": {
+        "history_max": 9944.0,
+        "premium_peak": null
+      },
+      "Sea Star Beau Rivage": {
+        "history_max": 10279.0,
+        "premium_peak": null
+      },
+      "Amc Royal Hotel & Spa": {
+        "history_max": 12420.0,
+        "premium_peak": 12420.0
+      },
+      "BADAWIA RESORT": {
+        "history_max": 9318.0,
+        "premium_peak": null
+      },
+      "Stella Beach Resort & Spa Makadi Bay": {
+        "history_max": 12056.0,
+        "premium_peak": 12056.0
+      },
+      "Rewaya Inn Resort (ex.Hawaii Paradise Aq": {
+        "history_max": 10636.0,
+        "premium_peak": null
+      },
+      "Retac Qunay Dahab Resort & Spa": {
+        "history_max": 9257.0,
+        "premium_peak": null
+      },
+      "Regency Plaza Aqua Park And Spa": {
+        "history_max": 5482.0,
+        "premium_peak": null
+      },
+      "Parrotel Lagoon Resort": {
+        "history_max": 10212.0,
+        "premium_peak": null
+      },
+      "Onatti Beach Resort": {
+        "history_max": 9347.0,
+        "premium_peak": null
+      },
+      "Novotel Marsa Alam": {
+        "history_max": 5577.0,
+        "premium_peak": null
+      },
+      "Empire Hotel Aqua Park (Ex. Triton Empir": {
+        "history_max": 9500.0,
+        "premium_peak": null
+      },
+      "Creek Hotel and Residences El Gouna": {
+        "history_max": 5654.0,
+        "premium_peak": null
+      },
+      "Amarina Queen Resort & Aqua Park": {
+        "history_max": 5452.0,
+        "premium_peak": null
+      },
+      "Swisstouch Oriental Resort Marsa Alam": {
+        "history_max": 4877.0,
         "premium_peak": null
       }
     }
