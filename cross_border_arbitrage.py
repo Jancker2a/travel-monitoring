@@ -21,6 +21,7 @@ from datetime import date, datetime
 import json
 import logging
 import os
+import re
 from typing import Any, Dict, List, Optional, Tuple, Union
 import pandas as pd
 import requests
@@ -87,16 +88,86 @@ def get_eur_pln_exchange_rate(timeout: int = 5) -> float:
     return DEFAULT_EUR_PLN_RATE
 
 
+def parse_departure_date(text: str) -> Optional[date]:
+    """Extracts the first departure date from date range strings."""
+    if not text or not isinstance(text, str):
+        return None
+    # Format DD.MM.YYYY
+    m = re.search(r"(\d{2})\.(\d{2})\.(\d{4})", text)
+    if m:
+        try:
+            return datetime.strptime(f"{m.group(3)}-{m.group(2)}-{m.group(1)}", "%Y-%m-%d").date()
+        except ValueError:
+            pass
+    # Format YYYY-MM-DD
+    m2 = re.search(r"(\d{4})-(\d{2})-(\d{2})", text)
+    if m2:
+        try:
+            return datetime.strptime(m2.group(0), "%Y-%m-%d").date()
+        except ValueError:
+            pass
+    return None
+
+
+def parse_duration_days(text: Union[str, int, float]) -> Optional[int]:
+    """Extracts duration in days from text strings (e.g. '8 dni', '7 Tage', '7 nocy')."""
+    if text is None:
+        return None
+    if isinstance(text, (int, float)):
+        return int(text)
+    m = re.search(r"(\d+)\s*(?:Tage|Tagen|dni|days|Nächte|nocy)", str(text), re.I)
+    if m:
+        return int(m.group(1))
+    m2 = re.search(r"\b(\d+)\b", str(text))
+    return int(m2.group(1)) if m2 else None
+
+
+def is_offer_comparable(
+    dates_pl: str,
+    dates_de: str,
+    duration_pl: Any,
+    duration_de: Any,
+    max_date_diff_days: int = 4,
+    max_duration_diff_days: int = 2,
+) -> Tuple[bool, str]:
+    """
+    Verifies that Polish and German offers have matching parameters:
+    - Departure dates within max_date_diff_days (e.g. +-4 days)
+    - Durations within max_duration_diff_days (e.g. +-2 days)
+    """
+    d_pl = parse_departure_date(dates_pl)
+    d_de = parse_departure_date(dates_de)
+
+    if d_pl and d_de:
+        diff_days = abs((d_pl - d_de).days)
+        if diff_days > max_date_diff_days:
+            return False, f"Dates mismatch: PL {d_pl} vs DE {d_de} (diff: {diff_days} days)"
+
+    dur_pl = parse_duration_days(duration_pl)
+    dur_de = parse_duration_days(duration_de)
+
+    if dur_pl and dur_de:
+        dur_diff = abs(dur_pl - dur_de)
+        if dur_diff > max_duration_diff_days:
+            return False, f"Duration mismatch: PL {dur_pl}d vs DE {dur_de}d (diff: {dur_diff} days)"
+
+    return True, "OK"
+
+
 class CrossBorderArbitrageEngine:
     def __init__(
         self,
         eur_rate: Optional[float] = None,
         friction_cost_pln: float = DEFAULT_FRICTION_COST_PLN,
         matcher: Optional[HotelEntityMatcher] = None,
+        max_date_diff_days: int = 4,
+        max_duration_diff_days: int = 2,
     ):
         self.eur_rate = eur_rate or get_eur_pln_exchange_rate()
         self.friction_cost_pln = friction_cost_pln
         self.matcher = matcher or HotelEntityMatcher()
+        self.max_date_diff_days = max_date_diff_days
+        self.max_duration_diff_days = max_duration_diff_days
 
     def compare_offers(
         self,
@@ -105,6 +176,7 @@ class CrossBorderArbitrageEngine:
     ) -> List[ArbitrageMatch]:
         """
         Cross-matches Polish and German tour offers, finding arbitrage opportunities.
+        Enforces entity matching, departure date window tolerances, and duration parity.
         """
         # Convert inputs to list of dicts
         pl_list: List[Dict[str, Any]] = (
@@ -156,6 +228,24 @@ class CrossBorderArbitrageEngine:
             ]
 
             for de_item in matching_de_offers:
+                # Validate date and duration comparability
+                dates_pl = str(pl_item.get("dates", ""))
+                dates_de = str(de_item.get("dates", ""))
+                dur_pl = pl_item.get("duration", "")
+                dur_de = de_item.get("duration", "") or de_item.get("duration_days", "")
+
+                comparable, reason = is_offer_comparable(
+                    dates_pl=dates_pl,
+                    dates_de=dates_de,
+                    duration_pl=dur_pl,
+                    duration_de=dur_de,
+                    max_date_diff_days=self.max_date_diff_days,
+                    max_duration_diff_days=self.max_duration_diff_days,
+                )
+                if not comparable:
+                    logger.debug(f"Skipping incompatible pair '{pl_name}' vs '{matched_de_name}': {reason}")
+                    continue
+
                 try:
                     de_eur = float(de_item.get("price_eur") or 0.0)
                 except (ValueError, TypeError):
@@ -163,6 +253,7 @@ class CrossBorderArbitrageEngine:
 
                 if de_eur <= 0:
                     continue
+
 
                 # Currency conversion and friction
                 de_converted_pln = round(de_eur * self.eur_rate, 0)
