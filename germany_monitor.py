@@ -107,11 +107,12 @@ class GermanyTourMonitor:
 
         travel_period = self.config.get('travel_period', '')
         duration = self.config.get('duration', '7-10')
+        room_allocation = self.config.get('room_allocation', 'A-A')
         airport = self.airport
 
         url = (
             f"https://urlaub.check24.de/suche/hotel?"
-            f"airport={airport}&transportType=flight&roomAllocation=A-A&areaId={area_id}"
+            f"airport={airport}&transportType=flight&roomAllocation={room_allocation}&areaId={area_id}"
         )
         if travel_period:
             url += f"&travelPeriod={travel_period}"
@@ -372,12 +373,105 @@ class GermanyTourMonitor:
         logger.info(
             f"Saved {len(new_offers)} new offers to {self.output_csv} (Total records: {len(existing_data) + len(new_offers)})"
         )
+
+        # Also append to central CSV if saving to a filter-specific CSV
+        central_csv = os.path.join("data", "germany", "germany_prices.csv")
+        try:
+            if os.path.abspath(self.output_csv) != os.path.abspath(central_csv):
+                os.makedirs(os.path.dirname(os.path.abspath(central_csv)), exist_ok=True)
+                write_hdr = not os.path.exists(central_csv) or os.path.getsize(central_csv) == 0
+                with open(central_csv, 'a', newline='', encoding='utf-8') as f:
+                    writer = csv.DictWriter(f, fieldnames=GERMANY_PRICE_CSV_FIELDS, quoting=csv.QUOTE_ALL)
+                    if write_hdr:
+                        writer.writeheader()
+                    for offer in new_offers:
+                        writer.writerow({k: offer.get(k, '') for k in GERMANY_PRICE_CSV_FIELDS})
+        except Exception as e:
+            logger.debug(f"Central CSV sync: {e}")
+
         return self.output_csv
+
+
+def map_polish_config_to_germany_params(polish_cfg: Dict[str, Any], cfg_name: str = "") -> Dict[str, Any]:
+    """
+    Extracts equivalent Check24 query parameters from any Polish travel_monitor JSON config:
+    - destination & areaId (Antalya 578, Sharm 674, Hurghada 673, Crete 603, etc.)
+    - travelPeriod (from filter[whenFrom] and filter[whenTo])
+    - duration (from filter[duration])
+    - roomAllocation (A for 1 adult, A-A for 2 adults)
+    - data_dir & output_data_file (stores directly in filter's data_dir and/or data/germany)
+    """
+    from urllib.parse import parse_qs, urlparse
+    url = polish_cfg.get('url', '')
+    parsed = urlparse(url)
+    qs = parse_qs(parsed.query)
+
+    # 1. Dates: whenFrom=31-05-2026 & whenTo=30-06-2026 -> 2026-05-31_2026-06-30
+    w_from = qs.get('filter[whenFrom]', [''])[0]
+    w_to = qs.get('filter[whenTo]', [''])[0]
+    period = ''
+    if w_from and w_to:
+        f_p = w_from.split('-')
+        t_p = w_to.split('-')
+        if len(f_p) == 3 and len(t_p) == 3:
+            period = f"{f_p[2]}-{f_p[1]}-{f_p[0]}_{t_p[2]}-{t_p[1]}-{t_p[0]}"
+
+    # 2. Duration: 7:10 -> 7-10, 7:15 -> 7-14
+    dur = qs.get('filter[duration]', ['7:10'])[0].replace(':', '-')
+    if dur == '7-15':
+        dur = '7-14'
+
+    # 3. Room allocation
+    try:
+        adults = int(qs.get('filter[person]', [2])[0])
+        children = int(qs.get('filter[child]', [0])[0])
+    except (ValueError, TypeError):
+        adults, children = 2, 0
+
+    if adults == 1 and children == 0:
+        room = 'A'
+    else:
+        room = 'A-A'
+
+    # 4. Destination & Area mapping
+    comb = (cfg_name + ' ' + url + ' ' + str(polish_cfg.get('description', ''))).lower()
+    if 'sharm' in comb or '11_154' in comb:
+        dest_name = 'Egypt'
+        dest_key = 'egypt_sharm'
+        area_id = 674
+    elif 'egypt' in comb or 'egipt' in comb:
+        dest_name = 'Egypt'
+        dest_key = 'egypt_hurghada'
+        area_id = 673
+    elif 'greece' in comb or 'grecja' in comb or 'kreta' in comb:
+        dest_name = 'Greece'
+        dest_key = 'greece_crete'
+        area_id = 603
+    else:
+        dest_name = 'Turkey'
+        dest_key = 'turkey_antalya'
+        area_id = 578
+
+    data_dir = polish_cfg.get('data_dir', 'data/germany')
+    out_file = os.path.join(data_dir, 'germany_prices.csv')
+
+    return {
+        'destination': dest_name,
+        'destination_key': dest_key,
+        'area_id': area_id,
+        'travel_period': period,
+        'duration': dur,
+        'room_allocation': room,
+        'data_dir': data_dir,
+        'output_data_file': out_file,
+        'departure_airport': 'BER',
+    }
 
 
 def parse_args():
     parser = argparse.ArgumentParser(description="German Tour Package Monitor (BER/DRS)")
     parser.add_argument("--config", help="Path to JSON configuration file")
+    parser.add_argument("--from-polish-config", help="Derive German search parameters from a Polish filter JSON config")
     parser.add_argument("--destination", default=None, help="Destination name (Turkey, Egypt, Greece)")
     parser.add_argument("--destination-key", default=None, help="Key for Check24 area mapping")
     parser.add_argument("--airport", default=None, choices=["BER", "DRS", "LEJ"], help="Departure airport close to Polish border (BER, DRS, LEJ)")
@@ -392,7 +486,11 @@ async def main_async():
     args = parse_args()
     config = {}
 
-    if args.config and os.path.exists(args.config):
+    if args.from_polish_config and os.path.exists(args.from_polish_config):
+        with open(args.from_polish_config, 'r', encoding='utf-8') as f:
+            p_cfg = json.load(f)
+        config.update(map_polish_config_to_germany_params(p_cfg, args.from_polish_config))
+    elif args.config and os.path.exists(args.config):
         with open(args.config, 'r', encoding='utf-8') as f:
             config = json.load(f)
 

@@ -2497,7 +2497,11 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
     dest_code = "egypt" if ("egypt" in dest_str or "egipt" in dest_str) else ("greece" if ("greece" in dest_str or "grecja" in dest_str) else "turkey")
     try:
         de_client = GermanyTourClient()
-        de_packages = de_client.fetch_destination_packages(dest_code, ["BER", "DRS"], use_mock_fallback=True)
+        cur_data_dir = os.path.dirname(os.path.abspath(data_file)) if data_file else None
+        filter_de_csv = os.path.join(cur_data_dir, "germany_prices.csv") if cur_data_dir else None
+        de_packages = de_client.fetch_destination_packages(
+            dest_code, ["BER", "DRS"], use_mock_fallback=True, csv_path=filter_de_csv
+        )
         arb_engine = CrossBorderArbitrageEngine()
         arbitrage_matches = arb_engine.compare_offers(all_hotels, de_packages)
         for m in arbitrage_matches:
@@ -5810,36 +5814,16 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         }}
         .mode-switch {{
             display: inline-flex;
-            position: relative;
+            align-items: center;
+            gap: 3px;
             border: none;
-            border-radius: 9px;
+            border-radius: 10px;
             margin: .35rem 0 .85rem;
             background: rgba(118,118,128,.14);
-            padding: 2px;
+            padding: 3px;
             isolation: isolate;
             touch-action: manipulation;
             -webkit-tap-highlight-color: transparent;
-        }}
-        .mode-switch::before {{
-            content: "";
-            position: absolute;
-            top: 2px;
-            bottom: 2px;
-            left: 2px;
-            width: calc(33.333% - 2px);
-            border-radius: 7px;
-            background: #fff;
-            box-shadow: 0 1px 3px rgba(0,0,0,.14), 0 1px 1px rgba(0,0,0,.05);
-            transition: transform .24s cubic-bezier(.4,0,.2,1);
-            transform: translateX(0);
-            z-index: 0;
-            pointer-events: none;
-        }}
-        .mode-switch[data-mode="table"]::before {{
-            transform: translateX(100%);
-        }}
-        .mode-switch[data-mode="arbitrage"]::before {{
-            transform: translateX(200%);
         }}
         .arb-count-badge {{
             background: #10b981;
@@ -5880,31 +5864,42 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         .mode-btn {{
             position: relative;
             z-index: 1;
-            flex: 1;
             border: none;
             background: transparent;
-            padding: .42rem 1.05rem;
-            font-size: .85rem;
+            padding: .42rem .95rem;
+            font-size: .84rem;
             cursor: pointer;
-            color: #6b7280;
+            color: #64748b;
             font-weight: 600;
             white-space: nowrap;
             text-align: center;
-            transition: color .18s ease;
+            border-radius: 7px;
+            transition: all .18s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }}
+        .mode-btn:hover {{
+            color: #1e293b;
         }}
         .mode-btn.active {{
-            color: #111827;
-            background: transparent;
-            box-shadow: none;
+            background: #ffffff;
+            color: #0f172a;
+            box-shadow: 0 1px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.06);
         }}
         .dark-theme .mode-switch {{
-            background: rgba(255,255,255,.12);
+            background: rgba(255,255,255,.08);
         }}
         .dark-theme .mode-btn {{
-            color: #cbd5e1;
+            color: #94a3b8;
+        }}
+        .dark-theme .mode-btn:hover {{
+            color: #f1f5f9;
         }}
         .dark-theme .mode-btn.active {{
-            color: #0f172a;
+            background: #1e293b;
+            color: #f8fafc;
+            box-shadow: 0 1px 3px rgba(0,0,0,.4);
         }}
         .cards-section {{
             margin: 0 0 1.2rem 0;
@@ -6068,6 +6063,7 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
 
         /* Hopper Predictive Engine Pills */
         .hopper-pill {{
+            position: relative;
             display: inline-flex;
             align-items: center;
             gap: 4px;
@@ -6078,6 +6074,49 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             border: 1px solid transparent;
             white-space: nowrap;
             cursor: help;
+        }}
+        .hopper-pill::after {{
+            content: attr(data-tip);
+            position: absolute;
+            bottom: calc(100% + 7px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: #0f172a;
+            color: #f8fafc;
+            font-size: 0.74rem;
+            font-weight: 500;
+            line-height: 1.35;
+            padding: .45rem .75rem;
+            border-radius: 7px;
+            white-space: normal;
+            width: 250px;
+            max-width: 85vw;
+            box-shadow: 0 8px 20px rgba(0,0,0,.35);
+            pointer-events: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity .18s ease, visibility .18s ease;
+            z-index: 10000;
+            text-align: left;
+        }}
+        .hopper-pill::before {{
+            content: "";
+            position: absolute;
+            bottom: calc(100% + 1px);
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 6px 6px 0 6px;
+            border-style: solid;
+            border-color: #0f172a transparent transparent transparent;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity .18s ease, visibility .18s ease;
+            z-index: 10000;
+        }}
+        .hopper-pill:hover::after,
+        .hopper-pill:hover::before {{
+            opacity: 1;
+            visibility: visible;
         }}
         .hopper-pill.buy-now {{
             background: rgba(16,185,129,.18);
@@ -6108,6 +6147,14 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             background: rgba(239,68,68,.25);
             color: #f87171;
             border-color: rgba(239,68,68,.4);
+        }}
+        .dark-theme .hopper-pill::after {{
+            background: #1e293b;
+            color: #f1f5f9;
+            border: 1px solid rgba(255,255,255,.1);
+        }}
+        .dark-theme .hopper-pill::before {{
+            border-color: #1e293b transparent transparent transparent;
         }}
 
         /* Arbitrage Card Badge */
@@ -8593,7 +8640,7 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
                     <div class="hotel-card-meta">
                         <div class="hotel-card-price">{c["price"]:.0f} PLN</div>
                         <span class="deal-pill {c["deal_class"]}">Deal {c["deal_score"]} • {c["deal_label"]}</span>
-                        {f'<span class="hopper-pill {c["hopper_class"]}" title="{html_lib.escape(c["hopper_reasoning"], quote=True)}">{c["hopper_badge"]}</span>' if c.get("hopper_badge") else f'<span class="forecast-pill {c["forecast_class"]}">{c["forecast_icon"]} {c["forecast_text"]}</span>'}
+                        {f'<span class="hopper-pill {c["hopper_class"]}" data-tip="{html_lib.escape(c["hopper_reasoning"], quote=True)}" title="{html_lib.escape(c["hopper_reasoning"], quote=True)}">{c["hopper_badge"]}</span>' if c.get("hopper_badge") else f'<span class="forecast-pill {c["forecast_class"]}">{c["forecast_icon"]} {c["forecast_text"]}</span>'}
                     </div>
                     {c["comeback_html"]}
                     {c.get("cheaper_alt_html", "")}
@@ -8984,7 +9031,7 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             <div class="mode-switch table-mode-switch" id="modeSwitch" data-mode="cards">
                 <button type="button" class="mode-btn active" data-mode="cards">Карточки</button>
                 <button type="button" class="mode-btn" data-mode="table">Таблица</button>
-                <button type="button" class="mode-btn" data-mode="arbitrage">🌍 Арбитраж Польша ⇄ BER {arb_badge_count_html}</button>
+                <button type="button" class="mode-btn" data-mode="arbitrage">🌍 Арбитраж BER {arb_badge_count_html}</button>
             </div>
         </div>
 
@@ -8993,6 +9040,12 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             <input type="text" class="filter-input" id="searchInput" placeholder="🔍 Поиск по отелям..." />
             <select class="filter-select" id="priceFilter">
                 {price_filter_options_html}
+            </select>
+            <select class="filter-select" id="forecastFilter">
+                <option value="">Все рекомендации</option>
+                <option value="buy">🟢 Покупать</option>
+                <option value="wait">🟡 Ждать</option>
+                <option value="expensive">🔴 Дорого</option>
             </select>
             <select class="filter-select" id="taFilter">
                 <option value="">Все рейтинги TripAdvisor</option>
@@ -9205,7 +9258,7 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         hopper_reasoning_tbl = str(hotel.get('hopper_reasoning') or '')
         if hopper_badge_tbl:
             hopper_cls = "buy-now" if hopper_verdict_tbl == "BUY_NOW" else ("wait" if hopper_verdict_tbl == "WAIT" else ("overpriced" if hopper_verdict_tbl == "OVERPRICED" else "neutral"))
-            forecast_cell_html = f'<span class="hopper-pill {hopper_cls}" title="{html_lib.escape(hopper_reasoning_tbl, quote=True)}">{hopper_badge_tbl}</span>'
+            forecast_cell_html = f'<span class="hopper-pill {hopper_cls}" data-tip="{html_lib.escape(hopper_reasoning_tbl, quote=True)}" title="{html_lib.escape(hopper_reasoning_tbl, quote=True)}">{hopper_badge_tbl}</span>'
             forecast_sort_val = hopper_verdict_tbl
         else:
             forecast_cell_html = f'<span class="forecast-pill {forecast["class"]}">{forecast["icon"]} {forecast["text"]}</span>'
@@ -9867,7 +9920,11 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         const cell = row.cells[idx];
         const raw = (cell && (cell.dataset.sortValue || cell.textContent) || '').trim();
         if (column === 'forecast') {
-          return raw === 'Покупать' ? 3 : (raw === 'Наблюдать' ? 2 : (raw === 'Дорого' ? 1 : 0));
+          const u = raw.toUpperCase();
+          if (u.includes('BUY') || u.includes('ПОКУПАТЬ')) return 3;
+          if (u.includes('WAIT') || u.includes('ЖДАТЬ') || u.includes('НАБЛЮДАТЬ')) return 2;
+          if (u.includes('OVERPRICED') || u.includes('ДОРОГО')) return 1;
+          return 0;
         }
         if (column === 'hotel' || column === 'region') {
           return (row.cells[getColumnIndex(column)].textContent || '').trim().toLowerCase();
@@ -10295,6 +10352,8 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
           const changeType = changeFilter.value;
           const regionValue = regionFilter ? regionFilter.value : '';
           const taValue = taFilter ? taFilter.value : '';
+          const forecastFilter = document.getElementById('forecastFilter');
+          const forecastValue = forecastFilter ? forecastFilter.value : '';
           const watchlistToggle = document.getElementById('watchlistToggle');
           const watchlistOnly = watchlistToggle ? watchlistToggle.classList.contains('active') : false;
           const watchlist = typeof window.getWatchlist === 'function' ? window.getWatchlist() : [];
@@ -10319,6 +10378,16 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             }
             if (window.activeCalendarDate && rowDate !== window.activeCalendarDate) {
               return false;
+            }
+            
+            // Forecast filter
+            if (forecastValue) {
+              const forecastCell = row.cells[3];
+              const fText = (forecastCell?.textContent || '').toUpperCase();
+              const fSort = (forecastCell?.dataset?.sortValue || '').toUpperCase();
+              if (forecastValue === 'buy' && !fText.includes('ПОКУПАТЬ') && !fSort.includes('BUY')) return false;
+              if (forecastValue === 'wait' && !fText.includes('ЖДАТЬ') && !fText.includes('НАБЛЮДАТЬ') && !fSort.includes('WAIT')) return false;
+              if (forecastValue === 'expensive' && !fText.includes('ДОРОГО') && !fSort.includes('OVERPRICED')) return false;
             }
             
             // Price filter
@@ -10377,6 +10446,12 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             }
             if (window.activeCalendarDate && cardDate !== window.activeCalendarDate) {
               return false;
+            }
+            if (forecastValue) {
+              const cardHopper = (card.querySelector('.hopper-pill')?.textContent || card.querySelector('.forecast-pill')?.textContent || '').toUpperCase();
+              if (forecastValue === 'buy' && !cardHopper.includes('ПОКУПАТЬ') && !cardHopper.includes('BUY')) return false;
+              if (forecastValue === 'wait' && !cardHopper.includes('ЖДАТЬ') && !cardHopper.includes('НАБЛЮДАТЬ') && !cardHopper.includes('WAIT')) return false;
+              if (forecastValue === 'expensive' && !cardHopper.includes('ДОРОГО') && !cardHopper.includes('OVERPRICED')) return false;
             }
             if (priceRange) {
               if (priceRange.endsWith('+')) {
@@ -10509,12 +10584,15 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
 
         if (searchInput) searchInput.addEventListener('input', filterRows);
         if (priceFilter) priceFilter.addEventListener('change', filterRows);
+        const forecastFilterEl = document.getElementById('forecastFilter');
+        if (forecastFilterEl) forecastFilterEl.addEventListener('change', filterRows);
         if (changeFilter) changeFilter.addEventListener('change', filterRows);
         if (regionFilter) regionFilter.addEventListener('change', filterRows);
         if (taFilter) taFilter.addEventListener('change', filterRows);
         if (clearFilters) clearFilters.addEventListener('click', function() {
           if (searchInput) searchInput.value = '';
           if (priceFilter) priceFilter.value = '';
+          if (forecastFilterEl) forecastFilterEl.value = '';
           if (changeFilter) changeFilter.value = '';
           if (regionFilter) regionFilter.value = '';
           if (taFilter) taFilter.value = '';

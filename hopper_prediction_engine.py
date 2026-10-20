@@ -256,7 +256,7 @@ def predict_offer_action(
     if not dep_date:
         return HopperPrediction(
             verdict="UNKNOWN",
-            badge_text="⚪ UNKNOWN",
+            badge_text="⚪ НЕТ ДАННЫХ",
             confidence="LOW",
             confidence_pct=10,
             drop_probability_pct=50,
@@ -407,31 +407,31 @@ def predict_offer_action(
     if days_to_dep <= 3:
         if current_price <= p_median * 1.10:
             verdict = "BUY_NOW"
-            badge = "🟢 BUY NOW"
+            badge = "🟢 ПОКУПАТЬ"
             reasoning = f"Вылет через {days_to_dep} дн. Риск закрытия продажи отеля критический, цена на дне."
         else:
             verdict = "WAIT"
-            badge = "🟡 РИСК / ПОСЛЕДНИЙ ШАНС"
+            badge = "🟡 ПОСЛЕДНИЙ ШАНС"
             reasoning = f"Вылет через {days_to_dep} дн., но цена завышена. Ожидайте сброса в последние часы или ищите альтернативу."
 
     # 2. Severe overprice
     elif quantile >= 0.80 or current_price > p_median * 1.20:
         verdict = "OVERPRICED"
-        badge = "🔴 OVERPRICED"
+        badge = "🔴 ДОРОГО"
         pct_over = int(round((current_price / p_median - 1.0) * 100)) if p_median > 0 else 0
         reasoning = f"Цена на {pct_over}% выше типичной ({int(p_median)} PLN). Покупка сейчас несет высокий риск переплаты."
 
     # 3. Strong BUY NOW conditions:
     elif (has_hotel_variation and current_price <= p_15 * 1.03) or (quantile <= 0.15 and drop_probability < 0.40):
         verdict = "BUY_NOW"
-        badge = "🟢 BUY NOW"
+        badge = "🟢 ПОКУПАТЬ"
         source_label = "отеля" if has_hotel_variation else "рынка"
         reasoning = f"Цена в нижних 15% выборки {source_label} ({int(current_price)} PLN). Вероятность дальнейшего снижения всего {drop_prob_pct}%."
 
     # 4. High drop probability in prime yield windows (D-14 to D-4)
     elif drop_probability >= 0.55 and days_to_dep >= 4:
         verdict = "WAIT"
-        badge = "🟡 WAIT"
+        badge = "🟡 ЖДАТЬ"
         reasoning = (
             f"Высокая вероятность сброса цены ({drop_prob_pct}%). "
             f"Ожидаемый таргет ~{int(target_price)} PLN (экономия ~{int(expected_savings)} PLN). "
@@ -441,11 +441,11 @@ def predict_offer_action(
     # 5. Default balanced case
     elif drop_probability > 0.45:
         verdict = "WAIT"
-        badge = "🟡 WAIT"
+        badge = "🟡 ЖДАТЬ"
         reasoning = f"Цена около нормы, но до вылета {days_to_dep} дн. Возможен демпинг туроператора ближе к чартерному окну."
     else:
         verdict = "BUY_NOW"
-        badge = "🟢 BUY NOW"
+        badge = "🟢 ПОКУПАТЬ"
         reasoning = f"Стабильная цена ({int(current_price)} PLN), предпосылок к существенному падению нет."
 
     return HopperPrediction(
@@ -529,8 +529,8 @@ def batch_predict_offers(
                 hotel_days_map[h_name].append(d_val)
 
     # Fast evaluation loop
-    for idx, row in result_df.iterrows():
-        h_name = hotel_names[idx] if idx < len(hotel_names) else ""
+    for _, row in result_df.iterrows():
+        h_name = str(row.get("hotel_name") or "")
         pred = predict_offer_action(
             offer=row.to_dict(),
             history_df=None,

@@ -108,9 +108,8 @@ jobs:
 
       - name: Run German tour monitoring (BER)
         run: |
-          echo "🇩🇪 Scraping German packages from BER..."
-          python germany_monitor.py --config config_germany_turkey_ber.json --max-pages 2 || echo "⚠️ German Turkey scrape completed with warning (non-critical)"
-          python germany_monitor.py --config config_germany_egypt_ber.json --max-pages 2 || echo "⚠️ German Egypt scrape completed with warning (non-critical)"
+          echo "🇩🇪 Scraping German packages from BER for all persistent filters..."
+          python scripts/run_germany_monitors.py || echo "⚠️ German tour monitoring completed with warning (non-critical)"
           echo "✅ German tour monitoring completed"
 
       - name: Generate dashboards (only new filters) + landing
