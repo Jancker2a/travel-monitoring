@@ -2459,6 +2459,14 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         hotel_name, bucket, row_id = _unpack_table_group_key(group_key, use_trip_buckets)
         # В каноническом ране — одна строка на отель; берём актуальную, не мин. по всей истории.
         last = grp.sort_values('scraped_at_display').iloc[-1]
+        offer_url_val = last.get('offer_url', None)
+        if not offer_url_val or pd.isna(offer_url_val) or not str(offer_url_val).strip() or str(offer_url_val).strip() in ('—', 'None', 'nan'):
+            # Look backwards in the group for any row that has a valid offer_url
+            for prev_url in reversed(list(grp.get('offer_url', []))):
+                if pd.notna(prev_url) and str(prev_url).strip() and str(prev_url).strip() not in ('—', 'None', 'nan'):
+                    offer_url_val = prev_url
+                    break
+
         latest_rows.append({
             'hotel_name': hotel_name,
             'duration_bucket': bucket,
@@ -2469,7 +2477,7 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             'scraped_at_local': last['scraped_at_local'],
             'url': last.get('url', None),
             'from_airport': last.get('from_airport', None),
-            'offer_url': last.get('offer_url', None),
+            'offer_url': offer_url_val,
             'image_url': last.get('image_url', None),
             'ta_rating': last.get('ta_rating', ''),
             'ta_review_count': last.get('ta_review_count', ''),
@@ -9016,7 +9024,17 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             sign_str = "+" if m.spread_pln > 0 else ""
             pct_str = f" (-{m.savings_pct:.1f}%)" if m.spread_pln > 0 else ""
 
-            pl_link = f'<a href="{html_lib.escape(m.url_pl, quote=True)}" target="_blank" class="card-btn primary" style="padding:4px 10px;font-size:0.75rem;">Fly.pl ↗</a>' if m.url_pl else "—"
+            pl_url_final = str(m.url_pl or "").strip()
+            if not pl_url_final or "/szukaj-wycieczek/" in pl_url_final:
+                direct_match = all_hotels[all_hotels['hotel_name'] == m.hotel_name_pl]
+                if not direct_match.empty:
+                    cand = str(direct_match.iloc[0].get('offer_url') or '').strip()
+                    if cand and cand not in ('—', 'None', 'nan') and '/wycieczka/' in cand:
+                        pl_url_final = cand
+            if pl_url_final.startswith("/"):
+                pl_url_final = f"https://fly.pl{pl_url_final}"
+
+            pl_link = f'<a href="{html_lib.escape(pl_url_final, quote=True)}" target="_blank" class="card-btn primary" style="padding:4px 10px;font-size:0.75rem;">Fly.pl ↗</a>' if pl_url_final else "—"
             de_link = f'<a href="{html_lib.escape(m.url_de, quote=True)}" target="_blank" class="card-btn" style="padding:4px 10px;font-size:0.75rem;background:#10b981;color:#fff;">Check24 ↗</a>' if m.url_de else "—"
 
             arb_rows_html.append(f"""

@@ -380,7 +380,11 @@ class CrossBorderArbitrageEngine:
                         best_deal=best_deal,
                         badge_text=badge,
                         tour_operator_de=str(de_item.get("tour_operator", "TUI DE")),
-                        url_pl=pl_item.get("url") or pl_item.get("offer_url"),
+                        url_pl=(
+                            f"https://fly.pl{pl_item.get('offer_url')}"
+                            if str(pl_item.get("offer_url") or "").startswith("/")
+                            else (pl_item.get("offer_url") or pl_item.get("url"))
+                        ),
                         url_de=de_item.get("offer_url"),
                     )
                 )
