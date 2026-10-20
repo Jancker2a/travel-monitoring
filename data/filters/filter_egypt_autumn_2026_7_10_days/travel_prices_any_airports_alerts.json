@@ -3393,10 +3393,75 @@
       "created_at": "2026-10-20T17:49:18.401873+00:00",
       "threshold_percent": 8.0,
       "unique_key": "V Grand Beach Resort Sahl Hasheesh_2026-10-20_17-49_zone_out_gone"
+    },
+    {
+      "hotel_name": "Amarina Queen Resort",
+      "duration_bucket": "",
+      "old_price": 7691.0,
+      "new_price": 6644.0,
+      "price_change": -1047.0,
+      "price_change_pct": -13.613314263424783,
+      "timestamp": "2026-10-20 22:32:06.600738+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-20T22:33:16.930491+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amarina Queen Resort_2026-10-20_22-32_-13.6"
+    },
+    {
+      "hotel_name": "Albatros Sea World Resort Marsa Alam",
+      "duration_bucket": "",
+      "old_price": 8507.0,
+      "new_price": 8507.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-20 22:32:06.600738+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-20T22:33:16.930523+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Albatros Sea World Resort Marsa Alam_2026-10-20_22-32_zone_out_gone"
+    },
+    {
+      "hotel_name": "Fantazia Resort",
+      "duration_bucket": "",
+      "old_price": 8440.0,
+      "new_price": 8440.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-20 22:32:06.600738+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-20T22:33:16.930531+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Fantazia Resort_2026-10-20_22-32_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sea Star Beau Rivage",
+      "duration_bucket": "",
+      "old_price": 8686.0,
+      "new_price": 8686.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-20 22:32:06.600738+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-20T22:33:16.930537+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sea Star Beau Rivage_2026-10-20_22-32_zone_out_gone"
+    },
+    {
+      "hotel_name": "Serenity Alma Heights (ex. Serenity Fun City)",
+      "duration_bucket": "",
+      "old_price": 8308.0,
+      "new_price": 8308.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-20 22:32:06.600738+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-20T22:33:16.930543+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Serenity Alma Heights (ex. Serenity Fun City)_2026-10-20_22-32_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-20T17:49:06.107649+00:00",
+    "last_processed_run": "2026-10-20T22:32:06.600738+00:00",
     "premium_state": {
       "Parrotel Beach Resort (ex. Radisson Blu) Egipt, Sharm El Sheikh": {
         "history_max": 8474.0,
@@ -4143,11 +4208,11 @@
         "premium_peak": null
       },
       "Xperience Kiroseiz Premier": {
-        "history_max": 8261.0,
+        "history_max": 8349.0,
         "premium_peak": null
       },
       "Rewaya Luxury Resort": {
-        "history_max": 6947.0,
+        "history_max": 7027.0,
         "premium_peak": null
       },
       "Xperience Kiroseiz Parkland": {
@@ -4191,7 +4256,7 @@
         "premium_peak": null
       },
       "Novotel Marsa Alam": {
-        "history_max": 7087.0,
+        "history_max": 7107.0,
         "premium_peak": null
       },
       "Parrotel Lagoon Resort": {
@@ -4208,6 +4273,14 @@
       },
       "Jasmine Palace": {
         "history_max": 7897.0,
+        "premium_peak": null
+      },
+      "Royal Lagoons Aqua (ex. Premium Blue)": {
+        "history_max": 7756.0,
+        "premium_peak": null
+      },
+      "Amarina Jannah Heights Resort & Aqua Park": {
+        "history_max": 7382.0,
         "premium_peak": null
       }
     }
