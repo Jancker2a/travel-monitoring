@@ -23,6 +23,7 @@ DEFAULT_DASHBOARDS = [
         "title": "Мониторинг цен • Египет • 7–10 дней",
         "charts": "hotel-charts/filter_7_10_days",
         "alerts": "data/filters/filter_7_10_days/travel_prices_alerts.json",
+        "config": "config_ci_filter_7_10.json",
     },
     {
         "data": "data/filters/filter_13_16_days/travel_prices.csv",
@@ -30,6 +31,7 @@ DEFAULT_DASHBOARDS = [
         "title": "Мониторинг цен • Египет • 13–16 дней",
         "charts": "hotel-charts/filter_13_16_days",
         "alerts": "data/filters/filter_13_16_days/travel_prices_alerts.json",
+        "config": "config_ci_filter_13_16.json",
     },
     {
         "data": "data/filters/filter_egypt_autumn_2026_7_10_days/travel_prices.csv",

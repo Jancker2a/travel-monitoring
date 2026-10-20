@@ -12,32 +12,33 @@ import sys
 import time
 from pathlib import Path
 
+from filter_trip import should_skip_monitor_config
+
 ROOT = Path(__file__).resolve().parents[1]
 
-# All persistent filters + Sharm 1-person trip
+# All persistent active filters + Sharm 1-person trip
 GERMANY_TARGET_CONFIGS = [
     "config_ci_filter_turkey_7_10.json",
     "config_ci_filter_turkey_9_11.json",
     "config_ci_filter_turkey_13_16.json",
-    "config_ci_filter_turkey_vacation_jul18.json",
-    "config_ci_filter_egypt_autumn_7_10.json",
-    "config_ci_filter_egypt_autumn_13_16.json",
     "config_ci_filter_greece_7_10.json",
     "config_ci_filter_greece_13_16.json",
+    "config_ci_filter_egypt_autumn_7_10.json",
     "config_ci_filter_egypt_sharm_dec20_29_1p.json",
 ]
 
 
 def run_germany_monitoring():
-    print(f"🇩🇪 Starting German Tour Monitoring (BER/DRS) for {len(GERMANY_TARGET_CONFIGS)} filters...")
+    active_configs = [
+        c for c in GERMANY_TARGET_CONFIGS
+        if (ROOT / c).is_file() and not should_skip_monitor_config(str(ROOT / c))
+    ]
+    print(f"🇩🇪 Starting German Tour Monitoring (BER/DRS) for {len(active_configs)} filters...")
     t_start = time.monotonic()
     success_count = 0
 
-    for cfg_name in GERMANY_TARGET_CONFIGS:
+    for cfg_name in active_configs:
         cfg_path = ROOT / cfg_name
-        if not cfg_path.is_file():
-            print(f"  ⏭ Skipping {cfg_name} (file not found)")
-            continue
 
         print(f"  🛫 Scraping German pairs for {cfg_name}...")
         cmd = [

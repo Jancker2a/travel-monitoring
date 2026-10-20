@@ -17,21 +17,16 @@ sys.path.insert(0, str(ROOT))
 from filter_trip import load_config_json, should_skip_monitor_config, skip_monitor_reason
 
 DEFAULT_CONFIGS = [
-    "config_ci_filter_7_10.json",
-    "config_ci_filter_13_16.json",
-    "config_ci_filter_egypt_autumn_7_10.json",
-    "config_ci_filter_egypt_autumn_7_10_any_airports.json",
-    "config_ci_filter_egypt_autumn_13_16.json",
-    "config_ci_filter_egypt_autumn_13_16_any_airports.json",
-    "config_ci_filter_egypt_ny_dec24_7_10.json",
-    "config_ci_filter_egypt_ny_dec28_7_10.json",
-    "config_ci_filter_egypt_sharm_dec20_29_1p.json",
     "config_ci_filter_turkey_7_10.json",
     "config_ci_filter_turkey_9_11.json",
-    "config_ci_filter_turkey_vacation_jul18.json",
     "config_ci_filter_turkey_13_16.json",
     "config_ci_filter_greece_7_10.json",
     "config_ci_filter_greece_13_16.json",
+    "config_ci_filter_egypt_autumn_7_10.json",
+    "config_ci_filter_egypt_autumn_7_10_any_airports.json",
+    "config_ci_filter_egypt_ny_dec24_7_10.json",
+    "config_ci_filter_egypt_ny_dec28_7_10.json",
+    "config_ci_filter_egypt_sharm_dec20_29_1p.json",
 ]
 
 
@@ -109,13 +104,22 @@ def main() -> int:
     jobs = max(1, args.jobs)
     log_dir = Path(args.log_dir)
 
-    print(f"Parallel monitoring: {len(args.configs)} configs, jobs={jobs}, timeout={args.timeout}s", flush=True)
+    active_configs = [
+        cfg for cfg in args.configs
+        if (ROOT / cfg).is_file() and not should_skip_monitor_config(str(ROOT / cfg))
+    ]
+
+    print(
+        f"Parallel monitoring: {len(active_configs)} active configs "
+        f"(jobs={jobs}, timeout={args.timeout}s)",
+        flush=True,
+    )
     print(f"Logs: {log_dir}", flush=True)
     t0 = time.monotonic()
     failed: list[str] = []
 
     with ProcessPoolExecutor(max_workers=jobs) as pool:
-        futures = {pool.submit(_run_one, cfg, log_dir, args.timeout): cfg for cfg in args.configs}
+        futures = {pool.submit(_run_one, cfg, log_dir, args.timeout): cfg for cfg in active_configs}
         for fut in as_completed(futures):
             cfg, code, elapsed = fut.result()
             if code == 0:
@@ -128,7 +132,7 @@ def main() -> int:
                 failed.append(cfg)
 
     total = time.monotonic() - t0
-    print(f"Done in {total:.0f}s — ok {len(args.configs) - len(failed)}/{len(args.configs)}", flush=True)
+    print(f"Done in {total:.0f}s — ok {len(active_configs) - len(failed)}/{len(active_configs)}", flush=True)
     return 1 if failed else 0
 
 
