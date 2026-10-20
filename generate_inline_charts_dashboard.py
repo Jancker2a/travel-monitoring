@@ -113,7 +113,7 @@ def _resolve_listing_url_for_backfill(
             pass
     if not df.empty and "url" in df.columns:
         for val in reversed(df["url"].dropna().astype(str).tolist()):
-            if "fly.pl/oferta/" in val:
+            if "fly.pl" in val and ("/oferta/" in val or "/szukaj-wycieczek/" in val or "/kierunek/" in val):
                 return val
     data_dir = os.path.dirname(data_file) or "."
     folder = os.path.basename(os.path.normpath(data_dir))

@@ -1,5 +1,5 @@
 {
-  "url": "https://fly.pl/kierunek/egipt/?filter[dest]=11:&filter[hotelids]=&filter[cityids]=0&filter[cregids]=&filter[ofrType]=&filter[addObjType]=&filter[whenFrom]=20-09-2025&filter[whenTo]=15-10-2025&filter[duration]=13:13&filter[from]=Warszawa,Warszawa-Radom&filter[person]=2&filter[child]=1&filter[price]=0&filter[PriceFrom]=0&filter[PriceTo]=8100&filter[addCategory]=50&filter[addCatering]=1&filter[addMisc]=0&filter[addTransport]=F&filter[fp]=1&order_by=ofr_price&filter[tourOperator]=0&filter[childAge][1]=20201210",
+  "url": "https://fly.pl/szukaj-wycieczek/?destinationLocation=11:&departureLocation=Warszawa,Warszawa+-+Radom&startDateMin=20-09-2025&startDateMax=02-10-2025&returnDate=15-10-2025&adults=2&children=10-12-2020&catering=all_inclusive&offerTypes=accommodation_flight&categoryRating=50&durationFrom=13&durationTo=13&priceFrom=0&priceTo=8100&order=price",
   "max_price_threshold": 8100,
   "wait_timeout": 30000,
   "max_retries": 3,
@@ -9,4 +9,3 @@
   "output_data_file": "egypt_travel_prices.csv",
   "description": "Египет • 13 дней • чистый набор данных для новых наблюдений"
 }
-

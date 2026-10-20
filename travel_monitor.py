@@ -147,6 +147,10 @@ class TravelPriceMonitor:
                 f"HTTP fast path: max_retries={http_max_retries}, "
                 f"page_retries={self.config.get('http_page_retries', 3)}"
             )
+        is_spa_url = "/szukaj-wycieczek/" in (self.config.get("url") or "")
+        if is_spa_url:
+            logger.info("⚡ SPA-выдача fly.pl (/szukaj-wycieczek/), переключаемся на Playwright напрямую")
+        else:
             last_http_note = "неизвестно"
             http_phase_t0 = time.monotonic()
             for http_attempt in range(http_max_retries):
@@ -405,8 +409,8 @@ class TravelPriceMonitor:
                 continue
 
             html = resp.text or ""
-            if "card-offer-search" not in html and "offer-card" not in html:
-                if "offer-app" in html or "listing-app-preloader" in html or "global-offer-modules-search" in html:
+            if "card-offer-search" not in html:
+                if "/szukaj-wycieczek/" in url or "offer-app" in html or "listing-app-preloader" in html or "global-offer-modules-search" in html:
                     last_note = "SPA-выдача fly.pl (карточки рендерятся через Vue.js в браузере)"
                     _log_timing(
                         f"HTTP GET стр.{page_number} попытка {page_attempt + 1}",
@@ -716,38 +720,38 @@ class TravelPriceMonitor:
                         logger.info(f"На странице {page_number} не найдено подходящих предложений")
                         break
                     
-                    next_t0 = time.monotonic()
-                    next_page_url = await self.find_next_page_url(page)
-                    _log_timing(
-                        "Playwright find_next_page",
-                        next_t0,
-                        "found" if next_page_url else "not found",
-                    )
-                    if next_page_url:
-                        logger.info(f"Переходим на страницу {page_number + 1}...")
-                        nav_t0 = time.monotonic()
+                    load_more_btn = await page.query_selector('button:has-text("Doładuj więcej ofert")')
+                    if load_more_btn and page_number < max_pages:
+                        logger.info(f"Найдена кнопка 'Doładuj więcej ofert', подгружаем порцию {page_number + 1}...")
                         try:
-                            await page.goto(next_page_url, wait_until='domcontentloaded', timeout=self.config['wait_timeout'])
-                            await page.wait_for_timeout(3000)
-                            _log_timing(f"Playwright goto page {page_number + 1}", nav_t0, "incl. 3000ms wait")
+                            await load_more_btn.click()
+                            await page.wait_for_timeout(2000)
                             _log_timing(f"Playwright страница {page_number} total", page_t0)
                             page_number += 1
-                            seen_cards_count = 0
                         except Exception as e:
-                            _log_timing(f"Playwright goto page {page_number + 1} (ошибка)", nav_t0, str(e))
-                            logger.warning(f"Ошибка перехода на страницу {page_number + 1}: {e}")
+                            logger.warning(f"Ошибка нажатия 'Doładuj więcej ofert': {e}")
                             break
                     else:
-                        load_more_btn = await page.query_selector('button:has-text("Doładuj więcej ofert")')
-                        if load_more_btn and page_number < max_pages:
-                            logger.info(f"Найдена кнопка 'Doładuj więcej ofert', подгружаем порцию {page_number + 1}...")
+                        next_t0 = time.monotonic()
+                        next_page_url = await self.find_next_page_url(page)
+                        _log_timing(
+                            "Playwright find_next_page",
+                            next_t0,
+                            "found" if next_page_url else "not found",
+                        )
+                        if next_page_url:
+                            logger.info(f"Переходим на страницу {page_number + 1}...")
+                            nav_t0 = time.monotonic()
                             try:
-                                await load_more_btn.click()
-                                await page.wait_for_timeout(2500)
+                                await page.goto(next_page_url, wait_until='domcontentloaded', timeout=self.config['wait_timeout'])
+                                await page.wait_for_timeout(3000)
+                                _log_timing(f"Playwright goto page {page_number + 1}", nav_t0, "incl. 3000ms wait")
                                 _log_timing(f"Playwright страница {page_number} total", page_t0)
                                 page_number += 1
+                                seen_cards_count = 0
                             except Exception as e:
-                                logger.warning(f"Ошибка нажатия 'Doładuj więcej ofert': {e}")
+                                _log_timing(f"Playwright goto page {page_number + 1} (ошибка)", nav_t0, str(e))
+                                logger.warning(f"Ошибка перехода на страницу {page_number + 1}: {e}")
                                 break
                         else:
                             logger.info("Кнопка 'Следующая страница' / 'Doładuj więcej ofert' не найдена, завершаем парсинг")
@@ -772,11 +776,11 @@ class TravelPriceMonitor:
         return all_offers
 
     def _extract_price_limit(self) -> Optional[float]:
-        """Пробует достать лимит цены из URL (filter[PriceTo]=...)."""
+        """Пробует достать лимит цены из URL (priceTo=... или filter[PriceTo]=...)."""
         try:
             url = self.config.get('url', '') or ''
             import re
-            m = re.search(r'(?:PriceTo]|PriceTo)=(\d+)', url)
+            m = re.search(r'(?:priceTo=|PriceTo]|PriceTo=)(\d+)', url)
             if m:
                 return float(m.group(1))
         except Exception:
@@ -784,10 +788,16 @@ class TravelPriceMonitor:
         return None
 
     def _extract_duration_range_from_url(self) -> Optional[tuple]:
-        """Извлекает ожидаемый диапазон длительности из URL filter[duration]=X:Y."""
+        """Извлекает ожидаемый диапазон длительности из URL (durationFrom=X&durationTo=Y или filter[duration]=X:Y)."""
         try:
             import re
             url = self.config.get('url', '') or ''
+            m_from = re.search(r'durationFrom=(\d+)', url)
+            m_to = re.search(r'durationTo=(\d+)', url)
+            if m_from and m_to:
+                lo = int(m_from.group(1))
+                hi = int(m_to.group(1))
+                return (min(lo, hi), max(lo, hi))
             m = re.search(r'(?:duration=)(\d+):(\d+)', url)
             if not m:
                 return None
@@ -1216,9 +1226,9 @@ class TravelPriceMonitor:
             
             # Если не нашли, используем значения по умолчанию из конфигурации
             if not dates:
-                dates = "20-09-2025 - 04-10-2025"  # Из URL конфигурации
+                dates = self.extract_dates_from_url()
             if not duration:
-                duration = "6-15 дней"  # Из URL конфигурации
+                duration = self.extract_duration_from_url()
             
             rating = ""
             ta_rating = ""
@@ -1522,9 +1532,14 @@ class TravelPriceMonitor:
         """Извлекает даты из URL конфигурации"""
         try:
             url = self.config.get('url', '')
+            import re
+            if 'startDateMin' in url and 'returnDate' in url:
+                m_from = re.search(r'startDateMin=(\d{2}-\d{2}-\d{4})', url)
+                m_to = re.search(r'returnDate=(\d{2}-\d{2}-\d{4})', url)
+                if m_from and m_to:
+                    return f"{m_from.group(1)} - {m_to.group(1)}"
             if 'whenFrom' in url and 'whenTo' in url:
                 # Извлекаем даты из URL
-                import re
                 when_from_match = re.search(r'whenFrom(?:\]|%5D)?=(\d{2}-\d{2}-\d{4})', url)
                 when_to_match = re.search(r'whenTo(?:\]|%5D)?=(\d{2}-\d{2}-\d{4})', url)
                 
@@ -1540,9 +1555,18 @@ class TravelPriceMonitor:
         """Извлекает длительность из URL конфигурации"""
         try:
             url = self.config.get('url', '')
+            import re
+            if 'durationFrom=' in url and 'durationTo=' in url:
+                m_from = re.search(r'durationFrom=(\d+)', url)
+                m_to = re.search(r'durationTo=(\d+)', url)
+                if m_from and m_to:
+                    min_days = m_from.group(1)
+                    max_days = m_to.group(1)
+                    if min_days == max_days:
+                        return f"{min_days} дней"
+                    return f"{min_days}-{max_days} дней"
             if 'duration=' in url:
                 # Извлекаем длительность из URL
-                import re
                 duration_match = re.search(r'duration=(\d+):(\d+)', url)
                 
                 if duration_match:
@@ -1720,23 +1744,39 @@ class TravelPriceMonitor:
     def extract_departure_airport_from_url(self, url: str) -> str:
         """Извлекает аэропорт вылета из URL"""
         try:
-            if 'filter[from]=' in url:
-                # Ищем параметр filter[from] в URL
-                import re
-                match = re.search(r'filter\[from\]=([^&]*)', url)
+            import re
+            from urllib.parse import unquote
+            if 'departureLocation=' in url:
+                match = re.search(r'departureLocation=([^&]*)', url)
                 if match:
-                    airports = match.group(1)
-                    if airports:
-                        # Если несколько аэропортов через запятую, берем первый
-                        return airports.split(',')[0]
+                    raw = unquote(match.group(1).replace('+', ' ')).strip()
+                    if raw:
+                        return raw.split(',')[0].strip()
+            if 'filter[from]=' in url or 'from=' in url:
+                match = re.search(r'(?:filter\[from\]|filter%5Bfrom%5D)=([^&]*)', url)
+                if match:
+                    raw = unquote(match.group(1).replace('+', ' ')).strip()
+                    if raw:
+                        return raw.split(',')[0].strip()
             return "Все аэропорты"
         except Exception as e:
             logger.warning(f"Ошибка извлечения аэропорта из URL: {e}")
             return "Неизвестно"
 
     def extract_card_departure_airport(self, card_html: str, fallback_url: str) -> str:
-        """Извлекает аэропорт вылета из HTML-карточки (icon-plane span) или использует fallback на URL"""
+        """Извлекает аэропорт вылета из HTML-карточки или использует fallback на URL"""
         try:
+            from urllib.parse import unquote
+            m_svg = re.search(r'plane\.svg#plane["\'][^>]*></use></svg>\s*<span[^>]*>([^<]+)</span>', card_html)
+            if m_svg:
+                apt = m_svg.group(1).strip()
+                if apt:
+                    return apt
+            m_loc = re.search(r'departureLocation=([^&"]+)', card_html)
+            if m_loc:
+                apt = unquote(m_loc.group(1).replace('+', ' ')).split(',')[0].strip()
+                if apt:
+                    return apt
             m_plane = re.search(r'icon-plane[^>]*></i>\s*<span>\s*([^<]+)\s*</span>', card_html)
             if not m_plane:
                 m_plane = re.search(r'icon-plane[^>]*></span>\s*<span>\s*([^<]+)\s*</span>', card_html)

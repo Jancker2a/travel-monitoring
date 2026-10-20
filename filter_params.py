@@ -53,18 +53,38 @@ TRANSPORT_LABELS = {
     "": "Любой",
 }
 
+_QUERY_KEY_ALIASES: Dict[str, List[str]] = {
+    "dest": ["destinationLocation", "filter[dest]", "dest"],
+    "from": ["departureLocation", "filter[from]", "from"],
+    "whenFrom": ["startDateMin", "filter[whenFrom]", "whenFrom"],
+    "whenTo": ["returnDate", "filter[whenTo]", "whenTo"],
+    "duration": ["filter[duration]", "duration"],
+    "person": ["adults", "filter[person]", "person"],
+    "child": ["filter[child]", "child"],
+    "addCategory": ["categoryRating", "filter[addCategory]", "addCategory"],
+    "addCatering": ["catering", "filter[addCatering]", "addCatering"],
+    "addTransport": ["offerTypes", "filter[addTransport]", "addTransport"],
+    "PriceFrom": ["priceFrom", "PriceFrom", "filter[PriceFrom]"],
+    "PriceTo": ["priceTo", "PriceTo", "filter[PriceTo]"],
+    "price": ["price", "filter[price]"],
+}
+
+
 def _query_keys(name: str) -> List[str]:
     enc = name.replace("[", "%5B").replace("]", "%5D")
     return [f"filter[{name}]", enc, name]
 
 
 def make_fly_search_url_dynamic(url: str, *, window_days: int = 30) -> str:
-    """Подставляет whenFrom=сегодня и whenTo=сегодня+N дней (как в travel_monitor)."""
+    """Подставляет актуальные даты вылета/возврата (как в travel_monitor)."""
     if not url:
         return url
     now = datetime.now()
     from_date_str = now.strftime("%d-%m-%Y")
-    to_date_str = (now + timedelta(days=window_days)).strftime("%d-%m-%Y")
+    to_date = now + timedelta(days=window_days)
+    to_date_str = to_date.strftime("%d-%m-%Y")
+
+    # Old fly.pl query syntax
     url = re.sub(
         r"(filter(?:\[|%5B)whenFrom(?:\]|%5D)=)([^&]*)",
         rf"\g<1>{from_date_str}",
@@ -75,6 +95,18 @@ def make_fly_search_url_dynamic(url: str, *, window_days: int = 30) -> str:
         rf"\g<1>{to_date_str}",
         url,
     )
+
+    # New fly.pl SPA query syntax: startDateMin, returnDate, startDateMax
+    if "startDateMin=" in url:
+        url = re.sub(r"(startDateMin=)([^&]*)", rf"\g<1>{from_date_str}", url)
+    if "returnDate=" in url:
+        url = re.sub(r"(returnDate=)([^&]*)", rf"\g<1>{to_date_str}", url)
+    if "startDateMax=" in url:
+        m_dur = re.search(r"durationFrom=(\d+)", url)
+        dur_lo = int(m_dur.group(1)) if m_dur else 7
+        start_max = (to_date - timedelta(days=dur_lo)).strftime("%d-%m-%Y")
+        url = re.sub(r"(startDateMax=)([^&]*)", rf"\g<1>{start_max}", url)
+
     return url
 
 
@@ -98,10 +130,35 @@ def resolve_config_url(config: Optional[Dict[str, Any]]) -> str:
 
 def fly_query_param(url: str, name: str) -> str:
     qs = parse_qs(urlparse(str(url or "")).query, keep_blank_values=True)
-    for key in _query_keys(name):
+    keys_to_check = _QUERY_KEY_ALIASES.get(name) or _query_keys(name)
+    for key in keys_to_check:
         vals = qs.get(key)
         if vals and str(vals[0]).strip() != "":
-            return unquote(str(vals[0]).strip())
+            raw_val = unquote(str(vals[0]).strip())
+            if name == "addCatering" and key == "catering":
+                return "1" if "all_inclusive" in raw_val.lower() else "0"
+            if name == "addTransport" and key == "offerTypes":
+                return "F" if "flight" in raw_val.lower() else "H"
+            return raw_val
+
+    if name == "duration":
+        d_from = qs.get("durationFrom")
+        d_to = qs.get("durationTo")
+        if d_from and d_to:
+            return f"{d_from[0].strip()}:{d_to[0].strip()}"
+        if d_from:
+            return d_from[0].strip()
+    elif name == "child":
+        if "children" in qs:
+            val = qs.get("children", [""])[0].strip()
+            if val:
+                return str(len([p for p in val.split(",") if p.strip()]))
+            return "0"
+    elif name == "price":
+        p_from = qs.get("priceFrom")
+        p_to = qs.get("priceTo")
+        if p_from and p_to:
+            return f"{p_from[0].strip()}:{p_to[0].strip()}"
     return ""
 
 
@@ -110,6 +167,13 @@ def child_age_param(url: str) -> str:
     for key, vals in qs.items():
         if "childAge" in key and vals:
             return str(vals[0]).strip()
+    children = qs.get("children")
+    if children and children[0].strip():
+        val = children[0].strip().split(",")[0]
+        parts = val.split("-")
+        if len(parts) == 3:
+            d, m, y = parts
+            return f"{y}{m}{d}"
     return ""
 
 

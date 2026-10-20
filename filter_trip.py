@@ -17,16 +17,21 @@ def is_fixed_trip_config(config: Optional[Dict[str, Any]]) -> bool:
 
 
 def set_fly_duration_in_url(url: str, lo: int, hi: int) -> str:
-    """Replace fly.pl filter[duration]=X:Y in a search URL."""
+    """Replace fly.pl duration in a search URL (new or old query schema)."""
     text = str(url or "").strip()
     if not text:
         return text
-    return re.sub(
-        r"(filter(?:\[|%5B)duration(?:\]|%5D)=)(\d+):(\d+)",
-        rf"\g<1>{int(lo)}:{int(hi)}",
-        text,
-        count=1,
-    )
+    if "durationFrom=" in text:
+        text = re.sub(r"durationFrom=\d+", f"durationFrom={int(lo)}", text)
+        text = re.sub(r"durationTo=\d+", f"durationTo={int(hi)}", text)
+    if "duration=" in text or "duration%5D=" in text:
+        text = re.sub(
+            r"(filter(?:\[|%5B)duration(?:\]|%5D)=)(\d+):(\d+)",
+            rf"\g<1>{int(lo)}:{int(hi)}",
+            text,
+            count=1,
+        )
+    return text
 
 
 def trip_scrape_passes(config: Dict[str, Any]) -> List[Dict[str, Any]]:
