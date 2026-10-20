@@ -795,12 +795,29 @@
       "unique_key": "Titanic Royal Egipt, Hurghada_2026-10-20_01-58_zone_out_gone"
     },
     {
+<<<<<<< Updated upstream
+=======
+      "hotel_name": "Albatros Sea World Resort Marsa Alam Egipt, Marsa Alam, Al-Kusajr",
+      "duration_bucket": "",
+      "old_price": 8507.0,
+      "new_price": 8507.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-20 07:55:15.135447+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-20T07:55:28.072626+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Albatros Sea World Resort Marsa Alam Egipt, Marsa Alam, Al-Kusajr_2026-10-20_07-55_zone_out_gone"
+    },
+    {
+>>>>>>> Stashed changes
       "hotel_name": "Fantazia Resort",
       "duration_bucket": "",
       "old_price": 8576.0,
       "new_price": 8576.0,
       "price_change": 0.0,
       "price_change_pct": 0.0,
+<<<<<<< Updated upstream
       "timestamp": "2026-10-20 07:46:15.797487+00:00",
       "alert_type": "zone_exit",
       "created_at": "2026-10-20T07:46:28.626038+00:00",
@@ -819,6 +836,13 @@
       "created_at": "2026-10-20T07:46:28.626065+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Stella Di Mare Gardens Resort & Spa Egipt, Hurghada, Makadi Bay_2026-10-20_07-46_zone_out_gone"
+=======
+      "timestamp": "2026-10-20 07:55:15.135447+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-20T07:55:28.072649+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Fantazia Resort_2026-10-20_07-55_zone_out_gone"
+>>>>>>> Stashed changes
     },
     {
       "hotel_name": "The Cascades Golf Resort Spa & Thalasso (ex Westin Soma Bay) Egipt, Hurghada, Soma Bay",
@@ -827,6 +851,7 @@
       "new_price": 8401.0,
       "price_change": 0.0,
       "price_change_pct": 0.0,
+<<<<<<< Updated upstream
       "timestamp": "2026-10-20 07:46:15.797487+00:00",
       "alert_type": "zone_exit",
       "created_at": "2026-10-20T07:46:28.626074+00:00",
@@ -836,6 +861,17 @@
   ],
   "meta": {
     "last_processed_run": "2026-10-20T07:46:15.797487+00:00",
+=======
+      "timestamp": "2026-10-20 07:55:15.135447+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-20T07:55:28.072657+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "The Cascades Golf Resort Spa & Thalasso (ex Westin Soma Bay) Egipt, Hurghada, Soma Bay_2026-10-20_07-55_zone_out_gone"
+    }
+  ],
+  "meta": {
+    "last_processed_run": "2026-10-20T07:55:15.135447+00:00",
+>>>>>>> Stashed changes
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort) Egipt, Hurghada": {
         "history_max": 8665.0,
@@ -1182,7 +1218,7 @@
         "premium_peak": null
       },
       "Sentido Akassia Beach (ex. LTI Akassia Beach) Egipt, Marsa Alam": {
-        "history_max": 8069.0,
+        "history_max": 8127.0,
         "premium_peak": null
       },
       "Sea Star Beau Rivage": {
@@ -1242,7 +1278,7 @@
         "premium_peak": null
       },
       "Amarina Queen Resort Egipt, Marsa Alam": {
-        "history_max": 7425.0,
+        "history_max": 7547.0,
         "premium_peak": null
       },
       "Charmillion Club Aqua Park (ex Sea Club Aqua Park) Egipt, Sharm El Sheikh, Szarm el-Szejk": {
