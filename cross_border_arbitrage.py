@@ -32,8 +32,16 @@ from hotel_entity_matcher import HotelEntityMatcher, calculate_hotel_similarity
 logger = logging.getLogger(__name__)
 
 # Fallback exchange rate if NBP is unreachable
-DEFAULT_EUR_PLN_RATE = 4.30
-NBP_API_URL = "https://api.nbp.pl/api/exchangerates/rates/a/eur/?format=json"
+# Allowed German border airports close to Poland (East Germany):
+# BER: Berlin Brandenburg (~80 km from border; direct train/motorway from Warsaw/Poznań)
+# DRS: Dresden (~100 km from Zgorzelec; direct A4 from Wrocław/Dolny Śląsk)
+# LEJ: Leipzig/Halle (~200 km from border)
+BORDER_AIRPORT_FRICTION_DEFAULTS: Dict[str, float] = {
+    "BER": 250.0,
+    "DRS": 220.0,
+    "LEJ": 350.0,
+}
+ALLOWED_GERMAN_BORDER_AIRPORTS = set(BORDER_AIRPORT_FRICTION_DEFAULTS.keys())
 
 # Default transport friction cost to BER (e.g. train Warsaw-Berlin or car fuel/parking)
 DEFAULT_FRICTION_COST_PLN = 250.0
@@ -254,21 +262,34 @@ class CrossBorderArbitrageEngine:
                 if de_eur <= 0:
                     continue
 
+                # Check that German airport is close to Polish border (BER, DRS, LEJ)
+                de_ap = str(de_item.get("departure_airport") or "BER").upper().strip()
+                if de_ap and de_ap not in ALLOWED_GERMAN_BORDER_AIRPORTS:
+                    logger.debug(f"Skipping German offer from {de_ap}: too far from Polish border.")
+                    continue
+
+                # Airport-specific friction cost (train/fuel/parking to border hub)
+                friction = (
+                    self.friction_cost_pln
+                    if self.friction_cost_pln != DEFAULT_FRICTION_COST_PLN
+                    else BORDER_AIRPORT_FRICTION_DEFAULTS.get(de_ap, DEFAULT_FRICTION_COST_PLN)
+                )
 
                 # Currency conversion and friction
                 de_converted_pln = round(de_eur * self.eur_rate, 0)
-                net_de_pln = round(de_converted_pln + self.friction_cost_pln, 0)
+                net_de_pln = round(de_converted_pln + friction, 0)
                 spread_pln = round(pl_price - net_de_pln, 0)
                 savings_pct = (
                     round((spread_pln / pl_price) * 100, 1) if pl_price > 0 else 0.0
                 )
 
+                ap_label = "БЕРЛИНЕ (BER)" if de_ap == "BER" else f"{de_ap}"
                 if spread_pln >= SIGNIFICANT_SPREAD_PLN:
                     best_deal = "GERMANY"
-                    badge = f"🚨 ВЫГОДНЕЕ В БЕРЛИНЕ (-{int(spread_pln):,} PLN / {savings_pct}%)".replace(",", " ")
+                    badge = f"🚨 ВЫГОДНЕЕ В {ap_label} (-{int(spread_pln):,} PLN / {savings_pct}%)".replace(",", " ")
                 elif spread_pln > 0:
                     best_deal = "GERMANY"
-                    badge = f"🟡 Небольшая выгода в BER (-{int(spread_pln):,} PLN)".replace(",", " ")
+                    badge = f"🟡 Небольшая выгода в {de_ap} (-{int(spread_pln):,} PLN)".replace(",", " ")
                 else:
                     best_deal = "POLAND"
                     badge = f"🟢 Польша дешевле (+{int(abs(spread_pln)):,} PLN)".replace(",", " ")
@@ -282,11 +303,11 @@ class CrossBorderArbitrageEngine:
                         dates_pl=str(pl_item.get("dates", "")),
                         dates_de=str(de_item.get("dates", "")),
                         airport_pl=str(pl_item.get("departure_airport", "WAW")),
-                        airport_de=str(de_item.get("departure_airport", "BER")),
+                        airport_de=de_ap,
                         price_pl_pln=pl_price,
                         price_de_eur=de_eur,
                         price_de_converted_pln=de_converted_pln,
-                        friction_cost_pln=self.friction_cost_pln,
+                        friction_cost_pln=friction,
                         net_price_de_pln=net_de_pln,
                         spread_pln=spread_pln,
                         savings_pct=savings_pct,

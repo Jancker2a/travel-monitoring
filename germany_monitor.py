@@ -64,6 +64,12 @@ CHECK24_AREAS = {
     "greece_corfu": 608,        # Korfu
 }
 
+# Allowed German border airports close to Poland (East Germany):
+# BER: Berlin Brandenburg (~80 km from border, direct A2/train from Warsaw/Poznań)
+# DRS: Dresden (~100 km from Zgorzelec, direct A4 from Wrocław/Lower Silesia)
+# LEJ: Leipzig/Halle (~200 km from border)
+ALLOWED_BORDER_AIRPORTS = {"BER", "DRS", "LEJ"}
+
 
 class GermanyTourMonitor:
     def __init__(self, config: Dict[str, Any]):
@@ -72,10 +78,17 @@ class GermanyTourMonitor:
             'output_data_file',
             os.path.join(config.get('data_dir', 'data'), 'germany_prices.csv'),
         )
-        self.airport = config.get('departure_airport', 'BER')
+        ap = str(config.get('departure_airport', 'BER')).upper().strip()
+        if ap not in ALLOWED_BORDER_AIRPORTS:
+            logger.warning(
+                f"Requested airport '{ap}' is too far from Polish border. Enforcing nearest border hub 'BER'."
+            )
+            ap = "BER"
+        self.airport = ap
         self.max_pages = int(config.get('max_pages', 3))
         self.max_offers = int(config.get('max_offers', 50))
         self.wait_timeout = int(config.get('wait_timeout', 20000))
+
 
     def _build_search_url(self, page_number: int = 1) -> str:
         """Constructs Check24 package search URL with airport, area, and dates."""
@@ -328,7 +341,7 @@ def parse_args():
     parser.add_argument("--config", help="Path to JSON configuration file")
     parser.add_argument("--destination", default="Turkey", help="Destination name (Turkey, Egypt, Greece)")
     parser.add_argument("--destination-key", default="turkey_antalya", help="Key for Check24 area mapping")
-    parser.add_argument("--airport", default="BER", help="Departure airport (BER, DRS, LEJ)")
+    parser.add_argument("--airport", default="BER", choices=["BER", "DRS", "LEJ"], help="Departure airport close to Polish border (BER, DRS, LEJ)")
     parser.add_argument("--max-pages", type=int, default=2, help="Maximum number of pages to scrape")
     parser.add_argument("--max-offers", type=int, default=25, help="Maximum offers to extract")
     parser.add_argument("--output", default="data/germany_prices.csv", help="Output CSV path")

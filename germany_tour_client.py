@@ -25,14 +25,17 @@ import requests
 
 logger = logging.getLogger(__name__)
 
-# Standard German airport IATA codes
-GERMAN_AIRPORTS = {
+# German border airports close to Poland (East Germany):
+# BER: Berlin Brandenburg (~80 km from border, direct train from Warsaw/Poznań)
+# DRS: Dresden (~100 km from Zgorzelec, A4 from Wrocław)
+# LEJ: Leipzig/Halle (~200 km from border)
+GERMAN_BORDER_AIRPORTS = {
     "BER": "Berlin Brandenburg",
     "DRS": "Dresden",
     "LEJ": "Leipzig/Halle",
-    "MUC": "München",
-    "FRA": "Frankfurt am Main",
 }
+GERMAN_AIRPORTS = GERMAN_BORDER_AIRPORTS
+
 
 DEFAULT_HEADERS = {
     "User-Agent": (
