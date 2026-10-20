@@ -1198,73 +1198,94 @@ class TravelPriceMonitor:
     async def extract_offer_data(self, element, index: int) -> Dict[str, Any]:
         """Извлекает данные из элемента предложения"""
         try:
-            # Получаем весь текст элемента
-            full_text = await element.inner_text()
+            # Быстрое извлечение ключевых данных из DOM карточки за 1 evaluate-вызов
+            card_info = await element.evaluate("""el => {
+                const text = el.innerText || '';
+                const html = el.innerHTML || '';
+                
+                // Название отеля
+                const titleEl = el.querySelector('h3, h2, h1, h4, h5, h6, .title, .name, .hotel-name, .offer-title, [class*="title"], [class*="name"], [class*="hotel"]');
+                const hotel_name = titleEl ? titleEl.innerText.trim() : '';
+                
+                // Ссылка на детальное предложение
+                const linkEl = el.querySelector('a[href*="/wycieczka/"], a.image-link, a.offer-con, a[href*="offer"]');
+                const offer_url = linkEl ? linkEl.getAttribute('href') : '';
+                
+                // Изображение
+                const imgEl = el.querySelector('img[src], img[data-src], img[data-original], img[data-lazy], img[data-srcset], img[srcset]');
+                let image_url = '';
+                if (imgEl) {
+                    image_url = imgEl.getAttribute('data-src') || imgEl.getAttribute('data-original') || imgEl.getAttribute('data-lazy') || imgEl.getAttribute('src') || '';
+                    if (!image_url && imgEl.getAttribute('srcset')) {
+                        image_url = imgEl.getAttribute('srcset').split(',')[0].trim().split(' ')[0];
+                    }
+                }
+                
+                return { text, html, hotel_name, offer_url, image_url };
+            }""")
+            
+            full_text = card_info.get('text', '')
             if not full_text or len(full_text.strip()) < 10:
                 return None
             
-            # Ищем название отеля/тура
-            hotel_name = await self.extract_text_by_selectors(element, [
-                'h3', 'h2', 'h1', 'h4', 'h5', 'h6',
-                '.title', '.name', '.hotel-name', '.offer-title',
-                '[class*="title"]', '[class*="name"]', '[class*="hotel"]'
-            ])
+            card_html = card_info.get('html', '')
+            hotel_name = card_info.get('hotel_name', '')
+            offer_url = card_info.get('offer_url', '')
+            image_url = card_info.get('image_url', '')
             
-            # Ищем цену - сначала ищем цену за всех, потом за одного
-            price = await self.extract_price_for_all(element)
-            if not price:
-                price = await self.extract_text_by_selectors(element, [
-                    '.price', '.cost', '.amount', '.value',
-                    '[class*="price"]', '[class*="cost"]', '[class*="amount"]'
-                ])
+            # 1. Цена: ищем "X XXX zł za wszystkich" или "X XXX zł"
+            price_value = 0
+            m_price = re.search(r'([\d\s\xa0]+)\s*zł\s*(?:za\s+wszystkich|za\s+osobę)?', full_text, re.I)
+            if m_price:
+                digits = re.sub(r'[^\d]', '', m_price.group(1))
+                if digits:
+                    price_value = float(digits)
+            if not price_value:
+                price_value = self.extract_price(full_text)
             
-            # Ищем даты - более специфичные селекторы для fly.pl
-            dates = await self.extract_dates_from_offer(element)
-            
-            # Ищем длительность - более специфичные селекторы для fly.pl
-            duration = await self.extract_duration_from_offer(element)
-            
-            # Если не нашли, используем значения по умолчанию из конфигурации
+            # 2. Даты
+            dates = ""
+            for pattern in [
+                r'\d{1,2}\.\d{1,2}\.\d{4}\s*-\s*\d{1,2}\.\d{1,2}\.\d{4}',
+                r'\d{1,2}\.\d{1,2}\s*-\s*\d{1,2}\.\d{1,2}',
+                r'\d{1,2}/\d{1,2}/\d{4}\s*-\s*\d{1,2}/\d{1,2}/\d{4}',
+                r'\d{1,2}-\d{1,2}-\d{4}\s*-\s*\d{1,2}-\d{1,2}-\d{4}',
+            ]:
+                m = re.search(pattern, full_text)
+                if m:
+                    dates = m.group(0)
+                    break
             if not dates:
                 dates = self.extract_dates_from_url()
+            
+            # 3. Длительность
+            duration = ""
+            m_dur = re.search(r'(\d+)\s*(dni|days|day|d|nocleg\w*|nights?|nocy)', full_text, re.I)
+            if m_dur:
+                duration = m_dur.group(0)
             if not duration:
                 duration = self.extract_duration_from_url()
             
-            rating = ""
-            ta_rating = ""
-            ta_review_count = ""
-            ta_source = ""
-            try:
-                card_html = await element.inner_html()
-                ta_fields = self._ta_fields_from_card(card_html)
-                rating = ta_fields['rating']
-                ta_rating = ta_fields['ta_rating']
-                ta_review_count = ta_fields['ta_review_count']
-                ta_source = ta_fields['ta_source']
-            except Exception:
-                pass
-
-            # Изображение отеля (если доступно на карточке)
-            image_url = await self.extract_image_url_from_offer(element)
+            # 4. Рейтинги и отзывы TripAdvisor
+            ta_fields = self._ta_fields_from_card(card_html)
+            rating = ta_fields.get('rating', '')
+            ta_rating = ta_fields.get('ta_rating', '')
+            ta_review_count = ta_fields.get('ta_review_count', '')
+            ta_source = ta_fields.get('ta_source', '')
             
-            # Ссылка на детальную страницу предложения
-            offer_url = await self.extract_offer_url(element)
+            # 5. Аэропорт вылета
+            departure_airport = self.extract_card_departure_airport(card_html, self.config['url'])
             
-            # Извлекаем аэропорт вылета из HTML карточки
-            try:
-                card_html = await element.inner_html()
-                departure_airport = self.extract_card_departure_airport(card_html, self.config['url'])
-            except Exception:
-                departure_airport = self.extract_departure_airport_from_url(self.config['url'])
+            # 6. Ссылки и картинки
+            if not offer_url:
+                m_href = re.search(r'href="([^"]*/wycieczka/[^"]*)"', card_html)
+                if m_href:
+                    offer_url = m_href.group(1)
+            offer_url = self.make_absolute_url(offer_url) if offer_url else ""
+            image_url = self.make_absolute_url(image_url) if image_url else ""
             
-            # Очищаем и форматируем данные
+            # 7. Название отеля
             hotel_name = self.clean_text(hotel_name) if hotel_name else f"Предложение {index + 1}"
-            price_value = self.extract_price(price) if price else 0
-            dates = self.clean_text(dates) if dates else ""
-            duration = self.clean_text(duration) if duration else ""
-            rating = self.clean_text(rating) if rating else ""
-            
-            # Если не нашли название, используем первые слова из текста
             if not hotel_name or hotel_name == f"Предложение {index + 1}":
                 words = full_text.split()[:5]
                 hotel_name = " ".join(words) if words else f"Предложение {index + 1}"

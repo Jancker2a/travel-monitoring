@@ -69,7 +69,7 @@ jobs:
           MONITOR_PARALLEL_ENABLED: "true"
           # 3 — баланс скорости и fly.pl / RAM; для максимума: "6"
           MONITOR_PARALLEL_JOBS: "3"
-          MONITOR_TIMEOUT_PER_CONFIG: "180"
+          MONITOR_TIMEOUT_PER_CONFIG: "300"
           # 2 быстрых HTTP-попытки (max 15s на запрос), чтобы не зависать при сбоях fly.pl
           HTTP_MAX_RETRIES: "2"
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1

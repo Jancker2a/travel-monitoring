@@ -30,7 +30,7 @@ DEFAULT_CONFIGS = [
 ]
 
 
-def _run_one(config_name: str, log_dir: Path, timeout_s: int = 180) -> tuple[str, int, float]:
+def _run_one(config_name: str, log_dir: Path, timeout_s: int = 300) -> tuple[str, int, float]:
     config_path = ROOT / config_name
     if not config_path.is_file():
         return config_name, 127, 0.0
@@ -86,8 +86,8 @@ def main() -> int:
     parser.add_argument(
         "--timeout",
         type=int,
-        default=int(os.environ.get("MONITOR_TIMEOUT_PER_CONFIG", "180")),
-        help="Timeout in seconds per config (default: 180s, env MONITOR_TIMEOUT_PER_CONFIG)",
+        default=int(os.environ.get("MONITOR_TIMEOUT_PER_CONFIG", "300")),
+        help="Timeout in seconds per config (default: 300s, env MONITOR_TIMEOUT_PER_CONFIG)",
     )
     parser.add_argument(
         "--log-dir",
