@@ -240,6 +240,10 @@ class TravelPriceMonitor:
                     self._timing_summary["scrape_total"] = time.monotonic() - scrape_t0
                     return offers
                 logger.warning(f"Попытка {attempt + 1} не дала результатов")
+                if attempt < self.config['max_retries'] - 1:
+                    delay = max(5, int(self.config.get('retry_delay', 5))) * (attempt + 1)
+                    logger.info(f"Ждем {delay} секунд перед следующей попыткой...")
+                    await asyncio.sleep(delay)
             except Exception as e:
                 _log_timing(
                     f"Playwright попытка {attempt + 1}/{self.config['max_retries']} (ошибка)",
@@ -248,8 +252,9 @@ class TravelPriceMonitor:
                 )
                 logger.error(f"Ошибка в попытке {attempt + 1}: {e}")
                 if attempt < self.config['max_retries'] - 1:
-                    logger.info(f"Ждем {self.config['retry_delay']} секунд...")
-                    await asyncio.sleep(self.config['retry_delay'])
+                    delay = max(5, int(self.config.get('retry_delay', 5))) * (attempt + 1)
+                    logger.info(f"Ждем {delay} секунд...")
+                    await asyncio.sleep(delay)
         
         self._timing_summary["scrape_playwright_failed"] = time.monotonic() - pw_phase_t0
         self._timing_summary["scrape_total"] = time.monotonic() - scrape_t0
@@ -598,16 +603,36 @@ class TravelPriceMonitor:
                     '--no-sandbox',
                     '--disable-dev-shm-usage',
                     '--disable-gpu',
-                    '--disable-web-security',
-                    '--disable-blink-features=AutomationControlled'
+                    '--disable-blink-features=AutomationControlled',
+                    '--disable-features=IsolateOrigins,site-per-process',
+                    '--window-size=1920,1080',
                 ]
             )
             _log_timing("Playwright browser launch", launch_t0)
             
             context = await browser.new_context(
-                user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-                viewport={'width': 1920, 'height': 1080}
+                user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+                viewport={'width': 1920, 'height': 1080},
+                locale='pl-PL',
+                timezone_id='Europe/Warsaw',
+                extra_http_headers={
+                    'Accept-Language': 'pl-PL,pl;q=0.9,en-US;q=0.8,en;q=0.7',
+                    'Sec-Ch-Ua': '"Chromium";v="124", "Google Chrome";v="124", "Not-A.Brand";v="99"',
+                    'Sec-Ch-Ua-Mobile': '?0',
+                    'Sec-Ch-Ua-Platform': '"Windows"',
+                }
             )
+            await context.add_init_script("""
+                Object.defineProperty(navigator, 'webdriver', {
+                    get: () => undefined
+                });
+                Object.defineProperty(navigator, 'plugins', {
+                    get: () => [1, 2, 3, 4, 5]
+                });
+                Object.defineProperty(navigator, 'languages', {
+                    get: () => ['pl-PL', 'pl', 'en-US', 'en']
+                });
+            """)
             
             page = await context.new_page()
             
@@ -630,7 +655,24 @@ class TravelPriceMonitor:
                 )
                 
                 if not response or response.status >= 400:
-                    raise Exception(f"Ошибка загрузки: {response.status if response else 'No response'}")
+                    if response and response.status in (403, 503):
+                        logger.warning(
+                            f"Статус {response.status} на {self.config['url']} (возможен Cloudflare challenge), "
+                            f"ожидаем прохождения проверки..."
+                        )
+                        await page.wait_for_timeout(4000)
+                        # Проверяем, появились ли карточки предложений или cookie диалог
+                        cf_resolved = await page.query_selector(
+                            'div.offer-card, .offer-card, #CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll'
+                        )
+                        if not cf_resolved:
+                            await page.wait_for_timeout(3000)
+                            cf_resolved = await page.query_selector('div.offer-card, .offer-card')
+                        if not cf_resolved:
+                            raise Exception(f"Ошибка загрузки (Cloudflare challenge failed): {response.status}")
+                        logger.info("✅ Cloudflare challenge успешно пройден!")
+                    else:
+                        raise Exception(f"Ошибка загрузки: {response.status if response else 'No response'}")
                 
                 wait_t0 = time.monotonic()
                 logger.info("Страница загружена, ждем контент...")

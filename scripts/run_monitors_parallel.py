@@ -44,6 +44,8 @@ def _run_one(config_name: str, log_dir: Path, timeout_s: int = 300) -> tuple[str
 
     log_dir.mkdir(parents=True, exist_ok=True)
     log_path = log_dir / f"{config_path.stem}.log"
+    import random
+    time.sleep(random.uniform(0.5, 3.5))
     t0 = time.monotonic()
     print(f"  ▶️ Starting {config_name} (timeout={timeout_s}s)...", flush=True)
     with log_path.open("w", encoding="utf-8") as log_f:
