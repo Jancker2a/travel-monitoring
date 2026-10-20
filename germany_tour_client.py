@@ -94,7 +94,13 @@ class GermanyTourClient:
             ("Cleopatra Luxury Resort Makadi Bay", "Hurghada", 1380.0, "FTI Touristik"),
             ("Grand Resort Hurghada", "Hurghada", 1150.0, "Alltours"),
             ("Pickalbatros Sands Port Ghalib", "Marsa Alam", 1450.0, "TUI Deutschland"),
+            ("Pickalbatros Aqua Park Resort", "Sharm El Sheikh", 1120.0, "TUI Deutschland"),
+            ("Parrotel Lagoon Resort", "Sharm El Sheikh", 960.0, "Alltours"),
             ("Sea Star Beau Rivage Hotel", "Hurghada", 1050.0, "DERTOUR"),
+            ("Miracle Resort Hotel", "Lara", 1480.0, "TUI Deutschland"),
+            ("Sherwood Dreams Resort", "Belek", 1350.0, "Schauinsland-Reisen"),
+            ("Limak Limra Hotel & Resort", "Kemer", 1290.0, "Alltours"),
+            ("Concorde De Luxe Resort", "Lara", 1620.0, "DERTOUR"),
         ]
 
         offers = []
