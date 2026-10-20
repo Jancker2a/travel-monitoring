@@ -481,10 +481,88 @@
       "created_at": "2026-10-19T22:32:30.776335+00:00",
       "threshold_percent": 8.0,
       "unique_key": "The Cascades Golf Resort Spa & Thalasso (ex Westin Soma Bay)_2026-10-19_22-31_zone_out_+5.2"
+    },
+    {
+      "hotel_name": "Sunrise Alora Aqua Park Resort",
+      "duration_bucket": "",
+      "old_price": 8390.0,
+      "new_price": 7309.0,
+      "price_change": -1081.0,
+      "price_change_pct": -12.884386174016688,
+      "timestamp": "2026-10-20 01:57:52.373783+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-20T01:58:25.091023+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sunrise Alora Aqua Park Resort_2026-10-20_01-57_-12.9"
+    },
+    {
+      "hotel_name": "Royal Regency Club",
+      "duration_bucket": "",
+      "old_price": 8583.0,
+      "new_price": 7768.0,
+      "price_change": -815.0,
+      "price_change_pct": -9.495514388908308,
+      "timestamp": "2026-10-20 01:57:52.373783+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-20T01:58:25.091041+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Royal Regency Club_2026-10-20_01-57_-9.5"
+    },
+    {
+      "hotel_name": "Pickalbatros Laguna Vista Beach",
+      "duration_bucket": "",
+      "old_price": 11127.0,
+      "new_price": 9962.0,
+      "price_change": -1165.0,
+      "price_change_pct": -10.470027860159972,
+      "timestamp": "2026-10-20 01:57:52.373783+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-20T01:58:25.091062+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Laguna Vista Beach_2026-10-20_01-57_comeback_10.5"
+    },
+    {
+      "hotel_name": "Golf Villas And Suites Sharm",
+      "duration_bucket": "",
+      "old_price": 10817.0,
+      "new_price": 9763.0,
+      "price_change": -1054.0,
+      "price_change_pct": -9.743921604881207,
+      "timestamp": "2026-10-20 01:57:52.373783+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-20T01:58:25.091071+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Golf Villas And Suites Sharm_2026-10-20_01-57_comeback_9.7"
+    },
+    {
+      "hotel_name": "Pickalbatros Golf Beach Resort",
+      "duration_bucket": "",
+      "old_price": 10417.0,
+      "new_price": 9257.0,
+      "price_change": -1160.0,
+      "price_change_pct": -11.1356436594029,
+      "timestamp": "2026-10-20 01:57:52.373783+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-20T01:58:25.091077+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Golf Beach Resort_2026-10-20_01-57_comeback_11.1"
+    },
+    {
+      "hotel_name": "Desert Rose Resort",
+      "duration_bucket": "",
+      "old_price": 11019.0,
+      "new_price": 9416.0,
+      "price_change": -1603.0,
+      "price_change_pct": -14.547599600689717,
+      "timestamp": "2026-10-20 01:57:52.373783+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-20T01:58:25.091084+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Desert Rose Resort_2026-10-20_01-57_comeback_14.5"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-19T22:31:50.331765+00:00",
+    "last_processed_run": "2026-10-20T01:57:52.373783+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 7695.0,
@@ -503,8 +581,8 @@
         "premium_peak": null
       },
       "Pickalbatros Aqua Blu Resort": {
-        "history_max": 11063.0,
-        "premium_peak": 11063.0
+        "history_max": 11112.0,
+        "premium_peak": 11112.0
       },
       "Pickalbatros Aqua Park Resort (Sharm El Sheikh)": {
         "history_max": 11207.0,
@@ -607,8 +685,8 @@
         "premium_peak": 11174.0
       },
       "Jaz Lamaya Resort (ex Iberotel)": {
-        "history_max": 12757.0,
-        "premium_peak": 12757.0
+        "history_max": 13909.0,
+        "premium_peak": 13909.0
       },
       "Jaz Makadi Oasis Resort": {
         "history_max": 11189.0,
@@ -739,8 +817,8 @@
         "premium_peak": 10853.0
       },
       "Sunrise Select Garden Beach Resort & Spa": {
-        "history_max": 11633.0,
-        "premium_peak": 11633.0
+        "history_max": 11663.0,
+        "premium_peak": 11663.0
       },
       "Sunrise White Hills Resort": {
         "history_max": 15387.0,
@@ -1145,6 +1223,30 @@
       "Sentido Mamlouk Palace Resort & Spa (ex Sunrise)": {
         "history_max": 13492.0,
         "premium_peak": 13492.0
+      },
+      "Xanadu Makadi Bay": {
+        "history_max": 12526.0,
+        "premium_peak": 12526.0
+      },
+      "Hilton Marsa Alam Nubian Resort": {
+        "history_max": 11896.0,
+        "premium_peak": 11896.0
+      },
+      "Novotel Sharm Palm": {
+        "history_max": 13438.0,
+        "premium_peak": 13438.0
+      },
+      "Coral Sea Sensatori (ex Coral Sea Imperial)": {
+        "history_max": 10538.0,
+        "premium_peak": 10538.0
+      },
+      "Seven Seas Jolie Bay": {
+        "history_max": 10123.0,
+        "premium_peak": 10123.0
+      },
+      "Amphoras Beach": {
+        "history_max": 11786.0,
+        "premium_peak": 11786.0
       }
     }
   }
