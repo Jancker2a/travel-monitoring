@@ -62,6 +62,9 @@ from filter_trip import (
     trip_duration_bucket_id,
     trip_row_key,
 )
+from hopper_prediction_engine import batch_predict_offers, predict_offer_action
+from germany_tour_client import GermanyTourClient
+from cross_border_arbitrage import CrossBorderArbitrageEngine
 
 # Официальный logomark TripAdvisor (owl), cropped from TA_logo_primary.svg (tacdn.com).
 TRIPADVISOR_HEADER_ICON_HTML = (
@@ -2479,6 +2482,31 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         print(f"💎 Дороже потолка показа (>{ceiling_val:.0f} PLN, только в истории): {skipped_above_ceiling}")
     print(f"🧹 Таблица отфильтрована по последнему рану: {len(all_hotels)} актуальных отелей")
 
+    # ── Hopper Prediction Engine Enrichment ──────────────────────────────────
+    if not all_hotels.empty:
+        try:
+            all_hotels = batch_predict_offers(all_hotels)
+            print(f"🔮 Hopper Engine: рассчитаны прогнозы для {len(all_hotels)} отелей")
+        except Exception as e:
+            print(f"⚠️ Hopper Engine calculation failed: {e}")
+
+    # ── Cross-Border Arbitrage Engine (Poland vs Germany) ────────────────────
+    arbitrage_matches = []
+    arbitrage_by_hotel = {}
+    dest_str = str(data_file or config_file or title or "").lower()
+    dest_code = "egypt" if ("egypt" in dest_str or "egipt" in dest_str) else ("greece" if ("greece" in dest_str or "grecja" in dest_str) else "turkey")
+    try:
+        de_client = GermanyTourClient()
+        de_packages = de_client.fetch_destination_packages(dest_code, ["BER", "DRS"], use_mock_fallback=True)
+        arb_engine = CrossBorderArbitrageEngine()
+        arbitrage_matches = arb_engine.compare_offers(all_hotels, de_packages)
+        for m in arbitrage_matches:
+            if m.spread_pln > 0 and m.hotel_name_pl not in arbitrage_by_hotel:
+                arbitrage_by_hotel[m.hotel_name_pl] = m
+        print(f"🌍 Cross-Border Arbitrage: найдено {len(arbitrage_matches)} совпадений ({len(arbitrage_by_hotel)} выгоднее в Германии)")
+    except Exception as e:
+        print(f"⚠️ Cross-Border Arbitrage skipped: {e}")
+
     #
     # Откат: отключаем блок "до 8000 из любого вылета, отсутствующие из Варшавы"
     missing_hotels_under_8000 = []
@@ -3239,6 +3267,25 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
                 else:
                     card_cheaper_alt_html = f'<span class="cheaper-alt-badge" title="{alt_title}">✈️ <span class="alt-label">{alt_airport}: {alt_price:.0f} PLN</span> <span class="alt-savings">(−{alt_savings:.0f} PLN)</span></span>'
 
+        # Hopper & Arbitrage метаданные
+        hopper_verdict = str(hotel.get('hopper_verdict') or '')
+        hopper_badge = str(hotel.get('hopper_badge') or '')
+        hopper_reasoning = str(hotel.get('hopper_reasoning') or '')
+        hopper_class = "buy-now" if hopper_verdict == "BUY_NOW" else ("wait" if hopper_verdict == "WAIT" else ("overpriced" if hopper_verdict == "OVERPRICED" else "neutral"))
+
+        card_arbitrage_html = ""
+        m_arb = arbitrage_by_hotel.get(hotel_name)
+        if m_arb and m_arb.spread_pln > 0:
+            arb_title = html_lib.escape(
+                f"Вылет из Берлина ({m_arb.airport_de}): {m_arb.price_de_eur:.0f} € (~{m_arb.net_price_de_pln:.0f} PLN с дорогой). Экономия {m_arb.spread_pln:.0f} PLN ({m_arb.savings_pct:.1f}%)",
+                quote=True,
+            )
+            arb_url = m_arb.url_de or "#"
+            card_arbitrage_html = (
+                f'<a href="{html_lib.escape(arb_url, quote=True)}" target="_blank" class="arbitrage-card-badge" title="{arb_title}">'
+                f'🌍 <span class="arb-label">Берлин (BER): {m_arb.price_de_eur:.0f} €</span> <span class="arb-savings">(−{m_arb.spread_pln:.0f} PLN)</span></a>'
+            )
+
         hotel_cards.append({
             "hotel_name": hotel_name,
             "row_id": row_id,
@@ -3263,6 +3310,11 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             "forecast_text": forecast["text"],
             "forecast_class": forecast["class"],
             "forecast_icon": forecast["icon"],
+            "hopper_verdict": hopper_verdict,
+            "hopper_badge": hopper_badge,
+            "hopper_reasoning": hopper_reasoning,
+            "hopper_class": hopper_class,
+            "arbitrage_badge_html": card_arbitrage_html,
         })
 
     hotel_meta_by_name = {c["hotel_name"]: c for c in hotel_cards}
@@ -5774,7 +5826,7 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             top: 2px;
             bottom: 2px;
             left: 2px;
-            width: calc(50% - 2px);
+            width: calc(33.333% - 2px);
             border-radius: 7px;
             background: #fff;
             box-shadow: 0 1px 3px rgba(0,0,0,.14), 0 1px 1px rgba(0,0,0,.05);
@@ -5785,6 +5837,18 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         }}
         .mode-switch[data-mode="table"]::before {{
             transform: translateX(100%);
+        }}
+        .mode-switch[data-mode="arbitrage"]::before {{
+            transform: translateX(200%);
+        }}
+        .arb-count-badge {{
+            background: #10b981;
+            color: #fff;
+            font-size: 0.68rem;
+            padding: 1px 6px;
+            border-radius: 999px;
+            font-weight: 700;
+            margin-left: 4px;
         }}
         .table-toolbar {{
             display: inline-flex;
@@ -6000,6 +6064,156 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         }}
         .dark-theme .cheaper-alt-badge .alt-savings {{
             color: #34d399;
+        }}
+
+        /* Hopper Predictive Engine Pills */
+        .hopper-pill {{
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            border-radius: 999px;
+            padding: .18rem .55rem;
+            font-size: .72rem;
+            font-weight: 700;
+            border: 1px solid transparent;
+            white-space: nowrap;
+            cursor: help;
+        }}
+        .hopper-pill.buy-now {{
+            background: rgba(16,185,129,.18);
+            color: #065f46;
+            border-color: rgba(16,185,129,.35);
+        }}
+        .hopper-pill.wait {{
+            background: rgba(245,158,11,.18);
+            color: #92400e;
+            border-color: rgba(245,158,11,.35);
+        }}
+        .hopper-pill.overpriced {{
+            background: rgba(239,68,68,.15);
+            color: #991b1b;
+            border-color: rgba(239,68,68,.32);
+        }}
+        .dark-theme .hopper-pill.buy-now {{
+            background: rgba(16,185,129,.25);
+            color: #34d399;
+            border-color: rgba(16,185,129,.4);
+        }}
+        .dark-theme .hopper-pill.wait {{
+            background: rgba(245,158,11,.25);
+            color: #fbbf24;
+            border-color: rgba(245,158,11,.4);
+        }}
+        .dark-theme .hopper-pill.overpriced {{
+            background: rgba(239,68,68,.25);
+            color: #f87171;
+            border-color: rgba(239,68,68,.4);
+        }}
+
+        /* Arbitrage Card Badge */
+        .arbitrage-card-badge {{
+            display: inline-flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2px 5px;
+            white-space: normal;
+            margin-top: 3px;
+            font-size: 0.68rem;
+            line-height: 1.25;
+            color: #065f46;
+            background: #ecfdf5;
+            border: 1px solid #a7f3d0;
+            border-radius: 6px;
+            padding: 2px 6px;
+            text-decoration: none;
+            max-width: 100%;
+            transition: all 0.15s ease;
+        }}
+        .arbitrage-card-badge:hover {{
+            background: #d1fae5;
+            border-color: #6ee7b7;
+            text-decoration: none;
+        }}
+        .arbitrage-card-badge .arb-label {{
+            color: #065f46;
+            font-weight: 600;
+            white-space: nowrap;
+        }}
+        .arbitrage-card-badge .arb-savings {{
+            color: #059669;
+            font-weight: 700;
+            white-space: nowrap;
+        }}
+        .dark-theme .arbitrage-card-badge {{
+            background: rgba(16,185,129,0.12);
+            border-color: #065f46;
+            color: #6ee7b7;
+        }}
+        .dark-theme .arbitrage-card-badge .arb-label {{
+            color: #a7f3d0;
+        }}
+        .dark-theme .arbitrage-card-badge .arb-savings {{
+            color: #34d399;
+        }}
+
+        /* Arbitrage Hub Section & Calculator */
+        .full-width-arbitrage-section {{
+            width: 100%;
+        }}
+        .arbitrage-calc-bar {{
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 1.1rem 1.4rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }}
+        .dark-theme .arbitrage-calc-bar {{
+            background: #1e293b;
+            border-color: #334155;
+        }}
+        .arbitrage-calc-title {{
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }}
+        .arbitrage-slider-group {{
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 14px;
+            font-size: 0.86rem;
+        }}
+        .arbitrage-slider-group input[type="range"] {{
+            cursor: pointer;
+            width: 130px;
+        }}
+        .arb-badge-win {{
+            background: #059669;
+            color: #fff;
+            padding: 3px 8px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 0.76rem;
+            white-space: nowrap;
+            display: inline-block;
+        }}
+        .arb-badge-neutral {{
+            background: #e2e8f0;
+            color: #475569;
+            padding: 3px 8px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 0.76rem;
+            white-space: nowrap;
+            display: inline-block;
+        }}
+        .dark-theme .arb-badge-neutral {{
+            background: #334155;
+            color: #cbd5e1;
         }}
         .hotel-card-stats {{
             display: grid;
@@ -8379,10 +8593,11 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
                     <div class="hotel-card-meta">
                         <div class="hotel-card-price">{c["price"]:.0f} PLN</div>
                         <span class="deal-pill {c["deal_class"]}">Deal {c["deal_score"]} • {c["deal_label"]}</span>
-                        <span class="forecast-pill {c['forecast_class']}">{c['forecast_icon']} {c['forecast_text']}</span>
+                        {f'<span class="hopper-pill {c["hopper_class"]}" title="{html_lib.escape(c["hopper_reasoning"], quote=True)}">{c["hopper_badge"]}</span>' if c.get("hopper_badge") else f'<span class="forecast-pill {c["forecast_class"]}">{c["forecast_icon"]} {c["forecast_text"]}</span>'}
                     </div>
                     {c["comeback_html"]}
                     {c.get("cheaper_alt_html", "")}
+                    {c.get("arbitrage_badge_html", "")}
                     <div class="hotel-card-stats">
                         <div>Δ48ч: <strong>{c["delta48"]}</strong></div>
                         <div>Δср: <strong>{c["delta_avg"]}</strong></div>
@@ -8689,12 +8904,87 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
     else:
         price_filter_options_html = '<option value="">Все цены</option>'
 
+    # ── Генерация секции трансграничного арбитража ──────────────────────────
+    arb_rows_html = []
+    eur_rate_val = arb_engine.eur_rate if 'arb_engine' in locals() else 4.30
+    default_friction_val = 250.0
+
+    if arbitrage_matches:
+        for m in arbitrage_matches:
+            hotel_h = html_lib.escape(m.hotel_name_pl)
+            hotel_de_h = html_lib.escape(m.hotel_name_de)
+            dates_h = html_lib.escape(m.dates_pl or m.dates_de or "—")
+            spread_class = "arb-badge-win" if m.spread_pln > 0 else "arb-badge-neutral"
+            sign_str = "+" if m.spread_pln > 0 else ""
+            pct_str = f" (-{m.savings_pct:.1f}%)" if m.spread_pln > 0 else ""
+
+            pl_link = f'<a href="{html_lib.escape(m.url_pl, quote=True)}" target="_blank" class="card-btn primary" style="padding:4px 10px;font-size:0.75rem;">Fly.pl ↗</a>' if m.url_pl else "—"
+            de_link = f'<a href="{html_lib.escape(m.url_de, quote=True)}" target="_blank" class="card-btn" style="padding:4px 10px;font-size:0.75rem;background:#10b981;color:#fff;">Check24 ↗</a>' if m.url_de else "—"
+
+            arb_rows_html.append(f"""
+                <tr class="arb-row" data-de-eur="{m.price_de_eur}" data-pl-pln="{m.price_pl_pln}" data-rate="{eur_rate_val}">
+                    <td>
+                        <strong>{hotel_h}</strong>
+                        <div style="font-size:0.75rem;color:var(--text-muted);">{hotel_de_h} ({m.tour_operator_de})</div>
+                    </td>
+                    <td>{dates_h}</td>
+                    <td><strong>{m.price_pl_pln:,.0f} PLN</strong> <small style="color:var(--text-muted);">({m.airport_pl})</small></td>
+                    <td><strong>{m.price_de_eur:,.0f} €</strong> <small style="color:var(--text-muted);">({m.airport_de})</small></td>
+                    <td class="arb-net-de"><strong>{m.net_price_de_pln:,.0f} PLN</strong></td>
+                    <td><span class="arb-spread {spread_class}">{sign_str}{m.spread_pln:,.0f} PLN{pct_str}</span></td>
+                    <td style="text-align:center;white-space:nowrap;">{pl_link} {de_link}</td>
+                </tr>
+            """.replace(",", " "))
+        arb_tbody = "".join(arb_rows_html)
+    else:
+        arb_tbody = '<tr><td colspan="7" style="text-align:center;padding:2rem;color:var(--text-muted);">На текущий момент активных предложений с существенной выгодой в Германии не обнаружено.</td></tr>'
+
+    arb_badge_count_html = f'<span class="arb-count-badge">{len(arbitrage_matches)}</span>' if arbitrage_matches else ""
+
+    arbitrage_html = f"""
+        <div class="hotels-section full-width-arbitrage-section" id="arbitrageSection" style="display:none;margin-top:1rem;">
+            <div class="arbitrage-calc-bar">
+                <div class="arbitrage-calc-title">
+                    <span style="font-size:1.5rem;">🌍</span>
+                    <div>
+                        <strong style="font-size:1.05rem;">Трансграничный арбитраж: Польша (WAW/KTW) ⇄ Германия (BER/DRS)</strong>
+                        <div style="font-size:0.78rem;color:var(--text-muted);font-weight:normal;">Сравнение цен на идентичные отели между польскими и немецкими туроператорами (TUI DE, DERTOUR, Alltours, Schauinsland).</div>
+                    </div>
+                </div>
+                <div class="arbitrage-slider-group">
+                    <label for="frictionSlider">Дорога до BER на семью: <strong id="frictionDisplay">{default_friction_val:.0f} PLN</strong></label>
+                    <input type="range" id="frictionSlider" min="0" max="1000" step="50" value="{default_friction_val:.0f}" oninput="if(window.updateArbitrageCalculations) updateArbitrageCalculations(this.value)">
+                    <span style="color:var(--text-muted);font-size:0.78rem;">Курс NBP: <strong>{eur_rate_val:.2f} zł/€</strong></span>
+                </div>
+            </div>
+            <div class="table-container table-container--hotels" style="margin-top:1rem;">
+                <table class="hotels-table arbitrage-table" id="arbitrageTable">
+                    <thead>
+                        <tr>
+                            <th>Отель</th>
+                            <th>Даты</th>
+                            <th>Польша (WAW/KTW)</th>
+                            <th>Германия (BER/DRS)</th>
+                            <th>Net цена из BER (с дорогой)</th>
+                            <th>Чистая выгода</th>
+                            <th style="text-align:center;">Бронирование</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {arb_tbody}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    """
+
     html_template += f"""
         <div class="table-toolbar" id="modeSwitchRow">
             <div class="table-toolbar-title">Вид</div>
             <div class="mode-switch table-mode-switch" id="modeSwitch" data-mode="cards">
                 <button type="button" class="mode-btn active" data-mode="cards">Карточки</button>
                 <button type="button" class="mode-btn" data-mode="table">Таблица</button>
+                <button type="button" class="mode-btn" data-mode="arbitrage">🌍 Арбитраж Польша ⇄ BER {arb_badge_count_html}</button>
             </div>
         </div>
 
@@ -8910,6 +9200,16 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         forecast = determine_price_forecast(
             deal_score, confidence_level, d_avg_tbl, d48_tbl, comeback_drop_tbl,
         )
+        hopper_badge_tbl = str(hotel.get('hopper_badge') or '')
+        hopper_verdict_tbl = str(hotel.get('hopper_verdict') or '')
+        hopper_reasoning_tbl = str(hotel.get('hopper_reasoning') or '')
+        if hopper_badge_tbl:
+            hopper_cls = "buy-now" if hopper_verdict_tbl == "BUY_NOW" else ("wait" if hopper_verdict_tbl == "WAIT" else ("overpriced" if hopper_verdict_tbl == "OVERPRICED" else "neutral"))
+            forecast_cell_html = f'<span class="hopper-pill {hopper_cls}" title="{html_lib.escape(hopper_reasoning_tbl, quote=True)}">{hopper_badge_tbl}</span>'
+            forecast_sort_val = hopper_verdict_tbl
+        else:
+            forecast_cell_html = f'<span class="forecast-pill {forecast["class"]}">{forecast["icon"]} {forecast["text"]}</span>'
+            forecast_sort_val = forecast['text']
         departure_date_attr = html_lib.escape(str(hotel.get('departure_date') or ''), quote=True)
         departure_key_attr = html_lib.escape(str(hotel.get('departure_key') or ''), quote=True)
 
@@ -8927,7 +9227,7 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
                         <td class="hotel-name col-hotel" data-label="Отель"><button class="watchlist-star-btn" data-hotel-name="{hotel_name_attr}" title="Добавить в избранное">☆</button><a class="open-chart-link hotel-hover-link" href="{chart_href}" target="_blank" data-hotel-name="{hotel_name_attr}">{hotel_name_html}</a></td>
                         <td class="price col-tight" data-label="Цена" data-sort-value="{price}"><span class="price-main">{price:.0f} PLN</span>{comeback_cell}{cheaper_alt_html}</td>
                         <td class="col-tight col-w-deal-td" data-label="Deal" data-sort-value="{deal_score}" title="{deal_title}"><span class="deal-cell-inline">{deal_score} <span style="opacity:.85;">{deal_badge}</span> <span class="deal-conf-short">{confidence_short}</span></span></td>
-                        <td class="col-tight col-w-forecast-td" data-label="Прогноз" data-sort-value="{forecast['text']}"><span class="forecast-pill {forecast['class']}">{forecast['icon']} {forecast['text']}</span></td>
+                        <td class="col-tight col-w-forecast-td" data-label="Прогноз" data-sort-value="{forecast_sort_val}">{forecast_cell_html}</td>
                         <td class="col-tight col-w-ta-td col-hide-sm" data-label="TripAdvisor">{ta_rating_html}</td>
                         <td class="col-tight col-w-d48-td" data-label="Δ 48ч" data-sort-value="{delta_info[1] if delta_info else 0}"><span class="{delta_class}">{delta_display}</span></td>
                         <td class="col-tight col-w-davg-td col-hide-sm" data-label="Δ к средней" data-sort-value="{avg_sort_value}">{avg_display}</td>
@@ -9142,6 +9442,7 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
                 <button id="nextPage">Следующая →</button>
             </div>
         </div>
+{arbitrage_html}
 {alerts_html}
 {vanished_section_html}
 {duration_views_json_embed}
@@ -9790,16 +10091,20 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         let refreshTableView = null;
 
         function setMode(mode) {
-          const normalized = mode === 'table' ? 'table' : 'cards';
-          const cardsMode = normalized !== 'table';
+          const normalized = (mode === 'arbitrage') ? 'arbitrage' : (mode === 'table' ? 'table' : 'cards');
           const cardsEl = document.getElementById('cardsSection');
           const tableEl = document.getElementById('tableSection');
+          const arbEl = document.getElementById('arbitrageSection');
           const alertsEl = document.getElementById('alertsSection');
+          const globalFilters = document.getElementById('globalFilters');
           const modeSwEl = document.getElementById('modeSwitch');
 
-          if (cardsEl) cardsEl.style.display = cardsMode ? 'block' : 'none';
-          if (tableEl) tableEl.style.display = cardsMode ? 'none' : 'block';
-          if (alertsEl) alertsEl.style.display = 'block';
+          if (cardsEl) cardsEl.style.display = (normalized === 'cards') ? 'block' : 'none';
+          if (tableEl) tableEl.style.display = (normalized === 'table') ? 'block' : 'none';
+          if (arbEl) arbEl.style.display = (normalized === 'arbitrage') ? 'block' : 'none';
+          if (globalFilters) globalFilters.style.display = (normalized === 'arbitrage') ? 'none' : 'flex';
+          if (alertsEl) alertsEl.style.display = (normalized === 'arbitrage') ? 'none' : 'block';
+
           if (modeSwEl) {
             modeSwEl.dataset.mode = normalized;
             modeSwEl.querySelectorAll('.mode-btn').forEach((btn) => {
@@ -9807,11 +10112,39 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             });
           }
           try { localStorage.setItem('dashboard_mode', normalized); } catch(e) {}
-          if (!cardsMode && typeof refreshTableView === 'function') {
+          if (normalized === 'table' && typeof refreshTableView === 'function') {
             refreshTableView();
           }
         }
         window.setDashboardMode = setMode;
+
+        window.updateArbitrageCalculations = function(frictionVal) {
+          const f = parseFloat(frictionVal) || 0;
+          const disp = document.getElementById('frictionDisplay');
+          if (disp) disp.textContent = Math.round(f) + ' PLN';
+          const rows = document.querySelectorAll('.arb-row');
+          rows.forEach((row) => {
+            const deEur = parseFloat(row.dataset.deEur) || 0;
+            const plPln = parseFloat(row.dataset.plPln) || 0;
+            const rate = parseFloat(row.dataset.rate) || 4.30;
+            const netDe = Math.round(deEur * rate + f);
+            const spread = Math.round(plPln - netDe);
+            const pct = (plPln > 0) ? ((spread / plPln) * 100).toFixed(1) : 0;
+
+            const netEl = row.querySelector('.arb-net-de');
+            const spreadEl = row.querySelector('.arb-spread');
+            if (netEl) netEl.innerHTML = '<strong>' + netDe.toLocaleString('ru-RU') + ' PLN</strong>';
+            if (spreadEl) {
+              if (spread > 0) {
+                spreadEl.className = 'arb-spread arb-badge-win';
+                spreadEl.textContent = '+' + spread.toLocaleString('ru-RU') + ' PLN (-' + pct + '%)';
+              } else {
+                spreadEl.className = 'arb-spread arb-badge-neutral';
+                spreadEl.textContent = spread.toLocaleString('ru-RU') + ' PLN';
+              }
+            }
+          });
+        };
 
         const modeSwitch = document.getElementById('modeSwitch');
         if (modeSwitch) {
