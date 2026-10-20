@@ -126,7 +126,12 @@ class GermanyTourMonitor:
         """Dismisses the German cookie consent dialog if displayed."""
         try:
             selectors = [
+                '.c24-cookie-consent-button',
+                'a.c24-cookie-consent-button',
+                'a:has-text("Geht klar")',
                 'button:has-text("Geht klar")',
+                '.c24-cookie-consent-functional',
+                'a:has-text("Nur notwendige Cookies")',
                 'button:has-text("Alle akzeptieren")',
                 'button:has-text("Zustimmen")',
             ]
@@ -134,7 +139,7 @@ class GermanyTourMonitor:
                 btn = await page.query_selector(sel)
                 if btn:
                     await btn.click()
-                    await asyncio.sleep(1.5)
+                    await asyncio.sleep(0.5)
                     logger.info("Cookie consent dismissed successfully.")
                     return True
         except Exception as e:
@@ -148,30 +153,53 @@ class GermanyTourMonitor:
             const list = [];
             const articles = document.querySelectorAll('article');
             for (const art of articles) {
-                const text = art.innerText || '';
-                if (!text.includes('€')) continue;
+                // Skip placeholder skeleton loading cards
+                if (art.className && art.className.includes('Loading')) continue;
                 
-                const lines = text.split('\\n').map(s => s.trim()).filter(Boolean);
-                const title = lines[0] || '';
-                const location = lines[1] || '';
+                // Hotel title
+                const titleEl = art.querySelector('h2, h3, [class*="Title"], [class*="headline"], [class*="hotelName"]');
+                const title = titleEl ? titleEl.innerText.trim() : (art.innerText.split('\\n')[0] || '').trim();
+                if (!title || title === '•') continue;
                 
-                // Parse Price (EUR)
+                // Location
+                const locEl = art.querySelector('[class*="Location"], [class*="location"], [class*="Region"], [class*="region"]');
+                let location = locEl ? locEl.innerText.trim() : '';
+                if (!location) {
+                    const lines = art.innerText.split('\\n').map(s => s.trim()).filter(Boolean);
+                    if (lines.length > 1) location = lines[1];
+                }
+                
+                // Parse Price (EUR) - prefer final total price element, exclude strikethrough prices
                 let price = 0;
-                for (const l of lines) {
-                    if (l.includes('€') && !l.includes('Punkte') && !l.includes('Gutschein') && !l.includes('Rabatt')) {
-                        // Formats: '1.062,00 €' or '956 €'
-                        const clean = l.replace(/[^0-9,]/g, '').replace(',', '.');
-                        price = parseFloat(clean) || 0;
-                        if (price > 0) break;
+                const totalPriceEl = art.querySelector('[class*="TotalPrice"], [class*="_Price_"]');
+                if (totalPriceEl) {
+                    const clean = totalPriceEl.innerText.replace(/[^0-9,]/g, '').replace(',', '.');
+                    price = parseFloat(clean) || 0;
+                }
+                
+                // Fallback to text lines if price selector not matched
+                if (price <= 0) {
+                    const lines = art.innerText.split('\\n').map(s => s.trim()).filter(Boolean);
+                    for (const l of lines) {
+                        if (l.includes('€') && !l.includes('Punkte') && !l.includes('Gutschein') && !l.includes('Rabatt')) {
+                            const clean = l.replace(/[^0-9,]/g, '').replace(',', '.');
+                            price = parseFloat(clean) || 0;
+                            if (price > 0) break;
+                        }
                     }
                 }
                 
                 // Parse Duration and passenger info
                 let duration = '';
-                for (const l of lines) {
-                    if (l.includes('Tage') || l.includes('Nächte')) {
-                        duration = l;
-                        break;
+                const durEl = art.querySelector('[class*="Duration"], [class*="duration"], [class*="TravelPeriod"]');
+                if (durEl) {
+                    duration = durEl.innerText.trim();
+                } else {
+                    for (const l of art.innerText.split('\\n')) {
+                        if (l.includes('Tage') || l.includes('Nächte')) {
+                            duration = l.trim();
+                            break;
+                        }
                     }
                 }
                 
@@ -225,21 +253,25 @@ class GermanyTourMonitor:
                     '--disable-dev-shm-usage',
                     '--disable-gpu',
                     '--disable-web-security',
+                    '--disable-blink-features=AutomationControlled',
                 ],
             )
             context = await browser.new_context(
                 user_agent=(
                     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
                     "AppleWebKit/537.36 (KHTML, like Gecko) "
-                    "Chrome/120.0.0.0 Safari/537.36"
+                    "Chrome/122.0.0.0 Safari/537.36"
                 ),
                 viewport={'width': 1920, 'height': 1080},
+                extra_http_headers={
+                    'Accept-Language': 'de-DE,de;q=0.9,en-US;q=0.8,en;q=0.7',
+                },
             )
             page = await context.new_page()
 
             # Block heavy media assets for speed (3-5x faster scraping)
             await page.route(
-                '**/*.{png,jpg,jpeg,webp,svg,gif,woff,woff2}',
+                '**/*.{png,jpg,jpeg,webp,svg,woff,woff2}',
                 lambda r: r.abort(),
             )
             page.set_default_timeout(self.wait_timeout)
@@ -263,17 +295,24 @@ class GermanyTourMonitor:
                     if page_num == 1:
                         await self._dismiss_consent(page)
 
-                    # Wait for articles to render
+                    # Wait for articles WITH real prices to render (timeout 15s)
                     try:
-                        await page.wait_for_selector('article', timeout=8000)
+                        await page.wait_for_selector('article:has-text("€")', timeout=15000)
                     except Exception:
-                        logger.info(f"No articles found on page {page_num}, stopping pagination.")
-                        break
+                        # Fallback: re-attempt consent dismissal in case it was slow
+                        await self._dismiss_consent(page)
+                        try:
+                            await page.wait_for_selector('article:has-text("€")', timeout=5000)
+                        except Exception:
+                            logger.info(f"Page {page_num}: No priced articles found, checking page state...")
+                            title = await page.title()
+                            logger.info(f"Page title: '{title}'")
+                            break
 
                     # Scroll down to trigger lazy loading of additional offers on this page
-                    for _ in range(2):
-                        await page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
-                        await asyncio.sleep(1.0)
+                    for _ in range(3):
+                        await page.evaluate("window.scrollBy(0, 800)")
+                        await asyncio.sleep(0.5)
 
                     offers = await self.extract_offers_from_page(page)
                     elapsed = time.monotonic() - t0
@@ -339,12 +378,12 @@ class GermanyTourMonitor:
 def parse_args():
     parser = argparse.ArgumentParser(description="German Tour Package Monitor (BER/DRS)")
     parser.add_argument("--config", help="Path to JSON configuration file")
-    parser.add_argument("--destination", default="Turkey", help="Destination name (Turkey, Egypt, Greece)")
-    parser.add_argument("--destination-key", default="turkey_antalya", help="Key for Check24 area mapping")
-    parser.add_argument("--airport", default="BER", choices=["BER", "DRS", "LEJ"], help="Departure airport close to Polish border (BER, DRS, LEJ)")
-    parser.add_argument("--max-pages", type=int, default=2, help="Maximum number of pages to scrape")
-    parser.add_argument("--max-offers", type=int, default=25, help="Maximum offers to extract")
-    parser.add_argument("--output", default="data/germany_prices.csv", help="Output CSV path")
+    parser.add_argument("--destination", default=None, help="Destination name (Turkey, Egypt, Greece)")
+    parser.add_argument("--destination-key", default=None, help="Key for Check24 area mapping")
+    parser.add_argument("--airport", default=None, choices=["BER", "DRS", "LEJ"], help="Departure airport close to Polish border (BER, DRS, LEJ)")
+    parser.add_argument("--max-pages", type=int, default=None, help="Maximum number of pages to scrape")
+    parser.add_argument("--max-offers", type=int, default=None, help="Maximum offers to extract")
+    parser.add_argument("--output", default=None, help="Output CSV path")
     parser.add_argument("--dry-run", action="store_true", help="Scrape and print without saving")
     return parser.parse_args()
 
@@ -357,18 +396,18 @@ async def main_async():
         with open(args.config, 'r', encoding='utf-8') as f:
             config = json.load(f)
 
-    # CLI args override config
-    if args.destination:
+    # CLI args override config only when explicitly set
+    if args.destination is not None:
         config['destination'] = args.destination
-    if args.destination_key:
+    if args.destination_key is not None:
         config['destination_key'] = args.destination_key
-    if args.airport:
+    if args.airport is not None:
         config['departure_airport'] = args.airport
-    if args.max_pages:
+    if args.max_pages is not None:
         config['max_pages'] = args.max_pages
-    if args.max_offers:
+    if args.max_offers is not None:
         config['max_offers'] = args.max_offers
-    if args.output:
+    if args.output is not None:
         config['output_data_file'] = args.output
 
     monitor = GermanyTourMonitor(config)
