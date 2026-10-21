@@ -1846,10 +1846,49 @@
       "created_at": "2026-10-21T07:55:12.033707+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Jaz Aquaviva_2026-10-21_07-52_comeback_26.6"
+    },
+    {
+      "hotel_name": "Rewaya Luxury Resort",
+      "duration_bucket": "",
+      "old_price": 6766.0,
+      "new_price": 7417.0,
+      "price_change": 651.0,
+      "price_change_pct": 9.621637599763524,
+      "timestamp": "2026-10-21 09:11:47.559117+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-21T09:13:46.671775+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Luxury Resort_2026-10-21_09-11_+9.6"
+    },
+    {
+      "hotel_name": "Movenpick Waterpark Resort & Spa Soma Bay",
+      "duration_bucket": "",
+      "old_price": 7058.0,
+      "new_price": 8262.0,
+      "price_change": 1204.0,
+      "price_change_pct": 17.058656843298383,
+      "timestamp": "2026-10-21 09:11:47.559117+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-21T09:13:46.671800+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Movenpick Waterpark Resort & Spa Soma Bay_2026-10-21_09-11_+17.1"
+    },
+    {
+      "hotel_name": "Jaz Aquaviva",
+      "duration_bucket": "",
+      "old_price": 8039.0,
+      "new_price": 8039.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-21 09:11:47.559117+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-21T09:13:46.671813+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Aquaviva_2026-10-21_09-11_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-21T07:52:11.161231+00:00",
+    "last_processed_run": "2026-10-21T09:11:47.559117+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 7695.0,
