@@ -1698,6 +1698,7 @@
       "new_price": 3269.0,
       "price_change": 389.0,
       "price_change_pct": 13.506944444444443,
+<<<<<<< Updated upstream
       "timestamp": "2026-10-21 10:09:22.564559+00:00",
       "alert_type": "price_increase",
       "created_at": "2026-10-21T10:11:13.577397+00:00",
@@ -1716,6 +1717,13 @@
       "created_at": "2026-10-21T10:11:13.577419+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Swiss Heaven Sharming Inn_2026-10-21_10-09_+12.4"
+=======
+      "timestamp": "2026-10-21 10:32:26.577717+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-21T10:34:20.954588+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Badawia Sharm Resort (ex. All Seasons Badawia)_2026-10-21_10-32_+13.5"
+>>>>>>> Stashed changes
     },
     {
       "hotel_name": "Mazar Resort & Spa",
@@ -1724,6 +1732,7 @@
       "new_price": 3436.0,
       "price_change": 388.0,
       "price_change_pct": 12.72965879265092,
+<<<<<<< Updated upstream
       "timestamp": "2026-10-21 10:09:22.564559+00:00",
       "alert_type": "price_increase",
       "created_at": "2026-10-21T10:11:13.577426+00:00",
@@ -1733,6 +1742,30 @@
   ],
   "meta": {
     "last_processed_run": "2026-10-21T10:09:22.564559+00:00",
+=======
+      "timestamp": "2026-10-21 10:32:26.577717+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-21T10:34:20.954616+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Mazar Resort & Spa_2026-10-21_10-32_+12.7"
+    },
+    {
+      "hotel_name": "Swiss Heaven Sharming Inn",
+      "duration_bucket": "",
+      "old_price": 3126.0,
+      "new_price": 3515.0,
+      "price_change": 389.0,
+      "price_change_pct": 12.444017914267434,
+      "timestamp": "2026-10-21 10:32:26.577717+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-21T10:34:20.954630+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Swiss Heaven Sharming Inn_2026-10-21_10-32_+12.4"
+    }
+  ],
+  "meta": {
+    "last_processed_run": "2026-10-21T10:32:26.577717+00:00",
+>>>>>>> Stashed changes
     "premium_state": {
       "Albatros Sharm Resort (ex. Beach Albatros)": {
         "history_max": 6869.0,
