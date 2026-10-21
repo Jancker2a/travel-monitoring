@@ -278,15 +278,30 @@ def is_offer_comparable(
         if ch_pl != ch_de:
             return False, f"Children mismatch: PL {ch_pl} vs DE {ch_de}"
 
-    # 2. Departure Date Check (+-2 days max)
+    # 2. Departure Date Check (+-2 days max, or within search window <= 35 days)
     d_pl = parse_departure_date(dates_pl)
     date_matched = False
     date_err = ""
 
-    # Check exact departureDate in offer_url_de
+    # Check exact departureDate or window in offer_url_de
     if offer_url_de and d_pl:
         m_dep = re.search(r"departureDate=(\d{4}-\d{2}-\d{2})", offer_url_de)
-        if m_dep:
+        m_ret = re.search(r"returnDate=(\d{4}-\d{2}-\d{2})", offer_url_de)
+        if m_dep and m_ret:
+            w_start = parse_departure_date(m_dep.group(1))
+            w_end = parse_departure_date(m_ret.group(1))
+            if w_start and w_end:
+                win_len = (w_end - w_start).days
+                if 0 <= win_len <= 35:
+                    win_lo = w_start - timedelta(days=max_date_diff_days)
+                    win_hi = w_end + timedelta(days=max_date_diff_days)
+                    if win_lo <= d_pl <= win_hi:
+                        date_matched = True
+                    else:
+                        date_err = f"Dates mismatch: PL {d_pl} outside DE URL window [{w_start}, {w_end}]"
+                else:
+                    date_err = f"Dates mismatch: DE URL window [{w_start}, {w_end}] too wide ({win_len}d) for exact comparison"
+        elif m_dep:
             d_u = parse_departure_date(m_dep.group(1))
             if d_u:
                 diff_d = abs((d_pl - d_u).days)
@@ -305,14 +320,14 @@ def is_offer_comparable(
             else:
                 date_err = f"Dates mismatch: PL {d_pl} vs DE {d_de} ({diff_d}d > {max_date_diff_days}d)"
 
-    # Check dates_de as search window (only allowed if narrow: <= 3 days)
+    # Check dates_de as search window (allowed for standard monthly monitoring windows: <= 35 days)
     if not date_matched and dates_de and "_" in str(dates_de):
         parts = str(dates_de).split("_")
         w_start = parse_departure_date(parts[0])
         w_end = parse_departure_date(parts[1]) if len(parts) > 1 else None
         if d_pl and w_start:
             win_len = (w_end - w_start).days if w_end else 0
-            if 0 <= win_len <= 10:
+            if 0 <= win_len <= 35:
                 win_lo = w_start - timedelta(days=max_date_diff_days)
                 win_hi = (w_end or w_start) + timedelta(days=max_date_diff_days)
                 if win_lo <= d_pl <= win_hi:
