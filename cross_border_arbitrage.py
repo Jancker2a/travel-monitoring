@@ -160,77 +160,150 @@ def parse_duration_days(text: Union[str, int, float]) -> Optional[int]:
     return int(m2.group(1)) if m2 else None
 
 
+def parse_nights(text: Union[str, int, float]) -> Optional[int]:
+    """Extracts nights from duration string, or days as fallback."""
+    if text is None:
+        return None
+    if isinstance(text, float):
+        if math.isnan(text):
+            return None
+        return int(text)
+    if isinstance(text, int):
+        return text
+    text_str = str(text).strip()
+    if not text_str or text_str.lower() in ("nan", "none", ""):
+        return None
+
+    # 1. Explicit nights (e.g. '7 nocy', '7 Nächte')
+    m_noc = re.search(r"(\d+)\s*(?:nocy|noclegów|noclegi|noc|Nächte|Nacht)", text_str, re.I)
+    if m_noc:
+        return int(m_noc.group(1))
+
+    # 2. Polish 'dni' (e.g. '8 dni' usually represents 7 nights in hotel)
+    m_dni = re.search(r"(\d+)\s*(?:dni|dzień)", text_str, re.I)
+    if m_dni:
+        val = int(m_dni.group(1))
+        return val - 1 if val > 1 else 1
+
+    # 3. German 'Tage' (e.g. '7 Tage' corresponds to 7 nights package, '5 Tage' to 4-5 nights)
+    m_tage = re.search(r"(\d+)\s*(?:Tage|Tag|days|day)", text_str, re.I)
+    if m_tage:
+        return int(m_tage.group(1))
+
+    m_num = re.search(r"\b(\d+)\b", text_str)
+    return int(m_num.group(1)) if m_num else None
+
+
+def parse_travelers(url: str = "", text: str = "") -> Tuple[int, int]:
+    """Extracts (adults, children) count from URL parameters and duration/text."""
+    s = str(url or "") + " " + str(text or "")
+    m_alloc = re.search(r"roomAllocation=([A-Za-z0-9\-,]+)", s)
+    if m_alloc:
+        alloc = m_alloc.group(1)
+        parts = alloc.split(",")
+        ad_part = parts[0].split("-")
+        adults = len([p for p in ad_part if p.upper() == "A"])
+        children = len(parts) - 1
+        return adults, children
+
+    adults = 2
+    children = 0
+    m_ad = re.search(r"(?:adults|filter\[person\])=(\d+)", s)
+    if m_ad:
+        adults = int(m_ad.group(1))
+
+    if "children=" in s or "filter[child]" in s or "childAge" in s:
+        m_ch = re.search(r"(?:children|filter\[child\])=([^&]+)", s)
+        if m_ch and m_ch.group(1).strip() and m_ch.group(1).strip() not in ("0", "none", "None"):
+            children = 1
+
+    m_pers = re.search(r"(\d+)\s*Pers", s, re.I)
+    if m_pers and "roomAllocation=" not in s and "adults=" not in s and "filter[person]=" not in s:
+        adults = int(m_pers.group(1))
+
+    return adults, children
+
+
 def is_offer_comparable(
     dates_pl: str,
     dates_de: str,
     duration_pl: Any,
     duration_de: Any,
-    max_date_diff_days: int = 4,
-    max_duration_diff_days: int = 2,
+    max_date_diff_days: int = 2,
+    max_duration_diff_days: int = 0,
+    offer_url_pl: str = "",
     offer_url_de: str = "",
 ) -> Tuple[bool, str]:
     """
     Verifies that Polish and German offers have matching parameters:
-    - Departure dates within max_date_diff_days (e.g. +-4 days) or within German search window
-    - Fallback: checks departureDate / returnDate query params in offer_url_de
-    - Durations within max_duration_diff_days (e.g. +-2 days)
+    - Same traveler composition (adults and children must match).
+    - Departure dates within +-max_date_diff_days (default +-2 days). Wide 30-day windows are rejected.
+    - Durations in hotel nights match strictly (default +-0 nights difference).
     """
+    # 1. Traveler Composition Check
+    if offer_url_pl or offer_url_de:
+        ad_pl, ch_pl = parse_travelers(offer_url_pl, duration_pl)
+        ad_de, ch_de = parse_travelers(offer_url_de, duration_de)
+        if ad_pl != ad_de:
+            return False, f"Adults mismatch: PL {ad_pl} vs DE {ad_de}"
+        if ch_pl != ch_de:
+            return False, f"Children mismatch: PL {ch_pl} vs DE {ch_de}"
+
+    # 2. Departure Date Check (+-2 days max)
     d_pl = parse_departure_date(dates_pl)
     date_matched = False
     date_err = ""
 
-    # Check if dates_de is a search window like 'YYYY-MM-DD_YYYY-MM-DD'
-    if dates_de and "_" in str(dates_de):
-        parts = str(dates_de).split("_")
-        w_start = parse_departure_date(parts[0])
-        w_end = parse_departure_date(parts[1]) if len(parts) > 1 else None
-        if d_pl and w_start:
-            if w_end and 0 <= (w_end - w_start).days <= 45:
-                win_lo = w_start - timedelta(days=max_date_diff_days)
-                win_hi = w_end + timedelta(days=max_date_diff_days)
-                if win_lo <= d_pl <= win_hi:
-                    date_matched = True
-                else:
-                    date_err = f"Date out of window: PL {d_pl} outside DE window [{w_start}, {w_end}]"
-            else:
-                diff_days = abs((d_pl - w_start).days)
-                if diff_days <= max_date_diff_days:
-                    date_matched = True
-                else:
-                    date_err = f"Dates mismatch: PL {d_pl} vs DE start {w_start} (diff: {diff_days} days)"
-    else:
-        d_de = parse_departure_date(dates_de)
-        if d_pl and d_de:
-            diff_days = abs((d_pl - d_de).days)
-            if diff_days <= max_date_diff_days:
-                date_matched = True
-            else:
-                date_err = f"Dates mismatch: PL {d_pl} vs DE {d_de} (diff: {diff_days} days)"
-
-    # Fallback to offer_url_de (e.g. departureDate=YYYY-MM-DD&returnDate=YYYY-MM-DD)
-    if not date_matched and offer_url_de and d_pl:
+    # Check exact departureDate in offer_url_de
+    if offer_url_de and d_pl:
         m_dep = re.search(r"departureDate=(\d{4}-\d{2}-\d{2})", offer_url_de)
         if m_dep:
             d_u = parse_departure_date(m_dep.group(1))
             if d_u:
-                m_ret = re.search(r"returnDate=(\d{4}-\d{2}-\d{2})", offer_url_de)
-                r_u = parse_departure_date(m_ret.group(1)) if m_ret else None
-                if r_u and 0 <= (r_u - d_u).days <= 45:
-                    if (d_u - timedelta(days=max_date_diff_days)) <= d_pl <= (r_u + timedelta(days=max_date_diff_days)):
-                        date_matched = True
-                elif abs((d_pl - d_u).days) <= max_date_diff_days:
+                diff_d = abs((d_pl - d_u).days)
+                if diff_d <= max_date_diff_days:
                     date_matched = True
+                else:
+                    date_err = f"Departure mismatch: PL {d_pl} vs DE {d_u} ({diff_d}d > {max_date_diff_days}d)"
+
+    # Check dates_de as single date
+    if not date_matched and dates_de and "_" not in str(dates_de):
+        d_de = parse_departure_date(dates_de)
+        if d_pl and d_de:
+            diff_d = abs((d_pl - d_de).days)
+            if diff_d <= max_date_diff_days:
+                date_matched = True
+            else:
+                date_err = f"Dates mismatch: PL {d_pl} vs DE {d_de} ({diff_d}d > {max_date_diff_days}d)"
+
+    # Check dates_de as search window (only allowed if narrow: <= 3 days)
+    if not date_matched and dates_de and "_" in str(dates_de):
+        parts = str(dates_de).split("_")
+        w_start = parse_departure_date(parts[0])
+        w_end = parse_departure_date(parts[1]) if len(parts) > 1 else None
+        if d_pl and w_start:
+            win_len = (w_end - w_start).days if w_end else 0
+            if 0 <= win_len <= 10:
+                win_lo = w_start - timedelta(days=max_date_diff_days)
+                win_hi = (w_end or w_start) + timedelta(days=max_date_diff_days)
+                if win_lo <= d_pl <= win_hi:
+                    date_matched = True
+                else:
+                    date_err = f"Dates mismatch: PL {d_pl} outside DE window [{w_start}, {w_end}]"
+            else:
+                date_err = f"Dates mismatch: DE search window [{w_start}, {w_end}] too wide ({win_len}d) for exact comparison"
 
     if not date_matched and (dates_de or offer_url_de) and d_pl:
         return False, date_err or "Dates mismatch"
 
-    dur_pl = parse_duration_days(duration_pl)
-    dur_de = parse_duration_days(duration_de)
+    # 3. Strict Duration (Nights) Check
+    n_pl = parse_nights(duration_pl)
+    n_de = parse_nights(duration_de)
 
-    if dur_pl and dur_de:
-        dur_diff = abs(dur_pl - dur_de)
+    if n_pl is not None and n_de is not None:
+        dur_diff = abs(n_pl - n_de)
         if dur_diff > max_duration_diff_days:
-            return False, f"Duration mismatch: PL {dur_pl}d vs DE {dur_de}d (diff: {dur_diff} days)"
+            return False, f"Duration mismatch: PL {n_pl} nights vs DE {n_de} nights (diff: {dur_diff} > {max_duration_diff_days})"
 
     return True, "OK"
 
@@ -241,8 +314,8 @@ class CrossBorderArbitrageEngine:
         eur_rate: Optional[float] = None,
         friction_cost_pln: float = DEFAULT_FRICTION_COST_PLN,
         matcher: Optional[HotelEntityMatcher] = None,
-        max_date_diff_days: int = 4,
-        max_duration_diff_days: int = 2,
+        max_date_diff_days: int = 2,
+        max_duration_diff_days: int = 0,
     ):
         self.eur_rate = eur_rate or get_eur_pln_exchange_rate()
         self.friction_cost_pln = friction_cost_pln
@@ -322,6 +395,7 @@ class CrossBorderArbitrageEngine:
                     duration_de=dur_de,
                     max_date_diff_days=self.max_date_diff_days,
                     max_duration_diff_days=self.max_duration_diff_days,
+                    offer_url_pl=str(pl_item.get("offer_url") or pl_item.get("url") or ""),
                     offer_url_de=str(de_item.get("offer_url") or ""),
                 )
                 if not comparable:

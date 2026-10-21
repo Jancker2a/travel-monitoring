@@ -131,6 +131,9 @@ class GermanyTourMonitor:
                 url += f"&departureDate={travel_period}"
         if duration:
             url += f"&days={duration}"
+        catering = self.config.get('catering')
+        if catering:
+            url += f"&catering={catering}"
         if page_number > 1:
             url += f"&page={page_number}"
 
@@ -465,19 +468,49 @@ def map_polish_config_to_germany_params(polish_cfg: Dict[str, Any], cfg_name: st
     if dur == '7-15':
         dur = '7-14'
 
-    # 3. Room allocation
+    # 3. Room allocation (Adults + Children with exact age)
+    adults = 2
+    children = 0
+    child_age = 6
     try:
         adults = int((qs.get('adults') or qs.get('filter[person]') or [2])[0])
-        children = 1 if 'children' in qs and qs['children'][0].strip() else int((qs.get('filter[child]') or [0])[0])
+        raw_children = (qs.get('children') or qs.get('filter[childAge][1]') or [''])[0].strip()
+        if raw_children:
+            children = 1
+            m_yr = re.search(r'\b(20\d{2})\b', raw_children)
+            if m_yr:
+                birth_yr = int(m_yr.group(1))
+                child_age = max(1, min(17, 2026 - birth_yr))
+            else:
+                m_dig = re.search(r'\b(\d{1,2})\b', raw_children)
+                if m_dig:
+                    child_age = int(m_dig.group(1))
+        else:
+            children = int((qs.get('filter[child]') or [0])[0])
     except (ValueError, TypeError):
         adults, children = 2, 0
 
     if adults == 1 and children == 0:
         room = 'A'
+    elif adults == 1 and children > 0:
+        room = f'A,{child_age}'
+    elif adults == 2 and children > 0:
+        room = f'A-A,{child_age}'
     else:
-        room = 'A-A'
+        room = '-'.join(['A'] * adults)
 
-    # 4. Destination & Area mapping
+    # 4. Catering mapping
+    raw_cat = (qs.get('catering') or qs.get('filter[service]') or [''])[0].lower()
+    if 'all' in raw_cat or 'ai' in raw_cat:
+        check24_catering = 'allInclusive'
+    elif 'hb' in raw_cat or 'half' in raw_cat:
+        check24_catering = 'halfBoard'
+    elif 'bb' in raw_cat or 'bed' in raw_cat:
+        check24_catering = 'bedAndBreakfast'
+    else:
+        check24_catering = 'allInclusive'
+
+    # 5. Destination & Area mapping
     dest_loc = (qs.get('destinationLocation') or qs.get('filter[dest]') or [''])[0]
     if dest_loc.startswith('11_154'):
         dest_name, dest_key, area_id = 'Egypt', 'egypt_sharm', 674
@@ -513,6 +546,7 @@ def map_polish_config_to_germany_params(polish_cfg: Dict[str, Any], cfg_name: st
         'travel_period': period,
         'duration': dur,
         'room_allocation': room,
+        'catering': check24_catering,
         'data_dir': data_dir,
         'output_data_file': out_file,
         'departure_airport': 'BER',
