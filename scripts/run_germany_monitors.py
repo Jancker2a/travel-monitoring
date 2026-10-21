@@ -18,16 +18,20 @@ if str(ROOT) not in sys.path:
 
 from filter_trip import should_skip_monitor_config
 
-# All persistent active filters + Sharm 1-person trip
+# All active filters (Egypt, Turkey, Greece, fixed-date holiday trips)
 GERMANY_TARGET_CONFIGS = [
     "config_ci_filter_7_10.json",
     "config_ci_filter_13_16.json",
     "config_ci_filter_turkey_7_10.json",
     "config_ci_filter_turkey_9_11.json",
     "config_ci_filter_turkey_13_16.json",
+    "config_ci_filter_turkey_vacation_jul18.json",
     "config_ci_filter_greece_7_10.json",
     "config_ci_filter_greece_13_16.json",
     "config_ci_filter_egypt_autumn_7_10.json",
+    "config_ci_filter_egypt_autumn_13_16.json",
+    "config_ci_filter_egypt_ny_dec24_7_10.json",
+    "config_ci_filter_egypt_ny_dec28_7_10.json",
     "config_ci_filter_egypt_sharm_dec20_29_1p.json",
 ]
 
@@ -51,7 +55,7 @@ def run_germany_monitoring():
             "--from-polish-config",
             str(cfg_path),
             "--max-pages",
-            "1",
+            "2",
         ]
 
         t0 = time.monotonic()

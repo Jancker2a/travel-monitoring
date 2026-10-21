@@ -20,7 +20,7 @@ import json
 import logging
 import os
 import re
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Tuple
 import requests
 
 logger = logging.getLogger(__name__)
@@ -145,7 +145,7 @@ class GermanyTourClient:
         if not target_path:
             return []
 
-        offers: List[GermanTourOffer] = []
+        offers_by_key: Dict[Tuple[str, str, str], GermanTourOffer] = {}
         try:
             import csv
             with open(target_path, 'r', encoding='utf-8') as f:
@@ -198,24 +198,25 @@ class GermanyTourClient:
                                 except Exception:
                                     pass
 
-                    offers.append(
-                        GermanTourOffer(
-                            hotel_name=hotel_name,
-                            destination=dest or (row.get('location') or 'Unknown'),
-                            departure_airport=ap,
-                            dates=row.get('dates') or '',
-                            duration_days=dur_days,
-                            board_type="All Inclusive",
-                            price_eur=price,
-                            tour_operator="German Operator",
-                            offer_url=row.get('offer_url') or 'https://urlaub.check24.de',
-                            scraped_at=row.get('scraped_at') or datetime.now().isoformat(),
-                        )
+                    offer_obj = GermanTourOffer(
+                        hotel_name=hotel_name,
+                        destination=dest or (row.get('location') or 'Unknown'),
+                        departure_airport=ap,
+                        dates=row.get('dates') or '',
+                        duration_days=dur_days,
+                        board_type="All Inclusive",
+                        price_eur=price,
+                        tour_operator="German Operator",
+                        offer_url=row.get('offer_url') or 'https://urlaub.check24.de',
+                        scraped_at=row.get('scraped_at') or datetime.now().isoformat(),
                     )
+                    # Deduplicate by (hotel_name, departure_airport, dates) - newer scrape overwrites
+                    dedupe_key = (hotel_name.lower().strip(), ap.upper().strip(), str(row.get('dates') or '').strip())
+                    offers_by_key[dedupe_key] = offer_obj
         except Exception as e:
             logger.warning(f"Error loading German offers from {target_path}: {e}")
 
-        return offers
+        return list(offers_by_key.values())
 
     def fetch_destination_packages(
         self,

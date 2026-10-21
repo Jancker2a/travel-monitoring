@@ -388,21 +388,28 @@ class GermanyTourMonitor:
                 logger.warning(f"Error reading existing CSV: {e}, rewriting afresh.")
                 existing_data = []
 
+        # Deduplicate records by (hotel_name, departure_airport, dates) keeping the newest scrape
+        deduped_records = {}
+        for row in existing_data:
+            key = (row.get('hotel_name', '').strip().lower(), row.get('departure_airport', '').strip().upper(), row.get('dates', '').strip())
+            deduped_records[key] = {k: row.get(k, '') for k in GERMANY_PRICE_CSV_FIELDS}
+        for offer in new_offers:
+            key = (offer.get('hotel_name', '').strip().lower(), offer.get('departure_airport', '').strip().upper(), offer.get('dates', '').strip())
+            deduped_records[key] = {k: offer.get(k, '') for k in GERMANY_PRICE_CSV_FIELDS}
+
+        final_records = list(deduped_records.values())
+
         with open(self.output_csv, 'w', newline='', encoding='utf-8') as f:
             writer = csv.DictWriter(f, fieldnames=GERMANY_PRICE_CSV_FIELDS, quoting=csv.QUOTE_ALL)
             writer.writeheader()
-
-            for row in existing_data:
-                writer.writerow({k: row.get(k, '') for k in GERMANY_PRICE_CSV_FIELDS})
-
-            for offer in new_offers:
-                writer.writerow({k: offer.get(k, '') for k in GERMANY_PRICE_CSV_FIELDS})
+            for record in final_records:
+                writer.writerow(record)
 
         logger.info(
-            f"Saved {len(new_offers)} new offers to {self.output_csv} (Total records: {len(existing_data) + len(new_offers)})"
+            f"Saved {len(new_offers)} new offers to {self.output_csv} (Total unique records: {len(final_records)})"
         )
 
-        # Also append to central CSV if saving to a filter-specific CSV
+        # Also sync to central CSV if saving to a filter-specific CSV
         central_csv = os.path.join("data", "germany", "germany_prices.csv")
         try:
             if os.path.abspath(self.output_csv) != os.path.abspath(central_csv):
@@ -471,31 +478,30 @@ def map_polish_config_to_germany_params(polish_cfg: Dict[str, Any], cfg_name: st
         room = 'A-A'
 
     # 4. Destination & Area mapping
-    req_urls = " ".join(polish_cfg.get('required_offer_url_contains', []))
     dest_loc = (qs.get('destinationLocation') or qs.get('filter[dest]') or [''])[0]
-    data_dir_name = str(polish_cfg.get('data_dir', ''))
-    comb = f"{cfg_name} {url} {dest_loc} {data_dir_name} {polish_cfg.get('description', '')} {req_urls}".lower()
-
-    if any(k in comb for k in ['11_154', 'sharm', 'шарм']):
-        dest_name = 'Egypt'
-        dest_key = 'egypt_sharm'
-        area_id = 674
-    elif any(k in comb for k in ['11:', '11_', 'egypt', 'egipt', 'египет', 'hurghada', 'хургада', 'marsa', 'марса']):
-        dest_name = 'Egypt'
-        dest_key = 'egypt_hurghada'
-        area_id = 673
-    elif any(k in comb for k in ['14:', '14_', 'greece', 'grecja', 'греция', 'kreta', 'крит', 'rhodes', 'rodos', 'родос']):
-        dest_name = 'Greece'
-        dest_key = 'greece_crete'
-        area_id = 603
-    elif any(k in comb for k in ['39:', '39_', 'turkey', 'turcja', 'турция', 'antalya', 'анталья', 'анталия', 'belek', 'kemer', 'side', 'alanya']):
-        dest_name = 'Turkey'
-        dest_key = 'turkey_antalya'
-        area_id = 578
+    if dest_loc.startswith('11_154'):
+        dest_name, dest_key, area_id = 'Egypt', 'egypt_sharm', 674
+    elif dest_loc.startswith('11'):
+        dest_name, dest_key, area_id = 'Egypt', 'egypt_hurghada', 673
+    elif dest_loc.startswith('14'):
+        dest_name, dest_key, area_id = 'Greece', 'greece_crete', 603
+    elif dest_loc.startswith('39'):
+        dest_name, dest_key, area_id = 'Turkey', 'turkey_antalya', 578
     else:
-        dest_name = 'Turkey'
-        dest_key = 'turkey_antalya'
-        area_id = 578
+        req_urls = " ".join(polish_cfg.get('required_offer_url_contains', []))
+        data_dir_name = str(polish_cfg.get('data_dir', ''))
+        comb = f"{cfg_name} {url} {data_dir_name} {polish_cfg.get('description', '')} {req_urls}".lower()
+
+        if any(k in comb for k in ['sharm', 'шарм']):
+            dest_name, dest_key, area_id = 'Egypt', 'egypt_sharm', 674
+        elif any(k in comb for k in ['egypt', 'egipt', 'египет', 'hurghada', 'хургада', 'marsa', 'марса']):
+            dest_name, dest_key, area_id = 'Egypt', 'egypt_hurghada', 673
+        elif any(k in comb for k in ['greece', 'grecja', 'греция', 'kreta', 'крит', 'rhodes', 'rodos', 'родос']):
+            dest_name, dest_key, area_id = 'Greece', 'greece_crete', 603
+        elif any(k in comb for k in ['turkey', 'turcja', 'турция', 'antalya', 'анталья', 'анталия', 'belek', 'kemer', 'side', 'alanya']):
+            dest_name, dest_key, area_id = 'Turkey', 'turkey_antalya', 578
+        else:
+            dest_name, dest_key, area_id = 'Turkey', 'turkey_antalya', 578
 
     data_dir = polish_cfg.get('data_dir', 'data/germany')
     out_file = os.path.join(data_dir, 'germany_prices.csv')

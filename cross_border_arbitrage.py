@@ -391,7 +391,17 @@ class CrossBorderArbitrageEngine:
 
         # Sort matches by maximum spread descending (biggest savings first)
         matches.sort(key=lambda m: m.spread_pln, reverse=True)
-        return matches
+
+        # Deduplicate matches by (hotel_name_pl, hotel_name_de, airport_de) keeping the highest spread
+        unique_matches: List[ArbitrageMatch] = []
+        seen_pairs = set()
+        for m in matches:
+            pair_key = (m.hotel_name_pl.lower().strip(), m.hotel_name_de.lower().strip(), m.airport_de)
+            if pair_key not in seen_pairs:
+                seen_pairs.add(pair_key)
+                unique_matches.append(m)
+
+        return unique_matches
 
     def to_dataframe(self, matches: List[ArbitrageMatch]) -> pd.DataFrame:
         """Converts matches to a clean analytical DataFrame."""

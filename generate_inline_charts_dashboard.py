@@ -9037,7 +9037,13 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
     default_friction_val = 250.0
 
     if arbitrage_matches:
+        seen_arb_table_keys = set()
         for m in arbitrage_matches:
+            table_row_key = (m.hotel_name_pl.lower().strip(), m.hotel_name_de.lower().strip(), m.airport_de, round(m.price_de_eur, 0))
+            if table_row_key in seen_arb_table_keys:
+                continue
+            seen_arb_table_keys.add(table_row_key)
+
             hotel_h = html_lib.escape(m.hotel_name_pl)
             hotel_de_h = html_lib.escape(m.hotel_name_de)
             dates_h = html_lib.escape(m.dates_pl or m.dates_de or "—")
@@ -9076,7 +9082,7 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
     else:
         arb_tbody = '<tr><td colspan="7" style="text-align:center;padding:2rem;color:var(--text-muted);">На текущий момент активных предложений с существенной выгодой в Германии не обнаружено.</td></tr>'
 
-    arb_badge_count_html = f'<span class="arb-count-badge">{len(arbitrage_matches)}</span>' if arbitrage_matches else ""
+    arb_badge_count_html = f'<span class="arb-count-badge">{len(arb_rows_html)}</span>' if arb_rows_html else ""
 
     arbitrage_html = f"""
         <div class="hotels-section full-width-arbitrage-section" id="arbitrageSection" style="display:none;margin-top:1rem;">
