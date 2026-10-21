@@ -2627,7 +2627,17 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             dest_code, ["BER", "DRS"], use_mock_fallback=True, csv_path=filter_de_csv
         )
         arb_engine = CrossBorderArbitrageEngine()
-        arbitrage_matches = arb_engine.compare_offers(all_hotels, de_packages)
+        if 'df_canonical' in locals() and not df_canonical.empty:
+            canonical_latest = (
+                df_canonical.sort_values('scraped_at')
+                .groupby('hotel_name', as_index=False)
+                .last()
+            )
+            arb_pl_candidates = canonical_latest.to_dict('records')
+        else:
+            arb_pl_candidates = all_hotels
+
+        arbitrage_matches = arb_engine.compare_offers(arb_pl_candidates, de_packages)
         for m in arbitrage_matches:
             if m.spread_pln > 0 and m.hotel_name_pl not in arbitrage_by_hotel:
                 arbitrage_by_hotel[m.hotel_name_pl] = m
@@ -9176,6 +9186,14 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
                     cand = str(direct_match.iloc[0].get('offer_url') or '').strip()
                     if cand and cand not in ('—', 'None', 'nan') and '/wycieczka/' in cand:
                         pl_url_final = cand
+                elif 'df_canonical' in locals() and not df_canonical.empty:
+                    dm_can = df_canonical[df_canonical['hotel_name'] == m.hotel_name_pl]
+                    if not dm_can.empty:
+                        for cand in reversed(list(dm_can.get('offer_url', []))):
+                            cand_s = str(cand or '').strip()
+                            if cand_s and cand_s not in ('—', 'None', 'nan') and '/wycieczka/' in cand_s:
+                                pl_url_final = cand_s
+                                break
             if pl_url_final.startswith("/"):
                 pl_url_final = f"https://fly.pl{pl_url_final}"
 
