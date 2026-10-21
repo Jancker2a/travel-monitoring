@@ -676,10 +676,62 @@
       "created_at": "2026-10-21T13:11:08.107831+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Mitsis Rodos Village_2026-10-21_13-09_-8.7"
+    },
+    {
+      "hotel_name": "Almyros Beach (ex Cyprotel Almyros)",
+      "duration_bucket": "",
+      "old_price": 9696.0,
+      "new_price": 10376.0,
+      "price_change": 680.0,
+      "price_change_pct": 7.013201320132014,
+      "timestamp": "2026-10-21 15:38:44.944716+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-21T15:40:02.125610+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Almyros Beach (ex Cyprotel Almyros)_2026-10-21_15-38_zone_out_+7.0"
+    },
+    {
+      "hotel_name": "Hersonissos Palace",
+      "duration_bucket": "",
+      "old_price": 9977.0,
+      "new_price": 12017.0,
+      "price_change": 2040.0,
+      "price_change_pct": 20.44702816477899,
+      "timestamp": "2026-10-21 15:38:44.944716+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-21T15:40:02.125638+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Hersonissos Palace_2026-10-21_15-38_zone_out_+20.4"
+    },
+    {
+      "hotel_name": "Porto Platanias Beach (Chania)",
+      "duration_bucket": "",
+      "old_price": 9817.0,
+      "new_price": 10387.0,
+      "price_change": 570.0,
+      "price_change_pct": 5.806254456554956,
+      "timestamp": "2026-10-21 15:38:44.944716+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-21T15:40:02.125648+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Porto Platanias Beach (Chania)_2026-10-21_15-38_zone_out_+5.8"
+    },
+    {
+      "hotel_name": "Rethymno Mare & Water Park (Rethymno)",
+      "duration_bucket": "",
+      "old_price": 8547.0,
+      "new_price": 8547.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-21 15:38:44.944716+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-21T15:40:02.125655+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rethymno Mare & Water Park (Rethymno)_2026-10-21_15-38_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-21T14:32:15.303428+00:00",
+    "last_processed_run": "2026-10-21T15:38:44.944716+00:00",
     "premium_state": {
       "Alia Palace": {
         "history_max": 14187.0,
@@ -798,8 +850,8 @@
         "premium_peak": 18653.0
       },
       "Iberostar Selection Creta Marine": {
-        "history_max": 12517.0,
-        "premium_peak": 12517.0
+        "history_max": 12927.0,
+        "premium_peak": 12927.0
       },
       "I Resort Beach (ex Aktia Lounge) Grecja, Kreta Wschodnia, Stalida": {
         "history_max": 8069.0,
@@ -1162,8 +1214,8 @@
         "premium_peak": 19857.0
       },
       "Porto Platanias Beach (Chania)": {
-        "history_max": 9907.0,
-        "premium_peak": null
+        "history_max": 10387.0,
+        "premium_peak": 10387.0
       },
       "Rethymno Mare & Water Park (Rethymno)": {
         "history_max": 10587.0,
