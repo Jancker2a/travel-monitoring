@@ -493,9 +493,9 @@ def map_polish_config_to_germany_params(polish_cfg: Dict[str, Any], cfg_name: st
     if adults == 1 and children == 0:
         room = 'A'
     elif adults == 1 and children > 0:
-        room = f'A,{child_age}'
+        room = f'A-{child_age}'
     elif adults == 2 and children > 0:
-        room = f'A-A,{child_age}'
+        room = f'A-A-{child_age}'
     else:
         room = '-'.join(['A'] * adults)
 

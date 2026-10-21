@@ -200,10 +200,9 @@ def parse_travelers(url: str = "", text: str = "") -> Tuple[int, int]:
     m_alloc = re.search(r"roomAllocation=([A-Za-z0-9\-,]+)", s)
     if m_alloc:
         alloc = m_alloc.group(1)
-        parts = alloc.split(",")
-        ad_part = parts[0].split("-")
-        adults = len([p for p in ad_part if p.upper() == "A"])
-        children = len(parts) - 1
+        tokens = [t for t in re.split(r"[,-]", alloc) if t]
+        adults = sum(1 for t in tokens if t.upper() == "A")
+        children = sum(1 for t in tokens if t.isdigit() or t.upper().startswith("C"))
         return adults, children
 
     adults = 2
