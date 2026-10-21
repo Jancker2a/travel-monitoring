@@ -385,6 +385,9 @@ class GermanyTourMonitor:
                 with open(self.output_csv, 'r', encoding='utf-8') as f:
                     reader = csv.DictReader(f)
                     for row in reader:
+                        h_name = str(row.get('hotel_name') or '').strip()
+                        if not h_name or h_name.startswith(('<<<', '===', '>>>')):
+                            continue
                         normalized = {k: row.get(k, '') for k in GERMANY_PRICE_CSV_FIELDS}
                         existing_data.append(normalized)
             except Exception as e:

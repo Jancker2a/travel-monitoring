@@ -60,9 +60,13 @@ class GermanTourOffer:
     tour_operator: str
     offer_url: str
     scraped_at: str
+    duration: str = ""
 
     def to_dict(self) -> Dict[str, Any]:
-        return asdict(self)
+        d = asdict(self)
+        if not d.get("duration"):
+            d["duration"] = f"{self.duration_days} Tage"
+        return d
 
 
 class GermanyTourClient:
@@ -152,7 +156,7 @@ class GermanyTourClient:
                 reader = csv.DictReader(f)
                 for row in reader:
                     hotel_name = (row.get('hotel_name') or '').strip()
-                    if not hotel_name:
+                    if not hotel_name or hotel_name.startswith(('<<<', '===', '>>>')):
                         continue
                     dest = (row.get('destination') or '').strip()
                     loc = (row.get('location') or '').strip()
@@ -209,6 +213,7 @@ class GermanyTourClient:
                         tour_operator="German Operator",
                         offer_url=row.get('offer_url') or 'https://urlaub.check24.de',
                         scraped_at=row.get('scraped_at') or datetime.now().isoformat(),
+                        duration=dur_raw or f"{dur_days} Tage",
                     )
                     # Deduplicate by (hotel_name, departure_airport, dates) - newer scrape overwrites
                     dedupe_key = (hotel_name.lower().strip(), ap.upper().strip(), str(row.get('dates') or '').strip())

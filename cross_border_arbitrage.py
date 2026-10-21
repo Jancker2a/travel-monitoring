@@ -160,6 +160,34 @@ def parse_duration_days(text: Union[str, int, float]) -> Optional[int]:
     return int(m2.group(1)) if m2 else None
 
 
+def parse_tour_nights_from_dates(dates_str: str) -> Optional[int]:
+    """Extracts tour duration in hotel nights from dates range like '20.12.2026 - 27.12.2026'."""
+    if not dates_str:
+        return None
+    s = str(dates_str).strip()
+    m1 = re.search(r"(\d{2})[.\-/](\d{2})[.\-/](\d{4})\s*[-_–]\s*(\d{2})[.\-/](\d{2})[.\-/](\d{4})", s)
+    if m1:
+        try:
+            d1 = datetime(int(m1.group(3)), int(m1.group(2)), int(m1.group(1)))
+            d2 = datetime(int(m1.group(6)), int(m1.group(5)), int(m1.group(4)))
+            diff = (d2 - d1).days
+            if 1 <= diff <= 45:
+                return diff
+        except Exception:
+            pass
+    m2 = re.search(r"(\d{4})[.\-/](\d{2})[.\-/](\d{2})\s*[-_–]\s*(\d{4})[.\-/](\d{2})[.\-/](\d{2})", s)
+    if m2:
+        try:
+            d1 = datetime(int(m2.group(1)), int(m2.group(2)), int(m2.group(3)))
+            d2 = datetime(int(m2.group(4)), int(m2.group(5)), int(m2.group(6)))
+            diff = (d2 - d1).days
+            if 1 <= diff <= 45:
+                return diff
+        except Exception:
+            pass
+    return None
+
+
 def parse_nights(text: Union[str, int, float]) -> Optional[int]:
     """Extracts nights from duration string, or days as fallback."""
     if text is None:
@@ -167,9 +195,11 @@ def parse_nights(text: Union[str, int, float]) -> Optional[int]:
     if isinstance(text, float):
         if math.isnan(text):
             return None
-        return int(text)
+        text = int(text)
     if isinstance(text, int):
-        return text
+        # Bare integer: in package holiday comparisons, duration days is typically passed.
+        # Days represent (days - 1) hotel nights (e.g. 8 days = 7 nights; 7 days = 6 nights).
+        return text - 1 if text > 1 else 1
     text_str = str(text).strip()
     if not text_str or text_str.lower() in ("nan", "none", ""):
         return None
@@ -187,7 +217,10 @@ def parse_nights(text: Union[str, int, float]) -> Optional[int]:
         return val - 1 if val > 1 else 1
 
     m_num = re.search(r"\b(\d+)\b", text_str)
-    return int(m_num.group(1)) if m_num else None
+    if m_num:
+        val = int(m_num.group(1))
+        return val - 1 if val > 1 else 1
+    return None
 
 
 def parse_travelers(url: str = "", text: str = "") -> Tuple[int, int]:
@@ -294,12 +327,25 @@ def is_offer_comparable(
 
     # 3. Strict Duration (Nights) Check
     n_pl = parse_nights(duration_pl)
+    if n_pl is None:
+        n_pl = parse_tour_nights_from_dates(dates_pl)
     n_de = parse_nights(duration_de)
 
     if n_pl is not None and n_de is not None:
         dur_diff = abs(n_pl - n_de)
         if dur_diff > max_duration_diff_days:
             return False, f"Duration mismatch: PL {n_pl} nights vs DE {n_de} nights (diff: {dur_diff} > {max_duration_diff_days})"
+
+    # 4. Check24 URL Days Check (Prevent Check24 links that default to fewer days than PL tour)
+    if offer_url_de and n_pl is not None:
+        m_c24 = re.search(r"[?&]days=(\d+)(?:-(\d+))?", offer_url_de)
+        if m_c24:
+            c24_min_days = int(m_c24.group(1))
+            # In German package holidays, calendar days = hotel nights + 1.
+            # e.g., 7 nights requires days=8. If Check24 URL has days=7 (or days=7-10),
+            # Check24 will display 7-day (6-night) offers like 20.12 - 26.12 as the cheapest!
+            if c24_min_days < (n_pl + 1):
+                return False, f"Check24 URL days={c24_min_days} allows tours shorter than PL {n_pl} nights (min {n_pl + 1} days required)"
 
     return True, "OK"
 
@@ -382,7 +428,9 @@ class CrossBorderArbitrageEngine:
                 dates_pl = str(pl_item.get("dates", ""))
                 dates_de = str(de_item.get("dates", ""))
                 dur_pl = pl_item.get("duration", "")
-                dur_de = de_item.get("duration", "") or de_item.get("duration_days", "")
+                dur_de = de_item.get("duration", "")
+                if not dur_de and de_item.get("duration_days") is not None:
+                    dur_de = f"{de_item.get('duration_days')} Tage"
 
                 comparable, reason = is_offer_comparable(
                     dates_pl=dates_pl,

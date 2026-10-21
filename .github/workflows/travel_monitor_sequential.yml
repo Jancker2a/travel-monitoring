@@ -160,7 +160,12 @@ jobs:
           # Сохраняем незакоммиченные изменения от предыдущих шагов, подтягиваем, возвращаем изменения
           git stash push -u -m "ci-stash" || true
           git pull --rebase origin ${CURRENT_BRANCH} || true
-          git stash pop || true
+          if ! git stash pop; then
+            echo "⚠️ Stash pop had conflicts, preferring freshly scraped data..."
+            git checkout --theirs data/ 2>/dev/null || true
+            git reset 2>/dev/null || true
+            git stash drop 2>/dev/null || true
+          fi
           
           # Добавляем файлы данных фильтров, данные Германии и калибровку Hopper
           git add data/filters/ data/germany/ || true
