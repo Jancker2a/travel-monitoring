@@ -20,6 +20,7 @@ from dataclasses import asdict, dataclass
 from datetime import date, datetime, timedelta
 import json
 import logging
+import math
 import os
 import re
 from typing import Any, Dict, List, Optional, Tuple, Union
@@ -143,12 +144,19 @@ def parse_duration_days(text: Union[str, int, float]) -> Optional[int]:
     """Extracts duration in days from text strings (e.g. '8 dni', '7 Tage', '7 nocy')."""
     if text is None:
         return None
-    if isinstance(text, (int, float)):
+    if isinstance(text, float):
+        if math.isnan(text):
+            return None
         return int(text)
-    m = re.search(r"(\d+)\s*(?:Tage|Tagen|dni|days|Nächte|nocy)", str(text), re.I)
+    if isinstance(text, int):
+        return text
+    text_str = str(text).strip()
+    if not text_str or text_str.lower() in ("nan", "none", ""):
+        return None
+    m = re.search(r"(\d+)\s*(?:Tage|Tagen|dni|days|Nächte|nocy)", text_str, re.I)
     if m:
         return int(m.group(1))
-    m2 = re.search(r"\b(\d+)\b", str(text))
+    m2 = re.search(r"\b(\d+)\b", text_str)
     return int(m2.group(1)) if m2 else None
 
 
@@ -177,7 +185,7 @@ def is_offer_comparable(
         w_start = parse_departure_date(parts[0])
         w_end = parse_departure_date(parts[1]) if len(parts) > 1 else None
         if d_pl and w_start:
-            if w_end and 0 <= (w_end - w_start).days <= 14:
+            if w_end and 0 <= (w_end - w_start).days <= 45:
                 win_lo = w_start - timedelta(days=max_date_diff_days)
                 win_hi = w_end + timedelta(days=max_date_diff_days)
                 if win_lo <= d_pl <= win_hi:
@@ -207,7 +215,7 @@ def is_offer_comparable(
             if d_u:
                 m_ret = re.search(r"returnDate=(\d{4}-\d{2}-\d{2})", offer_url_de)
                 r_u = parse_departure_date(m_ret.group(1)) if m_ret else None
-                if r_u and 0 <= (r_u - d_u).days <= 14:
+                if r_u and 0 <= (r_u - d_u).days <= 45:
                     if (d_u - timedelta(days=max_date_diff_days)) <= d_pl <= (r_u + timedelta(days=max_date_diff_days)):
                         date_matched = True
                 elif abs((d_pl - d_u).days) <= max_date_diff_days:
