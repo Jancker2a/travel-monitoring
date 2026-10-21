@@ -1885,10 +1885,49 @@
       "created_at": "2026-10-21T09:13:46.671813+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Jaz Aquaviva_2026-10-21_09-11_zone_out_gone"
+    },
+    {
+      "hotel_name": "Movenpick Waterpark Resort & Spa Soma Bay",
+      "duration_bucket": "",
+      "old_price": 8262.0,
+      "new_price": 7058.0,
+      "price_change": -1204.0,
+      "price_change_pct": -14.57274267731784,
+      "timestamp": "2026-10-21 10:04:04.528047+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-21T10:05:15.235551+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Movenpick Waterpark Resort & Spa Soma Bay_2026-10-21_10-04_-14.6"
+    },
+    {
+      "hotel_name": "Jaz Mirabel Beach Resort",
+      "duration_bucket": "",
+      "old_price": 8218.0,
+      "new_price": 8218.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-21 10:04:04.528047+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-21T10:05:15.235573+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Mirabel Beach Resort_2026-10-21_10-04_zone_out_gone"
+    },
+    {
+      "hotel_name": "Jaz Aquaviva",
+      "duration_bucket": "",
+      "old_price": 10946.0,
+      "new_price": 8039.0,
+      "price_change": -2907.0,
+      "price_change_pct": -26.557646628905534,
+      "timestamp": "2026-10-21 10:04:04.528047+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-21T10:05:15.235588+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Aquaviva_2026-10-21_10-04_comeback_26.6"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-21T09:11:47.559117+00:00",
+    "last_processed_run": "2026-10-21T10:04:04.528047+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 7695.0,
