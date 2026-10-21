@@ -3458,10 +3458,36 @@
       "created_at": "2026-10-20T22:33:16.930543+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Serenity Alma Heights (ex. Serenity Fun City)_2026-10-20_22-32_zone_out_gone"
+    },
+    {
+      "hotel_name": "Rewaya Inn Resort (ex. Hawaii Paradise Aqua Park Resort)",
+      "duration_bucket": "",
+      "old_price": 6790.0,
+      "new_price": 7957.0,
+      "price_change": 1167.0,
+      "price_change_pct": 17.18703976435935,
+      "timestamp": "2026-10-21 01:49:25.326139+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-21T01:51:21.144007+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Inn Resort (ex. Hawaii Paradise Aqua Park Resort)_2026-10-21_01-49_+17.2"
+    },
+    {
+      "hotel_name": "Stella Gardens Resort & Spa (ex Stella Di Mare Gardens)",
+      "duration_bucket": "",
+      "old_price": 7525.0,
+      "new_price": 7525.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-21 01:49:25.326139+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-21T01:51:21.144037+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Stella Gardens Resort & Spa (ex Stella Di Mare Gardens)_2026-10-21_01-49_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-20T22:32:06.600738+00:00",
+    "last_processed_run": "2026-10-21T01:49:25.326139+00:00",
     "premium_state": {
       "Parrotel Beach Resort (ex. Radisson Blu) Egipt, Sharm El Sheikh": {
         "history_max": 8474.0,

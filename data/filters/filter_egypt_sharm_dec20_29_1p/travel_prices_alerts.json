@@ -1560,17 +1560,95 @@
       "created_at": "2026-10-20T20:28:11.609875+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Xperience St. George Homestay_2026-10-20_20-26_zone_out_gone"
+    },
+    {
+      "hotel_name": "Uni Sharm (ex. Karma)",
+      "duration_bucket": "",
+      "old_price": 2792.0,
+      "new_price": 3143.0,
+      "price_change": 351.0,
+      "price_change_pct": 12.571633237822349,
+      "timestamp": "2026-10-21 01:51:22.838364+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-21T01:52:30.478593+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Uni Sharm (ex. Karma)_2026-10-21_01-51_+12.6"
+    },
+    {
+      "hotel_name": "Megan Halomy",
+      "duration_bucket": "",
+      "old_price": 3135.0,
+      "new_price": 3487.0,
+      "price_change": 352.0,
+      "price_change_pct": 11.228070175438596,
+      "timestamp": "2026-10-21 01:51:22.838364+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-21T01:52:30.478620+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Megan Halomy_2026-10-21_01-51_+11.2"
+    },
+    {
+      "hotel_name": "Viking Club",
+      "duration_bucket": "",
+      "old_price": 3683.0,
+      "new_price": 4056.0,
+      "price_change": 373.0,
+      "price_change_pct": 10.127613358674994,
+      "timestamp": "2026-10-21 01:51:22.838364+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-21T01:52:30.478630+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Viking Club_2026-10-21_01-51_+10.1"
+    },
+    {
+      "hotel_name": "Viva Sharm",
+      "duration_bucket": "",
+      "old_price": 3251.0,
+      "new_price": 3584.0,
+      "price_change": 333.0,
+      "price_change_pct": 10.243002153183637,
+      "timestamp": "2026-10-21 01:51:22.838364+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-21T01:52:30.478638+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Viva Sharm_2026-10-21_01-51_+10.2"
+    },
+    {
+      "hotel_name": "El Faraana Heights",
+      "duration_bucket": "",
+      "old_price": 4341.0,
+      "new_price": 4341.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-21 01:51:22.838364+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-21T01:52:30.478666+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "El Faraana Heights_2026-10-21_01-51_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sun Resort & Aqua Park Sharm El Sheikh",
+      "duration_bucket": "",
+      "old_price": 4421.0,
+      "new_price": 4421.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-21 01:51:22.838364+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-21T01:52:30.478673+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sun Resort & Aqua Park Sharm El Sheikh_2026-10-21_01-51_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-20T22:33:54.589289+00:00",
+    "last_processed_run": "2026-10-21T01:51:22.838364+00:00",
     "premium_state": {
       "Albatros Sharm Resort (ex. Beach Albatros)": {
         "history_max": 6869.0,
         "premium_peak": null
       },
       "Eden Rock (Sharm El Sheikh)": {
-        "history_max": 3800.0,
+        "history_max": 4023.0,
         "premium_peak": null
       },
       "Sharm Reef": {
@@ -1594,11 +1672,11 @@
         "premium_peak": null
       },
       "El Khan Sharm": {
-        "history_max": 3223.0,
+        "history_max": 3477.0,
         "premium_peak": null
       },
       "Sharm Holiday": {
-        "history_max": 3861.0,
+        "history_max": 4066.0,
         "premium_peak": null
       },
       "Falcon Naama Star": {
@@ -1606,7 +1684,7 @@
         "premium_peak": null
       },
       "Viva Sharm": {
-        "history_max": 3251.0,
+        "history_max": 3584.0,
         "premium_peak": null
       },
       "Gafy Resort": {
@@ -1654,7 +1732,7 @@
         "premium_peak": null
       },
       "Viking Club": {
-        "history_max": 3683.0,
+        "history_max": 4056.0,
         "premium_peak": null
       },
       "Jaz Elite Palace (ex. Iberotel Palace)": {
@@ -1662,7 +1740,7 @@
         "premium_peak": null
       },
       "Sharm Bride Resort Aqua & Spa (ex. Aqua Resort & Spa)": {
-        "history_max": 3610.0,
+        "history_max": 3705.0,
         "premium_peak": null
       },
       "Jaz Fanara Resort (ex Iberotel Club Fanara)": {
@@ -1818,7 +1896,7 @@
         "premium_peak": null
       },
       "Uni Sharm (ex. Karma)": {
-        "history_max": 2792.0,
+        "history_max": 3143.0,
         "premium_peak": null
       },
       "Park Regency Resort (ex. Hyatt)": {
@@ -1838,7 +1916,7 @@
         "premium_peak": null
       },
       "Parrotel Lagoon Resort": {
-        "history_max": 4416.0,
+        "history_max": 4420.0,
         "premium_peak": null
       },
       "Pickalbatros Aqua Park Resort (Sharm El Sheikh)": {
@@ -1862,7 +1940,7 @@
         "premium_peak": null
       },
       "Tivoli & Aqua Park": {
-        "history_max": 4220.0,
+        "history_max": 4444.0,
         "premium_peak": null
       },
       "Pickalbatros Luxury Suites": {
@@ -1954,7 +2032,7 @@
         "premium_peak": null
       },
       "Verginia Sharm Resort": {
-        "history_max": 3823.0,
+        "history_max": 4109.0,
         "premium_peak": null
       },
       "Lido Sharm": {
@@ -1974,7 +2052,7 @@
         "premium_peak": null
       },
       "Megan Halomy": {
-        "history_max": 3135.0,
+        "history_max": 3487.0,
         "premium_peak": null
       },
       "Meraki Sharm Resort": {
