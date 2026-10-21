@@ -1470,9 +1470,23 @@
       "created_at": "2026-10-21T10:09:02.588244+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Hilton Plaza (Hurghada)_2026-10-21_10-07_zone_out_gone"
+    },
+    {
+      "hotel_name": "Pickalbatros Royal Moderna",
+      "duration_bucket": "",
+      "old_price": 10201.0,
+      "new_price": 10201.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-21 11:01:51.806531+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-21T11:03:07.634714+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Royal Moderna_2026-10-21_11-01_zone_out_gone"
     }
   ],
   "meta": {
+<<<<<<< Updated upstream
     "last_processed_run": "2026-10-21T10:07:54.069458+00:00",
 =======
       "timestamp": "2026-10-21 10:30:25.094478+00:00",
@@ -1484,6 +1498,9 @@
   ],
   "meta": {
     "last_processed_run": "2026-10-21T10:30:25.094478+00:00",
+>>>>>>> Stashed changes
+=======
+    "last_processed_run": "2026-10-21T11:01:51.806531+00:00",
 >>>>>>> Stashed changes
     "premium_state": {
       "Amarina Jannah Resort Aquapark Egipt, Marsa Alam, Port Ghalib": {
@@ -1911,11 +1928,11 @@
         "premium_peak": null
       },
       "Jaz Palmariva Beach": {
-        "history_max": 8969.0,
+        "history_max": 9009.0,
         "premium_peak": null
       },
       "Jaz Aquamarine Resort": {
-        "history_max": 10265.0,
+        "history_max": 10305.0,
         "premium_peak": null
       },
       "Titanic Beach Spa & Aqua Park": {
