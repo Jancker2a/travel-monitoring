@@ -8,7 +8,8 @@ import json
 import csv
 import hashlib
 import math
-from datetime import datetime, timedelta, timezone
+from datetime import date, datetime, timedelta, timezone
+from zoneinfo import ZoneInfo
 from typing import Any, List, Optional
 import os
 import re
@@ -1869,6 +1870,79 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         df['price'] = pd.to_numeric(df['price'], errors='coerce')
         df = df.dropna(subset=['price'])
         df = df[df['price'] >= 1000.0]
+
+        # Фильтрация по допустимому диапазону дат вылета для фиксированных фильтров (например, НГ 28.12-30.12)
+        # Отсекает предложения fly.pl с другими датами («рекомендации в других месяцах»), ошибочно попавшие в выборку
+        lo_d = None
+        hi_d = None
+        try:
+            cfg_for_dates = load_filter_config(data_file, config_file)
+            if cfg_for_dates and (cfg_for_dates.get("dynamic_search_dates") is False or is_fixed_trip_config(cfg_for_dates) or bool(cfg_for_dates.get("retire_after"))):
+                url_for_dates = str(cfg_for_dates.get("url") or "")
+                import urllib.parse
+                parsed_u = urllib.parse.urlparse(url_for_dates)
+                qs_u = urllib.parse.parse_qs(parsed_u.query)
+                s_min_val = qs_u.get("startDateMin", [None])[0] or qs_u.get("whenFrom", [None])[0]
+                s_max_val = qs_u.get("startDateMax", [None])[0] or qs_u.get("whenTo", [None])[0]
+
+                def _parse_d(s):
+                    if not s:
+                        return None
+                    m1 = re.match(r'^(\d{2})-(\d{2})-(\d{4})$', str(s).strip())
+                    if m1:
+                        return date(int(m1.group(3)), int(m1.group(2)), int(m1.group(1)))
+                    m2 = re.match(r'^(\d{4})-(\d{2})-(\d{2})$', str(s).strip())
+                    if m2:
+                        return date(int(m2.group(1)), int(m2.group(2)), int(m2.group(3)))
+                    return None
+
+                d_min = _parse_d(s_min_val)
+                d_max = _parse_d(s_max_val)
+                if d_min and d_max:
+                    lo_d, hi_d = min(d_min, d_max), max(d_min, d_max)
+                    ref_yr = lo_d.year
+
+                    def _extract_dep(row):
+                        u = str(row.get('offer_url') or '')
+                        m = re.search(r'departureDate=(\d{4}-\d{2}-\d{2})', u)
+                        if m:
+                            try:
+                                return datetime.strptime(m.group(1), '%Y-%m-%d').date()
+                            except Exception:
+                                pass
+                        d_str = str(row.get('dates') or '').strip()
+                        if d_str:
+                            first = d_str.split('-')[0].strip()
+                            m = re.match(r'^(\d{1,2})\.(\d{1,2})\.(\d{4})$', first)
+                            if m:
+                                p1, p2, y = int(m.group(1)), int(m.group(2)), int(m.group(3))
+                                if p1 > 12:
+                                    return date(y, p2, p1)
+                                elif p2 > 12:
+                                    return date(y, p1, p2)
+                                else:
+                                    return date(y, p2, p1)
+                            m = re.match(r'^(\d{1,2})\.(\d{1,2})$', first)
+                            if m:
+                                p1, p2 = int(m.group(1)), int(m.group(2))
+                                return date(ref_yr, p2, p1)
+                        return None
+
+                    def _is_valid_dep(row):
+                        d = _extract_dep(row)
+                        if d is None:
+                            return True
+                        return lo_d <= d <= hi_d
+
+                    before_cnt = len(df)
+                    valid_mask = df.apply(_is_valid_dep, axis=1)
+                    df = df[valid_mask].copy()
+                    dropped_cnt = before_cnt - len(df)
+                    if dropped_cnt > 0:
+                        print(f"🧹 Исключено {dropped_cnt} устаревших/внедиапазонных записей вне диапазона [{lo_d} .. {hi_d}]")
+        except Exception as date_filter_err:
+            print(f"⚠️ Ошибка фильтрации диапазона дат вылета: {date_filter_err}")
+
         # Нормализуем названия отелей: срезаем стрелочные хлебные крошки и хвосты локаций fly.pl
         def _clean_hotel_title(name):
             if not name or pd.isna(name):
@@ -3716,6 +3790,15 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             data_dir, data_file
         )
 
+        if lo_d is not None and hi_d is not None:
+            if not current_cohorts.empty and "departure_date" in current_cohorts.columns:
+                c_deps = pd.to_datetime(current_cohorts["departure_date"], errors="coerce").dt.date
+                current_cohorts = current_cohorts[(c_deps.isna()) | ((c_deps >= lo_d) & (c_deps <= hi_d))].copy()
+            if not history_cohorts.empty and "departure_date" in history_cohorts.columns:
+                h_deps = pd.to_datetime(history_cohorts["departure_date"], errors="coerce").dt.date
+                history_cohorts = history_cohorts[(h_deps.isna()) | ((h_deps >= lo_d) & (h_deps <= hi_d))].copy()
+
+
         if not current_cohorts.empty or not history_cohorts.empty:
             history_source = history_cohorts if not history_cohorts.empty else current_cohorts
             current_source = current_cohorts if not current_cohorts.empty else history_cohorts
@@ -4088,14 +4171,29 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         print(f"⚠️ Не удалось построить блок вылетов: {e}")
 
     # Время последнего обновления для шапки
+    meta_path = os.path.join(data_dir, ".monitor_last_run.json") if data_dir else None
+    last_run_dt = None
+    if meta_path and os.path.isfile(meta_path):
+        try:
+            with open(meta_path, "r", encoding="utf-8") as _mf:
+                _mdata = json.load(_mf)
+                _lrun_str = _mdata.get("last_run_utc")
+                if _lrun_str:
+                    last_run_dt = datetime.fromisoformat(_lrun_str.replace("Z", "+00:00")).astimezone(ZoneInfo(tz))
+        except Exception:
+            pass
+
     try:
         _updated_ts = df['scraped_at_display'].max()
         updated_date = _updated_ts.strftime('%d.%m.%Y')
         updated_time = _updated_ts.strftime('%H:%M')
-        updated_iso = _updated_ts.isoformat()
-        # Статус свежести данных (зелёный / жёлтый / красный)
-        _now_ts = datetime.now(tz=_updated_ts.tzinfo) if _updated_ts.tzinfo else datetime.now()
-        _age_hours = (_now_ts - _updated_ts).total_seconds() / 3600
+
+        # Если монитор проверял недавно, используем время последней проверки для таймера и бейджа
+        _effective_ts = last_run_dt if last_run_dt else _updated_ts
+        updated_iso = _effective_ts.isoformat()
+
+        _now_ts = datetime.now(tz=_effective_ts.tzinfo) if _effective_ts.tzinfo else datetime.now()
+        _age_hours = (_now_ts - _effective_ts).total_seconds() / 3600
         if _age_hours < 3:
             update_status_cls = 'update-status--ok'
             update_status_icon = '🟢'
@@ -4105,6 +4203,12 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         else:
             update_status_cls = 'update-status--err'
             update_status_icon = '🔴'
+
+        if last_run_dt:
+            last_run_str = last_run_dt.strftime('%d.%m.%Y %H:%M')
+            badge_title = f"Проверено: {last_run_str} | Свежие предложения: {updated_date} {updated_time}"
+        else:
+            badge_title = f"Обновлено: {updated_date} {updated_time}"
     except Exception:
         _updated_ts = datetime.now()
         updated_date = _updated_ts.strftime('%d.%m.%Y')
@@ -4112,6 +4216,19 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         updated_iso = _updated_ts.isoformat()
         update_status_cls = 'update-status--ok'
         update_status_icon = '🟢'
+        badge_title = f"Обновлено: {updated_date} {updated_time}"
+
+    # Дополнительная подпись свежести офферов, если проверка была позже, чем появление новых туров
+    offers_subtext_html = ""
+    try:
+        if last_run_dt and _updated_ts and (_effective_ts - _updated_ts).total_seconds() > 3600:
+            offers_subtext_html = (
+                f'<div style="font-size:11px;color:#94a3b8;margin-top:2px;font-weight:400;" '
+                f'title="{badge_title}">офферы: {updated_date} {updated_time}</div>'
+            )
+    except Exception:
+        offers_subtext_html = ""
+
 
     filter_params_html = render_filter_params_html(
         filter_config,
@@ -8657,11 +8774,12 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
                     </div>
                     <div class="kpi-card-info">
                         <div class="kpi-status-tag">
-                            <span class="update-status {update_status_cls}" id="updateStatusBadge" title="{updated_date} {updated_time}" data-iso="{updated_iso}">
+                            <span class="update-status {update_status_cls}" id="updateStatusBadge" title="{badge_title}" data-iso="{updated_iso}">
                                 {update_status_icon} Обновлено
                             </span>
                         </div>
                         <div class="kpi-card-number kpi-card-time" id="updateAgoText">{updated_date} {updated_time}</div>
+                        {offers_subtext_html}
                     </div>
                 </div>
             </div>

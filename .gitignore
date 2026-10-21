@@ -83,6 +83,11 @@ data/filters/filter_egypt_autumn_2026_7_10_days/*
 data/filters/filter_egypt_autumn_2026_13_16_days/*
 !data/filters/filter_egypt_autumn_2026_13_16_days/archive/
 
+# Allow German package prices and monitor last run status across all filters
+!data/filters/*/germany_prices.csv
+!data/filters/*/.monitor_last_run.json
+
+
 
 # Price alerts history — not needed in git (rebuilt each run from CSV)
 # Per-filter alerts (travel_prices_alerts.json) ARE committed — only the legacy global file is excluded

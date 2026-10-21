@@ -14,8 +14,8 @@ import sys
 import re
 import time
 import html as ihtml
-from datetime import datetime, timezone
-from typing import List, Dict, Any, Optional
+from datetime import date, datetime, timezone
+from typing import List, Dict, Any, Optional, Tuple
 import pandas as pd
 import requests
 import matplotlib.pyplot as plt
@@ -877,8 +877,64 @@ class TravelPriceMonitor:
         except Exception:
             return None
 
+    def _extract_expected_departure_date_range(self) -> Optional[Tuple[date, date]]:
+        """Извлекает ожидаемый диапазон дат вылета из URL конфигурации (startDateMin/startDateMax или whenFrom/whenTo)."""
+        url = str(self.config.get('url') or '').strip()
+        if not url:
+            return None
+
+        def _parse(s: Optional[str]) -> Optional[date]:
+            if not s:
+                return None
+            m1 = re.match(r'^(\d{2})-(\d{2})-(\d{4})$', s)
+            if m1:
+                return date(int(m1.group(3)), int(m1.group(2)), int(m1.group(1)))
+            m2 = re.match(r'^(\d{4})-(\d{2})-(\d{2})$', s)
+            if m2:
+                return date(int(m2.group(1)), int(m2.group(2)), int(m2.group(3)))
+            return None
+
+        m_min = re.search(r'(?:startDateMin|whenFrom(?:\]|%5D)?)=(\d{2}-\d{2}-\d{4}|\d{4}-\d{2}-\d{2})', url)
+        m_max = re.search(r'(?:startDateMax|whenTo(?:\]|%5D)?)=(\d{2}-\d{2}-\d{4}|\d{4}-\d{2}-\d{2})', url)
+        d_min = _parse(m_min.group(1)) if m_min else None
+        d_max = _parse(m_max.group(1)) if m_max else None
+        if d_min and d_max:
+            return (min(d_min, d_max), max(d_min, d_max))
+        if d_min:
+            return (d_min, d_min)
+        if d_max:
+            return (d_max, d_max)
+        return None
+
+    def _extract_offer_departure_date(self, offer: Dict[str, Any], default_year: int = 2026) -> Optional[date]:
+        """Извлекает дату вылета конкретного оффера (из departureDate в offer_url или из dates)."""
+        offer_url = str(offer.get('offer_url') or '')
+        m = re.search(r'departureDate=(\d{4}-\d{2}-\d{2})', offer_url)
+        if m:
+            try:
+                return datetime.strptime(m.group(1), '%Y-%m-%d').date()
+            except Exception:
+                pass
+        dates_str = str(offer.get('dates') or '').strip()
+        if dates_str:
+            first = dates_str.split('-')[0].strip()
+            m = re.match(r'^(\d{1,2})\.(\d{1,2})\.(\d{4})$', first)
+            if m:
+                p1, p2, y = int(m.group(1)), int(m.group(2)), int(m.group(3))
+                if p1 > 12:
+                    return date(y, p2, p1)
+                elif p2 > 12:
+                    return date(y, p1, p2)
+                else:
+                    return date(y, p2, p1)
+            m = re.match(r'^(\d{1,2})\.(\d{1,2})$', first)
+            if m:
+                p1, p2 = int(m.group(1)), int(m.group(2))
+                return date(default_year, p2, p1)
+        return None
+
     def _is_offer_in_expected_scope(self, offer: Dict[str, Any]) -> bool:
-        """Проверяет, что оффер соответствует целевому фильтру (страна/тип/длительность)."""
+        """Проверяет, что оффер соответствует целевому фильтру (страна/тип/длительность/даты вылета)."""
         offer_url = str(offer.get('offer_url') or '').strip().lower()
         if not offer_url:
             return False
@@ -909,6 +965,20 @@ class TravelPriceMonitor:
             if days is not None:
                 lo, hi = duration_range
                 if days < lo or days > hi:
+                    return False
+
+        # Проверяем диапазон дат вылета (критично для праздничных/фиксированных фильтров,
+        # так как fly.pl подмешивает офферы других месяцев, когда нет подходящих по цене)
+        dep_range = self._extract_expected_departure_date_range()
+        if dep_range:
+            ref_yr = dep_range[0].year
+            offer_dep = self._extract_offer_departure_date(offer, default_year=ref_yr)
+            if offer_dep is not None:
+                lo_d, hi_d = dep_range
+                if offer_dep < lo_d or offer_dep > hi_d:
+                    logger.debug(
+                        f"Offer departure date {offer_dep} outside allowed range [{lo_d}, {hi_d}] for '{offer.get('hotel_name')}': rejected"
+                    )
                     return False
 
         return True
@@ -952,6 +1022,24 @@ class TravelPriceMonitor:
             if prev is None or price < float(prev.get('price') or 0):
                 best[key] = offer
         return list(best.values())
+
+    def _record_monitor_run_status(self, offers_count: int, status: str = "ok") -> None:
+        """Записывает метаданные о времени последней проверки фильтра."""
+        try:
+            data_dir = self.config.get('data_dir', 'data')
+            os.makedirs(data_dir, exist_ok=True)
+            meta_path = os.path.join(data_dir, ".monitor_last_run.json")
+            payload = {
+                "last_run_utc": datetime.now(timezone.utc).isoformat(),
+                "offers_found": offers_count,
+                "status": status,
+                "config_file": getattr(self, "config_file", ""),
+            }
+            with open(meta_path, "w", encoding="utf-8") as f:
+                json.dump(payload, f, ensure_ascii=False, indent=2)
+        except Exception as e:
+            logger.debug(f"Could not record monitor run status: {e}")
+
 
     async def _collect_virtual_filter_offers(self) -> List[Dict[str, Any]]:
         """Collect offers: one independent virtual filter per duration bucket."""
@@ -2346,6 +2434,7 @@ class TravelPriceMonitor:
                     logger.warning(
                         "ℹ️ На текущий момент нет доступных офферов по критериям фильтра (0 предложений). Завершаем ран успешно."
                     )
+                    self._record_monitor_run_status(0, "empty_success")
                     return True
                 logger.error("❌ Не удалось собрать данные после всех попыток")
                 return False
@@ -2374,6 +2463,7 @@ class TravelPriceMonitor:
                             "ℹ️ После trip-фильтра 0 офферов (из %s) — завершаем ран успешно",
                             raw_count,
                         )
+                        self._record_monitor_run_status(0, "trip_empty_success")
                         return True
                     logger.warning("⚠️ После trip-фильтра не осталось офферов с подходящим вылетом")
                     return False
@@ -2392,6 +2482,7 @@ class TravelPriceMonitor:
                     logger.warning(
                         "⚠️ Virtual filters пустые — окно fixed-trip закрыто, skip"
                     )
+                    self._record_monitor_run_status(0, "virtual_empty_success")
                     return True
 
             t0 = time.monotonic()
@@ -2442,6 +2533,7 @@ class TravelPriceMonitor:
                 f"detail={self._timing_summary}"
             )
             logger.info("✅ Мониторинг завершен успешно!")
+            self._record_monitor_run_status(len(offers), "ok")
             return True
             
         except Exception as e:
