@@ -196,7 +196,8 @@ def parse_nights(text: Union[str, int, float]) -> Optional[int]:
 
 def parse_travelers(url: str = "", text: str = "") -> Tuple[int, int]:
     """Extracts (adults, children) count from URL parameters and duration/text."""
-    s = str(url or "") + " " + str(text or "")
+    from urllib.parse import unquote
+    s = unquote(str(url or "")) + " " + str(text or "")
     m_alloc = re.search(r"roomAllocation=([A-Za-z0-9\-,]+)", s)
     if m_alloc:
         alloc = m_alloc.group(1)
