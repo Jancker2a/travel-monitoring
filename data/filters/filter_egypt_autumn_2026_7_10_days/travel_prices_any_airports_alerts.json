@@ -3484,10 +3484,88 @@
       "created_at": "2026-10-21T01:51:21.144037+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Stella Gardens Resort & Spa (ex Stella Di Mare Gardens)_2026-10-21_01-49_zone_out_gone"
+    },
+    {
+      "hotel_name": "Rewaya Luxury Resort",
+      "duration_bucket": "",
+      "old_price": 6987.0,
+      "new_price": 7556.0,
+      "price_change": 569.0,
+      "price_change_pct": 8.143695434378131,
+      "timestamp": "2026-10-21 07:57:44.861813+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-21T07:58:59.314274+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Luxury Resort_2026-10-21_07-57_+8.1"
+    },
+    {
+      "hotel_name": "Casa Mare Resort (ex. Royal Tulip Beach Resort)",
+      "duration_bucket": "",
+      "old_price": 7987.0,
+      "new_price": 7987.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-21 07:57:44.861813+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-21T07:58:59.314310+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Casa Mare Resort (ex. Royal Tulip Beach Resort)_2026-10-21_07-57_zone_out_gone"
+    },
+    {
+      "hotel_name": "Marriott Hurghada Beach Resort",
+      "duration_bucket": "",
+      "old_price": 8547.0,
+      "new_price": 8547.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-21 07:57:44.861813+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-21T07:58:59.314322+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Marriott Hurghada Beach Resort_2026-10-21_07-57_zone_out_gone"
+    },
+    {
+      "hotel_name": "Royal Lagoons Aqua (ex. Premium Blue)",
+      "duration_bucket": "",
+      "old_price": 7756.0,
+      "new_price": 7756.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-21 07:57:44.861813+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-21T07:58:59.314331+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Royal Lagoons Aqua (ex. Premium Blue)_2026-10-21_07-57_zone_out_gone"
+    },
+    {
+      "hotel_name": "Xperience Kiroseiz Parkland",
+      "duration_bucket": "",
+      "old_price": 6829.0,
+      "new_price": 6829.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-21 07:57:44.861813+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-21T07:58:59.314339+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xperience Kiroseiz Parkland_2026-10-21_07-57_zone_out_gone"
+    },
+    {
+      "hotel_name": "Xperience Kiroseiz Premier",
+      "duration_bucket": "",
+      "old_price": 8349.0,
+      "new_price": 8349.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-21 07:57:44.861813+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-21T07:58:59.314347+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xperience Kiroseiz Premier_2026-10-21_07-57_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-21T01:49:25.326139+00:00",
+    "last_processed_run": "2026-10-21T07:57:44.861813+00:00",
     "premium_state": {
       "Parrotel Beach Resort (ex. Radisson Blu) Egipt, Sharm El Sheikh": {
         "history_max": 8474.0,
@@ -4238,7 +4316,7 @@
         "premium_peak": null
       },
       "Rewaya Luxury Resort": {
-        "history_max": 7027.0,
+        "history_max": 7556.0,
         "premium_peak": null
       },
       "Xperience Kiroseiz Parkland": {

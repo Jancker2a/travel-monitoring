@@ -884,10 +884,88 @@
       "created_at": "2026-10-21T01:52:14.152954+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Park Regency Resort (ex. Hyatt)_2026-10-21_01-50_zone_out_gone"
+    },
+    {
+      "hotel_name": "Parrotel Lagoon Resort",
+      "duration_bucket": "",
+      "old_price": 9559.0,
+      "new_price": 8359.0,
+      "price_change": -1200.0,
+      "price_change_pct": -12.553614394811172,
+      "timestamp": "2026-10-21 07:58:26.880385+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-21T07:59:08.680094+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Parrotel Lagoon Resort_2026-10-21_07-58_-12.6"
+    },
+    {
+      "hotel_name": "Naama Bay Promenade Mountain Resort",
+      "duration_bucket": "",
+      "old_price": 10925.0,
+      "new_price": 9725.0,
+      "price_change": -1200.0,
+      "price_change_pct": -10.983981693363845,
+      "timestamp": "2026-10-21 07:58:26.880385+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-21T07:59:08.680125+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Naama Bay Promenade Mountain Resort_2026-10-21_07-58_-11.0"
+    },
+    {
+      "hotel_name": "Xperience Kiroseiz Premier",
+      "duration_bucket": "",
+      "old_price": 10127.0,
+      "new_price": 8827.0,
+      "price_change": -1300.0,
+      "price_change_pct": -12.836970474967908,
+      "timestamp": "2026-10-21 07:58:26.880385+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-21T07:59:08.680137+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xperience Kiroseiz Premier_2026-10-21_07-58_-12.8"
+    },
+    {
+      "hotel_name": "Royal Regency Club",
+      "duration_bucket": "",
+      "old_price": 10879.0,
+      "new_price": 9579.0,
+      "price_change": -1300.0,
+      "price_change_pct": -11.949627723136318,
+      "timestamp": "2026-10-21 07:58:26.880385+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-21T07:59:08.680146+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Royal Regency Club_2026-10-21_07-58_-11.9"
+    },
+    {
+      "hotel_name": "Regency Plaza Aqua Park Spa",
+      "duration_bucket": "",
+      "old_price": 10040.0,
+      "new_price": 8740.0,
+      "price_change": -1300.0,
+      "price_change_pct": -12.94820717131474,
+      "timestamp": "2026-10-21 07:58:26.880385+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-21T07:59:08.680154+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Regency Plaza Aqua Park Spa_2026-10-21_07-58_-12.9"
+    },
+    {
+      "hotel_name": "Xperience Kiroseiz Parkland",
+      "duration_bucket": "",
+      "old_price": 10463.0,
+      "new_price": 9163.0,
+      "price_change": -1300.0,
+      "price_change_pct": -12.424734779699895,
+      "timestamp": "2026-10-21 07:58:26.880385+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-21T07:59:08.680162+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xperience Kiroseiz Parkland_2026-10-21_07-58_-12.4"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-21T01:50:51.587784+00:00",
+    "last_processed_run": "2026-10-21T07:58:26.880385+00:00",
     "premium_state": {
       "Naama Bay Promenade Mountain Resort Egipt, Sharm El Sheikh, Szarm el-Szejk": {
         "history_max": 10841.0,
@@ -1082,7 +1160,7 @@
         "premium_peak": null
       },
       "Rewaya Majestic Resort": {
-        "history_max": 10364.0,
+        "history_max": 10407.0,
         "premium_peak": null
       },
       "Stella Beach Resort & Spa": {
@@ -1111,6 +1189,18 @@
       },
       "Park Regency Resort (ex. Hyatt)": {
         "history_max": 10922.0,
+        "premium_peak": null
+      },
+      "Creek Hotel and Residences": {
+        "history_max": 10884.0,
+        "premium_peak": null
+      },
+      "Renaissance Golden View Beach Resort by Marriott": {
+        "history_max": 10713.0,
+        "premium_peak": null
+      },
+      "Naama Bay Promenade Beach Resort": {
+        "history_max": 10729.0,
         "premium_peak": null
       }
     }
