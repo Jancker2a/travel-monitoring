@@ -179,16 +179,12 @@ def parse_nights(text: Union[str, int, float]) -> Optional[int]:
     if m_noc:
         return int(m_noc.group(1))
 
-    # 2. Polish 'dni' (e.g. '8 dni' usually represents 7 nights in hotel)
-    m_dni = re.search(r"(\d+)\s*(?:dni|dzień)", text_str, re.I)
-    if m_dni:
-        val = int(m_dni.group(1))
+    # 2. Days (Polish 'dni' or German 'Tage') -> both represent (days - 1) hotel nights in packages
+    # e.g. '8 dni' = 7 nights, '8 Tage' = 7 nights; '7 Tage' = 6 nights.
+    m_days = re.search(r"(\d+)\s*(?:dni|dzień|Tage|Tag|days|day)", text_str, re.I)
+    if m_days:
+        val = int(m_days.group(1))
         return val - 1 if val > 1 else 1
-
-    # 3. German 'Tage' (e.g. '7 Tage' corresponds to 7 nights package, '5 Tage' to 4-5 nights)
-    m_tage = re.search(r"(\d+)\s*(?:Tage|Tag|days|day)", text_str, re.I)
-    if m_tage:
-        return int(m_tage.group(1))
 
     m_num = re.search(r"\b(\d+)\b", text_str)
     return int(m_num.group(1)) if m_num else None

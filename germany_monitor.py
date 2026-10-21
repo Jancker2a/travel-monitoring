@@ -460,13 +460,27 @@ def map_polish_config_to_germany_params(polish_cfg: Dict[str, Any], cfg_name: st
                 # DD-MM-YYYY format
                 period = f"{f_p[2]}-{f_p[1]}-{f_p[0]}_{t_p[2]}-{t_p[1]}-{t_p[0]}"
 
-    # 2. Duration: durationFrom/durationTo or filter[duration] -> 7-10
+    # 2. Duration: Polish nights (durationFrom/durationTo or filter[duration]) -> Check24 days (nights + 1)
+    dur_f, dur_t = 7, 10
     if 'durationFrom' in qs and 'durationTo' in qs:
-        dur = f"{qs['durationFrom'][0]}-{qs['durationTo'][0]}"
+        try:
+            dur_f = int(qs['durationFrom'][0])
+            dur_t = int(qs['durationTo'][0])
+        except (ValueError, TypeError):
+            dur_f, dur_t = 7, 10
     else:
-        dur = qs.get('filter[duration]', ['7:10'])[0].replace(':', '-')
-    if dur == '7-15':
-        dur = '7-14'
+        raw_dur = qs.get('filter[duration]', ['7:10'])[0].replace(':', '-')
+        parts = raw_dur.split('-')
+        try:
+            dur_f = int(parts[0])
+            dur_t = int(parts[1]) if len(parts) > 1 else dur_f
+        except (ValueError, TypeError):
+            dur_f, dur_t = 7, 10
+
+    # Check24 'days' represents trip calendar days (nights + 1, e.g. 7 nights = 8 days):
+    c24_dur_from = dur_f + 1
+    c24_dur_to = min(14, dur_t + 1)
+    dur = f"{c24_dur_from}-{c24_dur_to}"
 
     # 3. Room allocation (Adults + Children with exact age)
     adults = 2
