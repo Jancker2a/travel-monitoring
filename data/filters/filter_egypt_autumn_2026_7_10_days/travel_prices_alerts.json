@@ -1820,10 +1820,49 @@
       "created_at": "2026-10-22T14:03:45.459569+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Siva Golden Bay Makadi_2026-10-22_14-02_zone_out_gone"
+    },
+    {
+      "hotel_name": "Tropitel Sahl Hasheesh",
+      "duration_bucket": "",
+      "old_price": 10287.0,
+      "new_price": 9426.0,
+      "price_change": -861.0,
+      "price_change_pct": -8.36978710994459,
+      "timestamp": "2026-10-22 18:46:33.676945+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-22T18:47:50.173880+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Tropitel Sahl Hasheesh_2026-10-22_18-46_-8.4"
+    },
+    {
+      "hotel_name": "Creek Hotel and Residences",
+      "duration_bucket": "",
+      "old_price": 9657.0,
+      "new_price": 10587.0,
+      "price_change": 930.0,
+      "price_change_pct": 9.630319975147561,
+      "timestamp": "2026-10-22 18:46:33.676945+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-22T18:47:50.173907+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Creek Hotel and Residences_2026-10-22_18-46_+9.6"
+    },
+    {
+      "hotel_name": "Cleopatra Signature Marsa Alam",
+      "duration_bucket": "",
+      "old_price": 10643.0,
+      "new_price": 10643.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-22 18:46:33.676945+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-22T18:47:50.173927+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Cleopatra Signature Marsa Alam_2026-10-22_18-46_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-22T14:02:28.954846+00:00",
+    "last_processed_run": "2026-10-22T18:46:33.676945+00:00",
     "premium_state": {
       "Amarina Jannah Resort Aquapark Egipt, Marsa Alam, Port Ghalib": {
         "history_max": 8857.0,
@@ -2154,7 +2193,7 @@
         "premium_peak": null
       },
       "Parrotel Lagoon Resort": {
-        "history_max": 6523.0,
+        "history_max": 6824.0,
         "premium_peak": null
       },
       "Red Sea Grand Waterworld Makadi (ex. Sunwing Waterworld Makadi)": {
@@ -2166,7 +2205,7 @@
         "premium_peak": null
       },
       "Royal Regency Club": {
-        "history_max": 8384.0,
+        "history_max": 8687.0,
         "premium_peak": null
       },
       "Stella Beach Resort & Spa": {
@@ -2174,7 +2213,7 @@
         "premium_peak": null
       },
       "Pickalbatros Luxury Suites": {
-        "history_max": 10368.0,
+        "history_max": 10535.0,
         "premium_peak": null
       },
       "Siva Golden Bay Makadi": {
@@ -2226,11 +2265,11 @@
         "premium_peak": null
       },
       "Creek Hotel and Residences": {
-        "history_max": 9657.0,
+        "history_max": 10587.0,
         "premium_peak": null
       },
       "IL Mercato Splash Aqua Park": {
-        "history_max": 6898.0,
+        "history_max": 7232.0,
         "premium_peak": null
       },
       "Jaz Aquamarine Resort": {
@@ -2270,7 +2309,7 @@
         "premium_peak": null
       },
       "Golf Villas And Suites Sharm": {
-        "history_max": 10371.0,
+        "history_max": 10451.0,
         "premium_peak": null
       },
       "Serenity Sky Arc": {
@@ -2279,6 +2318,10 @@
       },
       "Jaz Grand Marsa (ex Resta Grand Resort)": {
         "history_max": 9727.0,
+        "premium_peak": null
+      },
+      "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort)": {
+        "history_max": 9037.0,
         "premium_peak": null
       }
     }

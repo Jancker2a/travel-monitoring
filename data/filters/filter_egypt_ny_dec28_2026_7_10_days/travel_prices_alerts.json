@@ -481,10 +481,49 @@
       "created_at": "2026-10-22T08:19:10.195588+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sea Star Beau Rivage_2026-10-22_08-17_zone_out_+16.9"
+    },
+    {
+      "hotel_name": "ARENA BEACH RESORT & SPA",
+      "duration_bucket": "",
+      "old_price": 9767.0,
+      "new_price": 9767.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-22 18:48:13.596714+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-22T18:49:36.953346+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "ARENA BEACH RESORT & SPA_2026-10-22_18-48_zone_out_gone"
+    },
+    {
+      "hotel_name": "Royal Lagoons Resort and Aqua Park",
+      "duration_bucket": "",
+      "old_price": 10274.0,
+      "new_price": 10274.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-22 18:48:13.596714+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-22T18:49:36.953371+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Royal Lagoons Resort and Aqua Park_2026-10-22_18-48_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sea Star Beau Rivage",
+      "duration_bucket": "",
+      "old_price": 12133.0,
+      "new_price": 9972.0,
+      "price_change": -2161.0,
+      "price_change_pct": -17.8109288716723,
+      "timestamp": "2026-10-22 18:48:13.596714+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-22T18:49:36.953395+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sea Star Beau Rivage_2026-10-22_18-48_comeback_17.8"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-22T08:17:46.889935+00:00",
+    "last_processed_run": "2026-10-22T18:48:13.596714+00:00",
     "premium_state": {
       "Sentido Oriental Dream Resort Egipt, Marsa Alam": {
         "history_max": 10973.0,
@@ -620,6 +659,14 @@
       },
       "ARENA BEACH RESORT & SPA": {
         "history_max": 9767.0,
+        "premium_peak": null
+      },
+      "AMC Royal Hotel & Spa*****": {
+        "history_max": 12142.0,
+        "premium_peak": 12142.0
+      },
+      "Empire Beach Resort***": {
+        "history_max": 9658.0,
         "premium_peak": null
       }
     }
