@@ -468,10 +468,23 @@
       "created_at": "2026-10-22T07:15:34.498995+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Royal Lagoons Resort and Aqua Park_2026-10-22_07-14_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sea Star Beau Rivage",
+      "duration_bucket": "",
+      "old_price": 10383.0,
+      "new_price": 12133.0,
+      "price_change": 1750.0,
+      "price_change_pct": 16.854473658865455,
+      "timestamp": "2026-10-22 08:17:46.889935+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-22T08:19:10.195588+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sea Star Beau Rivage_2026-10-22_08-17_zone_out_+16.9"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-22T07:51:30.985121+00:00",
+    "last_processed_run": "2026-10-22T08:17:46.889935+00:00",
     "premium_state": {
       "Sentido Oriental Dream Resort Egipt, Marsa Alam": {
         "history_max": 10973.0,
@@ -538,12 +551,12 @@
         "premium_peak": 12389.0
       },
       "Royal Lagoons Resort and Aqua Park": {
-        "history_max": 9944.0,
+        "history_max": 10274.0,
         "premium_peak": null
       },
       "Sea Star Beau Rivage": {
-        "history_max": 10399.0,
-        "premium_peak": null
+        "history_max": 12133.0,
+        "premium_peak": 12133.0
       },
       "Onatti Beach Resort": {
         "history_max": 9347.0,
@@ -582,8 +595,8 @@
         "premium_peak": null
       },
       "Rewaya Luxury Resort": {
-        "history_max": 10917.0,
-        "premium_peak": null
+        "history_max": 12217.0,
+        "premium_peak": 12217.0
       },
       "Rewaya Majestic Resort": {
         "history_max": 10876.0,
@@ -599,6 +612,14 @@
       },
       "MAZAR RESORT": {
         "history_max": 9947.0,
+        "premium_peak": null
+      },
+      "SUN & SEA HOTEL": {
+        "history_max": 9474.0,
+        "premium_peak": null
+      },
+      "ARENA BEACH RESORT & SPA": {
+        "history_max": 9767.0,
         "premium_peak": null
       }
     }
