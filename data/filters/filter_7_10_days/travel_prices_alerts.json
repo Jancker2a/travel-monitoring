@@ -2275,10 +2275,62 @@
       "created_at": "2026-10-22T08:14:06.710239+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sirena Beach Resort & Spa_2026-10-22_08-11_zone_out_gone"
+    },
+    {
+      "hotel_name": "Siva Golden Bay Makadi",
+      "duration_bucket": "",
+      "old_price": 6857.0,
+      "new_price": 7477.0,
+      "price_change": 620.0,
+      "price_change_pct": 9.041855038646638,
+      "timestamp": "2026-10-22 12:05:21.417095+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-22T12:08:14.671725+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Siva Golden Bay Makadi_2026-10-22_12-05_+9.0"
+    },
+    {
+      "hotel_name": "Fantazia Resort",
+      "duration_bucket": "",
+      "old_price": 8743.0,
+      "new_price": 8743.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-22 12:05:21.417095+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-22T12:08:14.671758+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Fantazia Resort_2026-10-22_12-05_zone_out_gone"
+    },
+    {
+      "hotel_name": "V Grand Beach Resort Sahl Hasheesh",
+      "duration_bucket": "",
+      "old_price": 8439.0,
+      "new_price": 8439.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-22 12:05:21.417095+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-22T12:08:14.671779+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "V Grand Beach Resort Sahl Hasheesh_2026-10-22_12-05_zone_out_gone"
+    },
+    {
+      "hotel_name": "Jaz Aquaviva",
+      "duration_bucket": "",
+      "old_price": 10946.0,
+      "new_price": 8638.0,
+      "price_change": -2308.0,
+      "price_change_pct": -21.08532797368902,
+      "timestamp": "2026-10-22 12:05:21.417095+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-22T12:08:14.671797+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Aquaviva_2026-10-22_12-05_comeback_21.1"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-22T08:11:56.121719+00:00",
+    "last_processed_run": "2026-10-22T12:05:21.417095+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 7695.0,
@@ -2337,7 +2389,7 @@
         "premium_peak": null
       },
       "Gemma Resort (ex. Labranda Gemma Premium Resort)": {
-        "history_max": 8175.0,
+        "history_max": 8183.0,
         "premium_peak": null
       },
       "Rewaya Majestic Resort": {
@@ -2581,7 +2633,7 @@
         "premium_peak": 10333.0
       },
       "Amarina Queen Resort": {
-        "history_max": 7204.0,
+        "history_max": 7498.0,
         "premium_peak": null
       },
       "Charmillion Club Aqua Park": {
@@ -2785,7 +2837,7 @@
         "premium_peak": 17182.0
       },
       "Amarina Jannah Heights Resort & Aqua Park": {
-        "history_max": 8272.0,
+        "history_max": 8712.0,
         "premium_peak": null
       },
       "Titanic Pearl": {
@@ -2913,7 +2965,7 @@
         "premium_peak": 10417.0
       },
       "Amarina Jannah Resort Aquapark": {
-        "history_max": 7302.0,
+        "history_max": 7650.0,
         "premium_peak": null
       },
       "Movenpick Resort Sharm el Sheikh": {

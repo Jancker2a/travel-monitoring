@@ -1729,10 +1729,62 @@
       "created_at": "2026-10-22T08:18:11.381172+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Stella Beach Resort & Spa_2026-10-22_08-15_zone_out_gone"
+    },
+    {
+      "hotel_name": "Amarina Queen Resort",
+      "duration_bucket": "",
+      "old_price": 8248.0,
+      "new_price": 7498.0,
+      "price_change": -750.0,
+      "price_change_pct": -9.093113482056255,
+      "timestamp": "2026-10-22 12:09:53.105806+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-22T12:11:50.488446+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amarina Queen Resort_2026-10-22_12-09_-9.1"
+    },
+    {
+      "hotel_name": "Siva Golden Bay Makadi",
+      "duration_bucket": "",
+      "old_price": 6857.0,
+      "new_price": 7477.0,
+      "price_change": 620.0,
+      "price_change_pct": 9.041855038646638,
+      "timestamp": "2026-10-22 12:09:53.105806+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-22T12:11:50.488475+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Siva Golden Bay Makadi_2026-10-22_12-09_+9.0"
+    },
+    {
+      "hotel_name": "Albatros Makadi Resort (ex Royal Pharaohs Makadi)",
+      "duration_bucket": "",
+      "old_price": 10697.0,
+      "new_price": 10697.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-22 12:09:53.105806+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-22T12:11:50.488490+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Albatros Makadi Resort (ex Royal Pharaohs Makadi)_2026-10-22_12-09_zone_out_gone"
+    },
+    {
+      "hotel_name": "Cleopatra Signature Marsa Alam",
+      "duration_bucket": "",
+      "old_price": 10643.0,
+      "new_price": 10643.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-22 12:09:53.105806+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-22T12:11:50.488497+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Cleopatra Signature Marsa Alam_2026-10-22_12-09_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-22T08:15:21.030558+00:00",
+    "last_processed_run": "2026-10-22T12:09:53.105806+00:00",
     "premium_state": {
       "Amarina Jannah Resort Aquapark Egipt, Marsa Alam, Port Ghalib": {
         "history_max": 8857.0,
@@ -2135,7 +2187,7 @@
         "premium_peak": null
       },
       "Creek Hotel and Residences": {
-        "history_max": 9388.0,
+        "history_max": 9657.0,
         "premium_peak": null
       },
       "IL Mercato Splash Aqua Park": {
@@ -2179,11 +2231,15 @@
         "premium_peak": null
       },
       "Golf Villas And Suites Sharm": {
-        "history_max": 10301.0,
+        "history_max": 10371.0,
         "premium_peak": null
       },
       "Serenity Sky Arc": {
         "history_max": 10427.0,
+        "premium_peak": null
+      },
+      "Jaz Grand Marsa (ex Resta Grand Resort)": {
+        "history_max": 9727.0,
         "premium_peak": null
       }
     }

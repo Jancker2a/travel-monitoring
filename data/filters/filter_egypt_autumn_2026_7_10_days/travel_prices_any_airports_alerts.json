@@ -4043,10 +4043,114 @@
       "created_at": "2026-10-22T08:17:46.978408+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Albatros Sea World Resort Marsa Alam_2026-10-22_08-16_zone_out_gone"
+    },
+    {
+      "hotel_name": "Amarina Queen Resort",
+      "duration_bucket": "",
+      "old_price": 6872.0,
+      "new_price": 7472.0,
+      "price_change": 600.0,
+      "price_change_pct": 8.731082654249127,
+      "timestamp": "2026-10-22 12:10:37.709148+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-22T12:11:49.562368+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amarina Queen Resort_2026-10-22_12-10_+8.7"
+    },
+    {
+      "hotel_name": "Creek Hotel and Residences",
+      "duration_bucket": "",
+      "old_price": 6876.0,
+      "new_price": 8227.0,
+      "price_change": 1351.0,
+      "price_change_pct": 19.64805119255381,
+      "timestamp": "2026-10-22 12:10:37.709148+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-22T12:11:49.562400+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Creek Hotel and Residences_2026-10-22_12-10_+19.6"
+    },
+    {
+      "hotel_name": "Siva Golden Bay Makadi",
+      "duration_bucket": "",
+      "old_price": 6857.0,
+      "new_price": 7477.0,
+      "price_change": 620.0,
+      "price_change_pct": 9.041855038646638,
+      "timestamp": "2026-10-22 12:10:37.709148+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-22T12:11:49.562415+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Siva Golden Bay Makadi_2026-10-22_12-10_+9.0"
+    },
+    {
+      "hotel_name": "Double Tree by Hilton Mangroovy El Gouna Resort",
+      "duration_bucket": "",
+      "old_price": 9455.0,
+      "new_price": 9455.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-22 12:10:37.709148+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-22T12:11:49.562433+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Double Tree by Hilton Mangroovy El Gouna Resort_2026-10-22_12-10_zone_out_gone"
+    },
+    {
+      "hotel_name": "Rewaya Inn Resort (ex. Hawaii Paradise Aqua Park Resort)",
+      "duration_bucket": "",
+      "old_price": 9334.0,
+      "new_price": 9334.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-22 12:10:37.709148+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-22T12:11:49.562442+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Inn Resort (ex. Hawaii Paradise Aqua Park Resort)_2026-10-22_12-10_zone_out_gone"
+    },
+    {
+      "hotel_name": "Royal Brayka Beach Resort (ex Zee Brayka)",
+      "duration_bucket": "",
+      "old_price": 9097.0,
+      "new_price": 9097.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-22 12:10:37.709148+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-22T12:11:49.562451+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Royal Brayka Beach Resort (ex Zee Brayka)_2026-10-22_12-10_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sentido Akassia Beach (ex. LTI Akassia Beach)",
+      "duration_bucket": "",
+      "old_price": 8600.0,
+      "new_price": 8600.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-22 12:10:37.709148+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-22T12:11:49.562459+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sentido Akassia Beach (ex. LTI Akassia Beach)_2026-10-22_12-10_zone_out_gone"
+    },
+    {
+      "hotel_name": "Titanic Pearl",
+      "duration_bucket": "",
+      "old_price": 9466.0,
+      "new_price": 9466.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-22 12:10:37.709148+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-22T12:11:49.562468+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Titanic Pearl_2026-10-22_12-10_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-22T08:16:31.006267+00:00",
+    "last_processed_run": "2026-10-22T12:10:37.709148+00:00",
     "premium_state": {
       "Rewaya Luxury Resort Egipt, Hurghada": {
         "history_max": 6947.0,
@@ -4781,7 +4885,7 @@
         "premium_peak": null
       },
       "Creek Hotel and Residences": {
-        "history_max": 7200.0,
+        "history_max": 8227.0,
         "premium_peak": null
       },
       "Naama Bay Promenade Mountain Resort": {
@@ -4813,7 +4917,7 @@
         "premium_peak": null
       },
       "Novotel Marsa Alam": {
-        "history_max": 7874.0,
+        "history_max": 8137.0,
         "premium_peak": null
       },
       "Retac Qunay Dahab Resort & Spa": {
@@ -4821,7 +4925,7 @@
         "premium_peak": null
       },
       "Siva Golden Bay Makadi": {
-        "history_max": 7457.0,
+        "history_max": 7477.0,
         "premium_peak": null
       },
       "Amarina Jannah Heights Resort & Aqua Park": {
@@ -4830,6 +4934,10 @@
       },
       "Royal Lagoons Aqua (ex. Premium Blue)": {
         "history_max": 7756.0,
+        "premium_peak": null
+      },
+      "Jaz Grand Marsa (ex Resta Grand Resort)": {
+        "history_max": 8624.0,
         "premium_peak": null
       }
     }
