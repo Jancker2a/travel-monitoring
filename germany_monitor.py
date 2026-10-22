@@ -386,9 +386,11 @@ class GermanyTourMonitor:
                     reader = csv.DictReader(f)
                     for row in reader:
                         h_name = str(row.get('hotel_name') or '').strip()
-                        if not h_name or h_name.startswith(('<<<', '===', '>>>')):
+                        if not h_name or any(m in h_name for m in ('<<<', '===', '>>>')):
                             continue
-                        normalized = {k: row.get(k, '') for k in GERMANY_PRICE_CSV_FIELDS}
+                        normalized = {k: str(row.get(k) or '').strip() for k in GERMANY_PRICE_CSV_FIELDS}
+                        if any(m in normalized[k] for k in normalized for m in ('<<<', '===', '>>>')):
+                            continue
                         existing_data.append(normalized)
             except Exception as e:
                 logger.warning(f"Error reading existing CSV: {e}, rewriting afresh.")
@@ -397,10 +399,20 @@ class GermanyTourMonitor:
         # Deduplicate records by (hotel_name, departure_airport, dates) keeping the newest scrape
         deduped_records = {}
         for row in existing_data:
-            key = (row.get('hotel_name', '').strip().lower(), row.get('departure_airport', '').strip().upper(), row.get('dates', '').strip())
-            deduped_records[key] = {k: row.get(k, '') for k in GERMANY_PRICE_CSV_FIELDS}
+            h_val = str(row.get('hotel_name') or '').strip().lower()
+            a_val = str(row.get('departure_airport') or '').strip().upper()
+            d_val = str(row.get('dates') or '').strip()
+            if not h_val:
+                continue
+            key = (h_val, a_val, d_val)
+            deduped_records[key] = {k: str(row.get(k) or '').strip() for k in GERMANY_PRICE_CSV_FIELDS}
         for offer in new_offers:
-            key = (offer.get('hotel_name', '').strip().lower(), offer.get('departure_airport', '').strip().upper(), offer.get('dates', '').strip())
+            h_val = str(offer.get('hotel_name') or '').strip().lower()
+            a_val = str(offer.get('departure_airport') or '').strip().upper()
+            d_val = str(offer.get('dates') or '').strip()
+            if not h_val:
+                continue
+            key = (h_val, a_val, d_val)
             deduped_records[key] = {k: offer.get(k, '') for k in GERMANY_PRICE_CSV_FIELDS}
 
         final_records = list(deduped_records.values())

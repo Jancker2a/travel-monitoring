@@ -66,7 +66,8 @@ def run_germany_monitoring():
                 success_count += 1
                 print(f"     ✅ {cfg_name} completed in {elapsed:.1f}s")
             else:
-                print(f"     ⚠️ {cfg_name} warning (exit code {res.returncode}): {res.stderr[:200]}")
+                err_detail = (res.stderr or res.stdout or "").strip()
+                print(f"     ⚠️ {cfg_name} warning (exit code {res.returncode}):\n{err_detail}")
         except subprocess.TimeoutExpired:
             print(f"     ⏰ {cfg_name} timed out after 60s")
         except Exception as e:
