@@ -520,10 +520,23 @@
       "created_at": "2026-10-22T18:49:36.953395+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sea Star Beau Rivage_2026-10-22_18-48_comeback_17.8"
+    },
+    {
+      "hotel_name": "SUN & SEA HOTEL",
+      "duration_bucket": "",
+      "old_price": 9469.0,
+      "new_price": 9469.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-22 22:37:48.849141+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-22T22:38:26.418919+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "SUN & SEA HOTEL_2026-10-22_22-37_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-22T18:48:13.596714+00:00",
+    "last_processed_run": "2026-10-22T22:37:48.849141+00:00",
     "premium_state": {
       "Sentido Oriental Dream Resort Egipt, Marsa Alam": {
         "history_max": 10973.0,
@@ -668,6 +681,14 @@
       "Empire Beach Resort***": {
         "history_max": 9658.0,
         "premium_peak": null
+      },
+      "CALIMERA BLEND PARADISE": {
+        "history_max": 11787.0,
+        "premium_peak": 11787.0
+      },
+      "Serenity ALPHA Beach *****": {
+        "history_max": 12104.0,
+        "premium_peak": 12104.0
       }
     }
   }

@@ -1859,10 +1859,62 @@
       "created_at": "2026-10-22T18:47:50.173927+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Cleopatra Signature Marsa Alam_2026-10-22_18-46_zone_out_gone"
+    },
+    {
+      "hotel_name": "Dream Lagoon & Aqua Park Resort (ex. Floriana Dream Lagoon)",
+      "duration_bucket": "",
+      "old_price": 8259.0,
+      "new_price": 6777.0,
+      "price_change": -1482.0,
+      "price_change_pct": -17.94406102433709,
+      "timestamp": "2026-10-22 22:35:24.482329+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-22T22:37:53.036331+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Dream Lagoon & Aqua Park Resort (ex. Floriana Dream Lagoon)_2026-10-22_22-35_-17.9"
+    },
+    {
+      "hotel_name": "Cooee Prima Life Makadi Bay",
+      "duration_bucket": "",
+      "old_price": 9557.0,
+      "new_price": 9557.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-22 22:35:24.482329+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-22T22:37:53.036381+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Cooee Prima Life Makadi Bay_2026-10-22_22-35_zone_out_gone"
+    },
+    {
+      "hotel_name": "Creek Hotel and Residences",
+      "duration_bucket": "",
+      "old_price": 10587.0,
+      "new_price": 10587.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-22 22:35:24.482329+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-22T22:37:53.036402+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Creek Hotel and Residences_2026-10-22_22-35_zone_out_gone"
+    },
+    {
+      "hotel_name": "Movenpick Waterpark Resort & Spa Soma Bay",
+      "duration_bucket": "",
+      "old_price": 8557.0,
+      "new_price": 8557.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-22 22:35:24.482329+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-22T22:37:53.036420+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Movenpick Waterpark Resort & Spa Soma Bay_2026-10-22_22-35_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-22T18:46:33.676945+00:00",
+    "last_processed_run": "2026-10-22T22:35:24.482329+00:00",
     "premium_state": {
       "Amarina Jannah Resort Aquapark Egipt, Marsa Alam, Port Ghalib": {
         "history_max": 8857.0,
@@ -2317,11 +2369,15 @@
         "premium_peak": null
       },
       "Jaz Grand Marsa (ex Resta Grand Resort)": {
-        "history_max": 9727.0,
+        "history_max": 10284.0,
         "premium_peak": null
       },
       "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort)": {
         "history_max": 9037.0,
+        "premium_peak": null
+      },
+      "Desert Rose Resort": {
+        "history_max": 10843.0,
         "premium_peak": null
       }
     }
