@@ -1157,10 +1157,23 @@
       "created_at": "2026-10-22T01:46:47.381150+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Naama Bay Promenade Mountain Resort_2026-10-22_01-46_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sea Star Beau Rivage",
+      "duration_bucket": "",
+      "old_price": 10383.0,
+      "new_price": 9273.0,
+      "price_change": -1110.0,
+      "price_change_pct": -10.69055186362323,
+      "timestamp": "2026-10-22 07:51:21.471082+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-22T07:51:59.134639+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sea Star Beau Rivage_2026-10-22_07-51_-10.7"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-22T07:12:58.311640+00:00",
+    "last_processed_run": "2026-10-22T07:51:21.471082+00:00",
     "premium_state": {
       "Naama Bay Promenade Mountain Resort Egipt, Sharm El Sheikh, Szarm el-Szejk": {
         "history_max": 10841.0,
@@ -1396,6 +1409,10 @@
       },
       "Naama Bay Promenade Beach Resort": {
         "history_max": 10729.0,
+        "premium_peak": null
+      },
+      "Amwaj Oyoun Resort & Casino": {
+        "history_max": 10104.0,
         "premium_peak": null
       }
     }
