@@ -15938,10 +15938,49 @@
       "created_at": "2026-10-23T18:34:16.466614+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Well Palace Side (ex. Side Crown Charm Palace)_2026-10-23_18-32_zone_out_gone"
+    },
+    {
+      "hotel_name": "Terrace Elite Resort",
+      "duration_bucket": "",
+      "old_price": 5083.0,
+      "new_price": 5817.0,
+      "price_change": 734.0,
+      "price_change_pct": 14.440291166633878,
+      "timestamp": "2026-10-23 22:23:12.924905+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-23T22:24:54.302791+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Terrace Elite Resort_2026-10-23_22-23_+14.4"
+    },
+    {
+      "hotel_name": "Galeri Resort",
+      "duration_bucket": "",
+      "old_price": 5835.0,
+      "new_price": 5835.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-23 22:23:12.924905+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-23T22:24:54.302868+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Galeri Resort_2026-10-23_22-23_zone_out_gone"
+    },
+    {
+      "hotel_name": "Palmeras Beach",
+      "duration_bucket": "",
+      "old_price": 5602.0,
+      "new_price": 5602.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-23 22:23:12.924905+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-23T22:24:54.302891+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Palmeras Beach_2026-10-23_22-23_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-23T18:32:27.642287+00:00",
+    "last_processed_run": "2026-10-23T22:23:12.924905+00:00",
     "premium_state": {
       "Adalya Art Side (Ex. Grand Art Side)": {
         "history_max": 8512.0,
