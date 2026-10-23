@@ -4303,10 +4303,101 @@
       "created_at": "2026-10-23T01:46:41.810654+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Movenpick Waterpark Resort & Spa Soma Bay_2026-10-23_01-45_zone_out_gone"
+    },
+    {
+      "hotel_name": "AMC Royal Hotel & Spa (ex. AMC Azur Resort)",
+      "duration_bucket": "",
+      "old_price": 7473.0,
+      "new_price": 6320.0,
+      "price_change": -1153.0,
+      "price_change_pct": -15.428877291583031,
+      "timestamp": "2026-10-23 13:42:00.897555+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-23T13:43:10.607793+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort)_2026-10-23_13-42_-15.4"
+    },
+    {
+      "hotel_name": "Calimera Blend Paradise Resort",
+      "duration_bucket": "",
+      "old_price": 8957.0,
+      "new_price": 7897.0,
+      "price_change": -1060.0,
+      "price_change_pct": -11.834319526627219,
+      "timestamp": "2026-10-23 13:42:00.897555+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-23T13:43:10.607812+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Calimera Blend Paradise Resort_2026-10-23_13-42_-11.8"
+    },
+    {
+      "hotel_name": "Rewaya Luxury Resort",
+      "duration_bucket": "",
+      "old_price": 7110.0,
+      "new_price": 6125.0,
+      "price_change": -985.0,
+      "price_change_pct": -13.853727144866385,
+      "timestamp": "2026-10-23 13:42:00.897555+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-23T13:43:10.607818+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Luxury Resort_2026-10-23_13-42_-13.9"
+    },
+    {
+      "hotel_name": "Gravity Sahl Hasheesh (Ex. Ocean Breeze)",
+      "duration_bucket": "",
+      "old_price": 9243.0,
+      "new_price": 7922.0,
+      "price_change": -1321.0,
+      "price_change_pct": -14.291896570377583,
+      "timestamp": "2026-10-23 13:42:00.897555+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-23T13:43:10.607822+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Gravity Sahl Hasheesh (Ex. Ocean Breeze)_2026-10-23_13-42_-14.3"
+    },
+    {
+      "hotel_name": "Sentido Akassia Beach (ex. LTI Akassia Beach)",
+      "duration_bucket": "",
+      "old_price": 8924.0,
+      "new_price": 8924.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-23 13:42:00.897555+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-23T13:43:10.607832+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sentido Akassia Beach (ex. LTI Akassia Beach)_2026-10-23_13-42_zone_out_gone"
+    },
+    {
+      "hotel_name": "Stella Beach Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 9197.0,
+      "new_price": 9197.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-23 13:42:00.897555+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-23T13:43:10.607836+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Stella Beach Resort & Spa_2026-10-23_13-42_zone_out_gone"
+    },
+    {
+      "hotel_name": "Titanic Pearl",
+      "duration_bucket": "",
+      "old_price": 8839.0,
+      "new_price": 8839.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-23 13:42:00.897555+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-23T13:43:10.607840+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Titanic Pearl_2026-10-23_13-42_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-23T07:51:08.953375+00:00",
+    "last_processed_run": "2026-10-23T13:42:00.897555+00:00",
     "premium_state": {
       "Rewaya Luxury Resort Egipt, Hurghada": {
         "history_max": 6947.0,
@@ -5025,7 +5116,7 @@
         "premium_peak": null
       },
       "Parrotel Lagoon Resort": {
-        "history_max": 5973.0,
+        "history_max": 6160.0,
         "premium_peak": null
       },
       "Jasmine Palace": {

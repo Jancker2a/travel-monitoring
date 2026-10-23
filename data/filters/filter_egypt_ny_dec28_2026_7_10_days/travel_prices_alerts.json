@@ -559,10 +559,36 @@
       "created_at": "2026-10-23T07:52:32.851256+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Empire Beach Resort***_2026-10-23_07-51_zone_out_gone"
+    },
+    {
+      "hotel_name": "Rewaya Inn Resort (ex.Hawaii Paradise Aq",
+      "duration_bucket": "",
+      "old_price": 10694.0,
+      "new_price": 10694.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-23 13:42:58.920589+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-23T13:44:19.068743+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Inn Resort (ex.Hawaii Paradise Aq_2026-10-23_13-42_zone_out_gone"
+    },
+    {
+      "hotel_name": "Royal Star Beach Resort",
+      "duration_bucket": "",
+      "old_price": 8569.0,
+      "new_price": 8569.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-23 13:42:58.920589+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-23T13:44:19.068762+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Royal Star Beach Resort_2026-10-23_13-42_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-23T07:51:56.426877+00:00",
+    "last_processed_run": "2026-10-23T13:42:58.920589+00:00",
     "premium_state": {
       "Sentido Oriental Dream Resort Egipt, Marsa Alam": {
         "history_max": 10973.0,
@@ -718,6 +744,14 @@
       },
       "Royal Star Beach Resort": {
         "history_max": 8569.0,
+        "premium_peak": null
+      },
+      "AMC Royal Hotel & Spa": {
+        "history_max": 10211.0,
+        "premium_peak": null
+      },
+      "Empire Beach Aqua Park": {
+        "history_max": 9635.0,
         "premium_peak": null
       }
     }
