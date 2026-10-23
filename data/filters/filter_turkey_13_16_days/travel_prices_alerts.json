@@ -1040,10 +1040,62 @@
       "created_at": "2026-10-23T13:41:58.796706+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Palmeras Beach_2026-10-23_13-39_comeback_19.4"
+    },
+    {
+      "hotel_name": "Armas Bella Sun (ex.Club Bella Sun)",
+      "duration_bucket": "",
+      "old_price": 9541.0,
+      "new_price": 9541.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-23 18:33:57.355135+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-23T18:37:06.045049+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Armas Bella Sun (ex.Club Bella Sun)_2026-10-23_18-33_zone_out_gone"
+    },
+    {
+      "hotel_name": "Armas Gul Beach",
+      "duration_bucket": "",
+      "old_price": 8599.0,
+      "new_price": 8599.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-23 18:33:57.355135+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-23T18:37:06.045074+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Armas Gul Beach_2026-10-23_18-33_zone_out_gone"
+    },
+    {
+      "hotel_name": "White City Resort",
+      "duration_bucket": "",
+      "old_price": 10843.0,
+      "new_price": 9854.0,
+      "price_change": -989.0,
+      "price_change_pct": -9.121091948722679,
+      "timestamp": "2026-10-23 18:33:57.355135+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-23T18:37:06.045100+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "White City Resort_2026-10-23_18-33_comeback_9.1"
+    },
+    {
+      "hotel_name": "Horus Paradise Luxury Resort",
+      "duration_bucket": "",
+      "old_price": 10888.0,
+      "new_price": 9820.0,
+      "price_change": -1068.0,
+      "price_change_pct": -9.808963997060985,
+      "timestamp": "2026-10-23 18:33:57.355135+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-23T18:37:06.045113+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Horus Paradise Luxury Resort_2026-10-23_18-33_comeback_9.8"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-23T13:39:59.598799+00:00",
+    "last_processed_run": "2026-10-23T18:33:57.355135+00:00",
     "premium_state": {
       "Adalya Art Side (Ex. Grand Art Side)": {
         "history_max": 13627.0,
