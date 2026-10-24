@@ -105,7 +105,7 @@ function getInitialFormState() {
 function parseFlyUrl(rawUrl) {
   if (!rawUrl || typeof rawUrl !== 'string') return null;
   const urlClean = rawUrl.trim();
-  if (!urlClean.includes("fly.pl") && !urlClean.startsWith("http")) return null;
+  if (!urlClean.includes("fly.pl")) return null;
 
   try {
     const urlObj = new URL(urlClean, "https://fly.pl");
@@ -205,6 +205,9 @@ function parseFlyUrl(rawUrl) {
       result.displayCeiling = Math.min(parseInt(pTo, 10), result.maxPrice > 12000 ? 12000 : result.maxPrice);
     }
 
+    if (Object.keys(result).length === 0) {
+      return null;
+    }
     return result;
   } catch (err) {
     console.error("Error parsing Fly.pl URL:", err);
