@@ -190,12 +190,15 @@ def generate_landing(tiles=None, output_file='index.html'):
         <a class="card" href="{flt['href']}">
           <div class="card-body">
             <div class="card-title-row">
-              <span class="card-title">{flt['title']}</span>
+              <span class="card-title">
+                {flt['title']}
+                { '<span class="badge badge-paused" style="margin-left:6px;font-size:.72rem;padding:2px 7px;border-radius:999px;background:rgba(245,158,11,.18);color:#b45309;border:1px solid rgba(245,158,11,.3);font-weight:700;">⏸️ На паузе</span>' if flt.get('status') == 'paused' else '' }
+              </span>
               <span class="card-arrow">→</span>
             </div>
             <div class="card-sub">{flt.get('subtitle', '')}</div>
             <div class="card-footer">
-              <span class="card-tag">📡 Hourly monitoring</span>
+              <span class="card-tag" { 'style="background:rgba(245,158,11,.12);color:#b45309;"' if flt.get('status') == 'paused' else '' }>{ '⏸️ Сбор на паузе' if flt.get('status') == 'paused' else '📡 Hourly monitoring' }</span>
               <span class="card-action">Открыть дашборд</span>
             </div>
           </div>
@@ -596,6 +599,7 @@ def generate_landing(tiles=None, output_file='index.html'):
         <h1>🌊 Travel Price Monitor</h1>
         <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
           <a href="create_filter.html" class="create-btn">✨ + Добавить поездку</a>
+          <a href="admin_filters.html" class="help-btn" style="background:rgba(255,255,255,0.22);border-color:rgba(255,255,255,0.4);" title="Центр управления фильтрами">🎛️ Admin Hub</a>
           <button type="button" class="help-btn" id="themeToggleBtn" onclick="toggleTheme()" title="Переключить тему">🌙 Тема</button>
           <a href="help.html" class="help-btn">📚 Справка & FAQ</a>
         </div>

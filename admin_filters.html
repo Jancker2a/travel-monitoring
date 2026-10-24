@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🎛️ Admin Hub • Центр управления фильтрами</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --surface: #111827;
+      --surface-card: rgba(17, 24, 39, 0.75);
+      --surface-hover: rgba(31, 41, 55, 0.85);
+      --border: rgba(255, 255, 255, 0.1);
+      --border-focus: #6366f1;
+      --text-main: #f9fafb;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --brand: #6366f1;
+      --brand-hover: #4f46e5;
+      --accent-cyan: #06b6d4;
+      --accent-emerald: #10b981;
+      --accent-amber: #f59e0b;
+      --accent-rose: #f43f5e;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --font-mono: 'JetBrains Mono', monospace;
+      --shadow-card: 0 10px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+    }
+
+    [data-theme="light"] {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --surface-card: rgba(255, 255, 255, 0.85);
+      --surface-hover: #f1f5f9;
+      --border: rgba(0, 0, 0, 0.08);
+      --border-focus: #4f46e5;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --text-dim: #94a3b8;
+      --brand: #4f46e5;
+      --brand-hover: #4338ca;
+      --shadow-card: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      min-height: 100vh;
+      line-height: 1.5;
+      display: flex;
+      flex-direction: column;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    /* Access Gate */
+    #authOverlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(11, 15, 25, 0.96);
+      backdrop-filter: blur(20px);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .auth-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      max-width: 440px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    }
+    .auth-icon {
+      font-size: 3rem;
+      margin-bottom: 16px;
+    }
+    .auth-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    .auth-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+    .auth-input {
+      width: 100%;
+      padding: 12px 16px;
+      background: rgba(0, 0, 0, 0.2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text-main);
+      font-size: 1rem;
+      margin-bottom: 16px;
+      outline: none;
+      transition: border 0.2s;
+    }
+    .auth-input:focus { border-color: var(--brand); }
+    .auth-btn {
+      width: 100%;
+      padding: 12px;
+      background: var(--brand);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .auth-btn:hover { background: var(--brand-hover); }
+    .auth-error {
+      color: var(--accent-rose);
+      font-size: 0.85rem;
+      margin-top: 12px;
+      display: none;
+    }
+
+    /* App Container */
+    .app-wrap {
+      max-width: 1380px;
+      margin: 0 auto;
+      padding: 24px 20px 60px;
+      width: 100%;
+      flex: 1;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 24px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand-icon {
+      font-size: 2.2rem;
+    }
+    .brand-title {
+      font-size: 1.45rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    .brand-sub {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text-main);
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .btn:hover {
+      background: var(--surface-hover);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+    .btn-primary {
+      background: var(--brand);
+      border-color: var(--brand);
+      color: #fff;
+    }
+    .btn-primary:hover {
+      background: var(--brand-hover);
+      border-color: var(--brand-hover);
+    }
+
+    /* Stats Grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .stat-card {
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+      box-shadow: var(--shadow-card);
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .stat-icon {
+      font-size: 2rem;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.05);
+    }
+    .stat-val {
+      font-size: 1.7rem;
+      font-weight: 800;
+      line-height: 1.1;
+    }
+    .stat-lbl {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* Control Bar */
+    .control-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-card);
+    }
+    .search-box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(0, 0, 0, 0.2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 8px 14px;
+      flex: 1;
+      min-width: 240px;
+      max-width: 400px;
+    }
+    .search-input {
+      background: transparent;
+      border: none;
+      color: var(--text-main);
+      font-size: 0.9rem;
+      width: 100%;
+      outline: none;
+    }
+    .filter-tabs {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .filter-tab {
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-muted);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .filter-tab:hover {
+      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.1);
+    }
+    .filter-tab.active {
+      background: var(--brand);
+      color: #fff;
+    }
+    .category-select {
+      padding: 8px 12px;
+      background: rgba(0, 0, 0, 0.2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text-main);
+      font-size: 0.85rem;
+      outline: none;
+      cursor: pointer;
+    }
+
+    /* Filters List */
+    .filter-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 18px;
+    }
+    .filter-item {
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      box-shadow: var(--shadow-card);
+      backdrop-filter: blur(12px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+      position: relative;
+    }
+    .filter-item:hover {
+      transform: translateY(-2px);
+      border-color: rgba(99, 102, 241, 0.4);
+    }
+    .filter-item.paused {
+      border-left: 4px solid var(--accent-amber);
+    }
+    .filter-item.active-item {
+      border-left: 4px solid var(--accent-emerald);
+    }
+    .filter-item.archived {
+      border-left: 4px solid var(--text-dim);
+      opacity: 0.85;
+    }
+
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+      gap: 10px;
+    }
+    .item-tags {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 8px;
+      border-radius: 20px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .badge-active { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+    .badge-paused { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
+    .badge-archived { background: rgba(148, 163, 184, 0.15); color: #94a3b8; border: 1px solid rgba(148, 163, 184, 0.3); }
+    .badge-group { background: rgba(99, 102, 241, 0.15); color: #818cf8; border: 1px solid rgba(99, 102, 241, 0.3); }
+
+    .item-title-box {
+      margin-bottom: 12px;
+    }
+    .item-title {
+      font-size: 1.12rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .item-title a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .item-title a:hover {
+      color: var(--brand);
+      text-decoration: underline;
+    }
+    .item-sub {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    .item-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      padding: 10px 12px;
+      background: rgba(0, 0, 0, 0.18);
+      border-radius: var(--radius-sm);
+      margin-bottom: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+    }
+    .metric-col {
+      text-align: center;
+    }
+    .metric-val {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+    .metric-lbl {
+      font-size: 0.68rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      margin-top: 1px;
+    }
+
+    .item-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+    }
+    .action-group-left {
+      display: flex;
+      gap: 6px;
+    }
+    .action-btn {
+      padding: 6px 10px;
+      border-radius: var(--radius-sm);
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text-main);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.2s;
+    }
+    .action-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+    .btn-toggle-active {
+      color: var(--accent-amber);
+      border-color: rgba(245, 158, 11, 0.3);
+    }
+    .btn-toggle-paused {
+      color: var(--accent-emerald);
+      border-color: rgba(16, 185, 129, 0.3);
+    }
+    .btn-delete {
+      color: var(--accent-rose);
+      border-color: rgba(244, 63, 94, 0.3);
+    }
+
+    /* Modal */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      padding: 16px;
+    }
+    .modal-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 26px;
+      max-width: 520px;
+      width: 100%;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    .modal-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+    }
+    .modal-close {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    .modal-body {
+      margin-bottom: 20px;
+      color: var(--text-muted);
+      font-size: 0.92rem;
+    }
+    .form-group {
+      margin-bottom: 14px;
+    }
+    .form-label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 6px;
+    }
+    .form-control {
+      width: 100%;
+      padding: 10px 14px;
+      background: rgba(0, 0, 0, 0.2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text-main);
+      font-size: 0.9rem;
+      outline: none;
+    }
+    .form-control:focus { border-color: var(--brand); }
+    .modal-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+
+    /* Toast */
+    #toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--surface);
+      color: var(--text-main);
+      padding: 12px 20px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+      z-index: 10001;
+      display: none;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px 20px;
+      color: var(--text-dim);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Access Gate Modal -->
+  <div id="authOverlay">
+    <div class="auth-card">
+      <div class="auth-icon">🔐</div>
+      <h2 class="auth-title">Admin Access Gate</h2>
+      <p class="auth-desc">Введите ключ доступа для управления мониторингами и дашбордами.</p>
+      <input type="password" id="authKeyInput" class="auth-input" placeholder="Ключ авторизации..." autofocus />
+      <button id="authSubmitBtn" class="auth-btn">Войти в панель</button>
+      <div id="authErrorMsg" class="auth-error">Неверный ключ доступа. Попробуйте снова.</div>
+    </div>
+  </div>
+
+  <!-- Main Container -->
+  <div class="app-wrap" id="appMain" style="display:none;">
+    <header>
+      <div class="brand-group">
+        <div class="brand-icon">🎛️</div>
+        <div>
+          <h1 class="brand-title">Admin Hub • Управление фильтрами</h1>
+          <div class="brand-sub">Единая панель контроля скрапинга, категорий и жизненного цикла дашбордов</div>
+        </div>
+      </div>
+      <div class="top-actions">
+        <a href="index.html" class="btn">🌐 На сайт</a>
+        <a href="create_filter.html" class="btn btn-primary">+ Новый фильтр</a>
+        <button class="btn" id="settingsBtn">⚙️ GitHub API</button>
+        <button class="btn" id="themeToggleBtn">🌙 Тема</button>
+        <button class="btn" id="logoutBtn">🚪 Выйти</button>
+      </div>
+    </header>
+
+    <!-- Stat Summary Cards -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon">📊</div>
+        <div>
+          <div class="stat-val" id="totalFiltersCount">0</div>
+          <div class="stat-lbl">Всего фильтров</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">🟢</div>
+        <div>
+          <div class="stat-val" id="activeFiltersCount">0</div>
+          <div class="stat-lbl">Активный сбор цен</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">⏸️</div>
+        <div>
+          <div class="stat-val" id="pausedFiltersCount">0</div>
+          <div class="stat-lbl">На паузе</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">📦</div>
+        <div>
+          <div class="stat-val" id="archivedFiltersCount">0</div>
+          <div class="stat-lbl">В архиве туров</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filter Control Bar -->
+    <div class="control-bar">
+      <div class="search-box">
+        <span>🔍</span>
+        <input type="text" id="searchInput" class="search-input" placeholder="Поиск по названию, стране, ID..." />
+      </div>
+
+      <div class="filter-tabs">
+        <button class="filter-tab active" data-status="all">Все (<span id="tabCountAll">0</span>)</button>
+        <button class="filter-tab" data-status="active">🟢 Активные (<span id="tabCountActive">0</span>)</button>
+        <button class="filter-tab" data-status="paused">⏸️ На паузе (<span id="tabCountPaused">0</span>)</button>
+        <button class="filter-tab" data-status="archived">📦 Архив (<span id="tabCountArchived">0</span>)</button>
+      </div>
+
+      <div>
+        <select id="categoryFilter" class="category-select">
+          <option value="all">Все категории</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Filter Items Grid -->
+    <div class="filter-grid" id="filtersGrid">
+      <!-- Injected by JavaScript -->
+    </div>
+  </div>
+
+  <!-- Settings Modal (GitHub API Token) -->
+  <div class="modal-backdrop" id="settingsModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 class="modal-title">⚙️ Настройки GitHub API</h3>
+        <button class="modal-close" onclick="closeModal('settingsModal')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="margin-bottom:12px;">По умолчанию изменения отправляются через <strong>GitHub Issues (IssueOps)</strong> в 1 клик без токена.</p>
+        <p style="margin-bottom:16px;">Если вы хотите сохранять изменения <strong>напрямую без создания тикета</strong>, сохраните ваш Personal Access Token (PAT) с правами <code>repo</code>:</p>
+        <div class="form-group">
+          <label class="form-label">GitHub Personal Access Token (PAT)</label>
+          <input type="password" id="ghPatInput" class="form-control" placeholder="ghp_xxxxxxxxxxxx" />
+        </div>
+        <div style="font-size:0.75rem;color:var(--text-dim);">Токен хранится исключительно в локальном браузере (localStorage) и не передаётся третьим лицам.</div>
+      </div>
+      <div class="modal-actions">
+        <button class="btn" onclick="clearPat()">Удалить токен</button>
+        <button class="btn btn-primary" onclick="savePat()">Сохранить токен</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Move Category Modal -->
+  <div class="modal-backdrop" id="categoryModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 class="modal-title">🗂️ Сменить категорию фильтра</h3>
+        <button class="modal-close" onclick="closeModal('categoryModal')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="form-label">Фильтр</label>
+          <input type="text" id="catFilterTitle" class="form-control" readonly disabled />
+          <input type="hidden" id="catFilterId" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Выберите существующую категорию</label>
+          <select id="catSelect" class="form-control">
+            <!-- options -->
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Или создайте новую категорию (ID латиницей)</label>
+          <input type="text" id="catNewId" class="form-control" placeholder="например: canary, thailand..." />
+        </div>
+        <div class="form-group" id="catNewDetails" style="display:none;">
+          <label class="form-label">Название и Иконка</label>
+          <div style="display:flex;gap:8px;">
+            <input type="text" id="catNewIcon" class="form-control" style="width:60px;" placeholder="🏝️" />
+            <input type="text" id="catNewLabel" class="form-control" placeholder="Канарские о-ва" />
+          </div>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button class="btn" onclick="closeModal('categoryModal')">Отмена</button>
+        <button class="btn btn-primary" onclick="submitCategoryChange()">Применить</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rename Modal -->
+  <div class="modal-backdrop" id="renameModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 class="modal-title">✏️ Редактировать название фильтра</h3>
+        <button class="modal-close" onclick="closeModal('renameModal')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="renameFilterId" />
+        <div class="form-group">
+          <label class="form-label">Название фильтра (Title)</label>
+          <input type="text" id="renameTitle" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Подзаголовок / Параметры (Subtitle)</label>
+          <input type="text" id="renameSubtitle" class="form-control" />
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button class="btn" onclick="closeModal('renameModal')">Отмена</button>
+        <button class="btn btn-primary" onclick="submitRename()">Сохранить</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Delete Modal -->
+  <div class="modal-backdrop" id="deleteModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 class="modal-title" style="color:var(--accent-rose);">🗑️ Подтверждение удаления</h3>
+        <button class="modal-close" onclick="closeModal('deleteModal')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>Вы уверены, что хотите удалить фильтр <strong id="deleteFilterTitle" style="color:var(--text-main);"></strong>?</p>
+        <p style="margin-top:8px;font-size:0.85rem;color:var(--text-dim);">Фильтр будет выключен из всех расписаний и исключён из витрины дашбордов. Исторические файлы котировок не удаляются безвозвратно.</p>
+        <input type="hidden" id="deleteFilterId" />
+      </div>
+      <div class="modal-actions">
+        <button class="btn" onclick="closeModal('deleteModal')">Отмена</button>
+        <button class="btn" style="background:var(--accent-rose);border-color:var(--accent-rose);color:#fff;" onclick="submitDelete()">Удалить фильтр</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast"></div>
+
+  <footer>
+    🤖 Travel Price Monitor • Filter & Dashboard Management Hub • Protected by SHA-256 Gate
+  </footer>
+
+  <script>
+    // --- Security & Access Gate ---
+    const AUTH_KEY_HASH = "e7bbd2753119f63d1bab83262e7cf7835286942712dd1caacd25d57f24b84a56";
+    const REPO_OWNER = "Jancker2a";
+    const REPO_NAME = "travel-monitoring";
+
+    let filtersData = [];
+    let groupsMeta = {};
+    let currentStatusFilter = "all";
+    let currentCategoryFilter = "all";
+    let currentSearchQuery = "";
+
+    async function sha256(message) {
+      const msgBuffer = new TextEncoder().encode(message);
+      const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+      const hashArray = Array.from(new Uint8Array(hashBuffer));
+      return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+
+    async function checkAuth(key) {
+      if (!key) return false;
+      const hash = await sha256(key.trim());
+      return hash === AUTH_KEY_HASH;
+    }
+
+    async function initAuth() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const keyFromUrl = urlParams.get('key');
+      let savedKey = null;
+      try {
+        savedKey = localStorage.getItem('travel_admin_key');
+      } catch(e) {}
+
+      if (keyFromUrl && await checkAuth(keyFromUrl)) {
+        try { localStorage.setItem('travel_admin_key', keyFromUrl.trim()); } catch(e) {}
+        window.history.replaceState({}, document.title, window.location.pathname);
+        unlockApp();
+        return;
+      }
+
+      if (savedKey && await checkAuth(savedKey)) {
+        unlockApp();
+        return;
+      }
+
+      // Show lock overlay
+      document.getElementById('authOverlay').style.display = 'flex';
+      document.getElementById('appMain').style.display = 'none';
+    }
+
+    function unlockApp() {
+      document.getElementById('authOverlay').style.display = 'none';
+      document.getElementById('appMain').style.display = 'block';
+      loadManifest();
+    }
+
+    document.getElementById('authSubmitBtn').addEventListener('click', async () => {
+      const val = document.getElementById('authKeyInput').value;
+      if (await checkAuth(val)) {
+        try { localStorage.setItem('travel_admin_key', val.trim()); } catch(e) {}
+        document.getElementById('authErrorMsg').style.display = 'none';
+        unlockApp();
+      } else {
+        document.getElementById('authErrorMsg').style.display = 'block';
+      }
+    });
+
+    document.getElementById('authKeyInput').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') document.getElementById('authSubmitBtn').click();
+    });
+
+    document.getElementById('logoutBtn').addEventListener('click', () => {
+      try { localStorage.removeItem('travel_admin_key'); } catch(e) {}
+      window.location.reload();
+    });
+
+    // --- Theme Toggle ---
+    function initTheme() {
+      let savedTheme = 'dark';
+      try { savedTheme = localStorage.getItem('theme') || 'dark'; } catch(e) {}
+      applyTheme(savedTheme);
+    }
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      const btn = document.getElementById('themeToggleBtn');
+      if (btn) btn.textContent = theme === 'dark' ? '☀️ Светлая' : '🌙 Тёмная';
+    }
+    document.getElementById('themeToggleBtn').addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      try { localStorage.setItem('theme', current); } catch(e) {}
+      applyTheme(current);
+    });
+
+    // --- Manifest Loading ---
+    async function loadManifest() {
+      try {
+        const candidates = ['filters_manifest.json', './filters_manifest.json', 'site/filters_manifest.json'];
+        let res = null;
+        for (const url of candidates) {
+          try {
+            const r = await fetch(url);
+            if (r.ok) { res = await r.json(); break; }
+          } catch(e) {}
+        }
+
+        if (res && res.filters) {
+          filtersData = res.filters;
+          groupsMeta = res.groups || {};
+          renderDashboard();
+        } else {
+          // Fallback bootstrap
+          console.warn('Could not load filters_manifest.json, using fallback bootstrap.');
+          showToast('⚠️ Манифест не найден. Сгенерируйте через scripts/manage_filter.py');
+        }
+      } catch (err) {
+        console.error(err);
+        showToast('Ошибка при загрузке манифеста: ' + err.message);
+      }
+    }
+
+    function renderDashboard() {
+      // Calculate counts
+      const total = filtersData.length;
+      const active = filtersData.filter(f => f.status === 'active').length;
+      const paused = filtersData.filter(f => f.status === 'paused').length;
+      const archived = filtersData.filter(f => f.status === 'archived').length;
+
+      document.getElementById('totalFiltersCount').textContent = total;
+      document.getElementById('activeFiltersCount').textContent = active;
+      document.getElementById('pausedFiltersCount').textContent = paused;
+      document.getElementById('archivedFiltersCount').textContent = archived;
+
+      document.getElementById('tabCountAll').textContent = total;
+      document.getElementById('tabCountActive').textContent = active;
+      document.getElementById('tabCountPaused').textContent = paused;
+      document.getElementById('tabCountArchived').textContent = archived;
+
+      // Populate Category dropdowns
+      const catSelect = document.getElementById('categoryFilter');
+      catSelect.innerHTML = '<option value="all">Все категории</option>';
+      const modalCatSelect = document.getElementById('catSelect');
+      modalCatSelect.innerHTML = '';
+
+      const groupSet = {};
+      filtersData.forEach(f => {
+        groupSet[f.group_id] = { id: f.group_id, label: f.group_label, icon: f.group_icon };
+      });
+      Object.values(groupsMeta).forEach(g => {
+        groupSet[g.id] = g;
+      });
+
+      Object.values(groupSet).forEach(g => {
+        const opt = document.createElement('option');
+        opt.value = g.id;
+        opt.textContent = `${g.icon || '✨'} ${g.label}`;
+        catSelect.appendChild(opt);
+
+        const opt2 = document.createElement('option');
+        opt2.value = g.id;
+        opt2.textContent = `${g.icon || '✨'} ${g.label}`;
+        modalCatSelect.appendChild(opt2);
+      });
+
+      renderFiltersList();
+    }
+
+    function renderFiltersList() {
+      const grid = document.getElementById('filtersGrid');
+      grid.innerHTML = '';
+
+      let filtered = filtersData.filter(flt => {
+        // Status filter
+        if (currentStatusFilter !== 'all' && flt.status !== currentStatusFilter) return false;
+        // Category filter
+        if (currentCategoryFilter !== 'all' && flt.group_id !== currentCategoryFilter) return false;
+        // Search query
+        if (currentSearchQuery) {
+          const hay = `${flt.title} ${flt.subtitle} ${flt.id} ${flt.group_label}`.toLowerCase();
+          if (!hay.includes(currentSearchQuery.toLowerCase())) return false;
+        }
+        return true;
+      });
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div style="grid-column:1/-1;text-align:center;padding:48px 20px;color:var(--text-muted);">
+            <div style="font-size:2.5rem;margin-bottom:12px;">🔍</div>
+            <div style="font-size:1.1rem;font-weight:700;">Фильтры не найдены</div>
+            <div style="font-size:0.85rem;margin-top:4px;">Попробуйте сбросить параметры поиска или фильтрации</div>
+          </div>
+        `;
+        return;
+      }
+
+      filtered.forEach(flt => {
+        const card = document.createElement('div');
+        const statusClass = flt.status === 'paused' ? 'paused' : (flt.status === 'archived' ? 'archived' : 'active-item');
+        card.className = `filter-item ${statusClass}`;
+
+        const statusBadge = flt.status === 'paused'
+          ? '<span class="badge badge-paused">⏸️ На паузе</span>'
+          : (flt.status === 'archived'
+            ? '<span class="badge badge-archived">📦 В архиве</span>'
+            : '<span class="badge badge-active">🟢 Активен</span>');
+
+        const minPriceText = flt.min_price ? `${flt.min_price} PLN` : '—';
+        const offersCountText = flt.offers_count || '0';
+        const lastScrapedText = flt.last_scraped_iso ? flt.last_scraped_iso.split('T')[0] : '—';
+
+        const toggleBtnLabel = flt.status === 'paused' ? '▶️ Запустить' : '⏸️ Пауза';
+        const toggleBtnClass = flt.status === 'paused' ? 'btn-toggle-paused' : 'btn-toggle-active';
+        const toggleNextAction = flt.status === 'paused' ? 'resume' : 'pause';
+
+        card.innerHTML = `
+          <div>
+            <div class="item-header">
+              <div class="item-tags">
+                <span class="badge badge-group">${flt.group_icon || '✨'} ${flt.group_label}</span>
+                ${statusBadge}
+                ${flt.pinned ? '<span title="Закреплён">📌</span>' : ''}
+              </div>
+              <button class="action-btn" title="Закрепить/Открепить" onclick="togglePin('${flt.id}', ${!flt.pinned})">
+                ${flt.pinned ? '★' : '☆'}
+              </button>
+            </div>
+
+            <div class="item-title-box">
+              <div class="item-title">
+                <a href="${flt.href}" target="_blank" title="Открыть дашборд">${flt.title} ↗</a>
+              </div>
+              <div class="item-sub">${flt.subtitle || 'Индивидуальный мониторинг'}</div>
+            </div>
+
+            <div class="item-metrics">
+              <div class="metric-col">
+                <div class="metric-val">${offersCountText}</div>
+                <div class="metric-lbl">Отелей</div>
+              </div>
+              <div class="metric-col">
+                <div class="metric-val">${minPriceText}</div>
+                <div class="metric-lbl">Мин. цена</div>
+              </div>
+              <div class="metric-col">
+                <div class="metric-val">${lastScrapedText}</div>
+                <div class="metric-lbl">Обновлено</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="item-actions">
+            <div class="action-group-left">
+              <button class="action-btn ${toggleBtnClass}" onclick="triggerAction('${toggleNextAction}', '${flt.id}')">
+                ${toggleBtnLabel}
+              </button>
+              <button class="action-btn" onclick="openCategoryModal('${flt.id}')">
+                🗂️ Категория
+              </button>
+              <button class="action-btn" onclick="openRenameModal('${flt.id}')">
+                ✏️
+              </button>
+            </div>
+            <div>
+              <button class="action-btn btn-delete" title="Удалить" onclick="openDeleteModal('${flt.id}')">
+                🗑️
+              </button>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    // --- Search & Filters Event Listeners ---
+    document.getElementById('searchInput').addEventListener('input', (e) => {
+      currentSearchQuery = e.target.value.trim();
+      renderFiltersList();
+    });
+
+    document.querySelectorAll('.filter-tab').forEach(tab => {
+      tab.addEventListener('click', function() {
+        document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+        currentStatusFilter = this.getAttribute('data-status');
+        renderFiltersList();
+      });
+    });
+
+    document.getElementById('categoryFilter').addEventListener('change', (e) => {
+      currentCategoryFilter = e.target.value;
+      renderFiltersList();
+    });
+
+    // --- Modal Helpers ---
+    function openModal(id) {
+      document.getElementById(id).style.display = 'flex';
+    }
+    function closeModal(id) {
+      document.getElementById(id).style.display = 'none';
+    }
+
+    // --- Action Execution (Hybrid: Direct API or IssueOps) ---
+    async function triggerAction(action, filterId, extraPayload = {}) {
+      const flt = filtersData.find(f => f.id === filterId);
+      const title = flt ? flt.title : filterId;
+
+      const payload = {
+        action: action,
+        filter_id: filterId,
+        signature: AUTH_KEY_HASH,
+        ...extraPayload,
+      };
+
+      const pat = getSavedPat();
+      if (pat) {
+        // Direct execution via GitHub API
+        showToast(`⏳ Выполняется прямое применение действия '${action}'...`);
+        const success = await executeDirectApiAction(payload, action, filterId);
+        if (success) {
+          // Optimistically update local view
+          applyOptimisticUpdate(action, filterId, extraPayload);
+          showToast(`✅ Действие '${action}' успешно выполнено!`);
+        }
+      } else {
+        // Fallback IssueOps
+        openIssueOpsModal(action, filterId, title, payload);
+      }
+    }
+
+    function openIssueOpsModal(action, filterId, title, payload) {
+      const actionLabels = {
+        pause: '⏸️ Поставить на паузу',
+        resume: '▶️ Возобновить сбор цен',
+        archive: '📦 Отправить в архив',
+        delete: '🗑️ Удалить мониторинг',
+        set_group: '🗂️ Переместить категорию',
+        rename: '✏️ Переименовать',
+        pin: '📌 Закрепить вверху',
+        unpin: 'Открепить',
+      };
+
+      const issueTitle = `[FILTER_ACTION] ${action.toUpperCase()} ${filterId}`;
+      const issueBody = `### Filter Management Action Request\n\n` +
+        `**Action:** \`${action}\`\n` +
+        `**Target Filter ID:** \`${filterId}\`\n` +
+        `**Title:** ${title}\n\n` +
+        `\`\`\`json\n${JSON.stringify(payload, null, 2)}\n\`\`\`\n\n` +
+        `*Sent via Travel Price Monitor Admin Hub*`;
+
+      const issueUrl = `https://github.com/${REPO_OWNER}/${REPO_NAME}/issues/new?title=${encodeURIComponent(issueTitle)}&body=${encodeURIComponent(issueBody)}`;
+
+      // Ask confirmation and open
+      if (confirm(`Применить действие '${actionLabels[action] || action}' для '${title}'?\n\nБудет открыта страница создания Issue на GitHub. Нажмите 'Submit issue' для автоматического применения за 15 секунд.`)) {
+        window.open(issueUrl, '_blank');
+        applyOptimisticUpdate(action, filterId, payload);
+      }
+    }
+
+    function applyOptimisticUpdate(action, filterId, payload) {
+      const flt = filtersData.find(f => f.id === filterId);
+      if (!flt) return;
+
+      if (action === 'pause') flt.status = 'paused';
+      else if (action === 'resume') flt.status = 'active';
+      else if (action === 'archive') flt.status = 'archived';
+      else if (action === 'delete') {
+        filtersData = filtersData.filter(f => f.id !== filterId);
+      } else if (action === 'set_group') {
+        flt.group_id = payload.group;
+        const gMeta = groupsMeta[payload.group];
+        if (gMeta) {
+          flt.group_label = gMeta.label;
+          flt.group_icon = gMeta.icon;
+        }
+      } else if (action === 'rename') {
+        if (payload.title) flt.title = payload.title;
+        if (payload.subtitle) flt.subtitle = payload.subtitle;
+      } else if (action === 'pin') {
+        flt.pinned = true;
+      } else if (action === 'unpin') {
+        flt.pinned = false;
+      }
+
+      renderDashboard();
+    }
+
+    // Direct GitHub REST API executor
+    async function executeDirectApiAction(payload, action, filterId) {
+      const pat = getSavedPat();
+      if (!pat) return false;
+
+      try {
+        // Dispatch repository_dispatch event or create issue via API
+        const res = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/issues`, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${pat}`,
+            'Accept': 'application/vnd.github.v3+json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            title: `[FILTER_ACTION] ${action.toUpperCase()} ${filterId}`,
+            body: `\`\`\`json\n${JSON.stringify(payload, null, 2)}\n\`\`\``
+          }),
+        });
+
+        if (res.ok) {
+          return true;
+        } else {
+          const errData = await res.json();
+          alert('Ошибка GitHub API: ' + (errData.message || res.statusText));
+          return false;
+        }
+      } catch (e) {
+        alert('Сетевая ошибка API: ' + e.message);
+        return false;
+      }
+    }
+
+    // --- Modal Handlers ---
+    function openCategoryModal(filterId) {
+      const flt = filtersData.find(f => f.id === filterId);
+      if (!flt) return;
+      document.getElementById('catFilterTitle').value = flt.title;
+      document.getElementById('catFilterId').value = filterId;
+      document.getElementById('catSelect').value = flt.group_id;
+      document.getElementById('catNewId').value = '';
+      document.getElementById('catNewDetails').style.display = 'none';
+      openModal('categoryModal');
+    }
+
+    document.getElementById('catNewId').addEventListener('input', function() {
+      const hasVal = this.value.trim().length > 0;
+      document.getElementById('catNewDetails').style.display = hasVal ? 'block' : 'none';
+    });
+
+    function submitCategoryChange() {
+      const fid = document.getElementById('catFilterId').value;
+      const newCatId = document.getElementById('catNewId').value.trim().toLowerCase();
+      let targetGroup = '';
+      let extra = {};
+
+      if (newCatId) {
+        targetGroup = newCatId;
+        extra = {
+          group: newCatId,
+          group_label: document.getElementById('catNewLabel').value.trim() || newCatId.toUpperCase(),
+          group_icon: document.getElementById('catNewIcon').value.trim() || '✨',
+        };
+      } else {
+        targetGroup = document.getElementById('catSelect').value;
+        extra = { group: targetGroup };
+      }
+
+      closeModal('categoryModal');
+      triggerAction('set_group', fid, extra);
+    }
+
+    function openRenameModal(filterId) {
+      const flt = filtersData.find(f => f.id === filterId);
+      if (!flt) return;
+      document.getElementById('renameFilterId').value = filterId;
+      document.getElementById('renameTitle').value = flt.title;
+      document.getElementById('renameSubtitle').value = flt.subtitle || '';
+      openModal('renameModal');
+    }
+
+    function submitRename() {
+      const fid = document.getElementById('renameFilterId').value;
+      const title = document.getElementById('renameTitle').value.trim();
+      const subtitle = document.getElementById('renameSubtitle').value.trim();
+      closeModal('renameModal');
+      triggerAction('rename', fid, { title, subtitle });
+    }
+
+    function openDeleteModal(filterId) {
+      const flt = filtersData.find(f => f.id === filterId);
+      if (!flt) return;
+      document.getElementById('deleteFilterId').value = filterId;
+      document.getElementById('deleteFilterTitle').textContent = flt.title;
+      openModal('deleteModal');
+    }
+
+    function submitDelete() {
+      const fid = document.getElementById('deleteFilterId').value;
+      closeModal('deleteModal');
+      triggerAction('delete', fid);
+    }
+
+    function togglePin(filterId, newPinState) {
+      triggerAction(newPinState ? 'pin' : 'unpin', filterId);
+    }
+
+    // --- PAT Token Settings ---
+    document.getElementById('settingsBtn').addEventListener('click', () => {
+      document.getElementById('ghPatInput').value = getSavedPat() || '';
+      openModal('settingsModal');
+    });
+
+    function getSavedPat() {
+      try { return localStorage.getItem('admin_gh_pat'); } catch(e) { return null; }
+    }
+    function savePat() {
+      const val = document.getElementById('ghPatInput').value.trim();
+      try {
+        if (val) localStorage.setItem('admin_gh_pat', val);
+        else localStorage.removeItem('admin_gh_pat');
+      } catch(e) {}
+      closeModal('settingsModal');
+      showToast('Токен сохранён.');
+    }
+    function clearPat() {
+      try { localStorage.removeItem('admin_gh_pat'); } catch(e) {}
+      document.getElementById('ghPatInput').value = '';
+      closeModal('settingsModal');
+      showToast('Токен удалён.');
+    }
+
+    // --- Toast Helper ---
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.style.display = 'flex';
+      setTimeout(() => { t.style.display = 'none'; }, 4000);
+    }
+
+    // --- Bootstrapping ---
+    initTheme();
+    initAuth();
+  </script>
+</body>
+</html>

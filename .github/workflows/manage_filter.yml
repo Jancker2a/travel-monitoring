@@ -1,0 +1,81 @@
+name: Manage Filter Action from Issue
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: "filter-management"
+  cancel-in-progress: false
+
+jobs:
+  manage-filter:
+    if: startsWith(github.event.issue.title, '[FILTER_ACTION]') && (github.event.issue.user.login == 'Jancker2a' || contains(github.event.issue.body, 'e7bbd2753119f63d1bab83262e7cf7835286942712dd1caacd25d57f24b84a56'))
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          persist-credentials: true
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.9"
+
+      - name: Process management action
+        id: process_action
+        run: |
+          cat << 'EOF' > /tmp/issue_body.txt
+          ${{ github.event.issue.body }}
+          EOF
+          python scripts/manage_filter.py --payload-file /tmp/issue_body.txt --output-json /tmp/result.json
+
+      - name: Commit and push metadata changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add configs/
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore(filter): update filter state from #${{ github.event.issue.number }} [skip ci]"
+            git push origin main
+          fi
+
+      - name: Comment and close issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            let result = { success: false };
+            try {
+              result = JSON.parse(fs.readFileSync('/tmp/result.json', 'utf8'));
+            } catch(e) {}
+            
+            if (result.success) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: `🎉 **Действие успешно применено!**\n\n* **Действие:** \`${result.action}\`\n* **Сообщение:** ${result.message}\n\nИзменения сохранены в конфигурационном реестре репозитория.`
+              });
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                state: 'closed'
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: `❌ **Ошибка при выполнении действия:**\n\`\`\`\n${result.error || 'Неизвестная ошибка'}\n\`\`\`\nПожалуйста, проверьте сигнатуру и параметры запроса.`
+              });
+            }

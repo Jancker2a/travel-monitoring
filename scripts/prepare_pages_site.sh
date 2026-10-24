@@ -44,6 +44,8 @@ cp -f hotel-chart.html site/hotel-chart.html
 cp -f index.html site/index.html
 [ -f "${ROOT}/help.html" ] && cp -f "${ROOT}/help.html" site/help.html
 [ -f "${ROOT}/create_filter.html" ] && cp -f "${ROOT}/create_filter.html" site/create_filter.html
+[ -f "${ROOT}/admin_filters.html" ] && cp -f "${ROOT}/admin_filters.html" site/admin_filters.html
+python3 scripts/manage_filter.py --export-manifest site/filters_manifest.json
 
 for href in "${ACTIVE_HREFS[@]}"; do
   if [ -f "${ROOT}/${href}" ]; then

@@ -46,7 +46,14 @@ from departure_airports import (
     hub_regions_subtitle,
     should_group_by_arrival_airport,
 )
-from filter_registry import active_filter_groups, archived_filter_group, active_filter_id, filter_href_by_charts_subdir
+from filter_registry import (
+    active_filter_groups,
+    archived_filter_group,
+    active_filter_id,
+    filter_href_by_charts_subdir,
+    iter_filters,
+    is_filter_paused,
+)
 from filter_params import (
     DATA_DIR_CONFIG_FILES,
     load_filter_config,
@@ -4260,6 +4267,23 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         print(f"📋 Параметры фильтра из {cfg_path}")
 
     _current_filter = active_filter_id(charts_subdir)
+    _is_current_paused = False
+    for _, _f in iter_filters():
+        if _f['id'] == _current_filter and is_filter_paused(_f):
+            _is_current_paused = True
+            break
+
+    paused_banner_html = ""
+    if _is_current_paused:
+        paused_banner_html = (
+            '<div class="paused-banner" style="margin-bottom:18px;padding:12px 18px;border-radius:12px;'
+            'background:rgba(245,158,11,0.14);border:1px solid rgba(245,158,11,0.35);color:#b45309;'
+            'font-weight:600;display:flex;align-items:center;gap:10px;font-size:0.92rem;">'
+            '<span style="font-size:1.2rem;">⏸️</span>'
+            '<span>Мониторинг этого направления временно приостановлен администратором. Отображаются последние сохранённые цены.</span>'
+            '</div>'
+        )
+
     _sidebar_nav_parts = [
         '<a href="index.html" class="nav-item">'
         '<span class="flag">🏠</span>'
@@ -4267,6 +4291,9 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         '<a href="create_filter.html" class="nav-item nav-item-create" style="color:var(--primary);font-weight:700;">'
         '<span class="flag">✨</span>'
         '<span class="country-name">+ Новый фильтр</span></a>',
+        '<a href="admin_filters.html" class="nav-item" style="color:var(--text-secondary);font-size:0.85rem;">'
+        '<span class="flag">🎛️</span>'
+        '<span class="country-name">Admin Hub</span></a>',
     ]
     for group in active_filter_groups():
         _sidebar_nav_parts.append(
@@ -4274,9 +4301,10 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         )
         for flt in group['filters']:
             active = ' active' if flt['id'] == _current_filter else ''
+            paused_tag = '<span style="font-size:0.75rem;margin-left:auto;color:#b45309;" title="На паузе">⏸️</span>' if is_filter_paused(flt) else ''
             _sidebar_nav_parts.append(
                 f'<a href="{flt["href"]}" class="nav-item{active}">'
-                f'<span class="country-name">{flt["title"]}</span></a>'
+                f'<span class="country-name">{flt["title"]}</span>{paused_tag}</a>'
             )
     arch_group = archived_filter_group()
     if arch_group and arch_group.get('filters'):
@@ -8697,6 +8725,7 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
     <div class="main-content" id="mainContent">
     <div class="container">
         <div class="hero--mockup">
+            {paused_banner_html}
             <div class="hero-header-mockup">
                 <h1 class="hero-title-clean">{title}</h1>
             </div>

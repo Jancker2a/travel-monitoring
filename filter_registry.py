@@ -3,10 +3,10 @@
 from __future__ import annotations
 
 import copy
-from datetime import date
+from datetime import date, datetime
 import json
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Tuple
 
 from filter_trip import should_skip_monitor_config
 
@@ -145,10 +145,10 @@ FILTER_GROUPS = [
     },
 ]
 
-
 ARCHIVED_GROUP_ID = 'archived'
 
 ROOT = Path(__file__).resolve().parent
+META_FILE = ROOT / 'configs' / 'filters_registry_meta.json'
 
 KNOWN_GROUPS = {
     'trips': {'id': 'trips', 'label': 'Поездки', 'icon': '🎯'},
@@ -163,11 +163,49 @@ KNOWN_GROUPS = {
 }
 
 
-def detect_group_for_config(cfg: Dict[str, Any]) -> str:
+def load_filters_meta() -> Dict[str, Any]:
+    """Loads central metadata overrides (status, custom groups, ordering, pinning)."""
+    if not META_FILE.is_file():
+        return {'version': 1, 'filters': {}, 'custom_groups': {}}
+    try:
+        with META_FILE.open('r', encoding='utf-8') as f:
+            data = json.load(f)
+            if not isinstance(data, dict):
+                return {'version': 1, 'filters': {}, 'custom_groups': {}}
+            data.setdefault('filters', {})
+            data.setdefault('custom_groups', {})
+            return data
+    except Exception:
+        return {'version': 1, 'filters': {}, 'custom_groups': {}}
+
+
+def save_filters_meta(meta: Dict[str, Any]) -> None:
+    """Saves central metadata overrides."""
+    META_FILE.parent.mkdir(parents=True, exist_ok=True)
+    with META_FILE.open('w', encoding='utf-8') as f:
+        json.dump(meta, f, ensure_ascii=False, indent=2)
+
+
+def get_known_groups() -> Dict[str, Dict[str, Any]]:
+    """Returns KNOWN_GROUPS merged with any dynamic custom_groups from metadata."""
+    groups = copy.deepcopy(KNOWN_GROUPS)
+    meta = load_filters_meta()
+    for gid, ginfo in meta.get('custom_groups', {}).items():
+        if isinstance(ginfo, dict) and 'label' in ginfo:
+            groups[gid] = {
+                'id': gid,
+                'label': ginfo.get('label', gid.capitalize()),
+                'icon': ginfo.get('icon', '✨'),
+            }
+    return groups
+
+
+def detect_group_for_config(cfg: Dict[str, Any], known: Optional[Dict[str, Dict[str, Any]]] = None) -> str:
     """Detects destination group category from config metadata, URL, and required strings."""
+    known_groups = known if known is not None else get_known_groups()
     if cfg.get('group'):
         g = str(cfg['group']).lower()
-        if g in KNOWN_GROUPS:
+        if g in known_groups:
             return g
 
     haystack = " ".join([
@@ -199,42 +237,39 @@ def detect_group_for_config(cfg: Dict[str, Any]) -> str:
 def discover_filter_groups(*, today: Optional[date] = None) -> List[Dict[str, Any]]:
     """
     Dynamically discovers all filter configs in the workspace (config_ci_*.json and configs/filters/*.json),
-    merging them with FILTER_GROUPS so that any newly created user filter is automatically registered
-    without manual code edits.
+    merging them with FILTER_GROUPS and applying any central metadata overrides (status, group reassignment, pinning).
     """
-    groups = copy.deepcopy(FILTER_GROUPS)
-    registered_configs = {
-        flt['config']: flt
-        for g in groups
-        for flt in g['filters']
-        if flt.get('config')
-    }
-    group_map = {g['id']: g for g in groups}
+    meta_data = load_filters_meta()
+    meta_filters = meta_data.get('filters', {})
+    known_groups = get_known_groups()
 
-    # Discover candidate configs
+    base_flts: List[Dict[str, Any]] = []
+    for g in FILTER_GROUPS:
+        orig_gid = g['id']
+        for flt in g['filters']:
+            item = copy.deepcopy(flt)
+            item['origin_group_id'] = orig_gid
+            base_flts.append(item)
+
     candidates = sorted(
         list(ROOT.glob('config_ci_*.json')) + list(ROOT.glob('configs/filters/*.json'))
     )
 
+    registered_by_config = {
+        flt['config']: flt for flt in base_flts if flt.get('config')
+    }
+    discovered_flts: Dict[str, Dict[str, Any]] = {}
+    for flt in base_flts:
+        discovered_flts[flt['id']] = flt
+
     for c_path in candidates:
         rel = str(c_path.relative_to(ROOT))
-
         try:
             with c_path.open('r', encoding='utf-8') as f:
                 cfg = json.load(f)
         except Exception:
             continue
 
-        if rel in registered_configs:
-            # Enrich existing registration with modules/metadata if present
-            flt = registered_configs[rel]
-            if cfg.get('modules') and 'modules' not in flt:
-                flt['modules'] = cfg['modules']
-            if cfg.get('germany_params') and 'germany_params' not in flt:
-                flt['germany_params'] = cfg['germany_params']
-            continue
-
-        # Skip companion any_airports sub-monitors from standalone dashboard cards
         out_file = str(cfg.get('output_data_file') or '')
         if 'any_airports' in rel and out_file != 'travel_prices.csv':
             continue
@@ -244,6 +279,18 @@ def discover_filter_groups(*, today: Optional[date] = None) -> List[Dict[str, An
         slug = folder_name.replace('filter_', '')
         flt_id = str(cfg.get('id') or slug)
 
+        if rel in registered_by_config:
+            existing = registered_by_config[rel]
+            if cfg.get('modules') and 'modules' not in existing:
+                existing['modules'] = cfg['modules']
+            if cfg.get('germany_params') and 'germany_params' not in existing:
+                existing['germany_params'] = cfg['germany_params']
+            if not existing.get('data_dir'):
+                existing['data_dir'] = data_dir
+            if cfg.get('group') and 'origin_group_id' in existing:
+                existing['origin_group_id'] = cfg['group']
+            continue
+
         desc = str(cfg.get('description') or '')
         title = str(cfg.get('title') or (desc.split('•')[0].strip() if '•' in desc else flt_id))
         subtitle = str(cfg.get('subtitle') or desc)
@@ -251,9 +298,9 @@ def discover_filter_groups(*, today: Optional[date] = None) -> List[Dict[str, An
         href = str(cfg.get('href') or f"index_{folder_name}.html")
         charts_subdir = str(cfg.get('charts_subdir') or f"hotel-charts/{folder_name}")
 
-        group_id = detect_group_for_config(cfg)
+        detected_group = detect_group_for_config(cfg, known=known_groups)
 
-        new_flt = {
+        discovered_flts[flt_id] = {
             'id': flt_id,
             'title': title,
             'subtitle': subtitle,
@@ -263,27 +310,78 @@ def discover_filter_groups(*, today: Optional[date] = None) -> List[Dict[str, An
             'data_dir': data_dir,
             'modules': cfg.get('modules', {}),
             'germany_params': cfg.get('germany_params', {}),
+            'origin_group_id': detected_group,
         }
 
-        if group_id in group_map:
-            group_map[group_id]['filters'].append(new_flt)
-        else:
-            meta = KNOWN_GROUPS.get(group_id, {'id': group_id, 'label': group_id.capitalize(), 'icon': '✨'})
-            new_group = {
-                'id': meta['id'],
-                'label': meta['label'],
-                'icon': meta['icon'],
-                'filters': [new_flt],
-            }
-            groups.append(new_group)
-            group_map[group_id] = new_group
+    active_items: List[Dict[str, Any]] = []
+    for flt_id, flt in discovered_flts.items():
+        ovr = meta_filters.get(flt_id) or meta_filters.get(flt.get('config', '')) or {}
 
-    return groups
+        # Status: active, paused, archived, deleted
+        flt['status'] = str(ovr.get('status') or flt.get('status') or 'active').lower()
+        if flt['status'] == 'deleted':
+            continue
+
+        if ovr.get('title'):
+            flt['title'] = ovr['title']
+        if ovr.get('subtitle'):
+            flt['subtitle'] = ovr['subtitle']
+        if ovr.get('pinned') is not None:
+            flt['pinned'] = bool(ovr['pinned'])
+        if ovr.get('order') is not None:
+            flt['order'] = int(ovr['order'])
+
+        assigned_group = str(ovr.get('group') or flt.get('origin_group_id') or 'custom').lower()
+        if assigned_group not in known_groups:
+            known_groups[assigned_group] = {
+                'id': assigned_group,
+                'label': assigned_group.capitalize(),
+                'icon': '✨',
+            }
+        flt['group_id'] = assigned_group
+        active_items.append(flt)
+
+    grouped: Dict[str, List[Dict[str, Any]]] = {}
+    for flt in active_items:
+        gid = flt['group_id']
+        grouped.setdefault(gid, []).append(flt)
+
+    final_groups: List[Dict[str, Any]] = []
+    all_group_ids = list(known_groups.keys())
+    for gid in grouped.keys():
+        if gid not in all_group_ids:
+            all_group_ids.append(gid)
+
+    for gid in all_group_ids:
+        if gid not in grouped or not grouped[gid]:
+            continue
+        g_meta = known_groups.get(gid, {'id': gid, 'label': gid.capitalize(), 'icon': '✨'})
+        items = grouped[gid]
+        items.sort(key=lambda x: (not x.get('pinned', False), x.get('order', 999), x.get('title', '')))
+        final_groups.append({
+            'id': g_meta['id'],
+            'label': g_meta['label'],
+            'icon': g_meta['icon'],
+            'filters': items,
+        })
+
+    return final_groups
+
+
+def is_filter_paused(flt: Dict[str, Any]) -> bool:
+    """True if filter monitoring is paused by admin."""
+    status = str(flt.get('status') or '').lower()
+    return status == 'paused' or flt.get('paused') is True or flt.get('enabled') is False
+
+
+def is_filter_deleted(flt: Dict[str, Any]) -> bool:
+    """True if filter was soft-deleted."""
+    return str(flt.get('status') or '').lower() == 'deleted'
 
 
 def is_filter_archived(flt: Dict[str, Any], *, today: Optional[date] = None) -> bool:
     """Return True if filter is retired, expired, or marked as archived."""
-    if bool(flt.get('archived')):
+    if str(flt.get('status') or '').lower() == 'archived' or bool(flt.get('archived')):
         return True
     config_path = str(flt.get('config') or '').strip()
     if not config_path:
@@ -291,9 +389,24 @@ def is_filter_archived(flt: Dict[str, Any], *, today: Optional[date] = None) -> 
     return should_skip_monitor_config(config_path, today=today)
 
 
+def should_scrape_filter(flt: Dict[str, Any], *, today: Optional[date] = None) -> bool:
+    """Returns True if filter should be scraped by hourly cron monitoring."""
+    if is_filter_paused(flt):
+        return False
+    if is_filter_archived(flt, today=today):
+        return False
+    if is_filter_deleted(flt):
+        return False
+    return True
+
+
 def is_filter_active(flt: Dict[str, Any], *, today: Optional[date] = None) -> bool:
-    """True for active filters (not archived/retired/expired)."""
-    return not is_filter_archived(flt, today=today)
+    """True for active/visible filters on the landing page (not archived/deleted)."""
+    if is_filter_archived(flt, today=today):
+        return False
+    if is_filter_deleted(flt):
+        return False
+    return True
 
 
 def archived_filters(*, today: Optional[date] = None) -> List[Dict[str, Any]]:
@@ -372,17 +485,19 @@ def active_filter_id(charts_subdir: str) -> str:
 
 
 def get_all_monitor_configs() -> List[str]:
-    """Returns list of all config file paths to be monitored in parallel."""
+    """Returns list of all active config file paths to be monitored in parallel."""
     configs = []
     for _, flt in iter_filters():
+        if not should_scrape_filter(flt):
+            continue
         cfg_path = flt.get('config')
         if cfg_path and (ROOT / cfg_path).is_file():
             configs.append(cfg_path)
 
-    # Include companion any_airports configs if they exist
     for any_cfg in ROOT.glob('config_ci_*_any_airports.json'):
         rel = str(any_cfg.relative_to(ROOT))
-        if rel not in configs:
+        parent_rel = rel.replace('_any_airports.json', '.json')
+        if parent_rel in configs and rel not in configs:
             configs.append(rel)
 
     return sorted(list(set(configs)))
@@ -392,6 +507,8 @@ def get_all_dashboard_configs() -> List[Dict[str, Any]]:
     """Returns list of dashboard definitions for run_dashboards_parallel.py."""
     dashboards = []
     for _, flt in iter_filters():
+        if is_filter_deleted(flt):
+            continue
         cfg_path = flt.get('config')
         if not cfg_path:
             continue
@@ -414,6 +531,7 @@ def get_all_dashboard_configs() -> List[Dict[str, Any]]:
             "charts": flt.get('charts_subdir'),
             "alerts": f"{data_dir}/travel_prices_alerts.json",
             "config": cfg_path,
+            "status": flt.get('status', 'active'),
         }
         if c_data.get('display_price_ceiling'):
             d_item['display_price_ceiling'] = str(c_data['display_price_ceiling'])
@@ -432,6 +550,8 @@ def get_all_germany_configs() -> List[str]:
     """Returns list of config paths that should have Check24 German packages scraped."""
     configs = []
     for _, flt in iter_filters():
+        if not should_scrape_filter(flt):
+            continue
         cfg_path = flt.get('config')
         if not cfg_path or not (ROOT / cfg_path).is_file():
             continue
@@ -445,3 +565,84 @@ def get_all_germany_configs() -> List[str]:
 
         configs.append(cfg_path)
     return configs
+
+
+def get_filters_admin_manifest() -> Dict[str, Any]:
+    """
+    Returns rich manifest of all filters with metrics for admin dashboard.
+    """
+    discovered = discover_filter_groups()
+    known = get_known_groups()
+
+    items = []
+    for group in discovered:
+        for flt in group['filters']:
+            flt_id = flt['id']
+            data_dir_path = ROOT / flt.get('data_dir', f"data/filters/{flt_id}")
+            csv_path = data_dir_path / 'travel_prices.csv'
+            dashboard_path = ROOT / flt.get('href', '')
+
+            offers_count = 0
+            min_price = None
+            csv_size_kb = 0.0
+            last_scraped_iso = None
+
+            if csv_path.is_file():
+                try:
+                    stat = csv_path.stat()
+                    csv_size_kb = round(stat.st_size / 1024.0, 1)
+                    last_scraped_iso = datetime.fromtimestamp(stat.st_mtime).isoformat()
+                    with csv_path.open('r', encoding='utf-8', errors='ignore') as f:
+                        lines = f.readlines()
+                    if len(lines) > 1:
+                        offers_count = len(lines) - 1
+                        prices = []
+                        for line in lines[-100:]:
+                            parts = line.split(',')
+                            if len(parts) >= 2:
+                                try:
+                                    p = float(parts[1])
+                                    if p > 0:
+                                        prices.append(p)
+                                except (ValueError, IndexError):
+                                    pass
+                        if prices:
+                            min_price = round(min(prices), 2)
+                except Exception:
+                    pass
+
+            status = 'paused' if is_filter_paused(flt) else ('archived' if is_filter_archived(flt) else 'active')
+
+            items.append({
+                'id': flt_id,
+                'title': flt.get('title', flt_id),
+                'subtitle': flt.get('subtitle', ''),
+                'href': flt.get('href', ''),
+                'charts_subdir': flt.get('charts_subdir', ''),
+                'config': flt.get('config', ''),
+                'group_id': group['id'],
+                'group_label': group['label'],
+                'group_icon': group['icon'],
+                'status': status,
+                'pinned': bool(flt.get('pinned', False)),
+                'order': flt.get('order', 999),
+                'data_dir': str(flt.get('data_dir', '')),
+                'offers_count': offers_count,
+                'min_price': min_price,
+                'csv_size_kb': csv_size_kb,
+                'last_scraped_iso': last_scraped_iso,
+                'has_dashboard': dashboard_path.is_file(),
+            })
+
+    return {
+        'generated_at': datetime.utcnow().isoformat() + 'Z',
+        'groups': known,
+        'filters': items,
+        'counts': {
+            'total': len(items),
+            'active': sum(1 for x in items if x['status'] == 'active'),
+            'paused': sum(1 for x in items if x['status'] == 'paused'),
+            'archived': sum(1 for x in items if x['status'] == 'archived'),
+        }
+    }
+
