@@ -318,6 +318,24 @@ def generate_landing(tiles=None, output_file='index.html'):
       gap: 1rem;
     }}
     .header h1 {{ margin: 0 0 10px; font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; }}
+    .create-btn {{
+      background: #fff;
+      color: var(--brand);
+      border: 1px solid rgba(255,255,255,.9);
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: .88rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all .15s ease;
+      white-space: nowrap;
+      box-shadow: 0 4px 12px rgba(0,0,0,.15);
+    }}
+    .create-btn:hover {{
+      background: #f8fafc;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(0,0,0,.2);
+    }}
     .help-btn {{
       background: rgba(255,255,255,.2);
       border: 1px solid rgba(255,255,255,.35);
@@ -576,7 +594,8 @@ def generate_landing(tiles=None, output_file='index.html'):
     <div class="header">
       <div class="header-top">
         <h1>🌊 Travel Price Monitor</h1>
-        <div style="display:flex;gap:8px;align-items:center;">
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+          <a href="create_filter.html" class="create-btn">✨ + Добавить поездку</a>
           <button type="button" class="help-btn" id="themeToggleBtn" onclick="toggleTheme()" title="Переключить тему">🌙 Тема</button>
           <a href="help.html" class="help-btn">📚 Справка & FAQ</a>
         </div>
@@ -596,6 +615,10 @@ def generate_landing(tiles=None, output_file='index.html'):
           <div class="onboarding-card-title">🎯 Deal Score 80+</div>
           <div class="onboarding-card-desc">Алгоритм подсвечивает отели, которые подешевели ниже обычного</div>
         </div>
+        <a href="create_filter.html" class="onboarding-card" style="text-decoration:none;color:inherit;border:1.5px dashed rgba(255,255,255,0.7);background:rgba(255,255,255,0.18);">
+          <div class="onboarding-card-title">✨ Свой мониторинг</div>
+          <div class="onboarding-card-desc">Создайте фильтр под свой отпуск или вставьте ссылку Fly.pl →</div>
+        </a>
       </div>
 
       <div class="meta">

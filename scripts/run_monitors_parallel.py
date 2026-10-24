@@ -15,21 +15,9 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from filter_trip import load_config_json, should_skip_monitor_config, skip_monitor_reason
+from filter_registry import get_all_monitor_configs
 
-DEFAULT_CONFIGS = [
-    "config_ci_filter_7_10.json",
-    "config_ci_filter_13_16.json",
-    "config_ci_filter_turkey_7_10.json",
-    "config_ci_filter_turkey_9_11.json",
-    "config_ci_filter_turkey_13_16.json",
-    "config_ci_filter_greece_7_10.json",
-    "config_ci_filter_greece_13_16.json",
-    "config_ci_filter_egypt_autumn_7_10.json",
-    "config_ci_filter_egypt_autumn_7_10_any_airports.json",
-    "config_ci_filter_egypt_ny_dec24_7_10.json",
-    "config_ci_filter_egypt_ny_dec28_7_10.json",
-    "config_ci_filter_egypt_sharm_dec20_29_1p.json",
-]
+DEFAULT_CONFIGS = get_all_monitor_configs()
 
 
 def _run_one(config_name: str, log_dir: Path, timeout_s: int = 300) -> tuple[str, int, float]:

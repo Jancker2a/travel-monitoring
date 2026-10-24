@@ -1,0 +1,81 @@
+name: Add Custom Filter from Issue
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: "custom-filter-builder"
+  cancel-in-progress: false
+
+jobs:
+  process-filter:
+    if: startsWith(github.event.issue.title, '[NEW_FILTER]')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          persist-credentials: true
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.9"
+
+      - name: Extract and validate filter config
+        id: parse_filter
+        run: |
+          cat << 'EOF' > /tmp/issue_body.txt
+          ${{ github.event.issue.body }}
+          EOF
+          python scripts/process_new_filter_issue.py --body-file /tmp/issue_body.txt --output-json /tmp/result.json
+
+      - name: Commit and push new filter config
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add configs/filters/
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "feat(filter): add new custom monitoring filter from #${{ github.event.issue.number }} [skip ci]"
+            git push origin main
+          fi
+
+      - name: Comment and close issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            let result = { success: false };
+            try {
+              result = JSON.parse(fs.readFileSync('/tmp/result.json', 'utf8'));
+            } catch(e) {}
+            
+            if (result.success) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: `🎉 **Фильтр успешно добавлен и зарегистрирован!**\n\n* **Название:** ${result.title}\n* **ID:** \`${result.id}\`\n* **Файл:** \`${result.config_path}\`\n\nСбор цен начнется автоматически во время следующего планового рана мониторинга (каждый час). После сбора персональный дашборд будет доступен по адресу \`${result.href}\`.`
+              });
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                state: 'closed'
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: `❌ **Ошибка при валидации конфигурации:**\n\`\`\`\n${result.error || 'Неизвестная ошибка'}\n\`\`\`\nПожалуйста, проверьте URL или параметры и попробуйте снова.`
+              });
+            }

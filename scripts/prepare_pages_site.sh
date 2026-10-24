@@ -42,6 +42,8 @@ mkdir -p site/data/filters
 cp -f favicon.svg site/favicon.svg
 cp -f hotel-chart.html site/hotel-chart.html
 cp -f index.html site/index.html
+[ -f "${ROOT}/help.html" ] && cp -f "${ROOT}/help.html" site/help.html
+[ -f "${ROOT}/create_filter.html" ] && cp -f "${ROOT}/create_filter.html" site/create_filter.html
 
 for href in "${ACTIVE_HREFS[@]}"; do
   if [ -f "${ROOT}/${href}" ]; then

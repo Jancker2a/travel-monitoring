@@ -17,23 +17,10 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from filter_trip import should_skip_monitor_config
+from filter_registry import get_all_germany_configs
 
-# All active filters (Egypt, Turkey, Greece, fixed-date holiday trips)
-GERMANY_TARGET_CONFIGS = [
-    "config_ci_filter_7_10.json",
-    "config_ci_filter_13_16.json",
-    "config_ci_filter_turkey_7_10.json",
-    "config_ci_filter_turkey_9_11.json",
-    "config_ci_filter_turkey_13_16.json",
-    "config_ci_filter_turkey_vacation_jul18.json",
-    "config_ci_filter_greece_7_10.json",
-    "config_ci_filter_greece_13_16.json",
-    "config_ci_filter_egypt_autumn_7_10.json",
-    "config_ci_filter_egypt_autumn_13_16.json",
-    "config_ci_filter_egypt_ny_dec24_7_10.json",
-    "config_ci_filter_egypt_ny_dec28_7_10.json",
-    "config_ci_filter_egypt_sharm_dec20_29_1p.json",
-]
+# All active filters supporting Germany monitoring (arbitrage Check24)
+GERMANY_TARGET_CONFIGS = get_all_germany_configs()
 
 
 def run_germany_monitoring():
