@@ -4459,10 +4459,36 @@
       "created_at": "2026-10-23T22:28:58.699342+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Serenity Alma Heights (ex. Serenity Fun City)_2026-10-23_22-27_-8.6"
+    },
+    {
+      "hotel_name": "AMC Royal Hotel & Spa (ex. AMC Azur Resort)",
+      "duration_bucket": "",
+      "old_price": 5955.0,
+      "new_price": 6534.0,
+      "price_change": 579.0,
+      "price_change_pct": 9.722921914357682,
+      "timestamp": "2026-10-24 10:08:26.486498+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-24T10:11:20.976583+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort)_2026-10-24_10-08_+9.7"
+    },
+    {
+      "hotel_name": "Gravity Sahl Hasheesh (Ex. Ocean Breeze)",
+      "duration_bucket": "",
+      "old_price": 7097.0,
+      "new_price": 7097.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-24 10:08:26.486498+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-24T10:11:20.976616+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Gravity Sahl Hasheesh (Ex. Ocean Breeze)_2026-10-24_10-08_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-24T01:50:48.332556+00:00",
+    "last_processed_run": "2026-10-24T10:08:26.486498+00:00",
     "premium_state": {
       "Rewaya Luxury Resort Egipt, Hurghada": {
         "history_max": 6947.0,
