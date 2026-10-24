@@ -826,7 +826,7 @@
           <input type="password" class="gate-input" id="gateKeyInput" placeholder="Введите секретный ключ..." autocomplete="current-password" autofocus />
           <button type="button" class="gate-toggle-eye" onclick="togglePasswordVisibility()" title="Показать/скрыть ключ">👁️</button>
         </div>
-        <button type="submit" class="gate-btn">
+        <button type="submit" class="gate-btn" id="gateSubmitBtn">
           <span>Разблокировать доступ</span> →
         </button>
         <div class="gate-error" id="gateErrorMsg"></div>
@@ -1165,7 +1165,350 @@
   <!-- Scripts -->
   <script src="filter_builder.js"></script>
   <script>
-    let appState = getInitialFormState();
+    /* Security Gate & Key Verification (Evaluated at the very top of script) */
+    const AUTH_KEY_HASH = "e7bbd2753119f63d1bab83262e7cf7835286942712dd1caacd25d57f24b84a56"; // SHA-256 of default key "travel2026"
+
+    async function sha256(str) {
+      const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(str.trim()));
+      return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, "0")).join("");
+    }
+
+    async function verifyKey(inputKey) {
+      if (!inputKey) return false;
+      const hash = await sha256(inputKey);
+      return hash === AUTH_KEY_HASH;
+    }
+
+    function unlockBuilder() {
+      const gate = document.getElementById('securityGateContainer');
+      const builder = document.getElementById('mainBuilderContainer');
+      if (gate) gate.style.display = 'none';
+      if (builder) builder.style.display = 'block';
+      try {
+        localStorage.setItem('tp_admin_auth', AUTH_KEY_HASH);
+        localStorage.setItem('travel_admin_key', 'travel2026');
+      } catch(e) {}
+    }
+
+    function lockBuilder() {
+      const gate = document.getElementById('securityGateContainer');
+      const builder = document.getElementById('mainBuilderContainer');
+      if (gate) gate.style.display = 'flex';
+      if (builder) builder.style.display = 'none';
+      try {
+        localStorage.removeItem('tp_admin_auth');
+        localStorage.removeItem('travel_admin_key');
+      } catch(e) {}
+    }
+
+    function logoutAdmin() {
+      lockBuilder();
+      showToast('🔒 Сессия завершена. Доступ заблокирован.');
+    }
+
+    function togglePasswordVisibility() {
+      const input = document.getElementById('gateKeyInput');
+      if (input) {
+        input.type = input.type === 'password' ? 'text' : 'password';
+      }
+    }
+
+    async function handleUnlockSubmit(e) {
+      if (e) e.preventDefault();
+      const input = document.getElementById('gateKeyInput');
+      const errEl = document.getElementById('gateErrorMsg');
+      const card = document.getElementById('gateCard');
+      const keyVal = input ? input.value.trim() : '';
+
+      try {
+        const isValid = await verifyKey(keyVal);
+        if (isValid) {
+          if (errEl) errEl.style.display = 'none';
+          unlockBuilder();
+          showToast('✨ Доступ успешно открыт!');
+          if (typeof initPage === 'function') initPage();
+        } else {
+          if (errEl) {
+            errEl.style.display = 'block';
+            errEl.textContent = '❌ Неверный секретный ключ доступа. Попробуйте снова.';
+          }
+          if (card) {
+            card.classList.remove('shake');
+            void card.offsetWidth;
+            card.classList.add('shake');
+          }
+          if (input) input.focus();
+        }
+      } catch (err) {
+        if (errEl) {
+          errEl.style.display = 'block';
+          errEl.textContent = '❌ Ошибка проверки ключа: ' + err.message;
+        }
+      }
+    }
+
+    async function checkInitialAuth() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const hashParams = new URLSearchParams(window.location.hash.replace(/^#/, ''));
+      const keyParam = urlParams.get('key') || urlParams.get('token') || urlParams.get('admin') || hashParams.get('key');
+
+      if (keyParam) {
+        const isValid = await verifyKey(keyParam);
+        if (isValid) {
+          unlockBuilder();
+          try {
+            const cleanUrl = window.location.pathname;
+            window.history.replaceState({}, document.title, cleanUrl);
+          } catch (err) {}
+          return;
+        }
+      }
+
+      let savedAuth = null;
+      let savedKey = null;
+      try {
+        savedAuth = localStorage.getItem('tp_admin_auth');
+        savedKey = localStorage.getItem('travel_admin_key');
+      } catch(e) {}
+
+      if (savedAuth === AUTH_KEY_HASH || (savedKey && await verifyKey(savedKey))) {
+        unlockBuilder();
+        return;
+      }
+
+      lockBuilder();
+    }
+
+    /* Inlined Fallback Engine in case filter_builder.js is delayed or unavailable */
+    if (typeof DESTINATIONS === 'undefined') {
+      window.DESTINATIONS = {
+        egypt: { id: "egypt", code: "11:", name: "Египет", icon: "🇪🇬", subpath: "/wycieczka/egipt", defaultCeiling: 10000 },
+        turkey: { id: "turkey", code: "39:", name: "Турция", icon: "🇹🇷", subpath: "/wycieczka/turcja", defaultCeiling: 12000 },
+        greece: { id: "greece", code: "14:", name: "Греция", icon: "🇬🇷", subpath: "/wycieczka/grecja", defaultCeiling: 11000 },
+        cyprus: { id: "cyprus", code: "12_170", name: "Кипр", icon: "🇨🇾", subpath: "/wycieczka/cypr", defaultCeiling: 11000 },
+        spain: { id: "spain", code: "13:", name: "Испания", icon: "🇪🇸", subpath: "/wycieczka/hiszpania", defaultCeiling: 13000 },
+        italy: { id: "italy", code: "17:", name: "Италия", icon: "🇮🇹", subpath: "/wycieczka/wlochy", defaultCeiling: 13000 },
+        bulgaria: { id: "bulgaria", code: "15:", name: "Болгария", icon: "🇧🇬", subpath: "/wycieczka/bulgaria", defaultCeiling: 9000 },
+        tunisia: { id: "tunisia", code: "20:", name: "Тунис", icon: "🇹🇳", subpath: "/wycieczka/tunezja", defaultCeiling: 9500 },
+        uae: { id: "uae", code: "21:", name: "ОАЭ", icon: "🇦🇪", subpath: "/wycieczka/zjednoczone-emiraty-arabskie", defaultCeiling: 15000 },
+      };
+      window.AIRPORTS = [
+        { code: "WAW", label: "Варшава Шопен (WAW)", query: "Warszawa", defaultChecked: true },
+        { code: "WMI", label: "Варшава Модлин (WMI)", query: "Warszawa - Modlin", defaultChecked: true },
+        { code: "RDO", label: "Варшава Радом (RDO)", query: "Warszawa - Radom", defaultChecked: true },
+        { code: "KTW", label: "Катовице (KTW)", query: "Katowice", defaultChecked: false },
+        { code: "KRK", label: "Краков (KRK)", query: "Kraków", defaultChecked: false },
+        { code: "GDN", label: "Гданьск (GDN)", query: "Gdańsk", defaultChecked: false },
+        { code: "WRO", label: "Вроцлав (WRO)", query: "Wrocław", defaultChecked: false },
+        { code: "POZ", label: "Познань (POZ)", query: "Poznań", defaultChecked: false },
+        { code: "RZE", label: "Жешув (RZE)", query: "Rzeszów", defaultChecked: false },
+      ];
+      window.formatDateDDMMYYYY = function(d) {
+        if (!d) return "";
+        const day = String(d.getDate()).padStart(2, '0');
+        const month = String(d.getMonth() + 1).padStart(2, '0');
+        const year = d.getFullYear();
+        return `${day}-${month}-${year}`;
+      };
+      window.parseDateDDMMYYYY = function(str) {
+        if (!str) return null;
+        const parts = str.split(/[-.]/);
+        if (parts.length === 3) {
+          if (parts[0].length === 4) return new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
+          return new Date(parseInt(parts[2]), parseInt(parts[1]) - 1, parseInt(parts[0]));
+        }
+        return null;
+      };
+      window.formatDateISO = function(d) {
+        if (!d) return "";
+        const year = d.getFullYear();
+        const month = String(d.getMonth() + 1).padStart(2, '0');
+        const day = String(d.getDate()).padStart(2, '0');
+        return `${year}-${month}-${day}`;
+      };
+      window.getInitialFormState = function() {
+        const today = new Date();
+        const startMin = new Date(today);
+        startMin.setDate(today.getDate() + 3);
+        const startMax = new Date(startMin);
+        startMax.setDate(startMin.getDate() + 25);
+        const returnDate = new Date(startMax);
+        returnDate.setDate(startMax.getDate() + 10);
+        return {
+          customTitle: "",
+          destination: "turkey",
+          departureAirports: ["Warszawa", "Warszawa - Modlin", "Warszawa - Radom"],
+          dateMode: "rolling",
+          startDateMin: formatDateISO(startMin),
+          startDateMax: formatDateISO(startMax),
+          returnDate: formatDateISO(returnDate),
+          durationFrom: 7,
+          durationTo: 10,
+          adults: 2,
+          childrenCount: 1,
+          childrenBirthdays: ["10-12-2020"],
+          catering: "all_inclusive",
+          categoryRating: "50",
+          minPrice: 3000,
+          maxPrice: 20000,
+          displayCeiling: 11000,
+          moduleArbitrageGermany: true,
+          moduleHopperPredictor: true,
+          moduleCohortHeatmap: true,
+          moduleDealScore: true,
+          moduleRoomTypes: true,
+          moduleTelegramAlerts: false,
+          germanyAirport: "BER",
+          germanyDirectFlight: false,
+        };
+      };
+      window.parseFlyUrl = function(rawUrl) {
+        if (!rawUrl || typeof rawUrl !== 'string') return null;
+        const urlClean = rawUrl.trim();
+        if (!urlClean.includes("fly.pl")) return null;
+        try {
+          const urlObj = new URL(urlClean, "https://fly.pl");
+          const params = urlObj.searchParams;
+          const path = urlObj.pathname.toLowerCase();
+          const result = {};
+          const destCode = params.get("destinationLocation") || params.get("filter[dest]") || "";
+          let matchedDest = null;
+          for (const [key, dest] of Object.entries(DESTINATIONS)) {
+            if (destCode.startsWith(dest.code) || destCode === dest.code || (dest.code.includes('_') && destCode.includes(dest.code))) {
+              matchedDest = key;
+              break;
+            }
+          }
+          if (!matchedDest) {
+            for (const [key, dest] of Object.entries(DESTINATIONS)) {
+              if (path.includes(dest.id) || (dest.subpath && path.includes(dest.subpath.split('/')[2]))) {
+                matchedDest = key;
+                break;
+              }
+            }
+          }
+          if (matchedDest) result.destination = matchedDest;
+          const depRaw = params.get("departureLocation") || params.get("filter[from]") || "";
+          if (depRaw) result.departureAirports = depRaw.split(",").map(s => s.trim().replace(/\+/g, ' '));
+          const sMin = params.get("startDateMin") || params.get("filter[whenFrom]");
+          const sMax = params.get("startDateMax") || params.get("filter[whenTo]");
+          const retD = params.get("returnDate");
+          if (sMin) { const p = parseDateDDMMYYYY(sMin); if (p) result.startDateMin = formatDateISO(p); }
+          if (sMax) { const p = parseDateDDMMYYYY(sMax); if (p) result.startDateMax = formatDateISO(p); }
+          if (retD) { const p = parseDateDDMMYYYY(retD); if (p) result.returnDate = formatDateISO(p); }
+          const durFrom = params.get("durationFrom");
+          const durTo = params.get("durationTo");
+          if (durFrom) result.durationFrom = parseInt(durFrom, 10);
+          if (durTo) result.durationTo = parseInt(durTo, 10);
+          const ad = params.get("adults") || params.get("filter[adults]");
+          if (ad) result.adults = parseInt(ad, 10);
+          const chRaw = params.get("children") || params.get("filter[child]");
+          if (chRaw !== null && chRaw !== undefined) {
+            if (chRaw === "" || chRaw === "0") { result.childrenCount = 0; result.childrenBirthdays = []; }
+            else { const bdays = chRaw.split(",").map(s => s.trim()).filter(Boolean); result.childrenCount = bdays.length; result.childrenBirthdays = bdays; }
+          }
+          const cat = params.get("catering") || params.get("filter[service]");
+          if (cat) result.catering = cat.toLowerCase();
+          const pFrom = params.get("priceFrom") || params.get("filter[priceFrom]");
+          const pTo = params.get("priceTo") || params.get("filter[priceTo]");
+          if (pFrom) result.minPrice = parseInt(pFrom, 10);
+          if (pTo) { result.maxPrice = parseInt(pTo, 10); result.displayCeiling = Math.min(parseInt(pTo, 10), result.maxPrice > 12000 ? 12000 : result.maxPrice); }
+          if (Object.keys(result).length === 0) return null;
+          return result;
+        } catch(e) { return null; }
+      };
+      window.buildFlyUrl = function(state) {
+        const dest = DESTINATIONS[state.destination] || DESTINATIONS.turkey;
+        const searchParams = new URLSearchParams();
+        searchParams.set("destinationLocation", dest.code);
+        if (state.departureAirports && state.departureAirports.length > 0) searchParams.set("departureLocation", state.departureAirports.join(","));
+        if (state.startDateMin) { const d = parseDateDDMMYYYY(state.startDateMin) || new Date(state.startDateMin); searchParams.set("startDateMin", formatDateDDMMYYYY(d)); }
+        if (state.startDateMax) { const d = parseDateDDMMYYYY(state.startDateMax) || new Date(state.startDateMax); searchParams.set("startDateMax", formatDateDDMMYYYY(d)); }
+        if (state.returnDate) { const d = parseDateDDMMYYYY(state.returnDate) || new Date(state.returnDate); searchParams.set("returnDate", formatDateDDMMYYYY(d)); }
+        searchParams.set("adults", String(state.adults || 2));
+        if (state.childrenCount > 0 && state.childrenBirthdays && state.childrenBirthdays.length > 0) searchParams.set("children", state.childrenBirthdays.slice(0, state.childrenCount).join(","));
+        if (state.catering) searchParams.set("catering", state.catering);
+        searchParams.set("offerTypes", "accommodation_flight");
+        if (state.categoryRating) searchParams.set("categoryRating", state.categoryRating);
+        searchParams.set("durationFrom", String(state.durationFrom || 7));
+        searchParams.set("durationTo", String(state.durationTo || 10));
+        if (state.minPrice) searchParams.set("priceFrom", String(state.minPrice));
+        if (state.maxPrice) searchParams.set("priceTo", String(state.maxPrice));
+        searchParams.set("order", "price");
+        return `https://fly.pl/szukaj-wycieczek/?${searchParams.toString()}`;
+      };
+      window.buildFilterConfigJson = function(state) {
+        const dest = DESTINATIONS[state.destination] || DESTINATIONS.turkey;
+        const flyUrl = buildFlyUrl(state);
+        const title = (state.customTitle && state.customTitle.trim()) ? state.customTitle.trim() : `${dest.name} • ${state.durationFrom}–${state.durationTo} дней`;
+        function translit(str) {
+          const ruMap = {'а':'a','б':'b','в':'v','г':'g','д':'d','е':'e','ё':'yo','ж':'zh','з':'z','и':'i','й':'y','к':'k','л':'l','м':'m','н':'n','о':'o','п':'p','р':'r','с':'s','т':'t','у':'u','ф':'f','х':'kh','ц':'ts','ч':'ch','ш':'sh','щ':'shch','ъ':'','ы':'y','ь':'','э':'e','ю':'yu','я':'ya'};
+          return str.toLowerCase().split('').map(ch => ruMap[ch] || ch).join('');
+        }
+        const rawSlugSource = (state.customTitle && state.customTitle.trim()) ? translit(state.customTitle.trim()) : `${state.destination}_${state.durationFrom}_${state.durationTo}`;
+        const safeSlug = rawSlugSource.replace(/[^a-z0-9_]+/gi, '_').replace(/_+/g, '_').replace(/^_|_$/g, '') || `${state.destination}_${state.durationFrom}_${state.durationTo}`;
+        const fltId = `filter_${safeSlug}`;
+        const apCount = (state.departureAirports || []).length;
+        const apShort = apCount === 3 && state.departureAirports.includes("Warszawa") ? "WAW/WMI/RDO" : (apCount ? `${apCount} аэр.` : "Любой");
+        const guestsShort = state.childrenCount > 0 ? `${state.adults}+${state.childrenCount}` : `${state.adults} взр`;
+        const ceiling = state.displayCeiling || state.maxPrice || 11000;
+        const subtitle = `${apShort} • ${guestsShort} • ${state.durationFrom}–${state.durationTo} дн. • показ ≤${Math.round(ceiling / 1000)}k PLN`;
+        const config = {
+          allow_empty_offers: true,
+          id: fltId,
+          title: title,
+          subtitle: subtitle,
+          group: state.destination,
+          group_label: dest.name,
+          group_icon: dest.icon,
+          filter_mode: state.dateMode === "fixed" ? "fixed_trip" : "dynamic_rolling",
+          dynamic_search_dates: state.dateMode === "rolling",
+          url: flyUrl,
+          max_price_threshold: Number(state.maxPrice) || 20000,
+          min_price_threshold: Number(state.minPrice) || 3000,
+          display_price_ceiling: Number(state.displayCeiling) || 11000,
+          history_price_ceiling: Number(state.displayCeiling) || 11000,
+          data_dir: `data/filters/${fltId}`,
+          output_data_file: "travel_prices.csv",
+          required_offer_url_contains: [dest.subpath, "transport=accommodation_flight"],
+          excluded_offer_url_contains: ["/wycieczka/polska", "/wycieczka/czechy", "transport=accommodation&"],
+          wait_timeout: 30000,
+          max_retries: 3,
+          max_offers: 0,
+          max_pages: 10,
+          retry_delay: 5,
+          modules: {
+            arbitrage_germany: Boolean(state.moduleArbitrageGermany),
+            hopper_predictor: Boolean(state.moduleHopperPredictor),
+            departure_analytics: Boolean(state.moduleCohortHeatmap),
+            deal_score: Boolean(state.moduleDealScore),
+            room_types: Boolean(state.moduleRoomTypes),
+            telegram_alerts: Boolean(state.moduleTelegramAlerts),
+          },
+          germany_params: {
+            enabled: Boolean(state.moduleArbitrageGermany),
+            departure_airport: state.germanyAirport || "BER",
+            direct_flight_only: Boolean(state.germanyDirectFlight),
+          },
+          created_at: new Date().toISOString(),
+        };
+        if (state.dateMode === "fixed") {
+          config.trip_anchor_date = state.startDateMin;
+          config.trip_departure_slip_days = 7;
+          config.retire_after = state.startDateMax;
+        }
+        return config;
+      };
+      window.createGitHubIssueUrl = function(configJson) {
+        const repoOwner = "Jancker2a";
+        const repoName = "travel-monitoring";
+        const title = `[NEW_FILTER] ${configJson.title}`;
+        const body = `### ✈️ Новый фильтр мониторинга цен\n\n**Название:** ${configJson.title}\n**Направление:** ${configJson.group_icon} ${configJson.group_label}\n**URL поиска Fly.pl:** [Открыть поиск на Fly.pl](${configJson.url})\n**Потолок цены на витрине:** ${configJson.display_price_ceiling} PLN\n**Security Token:** \`e7bbd2753119f63d1bab83262e7cf7835286942712dd1caacd25d57f24b84a56\`\n\n\`\`\`json\n${JSON.stringify(configJson, null, 2)}\n\`\`\`\n\n---\n*Создано через Travel Price Monitor Filter Builder.*`;
+        return `https://github.com/${repoOwner}/${repoName}/issues/new?title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}`;
+      };
+    }
+
+    let appState = (typeof getInitialFormState === 'function') ? getInitialFormState() : null;
 
     function initPage() {
       renderDestinations();
@@ -1429,109 +1772,18 @@
       try { localStorage.setItem('theme', current); } catch(e) {}
       applyTheme(current);
     }
-    /* Security Gate & Key Verification */
-    const AUTH_KEY_HASH = "e7bbd2753119f63d1bab83262e7cf7835286942712dd1caacd25d57f24b84a56"; // SHA-256 of default key "travel2026"
-
-    async function sha256(str) {
-      const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(str.trim()));
-      return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, "0")).join("");
-    }
-
-    async function verifyKey(inputKey) {
-      if (!inputKey) return false;
-      const hash = await sha256(inputKey);
-      return hash === AUTH_KEY_HASH;
-    }
-
-    function unlockBuilder() {
-      const gate = document.getElementById('securityGateContainer');
-      const builder = document.getElementById('mainBuilderContainer');
-      if (gate) gate.style.display = 'none';
-      if (builder) builder.style.display = 'block';
-      localStorage.setItem('tp_admin_auth', AUTH_KEY_HASH);
-    }
-
-    function lockBuilder() {
-      const gate = document.getElementById('securityGateContainer');
-      const builder = document.getElementById('mainBuilderContainer');
-      if (gate) gate.style.display = 'flex';
-      if (builder) builder.style.display = 'none';
-      localStorage.removeItem('tp_admin_auth');
-    }
-
-    function logoutAdmin() {
-      lockBuilder();
-      showToast('🔒 Сессия завершена. Доступ заблокирован.');
-    }
-
-    function togglePasswordVisibility() {
-      const input = document.getElementById('gateKeyInput');
-      if (input) {
-        input.type = input.type === 'password' ? 'text' : 'password';
-      }
-    }
-
-    async function handleUnlockSubmit(e) {
-      if (e) e.preventDefault();
-      const input = document.getElementById('gateKeyInput');
-      const errEl = document.getElementById('gateErrorMsg');
-      const card = document.getElementById('gateCard');
-      const keyVal = input ? input.value.trim() : '';
-
-      const isValid = await verifyKey(keyVal);
-      if (isValid) {
-        if (errEl) errEl.style.display = 'none';
-        unlockBuilder();
-        showToast('✨ Доступ успешно открыт!');
-      } else {
-        if (errEl) {
-          errEl.style.display = 'block';
-          errEl.textContent = '❌ Неверный секретный ключ доступа. Попробуйте снова.';
-        }
-        if (card) {
-          card.classList.remove('shake');
-          void card.offsetWidth;
-          card.classList.add('shake');
-        }
-        if (input) input.focus();
-      }
-    }
-
-    async function checkInitialAuth() {
-      // 1. Check URL query params: ?key=... or ?token=... or ?admin=... or hash #key=...
-      const urlParams = new URLSearchParams(window.location.search);
-      const hashParams = new URLSearchParams(window.location.hash.replace(/^#/, ''));
-      const keyParam = urlParams.get('key') || urlParams.get('token') || urlParams.get('admin') || hashParams.get('key');
-
-      if (keyParam) {
-        const isValid = await verifyKey(keyParam);
-        if (isValid) {
-          unlockBuilder();
-          try {
-            const cleanUrl = window.location.pathname;
-            window.history.replaceState({}, document.title, cleanUrl);
-          } catch (err) {}
-          return;
-        }
-      }
-
-      // 2. Check localStorage
-      const savedAuth = localStorage.getItem('tp_admin_auth');
-      if (savedAuth === AUTH_KEY_HASH) {
-        unlockBuilder();
-        return;
-      }
-
-      // Otherwise lock
-      lockBuilder();
-    }
 
     (async function() {
       let saved = 'light';
       try { saved = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); } catch(e) {}
       applyTheme(saved);
       await checkInitialAuth();
-      initPage();
+      if (!appState && typeof getInitialFormState === 'function') {
+        appState = getInitialFormState();
+      }
+      if (typeof initPage === 'function') {
+        initPage();
+      }
     })();
   </script>
 </body>
