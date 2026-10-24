@@ -4513,17 +4513,43 @@
       "unique_key": "Cleopatra Signature Marsa Alam_2026-10-24_12-53_zone_out_gone"
     },
     {
+      "hotel_name": "AMC Royal Hotel & Spa (ex. AMC Azur Resort)",
+      "duration_bucket": "",
+      "old_price": 6090.0,
+      "new_price": 5501.0,
+      "price_change": -589.0,
+      "price_change_pct": -9.67159277504105,
+      "timestamp": "2026-10-24 17:13:40.796009+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-24T17:14:59.364042+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort)_2026-10-24_17-13_-9.7"
+    },
+    {
+      "hotel_name": "Fantazia Resort",
+      "duration_bucket": "",
+      "old_price": 7627.0,
+      "new_price": 7627.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-24 17:13:40.796009+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-24T17:14:59.364076+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Fantazia Resort_2026-10-24_17-13_zone_out_gone"
+    },
+    {
       "hotel_name": "Pickalbatros Palace Resort",
       "duration_bucket": "",
       "old_price": 8843.0,
       "new_price": 8843.0,
       "price_change": 0.0,
       "price_change_pct": 0.0,
-      "timestamp": "2026-10-24 16:42:09.102521+00:00",
+      "timestamp": "2026-10-24 17:13:40.796009+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-24T16:44:11.613607+00:00",
+      "created_at": "2026-10-24T17:14:59.364089+00:00",
       "threshold_percent": 8.0,
-      "unique_key": "Pickalbatros Palace Resort_2026-10-24_16-42_zone_out_gone"
+      "unique_key": "Pickalbatros Palace Resort_2026-10-24_17-13_zone_out_gone"
     },
     {
       "hotel_name": "Siva Golden Bay Makadi",
@@ -4532,15 +4558,15 @@
       "new_price": 7477.0,
       "price_change": 0.0,
       "price_change_pct": 0.0,
-      "timestamp": "2026-10-24 16:42:09.102521+00:00",
+      "timestamp": "2026-10-24 17:13:40.796009+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-24T16:44:11.613634+00:00",
+      "created_at": "2026-10-24T17:14:59.364097+00:00",
       "threshold_percent": 8.0,
-      "unique_key": "Siva Golden Bay Makadi_2026-10-24_16-42_zone_out_gone"
+      "unique_key": "Siva Golden Bay Makadi_2026-10-24_17-13_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-24T16:42:09.102521+00:00",
+    "last_processed_run": "2026-10-24T17:13:40.796009+00:00",
     "premium_state": {
       "Rewaya Luxury Resort Egipt, Hurghada": {
         "history_max": 6947.0,
