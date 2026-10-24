@@ -2795,10 +2795,101 @@
       "created_at": "2026-10-23T22:25:20.333269+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Jaz Mirabel Beach Resort_2026-10-23_22-23_comeback_20.0"
+    },
+    {
+      "hotel_name": "Xperience Kiroseiz Parkland",
+      "duration_bucket": "",
+      "old_price": 7599.0,
+      "new_price": 8379.0,
+      "price_change": 780.0,
+      "price_change_pct": 10.264508487958942,
+      "timestamp": "2026-10-24 07:28:45.922633+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-24T07:30:00.674421+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xperience Kiroseiz Parkland_2026-10-24_07-28_+10.3"
+    },
+    {
+      "hotel_name": "Amarina Jannah Resort Aquapark",
+      "duration_bucket": "",
+      "old_price": 7950.0,
+      "new_price": 7226.0,
+      "price_change": -724.0,
+      "price_change_pct": -9.10691823899371,
+      "timestamp": "2026-10-24 07:28:45.922633+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-24T07:30:00.674445+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amarina Jannah Resort Aquapark_2026-10-24_07-28_-9.1"
+    },
+    {
+      "hotel_name": "Xperience Kiroseiz Premier",
+      "duration_bucket": "",
+      "old_price": 7465.0,
+      "new_price": 8245.0,
+      "price_change": 780.0,
+      "price_change_pct": 10.448760884125921,
+      "timestamp": "2026-10-24 07:28:45.922633+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-24T07:30:00.674454+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xperience Kiroseiz Premier_2026-10-24_07-28_+10.4"
+    },
+    {
+      "hotel_name": "Jaz Mirabel Beach Resort",
+      "duration_bucket": "",
+      "old_price": 8098.0,
+      "new_price": 8098.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-24 07:28:45.922633+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-24T07:30:00.674466+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Mirabel Beach Resort_2026-10-24_07-28_zone_out_gone"
+    },
+    {
+      "hotel_name": "Parrotel Beach Resort (ex. Radisson Blu)",
+      "duration_bucket": "",
+      "old_price": 8565.0,
+      "new_price": 8565.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-24 07:28:45.922633+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-24T07:30:00.674472+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Parrotel Beach Resort (ex. Radisson Blu)_2026-10-24_07-28_zone_out_gone"
+    },
+    {
+      "hotel_name": "Regency Plaza Aqua Park Spa",
+      "duration_bucket": "",
+      "old_price": 8530.0,
+      "new_price": 8530.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-24 07:28:45.922633+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-24T07:30:00.674477+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Regency Plaza Aqua Park Spa_2026-10-24_07-28_zone_out_gone"
+    },
+    {
+      "hotel_name": "Royal Regency Club",
+      "duration_bucket": "",
+      "old_price": 7674.0,
+      "new_price": 7674.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-24 07:28:45.922633+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-24T07:30:00.674482+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Royal Regency Club_2026-10-24_07-28_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-23T22:23:13.694555+00:00",
+    "last_processed_run": "2026-10-24T07:28:45.922633+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 7695.0,
@@ -3493,7 +3584,7 @@
         "premium_peak": null
       },
       "Gravity Hotel & Aquapark Hurghada (ex. Samra Bay Resort)": {
-        "history_max": 8223.0,
+        "history_max": 8271.0,
         "premium_peak": null
       }
     }

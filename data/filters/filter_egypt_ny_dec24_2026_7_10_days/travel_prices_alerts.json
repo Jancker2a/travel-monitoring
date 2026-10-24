@@ -1196,10 +1196,101 @@
       "created_at": "2026-10-24T01:52:32.259131+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Regency Plaza Aqua Park Spa_2026-10-24_01-51_-13.9"
+    },
+    {
+      "hotel_name": "Regency Plaza Aqua Park Spa",
+      "duration_bucket": "",
+      "old_price": 9020.0,
+      "new_price": 10480.0,
+      "price_change": 1460.0,
+      "price_change_pct": 16.186252771618626,
+      "timestamp": "2026-10-24 07:34:07.191335+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-24T07:34:45.537420+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Regency Plaza Aqua Park Spa_2026-10-24_07-34_+16.2"
+    },
+    {
+      "hotel_name": "Xperience Kiroseiz Premier",
+      "duration_bucket": "",
+      "old_price": 9241.0,
+      "new_price": 10701.0,
+      "price_change": 1460.0,
+      "price_change_pct": 15.799155935504816,
+      "timestamp": "2026-10-24 07:34:07.191335+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-24T07:34:45.537442+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xperience Kiroseiz Premier_2026-10-24_07-34_+15.8"
+    },
+    {
+      "hotel_name": "Marriott Hurghada Beach Resort",
+      "duration_bucket": "",
+      "old_price": 10921.0,
+      "new_price": 10921.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-24 07:34:07.191335+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-24T07:34:45.537456+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Marriott Hurghada Beach Resort_2026-10-24_07-34_zone_out_gone"
+    },
+    {
+      "hotel_name": "Park Regency Resort (ex. Hyatt)",
+      "duration_bucket": "",
+      "old_price": 10989.0,
+      "new_price": 10989.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-24 07:34:07.191335+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-24T07:34:45.537462+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Park Regency Resort (ex. Hyatt)_2026-10-24_07-34_zone_out_gone"
+    },
+    {
+      "hotel_name": "Royal Regency Club",
+      "duration_bucket": "",
+      "old_price": 9842.0,
+      "new_price": 9842.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-24 07:34:07.191335+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-24T07:34:45.537467+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Royal Regency Club_2026-10-24_07-34_zone_out_gone"
+    },
+    {
+      "hotel_name": "Swisstouch Oriental Resort (ex. Hotelux Oriental Coast)",
+      "duration_bucket": "",
+      "old_price": 10823.0,
+      "new_price": 10823.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-24 07:34:07.191335+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-24T07:34:45.537473+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Swisstouch Oriental Resort (ex. Hotelux Oriental Coast)_2026-10-24_07-34_zone_out_gone"
+    },
+    {
+      "hotel_name": "Xperience Kiroseiz Parkland",
+      "duration_bucket": "",
+      "old_price": 9575.0,
+      "new_price": 9575.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-24 07:34:07.191335+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-24T07:34:45.537477+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xperience Kiroseiz Parkland_2026-10-24_07-34_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-24T01:51:04.375497+00:00",
+    "last_processed_run": "2026-10-24T07:34:07.191335+00:00",
     "premium_state": {
       "Naama Bay Promenade Mountain Resort Egipt, Sharm El Sheikh, Szarm el-Szejk": {
         "history_max": 10841.0,
@@ -1438,7 +1529,7 @@
         "premium_peak": null
       },
       "Gravity Sahl Hasheesh (Ex. Ocean Breeze)": {
-        "history_max": 10565.0,
+        "history_max": 10691.0,
         "premium_peak": null
       },
       "Swisstouch Oriental Resort (ex. Hotelux Oriental Coast)": {
