@@ -67,10 +67,21 @@ def run_tests():
             cta_btn.click()
             page.wait_for_load_state("networkidle")
             assert "create_filter.html" in page.url
-            page.screenshot(path=str(SCREENSHOT_DIR / "02_builder_initial.png"))
-            record("TC-03", "Navigation to Builder Page", "PASSED", f"Successfully loaded {page.url}")
+            page.screenshot(path=str(SCREENSHOT_DIR / "02_builder_locked_gate.png"))
+            
+            # Verify gate is displayed
+            assert page.is_visible("#securityGateContainer"), "Security Gate should be displayed"
+            record("TC-03", "Security Gate Locked Screen", "PASSED", "Access Gate correctly intercepts unauthenticated user")
+
+            # Unlock with valid key
+            page.fill("#gateKeyInput", "travel2026")
+            page.click("button:has-text('Разблокировать доступ')")
+            time.sleep(0.3)
+            assert page.is_visible("#mainBuilderContainer"), "Builder should be unlocked after valid key"
+            record("TC-03b", "Security Gate Key Unlock", "PASSED", "Successfully unlocked builder using passcode")
+            page.screenshot(path=str(SCREENSHOT_DIR / "02b_builder_unlocked.png"))
         except Exception as e:
-            record("TC-02/03", "Navigation to Builder Page", "FAILED", str(e))
+            record("TC-03", "Security Gate & Unlock", "FAILED", str(e))
 
         # ---------------------------------------------------------
         # TC-04: Error Handling on Invalid / Empty Fly.pl URL

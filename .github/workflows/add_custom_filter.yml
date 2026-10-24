@@ -14,7 +14,7 @@ concurrency:
 
 jobs:
   process-filter:
-    if: startsWith(github.event.issue.title, '[NEW_FILTER]')
+    if: startsWith(github.event.issue.title, '[NEW_FILTER]') && (github.event.issue.user.login == 'Jancker2a' || contains(github.event.issue.body, 'e7bbd2753119f63d1bab83262e7cf7835286942712dd1caacd25d57f24b84a56'))
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
