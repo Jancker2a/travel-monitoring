@@ -6682,10 +6682,88 @@
       "created_at": "2026-10-24T12:52:02.046897+00:00",
       "threshold_percent": 8.0,
       "unique_key": "OZ Incekum Beach Resort_2026-10-24_12-50_zone_out_gone"
+    },
+    {
+      "hotel_name": "Villa Side Residence",
+      "duration_bucket": "",
+      "old_price": 7900.0,
+      "new_price": 7072.0,
+      "price_change": -828.0,
+      "price_change_pct": -10.481012658227847,
+      "timestamp": "2026-10-24 16:47:29.158842+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-24T16:48:59.841765+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Villa Side Residence_2026-10-24_16-47_-10.5"
+    },
+    {
+      "hotel_name": "Linda Resort (Side)",
+      "duration_bucket": "",
+      "old_price": 7601.0,
+      "new_price": 6931.0,
+      "price_change": -670.0,
+      "price_change_pct": -8.814629653992895,
+      "timestamp": "2026-10-24 16:47:29.158842+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-24T16:48:59.841792+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Linda Resort (Side)_2026-10-24_16-47_-8.8"
+    },
+    {
+      "hotel_name": "Arcanus Hotels Sorgun (ex. Asteria Sorgun)",
+      "duration_bucket": "",
+      "old_price": 7857.0,
+      "new_price": 7857.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-24 16:47:29.158842+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-24T16:48:59.841813+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Arcanus Hotels Sorgun (ex. Asteria Sorgun)_2026-10-24_16-47_zone_out_gone"
+    },
+    {
+      "hotel_name": "Arnor De Luxe & SPA",
+      "duration_bucket": "",
+      "old_price": 7727.0,
+      "new_price": 7727.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-24 16:47:29.158842+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-24T16:48:59.841823+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Arnor De Luxe & SPA_2026-10-24_16-47_zone_out_gone"
+    },
+    {
+      "hotel_name": "Gypsophila Club Marine (ex. Amara Club Marine Nature)",
+      "duration_bucket": "",
+      "old_price": 7877.0,
+      "new_price": 7877.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-24 16:47:29.158842+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-24T16:48:59.841831+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Gypsophila Club Marine (ex. Amara Club Marine Nature)_2026-10-24_16-47_zone_out_gone"
+    },
+    {
+      "hotel_name": "VONResort Golden Beach",
+      "duration_bucket": "",
+      "old_price": 10289.0,
+      "new_price": 7529.0,
+      "price_change": -2760.0,
+      "price_change_pct": -26.82476431140052,
+      "timestamp": "2026-10-24 16:47:29.158842+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-24T16:48:59.841855+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "VONResort Golden Beach_2026-10-24_16-47_comeback_26.8"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-24T12:50:46.325289+00:00",
+    "last_processed_run": "2026-10-24T16:47:29.158842+00:00",
     "premium_state": {
       "Limak Lara De Luxe": {
         "history_max": 11173.0,

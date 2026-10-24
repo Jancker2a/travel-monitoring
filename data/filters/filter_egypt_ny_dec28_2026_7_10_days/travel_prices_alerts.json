@@ -793,10 +793,62 @@
       "created_at": "2026-10-24T07:34:50.644338+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Swisstouch Oriental Resort (ex. Hotelux Oriental Coast)_2026-10-24_07-34_zone_out_gone"
+    },
+    {
+      "hotel_name": "Empire Beach Aqua Park",
+      "duration_bucket": "",
+      "old_price": 9635.0,
+      "new_price": 9635.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-24 16:43:45.862308+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-24T16:45:07.922902+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Empire Beach Aqua Park_2026-10-24_16-43_zone_out_gone"
+    },
+    {
+      "hotel_name": "Empire Hotel Aqua Park (Ex. Triton Empir",
+      "duration_bucket": "",
+      "old_price": 9500.0,
+      "new_price": 9500.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-24 16:43:45.862308+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-24T16:45:07.922927+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Empire Hotel Aqua Park (Ex. Triton Empir_2026-10-24_16-43_zone_out_gone"
+    },
+    {
+      "hotel_name": "Rewaya Inn Resort (ex.Hawaii Paradise Aq",
+      "duration_bucket": "",
+      "old_price": 10612.0,
+      "new_price": 10612.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-24 16:43:45.862308+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-24T16:45:07.922938+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Inn Resort (ex.Hawaii Paradise Aq_2026-10-24_16-43_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sea Star Beau Rivage",
+      "duration_bucket": "",
+      "old_price": 12133.0,
+      "new_price": 10078.0,
+      "price_change": -2055.0,
+      "price_change_pct": -16.937278496661996,
+      "timestamp": "2026-10-24 16:43:45.862308+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-24T16:45:07.922966+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sea Star Beau Rivage_2026-10-24_16-43_comeback_16.9"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-24T12:54:18.465491+00:00",
+    "last_processed_run": "2026-10-24T16:43:45.862308+00:00",
     "premium_state": {
       "Sentido Oriental Dream Resort Egipt, Marsa Alam": {
         "history_max": 10973.0,
@@ -972,6 +1024,10 @@
       },
       "Sharm Grand Plaza Resort": {
         "history_max": 10792.0,
+        "premium_peak": null
+      },
+      "Cataract Resort": {
+        "history_max": 9393.0,
         "premium_peak": null
       }
     }
