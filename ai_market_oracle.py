@@ -303,20 +303,33 @@ def compute_buy_now_recommendation(
         if bw.get("window_class") in ("panic", "last", "in_window") and bw.get("window_badge"):
             score += 60
             if not best_badge:
-                best_badge = f"🎯 {bw.get('window_label', 'Окно покупки')}"
-            reasons.append(f"идеальное окно покупки ({bw.get('window_label', '')})")
+                best_badge = bw.get("window_badge", "🎯 Окно покупки")
+            reasons.append(f"выгодный момент покупки ({bw.get('optimal_window', 'сейчас')})")
             has_real_catalyst = True
 
-        # 5. Реальное дно сезона (только если есть подтвержденная история и заметный спад)
+        # 5. Реальное дно сезона (только если цена на минимуме и была выше)
         hist_max = float(h_info.get("historical_max", cur_p) or cur_p)
-        if cur_p <= hist_min * 1.01 and hist_max >= cur_p * 1.08:
+        if cur_p <= hist_min * 1.01 and (hist_max >= cur_p * 1.05 or hist_med >= cur_p * 1.03):
             score += 50
-            reasons.append(f"цена на дне сезона (−{((hist_max - cur_p)/hist_max)*100:.0f}% от пика)")
+            if hist_max > cur_p:
+                reasons.append(f"цена на дне сезона (−{((hist_max - cur_p)/hist_max)*100:.0f}% от пика)")
+            else:
+                reasons.append("цена на историческом минимуме")
             has_real_catalyst = True
+            if not best_badge:
+                best_badge = "⚡ Дно цены"
 
         rating = float(h_info.get("rating", 0.0) or 0.0)
-        if rating >= 4.0:
-            score += (rating - 4.0) * 15
+        # Quality Guard: low-rated (< 4.0) hotels should not be recommended in top picks
+        if rating > 0 and rating < 4.0:
+            continue
+
+        if rating >= 4.5:
+            score += 40
+            reasons.append(f"высокий рейтинг {rating:g}★")
+        elif rating >= 4.0:
+            score += 20
+            reasons.append(f"хороший рейтинг {rating:g}★")
 
         if has_real_catalyst and score >= 80:
             scored_candidates.append({
@@ -341,11 +354,25 @@ def compute_buy_now_recommendation(
             "top_picks": top_picks,
         }
     else:
+        stats = market_context.get("market_stats", {})
+        min_d = stats.get("min_days_to_departure", 14)
+        if min_d <= 3:
+            headline = "Срочные вылеты: нет выраженных супер-скидок в 4–5★"
+            advice = (
+                f"Ближайший вылет уже через {min_d} дн., однако среди отелей с высоким подтвержденным рейтингом (4.0+★) "
+                "глубоких аномальных скидок сейчас нет. Если лететь нужно срочно — выбирайте варианты в таблице ниже, обязательно проверяя отзывы."
+            )
+        else:
+            headline = "Лучше ничего не покупать — подождите"
+            advice = (
+                "Сейчас на рынке нет действительно выгодных предложений: отели продаются по базовым или завышенным ценам. "
+                "Спешить с бронированием нет смысла — сохраните отели в «Избранное» (⭐) и подождите приближения вылета (за 7–10 дней туроператоры обычно начинают снижать цены)."
+            )
         return {
             "has_worthy_deals": False,
-            "headline": "Лучше ничего не покупать — подождите",
+            "headline": headline,
             "status_badge": "✋ ВЫГОДНЫХ СДЕЛОК НЕТ",
-            "advice": "Сейчас на рынке нет действительно выгодных предложений: отели продаются по базовым или завышенным ценам. Спешить с бронированием нет смысла — сохраните отели в «Избранное» (☆) и подождите приближения вылета (за 7–10 дней туроператоры обычно начинают снижать цены).",
+            "advice": advice,
             "top_picks": [],
         }
 
