@@ -3172,10 +3172,49 @@
       "created_at": "2026-10-25T01:23:53.026574+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Titanic Royal_2026-10-25_01-20_comeback_20.3"
+    },
+    {
+      "hotel_name": "Amwaj Oyoun Resort & Casino",
+      "duration_bucket": "",
+      "old_price": 7949.0,
+      "new_price": 7949.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-25 06:22:41.678448+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-25T06:24:43.661280+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amwaj Oyoun Resort & Casino_2026-10-25_06-22_zone_out_gone"
+    },
+    {
+      "hotel_name": "Royal Regency Club",
+      "duration_bucket": "",
+      "old_price": 7794.0,
+      "new_price": 7794.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-25 06:22:41.678448+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-25T06:24:43.661302+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Royal Regency Club_2026-10-25_06-22_zone_out_gone"
+    },
+    {
+      "hotel_name": "Tropitel Sahl Hasheesh",
+      "duration_bucket": "",
+      "old_price": 7882.0,
+      "new_price": 7882.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-25 06:22:41.678448+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-25T06:24:43.661310+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Tropitel Sahl Hasheesh_2026-10-25_06-22_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-25T01:20:51.782521+00:00",
+    "last_processed_run": "2026-10-25T06:22:41.678448+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 7695.0,
@@ -3874,7 +3913,7 @@
         "premium_peak": null
       },
       "Old Palace Resort": {
-        "history_max": 7796.0,
+        "history_max": 8206.0,
         "premium_peak": null
       }
     }
