@@ -19,6 +19,7 @@ import argparse
 import json
 import logging
 import os
+import re
 import urllib.error
 import urllib.request
 from typing import Any, Dict, List, Optional
@@ -677,8 +678,6 @@ def call_openai_oracle(
     """
     Invokes OpenAI Chat Completions API with dynamic model discovery and JSON mode.
     """
-    import re
-
     discovered = fetch_available_openai_models(api_key)
     preferred_order = ["gpt-5.4-mini", "gpt-5.6-luna", "gpt-5-chat-latest", "gpt-4o-mini", "gpt-4o", "o3-mini"]
     target_models = []
