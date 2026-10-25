@@ -81,7 +81,7 @@ except ImportError:
     synthesize_market_oracle = None
 
 
-def render_ai_market_briefing_html(oracle_report: Optional[Dict[str, Any]]) -> str:
+def render_ai_market_briefing_html(oracle_report: Optional[Dict[str, Any]], filter_title: str = "") -> str:
     """Renders the Executive AI Market Intelligence Briefing fold."""
     if not oracle_report or "macro_briefing" not in oracle_report:
         return ""
@@ -92,40 +92,68 @@ def render_ai_market_briefing_html(oracle_report: Optional[Dict[str, Any]]) -> s
     floor_status = html_lib.escape(str(macro.get("floor_status", "")))
     directive = html_lib.escape(str(macro.get("strategic_directive", "")))
     synthesized_by = html_lib.escape(str(macro.get("synthesized_by", "AI Engine")))
+    display_title = html_lib.escape(str(filter_title or macro.get("filter_title", "")))
 
     anomalies_html = ""
     for a in macro.get("key_anomalies", []):
         t_title = html_lib.escape(str(a.get("title", "")))
         t_text = html_lib.escape(str(a.get("text", "")))
         anomalies_html += (
-            f'<div class="ai-anomaly-tag" style="background: rgba(139, 92, 246, 0.15); border: 1px solid rgba(139, 92, 246, 0.35); padding: 0.35rem 0.65rem; border-radius: 6px; font-size: 0.82rem; color: #e2e8f0;">'
-            f'<strong style="color: #c4b5fd;">{t_title}:</strong> {t_text}'
+            f'<div class="ai-anomaly-tag">'
+            f'<strong>{t_title}:</strong> <span>{t_text}</span>'
             f'</div>'
         )
 
+    floor_badge_html = ""
+    if floor_status:
+        floor_badge_html = (
+            f'<div class="ai-floor-badge">'
+            f'<span>📊</span> <span>{floor_status}</span>'
+            f'</div>'
+        )
+
+    phase_badge_html = ""
+    if phase:
+        phase_badge_html = f'<span class="ai-phase-badge">{phase}</span>'
+
+    filter_info_html = ""
+    if display_title:
+        filter_info_html = f'<span class="ai-filter-title">{display_title}</span> • '
+
     return f"""
         <!-- --- AI Market Intelligence Briefing (Executive Dashboard Fold) --- -->
-        <details class="dashboard-fold ai-oracle-fold" id="aiOracleFold" open style="margin-top: 1.5rem; margin-bottom: 1.5rem; border: 1px solid rgba(139, 92, 246, 0.4); background: linear-gradient(135deg, rgba(30, 27, 75, 0.4) 0%, rgba(15, 23, 42, 0.5) 100%); border-radius: 10px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);">
-            <summary style="background: rgba(139, 92, 246, 0.12); padding: 0.85rem 1.25rem; display: flex; align-items: center; justify-content: space-between; cursor: pointer;">
+        <details class="dashboard-fold ai-oracle-fold" id="aiOracleFold" open>
+            <summary>
                 <div style="display: flex; align-items: center; gap: 0.85rem;">
-                    <span style="font-size: 1.4rem;">🧠</span>
-                    <div>
-                        <div style="font-weight: 700; color: #ddd6fe; font-size: 1.05rem; letter-spacing: -0.01em;">{headline}</div>
-                        <div style="font-size: 0.78rem; color: #94a3b8; font-weight: 400; margin-top: 0.15rem;">{phase} • {synthesized_by}</div>
+                    <div class="ai-oracle-icon-box">
+                        <span>🧠</span>
+                    </div>
+                    <div class="ai-oracle-title-wrap">
+                        <div class="ai-oracle-title-row">
+                            <span class="ai-oracle-main-title">AI Market Intelligence & Yield Oracle</span>
+                            {phase_badge_html}
+                        </div>
+                        <div class="ai-oracle-subtitle">
+                            <strong class="ai-oracle-headline">{headline}</strong> • {filter_info_html}<span>{synthesized_by}</span>
+                        </div>
                     </div>
                 </div>
-                <span class="fold-chevron" style="color: #a78bfa; font-size: 1.2rem;">⌄</span>
+                <span class="fold-chevron" style="color: #7c3aed; font-size: 1.15rem; font-weight: 700;">⌄</span>
             </summary>
             <div class="fold-content" style="padding: 1.25rem;">
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; margin-bottom: 1rem;">
-                    <div style="background: rgba(15, 23, 42, 0.7); padding: 1rem; border-radius: 8px; border-left: 4px solid #8b5cf6;">
-                        <div style="font-size: 0.82rem; color: #a78bfa; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.35rem;">✈️ Пульс чартеров & динамика цен</div>
-                        <div style="font-size: 0.92rem; color: #e2e8f0; line-height: 1.5;">{dynamics}</div>
-                        {f'<div style="font-size: 0.8rem; color: #94a3b8; margin-top: 0.4rem;">📊 {floor_status}</div>' if floor_status else ''}
+                <div class="ai-oracle-grid">
+                    <div class="ai-card-pulse">
+                        <div class="ai-card-header-purple">
+                            <span>✈️</span> <span>Пульс чартеров & динамика цен</span>
+                        </div>
+                        <div class="ai-card-body">{dynamics}</div>
+                        {floor_badge_html}
                     </div>
-                    <div style="background: rgba(15, 23, 42, 0.7); padding: 1rem; border-radius: 8px; border-left: 4px solid #10b981;">
-                        <div style="font-size: 0.82rem; color: #34d399; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.35rem;">🎯 Стратегическая директива бронирования</div>
-                        <div style="font-size: 0.92rem; color: #e2e8f0; line-height: 1.5;">{directive}</div>
+                    <div class="ai-card-directive">
+                        <div class="ai-card-header-green">
+                            <span>🎯</span> <span>Стратегическая директива бронирования</span>
+                        </div>
+                        <div class="ai-card-body-green">{directive}</div>
                     </div>
                 </div>
                 {f'<div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;">{anomalies_html}</div>' if anomalies_html else ''}
@@ -2721,7 +2749,11 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
                 if dna_res:
                     with open(dna_path, "w", encoding="utf-8") as f:
                         json.dump(dna_res, f, ensure_ascii=False, indent=2)
-            oracle_report = synthesize_market_oracle(data_file, dna_profile_path=dna_path)
+            oracle_report = synthesize_market_oracle(
+                data_file,
+                dna_profile_path=dna_path,
+                filter_title=title,
+            )
             if oracle_report and "macro_briefing" in oracle_report:
                 print(f"🧠 AI Market Oracle: отчет успешно сгенерирован ({len(oracle_report.get('hotel_dossiers', {}))} досье)")
     except Exception as e:
@@ -5056,6 +5088,227 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         }}
         @media (max-width: 768px) {{
             .timing-grid {{ grid-template-columns: 1fr; }}
+        }}
+
+        /* --- AI Market Intelligence Oracle Fold --- */
+        details.ai-oracle-fold {{
+            margin-top: 1.25rem;
+            margin-bottom: 1.5rem;
+            background: #ffffff;
+            border: 1px solid rgba(124, 58, 237, 0.22);
+            border-top: 3px solid #7c3aed;
+            border-radius: var(--radius-lg, 16px);
+            box-shadow: 0 4px 20px rgba(124, 58, 237, 0.05), var(--shadow-sm);
+            overflow: hidden;
+            transition: var(--transition-normal);
+        }}
+        details.ai-oracle-fold > summary {{
+            background: linear-gradient(90deg, #faf5ff 0%, #f8fafc 100%);
+            padding: 0.9rem 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            user-select: none;
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+        }}
+        .ai-oracle-icon-box {{
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 2px 8px rgba(124, 58, 237, 0.25);
+            flex-shrink: 0;
+        }}
+        .ai-oracle-title-wrap {{
+            display: flex;
+            flex-direction: column;
+            gap: 0.15rem;
+        }}
+        .ai-oracle-title-row {{
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+        }}
+        .ai-oracle-main-title {{
+            font-weight: 700;
+            color: #0f172a;
+            font-size: 1.05rem;
+            letter-spacing: -0.01em;
+        }}
+        .ai-phase-badge {{
+            background: #ede9fe;
+            color: #6d28d9;
+            border: 1px solid #ddd6fe;
+            padding: 0.18rem 0.55rem;
+            border-radius: 9999px;
+            font-size: 0.76rem;
+            font-weight: 600;
+        }}
+        .ai-oracle-subtitle {{
+            font-size: 0.82rem;
+            color: #64748b;
+            font-weight: 400;
+            line-height: 1.35;
+        }}
+        .ai-oracle-headline {{
+            color: #4338ca;
+            font-weight: 600;
+        }}
+        .ai-filter-title {{
+            color: #334155;
+            font-weight: 600;
+        }}
+        .ai-oracle-grid {{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }}
+        .ai-card-pulse {{
+            background: #f8fafc;
+            padding: 1.1rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            border-left: 4px solid #7c3aed;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+        }}
+        .ai-card-directive {{
+            background: #f0fdf4;
+            padding: 1.1rem;
+            border-radius: 12px;
+            border: 1px solid #bbf7d0;
+            border-left: 4px solid #10b981;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+        }}
+        .ai-card-header-purple {{
+            font-size: 0.78rem;
+            color: #6d28d9;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.45rem;
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }}
+        .ai-card-header-green {{
+            font-size: 0.78rem;
+            color: #047857;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.45rem;
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }}
+        .ai-card-body {{
+            font-size: 0.92rem;
+            color: #334155;
+            line-height: 1.55;
+        }}
+        .ai-card-body-green {{
+            font-size: 0.92rem;
+            color: #166534;
+            line-height: 1.55;
+            font-weight: 500;
+        }}
+        .ai-floor-badge {{
+            margin-top: 0.65rem;
+            padding: 0.35rem 0.65rem;
+            border-radius: 6px;
+            background: #e0e7ff;
+            border: 1px solid #c7d2fe;
+            color: #3730a3;
+            font-size: 0.8rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }}
+        .ai-anomaly-tag {{
+            background: #faf5ff;
+            border: 1px solid #e9d5ff;
+            padding: 0.4rem 0.75rem;
+            border-radius: 8px;
+            font-size: 0.82rem;
+            color: #4c1d95;
+            display: inline-flex;
+            align-items: baseline;
+            gap: 0.35rem;
+        }}
+        .ai-anomaly-tag strong {{
+            color: #7e22ce;
+        }}
+
+        /* Dark Theme Support for AI Oracle */
+        .dark-theme details.ai-oracle-fold {{
+            background: #1e293b;
+            border-color: #334155;
+            border-top-color: #a78bfa;
+        }}
+        .dark-theme details.ai-oracle-fold > summary {{
+            background: #0f172a;
+            border-bottom-color: #334155;
+        }}
+        .dark-theme .ai-oracle-main-title {{
+            color: #f1f5f9;
+        }}
+        .dark-theme .ai-oracle-subtitle {{
+            color: #94a3b8;
+        }}
+        .dark-theme .ai-oracle-headline {{
+            color: #c4b5fd;
+        }}
+        .dark-theme .ai-filter-title {{
+            color: #e2e8f0;
+        }}
+        .dark-theme .ai-phase-badge {{
+            background: rgba(124, 58, 237, 0.25);
+            color: #c4b5fd;
+            border-color: rgba(124, 58, 237, 0.45);
+        }}
+        .dark-theme details.ai-oracle-fold .fold-content {{
+            background: #1e293b;
+        }}
+        .dark-theme .ai-card-pulse {{
+            background: #0f172a;
+            border-color: #334155;
+        }}
+        .dark-theme .ai-card-header-purple {{
+            color: #c4b5fd;
+        }}
+        .dark-theme .ai-card-body {{
+            color: #cbd5e1;
+        }}
+        .dark-theme .ai-card-directive {{
+            background: rgba(6, 78, 59, 0.25);
+            border-color: rgba(16, 185, 129, 0.35);
+        }}
+        .dark-theme .ai-card-header-green {{
+            color: #6ee7b7;
+        }}
+        .dark-theme .ai-card-body-green {{
+            color: #d1fae5;
+        }}
+        .dark-theme .ai-floor-badge {{
+            background: rgba(79, 70, 229, 0.25);
+            border-color: rgba(99, 102, 241, 0.4);
+            color: #c7d2fe;
+        }}
+        .dark-theme .ai-anomaly-tag {{
+            background: rgba(124, 58, 237, 0.2);
+            border-color: rgba(124, 58, 237, 0.4);
+            color: #e9d5ff;
+        }}
+        .dark-theme .ai-anomaly-tag strong {{
+            color: #c4b5fd;
         }}
 
         /* --- Секция "Выпавшие отели" --- */
@@ -9160,7 +9413,7 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         ),
     ])
 
-    ai_briefing_html = render_ai_market_briefing_html(oracle_report)
+    ai_briefing_html = render_ai_market_briefing_html(oracle_report, filter_title=title)
 
     # 1. График ТОП-10 дешёвых предложений (всегда виден на главной странице)
     html_template += f"""

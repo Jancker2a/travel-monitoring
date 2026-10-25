@@ -37,6 +37,7 @@ def extract_filter_features(
     prices_csv_path: str,
     dna_profile_path: str = DEFAULT_DNA_FILE,
     filter_id: Optional[str] = None,
+    filter_title: Optional[str] = None,
     arbitrage_matches: Optional[List[Dict[str, Any]]] = None,
 ) -> Dict[str, Any]:
     """
@@ -159,6 +160,7 @@ def extract_filter_features(
     # Assemble compacted market context
     market_context = {
         "filter_id": filter_id or os.path.basename(os.path.dirname(prices_csv_path)),
+        "filter_title": filter_title or "",
         "analyzed_at": datetime.utcnow().isoformat() + "Z",
         "market_stats": {
             "hotel_count": len(latest_per_hotel),

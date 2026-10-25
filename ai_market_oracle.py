@@ -119,10 +119,19 @@ def generate_rule_based_briefing(market_context: Dict[str, Any]) -> Dict[str, An
             "action_advice": advice,
         }
 
+    clean_filter_title = market_context.get("filter_title") or ""
+    if phase in ("early_bird", "stable_plateau", "mid_term"):
+        headline = f"{phase_title}: стабилизация цен, окно фиксации выгодных тарифов"
+    elif phase in ("charter_clearance", "panic_dump", "first_markdown"):
+        headline = f"{phase_title}: активное движение цен, время быстрых сделок"
+    else:
+        headline = f"{phase_title}: устойчивый ценовой коридор"
+
     return {
         "macro_briefing": {
-            "headline": f"{market_context.get('filter_id')}: {phase_title}",
+            "headline": headline,
             "market_phase": phase_title,
+            "filter_title": clean_filter_title,
             "charter_dynamics": phase_desc,
             "floor_status": f"{floor_count} отелей ({floor_pct}%) торгуются на сезонном минимуме.",
             "strategic_directive": directive,
@@ -153,7 +162,7 @@ def call_gemini_oracle(
 ТРЕБОВАНИЯ К ФОРМАТУ JSON:
 {{
   "macro_briefing": {{
-    "headline": "Яркий емкий заголовок ситуации на рынке",
+    "headline": "Яркий ёмкий аналитический заголовок ситуации на рынке (СТРОГО БЕЗ названий файлов, slug или filter_id. Пример: 'Плато раннего бронирования: цены стабильны, окно для фиксации лидеров')",
     "market_phase": "Название фазы (например: Чартерная зачистка D-11)",
     "charter_dynamics": "2-3 предложения с цифрами о поведении цен операторов",
     "floor_status": "Сводка по отелям на дне цены",
@@ -231,7 +240,7 @@ def call_openai_oracle(
 ТРЕБОВАНИЯ К ФОРМАТУ JSON:
 {{
   "macro_briefing": {{
-    "headline": "Яркий емкий заголовок ситуации на рынке",
+    "headline": "Яркий ёмкий аналитический заголовок ситуации на рынке (СТРОГО БЕЗ названий файлов, slug или filter_id. Пример: 'Плато раннего бронирования: цены стабильны, окно для фиксации лидеров')",
     "market_phase": "Название фазы (например: Чартерная зачистка D-11)",
     "charter_dynamics": "2-3 предложения с цифрами о поведении цен операторов",
     "floor_status": "Сводка по отелям на дне цены",
@@ -290,13 +299,18 @@ def synthesize_market_oracle(
     gemini_api_key: Optional[str] = None,
     openai_api_key: Optional[str] = None,
     api_key: Optional[str] = None,
+    filter_title: Optional[str] = None,
 ) -> Dict[str, Any]:
     """
     Main orchestration function: extracts features and generates two-tier AI intelligence.
     Supports OpenAI (gpt-4o / gpt-4o-mini), Google Gemini (gemini-2.0-flash / gemini-1.5-flash),
     and deterministic Rule-Based Fallback.
     """
-    market_context = extract_filter_features(prices_csv_path, dna_profile_path=dna_profile_path)
+    market_context = extract_filter_features(
+        prices_csv_path,
+        dna_profile_path=dna_profile_path,
+        filter_title=filter_title,
+    )
     if "error" in market_context:
         return market_context
 
