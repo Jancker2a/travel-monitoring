@@ -128,7 +128,7 @@ jobs:
             market-dna-
 
       - name: Build Market DNA Profile (if cache missed)
-        if: steps.cache-market-dna.outputs.cache-hit != 'true' || hashFiles('market_dna_profile.json') == ''
+        if: hashFiles('market_dna_profile.json') == ''
         run: |
           echo "🧬 Building Market DNA Profile (cache miss or initial run)..."
           python build_market_dna.py --output market_dna_profile.json || true

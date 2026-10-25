@@ -3021,20 +3021,42 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
     oracle_report = None
     try:
         if synthesize_market_oracle and data_file and os.path.exists(data_file):
-            dna_path = "market_dna_profile.json"
-            if not os.path.exists(dna_path):
-                from build_market_dna import build_market_dna
-                dna_res = build_market_dna()
-                if dna_res:
-                    with open(dna_path, "w", encoding="utf-8") as f:
-                        json.dump(dna_res, f, ensure_ascii=False, indent=2)
-            oracle_report = synthesize_market_oracle(
-                data_file,
-                dna_profile_path=dna_path,
-                filter_title=title,
-            )
-            if oracle_report and "macro_briefing" in oracle_report:
-                print(f"🧠 AI Market Oracle: отчет успешно сгенерирован ({len(oracle_report.get('hotel_dossiers', {}))} досье)")
+            oracle_cache_file = os.path.join(os.path.dirname(data_file), "ai_market_oracle_report.json")
+            force_ai = os.getenv("FORCE_AI_ANALYSIS", "").lower() in ("true", "1")
+
+            # Reuse cached AI briefing if generated less than 6 hours ago
+            if os.path.exists(oracle_cache_file) and not force_ai:
+                try:
+                    cache_age_sec = time.time() - os.path.getmtime(oracle_cache_file)
+                    if cache_age_sec < 6 * 3600:
+                        with open(oracle_cache_file, "r", encoding="utf-8") as f:
+                            cached_res = json.load(f)
+                        if cached_res and "macro_briefing" in cached_res:
+                            oracle_report = cached_res
+                            print(f"🧠 AI Market Oracle: отчет загружен из кэша (возраст {cache_age_sec / 3600:.1f} ч)")
+                except Exception as e:
+                    pass
+
+            if not oracle_report:
+                dna_path = "market_dna_profile.json"
+                if not os.path.exists(dna_path):
+                    from build_market_dna import build_market_dna
+                    dna_res = build_market_dna()
+                    if dna_res:
+                        with open(dna_path, "w", encoding="utf-8") as f:
+                            json.dump(dna_res, f, ensure_ascii=False, indent=2)
+                oracle_report = synthesize_market_oracle(
+                    data_file,
+                    dna_profile_path=dna_path,
+                    filter_title=title,
+                )
+                if oracle_report and "macro_briefing" in oracle_report:
+                    print(f"🧠 AI Market Oracle: свежий отчет успешно сгенерирован ({len(oracle_report.get('hotel_dossiers', {}))} досье)")
+                    try:
+                        with open(oracle_cache_file, "w", encoding="utf-8") as f:
+                            json.dump(oracle_report, f, ensure_ascii=False, indent=2)
+                    except Exception as e:
+                        pass
     except Exception as e:
         print(f"⚠️ AI Market Oracle skipped: {e}")
 

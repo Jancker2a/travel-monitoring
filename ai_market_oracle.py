@@ -631,7 +631,8 @@ def call_gemini_oracle(
                     raw_text = re.sub(r"^```(?:json)?\s*", "", raw_text)
                     raw_text = re.sub(r"\s*```$", "", raw_text)
                 result = json.loads(raw_text)
-                if result and "macro_briefing" in result and "hotel_dossiers" in result:
+                if result and "macro_briefing" in result:
+                    result.setdefault("hotel_dossiers", result.get("dossiers", {}))
                     result["macro_briefing"]["synthesized_by"] = f"Google Gemini ({m_name})"
                     logger.info(f"✓ Gemini ({m_name}) successfully generated AI market analysis.")
                     return enrich_oracle_report_with_smart_features(result, market_context)
@@ -783,7 +784,8 @@ def call_openai_oracle(
                     raw_text = re.sub(r"^```(?:json)?\s*", "", raw_text)
                     raw_text = re.sub(r"\s*```$", "", raw_text)
                 result = json.loads(raw_text)
-                if result and "macro_briefing" in result and "hotel_dossiers" in result:
+                if result and "macro_briefing" in result:
+                    result.setdefault("hotel_dossiers", result.get("dossiers", {}))
                     result["macro_briefing"]["synthesized_by"] = f"OpenAI ({target_model})"
                     logger.info(f"✓ OpenAI ({target_model}) successfully generated AI market analysis.")
                     return enrich_oracle_report_with_smart_features(result, market_context)
