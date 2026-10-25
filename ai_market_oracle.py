@@ -38,9 +38,11 @@ SYSTEM_INSTRUCTION = """
    - Вместо «плато раннего бронирования» пиши: «до вылета еще много времени, цены спокойные и спешить не нужно».
    - Вместо «риск sold-out» пиши: «хорошие номера в этом отеле быстро разбирают».
 3. ПРИВОДИ КОНКРЕТНЫЕ ЦИФРЫ: цены в злотых (zł), сколько дней осталось до вылета, сколько можно сэкономить.
-4. ЕСЛИ В ПОДБОРКЕ РАЗНЫЕ ДАТЫ ВЫЛЕТА (например, на месяц вперед):
-   - Разделяй ближайшие и дальние даты: на ближайшие дни туроператоры уже «горят» и отдают туры дешевле, а на дальние даты цены пока обычные, можно спокойно выбирать.
-   - Поясни, что подборка «живая» и обновляется каждый день по мере приближения вылетов.
+4. УЧИТЫВАЙ РЕАЛЬНЫЕ ДАТЫ ВЫЛЕТА (market_stats):
+   - Обязательно смотри на min_days_to_departure, nearest_departure_date и dominant_yield_phase!
+   - Если до вылета больше 20 дней (например, 56 дней в декабре): это РАННЕЕ БРОНИРОВАНИЕ (early_bird / mid_term). Цены спокойные, спешить с покупкой не нужно. КАТЕГОРИЧЕСКИ ЗАПРЕЩЕНО писать «Горящие туры», «вылет через 6 дн.» или советовать брать тур прямо сейчас!
+   - Термин «Горящие туры» и совет «брать срочно» допустимы ТОЛЬКО если до вылета РЕАЛЬНО осталось <= 7 дней!
+   - Если is_wide_window=false (все даты в пределах 2-3 дней): НЕ дели даты на «ближайшие» и «дальние», вылет один!
 5. РЕКОМЕНДАЦИЯ «ЕСЛИ ПОКУПАТЬ СЕЙЧАС» (поле buy_now_recommendation):
    - Если на рынке есть 1-2 реально выгодных предложения (сброс цены, дно сезона, жемчужина) — укажи has_worthy_deals: true, заголовок «Стоит выбрать из этих вариантов:» и перечисли их с понятным объяснением, почему брать. Обязательно передавай точную цену отеля в поле "price".
    - Если же на рынке ВСЕ варианты средние, плохие или переоценены — укажи has_worthy_deals: false, заголовок «Лучше ничего не покупать — подождите», и объясни, почему сейчас не время для покупки.
@@ -496,6 +498,32 @@ def enrich_oracle_report_with_smart_features(
         if not verified_picks:
             macro["buy_now_recommendation"] = compute_buy_now_recommendation(market_context, dossiers)
 
+    # 7. Ground-truth sanity check for market_phase, headline, and strategic_directive
+    stats = market_context.get("market_stats", {})
+    min_d = stats.get("min_days_to_departure", 14)
+    nearest_dep = stats.get("nearest_departure_date", "")
+    is_wide = stats.get("is_wide_window", False)
+    phase_str = str(macro.get("market_phase", ""))
+
+    # If departure is > 20 days away, but AI hallucinated "Горящие туры" or "через X дн."
+    if min_d >= 20 and ("горящ" in phase_str.lower() or re.search(r"через\s*[1-9]\s*дн", phase_str, re.I)):
+        dep_suffix = f" ({nearest_dep})" if nearest_dep else ""
+        macro["market_phase"] = f"Ранний выбор (вылет через {min_d} дн.{dep_suffix})"
+        logger.info(f"Corrected hallucinated market_phase from '{phase_str}' to '{macro['market_phase']}' (min_d={min_d})")
+
+    head_str = str(macro.get("headline", ""))
+    if not is_wide and ("дальние" in head_str.lower() or "ближайшие даты цены падают" in head_str.lower()):
+        if min_d >= 20:
+            macro["headline"] = f"Вылеты {nearest_dep} (через {min_d} дн.): цены стабильные, спешить с покупкой не нужно"
+        else:
+            macro["headline"] = f"Вылеты {nearest_dep} (через {min_d} дн.): туроператоры обновляют цены"
+        logger.info(f"Corrected wide-window hallucination in headline to '{macro['headline']}'")
+
+    directive_str = str(macro.get("strategic_directive", ""))
+    if min_d >= 20 and ("на ближайшие даты, стоит брать" in directive_str.lower() or "брать прямо сейчас" in directive_str.lower() or "стоит брать туры сейчас" in directive_str.lower()):
+        macro["strategic_directive"] = f"До вылета еще много времени ({min_d} дн.). Цены находятся на обычном уровне. Спешить с бронированием не нужно: добавьте отели в «Избранное» (☆) и наблюдайте за ценой за 10–14 дней до вылета."
+        logger.info("Corrected rushed buy directive for distant departure (>20 days).")
+
     if market_context.get("filter_title"):
         macro["filter_title"] = market_context["filter_title"]
 
@@ -527,8 +555,8 @@ def call_gemini_oracle(
 ТРЕБОВАНИЯ К ФОРМАТУ JSON:
 {{
   "macro_briefing": {{
-    "headline": "Короткий живой заголовок ситуации (СТРОГО БЕЗ названий файлов, slug или filter_id. Пример: 'На ближайшие даты цены падают, на дальние — стабильны')",
-    "market_phase": "Понятная фаза (например: Горящие туры через 6 дн. или Спокойный выбор за месяц до вылета)",
+    "headline": "Честный краткий заголовок ситуации строго по реальным данным min_days_to_departure и nearest_departure_date (СТРОГО БЕЗ названий файлов, slug или filter_id)",
+    "market_phase": "Фаза рынка строго по реальному min_days_to_departure (например: 'Раннее бронирование за 56 дн.' если вылет нескоро, или 'Горящие туры за 4 дн.' если вылет на днях)",
     "charter_dynamics": "2-3 простых понятных предложения с цифрами о ценах и рейсах",
     "floor_status": "Сколько отелей сейчас на самом дне цены",
     "strategic_directive": "Простой четкий совет: кому брать тур прямо сейчас, а кому лучше подождать",
@@ -665,8 +693,8 @@ def call_openai_oracle(
 ТРЕБОВАНИЯ К ФОРМАТУ JSON:
 {{
   "macro_briefing": {{
-    "headline": "Короткий живой заголовок ситуации (СТРОГО БЕЗ названий файлов, slug или filter_id. Пример: 'На ближайшие даты цены падают, на дальние — стабильны')",
-    "market_phase": "Понятная фаза (например: Горящие туры через 6 дн. или Спокойный выбор за месяц до вылета)",
+    "headline": "Честный краткий заголовок ситуации строго по реальным данным min_days_to_departure и nearest_departure_date (СТРОГО БЕЗ названий файлов, slug или filter_id)",
+    "market_phase": "Фаза рынка строго по реальному min_days_to_departure (например: 'Раннее бронирование за 56 дн.' если вылет нескоро, или 'Горящие туры за 4 дн.' если вылет на днях)",
     "charter_dynamics": "2-3 простых понятных предложения с цифрами о ценах и рейсах",
     "floor_status": "Сколько отелей сейчас на самом дне цены",
     "strategic_directive": "Простой четкий совет: кому брать тур прямо сейчас, а кому лучше подождать",
