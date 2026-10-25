@@ -482,7 +482,7 @@ def synthesize_market_oracle(
 ) -> Dict[str, Any]:
     """
     Main orchestration function: extracts features and generates two-tier AI intelligence.
-    Supports OpenAI (gpt-4o / gpt-4o-mini), Google Gemini (gemini-2.0-flash / gemini-1.5-flash),
+    Supports OpenAI (gpt-5.6-luna / gpt-4o-mini), Google Gemini (gemini-2.0-flash / gemini-1.5-flash),
     and deterministic Rule-Based Fallback.
     """
     market_context = extract_filter_features(
