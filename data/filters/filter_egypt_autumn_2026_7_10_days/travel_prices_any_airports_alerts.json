@@ -4680,10 +4680,62 @@
       "created_at": "2026-10-25T17:41:28.920255+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Parrotel Lagoon Resort_2026-10-25_17-38_+9.2"
+    },
+    {
+      "hotel_name": "Parrotel Lagoon Resort",
+      "duration_bucket": "",
+      "old_price": 6522.0,
+      "new_price": 5973.0,
+      "price_change": -549.0,
+      "price_change_pct": -8.41766329346826,
+      "timestamp": "2026-10-25 19:04:10.385496+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-25T19:05:30.683569+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Parrotel Lagoon Resort_2026-10-25_19-04_-8.4"
+    },
+    {
+      "hotel_name": "Amarina Queen Resort",
+      "duration_bucket": "",
+      "old_price": 7452.0,
+      "new_price": 8202.0,
+      "price_change": 750.0,
+      "price_change_pct": 10.064412238325282,
+      "timestamp": "2026-10-25 19:04:10.385496+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-25T19:05:30.683611+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amarina Queen Resort_2026-10-25_19-04_+10.1"
+    },
+    {
+      "hotel_name": "Rewaya Majestic Resort",
+      "duration_bucket": "",
+      "old_price": 7745.0,
+      "new_price": 8737.0,
+      "price_change": 992.0,
+      "price_change_pct": 12.808263395739186,
+      "timestamp": "2026-10-25 19:04:10.385496+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-25T19:05:30.683635+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Majestic Resort_2026-10-25_19-04_+12.8"
+    },
+    {
+      "hotel_name": "Rewaya Inn Resort (ex. Hawaii Paradise Aqua Park Resort)",
+      "duration_bucket": "",
+      "old_price": 6675.0,
+      "new_price": 6675.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-25 19:04:10.385496+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-25T19:05:30.683691+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Inn Resort (ex. Hawaii Paradise Aqua Park Resort)_2026-10-25_19-04_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-25T17:38:42.399698+00:00",
+    "last_processed_run": "2026-10-25T19:04:10.385496+00:00",
     "premium_state": {
       "Rewaya Luxury Resort Egipt, Hurghada": {
         "history_max": 6947.0,
@@ -5479,6 +5531,10 @@
       },
       "Pickalbatros Dana Beach Resort": {
         "history_max": 10202.0,
+        "premium_peak": null
+      },
+      "Pickalbatros White Beach Resort": {
+        "history_max": 9995.0,
         "premium_peak": null
       }
     }
