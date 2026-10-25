@@ -539,6 +539,24 @@ def get_all_dashboard_configs() -> List[Dict[str, Any]]:
             d_item['history_price_ceiling'] = str(c_data['history_price_ceiling'])
 
         any_ap_csv = f"{data_dir}/travel_prices_any_airports.csv"
+        if not (ROOT / any_ap_csv).is_file():
+            candidates = []
+            haystack = f"{data_dir} {flt.get('title', '')} {flt.get('href', '')}".lower()
+            if any(k in haystack for k in ["egypt", "egipt", "египет", "7_10", "13_16"]):
+                candidates.extend([
+                    "data/filters/filter_egypt_autumn_2026_7_10_days/travel_prices_any_airports.csv",
+                    "data/filters/filter_egypt_autumn_2026_13_16_days/travel_prices_any_airports.csv",
+                    "data/egypt_travel_prices_any_airports.csv",
+                ])
+            if any(k in haystack for k in ["turkey", "turcja", "турция"]):
+                candidates.append("data/turkey_travel_prices_any_airports.csv")
+            candidates.append("data/travel_prices_any_airports.csv")
+
+            for c in candidates:
+                if (ROOT / c).is_file():
+                    any_ap_csv = c
+                    break
+
         if (ROOT / any_ap_csv).is_file():
             d_item['all_airports_data'] = any_ap_csv
 

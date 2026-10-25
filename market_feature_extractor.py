@@ -95,6 +95,7 @@ def resolve_booking_window(
         "window_class": "early",
         "window_tip": "Историческое окно максимальной выгоды для этого типа отелей наступает за 14–21 день до вылета.",
     }
+    hist_med = float(h_dna.get("median_price", 0.0)) if h_dna else 0.0
     best_bucket = None
     if h_dna:
         if h_dna.get("sweet_spot_d_bucket") in BUCKET_CONFIG:
@@ -104,11 +105,23 @@ def resolve_booking_window(
             if b_medians:
                 best_bucket = min(b_medians.items(), key=lambda x: x[1])[0]
 
+    if d_days is not None and d_days <= 3:
+        if cur_p is not None and hist_med > 0 and cur_p > (hist_med * 1.02):
+            pass
+        else:
+            lbl = f"вылет через {d_days} дн.!" if d_days > 0 else "вылет сегодня!"
+            return {
+                "optimal_window": "D-0…D-3",
+                "window_status": "panic",
+                "window_badge": f"🔥 Горящий тур: {lbl}",
+                "window_class": "panic",
+                "window_tip": f"Срочный вылет ({d_days} дн.), туроператор сбрасывает оставшиеся места на рейсе.",
+            }
+
     if not best_bucket or best_bucket not in BUCKET_CONFIG:
         return default_res
 
     w_label, w_min, w_max = BUCKET_CONFIG[best_bucket]
-    hist_med = float(h_dna.get("median_price", 0.0)) if h_dna else 0.0
 
     if d_days is None:
         return {
@@ -275,6 +288,19 @@ def extract_filter_features(
                     pass
         hotel_ratings_map[hn] = r_val
 
+    # Ensure complete rating coverage from all historical rows of df
+    for r_col in ("ta_rating", "rating", "hotel_rating"):
+        if r_col in df.columns:
+            for hn, val in df.dropna(subset=[r_col]).groupby("hotel_name")[r_col].last().items():
+                if hn not in hotel_ratings_map or hotel_ratings_map[hn] <= 0:
+                    try:
+                        v = float(str(val).replace(",", "."))
+                        if v > 5.0:
+                            v = round(v / 2.0, 1)
+                        hotel_ratings_map[hn] = v
+                    except (ValueError, TypeError):
+                        pass
+
     # Peer cohort medians (comparing only with roughly equal hotels)
     peer_medians: Dict[Tuple[int, str], float] = {
         k: float(np.median(plist)) for k, plist in peer_cohort_prices.items() if plist
@@ -294,19 +320,34 @@ def extract_filter_features(
     # Temporary storage for second-pass dupe finding
     hotel_records_list: List[Dict[str, Any]] = []
 
+    # Pre-calculate local price history per hotel from df
+    hotel_hist_stats: Dict[str, Dict[str, float]] = {}
+    for hn, grp in df.groupby("hotel_name"):
+        plist = grp["price"].dropna().astype(float).tolist()
+        if plist:
+            hotel_hist_stats[hn] = {
+                "min": float(min(plist)),
+                "med": float(np.median(plist)),
+                "max": float(max(plist)),
+            }
+
     for _, row in latest_per_hotel.iterrows():
         h_name = str(row["hotel_name"])
         cur_p = float(row["price"])
+        r_val = hotel_ratings_map.get(h_name, 0.0)
         h_dna = dna_hotels.get(h_name)
-
-        hist_min = cur_p
-        hist_med = cur_p
-        archetype = "BALANCED"
+        l_stats = hotel_hist_stats.get(h_name, {"min": cur_p, "med": cur_p, "max": cur_p})
 
         if h_dna:
-            hist_min = float(h_dna.get("min_price", cur_p))
-            hist_med = float(h_dna.get("median_price", cur_p))
+            hist_min = float(h_dna.get("min_price", l_stats["min"]))
+            hist_med = float(h_dna.get("median_price", l_stats["med"]))
+            hist_max = float(h_dna.get("max_price", l_stats["max"]))
             archetype = h_dna.get("archetype", "BALANCED")
+        else:
+            hist_min = l_stats["min"]
+            hist_med = l_stats["med"]
+            hist_max = l_stats["max"]
+            archetype = "BALANCED"
 
         # Is current price within 2.5% of historical minimum?
         is_floor = cur_p <= (hist_min * 1.025)
@@ -404,6 +445,7 @@ def extract_filter_features(
             "current_price": cur_p,
             "historical_min": hist_min,
             "historical_median": hist_med,
+            "historical_max": hist_max,
             "quantile_in_filter": round(cur_rank, 2),
             "archetype": archetype,
             "stars": st,

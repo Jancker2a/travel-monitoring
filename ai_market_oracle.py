@@ -19,6 +19,7 @@ import argparse
 import json
 import logging
 import os
+import re
 import urllib.error
 import urllib.request
 from typing import Any, Dict, List, Optional
@@ -302,20 +303,33 @@ def compute_buy_now_recommendation(
         if bw.get("window_class") in ("panic", "last", "in_window") and bw.get("window_badge"):
             score += 60
             if not best_badge:
-                best_badge = f"🎯 {bw.get('window_label', 'Окно покупки')}"
-            reasons.append(f"идеальное окно покупки ({bw.get('window_label', '')})")
+                best_badge = bw.get("window_badge", "🎯 Окно покупки")
+            reasons.append(f"выгодный момент покупки ({bw.get('optimal_window', 'сейчас')})")
             has_real_catalyst = True
 
-        # 5. Реальное дно сезона (только если есть подтвержденная история и заметный спад)
+        # 5. Реальное дно сезона (только если цена на минимуме и была выше)
         hist_max = float(h_info.get("historical_max", cur_p) or cur_p)
-        if cur_p <= hist_min * 1.01 and hist_max >= cur_p * 1.08:
+        if cur_p <= hist_min * 1.01 and (hist_max >= cur_p * 1.05 or hist_med >= cur_p * 1.03):
             score += 50
-            reasons.append(f"цена на дне сезона (−{((hist_max - cur_p)/hist_max)*100:.0f}% от пика)")
+            if hist_max > cur_p:
+                reasons.append(f"цена на дне сезона (−{((hist_max - cur_p)/hist_max)*100:.0f}% от пика)")
+            else:
+                reasons.append("цена на историческом минимуме")
             has_real_catalyst = True
+            if not best_badge:
+                best_badge = "⚡ Дно цены"
 
         rating = float(h_info.get("rating", 0.0) or 0.0)
-        if rating >= 4.0:
-            score += (rating - 4.0) * 15
+        # Quality Guard: low-rated (< 4.0) hotels should not be recommended in top picks
+        if rating > 0 and rating < 4.0:
+            continue
+
+        if rating >= 4.5:
+            score += 40
+            reasons.append(f"высокий рейтинг {rating:g}★")
+        elif rating >= 4.0:
+            score += 20
+            reasons.append(f"хороший рейтинг {rating:g}★")
 
         if has_real_catalyst and score >= 80:
             scored_candidates.append({
@@ -340,11 +354,25 @@ def compute_buy_now_recommendation(
             "top_picks": top_picks,
         }
     else:
+        stats = market_context.get("market_stats", {})
+        min_d = stats.get("min_days_to_departure", 14)
+        if min_d <= 3:
+            headline = "Срочные вылеты: нет выраженных супер-скидок в 4–5★"
+            advice = (
+                f"Ближайший вылет уже через {min_d} дн., однако среди отелей с высоким подтвержденным рейтингом (4.0+★) "
+                "глубоких аномальных скидок сейчас нет. Если лететь нужно срочно — выбирайте варианты в таблице ниже, обязательно проверяя отзывы."
+            )
+        else:
+            headline = "Лучше ничего не покупать — подождите"
+            advice = (
+                "Сейчас на рынке нет действительно выгодных предложений: отели продаются по базовым или завышенным ценам. "
+                "Спешить с бронированием нет смысла — сохраните отели в «Избранное» (⭐) и подождите приближения вылета (за 7–10 дней туроператоры обычно начинают снижать цены)."
+            )
         return {
             "has_worthy_deals": False,
-            "headline": "Лучше ничего не покупать — подождите",
+            "headline": headline,
             "status_badge": "✋ ВЫГОДНЫХ СДЕЛОК НЕТ",
-            "advice": "Сейчас на рынке нет действительно выгодных предложений: отели продаются по базовым или завышенным ценам. Спешить с бронированием нет смысла — сохраните отели в «Избранное» (☆) и подождите приближения вылета (за 7–10 дней туроператоры обычно начинают снижать цены).",
+            "advice": advice,
             "top_picks": [],
         }
 
@@ -677,28 +705,16 @@ def call_openai_oracle(
     """
     Invokes OpenAI Chat Completions API with dynamic model discovery and JSON mode.
     """
-    import re
-
-    discovered = fetch_available_openai_models(api_key)
-    preferred_order = ["gpt-5.4-mini", "gpt-5.6-luna", "gpt-5-chat-latest", "gpt-4o-mini", "gpt-4o", "o3-mini"]
     target_models = []
-
     explicit_model = model or os.getenv("OPENAI_MODEL")
     if explicit_model:
-        if discovered and explicit_model not in discovered:
-            logger.warning(
-                f"Configured model '{explicit_model}' was NOT found in your OpenAI account models list! "
-                f"Available examples: {', '.join(discovered[:6])}. Will attempt anyway and fallback."
-            )
         target_models.append(explicit_model)
-
-    for p in preferred_order:
-        if p in discovered and p not in target_models:
-            target_models.append(p)
-
-    for p in preferred_order:
-        if p not in target_models:
-            target_models.append(p)
+        # At most 1 fallback if explicit model fails with HTTP error
+        fallback = "gpt-4o-mini"
+        if explicit_model != fallback and fallback not in target_models:
+            target_models.append(fallback)
+    else:
+        target_models = ["gpt-4o-mini"]
 
     llm_context = {
         "filter_id": market_context.get("filter_id"),
@@ -751,6 +767,7 @@ def call_openai_oracle(
 Ответь ТОЛЬКО валидным JSON без markdown-оберток.
 """
 
+    valid_result = None
     for target_model in target_models:
         payload = {
             "model": target_model,
@@ -777,7 +794,7 @@ def call_openai_oracle(
                 },
                 method="POST",
             )
-            with urllib.request.urlopen(req, timeout=40) as resp:
+            with urllib.request.urlopen(req, timeout=45) as resp:
                 data = json.loads(resp.read().decode("utf-8"))
                 raw_text = data["choices"][0]["message"]["content"].strip()
                 if raw_text.startswith("```"):
@@ -788,14 +805,23 @@ def call_openai_oracle(
                     result.setdefault("hotel_dossiers", result.get("dossiers", {}))
                     result["macro_briefing"]["synthesized_by"] = f"OpenAI ({target_model})"
                     logger.info(f"✓ OpenAI ({target_model}) successfully generated AI market analysis.")
-                    return enrich_oracle_report_with_smart_features(result, market_context)
+                    valid_result = result
+                    break
         except urllib.error.HTTPError as he:
             err_body = he.read().decode("utf-8", errors="replace")[:180]
-            logger.warning(f"OpenAI call with {target_model} failed: HTTP {he.code} - {err_body}. Trying next model/fallback...")
+            logger.warning(f"OpenAI call with {target_model} failed: HTTP {he.code} - {err_body}.")
         except Exception as e:
-            logger.warning(f"OpenAI call with {target_model} failed: {e}. Trying next model/fallback...")
+            logger.warning(f"OpenAI call with {target_model} failed: {e}.")
 
-    return None
+    if not valid_result:
+        return None
+
+    # Post-processing runs strictly OUTSIDE the LLM loop
+    try:
+        return enrich_oracle_report_with_smart_features(valid_result, market_context)
+    except Exception as e:
+        logger.error(f"Error enriching oracle report with smart features: {e}")
+        return valid_result
 
 
 def synthesize_market_oracle(

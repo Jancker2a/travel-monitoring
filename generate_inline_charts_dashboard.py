@@ -2327,9 +2327,24 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
     if all_airports_data_file and os.path.exists(all_airports_data_file):
         alt_file_to_load = all_airports_data_file
     else:
-        auto_alt_csv = os.path.join(data_dir, "travel_prices_any_airports.csv")
-        if os.path.exists(auto_alt_csv):
-            alt_file_to_load = auto_alt_csv
+        candidates = [
+            os.path.join(data_dir, "travel_prices_any_airports.csv"),
+        ]
+        haystack = f"{data_dir} {title}".lower()
+        if any(k in haystack for k in ["egypt", "egipt", "египет", "7_10", "13_16"]):
+            candidates.extend([
+                os.path.join("data", "filters", "filter_egypt_autumn_2026_7_10_days", "travel_prices_any_airports.csv"),
+                os.path.join("data", "filters", "filter_egypt_autumn_2026_13_16_days", "travel_prices_any_airports.csv"),
+                os.path.join("data", "egypt_travel_prices_any_airports.csv"),
+            ])
+        if any(k in haystack for k in ["turkey", "turcja", "турция"]):
+            candidates.append(os.path.join("data", "turkey_travel_prices_any_airports.csv"))
+        candidates.append(os.path.join("data", "travel_prices_any_airports.csv"))
+
+        for cand in candidates:
+            if cand and os.path.exists(cand):
+                alt_file_to_load = cand
+                break
 
     if alt_file_to_load:
         try:
@@ -2562,6 +2577,13 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             if '__dates_norm' not in df_source.columns:
                 df_source['__dates_norm'] = df_source['dates'].astype(str).map(normalize_dates)
             same_hotel_dates = df_source[(df_source['__hotel_norm'] == hotel_name_norm) & (df_source['__dates_norm'] == dates_norm)]
+            if len(same_hotel_dates) == 0:
+                base_name = hotel_name_norm.split('(')[0].strip()
+                if len(base_name) >= 6:
+                    same_hotel_dates = df_source[
+                        df_source['__hotel_norm'].str.startswith(base_name)
+                        & (df_source['__dates_norm'] == dates_norm)
+                    ]
             
             if len(same_hotel_dates) == 0:
                 _cheaper_alts_cache[cache_key] = []
@@ -11726,7 +11748,12 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         bindFoldPersistence('timingFold', 'dashboard_fold_timing', false);
         bindFoldPersistence('statsFold', 'dashboard_fold_stats', false);
         bindFoldPersistence('departureHistoryFold', 'dashboard_fold_departure_history', false);
-        bindFoldPersistence('vanishedFold', 'dashboard_fold_vanished', false);
+        // 'vanishedFold' (Выпавшие отели) always collapsed by default on page load
+        const vFold = document.getElementById('vanishedFold');
+        if (vFold) {
+          vFold.open = false;
+          try { localStorage.removeItem('dashboard_fold_vanished'); } catch(e) {}
+        }
         
         // Theme toggle functionality
         const themeToggle = document.getElementById('themeToggle');
