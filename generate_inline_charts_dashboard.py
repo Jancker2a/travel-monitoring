@@ -130,7 +130,7 @@ def render_ai_market_briefing_html(oracle_report: Optional[Dict[str, Any]], filt
                     </div>
                     <div class="ai-oracle-title-wrap">
                         <div class="ai-oracle-title-row">
-                            <span class="ai-oracle-main-title">AI Market Intelligence & Yield Oracle</span>
+                            <span class="ai-oracle-main-title">AI-анализ рынка и прогноз цен</span>
                             {phase_badge_html}
                         </div>
                         <div class="ai-oracle-subtitle">
@@ -144,14 +144,14 @@ def render_ai_market_briefing_html(oracle_report: Optional[Dict[str, Any]], filt
                 <div class="ai-oracle-grid">
                     <div class="ai-card-pulse">
                         <div class="ai-card-header-purple">
-                            <span>✈️</span> <span>Пульс чартеров & динамика цен</span>
+                            <span>✈️</span> <span>Что происходит с рейсами и ценами</span>
                         </div>
                         <div class="ai-card-body">{dynamics}</div>
                         {floor_badge_html}
                     </div>
                     <div class="ai-card-directive">
                         <div class="ai-card-header-green">
-                            <span>🎯</span> <span>Стратегическая директива бронирования</span>
+                            <span>🎯</span> <span>Совет: брать сейчас или подождать</span>
                         </div>
                         <div class="ai-card-body-green">{directive}</div>
                     </div>

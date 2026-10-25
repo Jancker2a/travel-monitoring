@@ -118,9 +118,18 @@ jobs:
           python scripts/run_germany_monitors.py || echo "⚠️ German tour monitoring completed with warning (non-critical)"
           echo "✅ German tour monitoring completed"
 
+      - name: Build or Update Market DNA Profile
+        run: |
+          echo "🧬 Pre-building Market DNA Profile for AI analysis..."
+          python build_market_dna.py --output market_dna_profile.json || true
+
       - name: Generate dashboards (only new filters) + landing
         env:
           DASHBOARD_PARALLEL_JOBS: "3"
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL || 'gemini-2.5-flash' }}
+          OPENAI_MODEL: ${{ vars.OPENAI_MODEL || 'gpt-4o-mini' }}
         run: |
           echo "🌐 Generating filter dashboards at $(date)"
           python scripts/run_dashboards_parallel.py -j "${DASHBOARD_PARALLEL_JOBS}"
