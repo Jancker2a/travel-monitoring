@@ -1,11 +1,90 @@
 {
   "version": 2,
-  "alerts": [],
+  "alerts": [
+    {
+      "hotel_name": "Bluesea Alborán (ex. Moon Dreams)",
+      "duration_bucket": "",
+      "old_price": 3075.0,
+      "new_price": 3075.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-25 16:19:00.640295+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-25T16:20:07.751588+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Bluesea Alborán (ex. Moon Dreams)_2026-10-25_16-19_zone_out_gone"
+    },
+    {
+      "hotel_name": "Bonita Albania",
+      "duration_bucket": "",
+      "old_price": 3019.0,
+      "new_price": 3019.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-25 16:19:00.640295+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-25T16:20:07.751617+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Bonita Albania_2026-10-25_16-19_zone_out_gone"
+    },
+    {
+      "hotel_name": "Duna Boutique",
+      "duration_bucket": "",
+      "old_price": 3084.0,
+      "new_price": 3084.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-25 16:19:00.640295+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-25T16:20:07.751633+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Duna Boutique_2026-10-25_16-19_zone_out_gone"
+    },
+    {
+      "hotel_name": "Marconi",
+      "duration_bucket": "",
+      "old_price": 3066.0,
+      "new_price": 3066.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-25 16:19:00.640295+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-25T16:20:07.751646+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Marconi_2026-10-25_16-19_zone_out_gone"
+    },
+    {
+      "hotel_name": "Marissal by Dorobe",
+      "duration_bucket": "",
+      "old_price": 3042.0,
+      "new_price": 3042.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-25 16:19:00.640295+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-25T16:20:07.751658+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Marissal by Dorobe_2026-10-25_16-19_zone_out_gone"
+    },
+    {
+      "hotel_name": "Pedras del Rei Aparthotel Portugalia",
+      "duration_bucket": "",
+      "old_price": 3057.0,
+      "new_price": 3057.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-25 16:19:00.640295+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-25T16:20:07.751670+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pedras del Rei Aparthotel Portugalia_2026-10-25_16-19_zone_out_gone"
+    }
+  ],
   "meta": {
-    "last_processed_run": "2026-10-25T06:29:12.938065+00:00",
+    "last_processed_run": "2026-10-25T16:19:00.640295+00:00",
     "premium_state": {
       "Barcelo Murcia Siete Coronas (ex. Silken Siete Coronas)": {
-        "history_max": 3066.0,
+        "history_max": 3085.0,
         "premium_peak": null
       },
       "Bluesea Alborán (ex. Moon Dreams)": {

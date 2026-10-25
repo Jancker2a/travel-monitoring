@@ -221,10 +221,49 @@
       "created_at": "2026-10-25T14:30:02.371986+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Rewaya Luxury Resort_2026-10-25_14-28_zone_out_+8.6"
+    },
+    {
+      "hotel_name": "Amarina Jannah Resort Aquapark",
+      "duration_bucket": "",
+      "old_price": 9432.0,
+      "new_price": 13235.0,
+      "price_change": 3803.0,
+      "price_change_pct": 40.320186598812555,
+      "timestamp": "2026-10-25 16:11:43.488573+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-25T16:13:01.022910+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amarina Jannah Resort Aquapark_2026-10-25_16-11_zone_out_+40.3"
+    },
+    {
+      "hotel_name": "Amarina Queen Resort",
+      "duration_bucket": "",
+      "old_price": 9238.0,
+      "new_price": 13091.0,
+      "price_change": 3853.0,
+      "price_change_pct": 41.70816193981381,
+      "timestamp": "2026-10-25 16:11:43.488573+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-25T16:13:01.022937+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amarina Queen Resort_2026-10-25_16-11_zone_out_+41.7"
+    },
+    {
+      "hotel_name": "Novotel Marsa Alam",
+      "duration_bucket": "",
+      "old_price": 11317.0,
+      "new_price": 9785.0,
+      "price_change": -1532.0,
+      "price_change_pct": -13.537156490235928,
+      "timestamp": "2026-10-25 16:11:43.488573+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-25T16:13:01.022960+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Novotel Marsa Alam_2026-10-25_16-11_comeback_13.5"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-25T14:28:45.746858+00:00",
+    "last_processed_run": "2026-10-25T16:11:43.488573+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 13392.0,
@@ -239,8 +278,8 @@
         "premium_peak": 13708.0
       },
       "Amarina Jannah Resort Aquapark": {
-        "history_max": 10332.0,
-        "premium_peak": 10332.0
+        "history_max": 13235.0,
+        "premium_peak": 13235.0
       },
       "Pickalbatros Laguna Vista Beach": {
         "history_max": 17477.0,
