@@ -24,11 +24,84 @@ from typing import Any, Dict, List, Optional, Set, Tuple
 
 
 STOP_WORDS: Set[str] = {
-    "hotel", "hotels", "resort", "resorts", "spa", "beach", "club",
-    "village", "palace", "deluxe", "premium", "luxury", "grand", "royal",
-    "park", "suites", "suite", "inn", "boutique", "aquapark", "aqua",
-    "all", "inclusive", "the", "and", "und", "i", "ex", "ex.",
-    "garden", "gardens", "sea", "view", "star", "stars",
+    "hotel", "hotels", "resort", "resorts", "spa", "all", "inclusive",
+    "the", "and", "und", "i", "ex", "ex.", "star", "stars", "view", "of",
+}
+
+# Major resort regions and location names that frequently appear in hotel titles.
+# These identify WHERE an entity is located, but MUST NOT be used as the primary
+# identity for entity matching (e.g., 'Sharm El Sheikh' is not a hotel brand).
+LOCATION_WORDS: Set[str] = {
+    # Egypt
+    "sharm", "sheikh", "el", "naama", "nabq", "hadaba", "shark", "sharks", "bay",
+    "hurghada", "makadi", "marsa", "alam", "safaga", "soma", "el-gouna", "gouna",
+    "dahar", "dahab", "taba", "cairo", "luxor", "ras", "nasrani", "um", "sid",
+    # Turkey
+    "antalya", "lara", "kundu", "belek", "side", "kemer", "alanya", "bodrum",
+    "marmaris", "fethiye", "oludeniz", "cesme", "kusadasi", "didim", "istanbul",
+    "manavgat", "avsallar", "konakli", "okurcalar", "turkler", "beldibi", "goynuk",
+    "kiris", "camyuva", "tekirova", "bogazkent",
+    # Greece
+    "rhodes", "rodos", "faliraki", "lindos", "kolymbia", "kallithea", "ixia",
+    "kreta", "crete", "heraklion", "chania", "rethymno", "hersonissos", "malia",
+    "corfu", "kerkyra", "kos", "zakynthos", "zante", "santorini", "mykonos",
+    # Spain & Islands
+    "mallorca", "majorca", "palma", "alcudia", "can", "picafort", "cala",
+    "ibiza", "menorca", "tenerife", "fuerteventura", "gran", "canaria", "lanzarote",
+    # Bulgaria / Others
+    "burgas", "varna", "sunny", "golden", "sands", "nessebar", "sozopol", "albena",
+    "zanzibar", "dubai", "abu", "dhabi", "fujairah", "sharjah", "cyprus", "paphos", "ayia", "napa",
+}
+
+# Canonical mapping for conflicting major regions
+MAJOR_REGIONS: Dict[str, str] = {
+    "sharm": "sharm", "sheikh": "sharm", "naama": "sharm", "nabq": "sharm", "hadaba": "sharm", "shark": "sharm", "sharks": "sharm",
+    "hurghada": "hurghada", "makadi": "hurghada", "gouna": "hurghada", "safaga": "hurghada", "soma": "hurghada", "dahar": "hurghada",
+    "marsa": "marsa_alam", "alam": "marsa_alam",
+    "antalya": "antalya", "lara": "antalya", "kundu": "antalya",
+    "belek": "belek", "bogazkent": "belek",
+    "side": "side", "manavgat": "side",
+    "kemer": "kemer", "beldibi": "kemer", "goynuk": "kemer", "kiris": "kemer", "camyuva": "kemer", "tekirova": "kemer",
+    "alanya": "alanya", "avsallar": "alanya", "konakli": "alanya", "okurcalar": "alanya", "turkler": "alanya",
+    "bodrum": "bodrum",
+    "marmaris": "marmaris",
+    "fethiye": "fethiye",
+    "rhodes": "rhodes", "rodos": "rhodes", "faliraki": "rhodes", "lindos": "rhodes", "kolymbia": "rhodes",
+    "kreta": "crete", "crete": "crete", "heraklion": "crete", "chania": "crete", "rethymno": "crete", "hersonissos": "crete",
+    "corfu": "corfu", "kerkyra": "corfu",
+    "kos": "kos",
+    "zakynthos": "zakynthos", "zante": "zakynthos",
+    "mallorca": "mallorca", "majorca": "mallorca", "palma": "mallorca", "alcudia": "mallorca",
+    "ibiza": "ibiza",
+    "menorca": "menorca",
+    "tenerife": "tenerife",
+    "fuerteventura": "fuerteventura",
+    "lanzarote": "lanzarote",
+    "zanzibar": "zanzibar",
+    "dubai": "dubai",
+    "burgas": "burgas",
+    "varna": "varna",
+}
+
+# Distinctive hotel chains and brands that distinguish different hotel operators
+STRONG_BRANDS: Set[str] = {
+    "rixos", "pickalbatros", "albatros", "baron", "hilton", "steigenberger",
+    "jaz", "sunrise", "titanic", "delphin", "sheraton", "marriott", "kempinski",
+    "movenpick", "radisson", "sentido", "tui", "iberostar", "riu", "paloma",
+    "voyage", "maxx", "limak", "crystal", "alva", "donna", "dobedan", "papillon",
+    "akka", "swandor", "selectum", "xanadu", "gloria", "concorde", "calista",
+    "mitsis", "grecotel", "aldemar", "barcelo", "melia", "h10", "lopesan",
+    "sol", "cleopatra", "rotana", "novotel", "mercure", "sofitel", "swissotel",
+    "hyatt", "intercontinental", "amarina", "labranda", "azur", "three", "corners",
+    "aladdin", "ali", "baba",
+}
+
+# Generic hotel descriptors that may differ across OTAs without representing a different property
+GENERIC_DESCRIPTORS: Set[str] = {
+    "palace", "deluxe", "premium", "luxury", "royal", "grand", "park", "beach",
+    "aqua", "aquapark", "club", "village", "inn", "suites", "suite", "boutique",
+    "garden", "gardens", "sea", "view", "blue", "golden", "sun", "city", "centre",
+    "resort", "hotel", "spa",
 }
 
 DEFAULT_CACHE_FILE = "hotel_crossborder_mapping.json"
@@ -40,7 +113,7 @@ def clean_hotel_name(raw_name: str) -> str:
     Cleans raw hotel name into canonical search tokens:
     - Strips operator suffixes and codes like (AYT12045) or (ex. Sunshine)
     - Removes punctuation and extra whitespace
-    - Lowercases text
+    - Lowercases text and filters pure noise
     """
     if not raw_name or not isinstance(raw_name, str):
         return ""
@@ -59,7 +132,7 @@ def clean_hotel_name(raw_name: str) -> str:
     tokens = [t.strip() for t in text.split() if t.strip()]
     meaningful = [t for t in tokens if t not in STOP_WORDS and len(t) > 1]
 
-    # If all tokens were filtered out (rare, e.g. "The Palace Hotel"), keep raw tokens
+    # If all tokens were filtered out, keep non-trivial tokens
     if not meaningful:
         meaningful = [t for t in tokens if len(t) > 1]
 
@@ -69,9 +142,7 @@ def clean_hotel_name(raw_name: str) -> str:
 def calculate_hotel_similarity(name1: str, name2: str) -> float:
     """
     Computes a composite similarity ratio [0.0, 1.0] between two hotel names.
-    Combines:
-    1. Token Set overlap (Jaccard-like)
-    2. SequenceMatcher ratio on sorted tokens
+    Enforces Brand Guard, Location Words separation, and chain sub-property conflict resolution.
     """
     c1 = clean_hotel_name(name1)
     c2 = clean_hotel_name(name2)
@@ -82,24 +153,60 @@ def calculate_hotel_similarity(name1: str, name2: str) -> float:
     if c1 == c2:
         return 1.0
 
-    tokens1 = set(c1.split())
-    tokens2 = set(c2.split())
+    raw1_tokens = set(c1.split())
+    raw2_tokens = set(c2.split())
 
-    # Jaccard overlap on meaningful tokens
-    intersection = tokens1.intersection(tokens2)
-    union = tokens1.union(tokens2)
-    jaccard = len(intersection) / max(1, len(union))
+    # 1. Geographic Conflict Check: different major regions cannot match
+    r1 = set(MAJOR_REGIONS[t] for t in raw1_tokens if t in MAJOR_REGIONS)
+    r2 = set(MAJOR_REGIONS[t] for t in raw2_tokens if t in MAJOR_REGIONS)
+    if r1 and r2 and not (r1.intersection(r2)):
+        return 0.0
 
-    # Exact token containment: if one token set is fully contained in another with >= 2 tokens
-    if len(tokens1) >= 2 and len(tokens2) >= 2:
-        if tokens1.issubset(tokens2) or tokens2.issubset(tokens1):
-            jaccard = max(jaccard, 0.88)
+    # 2. Brand Conflict Check: two different strong brands cannot match (e.g. Rixos vs Baron)
+    b1 = raw1_tokens.intersection(STRONG_BRANDS)
+    b2 = raw2_tokens.intersection(STRONG_BRANDS)
+    if b1 and b2 and not (b1.intersection(b2)):
+        return 0.0
 
-    # Sequence similarity on sorted canonical strings
-    seq_ratio = difflib.SequenceMatcher(None, c1, c2).ratio()
+    # 3. Core Tokens: separate distinctive hotel identity from pure location tokens
+    core1 = set(t for t in raw1_tokens if t not in LOCATION_WORDS)
+    core2 = set(t for t in raw2_tokens if t not in LOCATION_WORDS)
+    if not core1:
+        core1 = set(raw1_tokens)
+    if not core2:
+        core2 = set(raw2_tokens)
+
+    # 4. Zero Core Overlap: if two hotels have no non-location words in common, they cannot match
+    inter = core1.intersection(core2)
+    if not inter:
+        return 0.0
+
+    # 5. Chain Sub-Property Conflict Check:
+    # If both hotels belong to the same chain (e.g. 'sunrise'), but their specific property names
+    # are completely distinct (e.g. 'remal' vs 'diamond'), they are DIFFERENT hotels in that chain.
+    if b1 and b2 and (b1 == b2):
+        non_b1 = core1 - b1 - GENERIC_DESCRIPTORS
+        non_b2 = core2 - b2 - GENERIC_DESCRIPTORS
+        if non_b1 and non_b2 and not (non_b1.intersection(non_b2)):
+            return 0.35
+
+    # 6. Jaccard & Containment Overlap on Core Tokens
+    union = core1.union(core2)
+    jaccard = len(inter) / max(1, len(union))
+
+    if core1.issubset(core2) or core2.issubset(core1):
+        diff = core1 ^ core2
+        # Subset boost is only permitted if differences are generic descriptors
+        if diff.issubset(GENERIC_DESCRIPTORS):
+            jaccard = max(jaccard, 0.90)
+
+    # 7. Sequence similarity on sorted canonical strings
+    str1 = " ".join(sorted(core1))
+    str2 = " ".join(sorted(core2))
+    seq_ratio = difflib.SequenceMatcher(None, str1, str2).ratio()
 
     # Composite score
-    score = 0.55 * jaccard + 0.45 * seq_ratio
+    score = 0.60 * jaccard + 0.40 * seq_ratio
     return round(score, 3)
 
 
