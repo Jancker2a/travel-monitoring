@@ -705,26 +705,16 @@ def call_openai_oracle(
     """
     Invokes OpenAI Chat Completions API with dynamic model discovery and JSON mode.
     """
-    discovered = fetch_available_openai_models(api_key)
-    preferred_order = ["gpt-5.4-mini", "gpt-5.6-luna", "gpt-5-chat-latest", "gpt-4o-mini", "gpt-4o", "o3-mini"]
     target_models = []
-
     explicit_model = model or os.getenv("OPENAI_MODEL")
     if explicit_model:
-        if discovered and explicit_model not in discovered:
-            logger.warning(
-                f"Configured model '{explicit_model}' was NOT found in your OpenAI account models list! "
-                f"Available examples: {', '.join(discovered[:6])}. Will attempt anyway and fallback."
-            )
         target_models.append(explicit_model)
-
-    for p in preferred_order:
-        if p in discovered and p not in target_models:
-            target_models.append(p)
-
-    for p in preferred_order:
-        if p not in target_models:
-            target_models.append(p)
+        # At most 1 fallback if explicit model fails with HTTP error
+        fallback = "gpt-4o-mini"
+        if explicit_model != fallback and fallback not in target_models:
+            target_models.append(fallback)
+    else:
+        target_models = ["gpt-4o-mini"]
 
     llm_context = {
         "filter_id": market_context.get("filter_id"),
@@ -777,6 +767,7 @@ def call_openai_oracle(
 Ответь ТОЛЬКО валидным JSON без markdown-оберток.
 """
 
+    valid_result = None
     for target_model in target_models:
         payload = {
             "model": target_model,
@@ -803,7 +794,7 @@ def call_openai_oracle(
                 },
                 method="POST",
             )
-            with urllib.request.urlopen(req, timeout=40) as resp:
+            with urllib.request.urlopen(req, timeout=45) as resp:
                 data = json.loads(resp.read().decode("utf-8"))
                 raw_text = data["choices"][0]["message"]["content"].strip()
                 if raw_text.startswith("```"):
@@ -814,14 +805,23 @@ def call_openai_oracle(
                     result.setdefault("hotel_dossiers", result.get("dossiers", {}))
                     result["macro_briefing"]["synthesized_by"] = f"OpenAI ({target_model})"
                     logger.info(f"✓ OpenAI ({target_model}) successfully generated AI market analysis.")
-                    return enrich_oracle_report_with_smart_features(result, market_context)
+                    valid_result = result
+                    break
         except urllib.error.HTTPError as he:
             err_body = he.read().decode("utf-8", errors="replace")[:180]
-            logger.warning(f"OpenAI call with {target_model} failed: HTTP {he.code} - {err_body}. Trying next model/fallback...")
+            logger.warning(f"OpenAI call with {target_model} failed: HTTP {he.code} - {err_body}.")
         except Exception as e:
-            logger.warning(f"OpenAI call with {target_model} failed: {e}. Trying next model/fallback...")
+            logger.warning(f"OpenAI call with {target_model} failed: {e}.")
 
-    return None
+    if not valid_result:
+        return None
+
+    # Post-processing runs strictly OUTSIDE the LLM loop
+    try:
+        return enrich_oracle_report_with_smart_features(valid_result, market_context)
+    except Exception as e:
+        logger.error(f"Error enriching oracle report with smart features: {e}")
+        return valid_result
 
 
 def synthesize_market_oracle(
