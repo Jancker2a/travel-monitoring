@@ -2522,10 +2522,23 @@
       "created_at": "2026-10-25T16:13:22.224004+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Titanic Royal_2026-10-25_16-11_zone_out_gone"
+    },
+    {
+      "hotel_name": "Dream Lagoon & Aqua Park Resort (ex. Floriana Dream Lagoon)",
+      "duration_bucket": "",
+      "old_price": 7210.0,
+      "new_price": 6610.0,
+      "price_change": -600.0,
+      "price_change_pct": -8.321775312066574,
+      "timestamp": "2026-10-25 22:42:31.266853+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-25T22:43:23.457128+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Dream Lagoon & Aqua Park Resort (ex. Floriana Dream Lagoon)_2026-10-25_22-42_-8.3"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-25T19:02:50.602350+00:00",
+    "last_processed_run": "2026-10-25T22:42:31.266853+00:00",
     "premium_state": {
       "Amarina Jannah Resort Aquapark Egipt, Marsa Alam, Port Ghalib": {
         "history_max": 8857.0,
@@ -2556,7 +2569,7 @@
         "premium_peak": null
       },
       "Fantazia Resort": {
-        "history_max": 10516.0,
+        "history_max": 10918.0,
         "premium_peak": null
       },
       "Stella Di Mare Beach Resort & Spa (ex. Stella Makadi Resort) Egipt, Hurghada, Makadi Bay": {
