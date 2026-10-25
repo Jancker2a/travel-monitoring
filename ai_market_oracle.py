@@ -588,7 +588,7 @@ def call_openai_oracle(
     import re
 
     discovered = fetch_available_openai_models(api_key)
-    preferred_order = ["gpt-4o-mini", "gpt-4o", "o3-mini", "gpt-4-turbo"]
+    preferred_order = ["gpt-5.6-luna", "gpt-5-chat-latest", "gpt-5.4-mini", "gpt-4o-mini", "gpt-4o", "o3-mini"]
     target_models = []
 
     explicit_model = model or os.getenv("OPENAI_MODEL")
@@ -654,9 +654,12 @@ def call_openai_oracle(
                 {"role": "system", "content": SYSTEM_INSTRUCTION},
                 {"role": "user", "content": user_prompt},
             ],
-            "temperature": 0.2,
             "response_format": {"type": "json_object"},
         }
+        # Newer reasoning and next-gen models (gpt-5*, gpt-6*, o1, o3) only support default temperature (1.0).
+        # Supplying temperature=0.2 causes OpenAI HTTP 400 invalid_request_error: unsupported_value.
+        if not any(target_model.startswith(p) for p in ("gpt-5", "gpt-6", "o1", "o3")):
+            payload["temperature"] = 0.2
 
         try:
             url = "https://api.openai.com/v1/chat/completions"
