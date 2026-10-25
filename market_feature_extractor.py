@@ -80,8 +80,9 @@ def extract_filter_features(
     p10_price = float(np.percentile(prices, 10))
     p90_price = float(np.percentile(prices, 90))
 
-    # Calculate Days-to-Departure (D-Minus)
+    # Calculate Days-to-Departure (D-Minus) timeline & horizon
     d_values: List[int] = []
+    dep_dates: List[date] = []
     d_buckets_count: Dict[str, int] = {}
     today = date.today()
 
@@ -89,11 +90,21 @@ def extract_filter_features(
         dep_d = parse_departure_date(str(row.get("dates", "")))
         if dep_d:
             d = (dep_d - today).days
-            d_values.append(d)
-            b = get_d_bucket(d)
-            d_buckets_count[b] = d_buckets_count.get(b, 0) + 1
+            if d >= 0:
+                d_values.append(d)
+                dep_dates.append(dep_d)
+                b = get_d_bucket(d)
+                d_buckets_count[b] = d_buckets_count.get(b, 0) + 1
 
+    min_d = int(np.min(d_values)) if d_values else 14
+    max_d = int(np.max(d_values)) if d_values else 14
     avg_d = int(np.median(d_values)) if d_values else 14
+    span_d = max(0, max_d - min_d)
+    is_wide_window = span_d >= 7
+
+    nearest_dep = min(dep_dates).strftime("%d.%m") if dep_dates else ""
+    furthest_dep = max(dep_dates).strftime("%d.%m") if dep_dates else ""
+
     dominant_phase = max(d_buckets_count.items(), key=lambda x: x[1])[0] if d_buckets_count else "mid_term"
 
     # Identify Floor Breakers & Archetype enrichment
@@ -170,8 +181,17 @@ def extract_filter_features(
             "p90_price": p90_price,
             "max_price": max_price,
             "median_days_to_departure": avg_d,
+            "min_days_to_departure": min_d,
+            "max_days_to_departure": max_d,
+            "departure_span_days": span_d,
+            "is_wide_window": is_wide_window,
+            "nearest_departure_date": nearest_dep,
+            "furthest_departure_date": furthest_dep,
             "dominant_yield_phase": dominant_phase,
             "phase_distribution": d_buckets_count,
+            "near_term_count": len([d for d in d_values if d <= 7]),
+            "mid_term_count": len([d for d in d_values if 8 <= d <= 21]),
+            "far_term_count": len([d for d in d_values if d >= 22]),
         },
         "floor_saturation": {
             "floor_breaker_count": len(floor_breakers),
