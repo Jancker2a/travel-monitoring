@@ -3556,6 +3556,12 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             hopper_reasoning = f"Отличный момент для покупки: Deal Score {deal_score}, цена на минимуме истории ({int(price)} PLN)."
         hopper_class = "buy-now" if hopper_verdict == "BUY_NOW" else ("wait" if hopper_verdict == "WAIT" else ("overpriced" if hopper_verdict == "OVERPRICED" else "neutral"))
 
+        flash_drop_badge_html = ""
+        fair_price_badge_html = ""
+        booking_window_badge_html = ""
+        gem_badge_html = ""
+        card_dupe_html = ""
+
         if oracle_report and "hotel_dossiers" in oracle_report:
             h_dossier = oracle_report["hotel_dossiers"].get(hotel_name)
             if h_dossier:
@@ -3568,6 +3574,45 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
                 elif v_raw == "OVERPRICED":
                     hopper_class = "overpriced"
                 hopper_reasoning = f"{h_dossier.get('rationale', '')} • Риск: {h_dossier.get('risk_assessment', '')} • Совет: {h_dossier.get('action_advice', '')}"
+
+                # 1. Optimal Booking Window
+                bw_badge = h_dossier.get("booking_window_badge")
+                if bw_badge:
+                    bw_cls = h_dossier.get("booking_window_class", "in_window")
+                    bw_tip = html_lib.escape(str(h_dossier.get("booking_window_tip", "")), quote=True)
+                    booking_window_badge_html = f'<span class="booking-window-pill {bw_cls}" title="{bw_tip}">{html_lib.escape(str(bw_badge))}</span>'
+
+                # 2. Fair Price Index
+                fp_badge = h_dossier.get("fair_price_badge")
+                if fp_badge:
+                    fp_cls = h_dossier.get("fair_price_class", "bargain")
+                    fp_tip = html_lib.escape(str(h_dossier.get("fair_price_tip", "")), quote=True)
+                    fair_price_badge_html = f'<span class="fair-price-pill {fp_cls}" title="{fp_tip}">{html_lib.escape(str(fp_badge))}</span>'
+
+                # 3. Hidden Gem Badge
+                g_badge = h_dossier.get("gem_badge")
+                if g_badge:
+                    g_tip = html_lib.escape(str(h_dossier.get("gem_tip", "")), quote=True)
+                    gem_badge_html = f'<span class="gem-pill" title="{g_tip}">{html_lib.escape(str(g_badge))}</span>'
+
+                # 4. Flash Drop / Glitch Radar
+                fd_badge = h_dossier.get("flash_drop_badge")
+                if fd_badge:
+                    fd_tip = html_lib.escape(str(h_dossier.get("flash_drop_tip", "")), quote=True)
+                    flash_drop_badge_html = f'<span class="glitch-radar-pill" title="{fd_tip}">{html_lib.escape(str(fd_badge))}</span>'
+
+                # 5. AI Dupe Alternative (Twin)
+                dupe = h_dossier.get("dupe_suggestion")
+                if dupe and isinstance(dupe, dict):
+                    dupe_name = html_lib.escape(str(dupe.get("hotel_name", "")))
+                    dupe_url = dupe.get("offer_url") or dupe.get("url") or "#"
+                    dupe_savings = dupe.get("savings") or dupe.get("savings_pln") or 0
+                    dupe_rating = dupe.get("rating", 0.0)
+                    card_dupe_html = (
+                        f'<div class="ai-dupe-line" title="AI Двойник: отель сравнимого класса значительно дешевле">'
+                        f'💡 <strong>Двойник:</strong> <a href="{html_lib.escape(str(dupe_url), quote=True)}" target="_blank">{dupe_name}</a> '
+                        f'(−{dupe_savings:,.0f} zł при {dupe_rating:g}★)</div>'
+                    )
 
         card_arbitrage_html = ""
         m_arb = arbitrage_by_hotel.get(hotel_name)
@@ -3611,6 +3656,11 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             "hopper_reasoning": hopper_reasoning,
             "hopper_class": hopper_class,
             "arbitrage_badge_html": card_arbitrage_html,
+            "flash_drop_badge_html": flash_drop_badge_html,
+            "fair_price_badge_html": fair_price_badge_html,
+            "booking_window_badge_html": booking_window_badge_html,
+            "gem_badge_html": gem_badge_html,
+            "dupe_html": card_dupe_html,
         })
 
     hotel_meta_by_name = {c["hotel_name"]: c for c in hotel_cards}
@@ -6737,6 +6787,160 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             border-color: #1e293b transparent transparent transparent;
         }}
 
+        /* AI Smart Market Badges */
+        .fair-price-pill {{
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+            border-radius: 999px;
+            padding: .16rem .52rem;
+            font-size: .70rem;
+            font-weight: 700;
+            border: 1px solid transparent;
+            white-space: nowrap;
+            cursor: help;
+        }}
+        .fair-price-pill.bargain {{
+            background: rgba(6, 182, 212, 0.15);
+            color: #0e7490;
+            border-color: rgba(6, 182, 212, 0.35);
+        }}
+        .fair-price-pill.overpriced {{
+            background: rgba(249, 115, 22, 0.15);
+            color: #c2410c;
+            border-color: rgba(249, 115, 22, 0.35);
+        }}
+        .dark-theme .fair-price-pill.bargain {{
+            background: rgba(6, 182, 212, 0.22);
+            color: #38bdf8;
+            border-color: rgba(6, 182, 212, 0.45);
+        }}
+        .dark-theme .fair-price-pill.overpriced {{
+            background: rgba(249, 115, 22, 0.22);
+            color: #fb923c;
+            border-color: rgba(249, 115, 22, 0.45);
+        }}
+
+        .booking-window-pill {{
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+            border-radius: 999px;
+            padding: .16rem .52rem;
+            font-size: .70rem;
+            font-weight: 700;
+            border: 1px solid transparent;
+            white-space: nowrap;
+            cursor: help;
+        }}
+        .booking-window-pill.in_window {{
+            background: rgba(99, 102, 241, 0.15);
+            color: #4338ca;
+            border-color: rgba(99, 102, 241, 0.35);
+        }}
+        .booking-window-pill.early {{
+            background: rgba(100, 116, 139, 0.14);
+            color: #475569;
+            border-color: rgba(100, 116, 139, 0.3);
+        }}
+        .booking-window-pill.late {{
+            background: rgba(244, 63, 94, 0.14);
+            color: #be123c;
+            border-color: rgba(244, 63, 94, 0.32);
+        }}
+        .dark-theme .booking-window-pill.in_window {{
+            background: rgba(99, 102, 241, 0.25);
+            color: #818cf8;
+            border-color: rgba(99, 102, 241, 0.45);
+        }}
+        .dark-theme .booking-window-pill.early {{
+            background: rgba(148, 163, 184, 0.18);
+            color: #cbd5e1;
+            border-color: rgba(148, 163, 184, 0.35);
+        }}
+        .dark-theme .booking-window-pill.late {{
+            background: rgba(244, 63, 94, 0.22);
+            color: #fb7185;
+            border-color: rgba(244, 63, 94, 0.45);
+        }}
+
+        .gem-pill {{
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+            border-radius: 999px;
+            padding: .16rem .52rem;
+            font-size: .70rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.16), rgba(236, 72, 153, 0.12));
+            color: #7e22ce;
+            border: 1px solid rgba(168, 85, 247, 0.35);
+            white-space: nowrap;
+            cursor: help;
+        }}
+        .dark-theme .gem-pill {{
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.28), rgba(236, 72, 153, 0.22));
+            color: #d8b4fe;
+            border-color: rgba(168, 85, 247, 0.5);
+        }}
+
+        .glitch-radar-pill {{
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+            border-radius: 999px;
+            padding: .16rem .52rem;
+            font-size: .70rem;
+            font-weight: 800;
+            background: rgba(239, 68, 68, 0.18);
+            color: #b91c1c;
+            border: 1px solid rgba(239, 68, 68, 0.42);
+            white-space: nowrap;
+            cursor: help;
+            animation: glitchPulse 2.2s infinite ease-in-out;
+        }}
+        .dark-theme .glitch-radar-pill {{
+            background: rgba(239, 68, 68, 0.28);
+            color: #fca5a5;
+            border-color: rgba(239, 68, 68, 0.55);
+        }}
+        @keyframes glitchPulse {{
+            0%, 100% {{ transform: scale(1); }}
+            50% {{ transform: scale(1.03); }}
+        }}
+
+        .ai-dupe-line {{
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.70rem;
+            line-height: 1.25;
+            color: #4338ca;
+            background: rgba(99, 102, 241, 0.08);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 6px;
+            padding: 2px 7px;
+            margin-top: 3px;
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }}
+        .ai-dupe-line a {{
+            color: inherit;
+            text-decoration: underline;
+            font-weight: 600;
+        }}
+        .dark-theme .ai-dupe-line {{
+            color: #a5b4fc;
+            background: rgba(99, 102, 241, 0.16);
+            border-color: rgba(99, 102, 241, 0.35);
+        }}
+
         /* Arbitrage Card Badge */
         .arbitrage-card-badge {{
             display: inline-flex;
@@ -9223,9 +9427,14 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
                         <div class="hotel-card-price">{c["price"]:.0f} PLN</div>
                         <span class="deal-pill {c["deal_class"]}">Deal {c["deal_score"]} • {c["deal_label"]}</span>
                         {f'<span class="hopper-pill {c["hopper_class"]}" data-tip="{html_lib.escape(c["hopper_reasoning"], quote=True)}" title="{html_lib.escape(c["hopper_reasoning"], quote=True)}">{c["hopper_badge"]}</span>' if c.get("hopper_badge") and "НЕТ ДАННЫХ" not in str(c.get("hopper_badge")) else f'<span class="forecast-pill {c["forecast_class"]}">{c["forecast_icon"]} {c["forecast_text"]}</span>'}
+                        {c.get("flash_drop_badge_html", "")}
+                        {c.get("fair_price_badge_html", "")}
+                        {c.get("booking_window_badge_html", "")}
+                        {c.get("gem_badge_html", "")}
                     </div>
                     {c["comeback_html"]}
                     {c.get("cheaper_alt_html", "")}
+                    {c.get("dupe_html", "")}
                     {c.get("arbitrage_badge_html", "")}
                     <div class="hotel-card-stats">
                         <div>Δ48ч: <strong>{c["delta48"]}</strong></div>
