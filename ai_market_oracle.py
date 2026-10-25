@@ -154,6 +154,10 @@ def generate_rule_based_briefing(market_context: Dict[str, Any]) -> Dict[str, An
         quantile = h.get("quantile_in_filter", 0.5)
         flash = h.get("flash_drop", {})
 
+        hist_med = h.get("historical_median", cur_p)
+        fp = h.get("fair_price", {})
+        diff_from_med = ((cur_p - hist_med) / max(1.0, hist_med)) * 100.0 if hist_med > 0 else 0.0
+
         if flash.get("is_flash"):
             verdict = "BUY_NOW"
             verdict_badge = "⚡ СБРОС ЦЕНЫ"
@@ -166,10 +170,16 @@ def generate_rule_based_briefing(market_context: Dict[str, Any]) -> Dict[str, An
             rationale = f"Цена {cur_p:,.0f} zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки."
             risk = "Номера в этом отеле популярны, к дате вылета мест может не остаться."
             advice = "Если отель нравится — фиксируйте бронь прямо сегодня, дешевле уже вряд ли будет."
-        elif quantile <= 0.25:
+        elif diff_from_med >= 12.0 or fp.get("class") == "expensive":
+            verdict = "OVERPRICED"
+            verdict_badge = "🔴 ДОРОГО"
+            rationale = f"Цена {cur_p:,.0f} zł на {diff_from_med:.0f}% выше обычной средней цены этого отеля ({hist_med:,.0f} zł)."
+            risk = "Высокий риск переплаты. Туроператор держит завышенную цену."
+            advice = "Покупать сейчас крайне невыгодно. Добавьте в Избранное (☆) и ждите снижения."
+        elif diff_from_med <= -8.0 or (quantile <= 0.20 and diff_from_med <= 2.0):
             verdict = "GOOD_PRICE"
             verdict_badge = "🔵 ХОРОШАЯ ЦЕНА"
-            rationale = f"Цена {cur_p:,.0f} zł заметно ниже средней по рынку на эти даты."
+            rationale = f"Цена {cur_p:,.0f} zł на {abs(diff_from_med):.0f}% ниже обычной средней цены отеля."
             risk = "Цена может слегка колебаться, но предложение уже достаточно выгодное."
             advice = "Можно брать, если даты и отель полностью вас устраивают."
         else:
@@ -340,15 +350,50 @@ def enrich_oracle_report_with_smart_features(
 
     dossiers = report.setdefault("hotel_dossiers", {})
     all_intel = market_context.get("all_hotel_intelligence", {})
-
     for h_name, h_info in all_intel.items():
-        cur_d = dossiers.setdefault(h_name, {
-            "verdict": "GOOD_PRICE",
-            "badge_text": "🔵 ХОРОШАЯ ЦЕНА",
-            "rationale": f"Цена {h_info.get('current_price', 0):,.0f} zł на актуальные даты.",
-            "risk_assessment": "Места доступны для бронирования.",
-            "action_advice": "Ориентируйтесь на ваши планы поездки.",
-        })
+        if h_name not in dossiers:
+            cur_p = float(h_info.get("current_price", 0.0) or 0.0)
+            hist_min = float(h_info.get("historical_min", cur_p) or cur_p)
+            hist_med = float(h_info.get("historical_median", cur_p) or cur_p)
+            fp = h_info.get("fair_price", {})
+            diff_from_med = ((cur_p - hist_med) / max(1.0, hist_med)) * 100.0 if hist_med > 0 else 0.0
+            flash = h_info.get("flash_drop", {})
+            quantile = float(h_info.get("quantile_in_filter", 0.5))
+
+            if flash.get("is_flash"):
+                v = "BUY_NOW"
+                b_text = "⚡ СБРОС ЦЕНЫ"
+                rat = f"Резкий обвал цены до {cur_p:,.0f} zł (на {flash.get('drop_pct', 0):.0f}% ниже минимума сезона)."
+                adv = "Если отель вам подходит — бронируйте прямо сейчас."
+            elif cur_p <= hist_min * 1.02:
+                v = "BUY_NOW"
+                b_text = "🟢 ПОКУПАТЬ"
+                rat = f"Цена {cur_p:,.0f} zł — на самом дне за всё время наблюдений ({hist_min:,.0f} zł)."
+                adv = "Отличный момент для покупки, дешевле уже вряд ли будет."
+            elif diff_from_med >= 12.0 or fp.get("class") == "expensive":
+                v = "OVERPRICED"
+                b_text = "🔴 ДОРОГО"
+                rat = f"Цена {cur_p:,.0f} zł на {diff_from_med:.0f}% выше обычной средней этого отеля ({hist_med:,.0f} zł)."
+                adv = "Покупать сейчас невыгодно: цена завышена, лучше подождать снижения."
+            elif diff_from_med <= -8.0 or (quantile <= 0.20 and diff_from_med <= 2.0):
+                v = "GOOD_PRICE"
+                b_text = "🔵 ХОРОШАЯ ЦЕНА"
+                rat = f"Цена {cur_p:,.0f} zł на {abs(diff_from_med):.0f}% ниже обычной средней цены отеля."
+                adv = "Хорошая цена, можно бронировать."
+            else:
+                v = "WAIT"
+                b_text = "🟡 ПОДОЖДАТЬ"
+                rat = f"Отель сейчас стоит {cur_p:,.0f} zł — это обычная средняя цена."
+                adv = "Спешить не нужно, добавьте в «Избранное» (☆) и подождите."
+
+            dossiers[h_name] = {
+                "verdict": v,
+                "badge_text": b_text,
+                "rationale": rat,
+                "risk_assessment": "Следите за доступностью номеров перед вылетом.",
+                "action_advice": adv,
+            }
+        cur_d = dossiers[h_name]
 
         # 1. Booking Window
         bw = h_info.get("booking_window", {})

@@ -85,12 +85,13 @@ def infer_stars(hotel_name: str, row: pd.Series, dna: Optional[Dict[str, Any]] =
 def resolve_booking_window(
     h_dna: Optional[Dict[str, Any]],
     d_days: Optional[int],
+    cur_p: Optional[float] = None,
 ) -> Dict[str, str]:
     """Computes hotel-specific optimal booking window based on historical D-Minus yield curve."""
     default_res = {
         "optimal_window": "D-14…D-21",
         "window_status": "unknown",
-        "window_badge": "⏱ Окно: D-14…D-21",
+        "window_badge": "",
         "window_class": "early",
         "window_tip": "Историческое окно максимальной выгоды для этого типа отелей наступает за 14–21 день до вылета.",
     }
@@ -107,17 +108,27 @@ def resolve_booking_window(
         return default_res
 
     w_label, w_min, w_max = BUCKET_CONFIG[best_bucket]
+    hist_med = float(h_dna.get("median_price", 0.0)) if h_dna else 0.0
 
     if d_days is None:
         return {
             "optimal_window": w_label,
             "window_status": "unknown",
-            "window_badge": f"⏱ Окно: {w_label}",
+            "window_badge": "",
             "window_class": "early",
             "window_tip": f"Исторический минимум цены для этого отеля достигается за {w_label}.",
         }
 
     if w_min <= d_days <= w_max:
+        # Rule of Silence: Only award "🎯 Окно покупки" if the price is actually good (not overpriced!)
+        if cur_p is not None and hist_med > 0 and cur_p > (hist_med * 1.05):
+            return {
+                "optimal_window": w_label,
+                "window_status": "expensive_in_window",
+                "window_badge": "",
+                "window_class": "late",
+                "window_tip": f"Период {w_label} исторически был окном скидок, но сейчас отель продаётся дороже обычного ({cur_p:,.0f} zł при средней норме {hist_med:,.0f} zł).",
+            }
         return {
             "optimal_window": w_label,
             "window_status": "in_window",
@@ -129,7 +140,7 @@ def resolve_booking_window(
         return {
             "optimal_window": w_label,
             "window_status": "early",
-            "window_badge": f"⏱ Окно: {w_label}",
+            "window_badge": "",
             "window_class": "early",
             "window_tip": f"Историческое дно цены наступает за {w_label}. Сейчас D-{d_days} (рано).",
         }
@@ -137,7 +148,7 @@ def resolve_booking_window(
         return {
             "optimal_window": w_label,
             "window_status": "late",
-            "window_badge": f"⏱ Окно было: {w_label}",
+            "window_badge": "",
             "window_class": "late",
             "window_tip": f"Окно максимальных скидок ({w_label}) уже прошло. Текущий день: D-{d_days}.",
         }
@@ -280,7 +291,7 @@ def extract_filter_features(
         h_d_days = (h_dep_d - today).days if h_dep_d else None
 
         # Feature 1: Optimal Booking Window
-        bw_res = resolve_booking_window(h_dna, h_d_days)
+        bw_res = resolve_booking_window(h_dna, h_d_days, cur_p)
 
         # Feature 2: Fair Price Index & Cluster Benchmarking
         st = hotel_stars_map.get(h_name, 4)
