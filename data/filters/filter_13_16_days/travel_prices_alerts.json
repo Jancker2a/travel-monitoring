@@ -260,10 +260,36 @@
       "created_at": "2026-10-25T16:13:01.022960+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Novotel Marsa Alam_2026-10-25_16-11_comeback_13.5"
+    },
+    {
+      "hotel_name": "Novotel Marsa Alam",
+      "duration_bucket": "",
+      "old_price": 9785.0,
+      "new_price": 10755.0,
+      "price_change": 970.0,
+      "price_change_pct": 9.913132345426673,
+      "timestamp": "2026-10-25 17:09:36.325945+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-25T17:11:34.249548+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Novotel Marsa Alam_2026-10-25_17-09_zone_out_+9.9"
+    },
+    {
+      "hotel_name": "Swisstouch Oriental Resort (ex. Hotelux Oriental Coast)",
+      "duration_bucket": "",
+      "old_price": 9643.0,
+      "new_price": 10053.0,
+      "price_change": 410.0,
+      "price_change_pct": 4.251788862387224,
+      "timestamp": "2026-10-25 17:09:36.325945+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-25T17:11:34.249571+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Swisstouch Oriental Resort (ex. Hotelux Oriental Coast)_2026-10-25_17-09_zone_out_+4.3"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-25T16:11:43.488573+00:00",
+    "last_processed_run": "2026-10-25T17:09:36.325945+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 13392.0,
