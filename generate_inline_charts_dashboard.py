@@ -11726,7 +11726,12 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         bindFoldPersistence('timingFold', 'dashboard_fold_timing', false);
         bindFoldPersistence('statsFold', 'dashboard_fold_stats', false);
         bindFoldPersistence('departureHistoryFold', 'dashboard_fold_departure_history', false);
-        bindFoldPersistence('vanishedFold', 'dashboard_fold_vanished', false);
+        // 'vanishedFold' (Выпавшие отели) always collapsed by default on page load
+        const vFold = document.getElementById('vanishedFold');
+        if (vFold) {
+          vFold.open = false;
+          try { localStorage.removeItem('dashboard_fold_vanished'); } catch(e) {}
+        }
         
         // Theme toggle functionality
         const themeToggle = document.getElementById('themeToggle');
