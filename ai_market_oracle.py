@@ -244,8 +244,10 @@ def compute_buy_now_recommendation(
         dossier = dossiers.get(h_name, {})
         verdict = dossier.get("verdict", "")
 
-        # Исключаем заведомо переоценённые варианты
-        if verdict == "OVERPRICED" or fp.get("class") == "expensive":
+        hist_med = float(h_info.get("historical_median", cur_p) or cur_p)
+
+        # Исключаем заведомо переоценённые варианты или варианты выше собственной нормы
+        if verdict == "OVERPRICED" or fp.get("class") == "fair-overpriced" or (hist_med > 0 and cur_p > hist_med * 1.03):
             continue
 
         score = 0
@@ -270,18 +272,19 @@ def compute_buy_now_recommendation(
             reasons.append(f"высокий рейтинг {r_val:g}★ по цене эконом-сегмента")
             has_real_catalyst = True
 
-        # 3. Скидка к рыночной медиане (Fair Price Index)
-        diff_pct = fp.get("diff_pct", 0)
-        if diff_pct <= -12:
+        # 3. Скидка к сопоставимым отелям своего сегмента (Fair Price Index)
+        diff_pct = fp.get("delta_pct", 0)
+        tier_lbl = fp.get("tier", "")
+        if diff_pct <= -10 and (hist_med <= 0 or cur_p <= hist_med * 0.98):
             score += abs(diff_pct) * 2.5
             if not best_badge:
                 st = fp.get("stars", 4)
-                best_badge = f"💎 {diff_pct:.0f}% к рынку {st}★"
-            reasons.append(f"на {abs(diff_pct):.0f}% дешевле похожих отелей")
+                best_badge = f"🔥 {diff_pct:.0f}% в {tier_lbl} {st}★"
+            reasons.append(f"на {abs(diff_pct):.0f}% дешевле равных отелей сегмента {tier_lbl}")
             has_real_catalyst = True
 
-        # 4. Идеальное окно покупки по истории
-        if bw.get("window_class") in ("panic", "last"):
+        # 4. Идеальное окно покупки по истории (только если цена реально снижена)
+        if bw.get("window_class") in ("panic", "last", "in_window") and bw.get("window_badge"):
             score += 60
             if not best_badge:
                 best_badge = f"🎯 {bw.get('window_label', 'Окно покупки')}"

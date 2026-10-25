@@ -120,21 +120,22 @@ def resolve_booking_window(
         }
 
     if w_min <= d_days <= w_max:
-        # Rule of Silence: Only award "🎯 Окно покупки" if the price is actually good (not overpriced!)
-        if cur_p is not None and hist_med > 0 and cur_p > (hist_med * 1.05):
+        # Rule of Silence: Only award "🎯 Окно покупки" if the price is actually good (not overpriced or ordinary!)
+        # The price must be noticeably below historical median (at least 2% below median)
+        if cur_p is not None and hist_med > 0 and cur_p > (hist_med * 0.98):
             return {
                 "optimal_window": w_label,
-                "window_status": "expensive_in_window",
+                "window_status": "in_window_normal",
                 "window_badge": "",
-                "window_class": "late",
-                "window_tip": f"Период {w_label} исторически был окном скидок, но сейчас отель продаётся дороже обычного ({cur_p:,.0f} zł при средней норме {hist_med:,.0f} zł).",
+                "window_class": "in_window",
+                "window_tip": f"Период {w_label} исторически благоприятен для покупки, но сейчас отель продаётся по обычной цене ({cur_p:,.0f} zł при норме {hist_med:,.0f} zł).",
             }
         return {
             "optimal_window": w_label,
             "window_status": "in_window",
             "window_badge": f"🎯 Окно покупки: {w_label} (сейчас!)",
             "window_class": "in_window",
-            "window_tip": f"Текущий момент (D-{d_days}) совпадает с историческим минимумом цены для этого отеля ({w_label}).",
+            "window_tip": f"Текущий момент (D-{d_days}) совпадает со скидочным окном ({w_label}), и цена снижена относительно нормы ({cur_p:,.0f} zł при медиане {hist_med:,.0f} zł).",
         }
     elif d_days > w_max:
         return {
@@ -228,17 +229,39 @@ def extract_filter_features(
 
     dominant_phase = max(d_buckets_count.items(), key=lambda x: x[1])[0] if d_buckets_count else "mid_term"
 
-    # 1. Pre-calculate star clusters and ratings
+    # 1. Pre-calculate star clusters, price tiers, and ratings (Peer Group Benchmarking)
     hotel_stars_map: Dict[str, int] = {}
-    cluster_prices_map: Dict[int, List[float]] = {4: [], 5: []}
     hotel_ratings_map: Dict[str, float] = {}
+    hotel_tier_map: Dict[str, str] = {}
+    star_prices_map: Dict[int, List[float]] = {4: [], 5: []}
+    peer_cohort_prices: Dict[Tuple[int, str], List[float]] = {}
+
+    if len(prices) >= 6:
+        tier_p33 = float(np.percentile(prices, 33.3))
+        tier_p67 = float(np.percentile(prices, 66.7))
+    elif len(prices) > 0:
+        tier_p33 = float(np.percentile(prices, 50.0))
+        tier_p67 = float(np.percentile(prices, 50.0))
+    else:
+        tier_p33 = 0.0
+        tier_p67 = 0.0
 
     for _, row in latest_per_hotel.iterrows():
         hn = str(row["hotel_name"])
         p = float(row["price"])
         st = infer_stars(hn, row, dna_hotels.get(hn))
         hotel_stars_map[hn] = st
-        cluster_prices_map.setdefault(st, []).append(p)
+        star_prices_map.setdefault(st, []).append(p)
+
+        # Classify hotel into comparable price tier
+        if p <= tier_p33:
+            tier_name = "эконом"
+        elif p <= tier_p67:
+            tier_name = "комфорт"
+        else:
+            tier_name = "премиум"
+        hotel_tier_map[hn] = tier_name
+        peer_cohort_prices.setdefault((st, tier_name), []).append(p)
 
         r_val = 0.0
         for r_col in ("ta_rating", "rating", "hotel_rating"):
@@ -252,9 +275,13 @@ def extract_filter_features(
                     pass
         hotel_ratings_map[hn] = r_val
 
+    # Peer cohort medians (comparing only with roughly equal hotels)
+    peer_medians: Dict[Tuple[int, str], float] = {
+        k: float(np.median(plist)) for k, plist in peer_cohort_prices.items() if plist
+    }
     cluster_medians: Dict[int, float] = {
         st: float(np.median(plist)) if plist else med_price
-        for st, plist in cluster_prices_map.items()
+        for st, plist in star_prices_map.items()
     }
 
     # 2. Identify Floor Breakers, Flash Drops, Gems, Dupes & Hotel Intelligence
@@ -293,28 +320,60 @@ def extract_filter_features(
         # Feature 1: Optimal Booking Window
         bw_res = resolve_booking_window(h_dna, h_d_days, cur_p)
 
-        # Feature 2: Fair Price Index & Cluster Benchmarking
+        # Feature 2: Fair Price Index & Peer Cohort Benchmarking
         st = hotel_stars_map.get(h_name, 4)
-        c_med = cluster_medians.get(st, med_price)
-        fair_delta_pct = ((cur_p - c_med) / max(1.0, c_med)) * 100.0
+        tier_name = hotel_tier_map.get(h_name, "комфорт")
 
-        if fair_delta_pct <= -15.0:
-            fair_badge = f"🔥 −{abs(fair_delta_pct):.0f}% от рынка {st}★"
+        # Benchmark strictly against comparable peer cohort (same stars AND same price tier)
+        peer_med = peer_medians.get((st, tier_name))
+        if not peer_med:
+            plist = star_prices_map.get(st, prices)
+            peer_med = float(np.median(plist)) if len(plist) > 0 else med_price
+
+        fair_delta_pct = ((cur_p - peer_med) / max(1.0, peer_med)) * 100.0
+
+        # Self-benchmarking sanity checks:
+        # A hotel can ONLY be considered underpriced/bargain if:
+        # 1. It is below peer cohort median (fair_delta_pct <= -10.0%)
+        # 2. AND it is NOT selling above its own historical median (cur_p <= hist_med * 1.02)
+        # 3. AND it has a decent rating (r_val >= 3.8 or unrated)
+        is_truly_underpriced = (
+            fair_delta_pct <= -10.0
+            and cur_p <= (hist_med * 1.02)
+            and (r_val >= 3.8 or r_val == 0.0)
+        )
+
+        is_overpriced = (
+            fair_delta_pct >= 20.0
+            or cur_p >= (hist_med * 1.15)
+        )
+
+        if is_truly_underpriced:
+            fair_badge = f"🔥 −{abs(fair_delta_pct):.0f}% в {tier_name} {st}★"
             fair_class = "fair-underpriced"
-            fair_tip = f"Цена на {abs(fair_delta_pct):.0f}% ниже медианы аналогичных {st}★ отелей ({c_med:,.0f} zł)."
-        elif fair_delta_pct >= 25.0:
-            fair_badge = f"⚠️ +{fair_delta_pct:.0f}% к рынку {st}★"
+            fair_tip = (
+                f"Цена на {abs(fair_delta_pct):.0f}% ниже медианы равных отелей сегмента "
+                f"{tier_name} {st}★ ({peer_med:,.0f} zł) и не превышает обычную цену отеля ({hist_med:,.0f} zł)."
+            )
+        elif is_overpriced:
+            fair_badge = f"⚠️ +{fair_delta_pct:.0f}% к {tier_name} {st}★" if fair_delta_pct >= 15.0 else "⚠️ Дороже обычного"
             fair_class = "fair-overpriced"
-            fair_tip = f"Цена на {fair_delta_pct:.0f}% выше медианы аналогичных {st}★ отелей ({c_med:,.0f} zł)."
+            fair_tip = (
+                f"Цена на {fair_delta_pct:+.0f}% отличается от сопоставимых отелей сегмента "
+                f"{tier_name} {st}★ ({peer_med:,.0f} zł) или превышает историческую норму отеля ({hist_med:,.0f} zł)."
+            )
         else:
             fair_badge, fair_class, fair_tip = "", "", ""
 
         # Feature 3: Hidden Gem
-        r_val = hotel_ratings_map.get(h_name, 0.0)
-        p30_tier = float(np.percentile(cluster_prices_map.get(st, prices), 30)) if cluster_prices_map.get(st) else p10_price
-        is_gem = (r_val >= 4.3 and cur_p <= p30_tier)
+        # A true gem is a high quality hotel (rating >= 4.4) priced in the economy or lower comfort tier
+        is_gem = (
+            r_val >= 4.4
+            and cur_p <= (tier_p33 * 1.08)
+            and cur_p <= (hist_med * 1.03)
+        )
         gem_badge = "💎 Скрытая жемчужина" if is_gem else ""
-        gem_tip = f"Высокий рейтинг ({r_val:g}★) при цене в нижних 30% сегмента {st}★ ({cur_p:,.0f} zł)." if is_gem else ""
+        gem_tip = f"Высокий рейтинг ({r_val:g}★) при цене в бюджетном сегменте {st}★ ({cur_p:,.0f} zł)." if is_gem else ""
 
         if is_gem:
             gems.append({
@@ -358,7 +417,8 @@ def extract_filter_features(
                 "badge": fair_badge,
                 "class": fair_class,
                 "tip": fair_tip,
-                "cluster_median": round(c_med, 0),
+                "tier": tier_name,
+                "cluster_median": round(peer_med, 0),
             },
             "gem": {
                 "is_gem": is_gem,
@@ -376,7 +436,13 @@ def extract_filter_features(
         if is_floor:
             floor_breakers.append(cand_info)
 
-        if is_floor or cur_rank <= 0.15 or archetype == "LATE_DUMPER" or is_flash or is_gem:
+        has_buy_catalyst = (
+            (is_floor and cur_p <= hist_med * 0.98)
+            or is_flash
+            or is_gem
+            or (is_truly_underpriced and r_val >= 4.2)
+        )
+        if has_buy_catalyst:
             active_candidates.append(cand_info)
 
         hotel_records_list.append(cand_info)
@@ -385,11 +451,12 @@ def extract_filter_features(
     for cand in hotel_records_list:
         cur_p = cand["current_price"]
         st = cand["stars"]
-        c_med = cluster_medians.get(st, med_price)
+        tier_name = cand["fair_price"].get("tier", "комфорт")
+        peer_med = peer_medians.get((st, tier_name), med_price)
         r_val = cand["rating"]
 
-        # Only search dupes for hotels with premium pricing
-        if cur_p >= 5000.0 or cur_p >= (c_med * 1.20):
+        # Only search dupes for hotels with premium pricing or elevated prices
+        if cur_p >= 5000.0 and (cur_p >= (peer_med * 1.20) or cur_p >= (cand["historical_median"] * 1.15)):
             dupe_candidates = [
                 other for other in hotel_records_list
                 if other["hotel_name"] != cand["hotel_name"]
