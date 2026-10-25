@@ -114,7 +114,20 @@ def main() -> int:
     print(f"Parallel dashboards: {len(active_specs)}/{len(DEFAULT_DASHBOARDS)} filters, jobs={jobs}")
     print(f"Logs: {log_dir}")
     t0 = time.monotonic()
-    failed: list[str] = []
+    # Build market_dna_profile.json once before parallel dashboard jobs
+    dna_path = ROOT / "market_dna_profile.json"
+    if not dna_path.is_file():
+        try:
+            import json
+            from build_market_dna import build_market_dna
+            print("🧬 Pre-building Market DNA Profile for dashboards...")
+            dna_res = build_market_dna()
+            if dna_res:
+                with open(dna_path, "w", encoding="utf-8") as f:
+                    json.dump(dna_res, f, ensure_ascii=False, indent=2)
+                print("✓ Market DNA Profile pre-built successfully.")
+        except Exception as e:
+            print(f"⚠️ Could not pre-build Market DNA: {e}")
 
     with ProcessPoolExecutor(max_workers=jobs) as pool:
         futures = {

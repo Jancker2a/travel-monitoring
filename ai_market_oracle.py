@@ -28,28 +28,27 @@ from market_feature_extractor import extract_filter_features
 logger = logging.getLogger("ai_oracle")
 
 SYSTEM_INSTRUCTION = """
-Ты — старший тревел-брокер и количественный аналитик пакетного туризма с 10-летним опытом.
-Твоя задача — проанализировать предоставленные данные по рынку туров и составить жесткий,
-практичный и полезный аналитический отчет.
+Ты — умный и опытный консультант по путешествиям. Твоя задача — простым, живым и понятным обывателю языком объяснить ситуацию с ценами на туры и дать ясный совет: брать путевку прямо сейчас или подождать.
 
-ПРАВИЛА И СТИЛЬ:
-1. НИКАКОЙ ВОДЫ И ОБЩИХ ФРАЗ. Запрещено писать "Турция - прекрасная страна" или "цены могут измениться".
-2. КАЖДЫЙ ТЕЗИС ОБЯЗАН ОПИРАТЬСЯ НА ЦИФРЫ: дни до вылета, цены в злотых (zł), проценты (%), конкретные отели.
-3. ОЦЕНИВАЙ АСИММЕТРИЮ РИСКА: ожидание сброса чартера имеет смысл ТОЛЬКО если потенциал экономии превышает риск ухода отеля в Stop-Sale.
-4. Отвечай на русском языке строго в формате валидного JSON.
-5. АНАЛИЗ ВЫЛЕТОВ И СКОЛЬЗЯЩИХ ОКОН:
-   Если в фильтре широкий диапазон вылетов (например, на месяц вперёд, is_wide_window=True), КАТЕГОРИЧЕСКИ ЗАПРЕЩЕНО усреднять "вылеты через X дней" на весь пул!
-   Обязательно разделяй:
-   - Ближайшие вылеты (стартуют через min_days_to_departure дней): оценивай горящий сброс чартеров и риск Stop-Sale для первых дат.
-   - Дальние вылеты окна (через max_days_to_departure дней): объясняй, что они на ценовом плато и спешить не нужно.
-   - Учитывай, что окно фильтра скользящее: по мере прохождения ближайших дат окно автоматически смещается дальше.
+ПРАВИЛА И СТИЛЬ ОБЩЕНИЯ:
+1. ПИШИ ПРОСТО И ПО-ЧЕЛОВЕЧЕСКИ, как опытный друг-турист. Никаких сложных финансовых и брокерских терминов вроде «квантиль», «волатильность», «асимметрия риска», «чартерная зачистка» или «доходность оператора».
+2. ОБЪЯСНЯЙ НА ПАЛЬЦАХ:
+   - Вместо «цена в 1-м квартиле» пиши: «цена на самом дне / одна из самых выгодных за сезон».
+   - Вместо «чартерный демпинг» пиши: «туроператоры распродают оставшиеся билеты на рейсы со скидками».
+   - Вместо «плато раннего бронирования» пиши: «до вылета еще много времени, цены спокойные и спешить не нужно».
+   - Вместо «риск sold-out» пиши: «хорошие номера в этом отеле быстро разбирают».
+3. ПРИВОДИ КОНКРЕТНЫЕ ЦИФРЫ: цены в злотых (zł), сколько дней осталось до вылета, сколько можно сэкономить.
+4. ЕСЛИ В ПОДБОРКЕ РАЗНЫЕ ДАТЫ ВЫЛЕТА (например, на месяц вперед):
+   - Разделяй ближайшие и дальние даты: на ближайшие дни туроператоры уже «горят» и отдают туры дешевле, а на дальние даты цены пока обычные, можно спокойно выбирать.
+   - Поясни, что подборка «живая» и обновляется каждый день по мере приближения вылетов.
+5. ФОРМАТ ОТВЕТА: строго валидный JSON без markdown-разметки.
 """
 
 
 def generate_rule_based_briefing(market_context: Dict[str, Any]) -> Dict[str, Any]:
     """
     Fallback deterministic synthesizer for offline or zero-key environments.
-    Produces high-quality, data-grounded insights using structured rule heuristics.
+    Produces high-quality, friendly, data-grounded insights using simple human language.
     """
     stats = market_context.get("market_stats", {})
     floor = market_context.get("floor_saturation", {})
@@ -58,80 +57,78 @@ def generate_rule_based_briefing(market_context: Dict[str, Any]) -> Dict[str, An
     min_price = stats.get("min_price", 0.0)
     p10_price = stats.get("p10_price", 0.0)
     avg_d = stats.get("median_days_to_departure", 14)
-    phase = stats.get("dominant_yield_phase", "mid_term")
     floor_pct = floor.get("floor_breaker_pct", 0.0)
     floor_count = floor.get("floor_breaker_count", 0)
 
     min_d = stats.get("min_days_to_departure", avg_d)
     max_d = stats.get("max_days_to_departure", avg_d)
-    span_d = stats.get("departure_span_days", 0)
     is_wide_window = stats.get("is_wide_window", False)
     nearest_dep = stats.get("nearest_departure_date", "")
     furthest_dep = stats.get("furthest_departure_date", "")
     dep_label = f" ({nearest_dep})" if nearest_dep else ""
 
-    # Determine phase narrative based on departure window
+    # Human-friendly phase descriptions and advice
     if is_wide_window:
         if min_d <= 7:
-            phase_title = f"Скользящее окно: ближайшие через {min_d} дн."
+            phase_title = f"Ближайшие вылеты через {min_d} дн."
             phase_desc = (
-                f"Ближайшие вылеты стартуют уже через {min_d} дн. ({nearest_dep}), а дальний край окна охватывает даты до {furthest_dep} ({max_d} дн.). "
-                f"По ближайшим рейсам туроператоры уже ведут сброс остатков кресел, тогда как основной массив на дальние даты находится на стабильном плато (медиана {med_price:,.0f} zł). "
-                f"Когда рейсы на {nearest_dep} вылетят, окно автоматически сместится к следующим датам."
+                f"На рейсы в ближайшие дни ({nearest_dep}, через {min_d} дн.) туроператоры уже распродают последние места со скидками. "
+                f"На более дальние даты (до {furthest_dep}) цены пока держатся на среднем уровне (~{med_price:,.0f} zł). "
+                f"По мере приближения вылетов окно скидок будет постепенно смещаться и на следующие недели."
             )
             directive = (
-                f"Дифференцированная тактика: для вылетов в ближайшие {min_d}–7 дней фиксируйте предложения на историческом дне. "
-                f"Для дат через {avg_d}+ дней спешки нет — держите отели на контроле до D-14."
+                f"Если планируете лететь на днях ({nearest_dep}) — лучше брать сейчас, билетов на рейсы осталось мало. "
+                f"Если поездка планируется позже ({furthest_dep}) — можно не спешить, добавьте отели в «Избранное» (☆) и следите за ценой: ближе к вылету она часто снижается."
             )
-            headline = f"Горизонт {nearest_dep}–{furthest_dep}: ближайшие рейсы через {min_d} дн., дальние на плато"
+            headline = f"Вылеты {nearest_dep}–{furthest_dep}: на ближайшие даты цены падают, на дальние — стабильны"
         else:
-            phase_title = f"Плато скользящего окна ({nearest_dep}–{furthest_dep})"
+            phase_title = f"Спокойные цены ({nearest_dep}–{furthest_dep})"
             phase_desc = (
-                f"Ближайшие вылеты в фильтре стартуют через {min_d} дн. ({nearest_dep}), дальний край окна — через {max_d} дн. ({furthest_dep}). "
-                f"Вся выборка находится на комфортном плато раннего набора со средней ценой {med_price:,.0f} zł. "
-                f"По мере приближения дат окно будет смещаться вперед."
+                f"Ближайшие вылеты стартуют через {min_d} дн. ({nearest_dep}), а дальний край охватывает даты до {furthest_dep} ({max_d} дн.). "
+                f"Вся подборка находится на стабильном уровне без резких скачков, средняя цена около {med_price:,.0f} zł. "
+                f"Подборка живая и регулярно обновляется."
             )
             directive = (
-                f"Спешки нет. Для вылетов на {nearest_dep} окно оптимизации наступит за 10–14 дней до старта. "
-                f"Для дальних дат ({furthest_dep}) имеет смысл бронировать только знаковые 5★ с дефицитом мест."
+                f"Спешить некуда, времени достаточно. За 10–14 дней до вылета на {nearest_dep} начнут появляться первые скидки. "
+                f"Для дальних дат ({furthest_dep}) сейчас имеет смысл бронировать только самые популярные отели, где быстро кончаются номера."
             )
-            headline = f"Горизонт {nearest_dep}–{furthest_dep}: плато цен, достаточный запас времени"
+            headline = f"Вылеты {nearest_dep}–{furthest_dep}: цены стабильные, спешить с покупкой не нужно"
     else:
         if min_d <= 3:
-            phase_title = f"Зона Last Minute (вылет через {min_d} дн.)"
-            phase_desc = f"Ближайшие вылеты через {min_d} дн.{dep_label}. Чартерные блоки практически закрыты. Отели либо сбрасывают последние кресла с максимальным дисконтом, либо уходят в Stop-Sale."
-            directive = "Бронировать немедленно при наличии мест. Ожидание даже нескольких часов чревато отменой предложения."
-            headline = f"Зона Last Minute: вылет через {min_d} дн., финальная зачистка мест"
+            phase_title = f"Горящие туры (вылет через {min_d} дн.)"
+            phase_desc = f"До вылета осталось всего {min_d} дн.{dep_label}. Самолеты почти заполнены, поэтому отели либо отдают последние номера с максимальной скидкой, либо места просто заканчиваются."
+            directive = "Бронируйте сразу, если отель вам подходит: места на рейсах тают на глазах, через пару часов тура может уже не быть."
+            headline = f"Горящие туры: вылет через {min_d} дн., туроператоры отдают последние места"
         elif min_d <= 7:
-            phase_title = f"Чартерный демпинг (вылет через {min_d} дн.)"
-            phase_desc = f"Ближайшие вылеты через {min_d} дн.{dep_label}. Туроператоры активно сбрасывают нераспроданные блоки кресел. Медиана рынка держится на уровне {med_price:,.0f} zł."
-            directive = f"Рекомендуется выкуп для {floor_count} отелей на историческом дне. Для остальных — наблюдать до D-3."
-            headline = f"Чартерный демпинг: вылет через {min_d} дн., время выгодных сделок"
+            phase_title = f"Время скидок (вылет через {min_d} дн.)"
+            phase_desc = f"До вылета {min_d} дн.{dep_label} — это самое активное время распродаж. Туроператоры снижают цены на оставшиеся места в самолетах. Средняя цена сейчас около {med_price:,.0f} zł."
+            directive = f"Отличный момент для покупки отелей со значком «ПОКУПАТЬ» — цена на минимуме. Если отель обычный, можно понаблюдать еще пару дней."
+            headline = f"Время выгодных покупок: вылет через {min_d} дн., цены активно падают"
         elif min_d <= 14:
-            phase_title = f"Первая волна зачистки (вылет через {min_d} дн.)"
-            phase_desc = f"Ближайшие вылеты через {min_d} дн.{dep_label}. Стартовал первый этап оптимизации доходности туроператоров (Yield Clearance). Нижний дециль отелей доступен от {p10_price:,.0f} zł."
-            directive = "Хорошее окно для бронирования качественных 5★ с детьми. Риск дальнейшего ожидания не оправдывает потенциал экономии в 150–200 zł."
-            headline = f"Первая волна зачистки: вылет через {min_d} дн., баланс цены и мест"
+            phase_title = f"Первые скидки (вылет через {min_d} дн.)"
+            phase_desc = f"До вылета {min_d} дн.{dep_label}. Началась первая волна снижения цен перед вылетом. Хорошие варианты начинаются от {p10_price:,.0f} zł."
+            directive = "Удачное время для выбора хороших отелей: и скидки уже есть, и популярные номера еще не раскуплены."
+            headline = f"Вылет через {min_d} дн.: отличный баланс цены и выбора отелей"
         else:
-            phase_title = f"Плато бронирования (вылет через {min_d} дн.)"
-            phase_desc = f"Ближайшие вылеты через {min_d} дн.{dep_label}. Цены стабилизировались. Медиана предложения: {med_price:,.0f} zł. Агрессивного демпинга не наблюдается."
-            directive = "Спешки нет. Можно зафиксировать отели с ценой ниже нижнего дециля или ждать входа в интервал D-14."
-            headline = f"Плато раннего бронирования: вылет через {min_d} дн., стабильный коридор"
+            phase_title = f"Ранний выбор (вылет через {min_d} дн.)"
+            phase_desc = f"До вылета {min_d} дн.{dep_label}. Рынок спокойный, средняя цена держится на уровне {med_price:,.0f} zł. Резких сбросов цен пока нет."
+            directive = "Спешить не нужно. Сохраняйте понравившиеся отели в Избранное (☆) и ждите: за 10–14 дней до вылета часто начинаются первые скидки."
+            headline = f"До вылета {min_d} дн.: цены стабильные, можно спокойно выбирать отель"
 
-    # Top anomalies (Floor, Flash Drops, Gems)
+    # Top anomalies in everyday language
     anomalies: List[Dict[str, str]] = []
     if floor_count > 0:
         anomalies.append({
             "type": "floor",
             "title": f"Ценовое дно: {floor_count} отелей ({floor_pct}%)",
-            "text": f"Зафиксирован исторический минимум стоимости. Минимальный входной билет: {min_price:,.0f} zł."
+            "text": f"Зафиксирована самая низкая цена за весь сезон. Цены начинаются от {min_price:,.0f} zł."
         })
 
     for fd in market_context.get("flash_drops", [])[:2]:
         anomalies.append({
             "type": "drop",
-            "title": f"⚡ FLASH DROP: {fd['hotel_name']}",
-            "text": f"Сброс цены на {fd['drop_pct']:.0f}% ниже исторического дна ({fd['current_price']:,.0f} zł). Высокая вероятность закрытия окна туроператором."
+            "title": f"⚡ Резкий сброс: {fd['hotel_name']}",
+            "text": f"Цена упала на {fd['drop_pct']:.0f}% ниже обычного минимума (сейчас {fd['current_price']:,.0f} zł). Туроператор может закрыть скидку в любой момент."
         })
 
     top_gems = market_context.get("gems", [])
@@ -140,10 +137,9 @@ def generate_rule_based_briefing(market_context: Dict[str, Any]) -> Dict[str, An
         anomalies.append({
             "type": "gem",
             "title": f"💎 Скрытая жемчужина: {g['hotel_name']}",
-            "text": f"Рейтинг {g.get('rating', 4.5):g}★ в сегменте {g.get('stars', 5)}★ по цене {g['price']:,.0f} zł (нижний ценовой квартиль)."
+            "text": f"Высокий рейтинг {g.get('rating', 4.5):g}★ в категории {g.get('stars', 5)}★ всего за {g['price']:,.0f} zł (намного дешевле похожих отелей)."
         })
 
-    # Dossiers for all hotels in filter
     dossiers: Dict[str, Dict[str, Any]] = {}
     hotels_to_process = market_context.get("all_hotel_intelligence") or {
         h["hotel_name"]: h for h in market_context.get("selected_hotel_dossiers", [])
@@ -153,37 +149,32 @@ def generate_rule_based_briefing(market_context: Dict[str, Any]) -> Dict[str, An
         cur_p = h.get("current_price", 0.0)
         hist_min = h.get("historical_min", cur_p)
         quantile = h.get("quantile_in_filter", 0.5)
-        archetype = h.get("archetype", "BALANCED")
-        bw = h.get("booking_window", {})
-        fp = h.get("fair_price", {})
-        gem = h.get("gem", {})
         flash = h.get("flash_drop", {})
-        dupe = h.get("dupe_suggestion")
 
         if flash.get("is_flash"):
             verdict = "BUY_NOW"
-            verdict_badge = "⚡ FLASH DROP"
-            rationale = flash.get("tip") or f"Резкий сброс цены до {cur_p:,.0f} zł."
-            risk = "Критический риск закрытия тарифа туроператором в течение 12–24 часов."
-            advice = "Бронировать немедленно, если отель подходит."
+            verdict_badge = "⚡ СБРОС ЦЕНЫ"
+            rationale = f"Резкий обвал цены до {cur_p:,.0f} zł (на {flash.get('drop_pct', 0):.0f}% ниже минимума сезона)."
+            risk = "Билеты по этой цене туроператор может распродать за считанные часы."
+            advice = "Если отель вам подходит — бронируйте прямо сейчас."
         elif cur_p <= hist_min * 1.02:
             verdict = "BUY_NOW"
-            verdict_badge = "🟢 BUY NOW"
-            rationale = f"Текущая цена {cur_p:,.0f} zł находится на абсолютном историческом дне сезона (квантиль {int(quantile*100)}%)."
-            risk = "Риск sold-out и обратного отскока превышает 80%. Потенциал дальнейшего падения минимален (< 120 zł)."
-            advice = "Фиксировать бронь сегодня. Лучшая точка входа в текущем цикле."
+            verdict_badge = "🟢 ПОКУПАТЬ"
+            rationale = f"Цена {cur_p:,.0f} zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки."
+            risk = "Номера в этом отеле популярны, к дате вылета мест может не остаться."
+            advice = "Если отель нравится — фиксируйте бронь прямо сегодня, дешевле уже вряд ли будет."
         elif quantile <= 0.25:
             verdict = "GOOD_PRICE"
             verdict_badge = "🔵 ХОРОШАЯ ЦЕНА"
-            rationale = f"Цена {cur_p:,.0f} zł ниже 75% конкурентных предложений на эти даты."
-            risk = "Умеренный риск изменения цены. Возможен сброс еще на 3-5% при приближении к D-7."
-            advice = "Брать, если даты вылета строго зафиксированы."
+            rationale = f"Цена {cur_p:,.0f} zł заметно ниже средней по рынку на эти даты."
+            risk = "Цена может слегка колебаться, но предложение уже достаточно выгодное."
+            advice = "Можно брать, если даты и отель полностью вас устраивают."
         else:
             verdict = "WAIT"
-            verdict_badge = "🟡 ЖДАТЬ"
-            rationale = f"Текущая цена {cur_p:,.0f} zł находится в среднем ценовом сегменте. Поведение отеля ({archetype}) предполагает сброс ближе к вылету."
-            risk = "Переплата при покупке сегодня: до 400–600 zł."
-            advice = f"Ждать целевой отметки ~{cur_p * 0.92:,.0f} zł. Ставить контрольную точку за 7 дней до вылета."
+            verdict_badge = "🟡 ПОДОЖДАТЬ"
+            rationale = f"Отель сейчас стоит {cur_p:,.0f} zł — это обычная средняя цена. По опыту, перед вылетом туроператор часто делает скидки."
+            risk = "Если купить сейчас, есть риск переплатить 300–600 zł."
+            advice = "Если вылет не горит — добавьте в Избранное (☆) и подождите снижения цены ближе к вылету."
 
         dossiers[h_name] = {
             "verdict": verdict,
@@ -191,34 +182,104 @@ def generate_rule_based_briefing(market_context: Dict[str, Any]) -> Dict[str, An
             "rationale": rationale,
             "risk_assessment": risk,
             "action_advice": advice,
-            "booking_window_badge": bw.get("window_badge", ""),
-            "booking_window_class": bw.get("window_class", "early"),
-            "booking_window_tip": bw.get("window_tip", ""),
-            "fair_price_badge": fp.get("badge", ""),
-            "fair_price_class": fp.get("class", ""),
-            "fair_price_tip": fp.get("tip", ""),
-            "gem_badge": gem.get("badge", ""),
-            "gem_tip": gem.get("tip", ""),
-            "flash_drop_badge": flash.get("badge", ""),
-            "flash_drop_tip": flash.get("tip", ""),
-            "dupe_suggestion": dupe,
         }
 
     clean_filter_title = market_context.get("filter_title") or ""
 
-    return {
+    res = {
         "macro_briefing": {
             "headline": headline,
             "market_phase": phase_title,
             "filter_title": clean_filter_title,
             "charter_dynamics": phase_desc,
-            "floor_status": f"{floor_count} отелей ({floor_pct}%) торгуются на сезонном минимуме.",
+            "floor_status": f"{floor_count} отелей ({floor_pct}%) сейчас отдают по минимальной цене за сезон.",
             "strategic_directive": directive,
             "key_anomalies": anomalies,
             "synthesized_by": "Rule-Based Deterministic Engine (Offline)",
         },
         "hotel_dossiers": dossiers,
     }
+    return enrich_oracle_report_with_smart_features(res, market_context)
+
+
+def enrich_oracle_report_with_smart_features(
+    report: Dict[str, Any],
+    market_context: Dict[str, Any],
+) -> Dict[str, Any]:
+    """
+    Enriches AI or rule-based reports with quantitative smart feature badges:
+    - Optimal Booking Window Matrix
+    - Fair Price Index
+    - Hidden Gems
+    - Glitch & Flash Drop Radar
+    - AI Dupe & Twin suggestions
+    Ensures EVERY hotel in filter has a complete dossier with badges.
+    """
+    if not report or not isinstance(report, dict):
+        report = {}
+
+    dossiers = report.setdefault("hotel_dossiers", {})
+    all_intel = market_context.get("all_hotel_intelligence", {})
+
+    for h_name, h_info in all_intel.items():
+        cur_d = dossiers.setdefault(h_name, {
+            "verdict": "GOOD_PRICE",
+            "badge_text": "🔵 ХОРОШАЯ ЦЕНА",
+            "rationale": f"Цена {h_info.get('current_price', 0):,.0f} zł на актуальные даты.",
+            "risk_assessment": "Места доступны для бронирования.",
+            "action_advice": "Ориентируйтесь на ваши планы поездки.",
+        })
+
+        # 1. Booking Window
+        bw = h_info.get("booking_window", {})
+        cur_d["booking_window_badge"] = bw.get("window_badge", "")
+        cur_d["booking_window_class"] = bw.get("window_class", "early")
+        cur_d["booking_window_tip"] = bw.get("window_tip", "")
+
+        # 2. Fair Price Index
+        fp = h_info.get("fair_price", {})
+        cur_d["fair_price_badge"] = fp.get("badge", "")
+        cur_d["fair_price_class"] = fp.get("class", "")
+        cur_d["fair_price_tip"] = fp.get("tip", "")
+
+        # 3. Hidden Gem
+        gem = h_info.get("gem", {})
+        cur_d["gem_badge"] = gem.get("badge", "")
+        cur_d["gem_tip"] = gem.get("tip", "")
+
+        # 4. Flash Drop
+        flash = h_info.get("flash_drop", {})
+        cur_d["flash_drop_badge"] = flash.get("badge", "")
+        cur_d["flash_drop_tip"] = flash.get("tip", "")
+
+        # 5. AI Dupe Alternative
+        cur_d["dupe_suggestion"] = h_info.get("dupe_suggestion")
+
+    # Ensure anomalies list contains active flash drops & gems if missing
+    macro = report.setdefault("macro_briefing", {})
+    existing_anomalies = macro.setdefault("key_anomalies", [])
+    existing_texts = " ".join(str(a.get("title", "")) for a in existing_anomalies)
+
+    for fd in market_context.get("flash_drops", [])[:2]:
+        if fd["hotel_name"] not in existing_texts:
+            existing_anomalies.append({
+                "type": "drop",
+                "title": f"⚡ Резкий сброс: {fd['hotel_name']}",
+                "text": f"Цена упала на {fd['drop_pct']:.0f}% ниже обычного минимума (сейчас {fd['current_price']:,.0f} zł). Туроператор может закрыть скидку в любой момент."
+            })
+
+    for g in market_context.get("gems", [])[:1]:
+        if g["hotel_name"] not in existing_texts:
+            existing_anomalies.append({
+                "type": "gem",
+                "title": f"💎 Скрытая жемчужина: {g['hotel_name']}",
+                "text": f"Высокий рейтинг {g.get('rating', 4.5):g}★ в категории {g.get('stars', 5)}★ всего за {g['price']:,.0f} zł (намного дешевле похожих отелей)."
+            })
+
+    if market_context.get("filter_title"):
+        macro["filter_title"] = market_context["filter_title"]
+
+    return report
 
 
 def call_gemini_oracle(
@@ -227,13 +288,18 @@ def call_gemini_oracle(
     model: Optional[str] = None,
 ) -> Optional[Dict[str, Any]]:
     """
-    Invokes Google Gemini API with strict JSON schema.
-    Defaults to 'gemini-3.7-flash' with fallback to 'gemini-2.0-flash' and 'gemini-1.5-flash'.
+    Invokes Google Gemini API with strict JSON schema and robust fallback chain.
     """
-    target_models = [model] if model else [os.getenv("GEMINI_MODEL", "gemini-3.7-flash"), "gemini-2.0-flash", "gemini-1.5-flash"]
+    import re
+
+    candidates = [model, os.getenv("GEMINI_MODEL"), "gemini-2.5-flash", "gemini-2.0-flash", "gemini-1.5-flash"]
+    target_models = []
+    for c in candidates:
+        if c and c not in target_models:
+            target_models.append(c)
 
     user_prompt = f"""
-Проанализируй сжатые метрики рынка пакетных туров и выдай экспертное заключение в формате JSON:
+Проанализируй сжатые метрики рынка пакетных туров и выдай понятное экспертное заключение простым языком для обычного туриста в формате JSON:
 
 ВХОДНЫЕ ДАННЫЕ РЫНКА:
 {json.dumps(market_context, ensure_ascii=False, indent=2)}
@@ -241,11 +307,11 @@ def call_gemini_oracle(
 ТРЕБОВАНИЯ К ФОРМАТУ JSON:
 {{
   "macro_briefing": {{
-    "headline": "Яркий ёмкий аналитический заголовок ситуации на рынке (СТРОГО БЕЗ названий файлов, slug или filter_id. Пример: 'Плато раннего бронирования: цены стабильны, окно для фиксации лидеров')",
-    "market_phase": "Название фазы (например: Чартерная зачистка D-11)",
-    "charter_dynamics": "2-3 предложения с цифрами о поведении цен операторов",
-    "floor_status": "Сводка по отелям на дне цены",
-    "strategic_directive": "Четкая рекомендация: кому брать сейчас, кому ждать",
+    "headline": "Короткий живой заголовок ситуации (СТРОГО БЕЗ названий файлов, slug или filter_id. Пример: 'На ближайшие даты цены падают, на дальние — стабильны')",
+    "market_phase": "Понятная фаза (например: Горящие туры через 6 дн. или Спокойный выбор за месяц до вылета)",
+    "charter_dynamics": "2-3 простых понятных предложения с цифрами о ценах и рейсах",
+    "floor_status": "Сколько отелей сейчас на самом дне цены",
+    "strategic_directive": "Простой четкий совет: кому брать тур прямо сейчас, а кому лучше подождать",
     "key_anomalies": [
       {{ "type": "drop|arbitrage|overprice", "title": "...", "text": "..." }}
     ]
@@ -253,22 +319,21 @@ def call_gemini_oracle(
   "hotel_dossiers": {{
     "<ИМЯ_ОТЕЛЯ>": {{
       "verdict": "BUY_NOW | GOOD_PRICE | WAIT | OVERPRICED",
-      "badge_text": "🟢 BUY NOW | 🔵 ХОРОШАЯ ЦЕНА | 🟡 ЖДАТЬ | 🔴 ОВЕРПРАЙС",
-      "rationale": "Конкретное обоснование с цифрами",
-      "risk_assessment": "Анализ риска sold-out vs потенциал экономии",
-      "action_advice": "Точная инструкция к действию"
+      "badge_text": "🟢 ПОКУПАТЬ | 🔵 ХОРОШАЯ ЦЕНА | 🟡 ПОДОЖДАТЬ | 🔴 ДОРОГО",
+      "rationale": "Простое понятное объяснение с цифрами",
+      "risk_assessment": "Понятный риск: быстро ли разбирают номера",
+      "action_advice": "Четкий совет: брать сейчас или подождать"
     }}
   }}
 }}
-Ответь ТОЛЬКО валидным JSON без markdown оберток.
+Ответь ТОЛЬКО валидным JSON без markdown-оберток.
 """
 
     payload = {
         "contents": [
             {
                 "parts": [
-                    {"text": SYSTEM_INSTRUCTION},
-                    {"text": user_prompt}
+                    {"text": f"{SYSTEM_INSTRUCTION}\n\n{user_prompt}"}
                 ]
             }
         ],
@@ -281,18 +346,27 @@ def call_gemini_oracle(
     for m_name in target_models:
         url = f"https://generativelanguage.googleapis.com/v1beta/models/{m_name}:generateContent?key={api_key}"
         try:
+            logger.info(f"Invoking Gemini model: {m_name}...")
             req = urllib.request.Request(
                 url,
                 data=json.dumps(payload).encode("utf-8"),
                 headers={"Content-Type": "application/json"},
                 method="POST",
             )
-            with urllib.request.urlopen(req, timeout=35) as resp:
+            with urllib.request.urlopen(req, timeout=40) as resp:
                 data = json.loads(resp.read().decode("utf-8"))
-                raw_text = data["candidates"][0]["content"]["parts"][0]["text"]
+                raw_text = data["candidates"][0]["content"]["parts"][0]["text"].strip()
+                if raw_text.startswith("```"):
+                    raw_text = re.sub(r"^```(?:json)?\s*", "", raw_text)
+                    raw_text = re.sub(r"\s*```$", "", raw_text)
                 result = json.loads(raw_text)
-                result["macro_briefing"]["synthesized_by"] = f"Google Gemini ({m_name})"
-                return result
+                if result and "macro_briefing" in result and "hotel_dossiers" in result:
+                    result["macro_briefing"]["synthesized_by"] = f"Google Gemini ({m_name})"
+                    logger.info(f"✓ Gemini ({m_name}) successfully generated AI market analysis.")
+                    return enrich_oracle_report_with_smart_features(result, market_context)
+        except urllib.error.HTTPError as he:
+            err_body = he.read().decode("utf-8", errors="replace")[:180]
+            logger.warning(f"Gemini call with {m_name} failed: HTTP {he.code} - {err_body}. Trying next model/fallback...")
         except Exception as e:
             logger.warning(f"Gemini call with {m_name} failed: {e}. Trying next model/fallback...")
 
@@ -307,11 +381,16 @@ def call_openai_oracle(
     """
     Invokes OpenAI Chat Completions API (e.g. gpt-4o-mini, gpt-4o) with JSON mode.
     """
-    target_model = model or os.getenv("OPENAI_MODEL", "gpt-4o-mini")
-    url = "https://api.openai.com/v1/chat/completions"
+    import re
+
+    candidates = [model, os.getenv("OPENAI_MODEL"), "gpt-4o-mini", "gpt-4o"]
+    target_models = []
+    for c in candidates:
+        if c and c not in target_models:
+            target_models.append(c)
 
     user_prompt = f"""
-Проанализируй сжатые метрики рынка пакетных туров и выдай экспертное заключение в формате JSON:
+Проанализируй сжатые метрики рынка пакетных туров и выдай понятное экспертное заключение простым языком для обычного туриста в формате JSON:
 
 ВХОДНЫЕ ДАННЫЕ РЫНКА:
 {json.dumps(market_context, ensure_ascii=False, indent=2)}
@@ -319,11 +398,11 @@ def call_openai_oracle(
 ТРЕБОВАНИЯ К ФОРМАТУ JSON:
 {{
   "macro_briefing": {{
-    "headline": "Яркий ёмкий аналитический заголовок ситуации на рынке (СТРОГО БЕЗ названий файлов, slug или filter_id. Пример: 'Плато раннего бронирования: цены стабильны, окно для фиксации лидеров')",
-    "market_phase": "Название фазы (например: Чартерная зачистка D-11)",
-    "charter_dynamics": "2-3 предложения с цифрами о поведении цен операторов",
-    "floor_status": "Сводка по отелям на дне цены",
-    "strategic_directive": "Четкая рекомендация: кому брать сейчас, кому ждать",
+    "headline": "Короткий живой заголовок ситуации (СТРОГО БЕЗ названий файлов, slug или filter_id. Пример: 'На ближайшие даты цены падают, на дальние — стабильны')",
+    "market_phase": "Понятная фаза (например: Горящие туры через 6 дн. или Спокойный выбор за месяц до вылета)",
+    "charter_dynamics": "2-3 простых понятных предложения с цифрами о ценах и рейсах",
+    "floor_status": "Сколько отелей сейчас на самом дне цены",
+    "strategic_directive": "Простой четкий совет: кому брать тур прямо сейчас, а кому лучше подождать",
     "key_anomalies": [
       {{ "type": "drop|arbitrage|overprice", "title": "...", "text": "..." }}
     ]
@@ -331,45 +410,57 @@ def call_openai_oracle(
   "hotel_dossiers": {{
     "<ИМЯ_ОТЕЛЯ>": {{
       "verdict": "BUY_NOW | GOOD_PRICE | WAIT | OVERPRICED",
-      "badge_text": "🟢 BUY NOW | 🔵 ХОРОШАЯ ЦЕНА | 🟡 ЖДАТЬ | 🔴 ОВЕРПРАЙС",
-      "rationale": "Конкретное обоснование с цифрами",
-      "risk_assessment": "Анализ риска sold-out vs потенциал экономии",
-      "action_advice": "Точная инструкция к действию"
+      "badge_text": "🟢 ПОКУПАТЬ | 🔵 ХОРОШАЯ ЦЕНА | 🟡 ПОДОЖДАТЬ | 🔴 ДОРОГО",
+      "rationale": "Простое понятное объяснение с цифрами",
+      "risk_assessment": "Понятный риск: быстро ли разбирают номера",
+      "action_advice": "Четкий совет: брать сейчас или подождать"
     }}
   }}
 }}
-Ответь ТОЛЬКО валидным JSON без markdown оберток.
+Ответь ТОЛЬКО валидным JSON без markdown-оберток.
 """
 
-    payload = {
-        "model": target_model,
-        "messages": [
-            {"role": "system", "content": SYSTEM_INSTRUCTION},
-            {"role": "user", "content": user_prompt},
-        ],
-        "temperature": 0.2,
-        "response_format": {"type": "json_object"},
-    }
+    for target_model in target_models:
+        payload = {
+            "model": target_model,
+            "messages": [
+                {"role": "system", "content": SYSTEM_INSTRUCTION},
+                {"role": "user", "content": user_prompt},
+            ],
+            "temperature": 0.2,
+            "response_format": {"type": "json_object"},
+        }
 
-    try:
-        req = urllib.request.Request(
-            url,
-            data=json.dumps(payload).encode("utf-8"),
-            headers={
-                "Content-Type": "application/json",
-                "Authorization": f"Bearer {api_key}",
-            },
-            method="POST",
-        )
-        with urllib.request.urlopen(req, timeout=35) as resp:
-            data = json.loads(resp.read().decode("utf-8"))
-            raw_text = data["choices"][0]["message"]["content"]
-            result = json.loads(raw_text)
-            result["macro_briefing"]["synthesized_by"] = f"OpenAI ({target_model})"
-            return result
-    except Exception as e:
-        logger.warning(f"OpenAI call with {target_model} failed: {e}. Falling back...")
-        return None
+        try:
+            url = "https://api.openai.com/v1/chat/completions"
+            logger.info(f"Invoking OpenAI model: {target_model}...")
+            req = urllib.request.Request(
+                url,
+                data=json.dumps(payload).encode("utf-8"),
+                headers={
+                    "Content-Type": "application/json",
+                    "Authorization": f"Bearer {api_key}",
+                },
+                method="POST",
+            )
+            with urllib.request.urlopen(req, timeout=40) as resp:
+                data = json.loads(resp.read().decode("utf-8"))
+                raw_text = data["choices"][0]["message"]["content"].strip()
+                if raw_text.startswith("```"):
+                    raw_text = re.sub(r"^```(?:json)?\s*", "", raw_text)
+                    raw_text = re.sub(r"\s*```$", "", raw_text)
+                result = json.loads(raw_text)
+                if result and "macro_briefing" in result and "hotel_dossiers" in result:
+                    result["macro_briefing"]["synthesized_by"] = f"OpenAI ({target_model})"
+                    logger.info(f"✓ OpenAI ({target_model}) successfully generated AI market analysis.")
+                    return enrich_oracle_report_with_smart_features(result, market_context)
+        except urllib.error.HTTPError as he:
+            err_body = he.read().decode("utf-8", errors="replace")[:180]
+            logger.warning(f"OpenAI call with {target_model} failed: HTTP {he.code} - {err_body}. Trying next model/fallback...")
+        except Exception as e:
+            logger.warning(f"OpenAI call with {target_model} failed: {e}. Trying next model/fallback...")
+
+    return None
 
 
 def synthesize_market_oracle(
