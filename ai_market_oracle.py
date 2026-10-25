@@ -553,30 +553,60 @@ def call_gemini_oracle(
     return None
 
 
+def fetch_available_openai_models(api_key: str) -> List[str]:
+    """Queries GET https://api.openai.com/v1/models to discover exact model IDs available to this API key."""
+    try:
+        url = "https://api.openai.com/v1/models"
+        req = urllib.request.Request(
+            url,
+            headers={
+                "Authorization": f"Bearer {api_key}",
+                "User-Agent": "TravelPriceMonitor/1.0",
+            },
+            method="GET",
+        )
+        with urllib.request.urlopen(req, timeout=8) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
+            raw_ids = [m["id"] for m in data.get("data", []) if "id" in m]
+            chat_models = [m for m in raw_ids if any(m.startswith(p) for p in ("gpt-4o", "gpt-4", "o1", "o3", "chatgpt"))]
+            if chat_models:
+                logger.info(f"OpenAI account models discovered ({len(chat_models)}): {', '.join(chat_models[:6])}")
+            return chat_models
+    except Exception as e:
+        logger.debug(f"Could not auto-discover OpenAI models via /v1/models: {e}")
+        return []
+
+
 def call_openai_oracle(
     market_context: Dict[str, Any],
     api_key: str,
     model: Optional[str] = None,
 ) -> Optional[Dict[str, Any]]:
     """
-    Invokes OpenAI Chat Completions API (e.g. gpt-4o-mini, gpt-4o) with JSON mode.
+    Invokes OpenAI Chat Completions API with dynamic model discovery and JSON mode.
     """
     import re
 
-    candidates = [
-        model,
-        os.getenv("OPENAI_MODEL"),
-        "gpt-5.6-luna",
-        "gpt-5-luna",
-        "gpt-6-luna",
-        "gpt-4o-mini",
-        "gpt-6.1-sol",
-        "gpt-4o",
-    ]
+    discovered = fetch_available_openai_models(api_key)
+    preferred_order = ["gpt-4o-mini", "gpt-4o", "o3-mini", "gpt-4-turbo"]
     target_models = []
-    for c in candidates:
-        if c and c not in target_models:
-            target_models.append(c)
+
+    explicit_model = model or os.getenv("OPENAI_MODEL")
+    if explicit_model:
+        if discovered and explicit_model not in discovered:
+            logger.warning(
+                f"Configured model '{explicit_model}' was NOT found in your OpenAI account models list! "
+                f"Available examples: {', '.join(discovered[:6])}. Will attempt anyway and fallback."
+            )
+        target_models.append(explicit_model)
+
+    for p in preferred_order:
+        if p in discovered and p not in target_models:
+            target_models.append(p)
+
+    for p in preferred_order:
+        if p not in target_models:
+            target_models.append(p)
 
     user_prompt = f"""
 Проанализируй сжатые метрики рынка пакетных туров и выдай понятное экспертное заключение простым языком для обычного туриста в формате JSON:
