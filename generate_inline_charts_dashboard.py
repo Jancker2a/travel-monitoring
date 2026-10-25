@@ -81,7 +81,11 @@ except ImportError:
     synthesize_market_oracle = None
 
 
-def render_ai_market_briefing_html(oracle_report: Optional[Dict[str, Any]], filter_title: str = "") -> str:
+def render_ai_market_briefing_html(
+    oracle_report: Optional[Dict[str, Any]],
+    filter_title: str = "",
+    hotel_meta_by_name: Optional[Dict[str, Dict[str, Any]]] = None,
+) -> str:
     """Renders the Executive AI Market Intelligence Briefing fold."""
     if not oracle_report or "macro_briefing" not in oracle_report:
         return ""
@@ -120,6 +124,85 @@ def render_ai_market_briefing_html(oracle_report: Optional[Dict[str, Any]], filt
     if display_title:
         filter_info_html = f'<span class="ai-filter-title">{display_title}</span> • '
 
+    # Feature: «Если покупать сейчас, то стоит выбрать из...»
+    buy_rec = macro.get("buy_now_recommendation", {})
+    buy_now_html = ""
+    if buy_rec:
+        has_deals = buy_rec.get("has_worthy_deals", False)
+        rec_headline = html_lib.escape(str(buy_rec.get("headline", "")))
+        rec_advice = html_lib.escape(str(buy_rec.get("advice", "")))
+        rec_status = html_lib.escape(str(buy_rec.get("status_badge", "")))
+        top_picks = buy_rec.get("top_picks", [])
+
+        if has_deals and top_picks:
+            picks_items_html = ""
+            for p in top_picks:
+                h_name = str(p.get("hotel_name", ""))
+                h_price = float(p.get("price", 0.0) or 0.0)
+                h_badge = html_lib.escape(str(p.get("badge", "🟢 Выгодно")))
+                h_why = html_lib.escape(str(p.get("why_buy", "")))
+
+                meta = (hotel_meta_by_name or {}).get(h_name, {})
+                offer_url = meta.get("offer_url") or p.get("offer_url", "")
+                chart_href = meta.get("chart_href", "")
+
+                chart_btn = f'<a href="{html_lib.escape(chart_href, quote=True)}" target="_blank" class="ai-pick-btn ai-pick-btn--chart">График</a>' if chart_href else ''
+                offer_btn = f'<a href="{html_lib.escape(offer_url, quote=True)}" target="_blank" class="ai-pick-btn ai-pick-btn--offer">Открыть оффер ↗</a>' if offer_url else ''
+
+                picks_items_html += f"""
+                    <div class="ai-pick-card">
+                        <div class="ai-pick-header">
+                            <span class="ai-pick-name">{html_lib.escape(h_name)}</span>
+                            <span class="ai-pick-price">{h_price:,.0f} zł</span>
+                        </div>
+                        <div class="ai-pick-meta">
+                            <span class="ai-pick-badge">{h_badge}</span>
+                            <span class="ai-pick-why">{h_why}</span>
+                        </div>
+                        <div class="ai-pick-actions">
+                            {chart_btn}
+                            {offer_btn}
+                        </div>
+                    </div>
+                """
+
+            buy_now_html = f"""
+                <div class="ai-buy-now-box ai-buy-now--active">
+                    <div class="ai-buy-now-header">
+                        <div class="ai-buy-now-title-group">
+                            <span class="ai-buy-now-icon">🛒</span>
+                            <div class="ai-buy-now-titles">
+                                <span class="ai-buy-now-kicker">Если покупать сейчас:</span>
+                                <strong class="ai-buy-now-heading">{rec_headline}</strong>
+                            </div>
+                        </div>
+                        <span class="ai-buy-now-pill pill--active">{rec_status or "🟢 ЕСТЬ ВЫГОДНЫЕ ВАРИАНТЫ"}</span>
+                    </div>
+                    {f'<div class="ai-buy-now-advice">{rec_advice}</div>' if rec_advice else ''}
+                    <div class="ai-picks-grid">
+                        {picks_items_html}
+                    </div>
+                </div>
+            """
+        else:
+            buy_now_html = f"""
+                <div class="ai-buy-now-box ai-buy-now--wait">
+                    <div class="ai-buy-now-header">
+                        <div class="ai-buy-now-title-group">
+                            <span class="ai-buy-now-icon">✋</span>
+                            <div class="ai-buy-now-titles">
+                                <span class="ai-buy-now-kicker">Если покупать сейчас:</span>
+                                <strong class="ai-buy-now-heading">{rec_headline or "Лучше ничего не покупать — подождите"}</strong>
+                            </div>
+                        </div>
+                        <span class="ai-buy-now-pill pill--wait">{rec_status or "⏳ ВЫГОДНЫХ СДЕЛОК НЕТ"}</span>
+                    </div>
+                    <div class="ai-buy-now-advice">
+                        {rec_advice or "Сейчас на рынке нет действительно выгодных предложений: отели продаются по базовым или завышенным ценам. Спешить с бронированием нет смысла — сохраните отели в «Избранное» (☆) и подождите приближения вылета (за 7–10 дней туроператоры обычно начинают снижать цены)."}
+                    </div>
+                </div>
+            """
+
     return f"""
         <!-- --- AI Market Intelligence Briefing (Executive Dashboard Fold) --- -->
         <details class="dashboard-fold ai-oracle-fold" id="aiOracleFold" open>
@@ -156,6 +239,7 @@ def render_ai_market_briefing_html(oracle_report: Optional[Dict[str, Any]], filt
                         <div class="ai-card-body-green">{directive}</div>
                     </div>
                 </div>
+                {buy_now_html}
                 {f'<div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;">{anomalies_html}</div>' if anomalies_html else ''}
             </div>
         </details>
@@ -5297,6 +5381,208 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             color: #7e22ce;
         }}
 
+        /* Feature: Если покупать сейчас */
+        .ai-buy-now-box {{
+            margin-top: 0.85rem;
+            border-radius: 12px;
+            padding: 1rem 1.15rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            transition: all 0.2s ease;
+        }}
+        .ai-buy-now--active {{
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(5, 150, 105, 0.03) 100%);
+            border: 1px solid rgba(16, 185, 129, 0.35);
+            border-left: 4px solid #10b981;
+        }}
+        .ai-buy-now--wait {{
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.08) 0%, rgba(217, 119, 6, 0.03) 100%);
+            border: 1px solid rgba(245, 158, 11, 0.35);
+            border-left: 4px solid #f59e0b;
+        }}
+        .ai-buy-now-header {{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }}
+        .ai-buy-now-title-group {{
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+        }}
+        .ai-buy-now-icon {{
+            font-size: 1.35rem;
+            line-height: 1;
+        }}
+        .ai-buy-now-titles {{
+            display: flex;
+            flex-direction: column;
+            gap: 0.15rem;
+        }}
+        .ai-buy-now-kicker {{
+            font-size: 0.76rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #475569;
+        }}
+        .ai-buy-now--active .ai-buy-now-kicker {{
+            color: #047857;
+        }}
+        .ai-buy-now--wait .ai-buy-now-kicker {{
+            color: #b45309;
+        }}
+        .ai-buy-now-heading {{
+            font-size: 1rem;
+            font-weight: 800;
+            color: #0f172a;
+        }}
+        .ai-buy-now-pill {{
+            font-size: 0.72rem;
+            font-weight: 800;
+            padding: 0.25rem 0.6rem;
+            border-radius: 9999px;
+            letter-spacing: 0.03em;
+        }}
+        .ai-buy-now-pill.pill--active {{
+            background: #d1fae5;
+            color: #065f46;
+            border: 1px solid #a7f3d0;
+        }}
+        .ai-buy-now-pill.pill--wait {{
+            background: #fef3c7;
+            color: #92400e;
+            border: 1px solid #fde68a;
+        }}
+        .ai-buy-now-advice {{
+            font-size: 0.88rem;
+            line-height: 1.5;
+            color: #334155;
+        }}
+        .ai-picks-grid {{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 0.75rem;
+        }}
+        .ai-pick-card {{
+            background: #ffffff;
+            border: 1px solid rgba(16, 185, 129, 0.25);
+            border-radius: 10px;
+            padding: 0.75rem 0.9rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.45rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+        }}
+        .ai-pick-header {{
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 0.5rem;
+        }}
+        .ai-pick-name {{
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #0f172a;
+            line-height: 1.3;
+        }}
+        .ai-pick-price {{
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #047857;
+            white-space: nowrap;
+        }}
+        .ai-pick-meta {{
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            font-size: 0.82rem;
+        }}
+        .ai-pick-badge {{
+            background: #ecfdf5;
+            border: 1px solid #a7f3d0;
+            color: #065f46;
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 0.15rem 0.45rem;
+            border-radius: 6px;
+            white-space: nowrap;
+        }}
+        .ai-pick-why {{
+            color: #475569;
+            font-size: 0.82rem;
+            line-height: 1.35;
+        }}
+        .ai-pick-actions {{
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.25rem;
+        }}
+        .ai-pick-btn {{
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 0.3rem 0.65rem;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.15s ease;
+            display: inline-flex;
+            align-items: center;
+        }}
+        .ai-pick-btn--chart {{
+            background: #f1f5f9;
+            color: #334155;
+            border: 1px solid #cbd5e1;
+        }}
+        .ai-pick-btn--chart:hover {{
+            background: #e2e8f0;
+        }}
+        .ai-pick-btn--offer {{
+            background: #10b981;
+            color: #ffffff;
+            border: 1px solid #059669;
+        }}
+        .ai-pick-btn--offer:hover {{
+            background: #059669;
+        }}
+
+        /* Dark Theme Support for Buy Now Recommendation */
+        .dark-theme .ai-buy-now--active {{
+            background: rgba(16, 185, 129, 0.12);
+            border-color: rgba(16, 185, 129, 0.4);
+        }}
+        .dark-theme .ai-buy-now--wait {{
+            background: rgba(245, 158, 11, 0.12);
+            border-color: rgba(245, 158, 11, 0.4);
+        }}
+        .dark-theme .ai-buy-now-heading {{
+            color: #f1f5f9;
+        }}
+        .dark-theme .ai-buy-now-advice {{
+            color: #cbd5e1;
+        }}
+        .dark-theme .ai-pick-card {{
+            background: #1e293b;
+            border-color: rgba(255, 255, 255, 0.1);
+        }}
+        .dark-theme .ai-pick-name {{
+            color: #f8fafc;
+        }}
+        .dark-theme .ai-pick-price {{
+            color: #34d399;
+        }}
+        .dark-theme .ai-pick-why {{
+            color: #94a3b8;
+        }}
+        .dark-theme .ai-pick-btn--chart {{
+            background: #334155;
+            color: #e2e8f0;
+            border-color: #475569;
+        }}
+
         /* Dark Theme Support for AI Oracle */
         .dark-theme details.ai-oracle-fold {{
             background: #1e293b;
@@ -9727,7 +10013,20 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         ),
     ])
 
-    ai_briefing_html = render_ai_market_briefing_html(oracle_report, filter_title=title)
+    hotel_meta_by_name = {}
+    for _, _h_row in all_hotels.iterrows():
+        _hn = str(_h_row.get("hotel_name", ""))
+        if _hn and _hn not in hotel_meta_by_name:
+            hotel_meta_by_name[_hn] = {
+                "offer_url": str(_h_row.get("offer_url") or _h_row.get("url") or ""),
+                "chart_href": f"hotel-charts/{_filter_data_id}/{slugify(_hn)}.html",
+            }
+
+    ai_briefing_html = render_ai_market_briefing_html(
+        oracle_report,
+        filter_title=title,
+        hotel_meta_by_name=hotel_meta_by_name,
+    )
 
     # 1. График ТОП-10 дешёвых предложений (всегда виден на главной странице)
     html_template += f"""
