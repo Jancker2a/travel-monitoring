@@ -631,7 +631,8 @@ def call_gemini_oracle(
                     raw_text = re.sub(r"^```(?:json)?\s*", "", raw_text)
                     raw_text = re.sub(r"\s*```$", "", raw_text)
                 result = json.loads(raw_text)
-                if result and "macro_briefing" in result and "hotel_dossiers" in result:
+                if result and "macro_briefing" in result:
+                    result.setdefault("hotel_dossiers", result.get("dossiers", {}))
                     result["macro_briefing"]["synthesized_by"] = f"Google Gemini ({m_name})"
                     logger.info(f"✓ Gemini ({m_name}) successfully generated AI market analysis.")
                     return enrich_oracle_report_with_smart_features(result, market_context)
@@ -679,7 +680,7 @@ def call_openai_oracle(
     import re
 
     discovered = fetch_available_openai_models(api_key)
-    preferred_order = ["gpt-5.6-luna", "gpt-5-chat-latest", "gpt-5.4-mini", "gpt-4o-mini", "gpt-4o", "o3-mini"]
+    preferred_order = ["gpt-5.4-mini", "gpt-5.6-luna", "gpt-5-chat-latest", "gpt-4o-mini", "gpt-4o", "o3-mini"]
     target_models = []
 
     explicit_model = model or os.getenv("OPENAI_MODEL")
@@ -783,7 +784,8 @@ def call_openai_oracle(
                     raw_text = re.sub(r"^```(?:json)?\s*", "", raw_text)
                     raw_text = re.sub(r"\s*```$", "", raw_text)
                 result = json.loads(raw_text)
-                if result and "macro_briefing" in result and "hotel_dossiers" in result:
+                if result and "macro_briefing" in result:
+                    result.setdefault("hotel_dossiers", result.get("dossiers", {}))
                     result["macro_briefing"]["synthesized_by"] = f"OpenAI ({target_model})"
                     logger.info(f"✓ OpenAI ({target_model}) successfully generated AI market analysis.")
                     return enrich_oracle_report_with_smart_features(result, market_context)
@@ -806,7 +808,7 @@ def synthesize_market_oracle(
 ) -> Dict[str, Any]:
     """
     Main orchestration function: extracts features and generates two-tier AI intelligence.
-    Supports OpenAI (gpt-5.6-luna / gpt-4o-mini), Google Gemini (gemini-2.0-flash / gemini-1.5-flash),
+    Supports OpenAI (gpt-5.4-mini / gpt-5.6-luna / gpt-4o-mini), Google Gemini (gemini-2.0-flash / gemini-1.5-flash),
     and deterministic Rule-Based Fallback.
     """
     market_context = extract_filter_features(
