@@ -336,66 +336,114 @@ def fetch_tripadvisor_from_listing_url(
 
 
 def extract_tripadvisor_from_card_html(card_html: str) -> Dict[str, Any]:
-    """TripAdvisor rating + review count из server-side карточки fly.pl."""
+    """TripAdvisor rating + review count из карточки fly.pl.
+
+    ВАЖНО: fly.pl теперь показывает мульти-источник отзывов (Google + TripAdvisor)
+    и собственный композитный рейтинг (schema:ratingValue). Чтобы не путать
+    Google отзывы (например 4.5 ⭐) с TripAdvisor (например 3.2 🟢), парсер
+    строго изолирует блок/картинку TripAdvisor и НЕ берет слепо schema:ratingValue.
+    """
     empty = {"ta_rating": None, "ta_review_count": None, "ta_source": ""}
     if not card_html:
         return empty
-    rating_m = re.search(
-        r'property="schema:ratingValue"[^>]*content="([^"]+)"',
+
+    # 1. Официальный URL картинки/SVG рейтинга TripAdvisor (напр. ratings/traveler/3.2-37146-5.svg или 4.0-)
+    img_m = re.search(
+        r'tripadvisor\.com/[^"\']*/([0-9.]+)-[0-9]+-\d+\.svg',
         card_html,
+        re.I,
     )
-    count_m = re.search(
-        r'property="schema:ratingCount"[^>]*content="([^"]+)"',
-        card_html,
-    )
-    if rating_m:
-        try:
-            empty["ta_rating"] = float(rating_m.group(1).replace(",", "."))
-        except (TypeError, ValueError):
-            pass
-    else:
-        # 1. Image url pattern (e.g. ratings/traveler/4.5-)
+    if not img_m:
         img_m = re.search(
             r'tripadvisor\.com/img/cdsi/img2/ratings/traveler/([0-9.]+)-',
             card_html,
             re.I,
         )
-        if img_m:
-            try:
-                empty["ta_rating"] = float(img_m.group(1))
-            except (TypeError, ValueError):
-                pass
-        # 2. Bubble icon class pattern (e.g. bubble_45 -> 4.5, ui_bubble_rating bubble_40 -> 4.0)
-        if empty["ta_rating"] is None:
-            bubble_m = re.search(r'bubble_(\d{2})\b', card_html, re.I)
-            if bubble_m:
-                try:
-                    empty["ta_rating"] = float(bubble_m.group(1)) / 10.0
-                except (TypeError, ValueError):
-                    pass
-        # 3. Text score pattern near TripAdvisor / rating keywords (e.g. 4.5/5 or 4.5)
-        if empty["ta_rating"] is None:
-            text_m = re.search(r'(?:tripadvisor|ocena|rating)[^>]*?>\s*([1-5][.,]\d)\s*(?:/\s*5)?', card_html, re.I)
-            if text_m:
-                try:
-                    empty["ta_rating"] = float(text_m.group(1).replace(",", "."))
-                except (TypeError, ValueError):
-                    pass
-
-    if count_m:
+    if img_m:
         try:
-            empty["ta_review_count"] = int(float(count_m.group(1)))
+            empty["ta_rating"] = float(img_m.group(1))
         except (TypeError, ValueError):
             pass
-    else:
-        opin_m = re.search(r"(\d+[\s\xa0]*\d*)\s*(?:opini|recenz)", card_html, re.I)
-        if opin_m:
+
+    # 2. Bubble icon class pattern (напр. bubble_45 -> 4.5, bubble_32 -> 3.2)
+    if empty["ta_rating"] is None:
+        bubble_m = re.search(r'bubble_(\d{2})\b', card_html, re.I)
+        if bubble_m:
             try:
-                empty["ta_review_count"] = int(re.sub(r"[^\d]", "", opin_m.group(1)))
+                empty["ta_rating"] = float(bubble_m.group(1)) / 10.0
             except (TypeError, ValueError):
                 pass
+
+    # 3. Виджет мульти-источников: бейдж/блок TripAdvisor (отдельно от Google)
+    if empty["ta_rating"] is None:
+        ta_badge_m = re.search(
+            r'(?:class="[^"]*tripadvisor[^"]*"|tripadvisor)[^>]*>[\s\S]{0,120}?\b([1-5][.,]\d)\b',
+            card_html,
+            re.I,
+        )
+        if ta_badge_m:
+            try:
+                empty["ta_rating"] = float(ta_badge_m.group(1).replace(",", "."))
+            except (TypeError, ValueError):
+                pass
+
+    # 4. Текстовый балл строго рядом с упоминанием TripAdvisor
+    if empty["ta_rating"] is None:
+        text_m = re.search(
+            r'(?:tripadvisor|ocena\s+podr[oó]żnych\s+tripadvisor)[^>]*?>[\s\S]{0,60}?\b([1-5][.,]\d)\s*(?:/\s*5)?',
+            card_html,
+            re.I,
+        )
+        if text_m:
+            try:
+                empty["ta_rating"] = float(text_m.group(1).replace(",", "."))
+            except (TypeError, ValueError):
+                pass
+
+    # 5. Число отзывов строго для TripAdvisor:
+    # 5a. В контейнере TripAdvisor (<div class="t-m-l">...<span class="c">...</span>)
+    ta_block_m = re.search(r'<div class="t-m-l"[^>]*>(.*?)</div>', card_html, re.S)
+    if ta_block_m:
+        c_m = re.search(r'<span class="c"[^>]*>\s*([\d\s\xa0]+)\s*opini', ta_block_m.group(1), re.I)
+        if c_m:
+            try:
+                empty["ta_review_count"] = int(re.sub(r"[^\d]", "", c_m.group(1)))
+            except (TypeError, ValueError):
+                pass
+
+    # 5b. Рядом с упоминанием TripAdvisor
+    if empty["ta_review_count"] is None and empty["ta_rating"] is not None:
+        ta_rev_m = re.search(
+            r'tripadvisor[\s\S]{0,150}?\b([\d\s\xa0]+)\s*(?:opini|recenz)',
+            card_html,
+            re.I,
+        )
+        if ta_rev_m:
+            try:
+                empty["ta_review_count"] = int(re.sub(r"[^\d]", "", ta_rev_m.group(1)))
+            except (TypeError, ValueError):
+                pass
+
+    # 5c. Если подтвержден TripAdvisor и на карточке нет других источников (нет Google)
+    if empty["ta_review_count"] is None and empty["ta_rating"] is not None:
+        if "google" not in card_html.lower():
+            count_m = re.search(r'property="schema:ratingCount"[^>]*content="([^"]+)"', card_html)
+            if count_m:
+                try:
+                    empty["ta_review_count"] = int(float(count_m.group(1)))
+                except (TypeError, ValueError):
+                    pass
+            else:
+                opin_m = re.search(r"(\d+[\s\xa0]*\d*)\s*(?:opini|recenz)", card_html, re.I)
+                if opin_m:
+                    try:
+                        empty["ta_review_count"] = int(re.sub(r"[^\d]", "", opin_m.group(1)))
+                    except (TypeError, ValueError):
+                        pass
+
     if empty["ta_rating"] is not None and empty["ta_rating"] > 0:
         empty["ta_source"] = "tripadvisor"
+
     return empty
 
 
