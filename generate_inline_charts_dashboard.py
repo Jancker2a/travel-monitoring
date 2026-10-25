@@ -138,22 +138,50 @@ def render_ai_market_briefing_html(
             picks_items_html = ""
             for p in top_picks:
                 h_name = str(p.get("hotel_name", ""))
-                h_price = float(p.get("price", 0.0) or 0.0)
+                meta = (hotel_meta_by_name or {}).get(h_name, {})
+                h_price = float(p.get("price") or meta.get("price") or 0.0)
+
+                # Fallback 1: case-insensitive or partial match in hotel_meta_by_name
+                if h_price <= 0.0 and hotel_meta_by_name:
+                    h_lower = h_name.strip().lower()
+                    for k, v in hotel_meta_by_name.items():
+                        k_lower = k.strip().lower()
+                        if h_lower == k_lower or h_lower in k_lower or k_lower in h_lower:
+                            cand_p = float(v.get("price") or 0.0)
+                            if cand_p > 0.0:
+                                h_price = cand_p
+                                if not meta:
+                                    meta = v
+                                break
+
+                # Fallback 2: parse price directly from why_buy text (e.g. "Цена 2,944 zł...")
+                if h_price <= 0.0:
+                    m_p = re.search(r"(?:цена|за|всего)?\s*([0-9][0-9\s,.]*)\s*zł", str(p.get("why_buy", "")), re.IGNORECASE)
+                    if m_p:
+                        try:
+                            clean_str = m_p.group(1).replace(" ", "").replace("\xa0", "").replace(",", "")
+                            if "." in clean_str and len(clean_str.split(".")[-1]) == 3:
+                                clean_str = clean_str.replace(".", "")
+                            val_p = float(clean_str)
+                            if val_p >= 500.0:
+                                h_price = val_p
+                        except (ValueError, TypeError):
+                            pass
+
                 h_badge = html_lib.escape(str(p.get("badge", "🟢 Выгодно")))
                 h_why = html_lib.escape(str(p.get("why_buy", "")))
-
-                meta = (hotel_meta_by_name or {}).get(h_name, {})
                 offer_url = meta.get("offer_url") or p.get("offer_url", "")
                 chart_href = meta.get("chart_href", "")
 
                 chart_btn = f'<a href="{html_lib.escape(chart_href, quote=True)}" target="_blank" class="ai-pick-btn ai-pick-btn--chart">График</a>' if chart_href else ''
                 offer_btn = f'<a href="{html_lib.escape(offer_url, quote=True)}" target="_blank" class="ai-pick-btn ai-pick-btn--offer">Открыть оффер ↗</a>' if offer_url else ''
+                price_badge_html = f'<span class="ai-pick-price">{h_price:,.0f} zł</span>' if h_price > 0.0 else ''
 
                 picks_items_html += f"""
                     <div class="ai-pick-card">
                         <div class="ai-pick-header">
                             <span class="ai-pick-name">{html_lib.escape(h_name)}</span>
-                            <span class="ai-pick-price">{h_price:,.0f} zł</span>
+                            {price_badge_html}
                         </div>
                         <div class="ai-pick-meta">
                             <span class="ai-pick-badge">{h_badge}</span>
@@ -10191,6 +10219,8 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             hotel_meta_by_name[_hn] = {
                 "offer_url": str(_h_row.get("offer_url") or _h_row.get("url") or ""),
                 "chart_href": f"hotel-charts/{_filter_data_id}/{slugify(_hn)}.html",
+                "price": float(_h_row.get("price", 0.0) or 0.0),
+                "rating": _h_row.get("ta_rating") or _h_row.get("rating"),
             }
 
     ai_briefing_html = render_ai_market_briefing_html(

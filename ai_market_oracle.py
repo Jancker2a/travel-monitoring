@@ -38,13 +38,27 @@ SYSTEM_INSTRUCTION = """
    - Вместо «плато раннего бронирования» пиши: «до вылета еще много времени, цены спокойные и спешить не нужно».
    - Вместо «риск sold-out» пиши: «хорошие номера в этом отеле быстро разбирают».
 3. ПРИВОДИ КОНКРЕТНЫЕ ЦИФРЫ: цены в злотых (zł), сколько дней осталось до вылета, сколько можно сэкономить.
-4. ЕСЛИ В ПОДБОРКЕ РАЗНЫЕ ДАТЫ ВЫЛЕТА (например, на месяц вперед):
-   - Разделяй ближайшие и дальние даты: на ближайшие дни туроператоры уже «горят» и отдают туры дешевле, а на дальние даты цены пока обычные, можно спокойно выбирать.
-   - Поясни, что подборка «живая» и обновляется каждый день по мере приближения вылетов.
-5. РЕКОМЕНДАЦИЯ «ЕСЛИ ПОКУПАТЬ СЕЙЧАС» (поле buy_now_recommendation):
-   - Если на рынке есть 1-2 реально выгодных предложения (сброс цены, дно сезона, жемчужина) — укажи has_worthy_deals: true, заголовок «Стоит выбрать из этих вариантов:» и перечисли их с понятным объяснением, почему брать.
+4. УЧИТЫВАЙ РЕАЛЬНЫЕ ДАТЫ ВЫЛЕТА (market_stats):
+   - Обязательно смотри на min_days_to_departure, nearest_departure_date и dominant_yield_phase!
+   - Если до вылета больше 20 дней (например, 56 дней в декабре): это РАННЕЕ БРОНИРОВАНИЕ (early_bird / mid_term). Цены спокойные, спешить с покупкой не нужно. КАТЕГОРИЧЕСКИ ЗАПРЕЩЕНО писать «Горящие туры», «вылет через 6 дн.» или советовать брать тур прямо сейчас!
+   - Термин «Горящие туры» и совет «брать срочно» допустимы ТОЛЬКО если до вылета РЕАЛЬНО осталось <= 7 дней!
+   - Если is_wide_window=false (все даты в пределах 2-3 дней): НЕ дели даты на «ближайшие» и «дальние», вылет один!
+5. ПОЛНЫЙ КАТАЛОГ ВСЕХ ОТЕЛЕЙ И РАЗНООБРАЗИЕ СЕГМЕНТОВ:
+   - В поле all_hotels_catalog тебе передан ПОЛНЫЙ каталог ВСЕХ отелей этого фильтра (премиум, комфорт, эконом) без искусственных ограничений, с их реальными ценами, звездами, рейтингами и скидками.
+   - Оценивай рынок ЦЕЛИКОМ: анализируй как премиум 5★, так и комфорт, и эконом.
+   - В блоке buy_now_recommendation («Если покупать сейчас») выбирай 1-2 действительно лучших варианта с высоким рейтингом (rating >= 4.0), представляя достойные варианты из разных сегментов, а не только самый дешевый эконом.
+   - Если на рынке есть 1-2 реально выгодных предложения (сброс цены, дно сезона, жемчужина) — укажи has_worthy_deals: true, заголовок «Стоит выбрать из этих вариантов:» и перечисли их с понятным объяснением, почему брать. Обязательно передавай точную цену отеля в поле "price".
    - Если же на рынке ВСЕ варианты средние, плохие или переоценены — укажи has_worthy_deals: false, заголовок «Лучше ничего не покупать — подождите», и объясни, почему сейчас не время для покупки.
-6. ФОРМАТ ОТВЕТА: строго валидный JSON без markdown-разметки.
+6. СТРОГАЯ ТОЧНОСТЬ РЕЙТИНГОВ И ЦЕН (АНТИ-ГАЛЛЮЦИНАЦИЯ):
+   - КАТЕГОРИЧЕСКИ ЗАПРЕЩЕНО придумывать рейтинг отеля или писать «рейтинг 4.5★», если в данных указан другой рейтинг или rating=0!
+   - Указывай ТОЛЬКО реальный рейтинг из поля rating отеля (например: «рейтинг 4.2★»). Если рейтинг равен 0 или отсутствует — вообще не упоминай рейтинг.
+   - Отели с рейтингом ниже 4.0 КАТЕГОРИЧЕСКИ ЗАПРЕЩЕНО называть «Жемчужиной» или рекомендовать в блоке «Стоит выбрать»!
+7. СРАВНЕНИЕ ТОЛЬКО С ПРИМЕРНО РАВНЫМИ:
+   - Не сравнивай бюджетный отель со средней ценой по всему рынку. Сравнивай отель только с его собственной историей («на 15% дешевле обычной цены этого отеля») или с равными отелями его ценового сегмента (эконом/комфорт/премиум).
+8. СТРОГИЙ ЗАПРЕТ БРЕДОВЫХ ФРАЗ «НА 0% НИЖЕ» ИЛИ «НА 0% ВЫШЕ»:
+   - КАТЕГОРИЧЕСКИ ЗАПРЕЩЕНО писать «на 0% ниже» или «на 0% выше»! Если цена не снижена или разница меньше 7%, это обычная базовая цена: пиши «это стандартная обычная цена отеля» и ставь вердикт WAIT (🟡 ПОДОЖДАТЬ).
+   - Вердикт GOOD_PRICE (🔵 ХОРОШАЯ ЦЕНА) допустим ТОЛЬКО при реальной скидке от 7% и выше!
+9. ФОРМАТ ОТВЕТА: строго валидный JSON без markdown-разметки.
 """
 
 
@@ -170,24 +184,25 @@ def generate_rule_based_briefing(market_context: Dict[str, Any]) -> Dict[str, An
             rationale = f"Цена {cur_p:,.0f} zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки."
             risk = "Номера в этом отеле популярны, к дате вылета мест может не остаться."
             advice = "Если отель нравится — фиксируйте бронь прямо сегодня, дешевле уже вряд ли будет."
-        elif diff_from_med >= 12.0 or fp.get("class") == "expensive":
+        elif diff_from_med >= 10.0 or fp.get("class") == "expensive":
             verdict = "OVERPRICED"
             verdict_badge = "🔴 ДОРОГО"
-            rationale = f"Цена {cur_p:,.0f} zł на {diff_from_med:.0f}% выше обычной средней цены этого отеля ({hist_med:,.0f} zł)."
+            diff_val = max(1.0, abs(diff_from_med))
+            rationale = f"Цена {cur_p:,.0f} zł на {diff_val:.0f}% выше обычной средней цены этого отеля ({hist_med:,.0f} zł)."
             risk = "Высокий риск переплаты. Туроператор держит завышенную цену."
             advice = "Покупать сейчас крайне невыгодно. Добавьте в Избранное (☆) и ждите снижения."
-        elif diff_from_med <= -8.0 or (quantile <= 0.20 and diff_from_med <= 2.0):
+        elif diff_from_med <= -7.0:
             verdict = "GOOD_PRICE"
             verdict_badge = "🔵 ХОРОШАЯ ЦЕНА"
-            rationale = f"Цена {cur_p:,.0f} zł на {abs(diff_from_med):.0f}% ниже обычной средней цены отеля."
+            rationale = f"Цена {cur_p:,.0f} zł на {abs(diff_from_med):.0f}% ниже обычной средней цены отеля ({hist_med:,.0f} zł)."
             risk = "Цена может слегка колебаться, но предложение уже достаточно выгодное."
-            advice = "Можно брать, если даты и отель полностью вас устраивают."
+            advice = "Хорошая цена со скидкой, можно бронировать."
         else:
             verdict = "WAIT"
             verdict_badge = "🟡 ПОДОЖДАТЬ"
-            rationale = f"Отель сейчас стоит {cur_p:,.0f} zł — это обычная средняя цена. По опыту, перед вылетом туроператор часто делает скидки."
-            risk = "Если купить сейчас, есть риск переплатить 300–600 zł."
-            advice = "Если вылет не горит — добавьте в Избранное (☆) и подождите снижения цены ближе к вылету."
+            rationale = f"Отель сейчас стоит {cur_p:,.0f} zł — это обычная базовая цена за сезон (медиана {hist_med:,.0f} zł)."
+            risk = "Цена не снижена, туроператор пока не давал скидок на эти даты."
+            advice = "Спешить не нужно: добавьте в Избранное (☆) и подождите приближения вылета."
 
         dossiers[h_name] = {
             "verdict": verdict,
@@ -373,20 +388,21 @@ def enrich_oracle_report_with_smart_features(
                 b_text = "🟢 ПОКУПАТЬ"
                 rat = f"Цена {cur_p:,.0f} zł — на самом дне за всё время наблюдений ({hist_min:,.0f} zł)."
                 adv = "Отличный момент для покупки, дешевле уже вряд ли будет."
-            elif diff_from_med >= 12.0 or fp.get("class") == "expensive":
+            elif diff_from_med >= 10.0 or fp.get("class") == "expensive":
                 v = "OVERPRICED"
                 b_text = "🔴 ДОРОГО"
-                rat = f"Цена {cur_p:,.0f} zł на {diff_from_med:.0f}% выше обычной средней этого отеля ({hist_med:,.0f} zł)."
+                diff_val = max(1.0, abs(diff_from_med))
+                rat = f"Цена {cur_p:,.0f} zł на {diff_val:.0f}% выше обычной средней этого отеля ({hist_med:,.0f} zł)."
                 adv = "Покупать сейчас невыгодно: цена завышена, лучше подождать снижения."
-            elif diff_from_med <= -8.0 or (quantile <= 0.20 and diff_from_med <= 2.0):
+            elif diff_from_med <= -7.0:
                 v = "GOOD_PRICE"
                 b_text = "🔵 ХОРОШАЯ ЦЕНА"
-                rat = f"Цена {cur_p:,.0f} zł на {abs(diff_from_med):.0f}% ниже обычной средней цены отеля."
-                adv = "Хорошая цена, можно бронировать."
+                rat = f"Цена {cur_p:,.0f} zł на {abs(diff_from_med):.0f}% ниже обычной средней цены отеля ({hist_med:,.0f} zł)."
+                adv = "Хорошая цена со скидкой, можно бронировать."
             else:
                 v = "WAIT"
                 b_text = "🟡 ПОДОЖДАТЬ"
-                rat = f"Отель сейчас стоит {cur_p:,.0f} zł — это обычная средняя цена."
+                rat = f"Отель сейчас стоит {cur_p:,.0f} zł — это обычная базовая цена за сезон (медиана {hist_med:,.0f} zł)."
                 adv = "Спешить не нужно, добавьте в «Избранное» (☆) и подождите."
 
             dossiers[h_name] = {
@@ -438,15 +454,78 @@ def enrich_oracle_report_with_smart_features(
 
     for g in market_context.get("gems", [])[:1]:
         if g["hotel_name"] not in existing_texts:
+            r_str = f"Рейтинг {g['rating']:g}★" if g.get("rating", 0) > 0 else "Популярный отель"
             existing_anomalies.append({
                 "type": "gem",
                 "title": f"💎 Скрытая жемчужина: {g['hotel_name']}",
-                "text": f"Высокий рейтинг {g.get('rating', 4.5):g}★ в категории {g.get('stars', 5)}★ всего за {g['price']:,.0f} zł (намного дешевле похожих отелей)."
+                "text": f"{r_str} в категории {g.get('stars', 4)}★ всего за {g['price']:,.0f} zł (дешевле аналогов)."
             })
 
-    # 6. Buy Now Recommendation
-    if "buy_now_recommendation" not in macro or not macro["buy_now_recommendation"].get("top_picks"):
+    # 6. Buy Now Recommendation validation & ground-truth enrichment
+    buy_rec = macro.get("buy_now_recommendation")
+    all_intel = market_context.get("all_hotel_intelligence", {})
+    if not buy_rec or not buy_rec.get("top_picks"):
         macro["buy_now_recommendation"] = compute_buy_now_recommendation(market_context, dossiers)
+    else:
+        verified_picks = []
+        for pick in buy_rec.get("top_picks", []):
+            hn = str(pick.get("hotel_name", ""))
+            intel = all_intel.get(hn)
+            if intel:
+                cur_p = float(intel.get("current_price", 0.0) or 0.0)
+                real_r = float(intel.get("rating", 0.0) or 0.0)
+
+                # Overwrite price with verified ground truth (fixes 0 zł bug!)
+                pick["price"] = cur_p
+                pick["rating"] = real_r
+
+                # Disqualify hotels with poor ratings (< 4.0) from buy recommendations
+                if real_r > 0 and real_r < 4.0:
+                    logger.info(f"Disqualifying {hn} from top picks due to low TripAdvisor rating ({real_r}★)")
+                    continue
+
+                # Fix hallucinated ratings in why_buy (fixes 'Ложь про рейтинг 4.5' bug!)
+                why_text = str(pick.get("why_buy", ""))
+                if "4.5" in why_text and abs(real_r - 4.5) > 0.1:
+                    if real_r > 0:
+                        why_text = why_text.replace("4.5", f"{real_r:g}")
+                    else:
+                        why_text = re.sub(r",?\s*(?:а\s*)?рейтинг\s*4\.5[★\*]?", "", why_text)
+                pick["why_buy"] = why_text
+                verified_picks.append(pick)
+            else:
+                if hn in dossiers:
+                    verified_picks.append(pick)
+
+        buy_rec["top_picks"] = verified_picks
+        if not verified_picks:
+            macro["buy_now_recommendation"] = compute_buy_now_recommendation(market_context, dossiers)
+
+    # 7. Ground-truth sanity check for market_phase, headline, and strategic_directive
+    stats = market_context.get("market_stats", {})
+    min_d = stats.get("min_days_to_departure", 14)
+    nearest_dep = stats.get("nearest_departure_date", "")
+    is_wide = stats.get("is_wide_window", False)
+    phase_str = str(macro.get("market_phase", ""))
+
+    # If departure is > 20 days away, but AI hallucinated "Горящие туры" or "через X дн."
+    if min_d >= 20 and ("горящ" in phase_str.lower() or re.search(r"через\s*[1-9]\s*дн", phase_str, re.I)):
+        dep_suffix = f" ({nearest_dep})" if nearest_dep else ""
+        macro["market_phase"] = f"Ранний выбор (вылет через {min_d} дн.{dep_suffix})"
+        logger.info(f"Corrected hallucinated market_phase from '{phase_str}' to '{macro['market_phase']}' (min_d={min_d})")
+
+    head_str = str(macro.get("headline", ""))
+    if not is_wide and ("дальние" in head_str.lower() or "ближайшие даты цены падают" in head_str.lower()):
+        if min_d >= 20:
+            macro["headline"] = f"Вылеты {nearest_dep} (через {min_d} дн.): цены стабильные, спешить с покупкой не нужно"
+        else:
+            macro["headline"] = f"Вылеты {nearest_dep} (через {min_d} дн.): туроператоры обновляют цены"
+        logger.info(f"Corrected wide-window hallucination in headline to '{macro['headline']}'")
+
+    directive_str = str(macro.get("strategic_directive", ""))
+    if min_d >= 20 and ("на ближайшие даты, стоит брать" in directive_str.lower() or "брать прямо сейчас" in directive_str.lower() or "стоит брать туры сейчас" in directive_str.lower()):
+        macro["strategic_directive"] = f"До вылета еще много времени ({min_d} дн.). Цены находятся на обычном уровне. Спешить с бронированием не нужно: добавьте отели в «Избранное» (☆) и наблюдайте за ценой за 10–14 дней до вылета."
+        logger.info("Corrected rushed buy directive for distant departure (>20 days).")
 
     if market_context.get("filter_title"):
         macro["filter_title"] = market_context["filter_title"]
@@ -470,17 +549,29 @@ def call_gemini_oracle(
         if c and c not in target_models:
             target_models.append(c)
 
+    llm_context = {
+        "filter_id": market_context.get("filter_id"),
+        "filter_title": market_context.get("filter_title"),
+        "analyzed_at": market_context.get("analyzed_at"),
+        "market_stats": market_context.get("market_stats"),
+        "floor_saturation": market_context.get("floor_saturation"),
+        "arbitrage_highlights": market_context.get("arbitrage_highlights"),
+        "gems": market_context.get("gems"),
+        "flash_drops": market_context.get("flash_drops"),
+        "all_hotels_catalog": market_context.get("all_hotels_catalog") or market_context.get("selected_hotel_dossiers"),
+    }
+
     user_prompt = f"""
 Проанализируй сжатые метрики рынка пакетных туров и выдай понятное экспертное заключение простым языком для обычного туриста в формате JSON:
 
-ВХОДНЫЕ ДАННЫЕ РЫНКА:
-{json.dumps(market_context, ensure_ascii=False, indent=2)}
+ВХОДНЫЕ ДАННЫЕ РЫНКА (ВКЛЮЧАЯ ВСЕ ОТЕЛИ ФИЛЬТРА):
+{json.dumps(llm_context, ensure_ascii=False, indent=2)}
 
 ТРЕБОВАНИЯ К ФОРМАТУ JSON:
 {{
   "macro_briefing": {{
-    "headline": "Короткий живой заголовок ситуации (СТРОГО БЕЗ названий файлов, slug или filter_id. Пример: 'На ближайшие даты цены падают, на дальние — стабильны')",
-    "market_phase": "Понятная фаза (например: Горящие туры через 6 дн. или Спокойный выбор за месяц до вылета)",
+    "headline": "Честный краткий заголовок ситуации строго по реальным данным min_days_to_departure и nearest_departure_date (СТРОГО БЕЗ названий файлов, slug или filter_id)",
+    "market_phase": "Фаза рынка строго по реальному min_days_to_departure (например: 'Раннее бронирование за 56 дн.' если вылет нескоро, или 'Горящие туры за 4 дн.' если вылет на днях)",
     "charter_dynamics": "2-3 простых понятных предложения с цифрами о ценах и рейсах",
     "floor_status": "Сколько отелей сейчас на самом дне цены",
     "strategic_directive": "Простой четкий совет: кому брать тур прямо сейчас, а кому лучше подождать",
@@ -489,7 +580,7 @@ def call_gemini_oracle(
       "headline": "Стоит выбрать из этих вариантов: (или: 'Лучше ничего не покупать — подождите')",
       "advice": "Короткий живой совет туристу",
       "top_picks": [
-        {{ "hotel_name": "...", "badge": "⚡ Сброс цены / 💎 Жемчужина", "why_buy": "..." }}
+        {{ "hotel_name": "...", "price": 1234.0, "badge": "⚡ Сброс цены / 💎 Жемчужина", "why_buy": "..." }}
       ]
     }},
     "key_anomalies": [
@@ -553,42 +644,84 @@ def call_gemini_oracle(
     return None
 
 
+def fetch_available_openai_models(api_key: str) -> List[str]:
+    """Queries GET https://api.openai.com/v1/models to discover exact model IDs available to this API key."""
+    try:
+        url = "https://api.openai.com/v1/models"
+        req = urllib.request.Request(
+            url,
+            headers={
+                "Authorization": f"Bearer {api_key}",
+                "User-Agent": "TravelPriceMonitor/1.0",
+            },
+            method="GET",
+        )
+        with urllib.request.urlopen(req, timeout=8) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
+            raw_ids = [m["id"] for m in data.get("data", []) if "id" in m]
+            chat_models = [m for m in raw_ids if any(m.startswith(p) for p in ("gpt-4o", "gpt-4", "o1", "o3", "chatgpt"))]
+            if chat_models:
+                logger.info(f"OpenAI account models discovered ({len(chat_models)}): {', '.join(chat_models[:6])}")
+            return chat_models
+    except Exception as e:
+        logger.debug(f"Could not auto-discover OpenAI models via /v1/models: {e}")
+        return []
+
+
 def call_openai_oracle(
     market_context: Dict[str, Any],
     api_key: str,
     model: Optional[str] = None,
 ) -> Optional[Dict[str, Any]]:
     """
-    Invokes OpenAI Chat Completions API (e.g. gpt-4o-mini, gpt-4o) with JSON mode.
+    Invokes OpenAI Chat Completions API with dynamic model discovery and JSON mode.
     """
     import re
 
-    candidates = [
-        model,
-        os.getenv("OPENAI_MODEL"),
-        "gpt-5.6-luna",
-        "gpt-5-luna",
-        "gpt-6-luna",
-        "gpt-4o-mini",
-        "gpt-6.1-sol",
-        "gpt-4o",
-    ]
+    discovered = fetch_available_openai_models(api_key)
+    preferred_order = ["gpt-5.6-luna", "gpt-5-chat-latest", "gpt-5.4-mini", "gpt-4o-mini", "gpt-4o", "o3-mini"]
     target_models = []
-    for c in candidates:
-        if c and c not in target_models:
-            target_models.append(c)
+
+    explicit_model = model or os.getenv("OPENAI_MODEL")
+    if explicit_model:
+        if discovered and explicit_model not in discovered:
+            logger.warning(
+                f"Configured model '{explicit_model}' was NOT found in your OpenAI account models list! "
+                f"Available examples: {', '.join(discovered[:6])}. Will attempt anyway and fallback."
+            )
+        target_models.append(explicit_model)
+
+    for p in preferred_order:
+        if p in discovered and p not in target_models:
+            target_models.append(p)
+
+    for p in preferred_order:
+        if p not in target_models:
+            target_models.append(p)
+
+    llm_context = {
+        "filter_id": market_context.get("filter_id"),
+        "filter_title": market_context.get("filter_title"),
+        "analyzed_at": market_context.get("analyzed_at"),
+        "market_stats": market_context.get("market_stats"),
+        "floor_saturation": market_context.get("floor_saturation"),
+        "arbitrage_highlights": market_context.get("arbitrage_highlights"),
+        "gems": market_context.get("gems"),
+        "flash_drops": market_context.get("flash_drops"),
+        "all_hotels_catalog": market_context.get("all_hotels_catalog") or market_context.get("selected_hotel_dossiers"),
+    }
 
     user_prompt = f"""
 Проанализируй сжатые метрики рынка пакетных туров и выдай понятное экспертное заключение простым языком для обычного туриста в формате JSON:
 
-ВХОДНЫЕ ДАННЫЕ РЫНКА:
-{json.dumps(market_context, ensure_ascii=False, indent=2)}
+ВХОДНЫЕ ДАННЫЕ РЫНКА (ВКЛЮЧАЯ ВСЕ ОТЕЛИ ФИЛЬТРА):
+{json.dumps(llm_context, ensure_ascii=False, indent=2)}
 
 ТРЕБОВАНИЯ К ФОРМАТУ JSON:
 {{
   "macro_briefing": {{
-    "headline": "Короткий живой заголовок ситуации (СТРОГО БЕЗ названий файлов, slug или filter_id. Пример: 'На ближайшие даты цены падают, на дальние — стабильны')",
-    "market_phase": "Понятная фаза (например: Горящие туры через 6 дн. или Спокойный выбор за месяц до вылета)",
+    "headline": "Честный краткий заголовок ситуации строго по реальным данным min_days_to_departure и nearest_departure_date (СТРОГО БЕЗ названий файлов, slug или filter_id)",
+    "market_phase": "Фаза рынка строго по реальному min_days_to_departure (например: 'Раннее бронирование за 56 дн.' если вылет нескоро, или 'Горящие туры за 4 дн.' если вылет на днях)",
     "charter_dynamics": "2-3 простых понятных предложения с цифрами о ценах и рейсах",
     "floor_status": "Сколько отелей сейчас на самом дне цены",
     "strategic_directive": "Простой четкий совет: кому брать тур прямо сейчас, а кому лучше подождать",
@@ -597,7 +730,7 @@ def call_openai_oracle(
       "headline": "Стоит выбрать из этих вариантов: (или: 'Лучше ничего не покупать — подождите')",
       "advice": "Короткий живой совет туристу",
       "top_picks": [
-        {{ "hotel_name": "...", "badge": "⚡ Сброс цены / 💎 Жемчужина", "why_buy": "..." }}
+        {{ "hotel_name": "...", "price": 1234.0, "badge": "⚡ Сброс цены / 💎 Жемчужина", "why_buy": "..." }}
       ]
     }},
     "key_anomalies": [
@@ -624,9 +757,12 @@ def call_openai_oracle(
                 {"role": "system", "content": SYSTEM_INSTRUCTION},
                 {"role": "user", "content": user_prompt},
             ],
-            "temperature": 0.2,
             "response_format": {"type": "json_object"},
         }
+        # Newer reasoning and next-gen models (gpt-5*, gpt-6*, o1, o3) only support default temperature (1.0).
+        # Supplying temperature=0.2 causes OpenAI HTTP 400 invalid_request_error: unsupported_value.
+        if not any(target_model.startswith(p) for p in ("gpt-5", "gpt-6", "o1", "o3")):
+            payload["temperature"] = 0.2
 
         try:
             url = "https://api.openai.com/v1/chat/completions"

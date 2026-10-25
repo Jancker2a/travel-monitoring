@@ -442,7 +442,8 @@ def extract_filter_features(
             or is_gem
             or (is_truly_underpriced and r_val >= 4.2)
         )
-        if has_buy_catalyst:
+        # Low rating (< 4.0) hotels should NEVER be candidates for buy recommendations
+        if has_buy_catalyst and (r_val >= 4.0 or r_val == 0.0):
             active_candidates.append(cand_info)
 
         hotel_records_list.append(cand_info)
@@ -478,9 +479,30 @@ def extract_filter_features(
 
         all_hotel_intelligence[cand["hotel_name"]] = cand
 
-    # Sort active candidates by best value / floor proximity
-    active_candidates.sort(key=lambda x: (x["quantile_in_filter"], x["current_price"]))
-    selected_for_ai = active_candidates[:12]
+    # Build complete catalog of ALL hotels in the filter for AI analysis (zero artificial truncation!)
+    all_hotels_catalog = []
+    for cand in hotel_records_list:
+        cur_p = cand["current_price"]
+        h_med = cand["historical_median"]
+        diff_h = round(((cur_p - h_med) / max(1.0, h_med)) * 100.0, 1) if h_med > 0 else 0.0
+        all_hotels_catalog.append({
+            "hotel_name": cand["hotel_name"],
+            "price": cur_p,
+            "stars": cand["stars"],
+            "rating": cand["rating"],
+            "tier": cand["fair_price"].get("tier", "комфорт"),
+            "historical_median": h_med,
+            "diff_from_history_pct": diff_h,
+            "diff_from_tier_pct": cand["fair_price"].get("delta_pct", 0.0),
+            "is_floor": cur_p <= (cand["historical_min"] * 1.01),
+            "is_flash": cand["flash_drop"]["is_flash"],
+            "is_gem": cand["gem"]["is_gem"],
+            "booking_window": cand["booking_window"].get("optimal_window", ""),
+        })
+
+    # Sort catalog: premium first, then comfort, then economy, ordered by highest rating and best discount
+    tier_order = {"премиум": 0, "комфорт": 1, "эконом": 2}
+    all_hotels_catalog.sort(key=lambda x: (tier_order.get(x["tier"], 1), -x["rating"], x["diff_from_history_pct"]))
 
     # Process cross-border arbitrage highlights if available
     arbitrage_summary: List[Dict[str, Any]] = []
@@ -527,7 +549,8 @@ def extract_filter_features(
             "sample_floor_hotels": [f["hotel_name"] for f in floor_breakers[:6]],
         },
         "arbitrage_highlights": arbitrage_summary,
-        "selected_hotel_dossiers": selected_for_ai,
+        "all_hotels_catalog": all_hotels_catalog,
+        "selected_hotel_dossiers": all_hotels_catalog,
         "all_hotel_intelligence": all_hotel_intelligence,
         "gems": gems,
         "flash_drops": flash_drops,
