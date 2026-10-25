@@ -479,22 +479,30 @@ def extract_filter_features(
 
         all_hotel_intelligence[cand["hotel_name"]] = cand
 
-    # Balanced selection for AI prompt across price tiers:
-    # Ensures AI sees worthy candidates in economy, comfort, and premium segments (not just bottom 12 cheapest!)
-    tier_candidates: Dict[str, List[Dict[str, Any]]] = {"эконом": [], "комфорт": [], "премиум": []}
-    for c in active_candidates:
-        tier = c["fair_price"].get("tier", "комфорт")
-        tier_candidates.setdefault(tier, []).append(c)
+    # Build complete catalog of ALL hotels in the filter for AI analysis (zero artificial truncation!)
+    all_hotels_catalog = []
+    for cand in hotel_records_list:
+        cur_p = cand["current_price"]
+        h_med = cand["historical_median"]
+        diff_h = round(((cur_p - h_med) / max(1.0, h_med)) * 100.0, 1) if h_med > 0 else 0.0
+        all_hotels_catalog.append({
+            "hotel_name": cand["hotel_name"],
+            "price": cur_p,
+            "stars": cand["stars"],
+            "rating": cand["rating"],
+            "tier": cand["fair_price"].get("tier", "комфорт"),
+            "historical_median": h_med,
+            "diff_from_history_pct": diff_h,
+            "diff_from_tier_pct": cand["fair_price"].get("delta_pct", 0.0),
+            "is_floor": cur_p <= (cand["historical_min"] * 1.01),
+            "is_flash": cand["flash_drop"]["is_flash"],
+            "is_gem": cand["gem"]["is_gem"],
+            "booking_window": cand["booking_window"].get("optimal_window", ""),
+        })
 
-    selected_for_ai = []
-    # Take up to 4 best deals from each tier (sorted by highest rating and biggest discount)
-    for tier in ("премиум", "комфорт", "эконом"):
-        t_list = tier_candidates.get(tier, [])
-        t_list.sort(key=lambda x: (-x["rating"], x["fair_price"].get("delta_pct", 0), x["current_price"]))
-        selected_for_ai.extend(t_list[:4])
-
-    if not selected_for_ai:
-        selected_for_ai = hotel_records_list[:12]
+    # Sort catalog: premium first, then comfort, then economy, ordered by highest rating and best discount
+    tier_order = {"премиум": 0, "комфорт": 1, "эконом": 2}
+    all_hotels_catalog.sort(key=lambda x: (tier_order.get(x["tier"], 1), -x["rating"], x["diff_from_history_pct"]))
 
     # Process cross-border arbitrage highlights if available
     arbitrage_summary: List[Dict[str, Any]] = []
@@ -541,7 +549,8 @@ def extract_filter_features(
             "sample_floor_hotels": [f["hotel_name"] for f in floor_breakers[:6]],
         },
         "arbitrage_highlights": arbitrage_summary,
-        "selected_hotel_dossiers": selected_for_ai,
+        "all_hotels_catalog": all_hotels_catalog,
+        "selected_hotel_dossiers": all_hotels_catalog,
         "all_hotel_intelligence": all_hotel_intelligence,
         "gems": gems,
         "flash_drops": flash_drops,

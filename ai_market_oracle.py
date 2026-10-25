@@ -43,7 +43,10 @@ SYSTEM_INSTRUCTION = """
    - Если до вылета больше 20 дней (например, 56 дней в декабре): это РАННЕЕ БРОНИРОВАНИЕ (early_bird / mid_term). Цены спокойные, спешить с покупкой не нужно. КАТЕГОРИЧЕСКИ ЗАПРЕЩЕНО писать «Горящие туры», «вылет через 6 дн.» или советовать брать тур прямо сейчас!
    - Термин «Горящие туры» и совет «брать срочно» допустимы ТОЛЬКО если до вылета РЕАЛЬНО осталось <= 7 дней!
    - Если is_wide_window=false (все даты в пределах 2-3 дней): НЕ дели даты на «ближайшие» и «дальние», вылет один!
-5. РЕКОМЕНДАЦИЯ «ЕСЛИ ПОКУПАТЬ СЕЙЧАС» (поле buy_now_recommendation):
+5. ПОЛНЫЙ КАТАЛОГ ВСЕХ ОТЕЛЕЙ И РАЗНООБРАЗИЕ СЕГМЕНТОВ:
+   - В поле all_hotels_catalog тебе передан ПОЛНЫЙ каталог ВСЕХ отелей этого фильтра (премиум, комфорт, эконом) без искусственных ограничений, с их реальными ценами, звездами, рейтингами и скидками.
+   - Оценивай рынок ЦЕЛИКОМ: анализируй как премиум 5★, так и комфорт, и эконом.
+   - В блоке buy_now_recommendation («Если покупать сейчас») выбирай 1-2 действительно лучших варианта с высоким рейтингом (rating >= 4.0), представляя достойные варианты из разных сегментов, а не только самый дешевый эконом.
    - Если на рынке есть 1-2 реально выгодных предложения (сброс цены, дно сезона, жемчужина) — укажи has_worthy_deals: true, заголовок «Стоит выбрать из этих вариантов:» и перечисли их с понятным объяснением, почему брать. Обязательно передавай точную цену отеля в поле "price".
    - Если же на рынке ВСЕ варианты средние, плохие или переоценены — укажи has_worthy_deals: false, заголовок «Лучше ничего не покупать — подождите», и объясни, почему сейчас не время для покупки.
 6. СТРОГАЯ ТОЧНОСТЬ РЕЙТИНГОВ И ЦЕН (АНТИ-ГАЛЛЮЦИНАЦИЯ):
@@ -546,11 +549,23 @@ def call_gemini_oracle(
         if c and c not in target_models:
             target_models.append(c)
 
+    llm_context = {
+        "filter_id": market_context.get("filter_id"),
+        "filter_title": market_context.get("filter_title"),
+        "analyzed_at": market_context.get("analyzed_at"),
+        "market_stats": market_context.get("market_stats"),
+        "floor_saturation": market_context.get("floor_saturation"),
+        "arbitrage_highlights": market_context.get("arbitrage_highlights"),
+        "gems": market_context.get("gems"),
+        "flash_drops": market_context.get("flash_drops"),
+        "all_hotels_catalog": market_context.get("all_hotels_catalog") or market_context.get("selected_hotel_dossiers"),
+    }
+
     user_prompt = f"""
 Проанализируй сжатые метрики рынка пакетных туров и выдай понятное экспертное заключение простым языком для обычного туриста в формате JSON:
 
-ВХОДНЫЕ ДАННЫЕ РЫНКА:
-{json.dumps(market_context, ensure_ascii=False, indent=2)}
+ВХОДНЫЕ ДАННЫЕ РЫНКА (ВКЛЮЧАЯ ВСЕ ОТЕЛИ ФИЛЬТРА):
+{json.dumps(llm_context, ensure_ascii=False, indent=2)}
 
 ТРЕБОВАНИЯ К ФОРМАТУ JSON:
 {{
@@ -684,11 +699,23 @@ def call_openai_oracle(
         if p not in target_models:
             target_models.append(p)
 
+    llm_context = {
+        "filter_id": market_context.get("filter_id"),
+        "filter_title": market_context.get("filter_title"),
+        "analyzed_at": market_context.get("analyzed_at"),
+        "market_stats": market_context.get("market_stats"),
+        "floor_saturation": market_context.get("floor_saturation"),
+        "arbitrage_highlights": market_context.get("arbitrage_highlights"),
+        "gems": market_context.get("gems"),
+        "flash_drops": market_context.get("flash_drops"),
+        "all_hotels_catalog": market_context.get("all_hotels_catalog") or market_context.get("selected_hotel_dossiers"),
+    }
+
     user_prompt = f"""
 Проанализируй сжатые метрики рынка пакетных туров и выдай понятное экспертное заключение простым языком для обычного туриста в формате JSON:
 
-ВХОДНЫЕ ДАННЫЕ РЫНКА:
-{json.dumps(market_context, ensure_ascii=False, indent=2)}
+ВХОДНЫЕ ДАННЫЕ РЫНКА (ВКЛЮЧАЯ ВСЕ ОТЕЛИ ФИЛЬТРА):
+{json.dumps(llm_context, ensure_ascii=False, indent=2)}
 
 ТРЕБОВАНИЯ К ФОРМАТУ JSON:
 {{
