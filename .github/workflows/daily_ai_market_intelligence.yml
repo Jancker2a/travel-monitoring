@@ -1,0 +1,89 @@
+name: Daily AI Market Intelligence
+
+on:
+  schedule:
+    # Запуск каждое утро в 06:30 UTC
+    - cron: "30 6 * * *"
+  workflow_dispatch:
+    inputs:
+      run_ai:
+        description: "Выполнить AI-анализ рынка (Oracle)"
+        required: true
+        type: boolean
+        default: true
+      rebuild_dna:
+        description: "Перестроить исторический профиль Market DNA"
+        required: false
+        type: boolean
+        default: false
+      filter_name:
+        description: "Конкретный фильтр для анализа (или all для всех)"
+        required: false
+        default: "all"
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "ai-market-intelligence"
+  cancel-in-progress: false
+
+jobs:
+  ai-analysis-and-deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      PYTHONUNBUFFERED: "1"
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 1
+
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.9"
+
+      - name: Cache Python dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements*.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install -r requirements_dashboard.txt
+
+      - name: Build or Update Market DNA
+        if: ${{ github.event.inputs.rebuild_dna == 'true' || !hashFiles('market_dna_profile.json') }}
+        run: |
+          echo "🧬 Building Market DNA Profile..."
+          python build_market_dna.py --output market_dna_profile.json
+
+      - name: Run AI Market Oracle & Dashboard Compilation
+        run: |
+          echo "🧠 Running AI Market Oracle..."
+          if [ "${{ github.event.inputs.filter_name }}" != "all" ] && [ -n "${{ github.event.inputs.filter_name }}" ]; then
+            python generate_inline_charts_dashboard.py \
+              --data-file "data/filters/${{ github.event.inputs.filter_name }}/travel_prices.csv" \
+              --output "index_${{ github.event.inputs.filter_name }}.html"
+          else
+            python scripts/run_dashboards_parallel.py -j 3
+          fi
+
+      - name: Prepare Pages artifacts
+        run: |
+          bash scripts/prepare_pages_site.sh
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
