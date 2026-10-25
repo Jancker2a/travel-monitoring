@@ -129,6 +129,7 @@ def main() -> int:
         except Exception as e:
             print(f"⚠️ Could not pre-build Market DNA: {e}")
 
+    failed: list[str] = []
     with ProcessPoolExecutor(max_workers=jobs) as pool:
         futures = {
             pool.submit(_run_one, spec, log_dir): spec["output"]
