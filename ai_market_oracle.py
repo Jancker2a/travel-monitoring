@@ -140,9 +140,9 @@ def call_gemini_oracle(
 ) -> Optional[Dict[str, Any]]:
     """
     Invokes Google Gemini API with strict JSON schema.
-    Defaults to modern 'gemini-2.0-flash' with fallback to 'gemini-1.5-flash'.
+    Defaults to 'gemini-3.7-flash' with fallback to 'gemini-2.0-flash' and 'gemini-1.5-flash'.
     """
-    target_models = [model] if model else [os.getenv("GEMINI_MODEL", "gemini-2.0-flash"), "gemini-1.5-flash"]
+    target_models = [model] if model else [os.getenv("GEMINI_MODEL", "gemini-3.7-flash"), "gemini-2.0-flash", "gemini-1.5-flash"]
 
     user_prompt = f"""
 Проанализируй сжатые метрики рынка пакетных туров и выдай экспертное заключение в формате JSON:
