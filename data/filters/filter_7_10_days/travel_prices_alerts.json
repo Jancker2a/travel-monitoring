@@ -3809,10 +3809,75 @@
       "created_at": "2026-10-25T17:38:40.740202+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Xperience Kiroseiz Premier_2026-10-25_17-37_zone_out_gone"
+    },
+    {
+      "hotel_name": "Xperience Kiroseiz Parkland",
+      "duration_bucket": "",
+      "old_price": 8459.0,
+      "new_price": 7659.0,
+      "price_change": -800.0,
+      "price_change_pct": -9.457382669346257,
+      "timestamp": "2026-10-25 19:48:42.195198+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-25T19:50:42.884202+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xperience Kiroseiz Parkland_2026-10-25_19-48_-9.5"
+    },
+    {
+      "hotel_name": "Rewaya Luxury Resort",
+      "duration_bucket": "",
+      "old_price": 6452.0,
+      "new_price": 7123.0,
+      "price_change": 671.0,
+      "price_change_pct": 10.399876007439554,
+      "timestamp": "2026-10-25 19:48:42.195198+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-25T19:50:42.884226+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Luxury Resort_2026-10-25_19-48_+10.4"
+    },
+    {
+      "hotel_name": "Movenpick Waterpark Resort & Spa Soma Bay",
+      "duration_bucket": "",
+      "old_price": 7844.0,
+      "new_price": 7844.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-25 19:48:42.195198+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-25T19:50:42.884241+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Movenpick Waterpark Resort & Spa Soma Bay_2026-10-25_19-48_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sunrise Alora Aqua Park Resort",
+      "duration_bucket": "",
+      "old_price": 7899.0,
+      "new_price": 7899.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-25 19:48:42.195198+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-25T19:50:42.884247+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sunrise Alora Aqua Park Resort_2026-10-25_19-48_zone_out_gone"
+    },
+    {
+      "hotel_name": "Naama Bay Promenade Mountain Resort",
+      "duration_bucket": "",
+      "old_price": 10145.0,
+      "new_price": 7973.0,
+      "price_change": -2172.0,
+      "price_change_pct": -21.409561360275998,
+      "timestamp": "2026-10-25 19:48:42.195198+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-25T19:50:42.884278+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Naama Bay Promenade Mountain Resort_2026-10-25_19-48_comeback_21.4"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-25T17:37:25.465597+00:00",
+    "last_processed_run": "2026-10-25T19:48:42.195198+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 7695.0,

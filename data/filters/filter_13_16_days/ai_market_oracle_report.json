@@ -1,29 +1,29 @@
 {
   "macro_briefing": {
-    "headline": "Рынок уже в фазе первых скидок: ближайший вылет сегодня, дальше даты растянуты до 11.11",
-    "market_phase": "Первые скидки за 0–11 дн.",
-    "charter_dynamics": "До ближайшей даты вылета осталось 0 дней, а основная масса рейсов идет в ближайшие 11 дней. Медианная цена тура сейчас 13 890.5 zł, при этом самый дешевый вариант найден за 8 313 zł. На рынке преобладает фаза первых скидок: туроператоры уже начинают опускать цены, но это еще не массовый распродажный обвал.",
-    "floor_status": "На самом дне цены сейчас 0% отелей, то есть явной массовой распродажи пока нет.",
-    "strategic_directive": "Если нужен вылет в ближайшие дни и устраивает ограниченный выбор — можно смотреть и бронировать. Если хотите больше вариантов и шанс на более мягкую цену, лучше немного подождать.",
+    "headline": "Рынок уже начал снижать цены: ближайший вылет 25.10, дальше до 11.11",
+    "market_phase": "Раннее бронирование за 11 дн.",
+    "charter_dynamics": "До ближайшего вылета осталось 11 дней, поэтому рынок уже перешел в фазу первых скидок. Медианная цена тура сейчас 13 890.5 zł, а самый дешевый вариант найден за 8 313 zł. Разброс большой, но массового распродажного обвала еще нет.",
+    "floor_status": "На самом дне цены сейчас 0 отелей, рынок еще не в фазе массового сброса.",
+    "strategic_directive": "Если нужен конкретный хороший отель — можно брать уже сейчас, особенно если цена ниже средней и рейтинг высокий. Если просто присматриваетесь и есть запас по датам, можно немного подождать, но чудесного удешевления по всему рынку пока не видно.",
     "buy_now_recommendation": {
       "has_worthy_deals": true,
       "headline": "Стоит выбрать из этих вариантов:",
-      "advice": "Сейчас есть один реально сильный вариант: цена ниже медианы почти на 10%, а рейтинг очень хороший. Для этого рынка это уже похоже на удачную покупку.",
+      "advice": "Есть один сильный вариант с хорошей ценой и отличным рейтингом — его уже можно брать без лишних сомнений.",
       "top_picks": [
         {
           "hotel_name": "Jaz Royal Palmariva",
           "price": 11969.0,
           "badge": "💎 Жемчужина",
-          "why_buy": "Цена 11 969 zł — это на 9.9% ниже медианы 13 890.5 zł. Плюс рейтинг 4.6★ и формат all inclusive, так что по сочетанию цены и качества это сильный вариант.",
+          "why_buy": "Цена 11 969 zł — это примерно на 9.9% ниже медианы рынка 13 890.5 zł, при этом рейтинг 4.6★ и 5 звезд. Для такого уровня это уже достойное предложение.",
           "rating": 4.6
         }
       ]
     },
     "key_anomalies": [
       {
-        "type": "drop",
-        "title": "Есть заметная скидка на хороший отель",
-        "text": "Jaz Royal Palmariva стоит 11 969 zł, что почти на 10% ниже медианы рынка. Для отеля 5★ с рейтингом 4.6★ это выглядит как удачное предложение."
+        "type": "overprice",
+        "title": "Большинство отелей пока не ушли в глубокие скидки",
+        "text": "Хотя до ближайшего вылета всего 11 дней, на рынке нет массового дна: floor_breaker_count = 0, а сильных распродажных предложений почти нет."
       },
       {
         "type": "gem",
@@ -36,17 +36,17 @@
   },
   "hotel_dossiers": {
     "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
-      "verdict": "WAIT",
-      "badge_text": "🟡 ПОДОЖДАТЬ",
-      "rationale": "Отель сейчас стоит 10,167 zł — это обычная базовая цена за сезон (медиана 9,491 zł).",
+      "verdict": "OVERPRICED",
+      "badge_text": "🔴 ДОРОГО",
+      "rationale": "Цена 10,975 zł на 16% выше обычной средней этого отеля (9,491 zł).",
       "risk_assessment": "Следите за доступностью номеров перед вылетом.",
-      "action_advice": "Спешить не нужно, добавьте в «Избранное» (☆) и подождите.",
+      "action_advice": "Покупать сейчас невыгодно: цена завышена, лучше подождать снижения.",
       "booking_window_badge": "",
       "booking_window_class": "early",
       "booking_window_tip": "Историческое дно цены наступает за D-4…D-7. Сейчас D-16 (рано).",
-      "fair_price_badge": "",
-      "fair_price_class": "",
-      "fair_price_tip": "",
+      "fair_price_badge": "⚠️ Дороже обычного",
+      "fair_price_class": "fair-overpriced",
+      "fair_price_tip": "Цена на -4% отличается от сопоставимых отелей сегмента эконом 4★ (11,457 zł) или превышает историческую норму отеля (9,491 zł).",
       "gem_badge": "",
       "gem_tip": "",
       "flash_drop_badge": "",
@@ -75,7 +75,7 @@
         "savings": 4648.0,
         "savings_pln": 4648.0,
         "rating": 4.9,
-        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/jaz-makadi-aquaviva/pU8hBvIEqi92WOY9tkZyA8AAogUJN_POchNvaZiA7Ug8d9s8WqWNRYxshxiPy03bOylckqBEtPTVQw36T51gZI7WRQAVjsAmACagJBSXIfHBGkGrkE7eABqwQzGJ2SBBuvmSQBr664HgIAYwECBWT5S6I/?operator=KOMT&adults=2&children=2020-12-10&objectId=167786&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/jaz-makadi-aquaviva/pU8hBvIEqi92WOY9tkZyA8AAogUJN_POchNvaZiA7Ug8d9s8WqWNRYxshxiPy03bOylckqBEtPTVQw_br51gZI7WRQAVjsAmACagJBSXIfHBGkGrkE7eABqwQzGJ2SBBuvmSQBr664HgIAYwECBTs1i34/?operator=KOMT&adults=2&children=2020-12-10&objectId=167786&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Albatros Sea World Resort Marsa Alam": {
@@ -100,7 +100,7 @@
         "savings": 1448.0,
         "savings_pln": 1448.0,
         "rating": 4.9,
-        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/jaz-makadi-aquaviva/pU8hBvIEqi92WOY9tkZyA8AAogUJN_POchNvaZiA7Ug8d9s8WqWNRYxshxiPy03bOylckqBEtPTVQw36T51gZI7WRQAVjsAmACagJBSXIfHBGkGrkE7eABqwQzGJ2SBBuvmSQBr664HgIAYwECBWT5S6I/?operator=KOMT&adults=2&children=2020-12-10&objectId=167786&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/jaz-makadi-aquaviva/pU8hBvIEqi92WOY9tkZyA8AAogUJN_POchNvaZiA7Ug8d9s8WqWNRYxshxiPy03bOylckqBEtPTVQw_br51gZI7WRQAVjsAmACagJBSXIfHBGkGrkE7eABqwQzGJ2SBBuvmSQBr664HgIAYwECBTs1i34/?operator=KOMT&adults=2&children=2020-12-10&objectId=167786&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Amarina Jannah Heights Resort & Aqua Park": {
@@ -125,7 +125,7 @@
         "savings": 1569.0,
         "savings_pln": 1569.0,
         "rating": 4.7,
-        "offer_url": "https://fly.pl/wycieczka/egipt,marsa-alam,c/royal-tulip-beach-resort/p7zQLwams-TVKfGvyPiXTIAAog6ptLObNgloSDpYjyEELr7Gn-TdHpJMPwzGDiiTEG5rMqBFZJVFgw36T51gZIyU5QQVjsAmACckAaAFwKFQQXAFgBQI8DW5eFAV7melK8FFMAS7EvYQBMobY5Dc3UmAkgAFG5nMX23wFP8_0GXZz4r_klAg5jAQINxdhjPg/?operator=VITX&adults=2&children=2020-12-10&objectId=176709&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,marsa-alam,c/royal-tulip-beach-resort/p7zQLwams-TVKfGvyPiXTIAAog6ptLObNgloSDpYjyEELr7Gn-TdHpJMPwzGDiiTEG5rMqBFZJVFgw_br51gZIyU5QQVjsAmACckAaAFwKFQQXAFgBQI8DW5eFAV7melK8FFMAS7EvYQBMobY5Dc3UmAkgAFG5nMX23wFP8_0GXZz4r_klAg5jAQIN-iFgzw/?operator=VITX&adults=2&children=2020-12-10&objectId=176709&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Amarina Jannah Resort Aquapark": {
@@ -150,7 +150,7 @@
         "savings": 3178.0,
         "savings_pln": 3178.0,
         "rating": 4.7,
-        "offer_url": "https://fly.pl/wycieczka/egipt,marsa-alam,c/royal-tulip-beach-resort/p7zQLwams-TVKfGvyPiXTIAAog6ptLObNgloSDpYjyEELr7Gn-TdHpJMPwzGDiiTEG5rMqBFZJVFgw36T51gZIyU5QQVjsAmACckAaAFwKFQQXAFgBQI8DW5eFAV7melK8FFMAS7EvYQBMobY5Dc3UmAkgAFG5nMX23wFP8_0GXZz4r_klAg5jAQINxdhjPg/?operator=VITX&adults=2&children=2020-12-10&objectId=176709&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,marsa-alam,c/royal-tulip-beach-resort/p7zQLwams-TVKfGvyPiXTIAAog6ptLObNgloSDpYjyEELr7Gn-TdHpJMPwzGDiiTEG5rMqBFZJVFgw_br51gZIyU5QQVjsAmACckAaAFwKFQQXAFgBQI8DW5eFAV7melK8FFMAS7EvYQBMobY5Dc3UmAkgAFG5nMX23wFP8_0GXZz4r_klAg5jAQIN-iFgzw/?operator=VITX&adults=2&children=2020-12-10&objectId=176709&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Amarina Queen Resort": {
@@ -175,7 +175,7 @@
         "savings": 3034.0,
         "savings_pln": 3034.0,
         "rating": 4.7,
-        "offer_url": "https://fly.pl/wycieczka/egipt,marsa-alam,c/royal-tulip-beach-resort/p7zQLwams-TVKfGvyPiXTIAAog6ptLObNgloSDpYjyEELr7Gn-TdHpJMPwzGDiiTEG5rMqBFZJVFgw36T51gZIyU5QQVjsAmACckAaAFwKFQQXAFgBQI8DW5eFAV7melK8FFMAS7EvYQBMobY5Dc3UmAkgAFG5nMX23wFP8_0GXZz4r_klAg5jAQINxdhjPg/?operator=VITX&adults=2&children=2020-12-10&objectId=176709&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,marsa-alam,c/royal-tulip-beach-resort/p7zQLwams-TVKfGvyPiXTIAAog6ptLObNgloSDpYjyEELr7Gn-TdHpJMPwzGDiiTEG5rMqBFZJVFgw_br51gZIyU5QQVjsAmACckAaAFwKFQQXAFgBQI8DW5eFAV7melK8FFMAS7EvYQBMobY5Dc3UmAkgAFG5nMX23wFP8_0GXZz4r_klAg5jAQIN-iFgzw/?operator=VITX&adults=2&children=2020-12-10&objectId=176709&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Amwaj Oyoun Resort & Casino": {
@@ -200,7 +200,7 @@
         "savings": 1254.0,
         "savings_pln": 1254.0,
         "rating": 4.7,
-        "offer_url": "https://fly.pl/wycieczka/egipt,marsa-alam,c/royal-tulip-beach-resort/p7zQLwams-TVKfGvyPiXTIAAog6ptLObNgloSDpYjyEELr7Gn-TdHpJMPwzGDiiTEG5rMqBFZJVFgw36T51gZIyU5QQVjsAmACckAaAFwKFQQXAFgBQI8DW5eFAV7melK8FFMAS7EvYQBMobY5Dc3UmAkgAFG5nMX23wFP8_0GXZz4r_klAg5jAQINxdhjPg/?operator=VITX&adults=2&children=2020-12-10&objectId=176709&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,marsa-alam,c/royal-tulip-beach-resort/p7zQLwams-TVKfGvyPiXTIAAog6ptLObNgloSDpYjyEELr7Gn-TdHpJMPwzGDiiTEG5rMqBFZJVFgw_br51gZIyU5QQVjsAmACckAaAFwKFQQXAFgBQI8DW5eFAV7melK8FFMAS7EvYQBMobY5Dc3UmAkgAFG5nMX23wFP8_0GXZz4r_klAg5jAQIN-iFgzw/?operator=VITX&adults=2&children=2020-12-10&objectId=176709&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Calimera Blend Paradise Resort": {
@@ -225,7 +225,7 @@
         "savings": 3096.0,
         "savings_pln": 3096.0,
         "rating": 4.7,
-        "offer_url": "https://fly.pl/wycieczka/egipt,marsa-alam,c/royal-tulip-beach-resort/p7zQLwams-TVKfGvyPiXTIAAog6ptLObNgloSDpYjyEELr7Gn-TdHpJMPwzGDiiTEG5rMqBFZJVFgw36T51gZIyU5QQVjsAmACckAaAFwKFQQXAFgBQI8DW5eFAV7melK8FFMAS7EvYQBMobY5Dc3UmAkgAFG5nMX23wFP8_0GXZz4r_klAg5jAQINxdhjPg/?operator=VITX&adults=2&children=2020-12-10&objectId=176709&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,marsa-alam,c/royal-tulip-beach-resort/p7zQLwams-TVKfGvyPiXTIAAog6ptLObNgloSDpYjyEELr7Gn-TdHpJMPwzGDiiTEG5rMqBFZJVFgw_br51gZIyU5QQVjsAmACckAaAFwKFQQXAFgBQI8DW5eFAV7melK8FFMAS7EvYQBMobY5Dc3UmAkgAFG5nMX23wFP8_0GXZz4r_klAg5jAQIN-iFgzw/?operator=VITX&adults=2&children=2020-12-10&objectId=176709&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Casa Mare Resort (ex. Royal Tulip Beach Resort)": {
@@ -268,7 +268,7 @@
         "savings": 1174.0,
         "savings_pln": 1174.0,
         "rating": 4.7,
-        "offer_url": "https://fly.pl/wycieczka/egipt,marsa-alam,c/royal-tulip-beach-resort/p7zQLwams-TVKfGvyPiXTIAAog6ptLObNgloSDpYjyEELr7Gn-TdHpJMPwzGDiiTEG5rMqBFZJVFgw36T51gZIyU5QQVjsAmACckAaAFwKFQQXAFgBQI8DW5eFAV7melK8FFMAS7EvYQBMobY5Dc3UmAkgAFG5nMX23wFP8_0GXZz4r_klAg5jAQINxdhjPg/?operator=VITX&adults=2&children=2020-12-10&objectId=176709&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,marsa-alam,c/royal-tulip-beach-resort/p7zQLwams-TVKfGvyPiXTIAAog6ptLObNgloSDpYjyEELr7Gn-TdHpJMPwzGDiiTEG5rMqBFZJVFgw_br51gZIyU5QQVjsAmACckAaAFwKFQQXAFgBQI8DW5eFAV7melK8FFMAS7EvYQBMobY5Dc3UmAkgAFG5nMX23wFP8_0GXZz4r_klAg5jAQIN-iFgzw/?operator=VITX&adults=2&children=2020-12-10&objectId=176709&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Cleopatra Signature Marsa Alam": {
@@ -293,7 +293,7 @@
         "savings": 1569.0,
         "savings_pln": 1569.0,
         "rating": 4.8,
-        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,c/mirage-aqua-park-spa-cesar-palace/pJ-7dPHZJAp_omP5KZY-OtAAogNOb8Wz3s_-Mby90Ub0kjqMWqWNRYxshxiPy03bOylckqBEtPTVQw36T51gZI62BQAVjsAmACagJBSXIfHBHDGrkEzuABqwQzGP2VBBu1mCQByePAHgIAYwEEC3cFS6Y/?operator=KOMT&adults=2&children=2020-12-10&objectId=159252&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,c/mirage-aqua-park-spa-cesar-palace/pJ-7dPHZJAp_omP5KZY-OtAAogNOb8Wz3s_-Mby90Ub0kjqMWqWNRYxshxiPy03bOylckqBEtPTVQw_br51gZI62BQAVjsAmACagJBSXIfHBHDGrkEzuABqwQzGP2VBBu1mCQByePAHgIAYwEECwYpsb4/?operator=KOMT&adults=2&children=2020-12-10&objectId=159252&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Concorde Moreen Beach Resort & Spa": {
@@ -318,7 +318,7 @@
         "savings": 1299.0,
         "savings_pln": 1299.0,
         "rating": 4.6,
-        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/royal-azur-resort/pnSUnXqfvz6wQjAFPRRgQXAAogd8v2uJEr8CPyyNBSwJno8mzc1Ej8W2PaeBYSFfaWZrgqBEJWUFIw36T51gZIwV1QAVjsAmACag1BbGwgaW5jbHVzaXZlciEcEdlYG5KpBhjY9A6rBOTtFbkEggEBpK7p8wECAGMBAgWrwCJU/?operator=BVPR&adults=2&children=2020-12-10&objectId=2259&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/royal-azur-resort/pnSUnXqfvz6wQjAFPRRgQXAAogd8v2uJEr8CPyyNBSwJno8mzc1Ej8W2PaeBYSFfaWZrgqBEJWUFIw_br51gZIwV1QAVjsAmACag1BbGwgaW5jbHVzaXZlciEcEdlYG5KpBhjY9A6rBOTtFbkEggEBpK7p8wECAGMBAgXbtg3l/?operator=BVPR&adults=2&children=2020-12-10&objectId=2259&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Cooee Prima Life Makadi Bay": {
@@ -343,7 +343,7 @@
         "savings": 1602.0,
         "savings_pln": 1602.0,
         "rating": 4.8,
-        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,c/mirage-aqua-park-spa-cesar-palace/pJ-7dPHZJAp_omP5KZY-OtAAogNOb8Wz3s_-Mby90Ub0kjqMWqWNRYxshxiPy03bOylckqBEtPTVQw36T51gZI62BQAVjsAmACagJBSXIfHBHDGrkEzuABqwQzGP2VBBu1mCQByePAHgIAYwEEC3cFS6Y/?operator=KOMT&adults=2&children=2020-12-10&objectId=159252&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,c/mirage-aqua-park-spa-cesar-palace/pJ-7dPHZJAp_omP5KZY-OtAAogNOb8Wz3s_-Mby90Ub0kjqMWqWNRYxshxiPy03bOylckqBEtPTVQw_br51gZI62BQAVjsAmACagJBSXIfHBHDGrkEzuABqwQzGP2VBBu1mCQByePAHgIAYwEECwYpsb4/?operator=KOMT&adults=2&children=2020-12-10&objectId=159252&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Creek Hotel and Residences": {
@@ -368,7 +368,7 @@
         "savings": 3140.0,
         "savings_pln": 3140.0,
         "rating": 4.7,
-        "offer_url": "https://fly.pl/wycieczka/egipt,marsa-alam,c/royal-tulip-beach-resort/p7zQLwams-TVKfGvyPiXTIAAog6ptLObNgloSDpYjyEELr7Gn-TdHpJMPwzGDiiTEG5rMqBFZJVFgw36T51gZIyU5QQVjsAmACckAaAFwKFQQXAFgBQI8DW5eFAV7melK8FFMAS7EvYQBMobY5Dc3UmAkgAFG5nMX23wFP8_0GXZz4r_klAg5jAQINxdhjPg/?operator=VITX&adults=2&children=2020-12-10&objectId=176709&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,marsa-alam,c/royal-tulip-beach-resort/p7zQLwams-TVKfGvyPiXTIAAog6ptLObNgloSDpYjyEELr7Gn-TdHpJMPwzGDiiTEG5rMqBFZJVFgw_br51gZIyU5QQVjsAmACckAaAFwKFQQXAFgBQI8DW5eFAV7melK8FFMAS7EvYQBMobY5Dc3UmAkgAFG5nMX23wFP8_0GXZz4r_klAg5jAQIN-iFgzw/?operator=VITX&adults=2&children=2020-12-10&objectId=176709&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Double Tree by Hilton Mangroovy El Gouna Resort": {
@@ -393,7 +393,7 @@
         "savings": 5190.0,
         "savings_pln": 5190.0,
         "rating": 4.9,
-        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/jaz-makadi-aquaviva/pU8hBvIEqi92WOY9tkZyA8AAogUJN_POchNvaZiA7Ug8d9s8WqWNRYxshxiPy03bOylckqBEtPTVQw36T51gZI7WRQAVjsAmACagJBSXIfHBGkGrkE7eABqwQzGJ2SBBuvmSQBr664HgIAYwECBWT5S6I/?operator=KOMT&adults=2&children=2020-12-10&objectId=167786&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/jaz-makadi-aquaviva/pU8hBvIEqi92WOY9tkZyA8AAogUJN_POchNvaZiA7Ug8d9s8WqWNRYxshxiPy03bOylckqBEtPTVQw_br51gZI7WRQAVjsAmACagJBSXIfHBGkGrkE7eABqwQzGJ2SBBuvmSQBr664HgIAYwECBTs1i34/?operator=KOMT&adults=2&children=2020-12-10&objectId=167786&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Dream Lagoon & Aqua Park Resort (ex. Floriana Dream Lagoon)": {
@@ -418,7 +418,7 @@
         "savings": 1400.0,
         "savings_pln": 1400.0,
         "rating": 4.7,
-        "offer_url": "https://fly.pl/wycieczka/egipt,marsa-alam,c/royal-tulip-beach-resort/p7zQLwams-TVKfGvyPiXTIAAog6ptLObNgloSDpYjyEELr7Gn-TdHpJMPwzGDiiTEG5rMqBFZJVFgw36T51gZIyU5QQVjsAmACckAaAFwKFQQXAFgBQI8DW5eFAV7melK8FFMAS7EvYQBMobY5Dc3UmAkgAFG5nMX23wFP8_0GXZz4r_klAg5jAQINxdhjPg/?operator=VITX&adults=2&children=2020-12-10&objectId=176709&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,marsa-alam,c/royal-tulip-beach-resort/p7zQLwams-TVKfGvyPiXTIAAog6ptLObNgloSDpYjyEELr7Gn-TdHpJMPwzGDiiTEG5rMqBFZJVFgw_br51gZIyU5QQVjsAmACckAaAFwKFQQXAFgBQI8DW5eFAV7melK8FFMAS7EvYQBMobY5Dc3UmAkgAFG5nMX23wFP8_0GXZz4r_klAg5jAQIN-iFgzw/?operator=VITX&adults=2&children=2020-12-10&objectId=176709&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Dreams Beach Sharm Resort (Sharm El Sheikh)": {
@@ -443,7 +443,7 @@
         "savings": 7097.0,
         "savings_pln": 7097.0,
         "rating": 4.8,
-        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,c/mirage-aqua-park-spa-cesar-palace/pJ-7dPHZJAp_omP5KZY-OtAAogNOb8Wz3s_-Mby90Ub0kjqMWqWNRYxshxiPy03bOylckqBEtPTVQw36T51gZI62BQAVjsAmACagJBSXIfHBHDGrkEzuABqwQzGP2VBBu1mCQByePAHgIAYwEEC3cFS6Y/?operator=KOMT&adults=2&children=2020-12-10&objectId=159252&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,c/mirage-aqua-park-spa-cesar-palace/pJ-7dPHZJAp_omP5KZY-OtAAogNOb8Wz3s_-Mby90Ub0kjqMWqWNRYxshxiPy03bOylckqBEtPTVQw_br51gZI62BQAVjsAmACagJBSXIfHBHDGrkEzuABqwQzGP2VBBu1mCQByePAHgIAYwEECwYpsb4/?operator=KOMT&adults=2&children=2020-12-10&objectId=159252&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Fantazia Resort": {
@@ -468,7 +468,7 @@
         "savings": 2901.0,
         "savings_pln": 2901.0,
         "rating": 4.7,
-        "offer_url": "https://fly.pl/wycieczka/egipt,marsa-alam,c/royal-tulip-beach-resort/p7zQLwams-TVKfGvyPiXTIAAog6ptLObNgloSDpYjyEELr7Gn-TdHpJMPwzGDiiTEG5rMqBFZJVFgw36T51gZIyU5QQVjsAmACckAaAFwKFQQXAFgBQI8DW5eFAV7melK8FFMAS7EvYQBMobY5Dc3UmAkgAFG5nMX23wFP8_0GXZz4r_klAg5jAQINxdhjPg/?operator=VITX&adults=2&children=2020-12-10&objectId=176709&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,marsa-alam,c/royal-tulip-beach-resort/p7zQLwams-TVKfGvyPiXTIAAog6ptLObNgloSDpYjyEELr7Gn-TdHpJMPwzGDiiTEG5rMqBFZJVFgw_br51gZIyU5QQVjsAmACckAaAFwKFQQXAFgBQI8DW5eFAV7melK8FFMAS7EvYQBMobY5Dc3UmAkgAFG5nMX23wFP8_0GXZz4r_klAg5jAQIN-iFgzw/?operator=VITX&adults=2&children=2020-12-10&objectId=176709&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Fantazia Royal Resort": {
@@ -529,7 +529,7 @@
         "savings": 3776.0,
         "savings_pln": 3776.0,
         "rating": 4.8,
-        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,c/mirage-aqua-park-spa-cesar-palace/pJ-7dPHZJAp_omP5KZY-OtAAogNOb8Wz3s_-Mby90Ub0kjqMWqWNRYxshxiPy03bOylckqBEtPTVQw36T51gZI62BQAVjsAmACagJBSXIfHBHDGrkEzuABqwQzGP2VBBu1mCQByePAHgIAYwEEC3cFS6Y/?operator=KOMT&adults=2&children=2020-12-10&objectId=159252&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,c/mirage-aqua-park-spa-cesar-palace/pJ-7dPHZJAp_omP5KZY-OtAAogNOb8Wz3s_-Mby90Ub0kjqMWqWNRYxshxiPy03bOylckqBEtPTVQw_br51gZI62BQAVjsAmACagJBSXIfHBHDGrkEzuABqwQzGP2VBBu1mCQByePAHgIAYwEECwYpsb4/?operator=KOMT&adults=2&children=2020-12-10&objectId=159252&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Grand Rotana Resort & Spa": {
@@ -554,7 +554,7 @@
         "savings": 4723.0,
         "savings_pln": 4723.0,
         "rating": 4.8,
-        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,c/mirage-aqua-park-spa-cesar-palace/pJ-7dPHZJAp_omP5KZY-OtAAogNOb8Wz3s_-Mby90Ub0kjqMWqWNRYxshxiPy03bOylckqBEtPTVQw36T51gZI62BQAVjsAmACagJBSXIfHBHDGrkEzuABqwQzGP2VBBu1mCQByePAHgIAYwEEC3cFS6Y/?operator=KOMT&adults=2&children=2020-12-10&objectId=159252&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,c/mirage-aqua-park-spa-cesar-palace/pJ-7dPHZJAp_omP5KZY-OtAAogNOb8Wz3s_-Mby90Ub0kjqMWqWNRYxshxiPy03bOylckqBEtPTVQw_br51gZI62BQAVjsAmACagJBSXIfHBHDGrkEzuABqwQzGP2VBBu1mCQByePAHgIAYwEECwYpsb4/?operator=KOMT&adults=2&children=2020-12-10&objectId=159252&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "IL Mercato Splash Aqua Park": {
@@ -597,7 +597,7 @@
         "savings": 1700.0,
         "savings_pln": 1700.0,
         "rating": 4.7,
-        "offer_url": "https://fly.pl/wycieczka/egipt,marsa-alam,c/royal-tulip-beach-resort/p7zQLwams-TVKfGvyPiXTIAAog6ptLObNgloSDpYjyEELr7Gn-TdHpJMPwzGDiiTEG5rMqBFZJVFgw36T51gZIyU5QQVjsAmACckAaAFwKFQQXAFgBQI8DW5eFAV7melK8FFMAS7EvYQBMobY5Dc3UmAkgAFG5nMX23wFP8_0GXZz4r_klAg5jAQINxdhjPg/?operator=VITX&adults=2&children=2020-12-10&objectId=176709&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,marsa-alam,c/royal-tulip-beach-resort/p7zQLwams-TVKfGvyPiXTIAAog6ptLObNgloSDpYjyEELr7Gn-TdHpJMPwzGDiiTEG5rMqBFZJVFgw_br51gZIyU5QQVjsAmACckAaAFwKFQQXAFgBQI8DW5eFAV7melK8FFMAS7EvYQBMobY5Dc3UmAkgAFG5nMX23wFP8_0GXZz4r_klAg5jAQIN-iFgzw/?operator=VITX&adults=2&children=2020-12-10&objectId=176709&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Jaz Aquamarine Resort": {
@@ -622,7 +622,7 @@
         "savings": 1848.0,
         "savings_pln": 1848.0,
         "rating": 4.6,
-        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/royal-azur-resort/pnSUnXqfvz6wQjAFPRRgQXAAogd8v2uJEr8CPyyNBSwJno8mzc1Ej8W2PaeBYSFfaWZrgqBEJWUFIw36T51gZIwV1QAVjsAmACag1BbGwgaW5jbHVzaXZlciEcEdlYG5KpBhjY9A6rBOTtFbkEggEBpK7p8wECAGMBAgWrwCJU/?operator=BVPR&adults=2&children=2020-12-10&objectId=2259&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/royal-azur-resort/pnSUnXqfvz6wQjAFPRRgQXAAogd8v2uJEr8CPyyNBSwJno8mzc1Ej8W2PaeBYSFfaWZrgqBEJWUFIw_br51gZIwV1QAVjsAmACag1BbGwgaW5jbHVzaXZlciEcEdlYG5KpBhjY9A6rBOTtFbkEggEBpK7p8wECAGMBAgXbtg3l/?operator=BVPR&adults=2&children=2020-12-10&objectId=2259&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Jaz Aquaviva": {
@@ -647,7 +647,7 @@
         "savings": 2852.0,
         "savings_pln": 2852.0,
         "rating": 4.7,
-        "offer_url": "https://fly.pl/wycieczka/egipt,marsa-alam,c/royal-tulip-beach-resort/p7zQLwams-TVKfGvyPiXTIAAog6ptLObNgloSDpYjyEELr7Gn-TdHpJMPwzGDiiTEG5rMqBFZJVFgw36T51gZIyU5QQVjsAmACckAaAFwKFQQXAFgBQI8DW5eFAV7melK8FFMAS7EvYQBMobY5Dc3UmAkgAFG5nMX23wFP8_0GXZz4r_klAg5jAQINxdhjPg/?operator=VITX&adults=2&children=2020-12-10&objectId=176709&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,marsa-alam,c/royal-tulip-beach-resort/p7zQLwams-TVKfGvyPiXTIAAog6ptLObNgloSDpYjyEELr7Gn-TdHpJMPwzGDiiTEG5rMqBFZJVFgw_br51gZIyU5QQVjsAmACckAaAFwKFQQXAFgBQI8DW5eFAV7melK8FFMAS7EvYQBMobY5Dc3UmAkgAFG5nMX23wFP8_0GXZz4r_klAg5jAQIN-iFgzw/?operator=VITX&adults=2&children=2020-12-10&objectId=176709&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Jaz Makadi Oasis Resort": {
@@ -672,7 +672,7 @@
         "savings": 6627.0,
         "savings_pln": 6627.0,
         "rating": 4.9,
-        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/jaz-makadi-aquaviva/pU8hBvIEqi92WOY9tkZyA8AAogUJN_POchNvaZiA7Ug8d9s8WqWNRYxshxiPy03bOylckqBEtPTVQw36T51gZI7WRQAVjsAmACagJBSXIfHBGkGrkE7eABqwQzGJ2SBBuvmSQBr664HgIAYwECBWT5S6I/?operator=KOMT&adults=2&children=2020-12-10&objectId=167786&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/jaz-makadi-aquaviva/pU8hBvIEqi92WOY9tkZyA8AAogUJN_POchNvaZiA7Ug8d9s8WqWNRYxshxiPy03bOylckqBEtPTVQw_br51gZI7WRQAVjsAmACagJBSXIfHBGkGrkE7eABqwQzGJ2SBBuvmSQBr664HgIAYwECBTs1i34/?operator=KOMT&adults=2&children=2020-12-10&objectId=167786&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Jaz Makadi Saraya (ex Iberotel)": {
@@ -697,7 +697,7 @@
         "savings": 4613.0,
         "savings_pln": 4613.0,
         "rating": 4.9,
-        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/jaz-makadi-aquaviva/pU8hBvIEqi92WOY9tkZyA8AAogUJN_POchNvaZiA7Ug8d9s8WqWNRYxshxiPy03bOylckqBEtPTVQw36T51gZI7WRQAVjsAmACagJBSXIfHBGkGrkE7eABqwQzGJ2SBBuvmSQBr664HgIAYwECBWT5S6I/?operator=KOMT&adults=2&children=2020-12-10&objectId=167786&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/jaz-makadi-aquaviva/pU8hBvIEqi92WOY9tkZyA8AAogUJN_POchNvaZiA7Ug8d9s8WqWNRYxshxiPy03bOylckqBEtPTVQw_br51gZI7WRQAVjsAmACagJBSXIfHBGkGrkE7eABqwQzGJ2SBBuvmSQBr664HgIAYwECBTs1i34/?operator=KOMT&adults=2&children=2020-12-10&objectId=167786&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Jaz Mirabel Beach Resort": {
@@ -722,7 +722,7 @@
         "savings": 1742.0,
         "savings_pln": 1742.0,
         "rating": 4.6,
-        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/royal-azur-resort/pnSUnXqfvz6wQjAFPRRgQXAAogd8v2uJEr8CPyyNBSwJno8mzc1Ej8W2PaeBYSFfaWZrgqBEJWUFIw36T51gZIwV1QAVjsAmACag1BbGwgaW5jbHVzaXZlciEcEdlYG5KpBhjY9A6rBOTtFbkEggEBpK7p8wECAGMBAgWrwCJU/?operator=BVPR&adults=2&children=2020-12-10&objectId=2259&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/royal-azur-resort/pnSUnXqfvz6wQjAFPRRgQXAAogd8v2uJEr8CPyyNBSwJno8mzc1Ej8W2PaeBYSFfaWZrgqBEJWUFIw_br51gZIwV1QAVjsAmACag1BbGwgaW5jbHVzaXZlciEcEdlYG5KpBhjY9A6rBOTtFbkEggEBpK7p8wECAGMBAgXbtg3l/?operator=BVPR&adults=2&children=2020-12-10&objectId=2259&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Jaz Neo Saraya Palms": {
@@ -747,7 +747,7 @@
         "savings": 3094.0,
         "savings_pln": 3094.0,
         "rating": 4.9,
-        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/jaz-makadi-aquaviva/pU8hBvIEqi92WOY9tkZyA8AAogUJN_POchNvaZiA7Ug8d9s8WqWNRYxshxiPy03bOylckqBEtPTVQw36T51gZI7WRQAVjsAmACagJBSXIfHBGkGrkE7eABqwQzGJ2SBBuvmSQBr664HgIAYwECBWT5S6I/?operator=KOMT&adults=2&children=2020-12-10&objectId=167786&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/jaz-makadi-aquaviva/pU8hBvIEqi92WOY9tkZyA8AAogUJN_POchNvaZiA7Ug8d9s8WqWNRYxshxiPy03bOylckqBEtPTVQw_br51gZI7WRQAVjsAmACagJBSXIfHBGkGrkE7eABqwQzGJ2SBBuvmSQBr664HgIAYwECBTs1i34/?operator=KOMT&adults=2&children=2020-12-10&objectId=167786&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Jaz Palmariva Beach": {
@@ -772,7 +772,7 @@
         "savings": 4373.0,
         "savings_pln": 4373.0,
         "rating": 4.9,
-        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/jaz-makadi-aquaviva/pU8hBvIEqi92WOY9tkZyA8AAogUJN_POchNvaZiA7Ug8d9s8WqWNRYxshxiPy03bOylckqBEtPTVQw36T51gZI7WRQAVjsAmACagJBSXIfHBGkGrkE7eABqwQzGJ2SBBuvmSQBr664HgIAYwECBWT5S6I/?operator=KOMT&adults=2&children=2020-12-10&objectId=167786&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/jaz-makadi-aquaviva/pU8hBvIEqi92WOY9tkZyA8AAogUJN_POchNvaZiA7Ug8d9s8WqWNRYxshxiPy03bOylckqBEtPTVQw_br51gZI7WRQAVjsAmACagJBSXIfHBGkGrkE7eABqwQzGJ2SBBuvmSQBr664HgIAYwECBTs1i34/?operator=KOMT&adults=2&children=2020-12-10&objectId=167786&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Jaz Royal Palmariva": {
@@ -833,7 +833,7 @@
         "savings": 2810.0,
         "savings_pln": 2810.0,
         "rating": 4.7,
-        "offer_url": "https://fly.pl/wycieczka/egipt,marsa-alam,c/royal-tulip-beach-resort/p7zQLwams-TVKfGvyPiXTIAAog6ptLObNgloSDpYjyEELr7Gn-TdHpJMPwzGDiiTEG5rMqBFZJVFgw36T51gZIyU5QQVjsAmACckAaAFwKFQQXAFgBQI8DW5eFAV7melK8FFMAS7EvYQBMobY5Dc3UmAkgAFG5nMX23wFP8_0GXZz4r_klAg5jAQINxdhjPg/?operator=VITX&adults=2&children=2020-12-10&objectId=176709&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,marsa-alam,c/royal-tulip-beach-resort/p7zQLwams-TVKfGvyPiXTIAAog6ptLObNgloSDpYjyEELr7Gn-TdHpJMPwzGDiiTEG5rMqBFZJVFgw_br51gZIyU5QQVjsAmACckAaAFwKFQQXAFgBQI8DW5eFAV7melK8FFMAS7EvYQBMobY5Dc3UmAkgAFG5nMX23wFP8_0GXZz4r_klAg5jAQIN-iFgzw/?operator=VITX&adults=2&children=2020-12-10&objectId=176709&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Naama Bay Promenade Mountain Resort": {
@@ -858,7 +858,7 @@
         "savings": 1930.0,
         "savings_pln": 1930.0,
         "rating": 4.8,
-        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,c/mirage-aqua-park-spa-cesar-palace/pJ-7dPHZJAp_omP5KZY-OtAAogNOb8Wz3s_-Mby90Ub0kjqMWqWNRYxshxiPy03bOylckqBEtPTVQw36T51gZI62BQAVjsAmACagJBSXIfHBHDGrkEzuABqwQzGP2VBBu1mCQByePAHgIAYwEEC3cFS6Y/?operator=KOMT&adults=2&children=2020-12-10&objectId=159252&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,c/mirage-aqua-park-spa-cesar-palace/pJ-7dPHZJAp_omP5KZY-OtAAogNOb8Wz3s_-Mby90Ub0kjqMWqWNRYxshxiPy03bOylckqBEtPTVQw_br51gZI62BQAVjsAmACagJBSXIfHBHDGrkEzuABqwQzGP2VBBu1mCQByePAHgIAYwEECwYpsb4/?operator=KOMT&adults=2&children=2020-12-10&objectId=159252&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Novotel Marsa Alam": {
@@ -901,7 +901,7 @@
         "savings": 5241.0,
         "savings_pln": 5241.0,
         "rating": 4.8,
-        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,c/mirage-aqua-park-spa-cesar-palace/pJ-7dPHZJAp_omP5KZY-OtAAogNOb8Wz3s_-Mby90Ub0kjqMWqWNRYxshxiPy03bOylckqBEtPTVQw36T51gZI62BQAVjsAmACagJBSXIfHBHDGrkEzuABqwQzGP2VBBu1mCQByePAHgIAYwEEC3cFS6Y/?operator=KOMT&adults=2&children=2020-12-10&objectId=159252&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,c/mirage-aqua-park-spa-cesar-palace/pJ-7dPHZJAp_omP5KZY-OtAAogNOb8Wz3s_-Mby90Ub0kjqMWqWNRYxshxiPy03bOylckqBEtPTVQw_br51gZI62BQAVjsAmACagJBSXIfHBHDGrkEzuABqwQzGP2VBBu1mCQByePAHgIAYwEECwYpsb4/?operator=KOMT&adults=2&children=2020-12-10&objectId=159252&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Nubian Village": {
@@ -926,7 +926,7 @@
         "savings": 5239.0,
         "savings_pln": 5239.0,
         "rating": 4.8,
-        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,c/mirage-aqua-park-spa-cesar-palace/pJ-7dPHZJAp_omP5KZY-OtAAogNOb8Wz3s_-Mby90Ub0kjqMWqWNRYxshxiPy03bOylckqBEtPTVQw36T51gZI62BQAVjsAmACagJBSXIfHBHDGrkEzuABqwQzGP2VBBu1mCQByePAHgIAYwEEC3cFS6Y/?operator=KOMT&adults=2&children=2020-12-10&objectId=159252&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,c/mirage-aqua-park-spa-cesar-palace/pJ-7dPHZJAp_omP5KZY-OtAAogNOb8Wz3s_-Mby90Ub0kjqMWqWNRYxshxiPy03bOylckqBEtPTVQw_br51gZI62BQAVjsAmACagJBSXIfHBHDGrkEzuABqwQzGP2VBBu1mCQByePAHgIAYwEECwYpsb4/?operator=KOMT&adults=2&children=2020-12-10&objectId=159252&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Parrotel Beach Resort (ex. Radisson Blu)": {
@@ -951,7 +951,7 @@
         "savings": 2332.0,
         "savings_pln": 2332.0,
         "rating": 4.7,
-        "offer_url": "https://fly.pl/wycieczka/egipt,marsa-alam,c/royal-tulip-beach-resort/p7zQLwams-TVKfGvyPiXTIAAog6ptLObNgloSDpYjyEELr7Gn-TdHpJMPwzGDiiTEG5rMqBFZJVFgw36T51gZIyU5QQVjsAmACckAaAFwKFQQXAFgBQI8DW5eFAV7melK8FFMAS7EvYQBMobY5Dc3UmAkgAFG5nMX23wFP8_0GXZz4r_klAg5jAQINxdhjPg/?operator=VITX&adults=2&children=2020-12-10&objectId=176709&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,marsa-alam,c/royal-tulip-beach-resort/p7zQLwams-TVKfGvyPiXTIAAog6ptLObNgloSDpYjyEELr7Gn-TdHpJMPwzGDiiTEG5rMqBFZJVFgw_br51gZIyU5QQVjsAmACckAaAFwKFQQXAFgBQI8DW5eFAV7melK8FFMAS7EvYQBMobY5Dc3UmAkgAFG5nMX23wFP8_0GXZz4r_klAg5jAQIN-iFgzw/?operator=VITX&adults=2&children=2020-12-10&objectId=176709&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Parrotel Lagoon Resort": {
@@ -994,7 +994,7 @@
         "savings": 2654.0,
         "savings_pln": 2654.0,
         "rating": 4.7,
-        "offer_url": "https://fly.pl/wycieczka/egipt,marsa-alam,c/royal-tulip-beach-resort/p7zQLwams-TVKfGvyPiXTIAAog6ptLObNgloSDpYjyEELr7Gn-TdHpJMPwzGDiiTEG5rMqBFZJVFgw36T51gZIyU5QQVjsAmACckAaAFwKFQQXAFgBQI8DW5eFAV7melK8FFMAS7EvYQBMobY5Dc3UmAkgAFG5nMX23wFP8_0GXZz4r_klAg5jAQINxdhjPg/?operator=VITX&adults=2&children=2020-12-10&objectId=176709&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,marsa-alam,c/royal-tulip-beach-resort/p7zQLwams-TVKfGvyPiXTIAAog6ptLObNgloSDpYjyEELr7Gn-TdHpJMPwzGDiiTEG5rMqBFZJVFgw_br51gZIyU5QQVjsAmACckAaAFwKFQQXAFgBQI8DW5eFAV7melK8FFMAS7EvYQBMobY5Dc3UmAkgAFG5nMX23wFP8_0GXZz4r_klAg5jAQIN-iFgzw/?operator=VITX&adults=2&children=2020-12-10&objectId=176709&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Pickalbatros Aqua Blu Resort": {
@@ -1019,7 +1019,7 @@
         "savings": 3869.0,
         "savings_pln": 3869.0,
         "rating": 4.9,
-        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/jaz-makadi-aquaviva/pU8hBvIEqi92WOY9tkZyA8AAogUJN_POchNvaZiA7Ug8d9s8WqWNRYxshxiPy03bOylckqBEtPTVQw36T51gZI7WRQAVjsAmACagJBSXIfHBGkGrkE7eABqwQzGJ2SBBuvmSQBr664HgIAYwECBWT5S6I/?operator=KOMT&adults=2&children=2020-12-10&objectId=167786&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/jaz-makadi-aquaviva/pU8hBvIEqi92WOY9tkZyA8AAogUJN_POchNvaZiA7Ug8d9s8WqWNRYxshxiPy03bOylckqBEtPTVQw_br51gZI7WRQAVjsAmACagJBSXIfHBGkGrkE7eABqwQzGJ2SBBuvmSQBr664HgIAYwECBTs1i34/?operator=KOMT&adults=2&children=2020-12-10&objectId=167786&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Pickalbatros Aqua Park Resort (Sharm El Sheikh)": {
@@ -1044,7 +1044,7 @@
         "savings": 3828.0,
         "savings_pln": 3828.0,
         "rating": 4.9,
-        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/jaz-makadi-aquaviva/pU8hBvIEqi92WOY9tkZyA8AAogUJN_POchNvaZiA7Ug8d9s8WqWNRYxshxiPy03bOylckqBEtPTVQw36T51gZI7WRQAVjsAmACagJBSXIfHBGkGrkE7eABqwQzGJ2SBBuvmSQBr664HgIAYwECBWT5S6I/?operator=KOMT&adults=2&children=2020-12-10&objectId=167786&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/jaz-makadi-aquaviva/pU8hBvIEqi92WOY9tkZyA8AAogUJN_POchNvaZiA7Ug8d9s8WqWNRYxshxiPy03bOylckqBEtPTVQw_br51gZI7WRQAVjsAmACagJBSXIfHBGkGrkE7eABqwQzGJ2SBBuvmSQBr664HgIAYwECBTs1i34/?operator=KOMT&adults=2&children=2020-12-10&objectId=167786&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Pickalbatros Citadel Sahl Hasheesh (ex. Citadel Azur Resort)": {
@@ -1069,7 +1069,7 @@
         "savings": 6048.0,
         "savings_pln": 6048.0,
         "rating": 4.9,
-        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/jaz-makadi-aquaviva/pU8hBvIEqi92WOY9tkZyA8AAogUJN_POchNvaZiA7Ug8d9s8WqWNRYxshxiPy03bOylckqBEtPTVQw36T51gZI7WRQAVjsAmACagJBSXIfHBGkGrkE7eABqwQzGJ2SBBuvmSQBr664HgIAYwECBWT5S6I/?operator=KOMT&adults=2&children=2020-12-10&objectId=167786&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/jaz-makadi-aquaviva/pU8hBvIEqi92WOY9tkZyA8AAogUJN_POchNvaZiA7Ug8d9s8WqWNRYxshxiPy03bOylckqBEtPTVQw_br51gZI7WRQAVjsAmACagJBSXIfHBGkGrkE7eABqwQzGJ2SBBuvmSQBr664HgIAYwECBTs1i34/?operator=KOMT&adults=2&children=2020-12-10&objectId=167786&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Pickalbatros Dana Beach Resort": {
@@ -1094,7 +1094,7 @@
         "savings": 5426.0,
         "savings_pln": 5426.0,
         "rating": 4.9,
-        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/jaz-makadi-aquaviva/pU8hBvIEqi92WOY9tkZyA8AAogUJN_POchNvaZiA7Ug8d9s8WqWNRYxshxiPy03bOylckqBEtPTVQw36T51gZI7WRQAVjsAmACagJBSXIfHBGkGrkE7eABqwQzGJ2SBBuvmSQBr664HgIAYwECBWT5S6I/?operator=KOMT&adults=2&children=2020-12-10&objectId=167786&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/jaz-makadi-aquaviva/pU8hBvIEqi92WOY9tkZyA8AAogUJN_POchNvaZiA7Ug8d9s8WqWNRYxshxiPy03bOylckqBEtPTVQw_br51gZI7WRQAVjsAmACagJBSXIfHBGkGrkE7eABqwQzGJ2SBBuvmSQBr664HgIAYwECBTs1i34/?operator=KOMT&adults=2&children=2020-12-10&objectId=167786&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Pickalbatros Golf Beach Resort": {
@@ -1119,7 +1119,7 @@
         "savings": 3148.0,
         "savings_pln": 3148.0,
         "rating": 4.9,
-        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/jaz-makadi-aquaviva/pU8hBvIEqi92WOY9tkZyA8AAogUJN_POchNvaZiA7Ug8d9s8WqWNRYxshxiPy03bOylckqBEtPTVQw36T51gZI7WRQAVjsAmACagJBSXIfHBGkGrkE7eABqwQzGJ2SBBuvmSQBr664HgIAYwECBWT5S6I/?operator=KOMT&adults=2&children=2020-12-10&objectId=167786&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/jaz-makadi-aquaviva/pU8hBvIEqi92WOY9tkZyA8AAogUJN_POchNvaZiA7Ug8d9s8WqWNRYxshxiPy03bOylckqBEtPTVQw_br51gZI7WRQAVjsAmACagJBSXIfHBGkGrkE7eABqwQzGJ2SBBuvmSQBr664HgIAYwECBTs1i34/?operator=KOMT&adults=2&children=2020-12-10&objectId=167786&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Pickalbatros Laguna Club Resort": {
@@ -1144,7 +1144,7 @@
         "savings": 1257.0,
         "savings_pln": 1257.0,
         "rating": 4.8,
-        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,c/mirage-aqua-park-spa-cesar-palace/pJ-7dPHZJAp_omP5KZY-OtAAogNOb8Wz3s_-Mby90Ub0kjqMWqWNRYxshxiPy03bOylckqBEtPTVQw36T51gZI62BQAVjsAmACagJBSXIfHBHDGrkEzuABqwQzGP2VBBu1mCQByePAHgIAYwEEC3cFS6Y/?operator=KOMT&adults=2&children=2020-12-10&objectId=159252&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,c/mirage-aqua-park-spa-cesar-palace/pJ-7dPHZJAp_omP5KZY-OtAAogNOb8Wz3s_-Mby90Ub0kjqMWqWNRYxshxiPy03bOylckqBEtPTVQw_br51gZI62BQAVjsAmACagJBSXIfHBHDGrkEzuABqwQzGP2VBBu1mCQByePAHgIAYwEECwYpsb4/?operator=KOMT&adults=2&children=2020-12-10&objectId=159252&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Pickalbatros Laguna Vista Beach": {
@@ -1169,7 +1169,7 @@
         "savings": 3948.0,
         "savings_pln": 3948.0,
         "rating": 4.9,
-        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/jaz-makadi-aquaviva/pU8hBvIEqi92WOY9tkZyA8AAogUJN_POchNvaZiA7Ug8d9s8WqWNRYxshxiPy03bOylckqBEtPTVQw36T51gZI7WRQAVjsAmACagJBSXIfHBGkGrkE7eABqwQzGJ2SBBuvmSQBr664HgIAYwECBWT5S6I/?operator=KOMT&adults=2&children=2020-12-10&objectId=167786&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/jaz-makadi-aquaviva/pU8hBvIEqi92WOY9tkZyA8AAogUJN_POchNvaZiA7Ug8d9s8WqWNRYxshxiPy03bOylckqBEtPTVQw_br51gZI7WRQAVjsAmACagJBSXIfHBGkGrkE7eABqwQzGJ2SBBuvmSQBr664HgIAYwECBTs1i34/?operator=KOMT&adults=2&children=2020-12-10&objectId=167786&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Pickalbatros Luxury Suites": {
@@ -1194,7 +1194,7 @@
         "savings": 2019.0,
         "savings_pln": 2019.0,
         "rating": 4.9,
-        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/jaz-makadi-aquaviva/pU8hBvIEqi92WOY9tkZyA8AAogUJN_POchNvaZiA7Ug8d9s8WqWNRYxshxiPy03bOylckqBEtPTVQw36T51gZI7WRQAVjsAmACagJBSXIfHBGkGrkE7eABqwQzGJ2SBBuvmSQBr664HgIAYwECBWT5S6I/?operator=KOMT&adults=2&children=2020-12-10&objectId=167786&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/jaz-makadi-aquaviva/pU8hBvIEqi92WOY9tkZyA8AAogUJN_POchNvaZiA7Ug8d9s8WqWNRYxshxiPy03bOylckqBEtPTVQw_br51gZI7WRQAVjsAmACagJBSXIfHBGkGrkE7eABqwQzGJ2SBBuvmSQBr664HgIAYwECBTs1i34/?operator=KOMT&adults=2&children=2020-12-10&objectId=167786&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Pickalbatros Palace Resort": {
@@ -1219,7 +1219,7 @@
         "savings": 3960.0,
         "savings_pln": 3960.0,
         "rating": 4.9,
-        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/jaz-makadi-aquaviva/pU8hBvIEqi92WOY9tkZyA8AAogUJN_POchNvaZiA7Ug8d9s8WqWNRYxshxiPy03bOylckqBEtPTVQw36T51gZI7WRQAVjsAmACagJBSXIfHBGkGrkE7eABqwQzGJ2SBBuvmSQBr664HgIAYwECBWT5S6I/?operator=KOMT&adults=2&children=2020-12-10&objectId=167786&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/jaz-makadi-aquaviva/pU8hBvIEqi92WOY9tkZyA8AAogUJN_POchNvaZiA7Ug8d9s8WqWNRYxshxiPy03bOylckqBEtPTVQw_br51gZI7WRQAVjsAmACagJBSXIfHBGkGrkE7eABqwQzGJ2SBBuvmSQBr664HgIAYwECBTs1i34/?operator=KOMT&adults=2&children=2020-12-10&objectId=167786&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Pickalbatros Royal Moderna": {
@@ -1244,7 +1244,7 @@
         "savings": 3148.0,
         "savings_pln": 3148.0,
         "rating": 4.9,
-        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/jaz-makadi-aquaviva/pU8hBvIEqi92WOY9tkZyA8AAogUJN_POchNvaZiA7Ug8d9s8WqWNRYxshxiPy03bOylckqBEtPTVQw36T51gZI7WRQAVjsAmACagJBSXIfHBGkGrkE7eABqwQzGJ2SBBuvmSQBr664HgIAYwECBWT5S6I/?operator=KOMT&adults=2&children=2020-12-10&objectId=167786&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/jaz-makadi-aquaviva/pU8hBvIEqi92WOY9tkZyA8AAogUJN_POchNvaZiA7Ug8d9s8WqWNRYxshxiPy03bOylckqBEtPTVQw_br51gZI7WRQAVjsAmACagJBSXIfHBGkGrkE7eABqwQzGJ2SBBuvmSQBr664HgIAYwECBTs1i34/?operator=KOMT&adults=2&children=2020-12-10&objectId=167786&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Pickalbatros Villaggio Resort Portofino": {
@@ -1269,7 +1269,7 @@
         "savings": 1668.0,
         "savings_pln": 1668.0,
         "rating": 4.9,
-        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/jaz-makadi-aquaviva/pU8hBvIEqi92WOY9tkZyA8AAogUJN_POchNvaZiA7Ug8d9s8WqWNRYxshxiPy03bOylckqBEtPTVQw36T51gZI7WRQAVjsAmACagJBSXIfHBGkGrkE7eABqwQzGJ2SBBuvmSQBr664HgIAYwECBWT5S6I/?operator=KOMT&adults=2&children=2020-12-10&objectId=167786&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/jaz-makadi-aquaviva/pU8hBvIEqi92WOY9tkZyA8AAogUJN_POchNvaZiA7Ug8d9s8WqWNRYxshxiPy03bOylckqBEtPTVQw_br51gZI7WRQAVjsAmACagJBSXIfHBGkGrkE7eABqwQzGJ2SBBuvmSQBr664HgIAYwECBTs1i34/?operator=KOMT&adults=2&children=2020-12-10&objectId=167786&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Pickalbatros Vita Resort Portofino": {
@@ -1294,7 +1294,7 @@
         "savings": 1458.0,
         "savings_pln": 1458.0,
         "rating": 4.6,
-        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/royal-azur-resort/pnSUnXqfvz6wQjAFPRRgQXAAogd8v2uJEr8CPyyNBSwJno8mzc1Ej8W2PaeBYSFfaWZrgqBEJWUFIw36T51gZIwV1QAVjsAmACag1BbGwgaW5jbHVzaXZlciEcEdlYG5KpBhjY9A6rBOTtFbkEggEBpK7p8wECAGMBAgWrwCJU/?operator=BVPR&adults=2&children=2020-12-10&objectId=2259&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/royal-azur-resort/pnSUnXqfvz6wQjAFPRRgQXAAogd8v2uJEr8CPyyNBSwJno8mzc1Ej8W2PaeBYSFfaWZrgqBEJWUFIw_br51gZIwV1QAVjsAmACag1BbGwgaW5jbHVzaXZlciEcEdlYG5KpBhjY9A6rBOTtFbkEggEBpK7p8wECAGMBAgXbtg3l/?operator=BVPR&adults=2&children=2020-12-10&objectId=2259&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Pickalbatros Water Valley Resort Neverland": {
@@ -1319,7 +1319,7 @@
         "savings": 6025.0,
         "savings_pln": 6025.0,
         "rating": 4.9,
-        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/jaz-makadi-aquaviva/pU8hBvIEqi92WOY9tkZyA8AAogUJN_POchNvaZiA7Ug8d9s8WqWNRYxshxiPy03bOylckqBEtPTVQw36T51gZI7WRQAVjsAmACagJBSXIfHBGkGrkE7eABqwQzGJ2SBBuvmSQBr664HgIAYwECBWT5S6I/?operator=KOMT&adults=2&children=2020-12-10&objectId=167786&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/jaz-makadi-aquaviva/pU8hBvIEqi92WOY9tkZyA8AAogUJN_POchNvaZiA7Ug8d9s8WqWNRYxshxiPy03bOylckqBEtPTVQw_br51gZI7WRQAVjsAmACagJBSXIfHBGkGrkE7eABqwQzGJ2SBBuvmSQBr664HgIAYwECBTs1i34/?operator=KOMT&adults=2&children=2020-12-10&objectId=167786&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Pickalbatros White Beach Resort": {
@@ -1344,7 +1344,7 @@
         "savings": 6604.0,
         "savings_pln": 6604.0,
         "rating": 4.9,
-        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/jaz-makadi-aquaviva/pU8hBvIEqi92WOY9tkZyA8AAogUJN_POchNvaZiA7Ug8d9s8WqWNRYxshxiPy03bOylckqBEtPTVQw36T51gZI7WRQAVjsAmACagJBSXIfHBGkGrkE7eABqwQzGJ2SBBuvmSQBr664HgIAYwECBWT5S6I/?operator=KOMT&adults=2&children=2020-12-10&objectId=167786&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/jaz-makadi-aquaviva/pU8hBvIEqi92WOY9tkZyA8AAogUJN_POchNvaZiA7Ug8d9s8WqWNRYxshxiPy03bOylckqBEtPTVQw_br51gZI7WRQAVjsAmACagJBSXIfHBGkGrkE7eABqwQzGJ2SBBuvmSQBr664HgIAYwECBTs1i34/?operator=KOMT&adults=2&children=2020-12-10&objectId=167786&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Red Sea Grand Waterworld Makadi (ex. Sunwing Waterworld Makadi)": {
@@ -1369,7 +1369,7 @@
         "savings": 3289.0,
         "savings_pln": 3289.0,
         "rating": 4.7,
-        "offer_url": "https://fly.pl/wycieczka/egipt,marsa-alam,c/royal-tulip-beach-resort/p7zQLwams-TVKfGvyPiXTIAAog6ptLObNgloSDpYjyEELr7Gn-TdHpJMPwzGDiiTEG5rMqBFZJVFgw36T51gZIyU5QQVjsAmACckAaAFwKFQQXAFgBQI8DW5eFAV7melK8FFMAS7EvYQBMobY5Dc3UmAkgAFG5nMX23wFP8_0GXZz4r_klAg5jAQINxdhjPg/?operator=VITX&adults=2&children=2020-12-10&objectId=176709&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,marsa-alam,c/royal-tulip-beach-resort/p7zQLwams-TVKfGvyPiXTIAAog6ptLObNgloSDpYjyEELr7Gn-TdHpJMPwzGDiiTEG5rMqBFZJVFgw_br51gZIyU5QQVjsAmACckAaAFwKFQQXAFgBQI8DW5eFAV7melK8FFMAS7EvYQBMobY5Dc3UmAkgAFG5nMX23wFP8_0GXZz4r_klAg5jAQIN-iFgzw/?operator=VITX&adults=2&children=2020-12-10&objectId=176709&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Regency Plaza Aqua Park Spa": {
@@ -1394,7 +1394,7 @@
         "savings": 2723.0,
         "savings_pln": 2723.0,
         "rating": 4.7,
-        "offer_url": "https://fly.pl/wycieczka/egipt,marsa-alam,c/royal-tulip-beach-resort/p7zQLwams-TVKfGvyPiXTIAAog6ptLObNgloSDpYjyEELr7Gn-TdHpJMPwzGDiiTEG5rMqBFZJVFgw36T51gZIyU5QQVjsAmACckAaAFwKFQQXAFgBQI8DW5eFAV7melK8FFMAS7EvYQBMobY5Dc3UmAkgAFG5nMX23wFP8_0GXZz4r_klAg5jAQINxdhjPg/?operator=VITX&adults=2&children=2020-12-10&objectId=176709&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,marsa-alam,c/royal-tulip-beach-resort/p7zQLwams-TVKfGvyPiXTIAAog6ptLObNgloSDpYjyEELr7Gn-TdHpJMPwzGDiiTEG5rMqBFZJVFgw_br51gZIyU5QQVjsAmACckAaAFwKFQQXAFgBQI8DW5eFAV7melK8FFMAS7EvYQBMobY5Dc3UmAkgAFG5nMX23wFP8_0GXZz4r_klAg5jAQIN-iFgzw/?operator=VITX&adults=2&children=2020-12-10&objectId=176709&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Renaissance Golden View Beach Resort by Marriott": {
@@ -1419,7 +1419,7 @@
         "savings": 3788.0,
         "savings_pln": 3788.0,
         "rating": 4.9,
-        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/jaz-makadi-aquaviva/pU8hBvIEqi92WOY9tkZyA8AAogUJN_POchNvaZiA7Ug8d9s8WqWNRYxshxiPy03bOylckqBEtPTVQw36T51gZI7WRQAVjsAmACagJBSXIfHBGkGrkE7eABqwQzGJ2SBBuvmSQBr664HgIAYwECBWT5S6I/?operator=KOMT&adults=2&children=2020-12-10&objectId=167786&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/jaz-makadi-aquaviva/pU8hBvIEqi92WOY9tkZyA8AAogUJN_POchNvaZiA7Ug8d9s8WqWNRYxshxiPy03bOylckqBEtPTVQw_br51gZI7WRQAVjsAmACagJBSXIfHBGkGrkE7eABqwQzGJ2SBBuvmSQBr664HgIAYwECBTs1i34/?operator=KOMT&adults=2&children=2020-12-10&objectId=167786&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Retac Qunay Dahab Resort & Spa": {
@@ -1444,21 +1444,21 @@
         "savings": 5529.0,
         "savings_pln": 5529.0,
         "rating": 4.8,
-        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,c/mirage-aqua-park-spa-cesar-palace/pJ-7dPHZJAp_omP5KZY-OtAAogNOb8Wz3s_-Mby90Ub0kjqMWqWNRYxshxiPy03bOylckqBEtPTVQw36T51gZI62BQAVjsAmACagJBSXIfHBHDGrkEzuABqwQzGP2VBBu1mCQByePAHgIAYwEEC3cFS6Y/?operator=KOMT&adults=2&children=2020-12-10&objectId=159252&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,c/mirage-aqua-park-spa-cesar-palace/pJ-7dPHZJAp_omP5KZY-OtAAogNOb8Wz3s_-Mby90Ub0kjqMWqWNRYxshxiPy03bOylckqBEtPTVQw_br51gZI62BQAVjsAmACagJBSXIfHBHDGrkEzuABqwQzGP2VBBu1mCQByePAHgIAYwEECwYpsb4/?operator=KOMT&adults=2&children=2020-12-10&objectId=159252&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Rewaya Luxury Resort": {
       "verdict": "WAIT",
       "badge_text": "🟡 ПОДОЖДАТЬ",
-      "rationale": "Отель сейчас стоит 9,786 zł — это обычная базовая цена за сезон (медиана 9,932 zł).",
+      "rationale": "Отель сейчас стоит 10,216 zł — это обычная базовая цена за сезон (медиана 9,932 zł).",
       "risk_assessment": "Следите за доступностью номеров перед вылетом.",
       "action_advice": "Спешить не нужно, добавьте в «Избранное» (☆) и подождите.",
       "booking_window_badge": "",
       "booking_window_class": "late",
-      "booking_window_tip": "Окно максимальных скидок (D-30+) уже прошло. Текущий день: D-16.",
-      "fair_price_badge": "🔥 −15% в эконом 4★",
-      "fair_price_class": "fair-underpriced",
-      "fair_price_tip": "Цена на 15% ниже медианы равных отелей сегмента эконом 4★ (11,457 zł) и не превышает обычную цену отеля (9,932 zł).",
+      "booking_window_tip": "Окно максимальных скидок (D-30+) уже прошло. Текущий день: D-11.",
+      "fair_price_badge": "",
+      "fair_price_class": "",
+      "fair_price_tip": "",
       "gem_badge": "",
       "gem_tip": "",
       "flash_drop_badge": "",
@@ -1487,7 +1487,7 @@
         "savings": 2830.0,
         "savings_pln": 2830.0,
         "rating": 4.7,
-        "offer_url": "https://fly.pl/wycieczka/egipt,marsa-alam,c/royal-tulip-beach-resort/p7zQLwams-TVKfGvyPiXTIAAog6ptLObNgloSDpYjyEELr7Gn-TdHpJMPwzGDiiTEG5rMqBFZJVFgw36T51gZIyU5QQVjsAmACckAaAFwKFQQXAFgBQI8DW5eFAV7melK8FFMAS7EvYQBMobY5Dc3UmAkgAFG5nMX23wFP8_0GXZz4r_klAg5jAQINxdhjPg/?operator=VITX&adults=2&children=2020-12-10&objectId=176709&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,marsa-alam,c/royal-tulip-beach-resort/p7zQLwams-TVKfGvyPiXTIAAog6ptLObNgloSDpYjyEELr7Gn-TdHpJMPwzGDiiTEG5rMqBFZJVFgw_br51gZIyU5QQVjsAmACckAaAFwKFQQXAFgBQI8DW5eFAV7melK8FFMAS7EvYQBMobY5Dc3UmAkgAFG5nMX23wFP8_0GXZz4r_klAg5jAQIN-iFgzw/?operator=VITX&adults=2&children=2020-12-10&objectId=176709&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Royal Brayka Beach Resort (ex Zee Brayka)": {
@@ -1512,7 +1512,7 @@
         "savings": 2200.0,
         "savings_pln": 2200.0,
         "rating": 4.7,
-        "offer_url": "https://fly.pl/wycieczka/egipt,marsa-alam,c/royal-tulip-beach-resort/p7zQLwams-TVKfGvyPiXTIAAog6ptLObNgloSDpYjyEELr7Gn-TdHpJMPwzGDiiTEG5rMqBFZJVFgw36T51gZIyU5QQVjsAmACckAaAFwKFQQXAFgBQI8DW5eFAV7melK8FFMAS7EvYQBMobY5Dc3UmAkgAFG5nMX23wFP8_0GXZz4r_klAg5jAQINxdhjPg/?operator=VITX&adults=2&children=2020-12-10&objectId=176709&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,marsa-alam,c/royal-tulip-beach-resort/p7zQLwams-TVKfGvyPiXTIAAog6ptLObNgloSDpYjyEELr7Gn-TdHpJMPwzGDiiTEG5rMqBFZJVFgw_br51gZIyU5QQVjsAmACckAaAFwKFQQXAFgBQI8DW5eFAV7melK8FFMAS7EvYQBMobY5Dc3UmAkgAFG5nMX23wFP8_0GXZz4r_klAg5jAQIN-iFgzw/?operator=VITX&adults=2&children=2020-12-10&objectId=176709&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Royal Regency Club": {
@@ -1537,7 +1537,7 @@
         "savings": 1305.0,
         "savings_pln": 1305.0,
         "rating": 4.7,
-        "offer_url": "https://fly.pl/wycieczka/egipt,marsa-alam,c/royal-tulip-beach-resort/p7zQLwams-TVKfGvyPiXTIAAog6ptLObNgloSDpYjyEELr7Gn-TdHpJMPwzGDiiTEG5rMqBFZJVFgw36T51gZIyU5QQVjsAmACckAaAFwKFQQXAFgBQI8DW5eFAV7melK8FFMAS7EvYQBMobY5Dc3UmAkgAFG5nMX23wFP8_0GXZz4r_klAg5jAQINxdhjPg/?operator=VITX&adults=2&children=2020-12-10&objectId=176709&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,marsa-alam,c/royal-tulip-beach-resort/p7zQLwams-TVKfGvyPiXTIAAog6ptLObNgloSDpYjyEELr7Gn-TdHpJMPwzGDiiTEG5rMqBFZJVFgw_br51gZIyU5QQVjsAmACckAaAFwKFQQXAFgBQI8DW5eFAV7melK8FFMAS7EvYQBMobY5Dc3UmAkgAFG5nMX23wFP8_0GXZz4r_klAg5jAQIN-iFgzw/?operator=VITX&adults=2&children=2020-12-10&objectId=176709&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Safir Sharm Waterfalls Resort (ex Hilton Waterfalls Resort)": {
@@ -1562,7 +1562,7 @@
         "savings": 6243.0,
         "savings_pln": 6243.0,
         "rating": 4.9,
-        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/jaz-makadi-aquaviva/pU8hBvIEqi92WOY9tkZyA8AAogUJN_POchNvaZiA7Ug8d9s8WqWNRYxshxiPy03bOylckqBEtPTVQw36T51gZI7WRQAVjsAmACagJBSXIfHBGkGrkE7eABqwQzGJ2SBBuvmSQBr664HgIAYwECBWT5S6I/?operator=KOMT&adults=2&children=2020-12-10&objectId=167786&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/jaz-makadi-aquaviva/pU8hBvIEqi92WOY9tkZyA8AAogUJN_POchNvaZiA7Ug8d9s8WqWNRYxshxiPy03bOylckqBEtPTVQw_br51gZI7WRQAVjsAmACagJBSXIfHBGkGrkE7eABqwQzGJ2SBBuvmSQBr664HgIAYwECBTs1i34/?operator=KOMT&adults=2&children=2020-12-10&objectId=167786&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Serenity Alma Heights (ex. Serenity Fun City)": {
@@ -1587,7 +1587,7 @@
         "savings": 3320.0,
         "savings_pln": 3320.0,
         "rating": 4.7,
-        "offer_url": "https://fly.pl/wycieczka/egipt,marsa-alam,c/royal-tulip-beach-resort/p7zQLwams-TVKfGvyPiXTIAAog6ptLObNgloSDpYjyEELr7Gn-TdHpJMPwzGDiiTEG5rMqBFZJVFgw36T51gZIyU5QQVjsAmACckAaAFwKFQQXAFgBQI8DW5eFAV7melK8FFMAS7EvYQBMobY5Dc3UmAkgAFG5nMX23wFP8_0GXZz4r_klAg5jAQINxdhjPg/?operator=VITX&adults=2&children=2020-12-10&objectId=176709&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,marsa-alam,c/royal-tulip-beach-resort/p7zQLwams-TVKfGvyPiXTIAAog6ptLObNgloSDpYjyEELr7Gn-TdHpJMPwzGDiiTEG5rMqBFZJVFgw_br51gZIyU5QQVjsAmACckAaAFwKFQQXAFgBQI8DW5eFAV7melK8FFMAS7EvYQBMobY5Dc3UmAkgAFG5nMX23wFP8_0GXZz4r_klAg5jAQIN-iFgzw/?operator=VITX&adults=2&children=2020-12-10&objectId=176709&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Serenity Sky Arc": {
@@ -1612,7 +1612,7 @@
         "savings": 2592.0,
         "savings_pln": 2592.0,
         "rating": 4.8,
-        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,c/mirage-aqua-park-spa-cesar-palace/pJ-7dPHZJAp_omP5KZY-OtAAogNOb8Wz3s_-Mby90Ub0kjqMWqWNRYxshxiPy03bOylckqBEtPTVQw36T51gZI62BQAVjsAmACagJBSXIfHBHDGrkEzuABqwQzGP2VBBu1mCQByePAHgIAYwEEC3cFS6Y/?operator=KOMT&adults=2&children=2020-12-10&objectId=159252&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,c/mirage-aqua-park-spa-cesar-palace/pJ-7dPHZJAp_omP5KZY-OtAAogNOb8Wz3s_-Mby90Ub0kjqMWqWNRYxshxiPy03bOylckqBEtPTVQw_br51gZI62BQAVjsAmACagJBSXIfHBHDGrkEzuABqwQzGP2VBBu1mCQByePAHgIAYwEECwYpsb4/?operator=KOMT&adults=2&children=2020-12-10&objectId=159252&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Seven Seas Jolie Bay": {
@@ -1637,7 +1637,7 @@
         "savings": 1008.0,
         "savings_pln": 1008.0,
         "rating": 4.8,
-        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,c/mirage-aqua-park-spa-cesar-palace/pJ-7dPHZJAp_omP5KZY-OtAAogNOb8Wz3s_-Mby90Ub0kjqMWqWNRYxshxiPy03bOylckqBEtPTVQw36T51gZI62BQAVjsAmACagJBSXIfHBHDGrkEzuABqwQzGP2VBBu1mCQByePAHgIAYwEEC3cFS6Y/?operator=KOMT&adults=2&children=2020-12-10&objectId=159252&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,c/mirage-aqua-park-spa-cesar-palace/pJ-7dPHZJAp_omP5KZY-OtAAogNOb8Wz3s_-Mby90Ub0kjqMWqWNRYxshxiPy03bOylckqBEtPTVQw_br51gZI62BQAVjsAmACagJBSXIfHBHDGrkEzuABqwQzGP2VBBu1mCQByePAHgIAYwEECwYpsb4/?operator=KOMT&adults=2&children=2020-12-10&objectId=159252&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Sirena Beach Resort & Spa": {
@@ -1662,7 +1662,7 @@
         "savings": 2350.0,
         "savings_pln": 2350.0,
         "rating": 4.7,
-        "offer_url": "https://fly.pl/wycieczka/egipt,marsa-alam,c/royal-tulip-beach-resort/p7zQLwams-TVKfGvyPiXTIAAog6ptLObNgloSDpYjyEELr7Gn-TdHpJMPwzGDiiTEG5rMqBFZJVFgw36T51gZIyU5QQVjsAmACckAaAFwKFQQXAFgBQI8DW5eFAV7melK8FFMAS7EvYQBMobY5Dc3UmAkgAFG5nMX23wFP8_0GXZz4r_klAg5jAQINxdhjPg/?operator=VITX&adults=2&children=2020-12-10&objectId=176709&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,marsa-alam,c/royal-tulip-beach-resort/p7zQLwams-TVKfGvyPiXTIAAog6ptLObNgloSDpYjyEELr7Gn-TdHpJMPwzGDiiTEG5rMqBFZJVFgw_br51gZIyU5QQVjsAmACckAaAFwKFQQXAFgBQI8DW5eFAV7melK8FFMAS7EvYQBMobY5Dc3UmAkgAFG5nMX23wFP8_0GXZz4r_klAg5jAQIN-iFgzw/?operator=VITX&adults=2&children=2020-12-10&objectId=176709&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Steigenberger Aqua Magic": {
@@ -1687,7 +1687,7 @@
         "savings": 3946.0,
         "savings_pln": 3946.0,
         "rating": 4.9,
-        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/jaz-makadi-aquaviva/pU8hBvIEqi92WOY9tkZyA8AAogUJN_POchNvaZiA7Ug8d9s8WqWNRYxshxiPy03bOylckqBEtPTVQw36T51gZI7WRQAVjsAmACagJBSXIfHBGkGrkE7eABqwQzGJ2SBBuvmSQBr664HgIAYwECBWT5S6I/?operator=KOMT&adults=2&children=2020-12-10&objectId=167786&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/jaz-makadi-aquaviva/pU8hBvIEqi92WOY9tkZyA8AAogUJN_POchNvaZiA7Ug8d9s8WqWNRYxshxiPy03bOylckqBEtPTVQw_br51gZI7WRQAVjsAmACagJBSXIfHBGkGrkE7eABqwQzGJ2SBBuvmSQBr664HgIAYwECBTs1i34/?operator=KOMT&adults=2&children=2020-12-10&objectId=167786&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Stella Beach Resort & Spa": {
@@ -1712,7 +1712,7 @@
         "savings": 1237.0,
         "savings_pln": 1237.0,
         "rating": 4.8,
-        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,c/mirage-aqua-park-spa-cesar-palace/pJ-7dPHZJAp_omP5KZY-OtAAogNOb8Wz3s_-Mby90Ub0kjqMWqWNRYxshxiPy03bOylckqBEtPTVQw36T51gZI62BQAVjsAmACagJBSXIfHBHDGrkEzuABqwQzGP2VBBu1mCQByePAHgIAYwEEC3cFS6Y/?operator=KOMT&adults=2&children=2020-12-10&objectId=159252&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,c/mirage-aqua-park-spa-cesar-palace/pJ-7dPHZJAp_omP5KZY-OtAAogNOb8Wz3s_-Mby90Ub0kjqMWqWNRYxshxiPy03bOylckqBEtPTVQw_br51gZI62BQAVjsAmACagJBSXIfHBHDGrkEzuABqwQzGP2VBBu1mCQByePAHgIAYwEECwYpsb4/?operator=KOMT&adults=2&children=2020-12-10&objectId=159252&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Stella Di Mare Beach & Spa": {
@@ -1737,7 +1737,7 @@
         "savings": 7175.0,
         "savings_pln": 7175.0,
         "rating": 4.8,
-        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,c/mirage-aqua-park-spa-cesar-palace/pJ-7dPHZJAp_omP5KZY-OtAAogNOb8Wz3s_-Mby90Ub0kjqMWqWNRYxshxiPy03bOylckqBEtPTVQw36T51gZI62BQAVjsAmACagJBSXIfHBHDGrkEzuABqwQzGP2VBBu1mCQByePAHgIAYwEEC3cFS6Y/?operator=KOMT&adults=2&children=2020-12-10&objectId=159252&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,c/mirage-aqua-park-spa-cesar-palace/pJ-7dPHZJAp_omP5KZY-OtAAogNOb8Wz3s_-Mby90Ub0kjqMWqWNRYxshxiPy03bOylckqBEtPTVQw_br51gZI62BQAVjsAmACagJBSXIfHBHDGrkEzuABqwQzGP2VBBu1mCQByePAHgIAYwEECwYpsb4/?operator=KOMT&adults=2&children=2020-12-10&objectId=159252&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Sunrise Alora Aqua Park Resort": {
@@ -1780,7 +1780,7 @@
         "savings": 7523.0,
         "savings_pln": 7523.0,
         "rating": 4.8,
-        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,c/mirage-aqua-park-spa-cesar-palace/pJ-7dPHZJAp_omP5KZY-OtAAogNOb8Wz3s_-Mby90Ub0kjqMWqWNRYxshxiPy03bOylckqBEtPTVQw36T51gZI62BQAVjsAmACagJBSXIfHBHDGrkEzuABqwQzGP2VBBu1mCQByePAHgIAYwEEC3cFS6Y/?operator=KOMT&adults=2&children=2020-12-10&objectId=159252&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,c/mirage-aqua-park-spa-cesar-palace/pJ-7dPHZJAp_omP5KZY-OtAAogNOb8Wz3s_-Mby90Ub0kjqMWqWNRYxshxiPy03bOylckqBEtPTVQw_br51gZI62BQAVjsAmACagJBSXIfHBHDGrkEzuABqwQzGP2VBBu1mCQByePAHgIAYwEECwYpsb4/?operator=KOMT&adults=2&children=2020-12-10&objectId=159252&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Sunrise Royal Makadi Aqua Resort": {
@@ -1805,7 +1805,7 @@
         "savings": 7412.0,
         "savings_pln": 7412.0,
         "rating": 4.8,
-        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,c/mirage-aqua-park-spa-cesar-palace/pJ-7dPHZJAp_omP5KZY-OtAAogNOb8Wz3s_-Mby90Ub0kjqMWqWNRYxshxiPy03bOylckqBEtPTVQw36T51gZI62BQAVjsAmACagJBSXIfHBHDGrkEzuABqwQzGP2VBBu1mCQByePAHgIAYwEEC3cFS6Y/?operator=KOMT&adults=2&children=2020-12-10&objectId=159252&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,c/mirage-aqua-park-spa-cesar-palace/pJ-7dPHZJAp_omP5KZY-OtAAogNOb8Wz3s_-Mby90Ub0kjqMWqWNRYxshxiPy03bOylckqBEtPTVQw_br51gZI62BQAVjsAmACagJBSXIfHBHDGrkEzuABqwQzGP2VBBu1mCQByePAHgIAYwEECwYpsb4/?operator=KOMT&adults=2&children=2020-12-10&objectId=159252&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Sunrise Select Garden Beach Resort & Spa": {
@@ -1830,7 +1830,7 @@
         "savings": 7226.0,
         "savings_pln": 7226.0,
         "rating": 4.8,
-        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,c/mirage-aqua-park-spa-cesar-palace/pJ-7dPHZJAp_omP5KZY-OtAAogNOb8Wz3s_-Mby90Ub0kjqMWqWNRYxshxiPy03bOylckqBEtPTVQw36T51gZI62BQAVjsAmACagJBSXIfHBHDGrkEzuABqwQzGP2VBBu1mCQByePAHgIAYwEEC3cFS6Y/?operator=KOMT&adults=2&children=2020-12-10&objectId=159252&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,c/mirage-aqua-park-spa-cesar-palace/pJ-7dPHZJAp_omP5KZY-OtAAogNOb8Wz3s_-Mby90Ub0kjqMWqWNRYxshxiPy03bOylckqBEtPTVQw_br51gZI62BQAVjsAmACagJBSXIfHBHDGrkEzuABqwQzGP2VBBu1mCQByePAHgIAYwEECwYpsb4/?operator=KOMT&adults=2&children=2020-12-10&objectId=159252&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Swisstouch Oriental Resort (ex. Hotelux Oriental Coast)": {
@@ -1873,7 +1873,7 @@
         "savings": 5857.0,
         "savings_pln": 5857.0,
         "rating": 4.8,
-        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,c/mirage-aqua-park-spa-cesar-palace/pJ-7dPHZJAp_omP5KZY-OtAAogNOb8Wz3s_-Mby90Ub0kjqMWqWNRYxshxiPy03bOylckqBEtPTVQw36T51gZI62BQAVjsAmACagJBSXIfHBHDGrkEzuABqwQzGP2VBBu1mCQByePAHgIAYwEEC3cFS6Y/?operator=KOMT&adults=2&children=2020-12-10&objectId=159252&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,c/mirage-aqua-park-spa-cesar-palace/pJ-7dPHZJAp_omP5KZY-OtAAogNOb8Wz3s_-Mby90Ub0kjqMWqWNRYxshxiPy03bOylckqBEtPTVQw_br51gZI62BQAVjsAmACagJBSXIfHBHDGrkEzuABqwQzGP2VBBu1mCQByePAHgIAYwEECwYpsb4/?operator=KOMT&adults=2&children=2020-12-10&objectId=159252&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "The V Luxury Resort": {
@@ -1898,7 +1898,7 @@
         "savings": 4029.0,
         "savings_pln": 4029.0,
         "rating": 4.8,
-        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,c/mirage-aqua-park-spa-cesar-palace/pJ-7dPHZJAp_omP5KZY-OtAAogNOb8Wz3s_-Mby90Ub0kjqMWqWNRYxshxiPy03bOylckqBEtPTVQw36T51gZI62BQAVjsAmACagJBSXIfHBHDGrkEzuABqwQzGP2VBBu1mCQByePAHgIAYwEEC3cFS6Y/?operator=KOMT&adults=2&children=2020-12-10&objectId=159252&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,c/mirage-aqua-park-spa-cesar-palace/pJ-7dPHZJAp_omP5KZY-OtAAogNOb8Wz3s_-Mby90Ub0kjqMWqWNRYxshxiPy03bOylckqBEtPTVQw_br51gZI62BQAVjsAmACagJBSXIfHBHDGrkEzuABqwQzGP2VBBu1mCQByePAHgIAYwEECwYpsb4/?operator=KOMT&adults=2&children=2020-12-10&objectId=159252&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Titanic Beach Spa & Aqua Park": {
@@ -1923,7 +1923,7 @@
         "savings": 3248.0,
         "savings_pln": 3248.0,
         "rating": 4.9,
-        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/jaz-makadi-aquaviva/pU8hBvIEqi92WOY9tkZyA8AAogUJN_POchNvaZiA7Ug8d9s8WqWNRYxshxiPy03bOylckqBEtPTVQw36T51gZI7WRQAVjsAmACagJBSXIfHBGkGrkE7eABqwQzGJ2SBBuvmSQBr664HgIAYwECBWT5S6I/?operator=KOMT&adults=2&children=2020-12-10&objectId=167786&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/jaz-makadi-aquaviva/pU8hBvIEqi92WOY9tkZyA8AAogUJN_POchNvaZiA7Ug8d9s8WqWNRYxshxiPy03bOylckqBEtPTVQw_br51gZI7WRQAVjsAmACagJBSXIfHBGkGrkE7eABqwQzGJ2SBBuvmSQBr664HgIAYwECBTs1i34/?operator=KOMT&adults=2&children=2020-12-10&objectId=167786&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Titanic Pearl": {
@@ -1948,7 +1948,7 @@
         "savings": 2347.0,
         "savings_pln": 2347.0,
         "rating": 4.9,
-        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/jaz-makadi-aquaviva/pU8hBvIEqi92WOY9tkZyA8AAogUJN_POchNvaZiA7Ug8d9s8WqWNRYxshxiPy03bOylckqBEtPTVQw36T51gZI7WRQAVjsAmACagJBSXIfHBGkGrkE7eABqwQzGJ2SBBuvmSQBr664HgIAYwECBWT5S6I/?operator=KOMT&adults=2&children=2020-12-10&objectId=167786&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/jaz-makadi-aquaviva/pU8hBvIEqi92WOY9tkZyA8AAogUJN_POchNvaZiA7Ug8d9s8WqWNRYxshxiPy03bOylckqBEtPTVQw_br51gZI7WRQAVjsAmACagJBSXIfHBGkGrkE7eABqwQzGJ2SBBuvmSQBr664HgIAYwECBTs1i34/?operator=KOMT&adults=2&children=2020-12-10&objectId=167786&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Tropitel Sahl Hasheesh": {
@@ -1973,7 +1973,7 @@
         "savings": 4392.0,
         "savings_pln": 4392.0,
         "rating": 4.8,
-        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,c/mirage-aqua-park-spa-cesar-palace/pJ-7dPHZJAp_omP5KZY-OtAAogNOb8Wz3s_-Mby90Ub0kjqMWqWNRYxshxiPy03bOylckqBEtPTVQw36T51gZI62BQAVjsAmACagJBSXIfHBHDGrkEzuABqwQzGP2VBBu1mCQByePAHgIAYwEEC3cFS6Y/?operator=KOMT&adults=2&children=2020-12-10&objectId=159252&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,c/mirage-aqua-park-spa-cesar-palace/pJ-7dPHZJAp_omP5KZY-OtAAogNOb8Wz3s_-Mby90Ub0kjqMWqWNRYxshxiPy03bOylckqBEtPTVQw_br51gZI62BQAVjsAmACagJBSXIfHBHDGrkEzuABqwQzGP2VBBu1mCQByePAHgIAYwEECwYpsb4/?operator=KOMT&adults=2&children=2020-12-10&objectId=159252&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "V Grand Beach Resort Sahl Hasheesh": {
@@ -1998,7 +1998,7 @@
         "savings": 3090.0,
         "savings_pln": 3090.0,
         "rating": 4.7,
-        "offer_url": "https://fly.pl/wycieczka/egipt,marsa-alam,c/royal-tulip-beach-resort/p7zQLwams-TVKfGvyPiXTIAAog6ptLObNgloSDpYjyEELr7Gn-TdHpJMPwzGDiiTEG5rMqBFZJVFgw36T51gZIyU5QQVjsAmACckAaAFwKFQQXAFgBQI8DW5eFAV7melK8FFMAS7EvYQBMobY5Dc3UmAkgAFG5nMX23wFP8_0GXZz4r_klAg5jAQINxdhjPg/?operator=VITX&adults=2&children=2020-12-10&objectId=176709&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,marsa-alam,c/royal-tulip-beach-resort/p7zQLwams-TVKfGvyPiXTIAAog6ptLObNgloSDpYjyEELr7Gn-TdHpJMPwzGDiiTEG5rMqBFZJVFgw_br51gZIyU5QQVjsAmACckAaAFwKFQQXAFgBQI8DW5eFAV7melK8FFMAS7EvYQBMobY5Dc3UmAkgAFG5nMX23wFP8_0GXZz4r_klAg5jAQIN-iFgzw/?operator=VITX&adults=2&children=2020-12-10&objectId=176709&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Xperience Kiroseiz Parkland": {
@@ -2023,7 +2023,7 @@
         "savings": 1498.0,
         "savings_pln": 1498.0,
         "rating": 4.7,
-        "offer_url": "https://fly.pl/wycieczka/egipt,marsa-alam,c/royal-tulip-beach-resort/p7zQLwams-TVKfGvyPiXTIAAog6ptLObNgloSDpYjyEELr7Gn-TdHpJMPwzGDiiTEG5rMqBFZJVFgw36T51gZIyU5QQVjsAmACckAaAFwKFQQXAFgBQI8DW5eFAV7melK8FFMAS7EvYQBMobY5Dc3UmAkgAFG5nMX23wFP8_0GXZz4r_klAg5jAQINxdhjPg/?operator=VITX&adults=2&children=2020-12-10&objectId=176709&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,marsa-alam,c/royal-tulip-beach-resort/p7zQLwams-TVKfGvyPiXTIAAog6ptLObNgloSDpYjyEELr7Gn-TdHpJMPwzGDiiTEG5rMqBFZJVFgw_br51gZIyU5QQVjsAmACckAaAFwKFQQXAFgBQI8DW5eFAV7melK8FFMAS7EvYQBMobY5Dc3UmAkgAFG5nMX23wFP8_0GXZz4r_klAg5jAQIN-iFgzw/?operator=VITX&adults=2&children=2020-12-10&objectId=176709&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     },
     "Xperience Kiroseiz Premier": {
@@ -2048,7 +2048,7 @@
         "savings": 1630.0,
         "savings_pln": 1630.0,
         "rating": 4.7,
-        "offer_url": "https://fly.pl/wycieczka/egipt,marsa-alam,c/royal-tulip-beach-resort/p7zQLwams-TVKfGvyPiXTIAAog6ptLObNgloSDpYjyEELr7Gn-TdHpJMPwzGDiiTEG5rMqBFZJVFgw36T51gZIyU5QQVjsAmACckAaAFwKFQQXAFgBQI8DW5eFAV7melK8FFMAS7EvYQBMobY5Dc3UmAkgAFG5nMX23wFP8_0GXZz4r_klAg5jAQINxdhjPg/?operator=VITX&adults=2&children=2020-12-10&objectId=176709&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
+        "offer_url": "https://fly.pl/wycieczka/egipt,marsa-alam,c/royal-tulip-beach-resort/p7zQLwams-TVKfGvyPiXTIAAog6ptLObNgloSDpYjyEELr7Gn-TdHpJMPwzGDiiTEG5rMqBFZJVFgw_br51gZIyU5QQVjsAmACckAaAFwKFQQXAFgBQI8DW5eFAV7melK8FFMAS7EvYQBMobY5Dc3UmAkgAFG5nMX23wFP8_0GXZz4r_klAg5jAQIN-iFgzw/?operator=VITX&adults=2&children=2020-12-10&objectId=176709&durationFrom=13&durationTo=16&departureDate=2026-11-10&returnDate=2026-11-24&departureLocation=Warszawa&catering=all_inclusive&transport=accommodation_flight&duration=14&nights=14"
       }
     }
   }
