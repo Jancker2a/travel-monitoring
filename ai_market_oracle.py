@@ -383,7 +383,14 @@ def call_openai_oracle(
     """
     import re
 
-    candidates = [model, os.getenv("OPENAI_MODEL"), "gpt-4o-mini", "gpt-4o"]
+    candidates = [
+        model,
+        os.getenv("OPENAI_MODEL"),
+        "gpt-6.1-sol",
+        "gpt-6-luna",
+        "gpt-4o-mini",
+        "gpt-4o",
+    ]
     target_models = []
     for c in candidates:
         if c and c not in target_models:
