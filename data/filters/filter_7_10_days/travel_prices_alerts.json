@@ -3772,17 +3772,30 @@
       "unique_key": "Jaz Aquamarine Resort_2026-10-25_16-11_comeback_28.0"
     },
     {
+      "hotel_name": "Xperience Kiroseiz Parkland",
+      "duration_bucket": "",
+      "old_price": 7659.0,
+      "new_price": 8459.0,
+      "price_change": 800.0,
+      "price_change_pct": 10.445227836532183,
+      "timestamp": "2026-10-25 17:37:25.465597+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-25T17:38:40.740163+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xperience Kiroseiz Parkland_2026-10-25_17-37_+10.4"
+    },
+    {
       "hotel_name": "Rewaya Majestic Resort",
       "duration_bucket": "",
       "old_price": 6586.0,
-      "new_price": 6586.0,
-      "price_change": 0.0,
-      "price_change_pct": 0.0,
-      "timestamp": "2026-10-25 17:09:37.642616+00:00",
-      "alert_type": "zone_exit",
-      "created_at": "2026-10-25T17:10:52.169590+00:00",
+      "new_price": 7386.0,
+      "price_change": 800.0,
+      "price_change_pct": 12.146978439113271,
+      "timestamp": "2026-10-25 17:37:25.465597+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-25T17:38:40.740189+00:00",
       "threshold_percent": 8.0,
-      "unique_key": "Rewaya Majestic Resort_2026-10-25_17-09_zone_out_gone"
+      "unique_key": "Rewaya Majestic Resort_2026-10-25_17-37_+12.1"
     },
     {
       "hotel_name": "Xperience Kiroseiz Premier",
@@ -3791,15 +3804,15 @@
       "new_price": 7525.0,
       "price_change": 0.0,
       "price_change_pct": 0.0,
-      "timestamp": "2026-10-25 17:09:37.642616+00:00",
+      "timestamp": "2026-10-25 17:37:25.465597+00:00",
       "alert_type": "zone_exit",
-      "created_at": "2026-10-25T17:10:52.169620+00:00",
+      "created_at": "2026-10-25T17:38:40.740202+00:00",
       "threshold_percent": 8.0,
-      "unique_key": "Xperience Kiroseiz Premier_2026-10-25_17-09_zone_out_gone"
+      "unique_key": "Xperience Kiroseiz Premier_2026-10-25_17-37_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-25T17:09:37.642616+00:00",
+    "last_processed_run": "2026-10-25T17:37:25.465597+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 7695.0,
@@ -4254,7 +4267,7 @@
         "premium_peak": null
       },
       "Xperience Kiroseiz Parkland": {
-        "history_max": 8439.0,
+        "history_max": 8459.0,
         "premium_peak": null
       },
       "Novotel Marsa Alam": {
