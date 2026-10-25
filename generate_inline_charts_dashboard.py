@@ -10,7 +10,7 @@ import hashlib
 import math
 from datetime import date, datetime, timedelta, timezone
 from zoneinfo import ZoneInfo
-from typing import Any, List, Optional
+from typing import Any, Dict, List, Optional, Tuple
 import os
 import re
 import html as html_lib
@@ -74,6 +74,65 @@ from filter_trip import (
 from hopper_prediction_engine import batch_predict_offers, predict_offer_action
 from germany_tour_client import GermanyTourClient
 from cross_border_arbitrage import CrossBorderArbitrageEngine
+
+try:
+    from ai_market_oracle import synthesize_market_oracle
+except ImportError:
+    synthesize_market_oracle = None
+
+
+def render_ai_market_briefing_html(oracle_report: Optional[Dict[str, Any]]) -> str:
+    """Renders the Executive AI Market Intelligence Briefing fold."""
+    if not oracle_report or "macro_briefing" not in oracle_report:
+        return ""
+    macro = oracle_report.get("macro_briefing", {})
+    headline = html_lib.escape(str(macro.get("headline", "AI Market Intelligence")))
+    phase = html_lib.escape(str(macro.get("market_phase", "")))
+    dynamics = html_lib.escape(str(macro.get("charter_dynamics", "")))
+    floor_status = html_lib.escape(str(macro.get("floor_status", "")))
+    directive = html_lib.escape(str(macro.get("strategic_directive", "")))
+    synthesized_by = html_lib.escape(str(macro.get("synthesized_by", "AI Engine")))
+
+    anomalies_html = ""
+    for a in macro.get("key_anomalies", []):
+        t_title = html_lib.escape(str(a.get("title", "")))
+        t_text = html_lib.escape(str(a.get("text", "")))
+        anomalies_html += (
+            f'<div class="ai-anomaly-tag" style="background: rgba(139, 92, 246, 0.15); border: 1px solid rgba(139, 92, 246, 0.35); padding: 0.35rem 0.65rem; border-radius: 6px; font-size: 0.82rem; color: #e2e8f0;">'
+            f'<strong style="color: #c4b5fd;">{t_title}:</strong> {t_text}'
+            f'</div>'
+        )
+
+    return f"""
+        <!-- --- AI Market Intelligence Briefing (Executive Dashboard Fold) --- -->
+        <details class="dashboard-fold ai-oracle-fold" id="aiOracleFold" open style="margin-top: 1.5rem; margin-bottom: 1.5rem; border: 1px solid rgba(139, 92, 246, 0.4); background: linear-gradient(135deg, rgba(30, 27, 75, 0.4) 0%, rgba(15, 23, 42, 0.5) 100%); border-radius: 10px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);">
+            <summary style="background: rgba(139, 92, 246, 0.12); padding: 0.85rem 1.25rem; display: flex; align-items: center; justify-content: space-between; cursor: pointer;">
+                <div style="display: flex; align-items: center; gap: 0.85rem;">
+                    <span style="font-size: 1.4rem;">🧠</span>
+                    <div>
+                        <div style="font-weight: 700; color: #ddd6fe; font-size: 1.05rem; letter-spacing: -0.01em;">{headline}</div>
+                        <div style="font-size: 0.78rem; color: #94a3b8; font-weight: 400; margin-top: 0.15rem;">{phase} • {synthesized_by}</div>
+                    </div>
+                </div>
+                <span class="fold-chevron" style="color: #a78bfa; font-size: 1.2rem;">⌄</span>
+            </summary>
+            <div class="fold-content" style="padding: 1.25rem;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; margin-bottom: 1rem;">
+                    <div style="background: rgba(15, 23, 42, 0.7); padding: 1rem; border-radius: 8px; border-left: 4px solid #8b5cf6;">
+                        <div style="font-size: 0.82rem; color: #a78bfa; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.35rem;">✈️ Пульс чартеров & динамика цен</div>
+                        <div style="font-size: 0.92rem; color: #e2e8f0; line-height: 1.5;">{dynamics}</div>
+                        {f'<div style="font-size: 0.8rem; color: #94a3b8; margin-top: 0.4rem;">📊 {floor_status}</div>' if floor_status else ''}
+                    </div>
+                    <div style="background: rgba(15, 23, 42, 0.7); padding: 1rem; border-radius: 8px; border-left: 4px solid #10b981;">
+                        <div style="font-size: 0.82rem; color: #34d399; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.35rem;">🎯 Стратегическая директива бронирования</div>
+                        <div style="font-size: 0.92rem; color: #e2e8f0; line-height: 1.5;">{directive}</div>
+                    </div>
+                </div>
+                {f'<div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;">{anomalies_html}</div>' if anomalies_html else ''}
+            </div>
+        </details>
+    """
+
 
 # Официальный logomark TripAdvisor (owl), cropped from TA_logo_primary.svg (tacdn.com).
 TRIPADVISOR_HEADER_ICON_HTML = (
@@ -2652,6 +2711,23 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
     except Exception as e:
         print(f"⚠️ Cross-Border Arbitrage skipped: {e}")
 
+    oracle_report = None
+    try:
+        if synthesize_market_oracle and data_file and os.path.exists(data_file):
+            dna_path = "market_dna_profile.json"
+            if not os.path.exists(dna_path):
+                from build_market_dna import build_market_dna
+                dna_res = build_market_dna()
+                if dna_res:
+                    with open(dna_path, "w", encoding="utf-8") as f:
+                        json.dump(dna_res, f, ensure_ascii=False, indent=2)
+            oracle_report = synthesize_market_oracle(data_file, dna_profile_path=dna_path)
+            if oracle_report and "macro_briefing" in oracle_report:
+                print(f"🧠 AI Market Oracle: отчет успешно сгенерирован ({len(oracle_report.get('hotel_dossiers', {}))} досье)")
+    except Exception as e:
+        print(f"⚠️ AI Market Oracle skipped: {e}")
+
+
     #
     # Откат: отключаем блок "до 8000 из любого вылета, отсутствующие из Варшавы"
     missing_hotels_under_8000 = []
@@ -3447,6 +3523,19 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             hopper_badge = "🟢 ПОКУПАТЬ"
             hopper_reasoning = f"Отличный момент для покупки: Deal Score {deal_score}, цена на минимуме истории ({int(price)} PLN)."
         hopper_class = "buy-now" if hopper_verdict == "BUY_NOW" else ("wait" if hopper_verdict == "WAIT" else ("overpriced" if hopper_verdict == "OVERPRICED" else "neutral"))
+
+        if oracle_report and "hotel_dossiers" in oracle_report:
+            h_dossier = oracle_report["hotel_dossiers"].get(hotel_name)
+            if h_dossier:
+                hopper_badge = h_dossier.get("badge_text", hopper_badge)
+                v_raw = h_dossier.get("verdict", "")
+                if v_raw in ("BUY_NOW", "GOOD_PRICE"):
+                    hopper_class = "buy-now"
+                elif v_raw == "WAIT":
+                    hopper_class = "wait"
+                elif v_raw == "OVERPRICED":
+                    hopper_class = "overpriced"
+                hopper_reasoning = f"{h_dossier.get('rationale', '')} • Риск: {h_dossier.get('risk_assessment', '')} • Совет: {h_dossier.get('action_advice', '')}"
 
         card_arbitrage_html = ""
         m_arb = arbitrage_by_hotel.get(hotel_name)
@@ -9071,8 +9160,11 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         ),
     ])
 
+    ai_briefing_html = render_ai_market_briefing_html(oracle_report)
+
     # 1. График ТОП-10 дешёвых предложений (всегда виден на главной странице)
     html_template += f"""
+        {ai_briefing_html}
         <div class="avg-top10-section" style="margin-top:1.5rem; margin-bottom:1.5rem;">
             <h3>📉 Средняя цена ТОП‑10 дешёвых предложений</h3>
             <div id="avgTop10" style="height:300px;"></div>
@@ -10480,6 +10572,7 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             };
           });
         }
+        bindFoldPersistence('aiOracleFold', 'dashboard_fold_ai_oracle', true);
         bindFoldPersistence('analyticsFold', 'dashboard_fold_analytics', false);
         bindFoldPersistence('calendarFold', 'dashboard_fold_calendar', false);
         bindFoldPersistence('offersCountFold', 'dashboard_fold_offers_count', false);

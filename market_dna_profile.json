@@ -1,0 +1,2409 @@
+{
+  "macro_profile": {
+    "total_records_analyzed": 305,
+    "total_unique_hotels": 131,
+    "archetype_distribution": {
+      "LATE_DUMPER": 0,
+      "ROCK_SOLID": 122,
+      "VOLATILE": 5,
+      "BALANCED": 4
+    },
+    "market_price_quantiles": {
+      "p10": 5828.0,
+      "p25": 6764.0,
+      "median": 7306.0,
+      "p75": 7952.0,
+      "p90": 8329.0
+    },
+    "d_minus_yield_curve": {
+      "early_bird": {
+        "median_price": 243.0,
+        "sample_count": 22
+      },
+      "first_markdown": {
+        "median_price": 7293.0,
+        "sample_count": 156
+      },
+      "last_minute": {
+        "median_price": 8282.5,
+        "sample_count": 10
+      },
+      "mid_term": {
+        "median_price": 7510.0,
+        "sample_count": 100
+      },
+      "panic_dump": {
+        "median_price": 8091.0,
+        "sample_count": 17
+      }
+    },
+    "active_operators": [
+      "BVBE",
+      "EXIM",
+      "JOIN",
+      "OREX",
+      "WEZY"
+    ],
+    "generated_at": "2026-10-25T08:15:46.687591Z"
+  },
+  "hotel_profiles": {
+    "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
+      "hotel_name": "AMC Royal Hotel & Spa (ex. AMC Azur Resort)",
+      "sample_count": 2,
+      "min_price": 6169.0,
+      "p10_price": 6169.0,
+      "median_price": 6169.0,
+      "p90_price": 6169.0,
+      "max_price": 6169.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 6169.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Abella Suites&Apartments": {
+      "hotel_name": "Abella Suites&Apartments",
+      "sample_count": 4,
+      "min_price": 189.0,
+      "p10_price": 189.0,
+      "median_price": 189.0,
+      "p90_price": 189.0,
+      "max_price": 189.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "early_bird": 189.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Akassia Swiss Resort (ex. Calimera Club Akassia Swiss Resort)": {
+      "hotel_name": "Akassia Swiss Resort (ex. Calimera Club Akassia Swiss Resort)",
+      "sample_count": 2,
+      "min_price": 7700.0,
+      "p10_price": 7700.0,
+      "median_price": 7700.0,
+      "p90_price": 7700.0,
+      "max_price": 7700.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "panic_dump": 7700.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": "WEZY",
+      "known_operators": [
+        "WEZY"
+      ]
+    },
+    "Albatros Makadi Resort (ex Royal Pharaohs Makadi)": {
+      "hotel_name": "Albatros Makadi Resort (ex Royal Pharaohs Makadi)",
+      "sample_count": 2,
+      "min_price": 7927.0,
+      "p10_price": 7927.0,
+      "median_price": 7927.0,
+      "p90_price": 7927.0,
+      "max_price": 7927.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 7927.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": "WEZY",
+      "known_operators": [
+        "WEZY"
+      ]
+    },
+    "Albatros Sea World Resort Marsa Alam": {
+      "hotel_name": "Albatros Sea World Resort Marsa Alam",
+      "sample_count": 4,
+      "min_price": 6845.0,
+      "p10_price": 6845.0,
+      "median_price": 6845.0,
+      "p90_price": 6845.0,
+      "max_price": 6845.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 6845.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": "OREX",
+      "known_operators": [
+        "OREX"
+      ]
+    },
+    "Amarina Jannah Resort Aquapark": {
+      "hotel_name": "Amarina Jannah Resort Aquapark",
+      "sample_count": 2,
+      "min_price": 5828.0,
+      "p10_price": 5828.0,
+      "median_price": 5828.0,
+      "p90_price": 5828.0,
+      "max_price": 5828.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 5828.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": "OREX",
+      "known_operators": [
+        "OREX"
+      ]
+    },
+    "Amarina Queen Resort": {
+      "hotel_name": "Amarina Queen Resort",
+      "sample_count": 4,
+      "min_price": 5540.0,
+      "p10_price": 5540.0,
+      "median_price": 5540.0,
+      "p90_price": 5540.0,
+      "max_price": 5540.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 5540.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": "OREX",
+      "known_operators": [
+        "OREX"
+      ]
+    },
+    "Amphoras Beach": {
+      "hotel_name": "Amphoras Beach",
+      "sample_count": 2,
+      "min_price": 7996.0,
+      "p10_price": 7996.0,
+      "median_price": 7996.0,
+      "p90_price": 7996.0,
+      "max_price": 7996.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "mid_term": 7996.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": "JOIN",
+      "known_operators": [
+        "JOIN"
+      ]
+    },
+    "Ancient Sands Golf Resort": {
+      "hotel_name": "Ancient Sands Golf Resort",
+      "sample_count": 2,
+      "min_price": 8190.0,
+      "p10_price": 8190.0,
+      "median_price": 8190.0,
+      "p90_price": 8190.0,
+      "max_price": 8190.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "mid_term": 8190.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": "OREX",
+      "known_operators": [
+        "OREX"
+      ]
+    },
+    "Aurora Oriental Resort": {
+      "hotel_name": "Aurora Oriental Resort",
+      "sample_count": 2,
+      "min_price": 7866.0,
+      "p10_price": 7866.0,
+      "median_price": 7866.0,
+      "p90_price": 7866.0,
+      "max_price": 7866.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 7866.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": "WEZY",
+      "known_operators": [
+        "WEZY"
+      ]
+    },
+    "Bellagio Beach Resort & Spa (ex. Panorama Bungalows Hurghada)": {
+      "hotel_name": "Bellagio Beach Resort & Spa (ex. Panorama Bungalows Hurghada)",
+      "sample_count": 2,
+      "min_price": 6576.0,
+      "p10_price": 6576.0,
+      "median_price": 6576.0,
+      "p90_price": 6576.0,
+      "max_price": 6576.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "mid_term": 6576.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Caesar Bay Resort": {
+      "hotel_name": "Caesar Bay Resort",
+      "sample_count": 2,
+      "min_price": 8231.0,
+      "p10_price": 8231.0,
+      "median_price": 8231.0,
+      "p90_price": 8231.0,
+      "max_price": 8231.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "panic_dump": 8231.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Calimera Blend Paradise Resort": {
+      "hotel_name": "Calimera Blend Paradise Resort",
+      "sample_count": 2,
+      "min_price": 7157.0,
+      "p10_price": 7157.0,
+      "median_price": 7157.0,
+      "p90_price": 7157.0,
+      "max_price": 7157.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 7157.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Casa Mare Resort (ex. Royal Tulip Beach Resort)": {
+      "hotel_name": "Casa Mare Resort (ex. Royal Tulip Beach Resort)",
+      "sample_count": 3,
+      "min_price": 5898.0,
+      "p10_price": 5898.0,
+      "median_price": 5898.0,
+      "p90_price": 7865.2,
+      "max_price": 8357.0,
+      "volatility_pct": 19.7,
+      "d_bucket_medians": {
+        "first_markdown": 5898.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "VOLATILE",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Charmillion Club Aqua Park": {
+      "hotel_name": "Charmillion Club Aqua Park",
+      "sample_count": 4,
+      "min_price": 7306.0,
+      "p10_price": 7306.0,
+      "median_price": 7306.0,
+      "p90_price": 7306.0,
+      "max_price": 7306.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 7306.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": "WEZY",
+      "known_operators": [
+        "WEZY"
+      ]
+    },
+    "Charmillion Club Resort": {
+      "hotel_name": "Charmillion Club Resort",
+      "sample_count": 2,
+      "min_price": 7569.0,
+      "p10_price": 7569.0,
+      "median_price": 7569.0,
+      "p90_price": 7569.0,
+      "max_price": 7569.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 7569.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": "WEZY",
+      "known_operators": [
+        "WEZY"
+      ]
+    },
+    "Charmillion Garden Aqua Park": {
+      "hotel_name": "Charmillion Garden Aqua Park",
+      "sample_count": 2,
+      "min_price": 7388.0,
+      "p10_price": 7388.0,
+      "median_price": 7388.0,
+      "p90_price": 7388.0,
+      "max_price": 7388.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "mid_term": 7388.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Cleopatra Luxury Resort": {
+      "hotel_name": "Cleopatra Luxury Resort",
+      "sample_count": 2,
+      "min_price": 8298.0,
+      "p10_price": 8298.0,
+      "median_price": 8298.0,
+      "p90_price": 8298.0,
+      "max_price": 8298.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "mid_term": 8298.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": "JOIN",
+      "known_operators": [
+        "JOIN"
+      ]
+    },
+    "Cleopatra Luxury Resort (Makadi Bay)": {
+      "hotel_name": "Cleopatra Luxury Resort (Makadi Bay)",
+      "sample_count": 2,
+      "min_price": 7744.0,
+      "p10_price": 7744.0,
+      "median_price": 7744.0,
+      "p90_price": 7744.0,
+      "max_price": 7744.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 7744.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Concorde El Salam Sport": {
+      "hotel_name": "Concorde El Salam Sport",
+      "sample_count": 2,
+      "min_price": 7316.0,
+      "p10_price": 7316.0,
+      "median_price": 7316.0,
+      "p90_price": 7316.0,
+      "max_price": 7316.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 7316.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": "WEZY",
+      "known_operators": [
+        "WEZY"
+      ]
+    },
+    "Concorde Moreen Beach Resort & Spa": {
+      "hotel_name": "Concorde Moreen Beach Resort & Spa",
+      "sample_count": 2,
+      "min_price": 6426.0,
+      "p10_price": 6426.0,
+      "median_price": 6426.0,
+      "p90_price": 6426.0,
+      "max_price": 6426.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 6426.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": "OREX",
+      "known_operators": [
+        "OREX"
+      ]
+    },
+    "Continental (ex Movenpick Resort)": {
+      "hotel_name": "Continental (ex Movenpick Resort)",
+      "sample_count": 2,
+      "min_price": 7934.0,
+      "p10_price": 7934.0,
+      "median_price": 7934.0,
+      "p90_price": 7934.0,
+      "max_price": 7934.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 7934.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Cooee Prima Life Makadi Bay": {
+      "hotel_name": "Cooee Prima Life Makadi Bay",
+      "sample_count": 2,
+      "min_price": 8157.0,
+      "p10_price": 8157.0,
+      "median_price": 8157.0,
+      "p90_price": 8157.0,
+      "max_price": 8157.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 8157.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Coral Sea Holiday Resort": {
+      "hotel_name": "Coral Sea Holiday Resort",
+      "sample_count": 2,
+      "min_price": 7510.0,
+      "p10_price": 7510.0,
+      "median_price": 7510.0,
+      "p90_price": 7510.0,
+      "max_price": 7510.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "mid_term": 7510.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Coral Sea Water World Resort": {
+      "hotel_name": "Coral Sea Water World Resort",
+      "sample_count": 2,
+      "min_price": 7510.0,
+      "p10_price": 7510.0,
+      "median_price": 7510.0,
+      "p90_price": 7510.0,
+      "max_price": 7510.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "mid_term": 7510.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Creek Hotel and Residences": {
+      "hotel_name": "Creek Hotel and Residences",
+      "sample_count": 2,
+      "min_price": 7027.0,
+      "p10_price": 7027.0,
+      "median_price": 7027.0,
+      "p90_price": 7027.0,
+      "max_price": 7027.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 7027.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Delta": {
+      "hotel_name": "Delta",
+      "sample_count": 2,
+      "min_price": 293.0,
+      "p10_price": 293.0,
+      "median_price": 293.0,
+      "p90_price": 293.0,
+      "max_price": 293.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "early_bird": 293.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Domina Coral Bay Aquamarine": {
+      "hotel_name": "Domina Coral Bay Aquamarine",
+      "sample_count": 2,
+      "min_price": 8024.0,
+      "p10_price": 8024.0,
+      "median_price": 8024.0,
+      "p90_price": 8024.0,
+      "max_price": 8024.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "mid_term": 8024.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": "JOIN",
+      "known_operators": [
+        "JOIN"
+      ]
+    },
+    "Domina Coral Bay Bellavista": {
+      "hotel_name": "Domina Coral Bay Bellavista",
+      "sample_count": 2,
+      "min_price": 7296.0,
+      "p10_price": 7296.0,
+      "median_price": 7296.0,
+      "p90_price": 7296.0,
+      "max_price": 7296.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "mid_term": 7296.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Domina Coral Bay Harem": {
+      "hotel_name": "Domina Coral Bay Harem",
+      "sample_count": 2,
+      "min_price": 7416.0,
+      "p10_price": 7416.0,
+      "median_price": 7416.0,
+      "p90_price": 7416.0,
+      "max_price": 7416.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "mid_term": 7416.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Domina Coral Bay Oasis": {
+      "hotel_name": "Domina Coral Bay Oasis",
+      "sample_count": 2,
+      "min_price": 7296.0,
+      "p10_price": 7296.0,
+      "median_price": 7296.0,
+      "p90_price": 7296.0,
+      "max_price": 7296.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "mid_term": 7296.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Domina Coral Bay Resort": {
+      "hotel_name": "Domina Coral Bay Resort",
+      "sample_count": 2,
+      "min_price": 7952.0,
+      "p10_price": 7952.0,
+      "median_price": 7952.0,
+      "p90_price": 7952.0,
+      "max_price": 7952.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 7952.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": "WEZY",
+      "known_operators": [
+        "WEZY"
+      ]
+    },
+    "Domina Coral Bay Sultan": {
+      "hotel_name": "Domina Coral Bay Sultan",
+      "sample_count": 2,
+      "min_price": 7902.0,
+      "p10_price": 7902.0,
+      "median_price": 7902.0,
+      "p90_price": 7902.0,
+      "max_price": 7902.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "mid_term": 7902.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": "JOIN",
+      "known_operators": [
+        "JOIN"
+      ]
+    },
+    "Dream Lagoon & Aqua Park Resort (ex. Floriana Dream Lagoon)": {
+      "hotel_name": "Dream Lagoon & Aqua Park Resort (ex. Floriana Dream Lagoon)",
+      "sample_count": 3,
+      "min_price": 5643.0,
+      "p10_price": 5643.0,
+      "median_price": 5643.0,
+      "p90_price": 7734.2,
+      "max_price": 8257.0,
+      "volatility_pct": 21.8,
+      "d_bucket_medians": {
+        "first_markdown": 5643.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "VOLATILE",
+      "primary_operator": "OREX",
+      "known_operators": [
+        "OREX"
+      ]
+    },
+    "Dreams Beach Sharm Resort (Sharm El Sheikh)": {
+      "hotel_name": "Dreams Beach Sharm Resort (Sharm El Sheikh)",
+      "sample_count": 2,
+      "min_price": 6842.0,
+      "p10_price": 6842.0,
+      "median_price": 6842.0,
+      "p90_price": 6842.0,
+      "max_price": 6842.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "mid_term": 6842.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Dreams Vacation Sharm Resort": {
+      "hotel_name": "Dreams Vacation Sharm Resort",
+      "sample_count": 2,
+      "min_price": 8267.0,
+      "p10_price": 8267.0,
+      "median_price": 8267.0,
+      "p90_price": 8267.0,
+      "max_price": 8267.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "mid_term": 8267.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": "EXIM",
+      "known_operators": [
+        "EXIM"
+      ]
+    },
+    "Ecotel Dahab Bay View Resort": {
+      "hotel_name": "Ecotel Dahab Bay View Resort",
+      "sample_count": 2,
+      "min_price": 7121.0,
+      "p10_price": 7121.0,
+      "median_price": 7121.0,
+      "p90_price": 7121.0,
+      "max_price": 7121.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 7121.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": "WEZY",
+      "known_operators": [
+        "WEZY"
+      ]
+    },
+    "El Malikia Resort Abu Dabbab (ex.Sol Y Mar)": {
+      "hotel_name": "El Malikia Resort Abu Dabbab (ex.Sol Y Mar)",
+      "sample_count": 2,
+      "min_price": 7253.0,
+      "p10_price": 7253.0,
+      "median_price": 7253.0,
+      "p90_price": 7253.0,
+      "max_price": 7253.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 7253.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Fantazia Resort": {
+      "hotel_name": "Fantazia Resort",
+      "sample_count": 2,
+      "min_price": 6669.0,
+      "p10_price": 6669.0,
+      "median_price": 6669.0,
+      "p90_price": 6669.0,
+      "max_price": 6669.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 6669.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": "OREX",
+      "known_operators": [
+        "OREX"
+      ]
+    },
+    "Garden Square": {
+      "hotel_name": "Garden Square",
+      "sample_count": 2,
+      "min_price": 277.0,
+      "p10_price": 277.0,
+      "median_price": 277.0,
+      "p90_price": 277.0,
+      "max_price": 277.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "early_bird": 277.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Gemma Resort (ex. Labranda Gemma Premium Resort)": {
+      "hotel_name": "Gemma Resort (ex. Labranda Gemma Premium Resort)",
+      "sample_count": 2,
+      "min_price": 6942.0,
+      "p10_price": 6942.0,
+      "median_price": 6942.0,
+      "p90_price": 6942.0,
+      "max_price": 6942.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 6942.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Gorgonia Beach": {
+      "hotel_name": "Gorgonia Beach",
+      "sample_count": 2,
+      "min_price": 7034.0,
+      "p10_price": 7034.0,
+      "median_price": 7034.0,
+      "p90_price": 7034.0,
+      "max_price": 7034.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 7034.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": "OREX",
+      "known_operators": [
+        "OREX"
+      ]
+    },
+    "Gravity Hotel & Aquapark Hurghada (ex. Samra Bay Resort)": {
+      "hotel_name": "Gravity Hotel & Aquapark Hurghada (ex. Samra Bay Resort)",
+      "sample_count": 2,
+      "min_price": 6820.0,
+      "p10_price": 6820.0,
+      "median_price": 6820.0,
+      "p90_price": 6820.0,
+      "max_price": 6820.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 6820.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Gravity Sahl Hasheesh (Ex. Ocean Breeze)": {
+      "hotel_name": "Gravity Sahl Hasheesh (Ex. Ocean Breeze)",
+      "sample_count": 2,
+      "min_price": 7003.0,
+      "p10_price": 7003.0,
+      "median_price": 7003.0,
+      "p90_price": 7003.0,
+      "max_price": 7003.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 7003.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Hilton Marsa Alam Nubian Resort": {
+      "hotel_name": "Hilton Marsa Alam Nubian Resort",
+      "sample_count": 2,
+      "min_price": 7335.0,
+      "p10_price": 7335.0,
+      "median_price": 7335.0,
+      "p90_price": 7335.0,
+      "max_price": 7335.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 7335.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": "OREX",
+      "known_operators": [
+        "OREX"
+      ]
+    },
+    "Hilton Plaza (Hurghada)": {
+      "hotel_name": "Hilton Plaza (Hurghada)",
+      "sample_count": 2,
+      "min_price": 8214.0,
+      "p10_price": 8214.0,
+      "median_price": 8214.0,
+      "p90_price": 8214.0,
+      "max_price": 8214.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 8214.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": "JOIN",
+      "known_operators": [
+        "JOIN"
+      ]
+    },
+    "IL Mercato Splash Aqua Park": {
+      "hotel_name": "IL Mercato Splash Aqua Park",
+      "sample_count": 3,
+      "min_price": 6176.0,
+      "p10_price": 6176.0,
+      "median_price": 6176.0,
+      "p90_price": 8108.8,
+      "max_price": 8592.0,
+      "volatility_pct": 18.4,
+      "d_bucket_medians": {
+        "last_minute": 8592.0,
+        "mid_term": 6176.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "VOLATILE",
+      "primary_operator": "WEZY",
+      "known_operators": [
+        "WEZY"
+      ]
+    },
+    "Invidia Coral Beach Tiran": {
+      "hotel_name": "Invidia Coral Beach Tiran",
+      "sample_count": 2,
+      "min_price": 6915.0,
+      "p10_price": 6915.0,
+      "median_price": 6915.0,
+      "p90_price": 6915.0,
+      "max_price": 6915.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 6915.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": "WEZY",
+      "known_operators": [
+        "WEZY"
+      ]
+    },
+    "Jasmine Palace": {
+      "hotel_name": "Jasmine Palace",
+      "sample_count": 2,
+      "min_price": 7557.0,
+      "p10_price": 7557.0,
+      "median_price": 7557.0,
+      "p90_price": 7557.0,
+      "max_price": 7557.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 7557.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Jaz Aquamarine Resort": {
+      "hotel_name": "Jaz Aquamarine Resort",
+      "sample_count": 2,
+      "min_price": 7502.0,
+      "p10_price": 7502.0,
+      "median_price": 7502.0,
+      "p90_price": 7502.0,
+      "max_price": 7502.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 7502.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": "WEZY",
+      "known_operators": [
+        "WEZY"
+      ]
+    },
+    "Jaz Aquaviva": {
+      "hotel_name": "Jaz Aquaviva",
+      "sample_count": 2,
+      "min_price": 7642.0,
+      "p10_price": 7642.0,
+      "median_price": 7642.0,
+      "p90_price": 7642.0,
+      "max_price": 7642.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "mid_term": 7642.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Jaz Belvedere": {
+      "hotel_name": "Jaz Belvedere",
+      "sample_count": 2,
+      "min_price": 8091.0,
+      "p10_price": 8091.0,
+      "median_price": 8091.0,
+      "p90_price": 8091.0,
+      "max_price": 8091.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "panic_dump": 8091.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Jaz Grand Marsa (ex Resta Grand Resort)": {
+      "hotel_name": "Jaz Grand Marsa (ex Resta Grand Resort)",
+      "sample_count": 2,
+      "min_price": 6937.0,
+      "p10_price": 6937.0,
+      "median_price": 6937.0,
+      "p90_price": 6937.0,
+      "max_price": 6937.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 6937.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Jaz Lamaya Resort (ex Iberotel)": {
+      "hotel_name": "Jaz Lamaya Resort (ex Iberotel)",
+      "sample_count": 2,
+      "min_price": 8149.0,
+      "p10_price": 8149.0,
+      "median_price": 8149.0,
+      "p90_price": 8149.0,
+      "max_price": 8149.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "mid_term": 8149.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": "WEZY",
+      "known_operators": [
+        "WEZY"
+      ]
+    },
+    "Jaz Makadi Oasis Resort": {
+      "hotel_name": "Jaz Makadi Oasis Resort",
+      "sample_count": 2,
+      "min_price": 7924.0,
+      "p10_price": 7924.0,
+      "median_price": 7924.0,
+      "p90_price": 7924.0,
+      "max_price": 7924.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 7924.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": "JOIN",
+      "known_operators": [
+        "JOIN"
+      ]
+    },
+    "Jaz Mirabel Beach Resort": {
+      "hotel_name": "Jaz Mirabel Beach Resort",
+      "sample_count": 2,
+      "min_price": 8337.0,
+      "p10_price": 8337.0,
+      "median_price": 8337.0,
+      "p90_price": 8337.0,
+      "max_price": 8337.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 8337.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": "WEZY",
+      "known_operators": [
+        "WEZY"
+      ]
+    },
+    "Jaz Mirabel Park & Club": {
+      "hotel_name": "Jaz Mirabel Park & Club",
+      "sample_count": 2,
+      "min_price": 7996.0,
+      "p10_price": 7996.0,
+      "median_price": 7996.0,
+      "p90_price": 7996.0,
+      "max_price": 7996.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "mid_term": 7996.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": "JOIN",
+      "known_operators": [
+        "JOIN"
+      ]
+    },
+    "Jaz Neo Naama Bay": {
+      "hotel_name": "Jaz Neo Naama Bay",
+      "sample_count": 3,
+      "min_price": 6581.0,
+      "p10_price": 6581.0,
+      "median_price": 6581.0,
+      "p90_price": 7761.8,
+      "max_price": 8057.0,
+      "volatility_pct": 10.6,
+      "d_bucket_medians": {
+        "first_markdown": 6581.0,
+        "last_minute": 8057.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "BALANCED",
+      "primary_operator": "WEZY",
+      "known_operators": [
+        "WEZY"
+      ]
+    },
+    "Jaz Neo Saraya Palms": {
+      "hotel_name": "Jaz Neo Saraya Palms",
+      "sample_count": 2,
+      "min_price": 7578.0,
+      "p10_price": 7578.0,
+      "median_price": 7578.0,
+      "p90_price": 7578.0,
+      "max_price": 7578.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "mid_term": 7578.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Jaz Palmariva Beach": {
+      "hotel_name": "Jaz Palmariva Beach",
+      "sample_count": 3,
+      "min_price": 7295.0,
+      "p10_price": 7295.0,
+      "median_price": 7295.0,
+      "p90_price": 7938.2,
+      "max_price": 8099.0,
+      "volatility_pct": 5.2,
+      "d_bucket_medians": {
+        "first_markdown": 7295.0,
+        "last_minute": 8099.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "BALANCED",
+      "primary_operator": "OREX",
+      "known_operators": [
+        "OREX",
+        "WEZY"
+      ]
+    },
+    "Jaz Sharm Dreams Resort": {
+      "hotel_name": "Jaz Sharm Dreams Resort",
+      "sample_count": 2,
+      "min_price": 7268.0,
+      "p10_price": 7268.0,
+      "median_price": 7268.0,
+      "p90_price": 7268.0,
+      "max_price": 7268.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "mid_term": 7268.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Jaz Solaya Resort (ex Sol Y Mar Solaya)": {
+      "hotel_name": "Jaz Solaya Resort (ex Sol Y Mar Solaya)",
+      "sample_count": 2,
+      "min_price": 7220.0,
+      "p10_price": 7220.0,
+      "median_price": 7220.0,
+      "p90_price": 7220.0,
+      "max_price": 7220.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 7220.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Lazuli (Marsa Alam)": {
+      "hotel_name": "Lazuli (Marsa Alam)",
+      "sample_count": 2,
+      "min_price": 7757.0,
+      "p10_price": 7757.0,
+      "median_price": 7757.0,
+      "p90_price": 7757.0,
+      "max_price": 7757.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 7757.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Leone Aparthotel": {
+      "hotel_name": "Leone Aparthotel",
+      "sample_count": 2,
+      "min_price": 241.0,
+      "p10_price": 241.0,
+      "median_price": 241.0,
+      "p90_price": 241.0,
+      "max_price": 241.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "early_bird": 241.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Marriott Hurghada Beach Resort": {
+      "hotel_name": "Marriott Hurghada Beach Resort",
+      "sample_count": 3,
+      "min_price": 7912.0,
+      "p10_price": 7912.0,
+      "median_price": 7912.0,
+      "p90_price": 8683.2,
+      "max_price": 8876.0,
+      "volatility_pct": 5.7,
+      "d_bucket_medians": {
+        "first_markdown": 7912.0,
+        "last_minute": 8876.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "BALANCED",
+      "primary_operator": "JOIN",
+      "known_operators": [
+        "JOIN",
+        "WEZY"
+      ]
+    },
+    "Monte Carlo Resort Spa": {
+      "hotel_name": "Monte Carlo Resort Spa",
+      "sample_count": 2,
+      "min_price": 8091.0,
+      "p10_price": 8091.0,
+      "median_price": 8091.0,
+      "p90_price": 8091.0,
+      "max_price": 8091.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "mid_term": 8091.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Movenpick Resort El Quseir": {
+      "hotel_name": "Movenpick Resort El Quseir",
+      "sample_count": 2,
+      "min_price": 7934.0,
+      "p10_price": 7934.0,
+      "median_price": 7934.0,
+      "p90_price": 7934.0,
+      "max_price": 7934.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "mid_term": 7934.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": "OREX",
+      "known_operators": [
+        "OREX"
+      ]
+    },
+    "Movenpick Waterpark Resort & Spa Soma Bay": {
+      "hotel_name": "Movenpick Waterpark Resort & Spa Soma Bay",
+      "sample_count": 2,
+      "min_price": 6534.0,
+      "p10_price": 6534.0,
+      "median_price": 6534.0,
+      "p90_price": 6534.0,
+      "max_price": 6534.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "mid_term": 6534.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": "OREX",
+      "known_operators": [
+        "OREX"
+      ]
+    },
+    "Naama Bay Promenade Beach Resort": {
+      "hotel_name": "Naama Bay Promenade Beach Resort",
+      "sample_count": 2,
+      "min_price": 8337.0,
+      "p10_price": 8337.0,
+      "median_price": 8337.0,
+      "p90_price": 8337.0,
+      "max_price": 8337.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 8337.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": "WEZY",
+      "known_operators": [
+        "WEZY"
+      ]
+    },
+    "Naama Bay Promenade Mountain Resort": {
+      "hotel_name": "Naama Bay Promenade Mountain Resort",
+      "sample_count": 2,
+      "min_price": 7459.0,
+      "p10_price": 7459.0,
+      "median_price": 7459.0,
+      "p90_price": 7459.0,
+      "max_price": 7459.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 7459.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": "WEZY",
+      "known_operators": [
+        "WEZY"
+      ]
+    },
+    "Novotel Marsa Alam": {
+      "hotel_name": "Novotel Marsa Alam",
+      "sample_count": 2,
+      "min_price": 6305.0,
+      "p10_price": 6305.0,
+      "median_price": 6305.0,
+      "p90_price": 6305.0,
+      "max_price": 6305.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 6305.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": "OREX",
+      "known_operators": [
+        "OREX"
+      ]
+    },
+    "Novotel Sharm Palm": {
+      "hotel_name": "Novotel Sharm Palm",
+      "sample_count": 2,
+      "min_price": 8238.0,
+      "p10_price": 8238.0,
+      "median_price": 8238.0,
+      "p90_price": 8238.0,
+      "max_price": 8238.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "mid_term": 8238.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": "JOIN",
+      "known_operators": [
+        "JOIN"
+      ]
+    },
+    "Number One": {
+      "hotel_name": "Number One",
+      "sample_count": 2,
+      "min_price": 243.0,
+      "p10_price": 243.0,
+      "median_price": 243.0,
+      "p90_price": 243.0,
+      "max_price": 243.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "early_bird": 243.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Old Palace Resort": {
+      "hotel_name": "Old Palace Resort",
+      "sample_count": 2,
+      "min_price": 7677.0,
+      "p10_price": 7677.0,
+      "median_price": 7677.0,
+      "p90_price": 7677.0,
+      "max_price": 7677.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "mid_term": 7677.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": "OREX",
+      "known_operators": [
+        "OREX"
+      ]
+    },
+    "Parrotel Beach Resort (ex. Radisson Blu)": {
+      "hotel_name": "Parrotel Beach Resort (ex. Radisson Blu)",
+      "sample_count": 2,
+      "min_price": 7009.0,
+      "p10_price": 7009.0,
+      "median_price": 7009.0,
+      "p90_price": 7009.0,
+      "max_price": 7009.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "mid_term": 7009.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Parrotel Lagoon Resort": {
+      "hotel_name": "Parrotel Lagoon Resort",
+      "sample_count": 2,
+      "min_price": 5690.0,
+      "p10_price": 5690.0,
+      "median_price": 5690.0,
+      "p90_price": 5690.0,
+      "max_price": 5690.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "mid_term": 5690.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Pharaoh Azur Resort (ex Sonesta Pharaoh Beach Resort)": {
+      "hotel_name": "Pharaoh Azur Resort (ex Sonesta Pharaoh Beach Resort)",
+      "sample_count": 2,
+      "min_price": 6878.0,
+      "p10_price": 6878.0,
+      "median_price": 6878.0,
+      "p90_price": 6878.0,
+      "max_price": 6878.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 6878.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": "WEZY",
+      "known_operators": [
+        "WEZY"
+      ]
+    },
+    "Pickalbatros Golf Beach Resort": {
+      "hotel_name": "Pickalbatros Golf Beach Resort",
+      "sample_count": 2,
+      "min_price": 7086.0,
+      "p10_price": 7086.0,
+      "median_price": 7086.0,
+      "p90_price": 7086.0,
+      "max_price": 7086.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "mid_term": 7086.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Pickalbatros Luxury Suites": {
+      "hotel_name": "Pickalbatros Luxury Suites",
+      "sample_count": 2,
+      "min_price": 7086.0,
+      "p10_price": 7086.0,
+      "median_price": 7086.0,
+      "p90_price": 7086.0,
+      "max_price": 7086.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "mid_term": 7086.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Pickalbatros Oasis Port Ghalib (ex. Red Sea Port Ghalib Resort)": {
+      "hotel_name": "Pickalbatros Oasis Port Ghalib (ex. Red Sea Port Ghalib Resort)",
+      "sample_count": 2,
+      "min_price": 7983.0,
+      "p10_price": 7983.0,
+      "median_price": 7983.0,
+      "p90_price": 7983.0,
+      "max_price": 7983.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 7983.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Pickalbatros Palace Port Ghalib (ex. Red Sea The Palace)": {
+      "hotel_name": "Pickalbatros Palace Port Ghalib (ex. Red Sea The Palace)",
+      "sample_count": 2,
+      "min_price": 7227.0,
+      "p10_price": 7227.0,
+      "median_price": 7227.0,
+      "p90_price": 7227.0,
+      "max_price": 7227.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 7227.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": "OREX",
+      "known_operators": [
+        "OREX"
+      ]
+    },
+    "Pickalbatros Royal Moderna": {
+      "hotel_name": "Pickalbatros Royal Moderna",
+      "sample_count": 2,
+      "min_price": 8291.0,
+      "p10_price": 8291.0,
+      "median_price": 8291.0,
+      "p90_price": 8291.0,
+      "max_price": 8291.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "mid_term": 8291.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Pickalbatros Sands Port Ghalib (ex. Red Sea Siva Sands)": {
+      "hotel_name": "Pickalbatros Sands Port Ghalib (ex. Red Sea Siva Sands)",
+      "sample_count": 2,
+      "min_price": 8317.0,
+      "p10_price": 8317.0,
+      "median_price": 8317.0,
+      "p90_price": 8317.0,
+      "max_price": 8317.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 8317.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": "WEZY",
+      "known_operators": [
+        "WEZY"
+      ]
+    },
+    "Pickalbatros Villaggio Resort Portofino": {
+      "hotel_name": "Pickalbatros Villaggio Resort Portofino",
+      "sample_count": 4,
+      "min_price": 7897.0,
+      "p10_price": 7897.0,
+      "median_price": 7897.0,
+      "p90_price": 7897.0,
+      "max_price": 7897.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 7897.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": "EXIM",
+      "known_operators": [
+        "EXIM"
+      ]
+    },
+    "Pickalbatros Vita Resort Portofino": {
+      "hotel_name": "Pickalbatros Vita Resort Portofino",
+      "sample_count": 2,
+      "min_price": 7737.0,
+      "p10_price": 7737.0,
+      "median_price": 7737.0,
+      "p90_price": 7737.0,
+      "max_price": 7737.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 7737.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Pyramisa Beach Resort Sahl Hasheesh": {
+      "hotel_name": "Pyramisa Beach Resort Sahl Hasheesh",
+      "sample_count": 3,
+      "min_price": 8053.0,
+      "p10_price": 8053.0,
+      "median_price": 8053.0,
+      "p90_price": 8623.4,
+      "max_price": 8766.0,
+      "volatility_pct": 4.2,
+      "d_bucket_medians": {
+        "first_markdown": 8053.0,
+        "last_minute": 8766.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": "WEZY",
+      "known_operators": [
+        "WEZY"
+      ]
+    },
+    "Queen Apartments": {
+      "hotel_name": "Queen Apartments",
+      "sample_count": 2,
+      "min_price": 242.0,
+      "p10_price": 242.0,
+      "median_price": 242.0,
+      "p90_price": 242.0,
+      "max_price": 242.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "early_bird": 242.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Radisson Individuals Marina Port Ghalib (ex. Sunrise Marina Resort)": {
+      "hotel_name": "Radisson Individuals Marina Port Ghalib (ex. Sunrise Marina Resort)",
+      "sample_count": 2,
+      "min_price": 6467.0,
+      "p10_price": 6467.0,
+      "median_price": 6467.0,
+      "p90_price": 6467.0,
+      "max_price": 6467.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "panic_dump": 6467.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Red Sea Grand Makadi (Makadi Bay)": {
+      "hotel_name": "Red Sea Grand Makadi (Makadi Bay)",
+      "sample_count": 2,
+      "min_price": 7650.0,
+      "p10_price": 7650.0,
+      "median_price": 7650.0,
+      "p90_price": 7650.0,
+      "max_price": 7650.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 7650.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Red Sea Grand Waterworld Makadi (ex. Sunwing Waterworld Makadi)": {
+      "hotel_name": "Red Sea Grand Waterworld Makadi (ex. Sunwing Waterworld Makadi)",
+      "sample_count": 2,
+      "min_price": 7488.0,
+      "p10_price": 7488.0,
+      "median_price": 7488.0,
+      "p90_price": 7488.0,
+      "max_price": 7488.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 7488.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Reef Oasis Blue Bay Resort": {
+      "hotel_name": "Reef Oasis Blue Bay Resort",
+      "sample_count": 2,
+      "min_price": 8291.0,
+      "p10_price": 8291.0,
+      "median_price": 8291.0,
+      "p90_price": 8291.0,
+      "max_price": 8291.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "panic_dump": 8291.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Reef Oasis Suakin Resort": {
+      "hotel_name": "Reef Oasis Suakin Resort",
+      "sample_count": 2,
+      "min_price": 7691.0,
+      "p10_price": 7691.0,
+      "median_price": 7691.0,
+      "p90_price": 7691.0,
+      "max_price": 7691.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 7691.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Regency Plaza Aqua Park Spa": {
+      "hotel_name": "Regency Plaza Aqua Park Spa",
+      "sample_count": 3,
+      "min_price": 6891.0,
+      "p10_price": 6891.0,
+      "median_price": 6891.0,
+      "p90_price": 8151.0,
+      "max_price": 8466.0,
+      "volatility_pct": 10.8,
+      "d_bucket_medians": {
+        "last_minute": 8466.0,
+        "panic_dump": 6891.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "BALANCED",
+      "primary_operator": "WEZY",
+      "known_operators": [
+        "WEZY"
+      ]
+    },
+    "Renaissance Golden View Beach Resort by Marriott": {
+      "hotel_name": "Renaissance Golden View Beach Resort by Marriott",
+      "sample_count": 2,
+      "min_price": 7570.0,
+      "p10_price": 7570.0,
+      "median_price": 7570.0,
+      "p90_price": 7570.0,
+      "max_price": 7570.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "mid_term": 7570.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Retac Qunay Dahab Resort & Spa": {
+      "hotel_name": "Retac Qunay Dahab Resort & Spa",
+      "sample_count": 2,
+      "min_price": 7072.0,
+      "p10_price": 7072.0,
+      "median_price": 7072.0,
+      "p90_price": 7072.0,
+      "max_price": 7072.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "mid_term": 7072.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Rewaya Inn Resort (ex. Hawaii Paradise Aqua Park Resort)": {
+      "hotel_name": "Rewaya Inn Resort (ex. Hawaii Paradise Aqua Park Resort)",
+      "sample_count": 2,
+      "min_price": 5990.0,
+      "p10_price": 5990.0,
+      "median_price": 5990.0,
+      "p90_price": 5990.0,
+      "max_price": 5990.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "panic_dump": 5990.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Rewaya Luxury Resort": {
+      "hotel_name": "Rewaya Luxury Resort",
+      "sample_count": 2,
+      "min_price": 6647.0,
+      "p10_price": 6647.0,
+      "median_price": 6647.0,
+      "p90_price": 6647.0,
+      "max_price": 6647.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "mid_term": 6647.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": "OREX",
+      "known_operators": [
+        "OREX"
+      ]
+    },
+    "Rewaya Majestic Resort": {
+      "hotel_name": "Rewaya Majestic Resort",
+      "sample_count": 2,
+      "min_price": 6764.0,
+      "p10_price": 6764.0,
+      "median_price": 6764.0,
+      "p90_price": 6764.0,
+      "max_price": 6764.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 6764.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": "OREX",
+      "known_operators": [
+        "OREX"
+      ]
+    },
+    "Royal Brayka Beach Resort (ex Zee Brayka)": {
+      "hotel_name": "Royal Brayka Beach Resort (ex Zee Brayka)",
+      "sample_count": 3,
+      "min_price": 5898.0,
+      "p10_price": 5898.0,
+      "median_price": 5898.0,
+      "p90_price": 8345.2,
+      "max_price": 8957.0,
+      "volatility_pct": 24.4,
+      "d_bucket_medians": {
+        "first_markdown": 5898.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "VOLATILE",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Royal Lagoons Aqua (ex. Premium Blue)": {
+      "hotel_name": "Royal Lagoons Aqua (ex. Premium Blue)",
+      "sample_count": 2,
+      "min_price": 6373.0,
+      "p10_price": 6373.0,
+      "median_price": 6373.0,
+      "p90_price": 6373.0,
+      "max_price": 6373.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "mid_term": 6373.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Royal Regency Club": {
+      "hotel_name": "Royal Regency Club",
+      "sample_count": 2,
+      "min_price": 7510.0,
+      "p10_price": 7510.0,
+      "median_price": 7510.0,
+      "p90_price": 7510.0,
+      "max_price": 7510.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "mid_term": 7510.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Safir Dahab Resort": {
+      "hotel_name": "Safir Dahab Resort",
+      "sample_count": 2,
+      "min_price": 7436.0,
+      "p10_price": 7436.0,
+      "median_price": 7436.0,
+      "p90_price": 7436.0,
+      "max_price": 7436.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "mid_term": 7436.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Safir Sharm Waterfalls Resort (ex Hilton Waterfalls Resort)": {
+      "hotel_name": "Safir Sharm Waterfalls Resort (ex Hilton Waterfalls Resort)",
+      "sample_count": 2,
+      "min_price": 6600.0,
+      "p10_price": 6600.0,
+      "median_price": 6600.0,
+      "p90_price": 6600.0,
+      "max_price": 6600.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "mid_term": 6600.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Sataya Resort (ex. Labranda Sataya Marsa Alam)": {
+      "hotel_name": "Sataya Resort (ex. Labranda Sataya Marsa Alam)",
+      "sample_count": 2,
+      "min_price": 7291.0,
+      "p10_price": 7291.0,
+      "median_price": 7291.0,
+      "p90_price": 7291.0,
+      "max_price": 7291.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 7291.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Sea Star Beau Rivage": {
+      "hotel_name": "Sea Star Beau Rivage",
+      "sample_count": 4,
+      "min_price": 6214.0,
+      "p10_price": 6214.0,
+      "median_price": 6316.0,
+      "p90_price": 6418.0,
+      "max_price": 6418.0,
+      "volatility_pct": 1.6,
+      "d_bucket_medians": {
+        "first_markdown": 6214.0,
+        "last_minute": 6418.0
+      },
+      "d_dump_drop_pct": 1.6,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": "WEZY",
+      "known_operators": [
+        "WEZY"
+      ]
+    },
+    "Sentido Akassia Beach (ex. LTI Akassia Beach)": {
+      "hotel_name": "Sentido Akassia Beach (ex. LTI Akassia Beach)",
+      "sample_count": 2,
+      "min_price": 6228.0,
+      "p10_price": 6228.0,
+      "median_price": 6228.0,
+      "p90_price": 6228.0,
+      "max_price": 6228.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 6228.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": "OREX",
+      "known_operators": [
+        "OREX"
+      ]
+    },
+    "Serenity Alma Heights (ex. Serenity Fun City)": {
+      "hotel_name": "Serenity Alma Heights (ex. Serenity Fun City)",
+      "sample_count": 2,
+      "min_price": 7634.0,
+      "p10_price": 7634.0,
+      "median_price": 7634.0,
+      "p90_price": 7634.0,
+      "max_price": 7634.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 7634.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": "WEZY",
+      "known_operators": [
+        "WEZY"
+      ]
+    },
+    "Serenity Alpha Beach (ex. Serenity Makadi Beach)": {
+      "hotel_name": "Serenity Alpha Beach (ex. Serenity Makadi Beach)",
+      "sample_count": 2,
+      "min_price": 7637.0,
+      "p10_price": 7637.0,
+      "median_price": 7637.0,
+      "p90_price": 7637.0,
+      "max_price": 7637.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 7637.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Seven Seas Jolie Bay": {
+      "hotel_name": "Seven Seas Jolie Bay",
+      "sample_count": 3,
+      "min_price": 6889.0,
+      "p10_price": 6953.4,
+      "median_price": 7211.0,
+      "p90_price": 7211.0,
+      "max_price": 7211.0,
+      "volatility_pct": 2.1,
+      "d_bucket_medians": {
+        "first_markdown": 7211.0,
+        "last_minute": 6889.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": "WEZY",
+      "known_operators": [
+        "WEZY"
+      ]
+    },
+    "Sharm Grand Plaza Resort": {
+      "hotel_name": "Sharm Grand Plaza Resort",
+      "sample_count": 2,
+      "min_price": 7205.0,
+      "p10_price": 7205.0,
+      "median_price": 7205.0,
+      "p90_price": 7205.0,
+      "max_price": 7205.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 7205.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Sirena Beach Resort & Spa": {
+      "hotel_name": "Sirena Beach Resort & Spa",
+      "sample_count": 2,
+      "min_price": 7110.0,
+      "p10_price": 7110.0,
+      "median_price": 7110.0,
+      "p90_price": 7110.0,
+      "max_price": 7110.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 7110.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": "OREX",
+      "known_operators": [
+        "OREX"
+      ]
+    },
+    "Siva Golden Bay Makadi": {
+      "hotel_name": "Siva Golden Bay Makadi",
+      "sample_count": 2,
+      "min_price": 7177.0,
+      "p10_price": 7177.0,
+      "median_price": 7177.0,
+      "p90_price": 7177.0,
+      "max_price": 7177.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 7177.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Smart Gdańsk": {
+      "hotel_name": "Smart Gdańsk",
+      "sample_count": 2,
+      "min_price": 240.0,
+      "p10_price": 240.0,
+      "median_price": 240.0,
+      "p90_price": 240.0,
+      "max_price": 240.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "early_bird": 240.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Station Aparthotel": {
+      "hotel_name": "Station Aparthotel",
+      "sample_count": 2,
+      "min_price": 247.0,
+      "p10_price": 247.0,
+      "median_price": 247.0,
+      "p90_price": 247.0,
+      "max_price": 247.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "early_bird": 247.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Stella Beach Resort & Spa": {
+      "hotel_name": "Stella Beach Resort & Spa",
+      "sample_count": 3,
+      "min_price": 6615.0,
+      "p10_price": 6615.0,
+      "median_price": 6615.0,
+      "p90_price": 8139.0,
+      "max_price": 8520.0,
+      "volatility_pct": 13.6,
+      "d_bucket_medians": {
+        "last_minute": 8520.0,
+        "mid_term": 6615.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "VOLATILE",
+      "primary_operator": "WEZY",
+      "known_operators": [
+        "WEZY"
+      ]
+    },
+    "Stella Gardens Resort & Spa (ex Stella Di Mare Gardens)": {
+      "hotel_name": "Stella Gardens Resort & Spa (ex Stella Di Mare Gardens)",
+      "sample_count": 2,
+      "min_price": 6131.0,
+      "p10_price": 6131.0,
+      "median_price": 6131.0,
+      "p90_price": 6131.0,
+      "max_price": 6131.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "mid_term": 6131.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort)": {
+      "hotel_name": "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort)",
+      "sample_count": 2,
+      "min_price": 7122.0,
+      "p10_price": 7122.0,
+      "median_price": 7122.0,
+      "p90_price": 7122.0,
+      "max_price": 7122.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 7122.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Swissotel Resort El Quseir": {
+      "hotel_name": "Swissotel Resort El Quseir",
+      "sample_count": 2,
+      "min_price": 6413.0,
+      "p10_price": 6413.0,
+      "median_price": 6413.0,
+      "p90_price": 6413.0,
+      "max_price": 6413.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 6413.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": "OREX",
+      "known_operators": [
+        "OREX"
+      ]
+    },
+    "The Cascades Golf Resort Spa & Thalasso (ex Westin Soma Bay)": {
+      "hotel_name": "The Cascades Golf Resort Spa & Thalasso (ex Westin Soma Bay)",
+      "sample_count": 2,
+      "min_price": 7734.0,
+      "p10_price": 7734.0,
+      "median_price": 7734.0,
+      "p90_price": 7734.0,
+      "max_price": 7734.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "mid_term": 7734.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Three Corners Fayrouz Plaza Beach Resort": {
+      "hotel_name": "Three Corners Fayrouz Plaza Beach Resort",
+      "sample_count": 2,
+      "min_price": 6822.0,
+      "p10_price": 6822.0,
+      "median_price": 6822.0,
+      "p90_price": 6822.0,
+      "max_price": 6822.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 6822.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": "OREX",
+      "known_operators": [
+        "OREX"
+      ]
+    },
+    "Titanic Beach Spa & Aqua Park": {
+      "hotel_name": "Titanic Beach Spa & Aqua Park",
+      "sample_count": 2,
+      "min_price": 6957.0,
+      "p10_price": 6957.0,
+      "median_price": 6957.0,
+      "p90_price": 6957.0,
+      "max_price": 6957.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 6957.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Titanic Palace Resort": {
+      "hotel_name": "Titanic Palace Resort",
+      "sample_count": 2,
+      "min_price": 7592.0,
+      "p10_price": 7592.0,
+      "median_price": 7592.0,
+      "p90_price": 7592.0,
+      "max_price": 7592.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 7592.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": "WEZY",
+      "known_operators": [
+        "WEZY"
+      ]
+    },
+    "Tropitel Sahl Hasheesh": {
+      "hotel_name": "Tropitel Sahl Hasheesh",
+      "sample_count": 2,
+      "min_price": 6946.0,
+      "p10_price": 6946.0,
+      "median_price": 6946.0,
+      "p90_price": 6946.0,
+      "max_price": 6946.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "first_markdown": 6946.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "True Beach Resort": {
+      "hotel_name": "True Beach Resort",
+      "sample_count": 2,
+      "min_price": 8118.0,
+      "p10_price": 8118.0,
+      "median_price": 8118.0,
+      "p90_price": 8118.0,
+      "max_price": 8118.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "mid_term": 8118.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": "WEZY",
+      "known_operators": [
+        "WEZY"
+      ]
+    },
+    "Twierdza Modlin": {
+      "hotel_name": "Twierdza Modlin",
+      "sample_count": 2,
+      "min_price": 278.0,
+      "p10_price": 278.0,
+      "median_price": 278.0,
+      "p90_price": 278.0,
+      "max_price": 278.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "early_bird": 278.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Utopia Blue Resort": {
+      "hotel_name": "Utopia Blue Resort",
+      "sample_count": 2,
+      "min_price": 7957.0,
+      "p10_price": 7957.0,
+      "median_price": 7957.0,
+      "p90_price": 7957.0,
+      "max_price": 7957.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "mid_term": 7957.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": "EXIM",
+      "known_operators": [
+        "EXIM"
+      ]
+    },
+    "V Hotel Sharm": {
+      "hotel_name": "V Hotel Sharm",
+      "sample_count": 2,
+      "min_price": 8171.0,
+      "p10_price": 8171.0,
+      "median_price": 8171.0,
+      "p90_price": 8171.0,
+      "max_price": 8171.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "mid_term": 8171.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": "JOIN",
+      "known_operators": [
+        "JOIN"
+      ]
+    },
+    "Wyspiański": {
+      "hotel_name": "Wyspiański",
+      "sample_count": 2,
+      "min_price": 271.0,
+      "p10_price": 271.0,
+      "median_price": 271.0,
+      "p90_price": 271.0,
+      "max_price": 271.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "early_bird": 271.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Xperience Kiroseiz Parkland": {
+      "hotel_name": "Xperience Kiroseiz Parkland",
+      "sample_count": 2,
+      "min_price": 6842.0,
+      "p10_price": 6842.0,
+      "median_price": 6842.0,
+      "p90_price": 6842.0,
+      "max_price": 6842.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "mid_term": 6842.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Xperience Kiroseiz Premier": {
+      "hotel_name": "Xperience Kiroseiz Premier",
+      "sample_count": 2,
+      "min_price": 6660.0,
+      "p10_price": 6660.0,
+      "median_price": 6660.0,
+      "p90_price": 6660.0,
+      "max_price": 6660.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "mid_term": 6660.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    },
+    "Xperience Sea Breeze Resort": {
+      "hotel_name": "Xperience Sea Breeze Resort",
+      "sample_count": 2,
+      "min_price": 7388.0,
+      "p10_price": 7388.0,
+      "median_price": 7388.0,
+      "p90_price": 7388.0,
+      "max_price": 7388.0,
+      "volatility_pct": 0.0,
+      "d_bucket_medians": {
+        "mid_term": 7388.0
+      },
+      "d_dump_drop_pct": 0.0,
+      "archetype": "ROCK_SOLID",
+      "primary_operator": null,
+      "known_operators": []
+    }
+  }
+}
