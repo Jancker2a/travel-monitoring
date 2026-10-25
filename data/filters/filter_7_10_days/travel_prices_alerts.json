@@ -3250,10 +3250,75 @@
       "created_at": "2026-10-25T07:31:44.063894+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Old Palace Resort_2026-10-25_07-30_zone_out_gone"
+    },
+    {
+      "hotel_name": "Parrotel Beach Resort (ex. Radisson Blu)",
+      "duration_bucket": "",
+      "old_price": 8102.0,
+      "new_price": 7121.0,
+      "price_change": -981.0,
+      "price_change_pct": -12.108121451493458,
+      "timestamp": "2026-10-25 08:49:20.513683+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-25T08:50:35.503769+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Parrotel Beach Resort (ex. Radisson Blu)_2026-10-25_08-49_-12.1"
+    },
+    {
+      "hotel_name": "Dream Lagoon & Aqua Park Resort (ex. Floriana Dream Lagoon)",
+      "duration_bucket": "",
+      "old_price": 6777.0,
+      "new_price": 7809.0,
+      "price_change": 1032.0,
+      "price_change_pct": 15.22797698096503,
+      "timestamp": "2026-10-25 08:49:20.513683+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-25T08:50:35.503791+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Dream Lagoon & Aqua Park Resort (ex. Floriana Dream Lagoon)_2026-10-25_08-49_+15.2"
+    },
+    {
+      "hotel_name": "Regency Plaza Aqua Park Spa",
+      "duration_bucket": "",
+      "old_price": 7450.0,
+      "new_price": 6674.0,
+      "price_change": -776.0,
+      "price_change_pct": -10.416107382550335,
+      "timestamp": "2026-10-25 08:49:20.513683+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-25T08:50:35.503802+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Regency Plaza Aqua Park Spa_2026-10-25_08-49_-10.4"
+    },
+    {
+      "hotel_name": "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort)",
+      "duration_bucket": "",
+      "old_price": 8185.0,
+      "new_price": 8185.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-25 08:49:20.513683+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-25T08:50:35.503815+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort)_2026-10-25_08-49_zone_out_gone"
+    },
+    {
+      "hotel_name": "Jaz Mirabel Beach Resort",
+      "duration_bucket": "",
+      "old_price": 10127.0,
+      "new_price": 7698.0,
+      "price_change": -2429.0,
+      "price_change_pct": -23.985385602843884,
+      "timestamp": "2026-10-25 08:49:20.513683+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-25T08:50:35.503832+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Mirabel Beach Resort_2026-10-25_08-49_comeback_24.0"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-25T08:04:46.219059+00:00",
+    "last_processed_run": "2026-10-25T08:49:20.513683+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 7695.0,
