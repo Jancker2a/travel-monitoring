@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       ai_mode:
-        description: "Режим AI: standard (быстрый, gpt-4o-mini) или full_deep (полный глубокий прогон)"
+        description: "Режим AI: standard (быстрый, gpt-4o-mini) или full_deep (полный глубокий прогон, флагман 5.4)"
         required: true
         type: choice
         options:
@@ -15,11 +15,12 @@ on:
           - full_deep
         default: standard
       openai_model:
-        description: "Модель OpenAI (по умолчанию для обычного рана: gpt-4o-mini)"
+        description: "Модель OpenAI (обычный: gpt-4o-mini, флагман: gpt-5.4-mini)"
         required: false
         type: choice
         options:
           - gpt-4o-mini
+          - gpt-5.4-mini
           - gpt-4o
         default: gpt-4o-mini
       force_refresh_ai:
@@ -161,7 +162,7 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL || 'gemini-2.0-flash' }}
-          OPENAI_MODEL: ${{ github.event.inputs.openai_model || (github.event.inputs.ai_mode == 'full_deep' && 'gpt-4o') || vars.OPENAI_MODEL || 'gpt-4o-mini' }}
+          OPENAI_MODEL: ${{ github.event.inputs.openai_model || (github.event.inputs.ai_mode == 'full_deep' && 'gpt-5.4-mini') || vars.OPENAI_MODEL || 'gpt-4o-mini' }}
           FORCE_AI_ANALYSIS: ${{ github.event.inputs.force_refresh_ai || (github.event.inputs.ai_mode == 'full_deep' && 'true') || 'false' }}
           AI_ANALYSIS_MODE: ${{ github.event.inputs.ai_mode || 'standard' }}
         run: |

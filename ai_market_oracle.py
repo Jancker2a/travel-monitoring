@@ -642,7 +642,12 @@ def call_gemini_oracle(
     }
 
     is_deep = os.getenv("AI_ANALYSIS_MODE", "standard").lower() == "full_deep"
-    deep_note = "\nРЕЖИМ: FULL DEEP (полный глубокий анализ). Дай развернутый экспертный комментарий по рынку и выдели до 2-3 лучших отелей для покупки." if is_deep else ""
+    if is_deep:
+        if market_context.get("all_hotels_catalog"):
+            llm_context["all_hotels_catalog"] = market_context.get("all_hotels_catalog", [])
+        deep_note = "\nРЕЖИМ: FULL DEEP (полный глубокий прогон через AI). Тебе переданы ВСЕ отели и кандидаты данного направления. Проведи полный всесторонний разбор рынка и отбери лучших кандидатов для покупки из всего каталога."
+    else:
+        deep_note = ""
 
     user_prompt = f"""
 Проанализируй сжатые метрики рынка пакетных туров направления "{market_context.get('filter_title', '')}" и выдай краткое экспертное резюме в формате JSON:{deep_note}
@@ -785,7 +790,12 @@ def call_openai_oracle(
     }
 
     is_deep = os.getenv("AI_ANALYSIS_MODE", "standard").lower() == "full_deep"
-    deep_note = "\nРЕЖИМ: FULL DEEP (полный глубокий анализ). Дай развернутый экспертный комментарий по рынку и выдели до 2-3 лучших отелей для покупки." if is_deep else ""
+    if is_deep:
+        if market_context.get("all_hotels_catalog"):
+            llm_context["all_hotels_catalog"] = market_context.get("all_hotels_catalog", [])
+        deep_note = "\nРЕЖИМ: FULL DEEP (полный глубокий прогон через AI). Тебе переданы ВСЕ отели и кандидаты данного направления. Проведи полный всесторонний разбор рынка и отбери лучших кандидатов для покупки из всего каталога."
+    else:
+        deep_note = ""
 
     user_prompt = f"""
 Проанализируй сжатые метрики рынка пакетных туров направления "{market_context.get('filter_title', '')}" и выдай краткое экспертное резюме в формате JSON:{deep_note}
