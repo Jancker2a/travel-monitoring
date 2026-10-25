@@ -3094,10 +3094,88 @@
       "created_at": "2026-10-24T22:39:40.758665+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Jaz Aquamarine Resort_2026-10-24_22-37_comeback_22.0"
+    },
+    {
+      "hotel_name": "Jaz Aquamarine Resort",
+      "duration_bucket": "",
+      "old_price": 8004.0,
+      "new_price": 7305.0,
+      "price_change": -699.0,
+      "price_change_pct": -8.733133433283358,
+      "timestamp": "2026-10-25 01:20:51.782521+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-25T01:23:53.026459+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Aquamarine Resort_2026-10-25_01-20_-8.7"
+    },
+    {
+      "hotel_name": "Amarina Jannah Heights Resort & Aqua Park",
+      "duration_bucket": "",
+      "old_price": 8260.0,
+      "new_price": 8260.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-25 01:20:51.782521+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-25T01:23:53.026516+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amarina Jannah Heights Resort & Aqua Park_2026-10-25_01-20_zone_out_gone"
+    },
+    {
+      "hotel_name": "Jaz Royal Palmariva",
+      "duration_bucket": "",
+      "old_price": 8192.0,
+      "new_price": 8192.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-25 01:20:51.782521+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-25T01:23:53.026533+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Royal Palmariva_2026-10-25_01-20_zone_out_gone"
+    },
+    {
+      "hotel_name": "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort)",
+      "duration_bucket": "",
+      "old_price": 8185.0,
+      "new_price": 8185.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-25 01:20:51.782521+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-25T01:23:53.026542+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort)_2026-10-25_01-20_zone_out_gone"
+    },
+    {
+      "hotel_name": "Titanic Beach Spa & Aqua Park",
+      "duration_bucket": "",
+      "old_price": 8157.0,
+      "new_price": 8157.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-25 01:20:51.782521+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-25T01:23:53.026550+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Titanic Beach Spa & Aqua Park_2026-10-25_01-20_zone_out_gone"
+    },
+    {
+      "hotel_name": "Titanic Royal",
+      "duration_bucket": "",
+      "old_price": 10177.0,
+      "new_price": 8109.0,
+      "price_change": -2068.0,
+      "price_change_pct": -20.320330156234647,
+      "timestamp": "2026-10-25 01:20:51.782521+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-25T01:23:53.026574+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Titanic Royal_2026-10-25_01-20_comeback_20.3"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-24T22:37:39.545506+00:00",
+    "last_processed_run": "2026-10-25T01:20:51.782521+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 7695.0,
@@ -3793,6 +3871,10 @@
       },
       "Gravity Hotel & Aquapark Hurghada (ex. Samra Bay Resort)": {
         "history_max": 8271.0,
+        "premium_peak": null
+      },
+      "Old Palace Resort": {
+        "history_max": 7796.0,
         "premium_peak": null
       }
     }
