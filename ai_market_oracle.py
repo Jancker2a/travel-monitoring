@@ -680,7 +680,7 @@ def call_openai_oracle(
     import re
 
     discovered = fetch_available_openai_models(api_key)
-    preferred_order = ["gpt-5.6-luna", "gpt-5-chat-latest", "gpt-5.4-mini", "gpt-4o-mini", "gpt-4o", "o3-mini"]
+    preferred_order = ["gpt-5.4-mini", "gpt-5.6-luna", "gpt-5-chat-latest", "gpt-4o-mini", "gpt-4o", "o3-mini"]
     target_models = []
 
     explicit_model = model or os.getenv("OPENAI_MODEL")
@@ -808,7 +808,7 @@ def synthesize_market_oracle(
 ) -> Dict[str, Any]:
     """
     Main orchestration function: extracts features and generates two-tier AI intelligence.
-    Supports OpenAI (gpt-5.6-luna / gpt-4o-mini), Google Gemini (gemini-2.0-flash / gemini-1.5-flash),
+    Supports OpenAI (gpt-5.4-mini / gpt-5.6-luna / gpt-4o-mini), Google Gemini (gemini-2.0-flash / gemini-1.5-flash),
     and deterministic Rule-Based Fallback.
     """
     market_context = extract_filter_features(
