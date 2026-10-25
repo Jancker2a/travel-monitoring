@@ -133,11 +133,16 @@ def generate_rule_based_briefing(market_context: Dict[str, Any]) -> Dict[str, An
     }
 
 
-def call_gemini_oracle(market_context: Dict[str, Any], api_key: str) -> Optional[Dict[str, Any]]:
+def call_gemini_oracle(
+    market_context: Dict[str, Any],
+    api_key: str,
+    model: Optional[str] = None,
+) -> Optional[Dict[str, Any]]:
     """
-    Invokes Google Gemini 1.5 Flash via REST API with strict JSON schema.
+    Invokes Google Gemini API with strict JSON schema.
+    Defaults to modern 'gemini-2.0-flash' with fallback to 'gemini-1.5-flash'.
     """
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={api_key}"
+    target_models = [model] if model else [os.getenv("GEMINI_MODEL", "gemini-2.0-flash"), "gemini-1.5-flash"]
 
     user_prompt = f"""
 Проанализируй сжатые метрики рынка пакетных туров и выдай экспертное заключение в формате JSON:
@@ -185,40 +190,147 @@ def call_gemini_oracle(market_context: Dict[str, Any], api_key: str) -> Optional
         }
     }
 
+    for m_name in target_models:
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/{m_name}:generateContent?key={api_key}"
+        try:
+            req = urllib.request.Request(
+                url,
+                data=json.dumps(payload).encode("utf-8"),
+                headers={"Content-Type": "application/json"},
+                method="POST",
+            )
+            with urllib.request.urlopen(req, timeout=35) as resp:
+                data = json.loads(resp.read().decode("utf-8"))
+                raw_text = data["candidates"][0]["content"]["parts"][0]["text"]
+                result = json.loads(raw_text)
+                result["macro_briefing"]["synthesized_by"] = f"Google Gemini ({m_name})"
+                return result
+        except Exception as e:
+            logger.warning(f"Gemini call with {m_name} failed: {e}. Trying next model/fallback...")
+
+    return None
+
+
+def call_openai_oracle(
+    market_context: Dict[str, Any],
+    api_key: str,
+    model: Optional[str] = None,
+) -> Optional[Dict[str, Any]]:
+    """
+    Invokes OpenAI Chat Completions API (e.g. gpt-4o-mini, gpt-4o) with JSON mode.
+    """
+    target_model = model or os.getenv("OPENAI_MODEL", "gpt-4o-mini")
+    url = "https://api.openai.com/v1/chat/completions"
+
+    user_prompt = f"""
+Проанализируй сжатые метрики рынка пакетных туров и выдай экспертное заключение в формате JSON:
+
+ВХОДНЫЕ ДАННЫЕ РЫНКА:
+{json.dumps(market_context, ensure_ascii=False, indent=2)}
+
+ТРЕБОВАНИЯ К ФОРМАТУ JSON:
+{{
+  "macro_briefing": {{
+    "headline": "Яркий емкий заголовок ситуации на рынке",
+    "market_phase": "Название фазы (например: Чартерная зачистка D-11)",
+    "charter_dynamics": "2-3 предложения с цифрами о поведении цен операторов",
+    "floor_status": "Сводка по отелям на дне цены",
+    "strategic_directive": "Четкая рекомендация: кому брать сейчас, кому ждать",
+    "key_anomalies": [
+      {{ "type": "drop|arbitrage|overprice", "title": "...", "text": "..." }}
+    ]
+  }},
+  "hotel_dossiers": {{
+    "<ИМЯ_ОТЕЛЯ>": {{
+      "verdict": "BUY_NOW | GOOD_PRICE | WAIT | OVERPRICED",
+      "badge_text": "🟢 BUY NOW | 🔵 ХОРОШАЯ ЦЕНА | 🟡 ЖДАТЬ | 🔴 ОВЕРПРАЙС",
+      "rationale": "Конкретное обоснование с цифрами",
+      "risk_assessment": "Анализ риска sold-out vs потенциал экономии",
+      "action_advice": "Точная инструкция к действию"
+    }}
+  }}
+}}
+Ответь ТОЛЬКО валидным JSON без markdown оберток.
+"""
+
+    payload = {
+        "model": target_model,
+        "messages": [
+            {"role": "system", "content": SYSTEM_INSTRUCTION},
+            {"role": "user", "content": user_prompt},
+        ],
+        "temperature": 0.2,
+        "response_format": {"type": "json_object"},
+    }
+
     try:
         req = urllib.request.Request(
             url,
             data=json.dumps(payload).encode("utf-8"),
-            headers={"Content-Type": "application/json"},
+            headers={
+                "Content-Type": "application/json",
+                "Authorization": f"Bearer {api_key}",
+            },
             method="POST",
         )
-        with urllib.request.urlopen(req, timeout=30) as resp:
+        with urllib.request.urlopen(req, timeout=35) as resp:
             data = json.loads(resp.read().decode("utf-8"))
-            raw_text = data["candidates"][0]["content"]["parts"][0]["text"]
+            raw_text = data["choices"][0]["message"]["content"]
             result = json.loads(raw_text)
-            result["macro_briefing"]["synthesized_by"] = "Google Gemini 1.5 Flash (AI Market Oracle)"
+            result["macro_briefing"]["synthesized_by"] = f"OpenAI ({target_model})"
             return result
     except Exception as e:
-        logger.warning(f"Gemini API call failed: {e}. Falling back to rule-based engine.")
+        logger.warning(f"OpenAI call with {target_model} failed: {e}. Falling back...")
         return None
 
 
 def synthesize_market_oracle(
     prices_csv_path: str,
     dna_profile_path: str = "market_dna_profile.json",
+    gemini_api_key: Optional[str] = None,
+    openai_api_key: Optional[str] = None,
     api_key: Optional[str] = None,
 ) -> Dict[str, Any]:
     """
     Main orchestration function: extracts features and generates two-tier AI intelligence.
+    Supports OpenAI (gpt-4o / gpt-4o-mini), Google Gemini (gemini-2.0-flash / gemini-1.5-flash),
+    and deterministic Rule-Based Fallback.
     """
     market_context = extract_filter_features(prices_csv_path, dna_profile_path=dna_profile_path)
     if "error" in market_context:
         return market_context
 
-    gemini_key = api_key or os.getenv("GEMINI_API_KEY")
-    if gemini_key:
-        logger.info("Invoking Gemini 1.5 Flash API for market intelligence...")
-        res = call_gemini_oracle(market_context, gemini_key)
+    provider_pref = os.getenv("LLM_PROVIDER", "").lower()
+
+    # Resolve keys and backwards-compatible api_key alias
+    if api_key:
+        if api_key.startswith("sk-"):
+            openai_api_key = openai_api_key or api_key
+        else:
+            gemini_api_key = gemini_api_key or api_key
+
+    # 1. Check OpenAI
+    oai_key = openai_api_key or os.getenv("OPENAI_API_KEY")
+    gem_key = gemini_api_key or os.getenv("GEMINI_API_KEY")
+
+
+    if provider_pref == "openai" and oai_key:
+        logger.info("Invoking OpenAI API as preferred provider...")
+        res = call_openai_oracle(market_context, oai_key)
+        if res:
+            return res
+
+    # 2. Check Gemini
+    if gem_key:
+        logger.info("Invoking Gemini API for market intelligence...")
+        res = call_gemini_oracle(market_context, gem_key)
+        if res:
+            return res
+
+    # 3. Fallback to OpenAI if Gemini was not preferred or failed
+    if oai_key:
+        logger.info("Invoking OpenAI API for market intelligence...")
+        res = call_openai_oracle(market_context, oai_key)
         if res:
             return res
 
@@ -245,3 +357,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
