@@ -442,7 +442,8 @@ def extract_filter_features(
             or is_gem
             or (is_truly_underpriced and r_val >= 4.2)
         )
-        if has_buy_catalyst:
+        # Low rating (< 4.0) hotels should NEVER be candidates for buy recommendations
+        if has_buy_catalyst and (r_val >= 4.0 or r_val == 0.0):
             active_candidates.append(cand_info)
 
         hotel_records_list.append(cand_info)
@@ -478,9 +479,22 @@ def extract_filter_features(
 
         all_hotel_intelligence[cand["hotel_name"]] = cand
 
-    # Sort active candidates by best value / floor proximity
-    active_candidates.sort(key=lambda x: (x["quantile_in_filter"], x["current_price"]))
-    selected_for_ai = active_candidates[:12]
+    # Balanced selection for AI prompt across price tiers:
+    # Ensures AI sees worthy candidates in economy, comfort, and premium segments (not just bottom 12 cheapest!)
+    tier_candidates: Dict[str, List[Dict[str, Any]]] = {"эконом": [], "комфорт": [], "премиум": []}
+    for c in active_candidates:
+        tier = c["fair_price"].get("tier", "комфорт")
+        tier_candidates.setdefault(tier, []).append(c)
+
+    selected_for_ai = []
+    # Take up to 4 best deals from each tier (sorted by highest rating and biggest discount)
+    for tier in ("премиум", "комфорт", "эконом"):
+        t_list = tier_candidates.get(tier, [])
+        t_list.sort(key=lambda x: (-x["rating"], x["fair_price"].get("delta_pct", 0), x["current_price"]))
+        selected_for_ai.extend(t_list[:4])
+
+    if not selected_for_ai:
+        selected_for_ai = hotel_records_list[:12]
 
     # Process cross-border arbitrage highlights if available
     arbitrage_summary: List[Dict[str, Any]] = []

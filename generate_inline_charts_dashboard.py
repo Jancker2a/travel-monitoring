@@ -138,11 +138,10 @@ def render_ai_market_briefing_html(
             picks_items_html = ""
             for p in top_picks:
                 h_name = str(p.get("hotel_name", ""))
-                h_price = float(p.get("price", 0.0) or 0.0)
+                meta = (hotel_meta_by_name or {}).get(h_name, {})
+                h_price = float(p.get("price") or meta.get("price") or 0.0)
                 h_badge = html_lib.escape(str(p.get("badge", "🟢 Выгодно")))
                 h_why = html_lib.escape(str(p.get("why_buy", "")))
-
-                meta = (hotel_meta_by_name or {}).get(h_name, {})
                 offer_url = meta.get("offer_url") or p.get("offer_url", "")
                 chart_href = meta.get("chart_href", "")
 
@@ -10191,6 +10190,8 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             hotel_meta_by_name[_hn] = {
                 "offer_url": str(_h_row.get("offer_url") or _h_row.get("url") or ""),
                 "chart_href": f"hotel-charts/{_filter_data_id}/{slugify(_hn)}.html",
+                "price": float(_h_row.get("price", 0.0) or 0.0),
+                "rating": _h_row.get("ta_rating") or _h_row.get("rating"),
             }
 
     ai_briefing_html = render_ai_market_briefing_html(

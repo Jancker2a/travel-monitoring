@@ -42,9 +42,15 @@ SYSTEM_INSTRUCTION = """
    - Разделяй ближайшие и дальние даты: на ближайшие дни туроператоры уже «горят» и отдают туры дешевле, а на дальние даты цены пока обычные, можно спокойно выбирать.
    - Поясни, что подборка «живая» и обновляется каждый день по мере приближения вылетов.
 5. РЕКОМЕНДАЦИЯ «ЕСЛИ ПОКУПАТЬ СЕЙЧАС» (поле buy_now_recommendation):
-   - Если на рынке есть 1-2 реально выгодных предложения (сброс цены, дно сезона, жемчужина) — укажи has_worthy_deals: true, заголовок «Стоит выбрать из этих вариантов:» и перечисли их с понятным объяснением, почему брать.
+   - Если на рынке есть 1-2 реально выгодных предложения (сброс цены, дно сезона, жемчужина) — укажи has_worthy_deals: true, заголовок «Стоит выбрать из этих вариантов:» и перечисли их с понятным объяснением, почему брать. Обязательно передавай точную цену отеля в поле "price".
    - Если же на рынке ВСЕ варианты средние, плохие или переоценены — укажи has_worthy_deals: false, заголовок «Лучше ничего не покупать — подождите», и объясни, почему сейчас не время для покупки.
-6. ФОРМАТ ОТВЕТА: строго валидный JSON без markdown-разметки.
+6. СТРОГАЯ ТОЧНОСТЬ РЕЙТИНГОВ И ЦЕН (АНТИ-ГАЛЛЮЦИНАЦИЯ):
+   - КАТЕГОРИЧЕСКИ ЗАПРЕЩЕНО придумывать рейтинг отеля или писать «рейтинг 4.5★», если в данных указан другой рейтинг или rating=0!
+   - Указывай ТОЛЬКО реальный рейтинг из поля rating отеля (например: «рейтинг 4.2★»). Если рейтинг равен 0 или отсутствует — вообще не упоминай рейтинг.
+   - Отели с рейтингом ниже 4.0 КАТЕГОРИЧЕСКИ ЗАПРЕЩЕНО называть «Жемчужиной» или рекомендовать в блоке «Стоит выбрать»!
+7. СРАВНЕНИЕ ТОЛЬКО С ПРИМЕРНО РАВНЫМИ:
+   - Не сравнивай бюджетный отель со средней ценой по всему рынку. Сравнивай отель только с его собственной историей («на 15% дешевле обычной цены этого отеля») или с равными отелями его ценового сегмента (эконом/комфорт/премиум).
+8. ФОРМАТ ОТВЕТА: строго валидный JSON без markdown-разметки.
 """
 
 
@@ -438,15 +444,52 @@ def enrich_oracle_report_with_smart_features(
 
     for g in market_context.get("gems", [])[:1]:
         if g["hotel_name"] not in existing_texts:
+            r_str = f"Рейтинг {g['rating']:g}★" if g.get("rating", 0) > 0 else "Популярный отель"
             existing_anomalies.append({
                 "type": "gem",
                 "title": f"💎 Скрытая жемчужина: {g['hotel_name']}",
-                "text": f"Высокий рейтинг {g.get('rating', 4.5):g}★ в категории {g.get('stars', 5)}★ всего за {g['price']:,.0f} zł (намного дешевле похожих отелей)."
+                "text": f"{r_str} в категории {g.get('stars', 4)}★ всего за {g['price']:,.0f} zł (дешевле аналогов)."
             })
 
-    # 6. Buy Now Recommendation
-    if "buy_now_recommendation" not in macro or not macro["buy_now_recommendation"].get("top_picks"):
+    # 6. Buy Now Recommendation validation & ground-truth enrichment
+    buy_rec = macro.get("buy_now_recommendation")
+    all_intel = market_context.get("all_hotel_intelligence", {})
+    if not buy_rec or not buy_rec.get("top_picks"):
         macro["buy_now_recommendation"] = compute_buy_now_recommendation(market_context, dossiers)
+    else:
+        verified_picks = []
+        for pick in buy_rec.get("top_picks", []):
+            hn = str(pick.get("hotel_name", ""))
+            intel = all_intel.get(hn)
+            if intel:
+                cur_p = float(intel.get("current_price", 0.0) or 0.0)
+                real_r = float(intel.get("rating", 0.0) or 0.0)
+
+                # Overwrite price with verified ground truth (fixes 0 zł bug!)
+                pick["price"] = cur_p
+                pick["rating"] = real_r
+
+                # Disqualify hotels with poor ratings (< 4.0) from buy recommendations
+                if real_r > 0 and real_r < 4.0:
+                    logger.info(f"Disqualifying {hn} from top picks due to low TripAdvisor rating ({real_r}★)")
+                    continue
+
+                # Fix hallucinated ratings in why_buy (fixes 'Ложь про рейтинг 4.5' bug!)
+                why_text = str(pick.get("why_buy", ""))
+                if "4.5" in why_text and abs(real_r - 4.5) > 0.1:
+                    if real_r > 0:
+                        why_text = why_text.replace("4.5", f"{real_r:g}")
+                    else:
+                        why_text = re.sub(r",?\s*(?:а\s*)?рейтинг\s*4\.5[★\*]?", "", why_text)
+                pick["why_buy"] = why_text
+                verified_picks.append(pick)
+            else:
+                if hn in dossiers:
+                    verified_picks.append(pick)
+
+        buy_rec["top_picks"] = verified_picks
+        if not verified_picks:
+            macro["buy_now_recommendation"] = compute_buy_now_recommendation(market_context, dossiers)
 
     if market_context.get("filter_title"):
         macro["filter_title"] = market_context["filter_title"]
@@ -489,7 +532,7 @@ def call_gemini_oracle(
       "headline": "Стоит выбрать из этих вариантов: (или: 'Лучше ничего не покупать — подождите')",
       "advice": "Короткий живой совет туристу",
       "top_picks": [
-        {{ "hotel_name": "...", "badge": "⚡ Сброс цены / 💎 Жемчужина", "why_buy": "..." }}
+        {{ "hotel_name": "...", "price": 1234.0, "badge": "⚡ Сброс цены / 💎 Жемчужина", "why_buy": "..." }}
       ]
     }},
     "key_anomalies": [
@@ -627,7 +670,7 @@ def call_openai_oracle(
       "headline": "Стоит выбрать из этих вариантов: (или: 'Лучше ничего не покупать — подождите')",
       "advice": "Короткий живой совет туристу",
       "top_picks": [
-        {{ "hotel_name": "...", "badge": "⚡ Сброс цены / 💎 Жемчужина", "why_buy": "..." }}
+        {{ "hotel_name": "...", "price": 1234.0, "badge": "⚡ Сброс цены / 💎 Жемчужина", "why_buy": "..." }}
       ]
     }},
     "key_anomalies": [
