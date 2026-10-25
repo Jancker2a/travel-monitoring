@@ -118,7 +118,7 @@ def generate_rule_based_briefing(market_context: Dict[str, Any]) -> Dict[str, An
             directive = "Спешки нет. Можно зафиксировать отели с ценой ниже нижнего дециля или ждать входа в интервал D-14."
             headline = f"Плато раннего бронирования: вылет через {min_d} дн., стабильный коридор"
 
-    # Top anomalies
+    # Top anomalies (Floor, Flash Drops, Gems)
     anomalies: List[Dict[str, str]] = []
     if floor_count > 0:
         anomalies.append({
@@ -127,16 +127,46 @@ def generate_rule_based_briefing(market_context: Dict[str, Any]) -> Dict[str, An
             "text": f"Зафиксирован исторический минимум стоимости. Минимальный входной билет: {min_price:,.0f} zł."
         })
 
-    # Dossiers for selected hotels
+    for fd in market_context.get("flash_drops", [])[:2]:
+        anomalies.append({
+            "type": "drop",
+            "title": f"⚡ FLASH DROP: {fd['hotel_name']}",
+            "text": f"Сброс цены на {fd['drop_pct']:.0f}% ниже исторического дна ({fd['current_price']:,.0f} zł). Высокая вероятность закрытия окна туроператором."
+        })
+
+    top_gems = market_context.get("gems", [])
+    if top_gems:
+        g = top_gems[0]
+        anomalies.append({
+            "type": "gem",
+            "title": f"💎 Скрытая жемчужина: {g['hotel_name']}",
+            "text": f"Рейтинг {g.get('rating', 4.5):g}★ в сегменте {g.get('stars', 5)}★ по цене {g['price']:,.0f} zł (нижний ценовой квартиль)."
+        })
+
+    # Dossiers for all hotels in filter
     dossiers: Dict[str, Dict[str, Any]] = {}
-    for h in market_context.get("selected_hotel_dossiers", []):
-        h_name = h.get("hotel_name")
+    hotels_to_process = market_context.get("all_hotel_intelligence") or {
+        h["hotel_name"]: h for h in market_context.get("selected_hotel_dossiers", [])
+    }
+
+    for h_name, h in hotels_to_process.items():
         cur_p = h.get("current_price", 0.0)
         hist_min = h.get("historical_min", cur_p)
         quantile = h.get("quantile_in_filter", 0.5)
         archetype = h.get("archetype", "BALANCED")
+        bw = h.get("booking_window", {})
+        fp = h.get("fair_price", {})
+        gem = h.get("gem", {})
+        flash = h.get("flash_drop", {})
+        dupe = h.get("dupe_suggestion")
 
-        if cur_p <= hist_min * 1.02:
+        if flash.get("is_flash"):
+            verdict = "BUY_NOW"
+            verdict_badge = "⚡ FLASH DROP"
+            rationale = flash.get("tip") or f"Резкий сброс цены до {cur_p:,.0f} zł."
+            risk = "Критический риск закрытия тарифа туроператором в течение 12–24 часов."
+            advice = "Бронировать немедленно, если отель подходит."
+        elif cur_p <= hist_min * 1.02:
             verdict = "BUY_NOW"
             verdict_badge = "🟢 BUY NOW"
             rationale = f"Текущая цена {cur_p:,.0f} zł находится на абсолютном историческом дне сезона (квантиль {int(quantile*100)}%)."
@@ -161,6 +191,17 @@ def generate_rule_based_briefing(market_context: Dict[str, Any]) -> Dict[str, An
             "rationale": rationale,
             "risk_assessment": risk,
             "action_advice": advice,
+            "booking_window_badge": bw.get("window_badge", ""),
+            "booking_window_class": bw.get("window_class", "early"),
+            "booking_window_tip": bw.get("window_tip", ""),
+            "fair_price_badge": fp.get("badge", ""),
+            "fair_price_class": fp.get("class", ""),
+            "fair_price_tip": fp.get("tip", ""),
+            "gem_badge": gem.get("badge", ""),
+            "gem_tip": gem.get("tip", ""),
+            "flash_drop_badge": flash.get("badge", ""),
+            "flash_drop_tip": flash.get("tip", ""),
+            "dupe_suggestion": dupe,
         }
 
     clean_filter_title = market_context.get("filter_title") or ""

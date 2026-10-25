@@ -32,6 +32,116 @@ from build_market_dna import parse_departure_date, parse_scraped_date, get_d_buc
 logger = logging.getLogger("feature_extractor")
 DEFAULT_DNA_FILE = "market_dna_profile.json"
 
+BUCKET_CONFIG: Dict[str, Tuple[str, int, int]] = {
+    "last_minute": ("D-1…D-3", 1, 3),
+    "panic_dump": ("D-4…D-7", 4, 7),
+    "first_markdown": ("D-8…D-14", 8, 14),
+    "mid_term": ("D-15…D-30", 15, 30),
+    "early_bird": ("D-30+", 31, 180),
+    # Display label aliases
+    "D-1…D-3": ("D-1…D-3", 1, 3),
+    "D-1...D-3": ("D-1…D-3", 1, 3),
+    "D-4…D-7": ("D-4…D-7", 4, 7),
+    "D-4...D-7": ("D-4…D-7", 4, 7),
+    "D-8…D-14": ("D-8…D-14", 8, 14),
+    "D-8...D-14": ("D-8…D-14", 8, 14),
+    "D-15…D-30": ("D-15…D-30", 15, 30),
+    "D-15...D-30": ("D-15…D-30", 15, 30),
+    "D-30+": ("D-30+", 31, 180),
+}
+
+
+def infer_stars(hotel_name: str, row: pd.Series, dna: Optional[Dict[str, Any]] = None) -> int:
+    """Infers hotel star rating (3, 4, 5). Defaults to 5 if luxury brand, else 4."""
+    for col in ("stars", "hotel_stars", "star_rating"):
+        if col in row and pd.notna(row[col]):
+            try:
+                s = int(float(row[col]))
+                if s in (3, 4, 5):
+                    return s
+            except (ValueError, TypeError):
+                pass
+    h_lower = hotel_name.lower()
+    m = re.search(r"(\d)\s*(?:\*|★|star)", h_lower)
+    if m:
+        s = int(m.group(1))
+        if s in (3, 4, 5):
+            return s
+    if dna and "stars" in dna:
+        try:
+            return int(dna["stars"])
+        except (ValueError, TypeError):
+            pass
+    luxury_chains = [
+        "rixos", "baron", "four seasons", "kempinski", "albatros", "steigenberger",
+        "hilton", "marriott", "sheraton", "movenpick", "jaz", "concorde", "sentido",
+        "delphin", "voyage", "maxx royal", "titanic", "gural", "crystal"
+    ]
+    if any(c in h_lower for c in luxury_chains):
+        return 5
+    return 4
+
+
+def resolve_booking_window(
+    h_dna: Optional[Dict[str, Any]],
+    d_days: Optional[int],
+) -> Dict[str, str]:
+    """Computes hotel-specific optimal booking window based on historical D-Minus yield curve."""
+    default_res = {
+        "optimal_window": "D-14…D-21",
+        "window_status": "unknown",
+        "window_badge": "⏱ Окно: D-14…D-21",
+        "window_class": "early",
+        "window_tip": "Историческое окно максимальной выгоды для этого типа отелей наступает за 14–21 день до вылета.",
+    }
+    best_bucket = None
+    if h_dna:
+        if h_dna.get("sweet_spot_d_bucket") in BUCKET_CONFIG:
+            best_bucket = h_dna.get("sweet_spot_d_bucket")
+        elif "d_bucket_medians" in h_dna:
+            b_medians = {k: v for k, v in h_dna.get("d_bucket_medians", {}).items() if v > 0 and k in BUCKET_CONFIG}
+            if b_medians:
+                best_bucket = min(b_medians.items(), key=lambda x: x[1])[0]
+
+    if not best_bucket or best_bucket not in BUCKET_CONFIG:
+        return default_res
+
+    w_label, w_min, w_max = BUCKET_CONFIG[best_bucket]
+
+    if d_days is None:
+        return {
+            "optimal_window": w_label,
+            "window_status": "unknown",
+            "window_badge": f"⏱ Окно: {w_label}",
+            "window_class": "early",
+            "window_tip": f"Исторический минимум цены для этого отеля достигается за {w_label}.",
+        }
+
+    if w_min <= d_days <= w_max:
+        return {
+            "optimal_window": w_label,
+            "window_status": "in_window",
+            "window_badge": f"🎯 Окно покупки: {w_label} (сейчас!)",
+            "window_class": "in_window",
+            "window_tip": f"Текущий момент (D-{d_days}) совпадает с историческим минимумом цены для этого отеля ({w_label}).",
+        }
+    elif d_days > w_max:
+        return {
+            "optimal_window": w_label,
+            "window_status": "early",
+            "window_badge": f"⏱ Окно: {w_label}",
+            "window_class": "early",
+            "window_tip": f"Историческое дно цены наступает за {w_label}. Сейчас D-{d_days} (рано).",
+        }
+    else:
+        return {
+            "optimal_window": w_label,
+            "window_status": "late",
+            "window_badge": f"⏱ Окно было: {w_label}",
+            "window_class": "late",
+            "window_tip": f"Окно максимальных скидок ({w_label}) уже прошло. Текущий день: D-{d_days}.",
+        }
+
 
 def extract_filter_features(
     prices_csv_path: str,
@@ -107,9 +217,44 @@ def extract_filter_features(
 
     dominant_phase = max(d_buckets_count.items(), key=lambda x: x[1])[0] if d_buckets_count else "mid_term"
 
-    # Identify Floor Breakers & Archetype enrichment
+    # 1. Pre-calculate star clusters and ratings
+    hotel_stars_map: Dict[str, int] = {}
+    cluster_prices_map: Dict[int, List[float]] = {4: [], 5: []}
+    hotel_ratings_map: Dict[str, float] = {}
+
+    for _, row in latest_per_hotel.iterrows():
+        hn = str(row["hotel_name"])
+        p = float(row["price"])
+        st = infer_stars(hn, row, dna_hotels.get(hn))
+        hotel_stars_map[hn] = st
+        cluster_prices_map.setdefault(st, []).append(p)
+
+        r_val = 0.0
+        for r_col in ("ta_rating", "rating", "hotel_rating"):
+            if r_col in row and pd.notna(row[r_col]):
+                try:
+                    r_val = float(str(row[r_col]).replace(",", "."))
+                    if r_val > 5.0:  # normalize 10-scale to 5
+                        r_val = round(r_val / 2.0, 1)
+                    break
+                except (ValueError, TypeError):
+                    pass
+        hotel_ratings_map[hn] = r_val
+
+    cluster_medians: Dict[int, float] = {
+        st: float(np.median(plist)) if plist else med_price
+        for st, plist in cluster_prices_map.items()
+    }
+
+    # 2. Identify Floor Breakers, Flash Drops, Gems, Dupes & Hotel Intelligence
     floor_breakers: List[Dict[str, Any]] = []
+    flash_drops: List[Dict[str, Any]] = []
+    gems: List[Dict[str, Any]] = []
     active_candidates: List[Dict[str, Any]] = []
+    all_hotel_intelligence: Dict[str, Dict[str, Any]] = {}
+
+    # Temporary storage for second-pass dupe finding
+    hotel_records_list: List[Dict[str, Any]] = []
 
     for _, row in latest_per_hotel.iterrows():
         h_name = str(row["hotel_name"])
@@ -130,6 +275,60 @@ def extract_filter_features(
         # Quantile relative to current filter
         cur_rank = float(np.sum(prices < cur_p)) / max(1, len(prices))
 
+        # Departure days for this hotel
+        h_dep_d = parse_departure_date(str(row.get("dates", "")))
+        h_d_days = (h_dep_d - today).days if h_dep_d else None
+
+        # Feature 1: Optimal Booking Window
+        bw_res = resolve_booking_window(h_dna, h_d_days)
+
+        # Feature 2: Fair Price Index & Cluster Benchmarking
+        st = hotel_stars_map.get(h_name, 4)
+        c_med = cluster_medians.get(st, med_price)
+        fair_delta_pct = ((cur_p - c_med) / max(1.0, c_med)) * 100.0
+
+        if fair_delta_pct <= -15.0:
+            fair_badge = f"🔥 −{abs(fair_delta_pct):.0f}% от рынка {st}★"
+            fair_class = "fair-underpriced"
+            fair_tip = f"Цена на {abs(fair_delta_pct):.0f}% ниже медианы аналогичных {st}★ отелей ({c_med:,.0f} zł)."
+        elif fair_delta_pct >= 25.0:
+            fair_badge = f"⚠️ +{fair_delta_pct:.0f}% к рынку {st}★"
+            fair_class = "fair-overpriced"
+            fair_tip = f"Цена на {fair_delta_pct:.0f}% выше медианы аналогичных {st}★ отелей ({c_med:,.0f} zł)."
+        else:
+            fair_badge, fair_class, fair_tip = "", "", ""
+
+        # Feature 3: Hidden Gem
+        r_val = hotel_ratings_map.get(h_name, 0.0)
+        p30_tier = float(np.percentile(cluster_prices_map.get(st, prices), 30)) if cluster_prices_map.get(st) else p10_price
+        is_gem = (r_val >= 4.3 and cur_p <= p30_tier)
+        gem_badge = "💎 Скрытая жемчужина" if is_gem else ""
+        gem_tip = f"Высокий рейтинг ({r_val:g}★) при цене в нижних 30% сегмента {st}★ ({cur_p:,.0f} zł)." if is_gem else ""
+
+        if is_gem:
+            gems.append({
+                "hotel_name": h_name,
+                "price": cur_p,
+                "rating": r_val,
+                "stars": st,
+            })
+
+        # Feature 4: Glitch & Flash Drop Radar
+        is_flash = False
+        flash_badge = ""
+        flash_tip = ""
+        if hist_min > 0 and cur_p <= (hist_min * 0.85):
+            drop_below = ((hist_min - cur_p) / hist_min) * 100.0
+            is_flash = True
+            flash_badge = f"⚡ FLASH DROP (−{drop_below:.0f}%)"
+            flash_tip = f"Аномалия: цена пробила исторический минимум на {drop_below:.0f}% ({hist_min:,.0f} zł → {cur_p:,.0f} zł)!"
+            flash_drops.append({
+                "hotel_name": h_name,
+                "current_price": cur_p,
+                "historical_min": hist_min,
+                "drop_pct": round(drop_below, 1),
+            })
+
         cand_info = {
             "hotel_name": h_name,
             "current_price": cur_p,
@@ -137,18 +336,69 @@ def extract_filter_features(
             "historical_median": hist_med,
             "quantile_in_filter": round(cur_rank, 2),
             "archetype": archetype,
+            "stars": st,
+            "rating": r_val,
             "dates": str(row.get("dates", "")),
             "duration": str(row.get("duration", "")),
-            "rating": str(row.get("rating", "")),
             "offer_url": str(row.get("offer_url") or row.get("url") or ""),
+            "booking_window": bw_res,
+            "fair_price": {
+                "delta_pct": round(fair_delta_pct, 1),
+                "badge": fair_badge,
+                "class": fair_class,
+                "tip": fair_tip,
+                "cluster_median": round(c_med, 0),
+            },
+            "gem": {
+                "is_gem": is_gem,
+                "badge": gem_badge,
+                "tip": gem_tip,
+            },
+            "flash_drop": {
+                "is_flash": is_flash,
+                "badge": flash_badge,
+                "tip": flash_tip,
+            },
+            "dupe_suggestion": None,
         }
 
         if is_floor:
             floor_breakers.append(cand_info)
 
-        # Select for active candidate list if interesting
-        if is_floor or cur_rank <= 0.15 or archetype == "LATE_DUMPER":
+        if is_floor or cur_rank <= 0.15 or archetype == "LATE_DUMPER" or is_flash or is_gem:
             active_candidates.append(cand_info)
+
+        hotel_records_list.append(cand_info)
+
+    # 3. Second pass: AI Dupe (Двойник / Альтернатива) Matching for expensive hotels
+    for cand in hotel_records_list:
+        cur_p = cand["current_price"]
+        st = cand["stars"]
+        c_med = cluster_medians.get(st, med_price)
+        r_val = cand["rating"]
+
+        # Only search dupes for hotels with premium pricing
+        if cur_p >= 5000.0 or cur_p >= (c_med * 1.20):
+            dupe_candidates = [
+                other for other in hotel_records_list
+                if other["hotel_name"] != cand["hotel_name"]
+                and other["current_price"] <= (cur_p - 1000.0)
+                and other["rating"] >= max(4.3, r_val - 0.2)
+            ]
+            if dupe_candidates:
+                # Pick dupe with same star tier if possible, then highest rating, then lowest price
+                dupe_candidates.sort(key=lambda x: (abs(x["stars"] - st), -x["rating"], x["current_price"]))
+                best_dupe = dupe_candidates[0]
+                cand["dupe_suggestion"] = {
+                    "hotel_name": best_dupe["hotel_name"],
+                    "price": best_dupe["current_price"],
+                    "savings": round(cur_p - best_dupe["current_price"], 0),
+                    "savings_pln": round(cur_p - best_dupe["current_price"], 0),
+                    "rating": best_dupe["rating"],
+                    "offer_url": best_dupe["offer_url"],
+                }
+
+        all_hotel_intelligence[cand["hotel_name"]] = cand
 
     # Sort active candidates by best value / floor proximity
     active_candidates.sort(key=lambda x: (x["quantile_in_filter"], x["current_price"]))
@@ -200,6 +450,10 @@ def extract_filter_features(
         },
         "arbitrage_highlights": arbitrage_summary,
         "selected_hotel_dossiers": selected_for_ai,
+        "all_hotel_intelligence": all_hotel_intelligence,
+        "gems": gems,
+        "flash_drops": flash_drops,
+        "cluster_medians": cluster_medians,
     }
 
     return market_context
