@@ -174,7 +174,7 @@ def validate_and_normalize_filter(cfg: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def save_filter_config(normalized_cfg: Dict[str, Any]) -> Path:
-    """Saves normalized config into configs/filters/ directory."""
+    """Saves normalized config into configs/filters/ directory and ensures it is active in filters_registry_meta.json."""
     target_dir = ROOT / "configs" / "filters"
     target_dir.mkdir(parents=True, exist_ok=True)
 
@@ -183,6 +183,18 @@ def save_filter_config(normalized_cfg: Dict[str, Any]) -> Path:
 
     with target_path.open("w", encoding="utf-8") as f:
         json.dump(normalized_cfg, f, ensure_ascii=False, indent=2)
+
+    # Ensure filter is not blocked by a legacy 'deleted' or 'paused' status in filters_registry_meta.json
+    try:
+        from filter_registry import load_filters_meta, save_filters_meta
+        meta = load_filters_meta()
+        flt_id = normalized_cfg["id"]
+        if flt_id in meta.get("filters", {}):
+            meta["filters"][flt_id]["status"] = "active"
+            meta["filters"][flt_id]["updated_at"] = normalized_cfg.get("created_at") or ""
+            save_filters_meta(meta)
+    except Exception as e:
+        print(f"Warning: could not update filters_registry_meta.json: {e}", file=sys.stderr)
 
     return target_path
 
