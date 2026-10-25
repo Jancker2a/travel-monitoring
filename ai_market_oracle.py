@@ -44,22 +44,74 @@ SYSTEM_INSTRUCTION = """
    - Если до вылета больше 20 дней (например, 56 дней в декабре): это РАННЕЕ БРОНИРОВАНИЕ (early_bird / mid_term). Цены спокойные, спешить с покупкой не нужно. КАТЕГОРИЧЕСКИ ЗАПРЕЩЕНО писать «Горящие туры», «вылет через 6 дн.» или советовать брать тур прямо сейчас!
    - Термин «Горящие туры» и совет «брать срочно» допустимы ТОЛЬКО если до вылета РЕАЛЬНО осталось <= 7 дней!
    - Если is_wide_window=false (все даты в пределах 2-3 дней): НЕ дели даты на «ближайшие» и «дальние», вылет один!
-5. ПОЛНЫЙ КАТАЛОГ ВСЕХ ОТЕЛЕЙ И РАЗНООБРАЗИЕ СЕГМЕНТОВ:
-   - В поле all_hotels_catalog тебе передан ПОЛНЫЙ каталог ВСЕХ отелей этого фильтра (премиум, комфорт, эконом) без искусственных ограничений, с их реальными ценами, звездами, рейтингами и скидками.
-   - Оценивай рынок ЦЕЛИКОМ: анализируй как премиум 5★, так и комфорт, и эконом.
-   - В блоке buy_now_recommendation («Если покупать сейчас») выбирай 1-2 действительно лучших варианта с высоким рейтингом (rating >= 4.0), представляя достойные варианты из разных сегментов, а не только самый дешевый эконом.
-   - Если на рынке есть 1-2 реально выгодных предложения (сброс цены, дно сезона, жемчужина) — укажи has_worthy_deals: true, заголовок «Стоит выбрать из этих вариантов:» и перечисли их с понятным объяснением, почему брать. Обязательно передавай точную цену отеля в поле "price".
+5. БЛОК «ЕСЛИ ПОКУПАТЬ СЕЙЧАС» (buy_now_recommendation):
+   - Изучи переданный список top_candidates, flash_drops и gems.
+   - Если есть 1-2 реально выгодных предложения с высоким рейтингом (rating >= 4.0) и скидкой от 7% к норме — укажи has_worthy_deals: true, заголовок «Стоит выбрать из этих вариантов:» и выдели 1-2 отеля в top_picks с объяснением "why_buy". Обязательно передавай точную цену отеля в поле "price".
    - Если же на рынке ВСЕ варианты средние, плохие или переоценены — укажи has_worthy_deals: false, заголовок «Лучше ничего не покупать — подождите», и объясни, почему сейчас не время для покупки.
 6. СТРОГАЯ ТОЧНОСТЬ РЕЙТИНГОВ И ЦЕН (АНТИ-ГАЛЛЮЦИНАЦИЯ):
    - КАТЕГОРИЧЕСКИ ЗАПРЕЩЕНО придумывать рейтинг отеля или писать «рейтинг 4.5★», если в данных указан другой рейтинг или rating=0!
    - Указывай ТОЛЬКО реальный рейтинг из поля rating отеля (например: «рейтинг 4.2★»). Если рейтинг равен 0 или отсутствует — вообще не упоминай рейтинг.
    - Отели с рейтингом ниже 4.0 КАТЕГОРИЧЕСКИ ЗАПРЕЩЕНО называть «Жемчужиной» или рекомендовать в блоке «Стоит выбрать»!
 7. СРАВНЕНИЕ ТОЛЬКО С ПРИМЕРНО РАВНЫМИ:
-   - Не сравнивай бюджетный отель со средней ценой по всему рынку. Сравнивай отель только с его собственной историей («на 15% дешевле обычной цены этого отеля») или с равными отелями его ценового сегмента (эконом/комфорт/премиум).
+   - Не сравнивай бюджетный отель со средней ценой по всему рынку. Сравнивай отель только с его собственной историей или равными отелями его категории.
 8. СТРОГИЙ ЗАПРЕТ БРЕДОВЫХ ФРАЗ «НА 0% НИЖЕ» ИЛИ «НА 0% ВЫШЕ»:
-   - КАТЕГОРИЧЕСКИ ЗАПРЕЩЕНО писать «на 0% ниже» или «на 0% выше»! Если цена не снижена или разница меньше 7%, это обычная базовая цена: пиши «это стандартная обычная цена отеля» и ставь вердикт WAIT (🟡 ПОДОЖДАТЬ).
-   - Вердикт GOOD_PRICE (🔵 ХОРОШАЯ ЦЕНА) допустим ТОЛЬКО при реальной скидке от 7% и выше!
+   - КАТЕГОРИЧЕСКИ ЗАПРЕЩЕНО писать «на 0% ниже» или «на 0% выше»! Если цена не снижена или разница меньше 7%, это обычная базовая цена.
 9. ФОРМАТ ОТВЕТА: строго валидный JSON без markdown-разметки.
+
+ЭТАЛОННЫЕ ПРИМЕРЫ (FEW-SHOT):
+
+ПРИМЕР 1 (Раннее бронирование, вылет через 56 дней, спокойный рынок):
+Вход: min_days=56, nearest_date="20.12", median_price=6800 zł, floor_pct=10%, top_candidates=[]
+Ответ:
+{
+  "macro_briefing": {
+    "headline": "Раннее бронирование: до вылета 56 дней, рынок спокойный",
+    "market_phase": "Раннее бронирование за 56 дн.",
+    "charter_dynamics": "До рейсов почти два месяца, туроператоры держат базовые цены без резких колебаний. Средний тур стоит около 6 800 zł.",
+    "floor_status": "Только 10% отелей сейчас на локальном минимуме, рынок в спящем режиме.",
+    "strategic_directive": "Покупать тур срочно не нужно. Добавьте понравившиеся отели в «Избранное» (☆) и наблюдайте за динамикой.",
+    "buy_now_recommendation": {
+      "has_worthy_deals": false,
+      "headline": "Лучше ничего не покупать — подождите",
+      "advice": "До вылета еще много времени. Глубоких скидок нет, отели продаются по стандартным базовым тарифам.",
+      "top_picks": []
+    },
+    "key_anomalies": []
+  }
+}
+
+ПРИМЕР 2 (Срочный вылет, горящие туры за 3 дня):
+Вход: min_days=3, nearest_date="28.10", median_price=4900 zł, floor_pct=64%, top_candidates=[{"hotel_name": "Pickalbatros Aqua Park", "price": 3150, "rating": 4.6, "discount_from_median_pct": 22.0}]
+Ответ:
+{
+  "macro_briefing": {
+    "headline": "Горящие туры: до вылета 3 дня, туроператоры распродают места",
+    "market_phase": "Горящие туры за 3 дн.",
+    "charter_dynamics": "Вылет уже через 3 дня, на рейсах закрывают остатки мест со скидками до 22%. Более половины отелей (64%) упали на историческое дно цены.",
+    "floor_status": "Большинство отелей на минимальной планке сезона, рынок в фазе активного сброса.",
+    "strategic_directive": "Если готовы лететь на днях — сейчас лучший момент бронировать, места на чартерах закончатся за 24–48 часов.",
+    "buy_now_recommendation": {
+      "has_worthy_deals": true,
+      "headline": "Стоит выбрать из этих вариантов:",
+      "advice": "Бронируйте сегодня, это проверенные отели с высоким рейтингом по цене эконома.",
+      "top_picks": [
+        {
+          "hotel_name": "Pickalbatros Aqua Park",
+          "price": 3150.0,
+          "badge": "⚡ Сброс цены (−22%)",
+          "why_buy": "Цена пробила дно сезона на 22%, отличный рейтинг 4.6★ по цене эконом-сегмента."
+        }
+      ]
+    },
+    "key_anomalies": [
+      {
+        "type": "drop",
+        "title": "Сброс чартера на 28.10",
+        "text": "Резкое удешевление качественных отелей на ближайший рейс."
+      }
+    ]
+  }
+}
 """
 
 
@@ -583,16 +635,16 @@ def call_gemini_oracle(
         "analyzed_at": market_context.get("analyzed_at"),
         "market_stats": market_context.get("market_stats"),
         "floor_saturation": market_context.get("floor_saturation"),
-        "arbitrage_highlights": market_context.get("arbitrage_highlights"),
-        "gems": market_context.get("gems"),
-        "flash_drops": market_context.get("flash_drops"),
-        "all_hotels_catalog": market_context.get("all_hotels_catalog") or market_context.get("selected_hotel_dossiers"),
+        "top_candidates": market_context.get("top_candidates", []),
+        "arbitrage_highlights": market_context.get("arbitrage_highlights", []),
+        "gems": market_context.get("gems", []),
+        "flash_drops": market_context.get("flash_drops", []),
     }
 
     user_prompt = f"""
-Проанализируй сжатые метрики рынка пакетных туров и выдай понятное экспертное заключение простым языком для обычного туриста в формате JSON:
+Проанализируй сжатые метрики рынка пакетных туров направления "{market_context.get('filter_title', '')}" и выдай краткое экспертное резюме в формате JSON:
 
-ВХОДНЫЕ ДАННЫЕ РЫНКА (ВКЛЮЧАЯ ВСЕ ОТЕЛИ ФИЛЬТРА):
+ВХОДНЫЕ ДАННЫЕ РЫНКА (МАКРО-СТАТИСТИКА И ТОП-КАНДИДАТЫ):
 {json.dumps(llm_context, ensure_ascii=False, indent=2)}
 
 ТРЕБОВАНИЯ К ФОРМАТУ JSON:
@@ -608,21 +660,12 @@ def call_gemini_oracle(
       "headline": "Стоит выбрать из этих вариантов: (или: 'Лучше ничего не покупать — подождите')",
       "advice": "Короткий живой совет туристу",
       "top_picks": [
-        {{ "hotel_name": "...", "price": 1234.0, "badge": "⚡ Сброс цены / 💎 Жемчужина", "why_buy": "..." }}
+        {{ "hotel_name": "Точное имя отеля из top_candidates", "price": 1234.0, "badge": "⚡ Сброс цены / 💎 Жемчужина", "why_buy": "Краткое обоснование с цифрами" }}
       ]
     }},
     "key_anomalies": [
       {{ "type": "drop|arbitrage|overprice", "title": "...", "text": "..." }}
     ]
-  }},
-  "hotel_dossiers": {{
-    "<ИМЯ_ОТЕЛЯ>": {{
-      "verdict": "BUY_NOW | GOOD_PRICE | WAIT | OVERPRICED",
-      "badge_text": "🟢 ПОКУПАТЬ | 🔵 ХОРОШАЯ ЦЕНА | 🟡 ПОДОЖДАТЬ | 🔴 ДОРОГО",
-      "rationale": "Простое понятное объяснение с цифрами",
-      "risk_assessment": "Понятный риск: быстро ли разбирают номера",
-      "action_advice": "Четкий совет: брать сейчас или подождать"
-    }}
   }}
 }}
 Ответь ТОЛЬКО валидным JSON без markdown-оберток.
@@ -638,10 +681,12 @@ def call_gemini_oracle(
         ],
         "generationConfig": {
             "temperature": 0.2,
+            "maxOutputTokens": 4096,
             "responseMimeType": "application/json",
         }
     }
 
+    valid_result = None
     for m_name in target_models:
         url = f"https://generativelanguage.googleapis.com/v1beta/models/{m_name}:generateContent?key={api_key}"
         try:
@@ -663,14 +708,22 @@ def call_gemini_oracle(
                     result.setdefault("hotel_dossiers", result.get("dossiers", {}))
                     result["macro_briefing"]["synthesized_by"] = f"Google Gemini ({m_name})"
                     logger.info(f"✓ Gemini ({m_name}) successfully generated AI market analysis.")
-                    return enrich_oracle_report_with_smart_features(result, market_context)
+                    valid_result = result
+                    break
         except urllib.error.HTTPError as he:
             err_body = he.read().decode("utf-8", errors="replace")[:180]
             logger.warning(f"Gemini call with {m_name} failed: HTTP {he.code} - {err_body}. Trying next model/fallback...")
         except Exception as e:
             logger.warning(f"Gemini call with {m_name} failed: {e}. Trying next model/fallback...")
 
-    return None
+    if not valid_result:
+        return None
+
+    try:
+        return enrich_oracle_report_with_smart_features(valid_result, market_context)
+    except Exception as e:
+        logger.error(f"Error enriching oracle report with smart features: {e}")
+        return valid_result
 
 
 def fetch_available_openai_models(api_key: str) -> List[str]:
@@ -722,16 +775,16 @@ def call_openai_oracle(
         "analyzed_at": market_context.get("analyzed_at"),
         "market_stats": market_context.get("market_stats"),
         "floor_saturation": market_context.get("floor_saturation"),
-        "arbitrage_highlights": market_context.get("arbitrage_highlights"),
-        "gems": market_context.get("gems"),
-        "flash_drops": market_context.get("flash_drops"),
-        "all_hotels_catalog": market_context.get("all_hotels_catalog") or market_context.get("selected_hotel_dossiers"),
+        "top_candidates": market_context.get("top_candidates", []),
+        "arbitrage_highlights": market_context.get("arbitrage_highlights", []),
+        "gems": market_context.get("gems", []),
+        "flash_drops": market_context.get("flash_drops", []),
     }
 
     user_prompt = f"""
-Проанализируй сжатые метрики рынка пакетных туров и выдай понятное экспертное заключение простым языком для обычного туриста в формате JSON:
+Проанализируй сжатые метрики рынка пакетных туров направления "{market_context.get('filter_title', '')}" и выдай краткое экспертное резюме в формате JSON:
 
-ВХОДНЫЕ ДАННЫЕ РЫНКА (ВКЛЮЧАЯ ВСЕ ОТЕЛИ ФИЛЬТРА):
+ВХОДНЫЕ ДАННЫЕ РЫНКА (МАКРО-СТАТИСТИКА И ТОП-КАНДИДАТЫ):
 {json.dumps(llm_context, ensure_ascii=False, indent=2)}
 
 ТРЕБОВАНИЯ К ФОРМАТУ JSON:
@@ -747,21 +800,12 @@ def call_openai_oracle(
       "headline": "Стоит выбрать из этих вариантов: (или: 'Лучше ничего не покупать — подождите')",
       "advice": "Короткий живой совет туристу",
       "top_picks": [
-        {{ "hotel_name": "...", "price": 1234.0, "badge": "⚡ Сброс цены / 💎 Жемчужина", "why_buy": "..." }}
+        {{ "hotel_name": "Точное имя отеля из top_candidates", "price": 1234.0, "badge": "⚡ Сброс цены / 💎 Жемчужина", "why_buy": "Краткое обоснование с цифрами" }}
       ]
     }},
     "key_anomalies": [
       {{ "type": "drop|arbitrage|overprice", "title": "...", "text": "..." }}
     ]
-  }},
-  "hotel_dossiers": {{
-    "<ИМЯ_ОТЕЛЯ>": {{
-      "verdict": "BUY_NOW | GOOD_PRICE | WAIT | OVERPRICED",
-      "badge_text": "🟢 ПОКУПАТЬ | 🔵 ХОРОШАЯ ЦЕНА | 🟡 ПОДОЖДАТЬ | 🔴 ДОРОГО",
-      "rationale": "Простое понятное объяснение с цифрами",
-      "risk_assessment": "Понятный риск: быстро ли разбирают номера",
-      "action_advice": "Четкий совет: брать сейчас или подождать"
-    }}
   }}
 }}
 Ответь ТОЛЬКО валидным JSON без markdown-оберток.

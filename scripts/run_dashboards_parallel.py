@@ -131,10 +131,12 @@ def main() -> int:
 
     failed: list[str] = []
     with ProcessPoolExecutor(max_workers=jobs) as pool:
-        futures = {
-            pool.submit(_run_one, spec, log_dir): spec["output"]
-            for spec in active_specs
-        }
+        futures = {}
+        for i, spec in enumerate(active_specs):
+            if i > 0 and i < jobs:
+                # Staggered delay (2.5s) between initial concurrent starts to prevent HTTP 429 rate limit bursts
+                time.sleep(2.5)
+            futures[pool.submit(_run_one, spec, log_dir)] = spec["output"]
         for fut in as_completed(futures):
             output, code, elapsed, note = fut.result()
             if code == 0:

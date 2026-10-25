@@ -82,6 +82,27 @@ def infer_stars(hotel_name: str, row: pd.Series, dna: Optional[Dict[str, Any]] =
     return 4
 
 
+def infer_meal_plan(row: pd.Series) -> str:
+    """Infers meal plan / board type (all_inclusive, half_board, breakfast)."""
+    for col in ("catering", "board", "meal_plan", "meal"):
+        if col in row and pd.notna(row[col]):
+            val = str(row[col]).lower().strip()
+            if any(k in val for k in ("all", "ai", "все включено", "wszystko")):
+                return "all_inclusive"
+            if any(k in val for k in ("hb", "half", "полупансион", "dwa posiłki")):
+                return "half_board"
+            if any(k in val for k in ("bb", "bed", "завтрак", "śniadani")):
+                return "breakfast"
+    url_str = (str(row.get("offer_url") or "") + " " + str(row.get("url") or "")).lower()
+    if "catering=all_inclusive" in url_str:
+        return "all_inclusive"
+    if "catering=half_board" in url_str or "catering=hb" in url_str:
+        return "half_board"
+    if "catering=breakfast" in url_str or "catering=bb" in url_str:
+        return "breakfast"
+    return "all_inclusive"
+
+
 def resolve_booking_window(
     h_dna: Optional[Dict[str, Any]],
     d_days: Optional[int],
@@ -245,6 +266,8 @@ def extract_filter_features(
     # 1. Pre-calculate star clusters, price tiers, and ratings (Peer Group Benchmarking)
     hotel_stars_map: Dict[str, int] = {}
     hotel_ratings_map: Dict[str, float] = {}
+    hotel_reviews_map: Dict[str, int] = {}
+    hotel_meal_map: Dict[str, str] = {}
     hotel_tier_map: Dict[str, str] = {}
     star_prices_map: Dict[int, List[float]] = {4: [], 5: []}
     peer_cohort_prices: Dict[Tuple[int, str], List[float]] = {}
@@ -265,6 +288,7 @@ def extract_filter_features(
         st = infer_stars(hn, row, dna_hotels.get(hn))
         hotel_stars_map[hn] = st
         star_prices_map.setdefault(st, []).append(p)
+        hotel_meal_map[hn] = infer_meal_plan(row)
 
         # Classify hotel into comparable price tier
         if p <= tier_p33:
@@ -288,7 +312,19 @@ def extract_filter_features(
                     pass
         hotel_ratings_map[hn] = r_val
 
-    # Ensure complete rating coverage from all historical rows of df
+        rev_val = 0
+        for rev_col in ("ta_review_count", "review_count", "reviews", "ta_reviews"):
+            if rev_col in row and pd.notna(row[rev_col]):
+                try:
+                    c_rev = re.sub(r"[^\d]", "", str(row[rev_col]))
+                    if c_rev:
+                        rev_val = int(c_rev)
+                        break
+                except (ValueError, TypeError):
+                    pass
+        hotel_reviews_map[hn] = rev_val
+
+    # Ensure complete rating and review count coverage from all historical rows of df
     for r_col in ("ta_rating", "rating", "hotel_rating"):
         if r_col in df.columns:
             for hn, val in df.dropna(subset=[r_col]).groupby("hotel_name")[r_col].last().items():
@@ -298,6 +334,17 @@ def extract_filter_features(
                         if v > 5.0:
                             v = round(v / 2.0, 1)
                         hotel_ratings_map[hn] = v
+                    except (ValueError, TypeError):
+                        pass
+
+    for rev_col in ("ta_review_count", "review_count", "reviews", "ta_reviews"):
+        if rev_col in df.columns:
+            for hn, val in df.dropna(subset=[rev_col]).groupby("hotel_name")[rev_col].last().items():
+                if hn not in hotel_reviews_map or hotel_reviews_map[hn] <= 0:
+                    try:
+                        c_rev = re.sub(r"[^\d]", "", str(val))
+                        if c_rev:
+                            hotel_reviews_map[hn] = int(c_rev)
                     except (ValueError, TypeError):
                         pass
 
@@ -407,14 +454,19 @@ def extract_filter_features(
             fair_badge, fair_class, fair_tip = "", "", ""
 
         # Feature 3: Hidden Gem
-        # A true gem is a high quality hotel (rating >= 4.4) priced in the economy or lower comfort tier
+        # A true gem is a high quality hotel (rating >= 4.4) with confirmed reviews (>=30) priced in economy/comfort tier
+        rev_count = hotel_reviews_map.get(h_name, 0)
+        has_adequate_reviews = (rev_count >= 30 or rev_count == 0)
+        meal_type = hotel_meal_map.get(h_name, "all_inclusive")
+
         is_gem = (
             r_val >= 4.4
+            and has_adequate_reviews
             and cur_p <= (tier_p33 * 1.08)
             and cur_p <= (hist_med * 1.03)
         )
         gem_badge = "💎 Скрытая жемчужина" if is_gem else ""
-        gem_tip = f"Высокий рейтинг ({r_val:g}★) при цене в бюджетном сегменте {st}★ ({cur_p:,.0f} zł)." if is_gem else ""
+        gem_tip = f"Высокий рейтинг ({r_val:g}★{f', {rev_count} отз.' if rev_count else ''}) при цене в бюджетном сегменте {st}★ ({cur_p:,.0f} zł)." if is_gem else ""
 
         if is_gem:
             gems.append({
@@ -422,6 +474,8 @@ def extract_filter_features(
                 "price": cur_p,
                 "rating": r_val,
                 "stars": st,
+                "review_count": rev_count,
+                "meal_plan": meal_type,
             })
 
         # Feature 4: Glitch & Flash Drop Radar
@@ -560,6 +614,27 @@ def extract_filter_features(
                 "airport_de": m.get("airport_de"),
             })
 
+    # 4. Filter top candidates for Executive LLM Briefing (~6 candidates max)
+    top_candidates = []
+    # Sort active_candidates by catalyst priority
+    for cand in active_candidates[:8]:
+        cur_p = cand["current_price"]
+        h_med = cand["historical_median"]
+        discount_pct = round(((h_med - cur_p) / max(1.0, h_med)) * 100.0, 1) if h_med > 0 else 0.0
+        top_candidates.append({
+            "hotel_name": cand["hotel_name"],
+            "price": cur_p,
+            "stars": cand["stars"],
+            "rating": cand["rating"],
+            "review_count": cand.get("review_count", 0),
+            "meal_plan": cand.get("meal_plan", "all_inclusive"),
+            "discount_from_median_pct": discount_pct,
+            "fair_price_badge": cand["fair_price"].get("badge", ""),
+            "flash_drop_badge": cand["flash_drop"].get("badge", ""),
+            "gem_badge": cand["gem"].get("badge", ""),
+            "booking_window": cand["booking_window"].get("optimal_window", ""),
+        })
+
     # Assemble compacted market context
     market_context = {
         "filter_id": filter_id or os.path.basename(os.path.dirname(prices_csv_path)),
@@ -590,6 +665,7 @@ def extract_filter_features(
             "floor_breaker_pct": round((len(floor_breakers) / max(1, len(latest_per_hotel))) * 100.0, 1),
             "sample_floor_hotels": [f["hotel_name"] for f in floor_breakers[:6]],
         },
+        "top_candidates": top_candidates,
         "arbitrage_highlights": arbitrage_summary,
         "all_hotels_catalog": all_hotels_catalog,
         "selected_hotel_dossiers": all_hotels_catalog,

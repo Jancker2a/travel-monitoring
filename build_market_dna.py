@@ -217,7 +217,7 @@ def build_market_dna(data_dirs: Optional[List[str]] = None) -> Dict[str, Any]:
     # Clean prices
     combined["price"] = pd.to_numeric(combined["price"], errors="coerce")
     combined = combined.dropna(subset=["price", "hotel_name"])
-    combined = combined[combined["price"] > 0]
+    combined = combined[combined["price"] >= 1000.0]
 
     # Calculate D-Minus (high-performance batch parsing with lru_cache)
     dates_arr = combined["dates"].fillna("").astype(str).values
