@@ -641,8 +641,11 @@ def call_gemini_oracle(
         "flash_drops": market_context.get("flash_drops", []),
     }
 
+    is_deep = os.getenv("AI_ANALYSIS_MODE", "standard").lower() == "full_deep"
+    deep_note = "\nРЕЖИМ: FULL DEEP (полный глубокий анализ). Дай развернутый экспертный комментарий по рынку и выдели до 2-3 лучших отелей для покупки." if is_deep else ""
+
     user_prompt = f"""
-Проанализируй сжатые метрики рынка пакетных туров направления "{market_context.get('filter_title', '')}" и выдай краткое экспертное резюме в формате JSON:
+Проанализируй сжатые метрики рынка пакетных туров направления "{market_context.get('filter_title', '')}" и выдай краткое экспертное резюме в формате JSON:{deep_note}
 
 ВХОДНЫЕ ДАННЫЕ РЫНКА (МАКРО-СТАТИСТИКА И ТОП-КАНДИДАТЫ):
 {json.dumps(llm_context, ensure_ascii=False, indent=2)}
@@ -781,8 +784,11 @@ def call_openai_oracle(
         "flash_drops": market_context.get("flash_drops", []),
     }
 
+    is_deep = os.getenv("AI_ANALYSIS_MODE", "standard").lower() == "full_deep"
+    deep_note = "\nРЕЖИМ: FULL DEEP (полный глубокий анализ). Дай развернутый экспертный комментарий по рынку и выдели до 2-3 лучших отелей для покупки." if is_deep else ""
+
     user_prompt = f"""
-Проанализируй сжатые метрики рынка пакетных туров направления "{market_context.get('filter_title', '')}" и выдай краткое экспертное резюме в формате JSON:
+Проанализируй сжатые метрики рынка пакетных туров направления "{market_context.get('filter_title', '')}" и выдай краткое экспертное резюме в формате JSON:{deep_note}
 
 ВХОДНЫЕ ДАННЫЕ РЫНКА (МАКРО-СТАТИСТИКА И ТОП-КАНДИДАТЫ):
 {json.dumps(llm_context, ensure_ascii=False, indent=2)}
