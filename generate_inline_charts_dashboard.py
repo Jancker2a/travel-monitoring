@@ -81,7 +81,11 @@ except ImportError:
     synthesize_market_oracle = None
 
 
-def render_ai_market_briefing_html(oracle_report: Optional[Dict[str, Any]], filter_title: str = "") -> str:
+def render_ai_market_briefing_html(
+    oracle_report: Optional[Dict[str, Any]],
+    filter_title: str = "",
+    hotel_meta_by_name: Optional[Dict[str, Dict[str, Any]]] = None,
+) -> str:
     """Renders the Executive AI Market Intelligence Briefing fold."""
     if not oracle_report or "macro_briefing" not in oracle_report:
         return ""
@@ -120,6 +124,85 @@ def render_ai_market_briefing_html(oracle_report: Optional[Dict[str, Any]], filt
     if display_title:
         filter_info_html = f'<span class="ai-filter-title">{display_title}</span> • '
 
+    # Feature: «Если покупать сейчас, то стоит выбрать из...»
+    buy_rec = macro.get("buy_now_recommendation", {})
+    buy_now_html = ""
+    if buy_rec:
+        has_deals = buy_rec.get("has_worthy_deals", False)
+        rec_headline = html_lib.escape(str(buy_rec.get("headline", "")))
+        rec_advice = html_lib.escape(str(buy_rec.get("advice", "")))
+        rec_status = html_lib.escape(str(buy_rec.get("status_badge", "")))
+        top_picks = buy_rec.get("top_picks", [])
+
+        if has_deals and top_picks:
+            picks_items_html = ""
+            for p in top_picks:
+                h_name = str(p.get("hotel_name", ""))
+                h_price = float(p.get("price", 0.0) or 0.0)
+                h_badge = html_lib.escape(str(p.get("badge", "🟢 Выгодно")))
+                h_why = html_lib.escape(str(p.get("why_buy", "")))
+
+                meta = (hotel_meta_by_name or {}).get(h_name, {})
+                offer_url = meta.get("offer_url") or p.get("offer_url", "")
+                chart_href = meta.get("chart_href", "")
+
+                chart_btn = f'<a href="{html_lib.escape(chart_href, quote=True)}" target="_blank" class="ai-pick-btn ai-pick-btn--chart">График</a>' if chart_href else ''
+                offer_btn = f'<a href="{html_lib.escape(offer_url, quote=True)}" target="_blank" class="ai-pick-btn ai-pick-btn--offer">Открыть оффер ↗</a>' if offer_url else ''
+
+                picks_items_html += f"""
+                    <div class="ai-pick-card">
+                        <div class="ai-pick-header">
+                            <span class="ai-pick-name">{html_lib.escape(h_name)}</span>
+                            <span class="ai-pick-price">{h_price:,.0f} zł</span>
+                        </div>
+                        <div class="ai-pick-meta">
+                            <span class="ai-pick-badge">{h_badge}</span>
+                            <span class="ai-pick-why">{h_why}</span>
+                        </div>
+                        <div class="ai-pick-actions">
+                            {chart_btn}
+                            {offer_btn}
+                        </div>
+                    </div>
+                """
+
+            buy_now_html = f"""
+                <div class="ai-buy-now-box ai-buy-now--active">
+                    <div class="ai-buy-now-header">
+                        <div class="ai-buy-now-title-group">
+                            <span class="ai-buy-now-icon">🛒</span>
+                            <div class="ai-buy-now-titles">
+                                <span class="ai-buy-now-kicker">Если покупать сейчас:</span>
+                                <strong class="ai-buy-now-heading">{rec_headline}</strong>
+                            </div>
+                        </div>
+                        <span class="ai-buy-now-pill pill--active">{rec_status or "🟢 ЕСТЬ ВЫГОДНЫЕ ВАРИАНТЫ"}</span>
+                    </div>
+                    {f'<div class="ai-buy-now-advice">{rec_advice}</div>' if rec_advice else ''}
+                    <div class="ai-picks-grid">
+                        {picks_items_html}
+                    </div>
+                </div>
+            """
+        else:
+            buy_now_html = f"""
+                <div class="ai-buy-now-box ai-buy-now--wait">
+                    <div class="ai-buy-now-header">
+                        <div class="ai-buy-now-title-group">
+                            <span class="ai-buy-now-icon">✋</span>
+                            <div class="ai-buy-now-titles">
+                                <span class="ai-buy-now-kicker">Если покупать сейчас:</span>
+                                <strong class="ai-buy-now-heading">{rec_headline or "Лучше ничего не покупать — подождите"}</strong>
+                            </div>
+                        </div>
+                        <span class="ai-buy-now-pill pill--wait">{rec_status or "⏳ ВЫГОДНЫХ СДЕЛОК НЕТ"}</span>
+                    </div>
+                    <div class="ai-buy-now-advice">
+                        {rec_advice or "Сейчас на рынке нет действительно выгодных предложений: отели продаются по базовым или завышенным ценам. Спешить с бронированием нет смысла — сохраните отели в «Избранное» (☆) и подождите приближения вылета (за 7–10 дней туроператоры обычно начинают снижать цены)."}
+                    </div>
+                </div>
+            """
+
     return f"""
         <!-- --- AI Market Intelligence Briefing (Executive Dashboard Fold) --- -->
         <details class="dashboard-fold ai-oracle-fold" id="aiOracleFold" open>
@@ -156,6 +239,7 @@ def render_ai_market_briefing_html(oracle_report: Optional[Dict[str, Any]], filt
                         <div class="ai-card-body-green">{directive}</div>
                     </div>
                 </div>
+                {buy_now_html}
                 {f'<div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem;">{anomalies_html}</div>' if anomalies_html else ''}
             </div>
         </details>
@@ -179,18 +263,170 @@ TRIPADVISOR_HEADER_ICON_HTML = (
 
 
 def _parse_ta_rating_value(value: Any) -> Optional[float]:
+    """Parse rating value into a float between 1.0 and 5.0.
+
+    Handles Polish comma formats ("4,5"), slashes ("4.5/5"),
+    10-point scales ("9.0" -> 4.5), and empty placeholders ("—", "None", "nan").
+    """
+    if value is None or pd.isna(value):
+        return None
+    val_str = str(value).strip().replace(',', '.')
+    if not val_str or val_str in ('—', 'None', 'nan', 'null', '0', '0.0'):
+        return None
+    m = re.search(r'\b([1-5](?:\.\d+)?)\b', val_str)
+    if m:
+        try:
+            rating = float(m.group(1))
+            if 0 < rating <= 5.0:
+                return rating
+        except (TypeError, ValueError):
+            pass
     try:
-        rating = float(value)
+        rating = float(val_str)
+        if 5.0 < rating <= 10.0:
+            rating = rating / 2.0
+        return rating if 0 < rating <= 5.0 else None
     except (TypeError, ValueError):
         return None
-    return rating if rating > 0 else None
 
 
 def _parse_ta_review_count(value: Any) -> int:
-    try:
-        return max(0, int(float(value)))
-    except (TypeError, ValueError):
+    """Parse review count into a non-negative integer.
+
+    Handles numbers with spaces ("1 250"), textual counts ("731 opinii"),
+    and empty placeholders.
+    """
+    if value is None or pd.isna(value):
         return 0
+    val_str = str(value).strip().replace('\xa0', '').replace(' ', '')
+    if not val_str or val_str in ('—', 'None', 'nan', 'null'):
+        return 0
+    m = re.search(r'(\d+)', val_str)
+    if m:
+        try:
+            return max(0, int(m.group(1)))
+        except (TypeError, ValueError):
+            return 0
+    return 0
+
+
+def _build_hotel_ta_cache(df: pd.DataFrame) -> Dict[str, Dict[str, Any]]:
+    """Builds a lookup {hotel_name: {'ta_rating': float, 'ta_review_count': int, 'ta_source': str}}
+    from historical data in df so hotels don't lose their rating if the latest scrape row had empty rating.
+    """
+    if df.empty or 'hotel_name' not in df.columns:
+        return {}
+    cache: Dict[str, Dict[str, Any]] = {}
+    rating_cols = [c for c in ('ta_rating', 'rating', 'hotel_rating') if c in df.columns]
+    review_cols = [c for c in ('ta_review_count', 'review_count', 'reviews') if c in df.columns]
+    source_cols = [c for c in ('ta_source', 'source') if c in df.columns]
+
+    if not rating_cols:
+        return {}
+
+    work_df = df
+    if 'scraped_at_display' in df.columns:
+        work_df = df.sort_values('scraped_at_display')
+    elif 'scraped_at' in df.columns:
+        work_df = df.sort_values('scraped_at')
+
+    for hotel_name, grp in work_df.groupby('hotel_name', sort=False):
+        found_rating = None
+        for col in rating_cols:
+            for val in reversed(grp[col].tolist()):
+                parsed = _parse_ta_rating_value(val)
+                if parsed is not None:
+                    found_rating = parsed
+                    break
+            if found_rating is not None:
+                break
+
+        found_reviews = 0
+        for col in review_cols:
+            for val in reversed(grp[col].tolist()):
+                parsed = _parse_ta_review_count(val)
+                if parsed > 0:
+                    found_reviews = parsed
+                    break
+            if found_reviews > 0:
+                break
+
+        found_source = ""
+        for col in source_cols:
+            for val in reversed(grp[col].tolist()):
+                if pd.notna(val) and str(val).strip():
+                    found_source = str(val).strip()
+                    break
+            if found_source:
+                break
+
+        if found_rating is not None:
+            cache[hotel_name] = {
+                'ta_rating': found_rating,
+                'ta_review_count': found_reviews,
+                'ta_source': found_source or 'tripadvisor',
+            }
+    return cache
+
+
+def _resolve_row_ta(
+    last: Any,
+    grp: Optional[pd.DataFrame],
+    hotel_ta_cache: Dict[str, Dict[str, Any]],
+    hotel_name: str,
+) -> Tuple[Optional[float], int, str]:
+    """Resolves TripAdvisor rating, review count, and source with fallback to grp, other cols, and historical cache."""
+    ta_rating = None
+    for col in ('ta_rating', 'rating', 'hotel_rating'):
+        if hasattr(last, '__contains__') and col in last:
+            ta_rating = _parse_ta_rating_value(last.get(col))
+            if ta_rating is not None:
+                break
+
+    ta_reviews = 0
+    for col in ('ta_review_count', 'review_count', 'reviews'):
+        if hasattr(last, '__contains__') and col in last:
+            ta_reviews = _parse_ta_review_count(last.get(col))
+            if ta_reviews > 0:
+                break
+
+    ta_source = str(last.get('ta_source') or '').strip() if hasattr(last, 'get') else ''
+
+    if grp is not None and not grp.empty:
+        if ta_rating is None:
+            for col in ('ta_rating', 'rating', 'hotel_rating'):
+                if col in grp.columns:
+                    for prev_val in reversed(list(grp[col])):
+                        parsed = _parse_ta_rating_value(prev_val)
+                        if parsed is not None:
+                            ta_rating = parsed
+                            break
+                    if ta_rating is not None:
+                        break
+        if ta_reviews == 0:
+            for col in ('ta_review_count', 'review_count', 'reviews'):
+                if col in grp.columns:
+                    for prev_val in reversed(list(grp[col])):
+                        parsed = _parse_ta_review_count(prev_val)
+                        if parsed > 0:
+                            ta_reviews = parsed
+                            break
+                    if ta_reviews > 0:
+                        break
+
+    cached = hotel_ta_cache.get(hotel_name) if hotel_ta_cache else None
+    if cached:
+        if ta_rating is None:
+            ta_rating = cached.get('ta_rating')
+        if ta_reviews == 0:
+            ta_reviews = cached.get('ta_review_count', 0)
+        if not ta_source:
+            ta_source = cached.get('ta_source', 'tripadvisor')
+
+    if not ta_source and ta_rating is not None:
+        ta_source = 'tripadvisor'
+
+    return ta_rating, ta_reviews, ta_source
 
 
 def _resolve_listing_url_for_backfill(
@@ -2617,6 +2853,7 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
     full_latest_run_slice = _last_run_slice(df)
 
     df_sorted_all = latest_run_slice.sort_values(group_cols + ['scraped_at_display'])
+    hotel_ta_cache = _build_hotel_ta_cache(df)
     latest_rows = []
     skipped_above_ceiling = 0
     if ceiling_val is not None and not full_latest_run_slice.empty:
@@ -2635,6 +2872,10 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
                     offer_url_val = prev_url
                     break
 
+        ta_rating_val, ta_reviews_val, ta_source_val = _resolve_row_ta(
+            last, grp, hotel_ta_cache, hotel_name
+        )
+
         latest_rows.append({
             'hotel_name': hotel_name,
             'duration_bucket': bucket,
@@ -2647,9 +2888,9 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             'from_airport': last.get('from_airport', None),
             'offer_url': offer_url_val,
             'image_url': last.get('image_url', None),
-            'ta_rating': last.get('ta_rating', ''),
-            'ta_review_count': last.get('ta_review_count', ''),
-            'ta_source': last.get('ta_source', ''),
+            'ta_rating': ta_rating_val if ta_rating_val is not None else '',
+            'ta_review_count': ta_reviews_val if ta_reviews_val > 0 else '',
+            'ta_source': ta_source_val,
             'departure_date': last.get('departure_date', None),
             'departure_key': last.get('departure_key', None),
         })
@@ -2666,6 +2907,16 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         ])
     # Актуальная цена для таблицы — только последний ран; дельты — vs вся df_canonical.
     table_prices = {row['row_id']: float(row['price']) for row in latest_rows}
+
+    arrival_hub_by_hotel = {}
+    arrival_hub_labels = set()
+    for _, _hotel_row in all_hotels.iterrows():
+        _path = parse_offer_path(str(_hotel_row.get("offer_url") or ""))
+        _hub_label = arrival_hub_label(_path.get("country"), _path.get("region"))
+        _hotel_key = str(_hotel_row.get("row_id") or _hotel_row.get("hotel_name") or "")
+        arrival_hub_by_hotel[_hotel_key] = _hub_label
+        if _hub_label and _hub_label != "—":
+            arrival_hub_labels.add(_hub_label)
 
     total_offers = len(df_canonical)
     unique_hotels = int(df_canonical['hotel_name'].nunique()) if not df_canonical.empty else 0
@@ -3661,6 +3912,10 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             "booking_window_badge_html": booking_window_badge_html,
             "gem_badge_html": gem_badge_html,
             "dupe_html": card_dupe_html,
+            "ta_rating": hotel.get('ta_rating', ''),
+            "ta_review_count": hotel.get('ta_review_count', ''),
+            "ta_data_attr": f"{_parse_ta_rating_value(hotel.get('ta_rating', '')):.2f}" if _parse_ta_rating_value(hotel.get('ta_rating', '')) is not None else "-1",
+            "region": html_lib.escape(str(arrival_hub_by_hotel.get(row_id, '')), quote=True),
         })
 
     hotel_meta_by_name = {c["hotel_name"]: c for c in hotel_cards}
@@ -5295,6 +5550,208 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         }}
         .ai-anomaly-tag strong {{
             color: #7e22ce;
+        }}
+
+        /* Feature: Если покупать сейчас */
+        .ai-buy-now-box {{
+            margin-top: 0.85rem;
+            border-radius: 12px;
+            padding: 1rem 1.15rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            transition: all 0.2s ease;
+        }}
+        .ai-buy-now--active {{
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(5, 150, 105, 0.03) 100%);
+            border: 1px solid rgba(16, 185, 129, 0.35);
+            border-left: 4px solid #10b981;
+        }}
+        .ai-buy-now--wait {{
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.08) 0%, rgba(217, 119, 6, 0.03) 100%);
+            border: 1px solid rgba(245, 158, 11, 0.35);
+            border-left: 4px solid #f59e0b;
+        }}
+        .ai-buy-now-header {{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }}
+        .ai-buy-now-title-group {{
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+        }}
+        .ai-buy-now-icon {{
+            font-size: 1.35rem;
+            line-height: 1;
+        }}
+        .ai-buy-now-titles {{
+            display: flex;
+            flex-direction: column;
+            gap: 0.15rem;
+        }}
+        .ai-buy-now-kicker {{
+            font-size: 0.76rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #475569;
+        }}
+        .ai-buy-now--active .ai-buy-now-kicker {{
+            color: #047857;
+        }}
+        .ai-buy-now--wait .ai-buy-now-kicker {{
+            color: #b45309;
+        }}
+        .ai-buy-now-heading {{
+            font-size: 1rem;
+            font-weight: 800;
+            color: #0f172a;
+        }}
+        .ai-buy-now-pill {{
+            font-size: 0.72rem;
+            font-weight: 800;
+            padding: 0.25rem 0.6rem;
+            border-radius: 9999px;
+            letter-spacing: 0.03em;
+        }}
+        .ai-buy-now-pill.pill--active {{
+            background: #d1fae5;
+            color: #065f46;
+            border: 1px solid #a7f3d0;
+        }}
+        .ai-buy-now-pill.pill--wait {{
+            background: #fef3c7;
+            color: #92400e;
+            border: 1px solid #fde68a;
+        }}
+        .ai-buy-now-advice {{
+            font-size: 0.88rem;
+            line-height: 1.5;
+            color: #334155;
+        }}
+        .ai-picks-grid {{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 0.75rem;
+        }}
+        .ai-pick-card {{
+            background: #ffffff;
+            border: 1px solid rgba(16, 185, 129, 0.25);
+            border-radius: 10px;
+            padding: 0.75rem 0.9rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.45rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+        }}
+        .ai-pick-header {{
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 0.5rem;
+        }}
+        .ai-pick-name {{
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #0f172a;
+            line-height: 1.3;
+        }}
+        .ai-pick-price {{
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #047857;
+            white-space: nowrap;
+        }}
+        .ai-pick-meta {{
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            font-size: 0.82rem;
+        }}
+        .ai-pick-badge {{
+            background: #ecfdf5;
+            border: 1px solid #a7f3d0;
+            color: #065f46;
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 0.15rem 0.45rem;
+            border-radius: 6px;
+            white-space: nowrap;
+        }}
+        .ai-pick-why {{
+            color: #475569;
+            font-size: 0.82rem;
+            line-height: 1.35;
+        }}
+        .ai-pick-actions {{
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.25rem;
+        }}
+        .ai-pick-btn {{
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 0.3rem 0.65rem;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.15s ease;
+            display: inline-flex;
+            align-items: center;
+        }}
+        .ai-pick-btn--chart {{
+            background: #f1f5f9;
+            color: #334155;
+            border: 1px solid #cbd5e1;
+        }}
+        .ai-pick-btn--chart:hover {{
+            background: #e2e8f0;
+        }}
+        .ai-pick-btn--offer {{
+            background: #10b981;
+            color: #ffffff;
+            border: 1px solid #059669;
+        }}
+        .ai-pick-btn--offer:hover {{
+            background: #059669;
+        }}
+
+        /* Dark Theme Support for Buy Now Recommendation */
+        .dark-theme .ai-buy-now--active {{
+            background: rgba(16, 185, 129, 0.12);
+            border-color: rgba(16, 185, 129, 0.4);
+        }}
+        .dark-theme .ai-buy-now--wait {{
+            background: rgba(245, 158, 11, 0.12);
+            border-color: rgba(245, 158, 11, 0.4);
+        }}
+        .dark-theme .ai-buy-now-heading {{
+            color: #f1f5f9;
+        }}
+        .dark-theme .ai-buy-now-advice {{
+            color: #cbd5e1;
+        }}
+        .dark-theme .ai-pick-card {{
+            background: #1e293b;
+            border-color: rgba(255, 255, 255, 0.1);
+        }}
+        .dark-theme .ai-pick-name {{
+            color: #f8fafc;
+        }}
+        .dark-theme .ai-pick-price {{
+            color: #34d399;
+        }}
+        .dark-theme .ai-pick-why {{
+            color: #94a3b8;
+        }}
+        .dark-theme .ai-pick-btn--chart {{
+            background: #334155;
+            color: #e2e8f0;
+            border-color: #475569;
         }}
 
         /* Dark Theme Support for AI Oracle */
@@ -9524,7 +9981,7 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         ) if c["image_url"] else '<div>Фото отеля</div>'
         offer_btn = f'<a class="card-btn" href="{html_lib.escape(c["offer_url"], quote=True)}" target="_blank">Открыть оффер</a>' if c["offer_url"] else '<span class="card-btn" style="opacity:.6;">Оффер недоступен</span>'
         card_article = f"""
-            <article class="hotel-card" data-duration-bucket="{html_lib.escape(c.get('duration_bucket', ''), quote=True)}" data-departure-date="{html_lib.escape(c.get('departure_date', ''), quote=True)}" data-departure-key="{html_lib.escape(c.get('departure_key', ''), quote=True)}">
+            <article class="hotel-card" data-duration-bucket="{html_lib.escape(c.get('duration_bucket', ''), quote=True)}" data-departure-date="{html_lib.escape(c.get('departure_date', ''), quote=True)}" data-departure-key="{html_lib.escape(c.get('departure_key', ''), quote=True)}" data-ta-rating="{c.get('ta_data_attr', '-1')}" data-region="{c.get('region', '')}">
                 <div class="hotel-card-img">{img_html}<button class="watchlist-star-btn card-star" data-hotel-name="{html_lib.escape(c['hotel_name'], quote=True)}" title="Добавить в избранное">☆</button></div>
                 <div class="hotel-card-body">
                     <h4 class="hotel-card-title">{c["hotel_name_html"]}</h4>
@@ -9727,7 +10184,20 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         ),
     ])
 
-    ai_briefing_html = render_ai_market_briefing_html(oracle_report, filter_title=title)
+    hotel_meta_by_name = {}
+    for _, _h_row in all_hotels.iterrows():
+        _hn = str(_h_row.get("hotel_name", ""))
+        if _hn and _hn not in hotel_meta_by_name:
+            hotel_meta_by_name[_hn] = {
+                "offer_url": str(_h_row.get("offer_url") or _h_row.get("url") or ""),
+                "chart_href": f"hotel-charts/{_filter_data_id}/{slugify(_hn)}.html",
+            }
+
+    ai_briefing_html = render_ai_market_briefing_html(
+        oracle_report,
+        filter_title=title,
+        hotel_meta_by_name=hotel_meta_by_name,
+    )
 
     # 1. График ТОП-10 дешёвых предложений (всегда виден на главной странице)
     html_template += f"""
@@ -10928,6 +11398,12 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         const column = currentSort.column;
         const aVal = normalizeSortValue(a, column);
         const bVal = normalizeSortValue(b, column);
+        if (column === 'ta') {
+          if (aVal === -1 && bVal === -1) return 0;
+          if (aVal === -1) return 1;
+          if (bVal === -1) return -1;
+          return currentSort.direction === 'asc' ? aVal - bVal : bVal - aVal;
+        }
         let cmp;
         if (typeof aVal === 'string' || typeof bVal === 'string') {
           cmp = String(aVal).localeCompare(String(bVal));
@@ -10984,7 +11460,7 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         if (currentSort.column === column) {
           currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
         } else {
-          currentSort.direction = 'asc';
+          currentSort.direction = (column === 'ta' || column === 'deal') ? 'desc' : 'asc';
         }
         currentSort.column = column;
         applyTableSort();

@@ -22,6 +22,7 @@ import logging
 import math
 import os
 import re
+import functools
 from dataclasses import asdict, dataclass
 from datetime import date, datetime
 from typing import Any, Dict, List, Optional, Set, Tuple
@@ -35,6 +36,7 @@ logger = logging.getLogger("market_dna")
 DEFAULT_OUTPUT_FILE = "market_dna_profile.json"
 
 
+@functools.lru_cache(maxsize=50000)
 def parse_departure_date(dates_str: str) -> Optional[date]:
     """Extracts first departure date from dates string (e.g. '06.06.2026 - 13.06.2026')."""
     if not dates_str or not isinstance(dates_str, str):
@@ -55,6 +57,7 @@ def parse_departure_date(dates_str: str) -> Optional[date]:
     return None
 
 
+@functools.lru_cache(maxsize=50000)
 def parse_scraped_date(scraped_at_val: Any) -> Optional[date]:
     """Parses scraped_at timestamp to date."""
     if not scraped_at_val:
@@ -69,6 +72,7 @@ def parse_scraped_date(scraped_at_val: Any) -> Optional[date]:
     return None
 
 
+@functools.lru_cache(maxsize=50000)
 def extract_operator_from_url(url: Any) -> Optional[str]:
     """Extracts operator code from offer_url (e.g. operator=OREX, operator=CORAL)."""
     if not url or not isinstance(url, str):
@@ -79,6 +83,7 @@ def extract_operator_from_url(url: Any) -> Optional[str]:
     return None
 
 
+@functools.lru_cache(maxsize=500)
 def get_d_bucket(days: Optional[int]) -> str:
     """Classifies days-to-departure into yield management phases."""
     if days is None:
@@ -169,9 +174,13 @@ def analyze_hotel_group(name: str, group: pd.DataFrame) -> Optional[HotelDNA]:
 
 
 def build_market_dna(data_dirs: Optional[List[str]] = None) -> Dict[str, Any]:
-    """Scans all available CSV historical runs and compiles Market DNA."""
+    """Scans historical CSV files and compiles Market DNA."""
     if not data_dirs:
-        data_dirs = ["data_runs", "data/filters"]
+        # Prioritize cumulative filter files (data/filters) to avoid scanning hundreds of raw run snapshots in data_runs
+        if os.path.exists("data/filters") and glob.glob("data/filters/**/*.csv", recursive=True):
+            data_dirs = ["data/filters"]
+        else:
+            data_dirs = ["data_runs", "data/filters"]
 
     csv_files: List[str] = []
     for d in data_dirs:
@@ -210,18 +219,19 @@ def build_market_dna(data_dirs: Optional[List[str]] = None) -> Dict[str, Any]:
     combined = combined.dropna(subset=["price", "hotel_name"])
     combined = combined[combined["price"] > 0]
 
-    # Calculate D-Minus
-    dep_dates: List[Optional[date]] = []
-    scrape_dates: List[Optional[date]] = []
+    # Calculate D-Minus (high-performance batch parsing with lru_cache)
+    dates_arr = combined["dates"].fillna("").astype(str).values
+    scraped_arr = combined["scraped_at"].fillna("").astype(str).values
+    url_arr = (combined.get("offer_url", pd.Series("", index=combined.index)).fillna("").astype(str) + "&" +
+               combined.get("url", pd.Series("", index=combined.index)).fillna("").astype(str)).values
+
+    dep_dates = [parse_departure_date(d) for d in dates_arr]
+    today = date.today()
+    scr_dates = [parse_scraped_date(s) or today for s in scraped_arr]
+
     d_days: List[Optional[int]] = []
     d_buckets: List[str] = []
-    operators: List[Optional[str]] = []
-
-    for _, row in combined.iterrows():
-        dep_d = parse_departure_date(str(row.get("dates", "")))
-        scr_d = parse_scraped_date(row.get("scraped_at")) or date.today()
-        dep_dates.append(dep_d)
-        scrape_dates.append(scr_d)
+    for dep_d, scr_d in zip(dep_dates, scr_dates):
         if dep_d and scr_d:
             delta = (dep_d - scr_d).days
             d_days.append(delta)
@@ -229,9 +239,8 @@ def build_market_dna(data_dirs: Optional[List[str]] = None) -> Dict[str, Any]:
         else:
             d_days.append(None)
             d_buckets.append("unknown")
-        
-        op = extract_operator_from_url(row.get("offer_url") or row.get("url"))
-        operators.append(op)
+
+    operators = [extract_operator_from_url(u) for u in url_arr]
 
     combined["d_minus"] = d_days
     combined["d_bucket"] = d_buckets

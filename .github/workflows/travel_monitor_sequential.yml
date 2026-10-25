@@ -118,9 +118,19 @@ jobs:
           python scripts/run_germany_monitors.py || echo "⚠️ German tour monitoring completed with warning (non-critical)"
           echo "✅ German tour monitoring completed"
 
-      - name: Build or Update Market DNA Profile
+      - name: Restore Market DNA Profile Cache
+        id: cache-market-dna
+        uses: actions/cache@v4
+        with:
+          path: market_dna_profile.json
+          key: market-dna-${{ hashFiles('data/filters/**/travel_prices.csv') }}
+          restore-keys: |
+            market-dna-
+
+      - name: Build Market DNA Profile (if cache missed)
+        if: steps.cache-market-dna.outputs.cache-hit != 'true' || hashFiles('market_dna_profile.json') == ''
         run: |
-          echo "🧬 Pre-building Market DNA Profile for AI analysis..."
+          echo "🧬 Building Market DNA Profile (cache miss or initial run)..."
           python build_market_dna.py --output market_dna_profile.json || true
 
       - name: Generate dashboards (only new filters) + landing
@@ -129,7 +139,7 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL || 'gemini-2.5-flash' }}
-          OPENAI_MODEL: ${{ vars.OPENAI_MODEL || 'gpt-4o-mini' }}
+          OPENAI_MODEL: ${{ vars.OPENAI_MODEL || 'gpt-5.6-luna' }}
         run: |
           echo "🌐 Generating filter dashboards at $(date)"
           python scripts/run_dashboards_parallel.py -j "${DASHBOARD_PARALLEL_JOBS}"
