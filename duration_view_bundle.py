@@ -419,10 +419,14 @@ def build_duration_view_bundle(
 
     latest_run_slice = g._last_run_slice(df_canonical)
     df_sorted_all = latest_run_slice.sort_values(group_cols + ['scraped_at_display'])
+    hotel_ta_cache = g._build_hotel_ta_cache(df)
     latest_rows = []
     for group_key, grp in df_sorted_all.groupby(group_cols):
         hotel_name, bucket, row_id = g._unpack_table_group_key(group_key, use_trip_buckets)
         last = grp.sort_values('scraped_at_display').iloc[-1]
+        ta_rating_val, ta_reviews_val, ta_source_val = g._resolve_row_ta(
+            last, grp, hotel_ta_cache, hotel_name
+        )
         latest_rows.append({
             'hotel_name': hotel_name,
             'duration_bucket': bucket,
@@ -432,8 +436,9 @@ def build_duration_view_bundle(
             'duration': last.get('duration', None),
             'offer_url': last.get('offer_url', None),
             'image_url': last.get('image_url', None),
-            'ta_rating': last.get('ta_rating', ''),
-            'ta_review_count': last.get('ta_review_count', ''),
+            'ta_rating': ta_rating_val if ta_rating_val is not None else '',
+            'ta_review_count': ta_reviews_val if ta_reviews_val > 0 else '',
+            'ta_source': ta_source_val,
         })
     if not skip_ta_backfill:
         g._backfill_ta_for_latest_rows(latest_rows, df, config_file, data_file)

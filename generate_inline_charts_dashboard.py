@@ -263,18 +263,170 @@ TRIPADVISOR_HEADER_ICON_HTML = (
 
 
 def _parse_ta_rating_value(value: Any) -> Optional[float]:
+    """Parse rating value into a float between 1.0 and 5.0.
+
+    Handles Polish comma formats ("4,5"), slashes ("4.5/5"),
+    10-point scales ("9.0" -> 4.5), and empty placeholders ("—", "None", "nan").
+    """
+    if value is None or pd.isna(value):
+        return None
+    val_str = str(value).strip().replace(',', '.')
+    if not val_str or val_str in ('—', 'None', 'nan', 'null', '0', '0.0'):
+        return None
+    m = re.search(r'\b([1-5](?:\.\d+)?)\b', val_str)
+    if m:
+        try:
+            rating = float(m.group(1))
+            if 0 < rating <= 5.0:
+                return rating
+        except (TypeError, ValueError):
+            pass
     try:
-        rating = float(value)
+        rating = float(val_str)
+        if 5.0 < rating <= 10.0:
+            rating = rating / 2.0
+        return rating if 0 < rating <= 5.0 else None
     except (TypeError, ValueError):
         return None
-    return rating if rating > 0 else None
 
 
 def _parse_ta_review_count(value: Any) -> int:
-    try:
-        return max(0, int(float(value)))
-    except (TypeError, ValueError):
+    """Parse review count into a non-negative integer.
+
+    Handles numbers with spaces ("1 250"), textual counts ("731 opinii"),
+    and empty placeholders.
+    """
+    if value is None or pd.isna(value):
         return 0
+    val_str = str(value).strip().replace('\xa0', '').replace(' ', '')
+    if not val_str or val_str in ('—', 'None', 'nan', 'null'):
+        return 0
+    m = re.search(r'(\d+)', val_str)
+    if m:
+        try:
+            return max(0, int(m.group(1)))
+        except (TypeError, ValueError):
+            return 0
+    return 0
+
+
+def _build_hotel_ta_cache(df: pd.DataFrame) -> Dict[str, Dict[str, Any]]:
+    """Builds a lookup {hotel_name: {'ta_rating': float, 'ta_review_count': int, 'ta_source': str}}
+    from historical data in df so hotels don't lose their rating if the latest scrape row had empty rating.
+    """
+    if df.empty or 'hotel_name' not in df.columns:
+        return {}
+    cache: Dict[str, Dict[str, Any]] = {}
+    rating_cols = [c for c in ('ta_rating', 'rating', 'hotel_rating') if c in df.columns]
+    review_cols = [c for c in ('ta_review_count', 'review_count', 'reviews') if c in df.columns]
+    source_cols = [c for c in ('ta_source', 'source') if c in df.columns]
+
+    if not rating_cols:
+        return {}
+
+    work_df = df
+    if 'scraped_at_display' in df.columns:
+        work_df = df.sort_values('scraped_at_display')
+    elif 'scraped_at' in df.columns:
+        work_df = df.sort_values('scraped_at')
+
+    for hotel_name, grp in work_df.groupby('hotel_name', sort=False):
+        found_rating = None
+        for col in rating_cols:
+            for val in reversed(grp[col].tolist()):
+                parsed = _parse_ta_rating_value(val)
+                if parsed is not None:
+                    found_rating = parsed
+                    break
+            if found_rating is not None:
+                break
+
+        found_reviews = 0
+        for col in review_cols:
+            for val in reversed(grp[col].tolist()):
+                parsed = _parse_ta_review_count(val)
+                if parsed > 0:
+                    found_reviews = parsed
+                    break
+            if found_reviews > 0:
+                break
+
+        found_source = ""
+        for col in source_cols:
+            for val in reversed(grp[col].tolist()):
+                if pd.notna(val) and str(val).strip():
+                    found_source = str(val).strip()
+                    break
+            if found_source:
+                break
+
+        if found_rating is not None:
+            cache[hotel_name] = {
+                'ta_rating': found_rating,
+                'ta_review_count': found_reviews,
+                'ta_source': found_source or 'tripadvisor',
+            }
+    return cache
+
+
+def _resolve_row_ta(
+    last: Any,
+    grp: Optional[pd.DataFrame],
+    hotel_ta_cache: Dict[str, Dict[str, Any]],
+    hotel_name: str,
+) -> Tuple[Optional[float], int, str]:
+    """Resolves TripAdvisor rating, review count, and source with fallback to grp, other cols, and historical cache."""
+    ta_rating = None
+    for col in ('ta_rating', 'rating', 'hotel_rating'):
+        if hasattr(last, '__contains__') and col in last:
+            ta_rating = _parse_ta_rating_value(last.get(col))
+            if ta_rating is not None:
+                break
+
+    ta_reviews = 0
+    for col in ('ta_review_count', 'review_count', 'reviews'):
+        if hasattr(last, '__contains__') and col in last:
+            ta_reviews = _parse_ta_review_count(last.get(col))
+            if ta_reviews > 0:
+                break
+
+    ta_source = str(last.get('ta_source') or '').strip() if hasattr(last, 'get') else ''
+
+    if grp is not None and not grp.empty:
+        if ta_rating is None:
+            for col in ('ta_rating', 'rating', 'hotel_rating'):
+                if col in grp.columns:
+                    for prev_val in reversed(list(grp[col])):
+                        parsed = _parse_ta_rating_value(prev_val)
+                        if parsed is not None:
+                            ta_rating = parsed
+                            break
+                    if ta_rating is not None:
+                        break
+        if ta_reviews == 0:
+            for col in ('ta_review_count', 'review_count', 'reviews'):
+                if col in grp.columns:
+                    for prev_val in reversed(list(grp[col])):
+                        parsed = _parse_ta_review_count(prev_val)
+                        if parsed > 0:
+                            ta_reviews = parsed
+                            break
+                    if ta_reviews > 0:
+                        break
+
+    cached = hotel_ta_cache.get(hotel_name) if hotel_ta_cache else None
+    if cached:
+        if ta_rating is None:
+            ta_rating = cached.get('ta_rating')
+        if ta_reviews == 0:
+            ta_reviews = cached.get('ta_review_count', 0)
+        if not ta_source:
+            ta_source = cached.get('ta_source', 'tripadvisor')
+
+    if not ta_source and ta_rating is not None:
+        ta_source = 'tripadvisor'
+
+    return ta_rating, ta_reviews, ta_source
 
 
 def _resolve_listing_url_for_backfill(
@@ -2701,6 +2853,7 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
     full_latest_run_slice = _last_run_slice(df)
 
     df_sorted_all = latest_run_slice.sort_values(group_cols + ['scraped_at_display'])
+    hotel_ta_cache = _build_hotel_ta_cache(df)
     latest_rows = []
     skipped_above_ceiling = 0
     if ceiling_val is not None and not full_latest_run_slice.empty:
@@ -2719,6 +2872,10 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
                     offer_url_val = prev_url
                     break
 
+        ta_rating_val, ta_reviews_val, ta_source_val = _resolve_row_ta(
+            last, grp, hotel_ta_cache, hotel_name
+        )
+
         latest_rows.append({
             'hotel_name': hotel_name,
             'duration_bucket': bucket,
@@ -2731,9 +2888,9 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             'from_airport': last.get('from_airport', None),
             'offer_url': offer_url_val,
             'image_url': last.get('image_url', None),
-            'ta_rating': last.get('ta_rating', ''),
-            'ta_review_count': last.get('ta_review_count', ''),
-            'ta_source': last.get('ta_source', ''),
+            'ta_rating': ta_rating_val if ta_rating_val is not None else '',
+            'ta_review_count': ta_reviews_val if ta_reviews_val > 0 else '',
+            'ta_source': ta_source_val,
             'departure_date': last.get('departure_date', None),
             'departure_key': last.get('departure_key', None),
         })
@@ -2750,6 +2907,16 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         ])
     # Актуальная цена для таблицы — только последний ран; дельты — vs вся df_canonical.
     table_prices = {row['row_id']: float(row['price']) for row in latest_rows}
+
+    arrival_hub_by_hotel = {}
+    arrival_hub_labels = set()
+    for _, _hotel_row in all_hotels.iterrows():
+        _path = parse_offer_path(str(_hotel_row.get("offer_url") or ""))
+        _hub_label = arrival_hub_label(_path.get("country"), _path.get("region"))
+        _hotel_key = str(_hotel_row.get("row_id") or _hotel_row.get("hotel_name") or "")
+        arrival_hub_by_hotel[_hotel_key] = _hub_label
+        if _hub_label and _hub_label != "—":
+            arrival_hub_labels.add(_hub_label)
 
     total_offers = len(df_canonical)
     unique_hotels = int(df_canonical['hotel_name'].nunique()) if not df_canonical.empty else 0
@@ -3745,6 +3912,10 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             "booking_window_badge_html": booking_window_badge_html,
             "gem_badge_html": gem_badge_html,
             "dupe_html": card_dupe_html,
+            "ta_rating": hotel.get('ta_rating', ''),
+            "ta_review_count": hotel.get('ta_review_count', ''),
+            "ta_data_attr": f"{_parse_ta_rating_value(hotel.get('ta_rating', '')):.2f}" if _parse_ta_rating_value(hotel.get('ta_rating', '')) is not None else "-1",
+            "region": html_lib.escape(str(arrival_hub_by_hotel.get(row_id, '')), quote=True),
         })
 
     hotel_meta_by_name = {c["hotel_name"]: c for c in hotel_cards}
@@ -9810,7 +9981,7 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         ) if c["image_url"] else '<div>Фото отеля</div>'
         offer_btn = f'<a class="card-btn" href="{html_lib.escape(c["offer_url"], quote=True)}" target="_blank">Открыть оффер</a>' if c["offer_url"] else '<span class="card-btn" style="opacity:.6;">Оффер недоступен</span>'
         card_article = f"""
-            <article class="hotel-card" data-duration-bucket="{html_lib.escape(c.get('duration_bucket', ''), quote=True)}" data-departure-date="{html_lib.escape(c.get('departure_date', ''), quote=True)}" data-departure-key="{html_lib.escape(c.get('departure_key', ''), quote=True)}">
+            <article class="hotel-card" data-duration-bucket="{html_lib.escape(c.get('duration_bucket', ''), quote=True)}" data-departure-date="{html_lib.escape(c.get('departure_date', ''), quote=True)}" data-departure-key="{html_lib.escape(c.get('departure_key', ''), quote=True)}" data-ta-rating="{c.get('ta_data_attr', '-1')}" data-region="{c.get('region', '')}">
                 <div class="hotel-card-img">{img_html}<button class="watchlist-star-btn card-star" data-hotel-name="{html_lib.escape(c['hotel_name'], quote=True)}" title="Добавить в избранное">☆</button></div>
                 <div class="hotel-card-body">
                     <h4 class="hotel-card-title">{c["hotel_name_html"]}</h4>
@@ -11227,6 +11398,12 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         const column = currentSort.column;
         const aVal = normalizeSortValue(a, column);
         const bVal = normalizeSortValue(b, column);
+        if (column === 'ta') {
+          if (aVal === -1 && bVal === -1) return 0;
+          if (aVal === -1) return 1;
+          if (bVal === -1) return -1;
+          return currentSort.direction === 'asc' ? aVal - bVal : bVal - aVal;
+        }
         let cmp;
         if (typeof aVal === 'string' || typeof bVal === 'string') {
           cmp = String(aVal).localeCompare(String(bVal));
@@ -11283,7 +11460,7 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         if (currentSort.column === column) {
           currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
         } else {
-          currentSort.direction = 'asc';
+          currentSort.direction = (column === 'ta' || column === 'deal') ? 'desc' : 'asc';
         }
         currentSort.column = column;
         applyTableSort();

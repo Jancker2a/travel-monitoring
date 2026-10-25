@@ -83,6 +83,55 @@ class TestTripadvisorExtractor(unittest.TestCase):
         self.assertIsNone(res["ta_rating"])
         self.assertIsNone(res["ta_review_count"])
 
+    def test_dashboard_ta_parsers(self):
+        from generate_inline_charts_dashboard import (
+            _parse_ta_rating_value,
+            _parse_ta_review_count,
+            _build_hotel_ta_cache,
+            _resolve_row_ta,
+        )
+        import pandas as pd
+
+        # Rating parser tests
+        self.assertEqual(_parse_ta_rating_value("4,5"), 4.5)
+        self.assertEqual(_parse_ta_rating_value("4.5"), 4.5)
+        self.assertEqual(_parse_ta_rating_value("4.8/5"), 4.8)
+        self.assertEqual(_parse_ta_rating_value(" 4,2 "), 4.2)
+        self.assertEqual(_parse_ta_rating_value("9.0"), 4.5)
+        self.assertIsNone(_parse_ta_rating_value(""))
+        self.assertIsNone(_parse_ta_rating_value("—"))
+        self.assertIsNone(_parse_ta_rating_value(None))
+        self.assertIsNone(_parse_ta_rating_value(float("nan")))
+
+        # Review count parser tests
+        self.assertEqual(_parse_ta_review_count("1200"), 1200)
+        self.assertEqual(_parse_ta_review_count("1 250"), 1250)
+        self.assertEqual(_parse_ta_review_count("731 opinii"), 731)
+        self.assertEqual(_parse_ta_review_count(""), 0)
+        self.assertEqual(_parse_ta_review_count("—"), 0)
+        self.assertEqual(_parse_ta_review_count(None), 0)
+
+        # Historical cache & resolution fallback tests
+        df = pd.DataFrame([
+            {"hotel_name": "Hotel Alpha", "ta_rating": "4,5", "ta_review_count": "500", "scraped_at": "2026-10-24 10:00:00"},
+            {"hotel_name": "Hotel Beta", "rating": "4.2", "review_count": "120", "scraped_at": "2026-10-24 10:00:00"},
+        ])
+        cache = _build_hotel_ta_cache(df)
+        self.assertIn("Hotel Alpha", cache)
+        self.assertEqual(cache["Hotel Alpha"]["ta_rating"], 4.5)
+        self.assertEqual(cache["Hotel Alpha"]["ta_review_count"], 500)
+        self.assertIn("Hotel Beta", cache)
+        self.assertEqual(cache["Hotel Beta"]["ta_rating"], 4.2)
+
+        # Row with missing TA rating restored from cache
+        last_empty = pd.Series({"hotel_name": "Hotel Alpha", "ta_rating": "", "ta_review_count": ""})
+        grp_empty = pd.DataFrame([last_empty])
+        r, c, s = _resolve_row_ta(last_empty, grp_empty, cache, "Hotel Alpha")
+        self.assertEqual(r, 4.5)
+        self.assertEqual(c, 500)
+        self.assertEqual(s, "tripadvisor")
+
 
 if __name__ == "__main__":
     unittest.main()
+
