@@ -6941,6 +6941,111 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             border-color: rgba(99, 102, 241, 0.35);
         }}
 
+        /* Table Smart Badges & Table Dupe */
+        .tbl-smart-badges-wrap {{
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 4px;
+            margin-top: 3px;
+        }}
+        .tbl-badge {{
+            display: inline-flex;
+            align-items: center;
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 1px 5px;
+            border-radius: 4px;
+            line-height: 1.25;
+            cursor: help;
+            white-space: nowrap;
+        }}
+        .tbl-badge-flash {{
+            background: rgba(239, 68, 68, 0.18);
+            color: #b91c1c;
+            border: 1px solid rgba(239, 68, 68, 0.4);
+            animation: glitchPulse 2.2s infinite ease-in-out;
+        }}
+        .tbl-badge-gem {{
+            background: rgba(168, 85, 247, 0.16);
+            color: #7e22ce;
+            border: 1px solid rgba(168, 85, 247, 0.35);
+        }}
+        .tbl-badge-bw {{
+            background: rgba(99, 102, 241, 0.15);
+            color: #4338ca;
+            border: 1px solid rgba(99, 102, 241, 0.35);
+        }}
+        .tbl-badge-fp.bargain {{
+            background: rgba(6, 182, 212, 0.15);
+            color: #0e7490;
+            border: 1px solid rgba(6, 182, 212, 0.35);
+        }}
+        .tbl-badge-fp.overpriced {{
+            background: rgba(249, 115, 22, 0.15);
+            color: #c2410c;
+            border: 1px solid rgba(249, 115, 22, 0.35);
+        }}
+        .tbl-dupe-badge {{
+            display: inline-flex;
+            align-items: center;
+            gap: 2px 4px;
+            font-size: 0.65rem;
+            line-height: 1.25;
+            color: #4338ca;
+            background: rgba(99, 102, 241, 0.08);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 4px;
+            padding: 1px 5px;
+            margin-top: 3px;
+            max-width: 100%;
+            text-decoration: none;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }}
+        .tbl-dupe-badge .tbl-dupe-label {{
+            font-weight: 600;
+            text-decoration: underline;
+        }}
+        .tbl-dupe-badge .tbl-dupe-savings {{
+            color: #059669;
+            font-weight: 700;
+        }}
+        .dark-theme .tbl-badge-flash {{
+            background: rgba(239, 68, 68, 0.25);
+            color: #fca5a5;
+            border-color: rgba(239, 68, 68, 0.5);
+        }}
+        .dark-theme .tbl-badge-gem {{
+            background: rgba(168, 85, 247, 0.25);
+            color: #d8b4fe;
+            border-color: rgba(168, 85, 247, 0.45);
+        }}
+        .dark-theme .tbl-badge-bw {{
+            background: rgba(99, 102, 241, 0.22);
+            color: #818cf8;
+            border-color: rgba(99, 102, 241, 0.45);
+        }}
+        .dark-theme .tbl-badge-fp.bargain {{
+            background: rgba(6, 182, 212, 0.22);
+            color: #38bdf8;
+            border-color: rgba(6, 182, 212, 0.45);
+        }}
+        .dark-theme .tbl-badge-fp.overpriced {{
+            background: rgba(249, 115, 22, 0.22);
+            color: #fb923c;
+            border-color: rgba(249, 115, 22, 0.45);
+        }}
+        .dark-theme .tbl-dupe-badge {{
+            color: #a5b4fc;
+            background: rgba(99, 102, 241, 0.16);
+            border-color: rgba(99, 102, 241, 0.35);
+        }}
+        .dark-theme .tbl-dupe-badge .tbl-dupe-savings {{
+            color: #34d399;
+        }}
+
         /* Arbitrage Card Badge */
         .arbitrage-card-badge {{
             display: inline-flex;
@@ -10078,6 +10183,57 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             hopper_verdict_tbl = "BUY_NOW"
             hopper_badge_tbl = "🟢 ПОКУПАТЬ"
             hopper_reasoning_tbl = f"Отличный момент для покупки: Deal Score {deal_score}, цена на минимуме истории ({int(price)} PLN)."
+
+        tbl_dupe_html = ""
+        tbl_smart_badges = []
+        if oracle_report and "hotel_dossiers" in oracle_report:
+            h_d_tbl = oracle_report["hotel_dossiers"].get(hotel_name)
+            if h_d_tbl:
+                hopper_badge_tbl = h_d_tbl.get("badge_text", hopper_badge_tbl)
+                v_raw_tbl = h_d_tbl.get("verdict", "")
+                if v_raw_tbl in ("BUY_NOW", "GOOD_PRICE"):
+                    hopper_verdict_tbl = "BUY_NOW"
+                elif v_raw_tbl == "WAIT":
+                    hopper_verdict_tbl = "WAIT"
+                elif v_raw_tbl == "OVERPRICED":
+                    hopper_verdict_tbl = "OVERPRICED"
+                hopper_reasoning_tbl = f"{h_d_tbl.get('rationale', '')} • Места: {h_d_tbl.get('risk_assessment', '')} • Совет: {h_d_tbl.get('action_advice', '')}"
+
+                # 1. Flash drop badge in table
+                if h_d_tbl.get("flash_drop_badge"):
+                    fd_tip = html_lib.escape(str(h_d_tbl.get("flash_drop_tip", "")), quote=True)
+                    tbl_smart_badges.append(f'<span class="tbl-badge tbl-badge-flash" title="{fd_tip}">⚡ Сброс</span>')
+
+                # 2. Gem badge in table
+                if h_d_tbl.get("gem_badge"):
+                    g_tip = html_lib.escape(str(h_d_tbl.get("gem_tip", "")), quote=True)
+                    tbl_smart_badges.append(f'<span class="tbl-badge tbl-badge-gem" title="{g_tip}">💎 Жемчужина</span>')
+
+                # 3. Booking window badge in table
+                if h_d_tbl.get("booking_window_badge") and h_d_tbl.get("booking_window_class") == "in_window":
+                    bw_tip = html_lib.escape(str(h_d_tbl.get("booking_window_tip", "")), quote=True)
+                    tbl_smart_badges.append(f'<span class="tbl-badge tbl-badge-bw" title="{bw_tip}">🎯 Окно покупки</span>')
+
+                # 4. Fair price badge in table
+                if h_d_tbl.get("fair_price_badge"):
+                    fp_cls = h_d_tbl.get("fair_price_class", "bargain")
+                    fp_tip = html_lib.escape(str(h_d_tbl.get("fair_price_tip", "")), quote=True)
+                    fp_text = h_d_tbl.get("fair_price_badge", "")
+                    tbl_smart_badges.append(f'<span class="tbl-badge tbl-badge-fp {fp_cls}" title="{fp_tip}">{html_lib.escape(fp_text)}</span>')
+
+                # 5. Dupe line in table under hotel name
+                dupe = h_d_tbl.get("dupe_suggestion")
+                if dupe and isinstance(dupe, dict):
+                    dupe_name = html_lib.escape(str(dupe.get("hotel_name", "")))
+                    dupe_url = dupe.get("offer_url") or dupe.get("url") or "#"
+                    dupe_savings = dupe.get("savings") or dupe.get("savings_pln") or 0
+                    tbl_smart_badges.append(
+                        f'<a href="{html_lib.escape(str(dupe_url), quote=True)}" target="_blank" class="tbl-dupe-badge" title="AI Двойник: отель сравнимого класса заметно дешевле">'
+                        f'💡 <span class="tbl-dupe-label">Двойник: {dupe_name}</span> <span class="tbl-dupe-savings">(−{dupe_savings:,.0f} zł)</span></a>'
+                    )
+
+        tbl_smart_badges_html = f'<div class="tbl-smart-badges-wrap">{"".join(tbl_smart_badges)}</div>' if tbl_smart_badges else ""
+
         if hopper_badge_tbl and "НЕТ ДАННЫХ" not in hopper_badge_tbl:
             hopper_cls = "buy-now" if hopper_verdict_tbl == "BUY_NOW" else ("wait" if hopper_verdict_tbl == "WAIT" else ("overpriced" if hopper_verdict_tbl == "OVERPRICED" else "neutral"))
             forecast_cell_html = f'<span class="hopper-pill {hopper_cls}" data-tip="{html_lib.escape(hopper_reasoning_tbl, quote=True)}" title="{html_lib.escape(hopper_reasoning_tbl, quote=True)}">{hopper_badge_tbl}</span>'
@@ -10099,7 +10255,7 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
 
         table_rows_html_parts.append(f"""
                     <tr class="hotel-row {'row-odd' if i % 2 == 0 else 'row-even'}{row_color_class}" data-region="{arrival_hub_html}" data-ta-rating="{ta_data_attr}" data-duration-bucket="{duration_bucket_attr}" data-departure-date="{departure_date_attr}" data-departure-key="{departure_key_attr}">
-                        <td class="hotel-name col-hotel" data-label="Отель"><button class="watchlist-star-btn" data-hotel-name="{hotel_name_attr}" title="Добавить в избранное">☆</button><a class="open-chart-link hotel-hover-link" href="{chart_href}" target="_blank" data-hotel-name="{hotel_name_attr}">{hotel_name_html}</a></td>
+                        <td class="hotel-name col-hotel" data-label="Отель"><button class="watchlist-star-btn" data-hotel-name="{hotel_name_attr}" title="Добавить в избранное">☆</button><a class="open-chart-link hotel-hover-link" href="{chart_href}" target="_blank" data-hotel-name="{hotel_name_attr}">{hotel_name_html}</a>{tbl_smart_badges_html}</td>
                         <td class="price col-tight" data-label="Цена" data-sort-value="{price}"><span class="price-main">{price:.0f} PLN</span>{comeback_cell}{cheaper_alt_html}</td>
                         <td class="col-tight col-w-deal-td" data-label="Deal" data-sort-value="{deal_score}" title="{deal_title}"><span class="deal-cell-inline">{deal_score} <span style="opacity:.85;">{deal_badge}</span> <span class="deal-conf-short">{confidence_short}</span></span></td>
                         <td class="col-tight col-w-forecast-td" data-label="Прогноз" data-sort-value="{forecast_sort_val}">{forecast_cell_html}</td>
