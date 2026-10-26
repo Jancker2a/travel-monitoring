@@ -22,8 +22,13 @@ import json
 import logging
 import os
 import re
+import signal
+import sys
+import threading
+import time
 import urllib.error
 import urllib.request
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timedelta
 from typing import Any, Dict, List, Optional, Set
 
@@ -35,6 +40,7 @@ logger = logging.getLogger("hotel_reviews_kb")
 DEFAULT_KB_FILE = "hotel_reputation_kb.json"
 DEFAULT_DNA_FILE = "market_dna_profile.json"
 CACHE_EXPIRY_DAYS = 30
+DEFAULT_CONCURRENCY = 5
 
 
 SYSTEM_PROMPT = """
@@ -53,7 +59,7 @@ SYSTEM_PROMPT = """
    - 2-3 главных реальных достоинства.
    - 1-2 главных недостатка или «красных флагов» (red flags).
 6. ВЕРДИКТ:
-   - 1-2 предложения: кому этот отель идеально подходит, а кому категорически не рекомендуется.
+   - 1-2 предложения: кому этот отель подходит идеально, а кому категорически не рекомендуется.
 
 ФОРМАТ ОТВЕТА: строго валидный JSON без markdown-разметки:
 {
@@ -89,6 +95,22 @@ SYSTEM_PROMPT = """
 """
 
 
+def is_valid_hotel_name(hn: str) -> bool:
+    """Validates that a string is a real hotel name and not git conflict noise or NaN."""
+    if not hn or not isinstance(hn, str):
+        return False
+    hn_clean = hn.strip()
+    if len(hn_clean) < 3:
+        return False
+    if hn_clean.lower() in ("nan", "none", "", "null", "undefined", "true", "false"):
+        return False
+    if hn_clean.startswith(("<<<", "===", ">>>")):
+        return False
+    if any(k in hn_clean.lower() for k in ("updated upstream", "stashed changes", "stash", "merge branch")):
+        return False
+    return True
+
+
 def discover_hotels(
     data_dirs: Optional[List[str]] = None,
     dna_file: str = DEFAULT_DNA_FILE,
@@ -106,6 +128,8 @@ def discover_hotels(
             with open(dna_file, "r", encoding="utf-8") as f:
                 dna_data = json.load(f)
                 for h_name, h_info in dna_data.get("hotel_profiles", {}).items():
+                    if not is_valid_hotel_name(h_name):
+                        continue
                     hotels[h_name] = {
                         "hotel_name": h_name,
                         "destination": "",
@@ -142,7 +166,7 @@ def discover_hotels(
 
             for _, row in df.iterrows():
                 hn = str(row["hotel_name"]).strip()
-                if not hn or hn.lower() in ("nan", "none", ""):
+                if not is_valid_hotel_name(hn):
                     continue
 
                 existing = hotels.get(hn, {})
@@ -186,12 +210,17 @@ def discover_hotels(
 
 
 def load_reputation_kb(kb_path: str = DEFAULT_KB_FILE) -> Dict[str, Any]:
-    """Loads existing reputation knowledge base if present."""
+    """Loads existing reputation knowledge base if present, cleaning out any corrupt keys."""
     if os.path.exists(kb_path):
         try:
             with open(kb_path, "r", encoding="utf-8") as f:
                 data = json.load(f)
                 if isinstance(data, dict) and "hotels" in data:
+                    clean_hotels = {
+                        k: v for k, v in data["hotels"].items()
+                        if is_valid_hotel_name(k)
+                    }
+                    data["hotels"] = clean_hotels
                     return data
         except Exception as e:
             logger.warning(f"Failed to read existing KB from {kb_path}: {e}")
@@ -223,6 +252,7 @@ def analyze_hotel_with_llm(
 ) -> Optional[Dict[str, Any]]:
     """
     Synthesizes hotel reputation using LLM (Gemini 2.0 Flash or OpenAI gpt-4o-mini).
+    Includes rate-limit retry.
     """
     h_name = hotel_info["hotel_name"]
     dest = hotel_info.get("destination", "Египет / Шарм-эль-Шейх")
@@ -275,8 +305,14 @@ def analyze_hotel_with_llm(
                     res = json.loads(text)
                     if isinstance(res, dict) and "season_trend" in res:
                         return res
+            except urllib.error.HTTPError as e:
+                if e.code == 429:
+                    logger.warning(f"Gemini 429 rate limit on {model_name} for '{h_name}'. Waiting 4s...")
+                    time.sleep(4)
+                else:
+                    logger.warning(f"Gemini {model_name} HTTP {e.code} for '{h_name}': {e}")
             except Exception as e:
-                logger.warning(f"Gemini {model_name} failed for {h_name}: {e}")
+                logger.warning(f"Gemini {model_name} failed for '{h_name}': {e}")
 
     elif provider == "openai" and api_key:
         models = [os.getenv("OPENAI_MODEL"), "gpt-4o-mini", "gpt-4o"]
@@ -309,8 +345,14 @@ def analyze_hotel_with_llm(
                     res = json.loads(text)
                     if isinstance(res, dict) and "season_trend" in res:
                         return res
+            except urllib.error.HTTPError as e:
+                if e.code == 429:
+                    logger.warning(f"OpenAI 429 rate limit on {model_name} for '{h_name}'. Waiting 4s...")
+                    time.sleep(4)
+                else:
+                    logger.warning(f"OpenAI {model_name} HTTP {e.code} for '{h_name}': {e}")
             except Exception as e:
-                logger.warning(f"OpenAI {model_name} failed for {h_name}: {e}")
+                logger.warning(f"OpenAI {model_name} failed for '{h_name}': {e}")
 
     return None
 
@@ -427,9 +469,10 @@ def build_hotel_reviews_kb(
     max_hotels: Optional[int] = None,
     destination_filter: Optional[str] = None,
     data_dirs: Optional[List[str]] = None,
+    concurrency: int = DEFAULT_CONCURRENCY,
 ) -> Dict[str, Any]:
     """
-    Main orchestrator: updates the hotel reputation knowledge base incrementally.
+    Main orchestrator: updates the hotel reputation knowledge base incrementally and in parallel.
     """
     logger.info("🏨 Starting Weekly Hotel Reviews & Reputation KB Builder...")
 
@@ -468,39 +511,67 @@ def build_hotel_reviews_kb(
         hotels_to_process = hotels_to_process[:max_hotels]
         logger.info(f"Limited run to {len(hotels_to_process)} hotels (max_hotels={max_hotels})")
 
+    if not hotels_to_process:
+        logger.info("All hotels in catalog are already up to date!")
+        return kb
+
     # API Keys
     gemini_key = os.getenv("GEMINI_API_KEY")
     openai_key = os.getenv("OPENAI_API_KEY")
 
+    save_lock = threading.Lock()
     updated_count = 0
-    for idx, h_info in enumerate(hotels_to_process, 1):
+    total_hotels = len(hotels_to_process)
+    stop_event = threading.Event()
+
+    def process_hotel(item: Tuple[int, Dict[str, Any]]) -> Optional[str]:
+        if stop_event.is_set():
+            return None
+        idx, h_info = item
         hn = h_info["hotel_name"]
-        logger.info(f"[{idx}/{len(hotels_to_process)}] Analyzing reputation for '{hn}'...")
+        logger.info(f"[{idx}/{total_hotels}] Analyzing reputation for '{hn}'...")
 
         rep_result = None
-        # Try Gemini first
         if gemini_key:
             rep_result = analyze_hotel_with_llm(h_info, api_key=gemini_key, provider="gemini")
-        # Try OpenAI fallback
         if not rep_result and openai_key:
             rep_result = analyze_hotel_with_llm(h_info, api_key=openai_key, provider="openai")
-        # Fallback to heuristic knowledge
         if not rep_result:
             rep_result = generate_heuristic_reputation(h_info)
 
-        # Merge and store
-        existing_hotels[hn] = {
+        hotel_record = {
             "hotel_name": hn,
             "destination": h_info.get("destination", "Египет"),
             "stars": h_info.get("stars", 4),
             "analyzed_at": now.isoformat() + "Z",
             **rep_result,
         }
-        updated_count += 1
 
-        # Periodic intermediate save every 10 hotels
-        if updated_count % 10 == 0:
-            save_reputation_kb(kb, output_file)
+        with save_lock:
+            nonlocal updated_count
+            existing_hotels[hn] = hotel_record
+            updated_count += 1
+            if updated_count % 10 == 0:
+                save_reputation_kb(kb, output_file)
+
+        return hn
+
+    workers = max(1, min(concurrency, total_hotels))
+    logger.info(f"⚡ Processing {total_hotels} hotels with {workers} parallel threads...")
+    indexed_hotels = list(enumerate(hotels_to_process, 1))
+
+    with ThreadPoolExecutor(max_workers=workers) as executor:
+        futures = {executor.submit(process_hotel, item): item[1]["hotel_name"] for item in indexed_hotels}
+        try:
+            for future in as_completed(futures):
+                try:
+                    future.result()
+                except Exception as e:
+                    h_name = futures.get(future, "unknown")
+                    logger.warning(f"Error processing {h_name}: {e}")
+        except KeyboardInterrupt:
+            logger.warning("Keyboard interrupt received. Saving state...")
+            stop_event.set()
 
     # Final save
     save_reputation_kb(kb, output_file)
@@ -515,6 +586,7 @@ def main():
     parser.add_argument("--force", action="store_true", help="Force refresh all hotels regardless of cache age")
     parser.add_argument("--max-hotels", type=int, default=None, help="Maximum number of hotels to process in this run")
     parser.add_argument("--destination", default=None, help="Filter by destination (egypt, turkey, cyprus, etc.)")
+    parser.add_argument("--concurrency", type=int, default=DEFAULT_CONCURRENCY, help="Number of parallel worker threads")
 
     args = parser.parse_args()
     build_hotel_reviews_kb(
@@ -523,6 +595,7 @@ def main():
         force_refresh=args.force,
         max_hotels=args.max_hotels,
         destination_filter=args.destination,
+        concurrency=args.concurrency,
     )
 
 
