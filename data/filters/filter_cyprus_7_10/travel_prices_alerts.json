@@ -1,5 +1,156 @@
 {
   "version": 2,
-  "alerts": [],
-  "meta": {}
+  "alerts": [
+    {
+      "hotel_name": "Barcelo Murcia Siete Coronas (ex. Silken Siete Coronas)",
+      "duration_bucket": "",
+      "old_price": 3085.0,
+      "new_price": 3085.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-26 17:01:21.352975+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-26T17:02:28.088705+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Barcelo Murcia Siete Coronas (ex. Silken Siete Coronas)_2026-10-26_17-01_zone_out_gone"
+    },
+    {
+      "hotel_name": "Marbella Inn",
+      "duration_bucket": "",
+      "old_price": 3029.0,
+      "new_price": 3029.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-26 17:01:21.352975+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-26T17:02:28.088741+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Marbella Inn_2026-10-26_17-01_zone_out_gone"
+    }
+  ],
+  "meta": {
+    "last_processed_run": "2026-10-26T17:01:21.352975+00:00",
+    "premium_state": {
+      "Barcelo Murcia Siete Coronas (ex. Silken Siete Coronas)": {
+        "history_max": 3085.0,
+        "premium_peak": null
+      },
+      "Marbella Inn": {
+        "history_max": 3029.0,
+        "premium_peak": null
+      },
+      "Acapulco Resort": {
+        "history_max": 3929.0,
+        "premium_peak": null
+      },
+      "San Remo (Larnaka)": {
+        "history_max": 2258.0,
+        "premium_peak": null
+      },
+      "Riverside Garden Resort": {
+        "history_max": 2299.0,
+        "premium_peak": null
+      },
+      "Radisson Beach Resort (ex. Princess Beach)": {
+        "history_max": 4183.0,
+        "premium_peak": null
+      },
+      "Pyramos": {
+        "history_max": 2546.0,
+        "premium_peak": null
+      },
+      "Protaras Plaza": {
+        "history_max": 2885.0,
+        "premium_peak": null
+      },
+      "Poseidonia Beach": {
+        "history_max": 3962.0,
+        "premium_peak": null
+      },
+      "Park Beach": {
+        "history_max": 3063.0,
+        "premium_peak": null
+      },
+      "Paphos Gardens Holiday Resort (ex Leptos )": {
+        "history_max": 2462.0,
+        "premium_peak": null
+      },
+      "Navarria": {
+        "history_max": 2257.0,
+        "premium_peak": null
+      },
+      "Milea": {
+        "history_max": 2787.0,
+        "premium_peak": null
+      },
+      "Mikes Kanarium City": {
+        "history_max": 2804.0,
+        "premium_peak": null
+      },
+      "Mayfair Gardens": {
+        "history_max": 4111.0,
+        "premium_peak": null
+      },
+      "Livadhiotis City": {
+        "history_max": 2646.0,
+        "premium_peak": null
+      },
+      "Liquid Apartments": {
+        "history_max": 2796.0,
+        "premium_peak": null
+      },
+      "Limanaki Beach": {
+        "history_max": 3380.0,
+        "premium_peak": null
+      },
+      "Lebay Beach": {
+        "history_max": 3276.0,
+        "premium_peak": null
+      },
+      "Kapetanios Limassol": {
+        "history_max": 3290.0,
+        "premium_peak": null
+      },
+      "Eleni Resort (ex. Eleni Holiday Village)": {
+        "history_max": 3346.0,
+        "premium_peak": null
+      },
+      "Constantinos The Great Beach": {
+        "history_max": 3970.0,
+        "premium_peak": null
+      },
+      "Best Western Plus Larco": {
+        "history_max": 3294.0,
+        "premium_peak": null
+      },
+      "Avlida": {
+        "history_max": 3043.0,
+        "premium_peak": null
+      },
+      "Atlantica Oasis": {
+        "history_max": 3957.0,
+        "premium_peak": null
+      },
+      "Aquamare Beach & Spa": {
+        "history_max": 3571.0,
+        "premium_peak": null
+      },
+      "Aphrodite Beach (Polis)": {
+        "history_max": 3131.0,
+        "premium_peak": null
+      },
+      "Altinkaya Resort": {
+        "history_max": 3129.0,
+        "premium_peak": null
+      },
+      "Sveltos": {
+        "history_max": 2710.0,
+        "premium_peak": null
+      },
+      "Veronica (Paphos)": {
+        "history_max": 2477.0,
+        "premium_peak": null
+      }
+    }
+  }
 }

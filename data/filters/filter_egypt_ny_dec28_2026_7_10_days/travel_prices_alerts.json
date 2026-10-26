@@ -78,10 +78,36 @@
       "created_at": "2026-10-26T15:23:06.734584+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Empire Hotel Aqua Park (Ex. Triton Empir_2026-10-26_15-22_zone_out_gone"
+    },
+    {
+      "hotel_name": "Palma Di Sharm Hollywood Resort",
+      "duration_bucket": "",
+      "old_price": 9116.0,
+      "new_price": 9116.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-26 16:58:21.881301+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-26T16:58:59.019070+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Palma Di Sharm Hollywood Resort_2026-10-26_16-58_zone_out_gone"
+    },
+    {
+      "hotel_name": "Panorama Naama Heights Resort",
+      "duration_bucket": "",
+      "old_price": 9289.0,
+      "new_price": 9289.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-26 16:58:21.881301+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-26T16:58:59.019101+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Panorama Naama Heights Resort_2026-10-26_16-58_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-26T15:22:29.049662+00:00",
+    "last_processed_run": "2026-10-26T16:58:21.881301+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa*****": {
         "history_max": 12142.0,
@@ -153,6 +179,14 @@
       },
       "Panorama Naama Heights Resort": {
         "history_max": 9289.0,
+        "premium_peak": null
+      },
+      "Roma": {
+        "history_max": 8843.0,
+        "premium_peak": null
+      },
+      "Minamark Beach Resort": {
+        "history_max": 8663.0,
         "premium_peak": null
       }
     }
