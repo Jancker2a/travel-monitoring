@@ -1,0 +1,112 @@
+name: Weekly Hotel Reviews & Reputation KB
+
+on:
+  schedule:
+    # Запуск каждое воскресенье в 04:00 UTC
+    - cron: "0 4 * * 0"
+  workflow_dispatch:
+    inputs:
+      force_refresh:
+        description: "Принудительно обновить все отели (игнорируя 30-дневный кэш)"
+        required: false
+        type: boolean
+        default: false
+      max_hotels:
+        description: "Максимальное количество отелей для обработки за один запуск"
+        required: false
+        default: "100"
+      destination:
+        description: "Фильтр направления (all, egypt, turkey, cyprus, greece)"
+        required: false
+        type: choice
+        options:
+          - all
+          - egypt
+          - turkey
+          - cyprus
+          - greece
+        default: all
+
+permissions:
+  contents: write
+
+concurrency:
+  group: "hotel-reviews-kb"
+  cancel-in-progress: false
+
+jobs:
+  build-and-update-reputation-kb:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      PYTHONUNBUFFERED: "1"
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      GEMINI_MODEL: ${{ vars.GEMINI_MODEL || 'gemini-2.0-flash' }}
+      OPENAI_MODEL: ${{ vars.OPENAI_MODEL || 'gpt-4o-mini' }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 1
+
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.9"
+
+      - name: Cache Python dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements*.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install -r requirements_dashboard.txt
+
+      - name: Run Hotel Reviews & Reputation KB Builder
+        run: |
+          EXTRA_ARGS=""
+          if [ "${{ github.event.inputs.force_refresh }}" = "true" ]; then
+            EXTRA_ARGS="$EXTRA_ARGS --force"
+          fi
+          if [ -n "${{ github.event.inputs.max_hotels }}" ] && [ "${{ github.event.inputs.max_hotels }}" != "0" ]; then
+            EXTRA_ARGS="$EXTRA_ARGS --max-hotels ${{ github.event.inputs.max_hotels }}"
+          fi
+          if [ -n "${{ github.event.inputs.destination }}" ] && [ "${{ github.event.inputs.destination }}" != "all" ]; then
+            EXTRA_ARGS="$EXTRA_ARGS --destination ${{ github.event.inputs.destination }}"
+          fi
+
+          echo "🚀 Executing build_hotel_reviews_kb.py with args: $EXTRA_ARGS"
+          python build_hotel_reviews_kb.py $EXTRA_ARGS
+
+      - name: Commit and push updated knowledge base
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add hotel_reputation_kb.json
+          if ! git diff --staged --quiet; then
+            git commit -m "chore(kb): update weekly hotel reviews and reputation database [skip ci]"
+            git push origin HEAD
+            echo "✅ hotel_reputation_kb.json updated and committed"
+          else
+            echo "ℹ️ No changes in hotel_reputation_kb.json to commit"
+          fi
+
+      - name: Summary Report
+        if: always()
+        run: |
+          echo "## 🏨 Weekly Hotel Reviews & Reputation KB Summary" >> $GITHUB_STEP_SUMMARY
+          echo "**Time:** $(date -u)" >> $GITHUB_STEP_SUMMARY
+          echo "**Trigger:** ${{ github.event_name }}" >> $GITHUB_STEP_SUMMARY
+          if [ -f "hotel_reputation_kb.json" ]; then
+            HOTEL_COUNT=$(python -c "import json; print(len(json.load(open('hotel_reputation_kb.json')).get('hotels', {})))")
+            echo "**Total Hotels in KB:** $HOTEL_COUNT" >> $GITHUB_STEP_SUMMARY
+          fi
