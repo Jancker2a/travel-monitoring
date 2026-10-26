@@ -56,7 +56,22 @@ SYSTEM_INSTRUCTION = """
    - Не сравнивай бюджетный отель со средней ценой по всему рынку. Сравнивай отель только с его собственной историей или равными отелями его категории.
 8. СТРОГИЙ ЗАПРЕТ БРЕДОВЫХ ФРАЗ «НА 0% НИЖЕ» ИЛИ «НА 0% ВЫШЕ»:
    - КАТЕГОРИЧЕСКИ ЗАПРЕЩЕНО писать «на 0% ниже» или «на 0% выше»! Если цена не снижена или разница меньше 7%, это обычная базовая цена.
-9. ФОРМАТ ОТВЕТА: строго валидный JSON без markdown-разметки.
+9. ИСПОЛЬЗУЙ РЫНОЧНЫЙ ТРЕНД (market_trends):
+   - Если trend_7d_pct <= -2.5% (рынок падает): отметь это в charter_dynamics как позитивный сигнал для выжидания (туроператоры снижают планку).
+   - Если trend_7d_pct >= +2.5% (рынок растет): предупреди туриста, что цены начали подниматься.
+10. АРБИТРАЖ АЭРОПОРТОВ (airports_comparison):
+   - Если вылет из одного города заметно дешевле другого (spread_pln >= 300 zł): обязательно дай этот практический совет (например: «Вылет из Катовице на 650 zł выгоднее Варшавы на те же отели»).
+11. АРБИТРАЖ ПО ДЛИТЕЛЬНОСТИ (duration_comparison):
+   - Если разница в цене между 7 и 10 ночами небольшая (доплата до 350-400 zł), подскажи туристу: «10 дней брать намного выгоднее — доплата всего X zł за 3 лишних дня на море».
+12. ПОВЕДЕНЧЕСКИЙ АРХЕТИП ОТЕЛЯ (behavioral_archetype):
+   - LATE_DUMPER: если до вылета еще много дней (D-30+), советуй ждать — отель регулярно сбрасывает цену в последние дни. Если вылет через 2–4 дня и цена упала — время брать.
+   - ROCK_SOLID: держит стабильную цену весь сезон, ждать скидок перед вылетом бессмысленно.
+   - EARLY_SURGER: дорожает ближе к дате, выгодно брать заранее.
+13. РЕПУТАЦИЯ И ОСОБЕННОСТИ ОТЕЛЯ (hotel_reputation):
+   - Для зимнего Египта учитывай безветренность бухты (Наама Бэй, Рас Ум Сид) и наличие подогреваемого бассейна. В ветреных бухтах (Набк) предупреждай о волнах.
+   - Для семей с детьми отмечай песчаный пологий заход и наличие аквапарка.
+   - Если отель дорогой, используй cheaper_alternative — предложи качественного двойника.
+14. ФОРМАТ ОТВЕТА: строго валидный JSON без markdown-разметки.
 
 ЭТАЛОННЫЕ ПРИМЕРЫ (FEW-SHOT):
 
@@ -209,6 +224,38 @@ def generate_rule_based_briefing(market_context: Dict[str, Any]) -> Dict[str, An
             "title": f"💎 Скрытая жемчужина: {g['hotel_name']}",
             "text": f"Высокий рейтинг {g.get('rating', 4.5):g}★ в категории {g.get('stars', 5)}★ всего за {g['price']:,.0f} zł (намного дешевле похожих отелей)."
         })
+
+    apt_comp = market_context.get("airports_comparison", {})
+    if apt_comp.get("multi_airport") and apt_comp.get("spread_pln", 0) >= 300:
+        anomalies.append({
+            "type": "arbitrage",
+            "title": f"✈️ Разница вылетов: {apt_comp.get('cheapest_hub')} vs {apt_comp.get('expensive_hub')}",
+            "text": apt_comp.get("insight", f"Экономия {apt_comp.get('spread_pln', 0):,.0f} zł при смене аэропорта."),
+        })
+
+    dur_comp = market_context.get("duration_comparison", {})
+    if dur_comp.get("multi_duration") and dur_comp.get("cost_per_extra_day_pln", 9999) <= 250:
+        anomalies.append({
+            "type": "duration",
+            "title": f"⏳ Выгодная длительность: {dur_comp.get('longer_duration_days')} дн.",
+            "text": dur_comp.get("insight", "Доплата за дополнительные дни минимальна."),
+        })
+
+    m_trends = market_context.get("market_trends", {})
+    t7 = m_trends.get("trend_7d_pct")
+    if t7 is not None and abs(t7) >= 3.0:
+        if t7 <= -3.0:
+            anomalies.append({
+                "type": "trend",
+                "title": f"📉 Недельный спад рынка: {t7:+.1f}%",
+                "text": f"За последние 7 дней средняя цена на направлении снизилась на {abs(t7):.1f}% ({abs(m_trends.get('delta_7d_pln', 0)):,.0f} zł).",
+            })
+        else:
+            anomalies.append({
+                "type": "trend",
+                "title": f"📈 Цены растут: {t7:+.1f}% за неделю",
+                "text": f"Средняя цена за последние 7 дней поднялась на {t7:.1f}% ({m_trends.get('delta_7d_pln', 0):,.0f} zł).",
+            })
 
     dossiers: Dict[str, Dict[str, Any]] = {}
     hotels_to_process = market_context.get("all_hotel_intelligence") or {
@@ -634,6 +681,9 @@ def call_gemini_oracle(
         "filter_title": market_context.get("filter_title"),
         "analyzed_at": market_context.get("analyzed_at"),
         "market_stats": market_context.get("market_stats"),
+        "market_trends": market_context.get("market_trends", {}),
+        "airports_comparison": market_context.get("airports_comparison", {}),
+        "duration_comparison": market_context.get("duration_comparison", {}),
         "floor_saturation": market_context.get("floor_saturation"),
         "top_candidates": market_context.get("top_candidates", []),
         "arbitrage_highlights": market_context.get("arbitrage_highlights", []),
@@ -782,6 +832,9 @@ def call_openai_oracle(
         "filter_title": market_context.get("filter_title"),
         "analyzed_at": market_context.get("analyzed_at"),
         "market_stats": market_context.get("market_stats"),
+        "market_trends": market_context.get("market_trends", {}),
+        "airports_comparison": market_context.get("airports_comparison", {}),
+        "duration_comparison": market_context.get("duration_comparison", {}),
         "floor_saturation": market_context.get("floor_saturation"),
         "top_candidates": market_context.get("top_candidates", []),
         "arbitrage_highlights": market_context.get("arbitrage_highlights", []),

@@ -27,7 +27,7 @@ from typing import Any, Dict, List, Optional, Set, Tuple
 import numpy as np
 import pandas as pd
 
-from build_market_dna import parse_departure_date, parse_scraped_date, get_d_bucket
+from build_market_dna import parse_departure_date, parse_scraped_date, get_d_bucket, extract_operator_from_url
 
 logger = logging.getLogger("feature_extractor")
 DEFAULT_DNA_FILE = "market_dna_profile.json"
@@ -187,6 +187,263 @@ def resolve_booking_window(
             "window_class": "late",
             "window_tip": f"Окно максимальных скидок ({w_label}) уже прошло. Текущий день: D-{d_days}.",
         }
+
+
+OPERATOR_NAME_MAP: Dict[str, str] = {
+    "CORAL": "Coral Travel",
+    "ITAKA": "Itaka",
+    "EXIM": "Exim Tours",
+    "OREX": "Orex Travel",
+    "JOIN": "Join UP!",
+    "ANEX": "Anex Tour",
+    "WEZY": "Coral Travel (Wezyr)",
+    "BVBE": "Best Reisen",
+    "TUI": "TUI Poland",
+    "SUNF": "Sun & Fun",
+    "REIS": "Reisebureau",
+}
+
+
+def get_hotel_reputation_metadata(hotel_name: str, destination_hint: str = "") -> Dict[str, Any]:
+    """
+    Extracts contextual reputation intelligence, geography/bay profile,
+    and suitability (family, winter shelter, aquapark, reef quality).
+    """
+    h_lower = hotel_name.lower()
+
+    bay_or_area = ""
+    wind_shelter = ""
+    beach_profile = ""
+    winter_comfort = ""
+
+    # Sharm El Sheikh Bays
+    if any(k in h_lower for k in ("naama", "promenade", "novotel", "maritim", "garth", "tropitel", "movenpick")):
+        bay_or_area = "Бухта Наама Бэй (Naama Bay)"
+        wind_shelter = "Защищена от ветра (комфортна зимой)"
+        beach_profile = "Песчаный пологий вход в море, без обязательного понтона"
+        winter_comfort = "Высокий: защищена горами от зимних ветров, море спокойное"
+    elif any(k in h_lower for k in ("hadaba", "ras um sid", "faraana", "jaz fanara", "renaissance", "reef oasis", "sentido")):
+        bay_or_area = "Бухта Рас Ум Сид / Хадаба"
+        wind_shelter = "Защищена от ветра высокими скалами"
+        beach_profile = "Один из лучших живых коралловых рифов Шарма"
+        winter_comfort = "Высокий: безветренная бухта, идеальна для плавания зимой"
+    elif any(k in h_lower for k in ("shark", "sultan gardens", "grand rotana", "pyramisa", "white knight")):
+        bay_or_area = "Бухта Шаркс Бэй (Shark's Bay)"
+        wind_shelter = "Умеренный ветер, открытый вид на остров Тиран"
+        beach_profile = "Красивый коралловый риф, заход с понтона"
+        winter_comfort = "Средний: при сильном ветре возможны волны"
+    elif any(k in h_lower for k in ("nabq", "amwaj", "rehana", "rixos premium seagate", "cleopatra", "parrotel", "barcelo", "albatros laguna")):
+        bay_or_area = "Бухта Набк (Nabq Bay)"
+        wind_shelter = "Открытая бухта, подвержена зимним ветрам"
+        beach_profile = "Длинный понтон (до 500-800 м) через мелководный коралловый риф"
+        winter_comfort = "Низкий зимой: частые ветра, возможен красный флаг на понтоне"
+    # Hurghada Areas
+    elif any(k in h_lower for k in ("makadi", "tia heights", "jaz makadi", "cleopatra makadi")):
+        bay_or_area = "Бухта Макади Бэй (Makadi Bay)"
+        wind_shelter = "Умеренно защищенная бухта"
+        beach_profile = "Песчаный пляж с участками рифа"
+        winter_comfort = "Хороший: песчаный заход и красивый подводный мир"
+    elif any(k in h_lower for k in ("sahl hasheesh", "baron palace", "gravity", "old palace")):
+        bay_or_area = "Сахл Хашиш (Sahl Hasheesh)"
+        wind_shelter = "Премиальная курортная зона с длинным променадом"
+        beach_profile = "Широкий песчаный пляж"
+        winter_comfort = "Высокий: красивый променад и качественный сервис"
+    elif any(k in h_lower for k in ("el gouna", "gouna")):
+        bay_or_area = "Эль Гуна (El Gouna)"
+        wind_shelter = "Египетская Венеция с лагунами и каналами"
+        beach_profile = "Лагуны и песчаные отмели"
+        winter_comfort = "Европейский сервис, идеально для кайтинга и спокойного отдыха"
+
+    # Family & Aquapark profiling
+    has_aquapark = any(k in h_lower for k in ("aqua", "park", "water", "splash", "slide", "аквапарк"))
+    is_adults_only = any(k in h_lower for k in ("adults", "16+", "18+", "только для взрослых"))
+    family_friendly = not is_adults_only and (has_aquapark or any(k in h_lower for k in ("family", "kids", "albatros", "pickalbatros", "jaz")))
+
+    # Winter amenities (heated pools)
+    has_heated_pool = any(k in h_lower for k in ("albatros", "pickalbatros", "rixos", "jaz", "baron", "sunrise", "steigenberger", "four seasons", "promenade", "maritim"))
+
+    highlights_list = []
+    if bay_or_area:
+        highlights_list.append(bay_or_area)
+    if winter_comfort:
+        highlights_list.append(winter_comfort)
+    if has_aquapark:
+        highlights_list.append("Аквапарк / водные горки")
+    if has_heated_pool:
+        highlights_list.append("Подогреваемый бассейн зимой")
+    if is_adults_only:
+        highlights_list.append("Только для взрослых (16+)")
+    elif family_friendly:
+        highlights_list.append("Подходит для семей с детьми")
+
+    return {
+        "bay_or_area": bay_or_area,
+        "wind_shelter_winter": wind_shelter,
+        "beach_profile": beach_profile,
+        "winter_comfort": winter_comfort,
+        "has_aquapark": has_aquapark,
+        "has_heated_pool": has_heated_pool,
+        "family_friendly": family_friendly,
+        "is_adults_only": is_adults_only,
+        "highlights": ", ".join(highlights_list) if highlights_list else "Курортный комплекс",
+    }
+
+
+def calculate_market_trends(df: pd.DataFrame) -> Dict[str, Any]:
+    """Computes historical market trend (7-day and 14-day median price movement)."""
+    if "scraped_at" not in df.columns or "price" not in df.columns:
+        return {}
+    df_clean = df.dropna(subset=["price", "scraped_at"]).copy()
+    if df_clean.empty:
+        return {}
+    df_clean["scraped_dt"] = pd.to_datetime(df_clean["scraped_at"], errors="coerce", utc=True)
+    df_clean = df_clean.dropna(subset=["scraped_dt"])
+    if df_clean.empty:
+        return {}
+
+    now_max = df_clean["scraped_dt"].max()
+    p_current = df_clean[df_clean["scraped_dt"] >= (now_max - pd.Timedelta(days=1))]["price"]
+    med_current = float(p_current.median()) if len(p_current) > 0 else float(df_clean["price"].median())
+
+    p_7d = df_clean[(df_clean["scraped_dt"] >= (now_max - pd.Timedelta(days=8))) & (df_clean["scraped_dt"] <= (now_max - pd.Timedelta(days=6)))]["price"]
+    med_7d = float(p_7d.median()) if len(p_7d) > 0 else None
+
+    p_14d = df_clean[(df_clean["scraped_dt"] >= (now_max - pd.Timedelta(days=16))) & (df_clean["scraped_dt"] <= (now_max - pd.Timedelta(days=13)))]["price"]
+    med_14d = float(p_14d.median()) if len(p_14d) > 0 else None
+
+    res: Dict[str, Any] = {
+        "current_median": round(med_current, 0),
+        "sample_records_analyzed": len(df_clean),
+    }
+    if med_7d and med_7d > 0:
+        res["trend_7d_pct"] = round(((med_current - med_7d) / med_7d) * 100.0, 1)
+        res["median_7d_ago"] = round(med_7d, 0)
+        res["delta_7d_pln"] = round(med_current - med_7d, 0)
+    else:
+        res["trend_7d_pct"] = 0.0
+        res["median_7d_ago"] = round(med_current, 0)
+        res["delta_7d_pln"] = 0.0
+
+    if med_14d and med_14d > 0:
+        res["trend_14d_pct"] = round(((med_current - med_14d) / med_14d) * 100.0, 1)
+        res["median_14d_ago"] = round(med_14d, 0)
+    else:
+        res["trend_14d_pct"] = None
+
+    t_pct = res.get("trend_7d_pct", 0.0)
+    if t_pct <= -2.5:
+        res["market_direction"] = "FALLING"
+        res["direction_label"] = f"Рынок падает ({t_pct:+.1f}% за неделю)"
+    elif t_pct >= 2.5:
+        res["market_direction"] = "RISING"
+        res["direction_label"] = f"Рынок растет ({t_pct:+.1f}% за неделю)"
+    else:
+        res["market_direction"] = "STABLE"
+        res["direction_label"] = "Цены стабильны (без резких колебаний за 7 дней)"
+
+    return res
+
+
+def calculate_airports_comparison(df: pd.DataFrame, latest_per_hotel: pd.DataFrame) -> Dict[str, Any]:
+    """Compares departure airports from latest scrape."""
+    if "departure_airport" not in df.columns or "price" not in df.columns:
+        return {}
+    recent_df = df.dropna(subset=["price", "departure_airport"]).copy()
+    if recent_df.empty:
+        return {}
+
+    airport_stats: Dict[str, Dict[str, Any]] = {}
+    for apt, grp in recent_df.groupby("departure_airport"):
+        code = str(apt).strip()
+        if not code or code.lower() in ("nan", "none", "unknown"):
+            continue
+        plist = grp["price"].dropna().astype(float).values
+        if len(plist) > 0:
+            airport_stats[code] = {
+                "min_price": round(float(np.min(plist)), 0),
+                "median_price": round(float(np.median(plist)), 0),
+                "offer_count": int(len(plist)),
+            }
+
+    if len(airport_stats) <= 1:
+        return {"multi_airport": False, "airports": airport_stats}
+
+    sorted_apts = sorted(airport_stats.items(), key=lambda x: x[1]["median_price"])
+    cheapest_code, cheapest_data = sorted_apts[0]
+    expensive_code, expensive_data = sorted_apts[-1]
+    spread = round(expensive_data["median_price"] - cheapest_data["median_price"], 0)
+
+    return {
+        "multi_airport": True,
+        "cheapest_hub": cheapest_code,
+        "cheapest_median": cheapest_data["median_price"],
+        "expensive_hub": expensive_code,
+        "expensive_median": expensive_data["median_price"],
+        "spread_pln": spread,
+        "insight": f"Вылет из {cheapest_code} в среднем на {spread:,.0f} zł дешевле, чем из {expensive_code}",
+        "all_hubs": airport_stats,
+    }
+
+
+def calculate_duration_comparison(df: pd.DataFrame) -> Dict[str, Any]:
+    """Compares price differences between stay lengths (e.g., 7 days vs 10 days)."""
+    if "duration" not in df.columns or "price" not in df.columns:
+        return {}
+
+    dur_df = df.dropna(subset=["price", "duration"]).copy()
+    if dur_df.empty:
+        return {}
+
+    def _extract_days(val: Any) -> Optional[int]:
+        m = re.search(r"(\d+)\s*(?:d|n|дн|ноч)", str(val).lower())
+        if m:
+            return int(m.group(1))
+        m2 = re.search(r"^(\d+)$", str(val).strip())
+        if m2:
+            return int(m2.group(1))
+        return None
+
+    dur_df["days"] = dur_df["duration"].apply(_extract_days)
+    dur_df = dur_df.dropna(subset=["days"])
+    if dur_df.empty:
+        return {}
+
+    duration_stats: Dict[int, Dict[str, Any]] = {}
+    for d_int, grp in dur_df.groupby("days"):
+        plist = grp["price"].dropna().astype(float).values
+        if len(plist) >= 2:
+            duration_stats[int(d_int)] = {
+                "days": int(d_int),
+                "min_price": round(float(np.min(plist)), 0),
+                "median_price": round(float(np.median(plist)), 0),
+                "count": len(plist),
+            }
+
+    if len(duration_stats) <= 1:
+        return {"multi_duration": False, "durations": duration_stats}
+
+    sorted_durations = sorted(duration_stats.items(), key=lambda x: x[0])
+    short_days, short_data = sorted_durations[0]
+    long_days, long_data = sorted_durations[-1]
+
+    day_diff = long_days - short_days
+    price_diff = round(long_data["median_price"] - short_data["median_price"], 0)
+    cost_per_extra_day = round(price_diff / max(1, day_diff), 0)
+
+    insight = f"Доплата за отдых {long_days} дн. вместо {short_days} дн. составляет {price_diff:,.0f} zł ({cost_per_extra_day:,.0f} zł в день)"
+
+    return {
+        "multi_duration": True,
+        "shorter_duration_days": short_days,
+        "shorter_median": short_data["median_price"],
+        "longer_duration_days": long_days,
+        "longer_median": long_data["median_price"],
+        "delta_days": day_diff,
+        "delta_pln": price_diff,
+        "cost_per_extra_day_pln": cost_per_extra_day,
+        "insight": insight,
+        "all_durations": {f"{k}d": v for k, v in duration_stats.items()},
+    }
 
 
 def extract_filter_features(
@@ -494,6 +751,9 @@ def extract_filter_features(
                 "drop_pct": round(drop_below, 1),
             })
 
+        op_code = extract_operator_from_url(str(row.get("offer_url") or row.get("url") or ""))
+        op_name = OPERATOR_NAME_MAP.get(op_code, op_code) if op_code else "Туроператор (Польша)"
+
         cand_info = {
             "hotel_name": h_name,
             "current_price": cur_p,
@@ -504,8 +764,12 @@ def extract_filter_features(
             "archetype": archetype,
             "stars": st,
             "rating": r_val,
+            "review_count": hotel_reviews_map.get(h_name, 0),
             "dates": str(row.get("dates", "")),
             "duration": str(row.get("duration", "")),
+            "departure_airport": str(row.get("departure_airport") or "").strip(),
+            "meal_plan": hotel_meal_map.get(h_name, "all_inclusive"),
+            "tour_operator": op_name,
             "offer_url": str(row.get("offer_url") or row.get("url") or ""),
             "booking_window": bw_res,
             "fair_price": {
@@ -526,6 +790,7 @@ def extract_filter_features(
                 "badge": flash_badge,
                 "tip": flash_tip,
             },
+            "reputation": get_hotel_reputation_metadata(h_name, filter_title or ""),
             "dupe_suggestion": None,
         }
 
@@ -616,26 +881,98 @@ def extract_filter_features(
 
     # 4. Filter candidates for Executive LLM Briefing
     is_deep = os.getenv("AI_ANALYSIS_MODE", "standard").lower() == "full_deep"
-    selected_cands = active_candidates if is_deep else active_candidates[:8]
+    if is_deep:
+        selected_cands = active_candidates if active_candidates else hotel_records_list
+    else:
+        selected_cands = list(active_candidates)
+        if len(selected_cands) < 6:
+            seen = {c["hotel_name"] for c in selected_cands}
+            # Backfill with highest-rated and best-value hotels from catalog
+            sorted_by_quality = sorted(hotel_records_list, key=lambda x: (-x["rating"], x["current_price"]))
+            for cand in sorted_by_quality:
+                if cand["hotel_name"] not in seen:
+                    selected_cands.append(cand)
+                    seen.add(cand["hotel_name"])
+                    if len(selected_cands) >= 8:
+                        break
+
     top_candidates = []
-    # Sort active_candidates by catalyst priority
+    arch_desc_map = {
+        "LATE_DUMPER": "Сбрасывает до 25% цены за 3–5 дней до вылета",
+        "EARLY_SURGER": "Дорожает ближе к вылету, выгоднее брать заранее",
+        "ROCK_SOLID": "Держит цену стабильно без резких сбросов",
+        "VOLATILE": "Цена совершает частые колебания вверх-вниз",
+        "BALANCED": "Умеренная динамика",
+    }
+
     for cand in selected_cands:
         cur_p = cand["current_price"]
         h_med = cand["historical_median"]
+        h_min = cand["historical_min"]
+        h_max = cand["historical_max"]
+        st = cand["stars"]
+        r_val = cand["rating"]
+        rev_count = cand.get("review_count", 0)
+        arch = cand.get("archetype", "BALANCED")
+        arch_desc = arch_desc_map.get(arch, "Умеренная динамика")
+
+        diff_med = round(((cur_p - h_med) / max(1.0, h_med)) * 100.0, 1) if h_med > 0 else 0.0
+        diff_min = round(((cur_p - h_min) / max(1.0, h_min)) * 100.0, 1) if h_min > 0 else 0.0
         discount_pct = round(((h_med - cur_p) / max(1.0, h_med)) * 100.0, 1) if h_med > 0 else 0.0
-        top_candidates.append({
+
+        op_name = cand.get("tour_operator") or "Туроператор (Польша)"
+        rep_meta = cand.get("reputation") or get_hotel_reputation_metadata(cand["hotel_name"], filter_title or "")
+
+        cand_dossier = {
             "hotel_name": cand["hotel_name"],
+            "stars": st,
+            "tier": cand["fair_price"].get("tier", "комфорт"),
             "price": cur_p,
-            "stars": cand["stars"],
-            "rating": cand["rating"],
-            "review_count": cand.get("review_count", 0),
+            "rating": r_val,
+            "review_count": rev_count,
             "meal_plan": cand.get("meal_plan", "all_inclusive"),
+            "tripadvisor": {
+                "rating": r_val,
+                "review_count": rev_count,
+                "summary": f"{r_val:g}★ ({rev_count:,} отзывов)" if r_val > 0 else "Без подтвержденных отзывов",
+            },
+            "price_history": {
+                "historical_min": h_min,
+                "historical_median": h_med,
+                "historical_max": h_max,
+                "diff_from_median_pct": diff_med,
+                "diff_from_min_pct": diff_min,
+                "is_at_season_floor": cur_p <= (h_min * 1.025),
+            },
+            "behavioral_archetype": {
+                "type": arch,
+                "description": arch_desc,
+            },
+            "trip_details": {
+                "dates": cand.get("dates", ""),
+                "duration": cand.get("duration", ""),
+                "departure_airport": cand.get("departure_airport", ""),
+                "meal_plan": cand.get("meal_plan", "all_inclusive"),
+                "tour_operator": op_name,
+            },
+            "booking_window": {
+                "optimal_window": cand["booking_window"].get("optimal_window", ""),
+                "status": cand["booking_window"].get("window_status", ""),
+                "tip": cand["booking_window"].get("window_tip", ""),
+            },
             "discount_from_median_pct": discount_pct,
             "fair_price_badge": cand["fair_price"].get("badge", ""),
             "flash_drop_badge": cand["flash_drop"].get("badge", ""),
             "gem_badge": cand["gem"].get("badge", ""),
-            "booking_window": cand["booking_window"].get("optimal_window", ""),
-        })
+            "cheaper_alternative": cand.get("dupe_suggestion"),
+            "hotel_reputation": rep_meta,
+        }
+        top_candidates.append(cand_dossier)
+
+    # Compute comprehensive temporal, airport, and duration trends
+    market_trends = calculate_market_trends(df)
+    airports_comp = calculate_airports_comparison(df, latest_per_hotel)
+    duration_comp = calculate_duration_comparison(df)
 
     # Assemble compacted market context
     market_context = {
@@ -662,6 +999,9 @@ def extract_filter_features(
             "mid_term_count": len([d for d in d_values if 8 <= d <= 21]),
             "far_term_count": len([d for d in d_values if d >= 22]),
         },
+        "market_trends": market_trends,
+        "airports_comparison": airports_comp,
+        "duration_comparison": duration_comp,
         "floor_saturation": {
             "floor_breaker_count": len(floor_breakers),
             "floor_breaker_pct": round((len(floor_breakers) / max(1, len(latest_per_hotel))) * 100.0, 1),
