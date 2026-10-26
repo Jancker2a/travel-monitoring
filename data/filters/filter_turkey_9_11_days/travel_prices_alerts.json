@@ -1,8 +1,48 @@
 {
   "version": 2,
-  "alerts": [],
+  "alerts": [
+    {
+      "hotel_name": "Avia Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 7373.0,
+      "new_price": 7373.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-26 09:28:57.642521+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-26T09:31:08.368968+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Avia Resort & Spa_2026-10-26_09-28_zone_out_gone"
+    },
+    {
+      "hotel_name": "Kirbiyik Resort (ex. Dinler)",
+      "duration_bucket": "",
+      "old_price": 6465.0,
+      "new_price": 6465.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-26 09:28:57.642521+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-26T09:31:08.368997+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Kirbiyik Resort (ex. Dinler)_2026-10-26_09-28_zone_out_gone"
+    },
+    {
+      "hotel_name": "M. C. Arancia Resort",
+      "duration_bucket": "",
+      "old_price": 6837.0,
+      "new_price": 6837.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-26 09:28:57.642521+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-26T09:31:08.369013+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "M. C. Arancia Resort_2026-10-26_09-28_zone_out_gone"
+    }
+  ],
   "meta": {
-    "last_processed_run": "2026-10-26T08:02:53.145041+00:00",
+    "last_processed_run": "2026-10-26T09:28:57.642521+00:00",
     "premium_state": {
       "Alaiye Resort & Spa": {
         "history_max": 6130.0,
@@ -122,6 +162,18 @@
       },
       "Club Side Coast": {
         "history_max": 5569.0,
+        "premium_peak": null
+      },
+      "VONResort Golden Beach": {
+        "history_max": 7529.0,
+        "premium_peak": null
+      },
+      "Side Moon Palace": {
+        "history_max": 7516.0,
+        "premium_peak": null
+      },
+      "Greenwood Suites Resort (ex. Sherwood Suites Resort)": {
+        "history_max": 7621.0,
         "premium_peak": null
       }
     }

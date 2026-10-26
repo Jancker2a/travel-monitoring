@@ -26,10 +26,23 @@
       "created_at": "2026-10-26T06:36:56.080690+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sea Star Beau Rivage_2026-10-26_06-35_comeback_15.0"
+    },
+    {
+      "hotel_name": "Royal Lagoons Resort and Aqua Park",
+      "duration_bucket": "",
+      "old_price": 9944.0,
+      "new_price": 9944.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-26 09:26:06.448354+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-26T09:26:43.530188+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Royal Lagoons Resort and Aqua Park_2026-10-26_09-26_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-26T08:01:05.179817+00:00",
+    "last_processed_run": "2026-10-26T09:26:06.448354+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa*****": {
         "history_max": 12142.0,
@@ -86,6 +99,10 @@
       "Rewaya Luxury Resort": {
         "history_max": 12187.0,
         "premium_peak": 12187.0
+      },
+      "Sun Resort Aqua Park Sharm El-Sheikh (Ex": {
+        "history_max": 9853.0,
+        "premium_peak": null
       }
     }
   }
