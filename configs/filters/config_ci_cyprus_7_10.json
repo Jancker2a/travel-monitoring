@@ -27,13 +27,13 @@
   "retry_delay": 5,
   "data_dir": "data/filters/filter_cyprus_7_10",
   "output_data_file": "travel_prices.csv",
-  "description": "Пользовательский фильтр • Кипр • 7–10 дней • сбор 3000-12000 PLN, показ ≤6000",
+  "description": "Пользовательский фильтр • Кипр • 7–10 дней • сбор 3000-11000 PLN, показ ≤6000",
   "modules": {
     "arbitrage_germany": true,
     "hopper_predictor": true,
     "departure_analytics": true,
     "deal_score": true,
-    "room_types": true,
+    "room_types": false,
     "telegram_alerts": false
   },
   "germany_params": {
@@ -41,9 +41,9 @@
     "departure_airport": "BER",
     "direct_flight_only": false
   },
-  "created_at": "2026-10-25T11:18:49.026Z",
+  "created_at": "2026-10-24T18:52:42.470Z",
   "filter_mode": "fixed_trip",
   "dynamic_search_dates": false,
-  "trip_anchor_date": "2026-12-20",
+  "trip_anchor_date": "2026-12-19",
   "retire_after": "2026-11-29"
 }
