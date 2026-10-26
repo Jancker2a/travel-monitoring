@@ -268,8 +268,10 @@ function buildFlyUrl(state) {
     searchParams.set("categoryRating", state.categoryRating);
   }
 
-  searchParams.set("durationFrom", String(state.durationFrom || 7));
-  searchParams.set("durationTo", String(state.durationTo || 10));
+  const dFrom = state.durationFrom || 7;
+  const dTo = state.durationTo || 10;
+  searchParams.set("durationFrom", String(dFrom));
+  searchParams.set("durationTo", String(dTo));
 
   if (state.minPrice) {
     searchParams.set("priceFrom", String(state.minPrice));
@@ -344,8 +346,7 @@ function buildFilterConfigJson(state) {
     data_dir: dataDir,
     output_data_file: "travel_prices.csv",
     required_offer_url_contains: [
-      dest.subpath,
-      "transport=accommodation_flight"
+      dest.subpath
     ],
     excluded_offer_url_contains: [
       "/wycieczka/polska",

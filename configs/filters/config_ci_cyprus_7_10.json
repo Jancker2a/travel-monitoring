@@ -6,14 +6,13 @@
   "group": "cyprus",
   "group_label": "Кипр",
   "group_icon": "🇨🇾",
-  "url": "https://fly.pl/szukaj-wycieczek/?destinationLocation=6:&departureLocation=Warszawa%2CWarszawa+-+Modlin%2CWarszawa+-+Radom%2CKatowice%2CKrak%C3%B3w%2CGda%C5%84sk%2CWroc%C5%82aw%2CPozna%C5%84%2CRzesz%C3%B3w&startDateMin=19-12-2026&startDateMax=29-11-2026&returnDate=09-12-2026&adults=1&offerTypes=accommodation_flight&durationFrom=7&durationTo=10&priceFrom=3000&priceTo=11000&order=price",
+  "url": "https://fly.pl/szukaj-wycieczek/?destinationLocation=6:&departureLocation=Warszawa%2CWarszawa+-+Modlin%2CWarszawa+-+Radom%2CKatowice%2CKrak%C3%B3w%2CGda%C5%84sk%2CWroc%C5%82aw%2CPozna%C5%84%2CRzesz%C3%B3w&startDateMin=19-12-2026&startDateMax=28-12-2026&returnDate=05-01-2027&adults=1&offerTypes=accommodation_flight&durationFrom=7&durationTo=10&priceFrom=1500&priceTo=11000&order=price",
   "max_price_threshold": 11000,
-  "min_price_threshold": 3000,
+  "min_price_threshold": 1500,
   "display_price_ceiling": 6000,
   "history_price_ceiling": 6000,
   "required_offer_url_contains": [
-    "/wycieczka/cypr",
-    "transport=accommodation_flight"
+    "/wycieczka/cypr"
   ],
   "excluded_offer_url_contains": [
     "/wycieczka/polska",
@@ -27,7 +26,7 @@
   "retry_delay": 5,
   "data_dir": "data/filters/filter_cyprus_7_10",
   "output_data_file": "travel_prices.csv",
-  "description": "Пользовательский фильтр • Кипр • 7–10 дней • сбор 3000-11000 PLN, показ ≤6000",
+  "description": "Пользовательский фильтр • Кипр • 7–10 дней • сбор 1500-11000 PLN, показ ≤6000",
   "modules": {
     "arbitrage_germany": true,
     "hopper_predictor": true,
@@ -45,5 +44,5 @@
   "filter_mode": "fixed_trip",
   "dynamic_search_dates": false,
   "trip_anchor_date": "2026-12-19",
-  "retire_after": "2026-11-29"
+  "retire_after": "2026-12-28"
 }

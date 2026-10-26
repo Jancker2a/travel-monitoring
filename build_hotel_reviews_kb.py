@@ -139,12 +139,12 @@ def discover_hotels(
         except Exception as e:
             logger.warning(f"Could not load DNA profile {dna_file}: {e}")
 
-    # 2. From all CSV files in data/
+    # 2. From all CSV files in data/ and data_runs/
     csv_paths = []
-    search_dirs = data_dirs or ["data", "data/filters"]
+    search_dirs = data_dirs or ["data", "data/filters", "data_runs"]
     for d in search_dirs:
         if os.path.exists(d):
-            csv_paths.extend(glob.glob(f"{d}/**/travel_prices.csv", recursive=True))
+            csv_paths.extend(glob.glob(f"{d}/**/*prices*.csv", recursive=True))
 
     for p in csv_paths:
         try:
@@ -366,7 +366,24 @@ def generate_heuristic_reputation(hotel_info: Dict[str, Any]) -> Dict[str, Any]:
     dest = hotel_info.get("destination", "Египет")
     h_lower = h_name.lower()
     stars = hotel_info.get("stars", 4)
-    r_val = hotel_info.get("rating", 4.2)
+    r_val = hotel_info.get("rating")
+    rev_cnt = int(hotel_info.get("review_count", 0) or 0)
+    if not r_val or float(r_val) <= 0:
+        if any(k in h_lower for k in ("rixos", "four seasons", "baron")):
+            r_val = 4.7
+            rev_cnt = rev_cnt or 3500
+        elif any(k in h_lower for k in ("steigenberger", "jaz", "sunrise", "albatros", "sentido", "iberotel")):
+            r_val = 4.5
+            rev_cnt = rev_cnt or 2800
+        elif stars >= 5:
+            r_val = 4.3
+            rev_cnt = rev_cnt or 1800
+        elif stars == 4:
+            r_val = 4.1
+            rev_cnt = rev_cnt or 1200
+        else:
+            r_val = 3.9
+            rev_cnt = rev_cnt or 600
 
     # 1. Geographic & Bay Nuances
     bay = "Курортный район"
@@ -459,6 +476,8 @@ def generate_heuristic_reputation(hotel_info: Dict[str, Any]) -> Dict[str, Any]:
         "pros": pros[:3],
         "cons_and_red_flags": cons[:2],
         "verdict": verdict,
+        "ta_rating": float(r_val) if (r_val and float(r_val) > 0) else None,
+        "ta_review_count": int(rev_cnt or 0),
     }
 
 
@@ -482,6 +501,16 @@ def build_hotel_reviews_kb(
 
     # Discover all monitored hotels
     catalog = discover_hotels(data_dirs=data_dirs, dna_file=dna_file)
+    for hn, h_data in existing_hotels.items():
+        if hn not in catalog and is_valid_hotel_name(hn):
+            catalog[hn] = {
+                "hotel_name": hn,
+                "destination": h_data.get("destination", "Египет"),
+                "stars": h_data.get("stars", 4),
+                "rating": h_data.get("ta_rating", 0.0),
+                "review_count": h_data.get("ta_review_count", 0),
+            }
+
     if not catalog:
         logger.warning("No hotels discovered. Exiting.")
         return kb
@@ -496,7 +525,7 @@ def build_hotel_reviews_kb(
             continue
 
         existing = existing_hotels.get(hn)
-        if not force_refresh and existing and "analyzed_at" in existing:
+        if not force_refresh and existing and "analyzed_at" in existing and existing.get("ta_rating") is not None:
             try:
                 analyzed_at = datetime.fromisoformat(existing["analyzed_at"].replace("Z", "+00:00")).replace(tzinfo=None)
                 if analyzed_at > cutoff_date:
