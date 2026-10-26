@@ -159,6 +159,9 @@ KNOWN_GROUPS = {
     'spain': {'id': 'spain', 'label': 'Испания', 'icon': '🇪🇸'},
     'italy': {'id': 'italy', 'label': 'Италия', 'icon': '🇮🇹'},
     'bulgaria': {'id': 'bulgaria', 'label': 'Болгария', 'icon': '🇧🇬'},
+    'tunisia': {'id': 'tunisia', 'label': 'Тунис', 'icon': '🇹🇳'},
+    'uae': {'id': 'uae', 'label': 'ОАЭ', 'icon': '🇦🇪'},
+    'malta': {'id': 'malta', 'label': 'Мальта', 'icon': '🇲🇹'},
     'custom': {'id': 'custom', 'label': 'Мои поездки', 'icon': '✨'},
 }
 
@@ -216,13 +219,13 @@ def detect_group_for_config(cfg: Dict[str, Any], known: Optional[Dict[str, Dict[
         " ".join(cfg.get('required_offer_url_contains', [])),
     ]).lower()
 
-    if any(k in haystack for k in ['cypr', 'cyprus', 'кипр', 'paphos', 'larnaca', 'protaras', 'destinationlocation=12']):
+    if any(k in haystack for k in ['cypr', 'cyprus', 'кипр', 'paphos', 'larnaca', 'protaras', 'destinationlocation=6']):
         return 'cyprus'
-    if any(k in haystack for k in ['spain', 'hiszpania', 'испания', 'mallorca', 'tenerife', 'canary', 'destinationlocation=13']):
+    if any(k in haystack for k in ['spain', 'hiszpania', 'испания', 'mallorca', 'tenerife', 'canary', 'destinationlocation=15']):
         return 'spain'
-    if any(k in haystack for k in ['italy', 'wlochy', 'италия', 'sicily', 'sardinia', 'destinationlocation=17']):
+    if any(k in haystack for k in ['italy', 'wlochy', 'италия', 'sicily', 'sardinia', 'destinationlocation=44']):
         return 'italy'
-    if any(k in haystack for k in ['bulgaria', 'bułgaria', 'болгария', 'burgas', 'varna', 'destinationlocation=15']):
+    if any(k in haystack for k in ['bulgaria', 'bułgaria', 'болгария', 'burgas', 'varna', 'destinationlocation=3']):
         return 'bulgaria'
     if any(k in haystack for k in ['turkey', 'turcja', 'турция', 'antalya', 'belek', 'side', 'kemer', 'alanya', 'destinationlocation=39']):
         return 'turkey'
@@ -230,6 +233,12 @@ def detect_group_for_config(cfg: Dict[str, Any], known: Optional[Dict[str, Dict[
         return 'egypt'
     if any(k in haystack for k in ['greece', 'grecja', 'греция', 'crete', 'kreta', 'rhodes', 'rodos', 'corfu', 'destinationlocation=14']):
         return 'greece'
+    if any(k in haystack for k in ['tunisia', 'tunezja', 'тунис', 'djerba', 'destinationlocation=38']):
+        return 'tunisia'
+    if any(k in haystack for k in ['uae', 'emiraty', 'оаэ', 'dubai', 'destinationlocation=372']):
+        return 'uae'
+    if any(k in haystack for k in ['malta', 'мальта', 'destinationlocation=26']):
+        return 'malta'
 
     return 'custom'
 
