@@ -249,34 +249,131 @@ def get_hotel_reputation_metadata(
         wind_shelter = "Умеренно защищенная бухта"
         beach_profile = "Песчаный пляж с участками рифа"
         winter_comfort = "Хороший: песчаный заход и красивый подводный мир"
-    elif any(k in h_lower for k in ("sahl hasheesh", "baron palace", "gravity", "old palace")):
+    elif any(k in h_lower for k in ("sahl hasheesh", "baron palace", "gravity", "old palace", "citadel")):
         bay_or_area = "Сахл Хашиш (Sahl Hasheesh)"
         wind_shelter = "Премиальная курортная зона с длинным променадом"
         beach_profile = "Широкий песчаный пляж"
         winter_comfort = "Высокий: красивый променад и качественный сервис"
-    elif any(k in h_lower for k in ("el gouna", "gouna")):
+    elif any(k in h_lower for k in ("el gouna", "gouna", "mangroovy", "creek hotel")):
         bay_or_area = "Эль Гуна (El Gouna)"
         wind_shelter = "Египетская Венеция с лагунами и каналами"
         beach_profile = "Лагуны и песчаные отмели"
         winter_comfort = "Европейский сервис, идеально для кайтинга и спокойного отдыха"
+    elif any(k in h_lower for k in ("marsa alam", "port ghalib", "brayka", "sataya", "lazuli", "akassia")):
+        bay_or_area = "Марса Алам / Порт Галиб"
+        wind_shelter = "Открытое побережье Красного моря"
+        beach_profile = "Нетронутые коралловые рифы с морскими черепахами и дюгонями"
+        winter_comfort = "Для дайвинга и снорклинга; зимой возможны волны"
+    # Turkey (Antalya & Aegean)
+    elif any(k in h_lower for k in ("side", "kumkoy", "evrenseki", "colakli", "titreyengol", "manavgat", "sorgun", "kizilot", "kizilagac", "sueno", "kamelya", "club side coast", "mira meridia")):
+        bay_or_area = "Сиде / Манавгат (Side)"
+        wind_shelter = "Широкая береговая линия, пологий заход"
+        beach_profile = "Широкий пологий песчаный вход в море, идеален для детей"
+        winter_comfort = "Живой курорт с красивым променадом вдоль античного города"
+    elif any(k in h_lower for k in ("alanya", "konakli", "avsallar", "okurcalar", "mahmutlar", "incekum", "eftalia", "xoria", "arancia", "kaila", "rubi", "long beach")):
+        bay_or_area = "Аланья / Конаклы / Авсаллар"
+        wind_shelter = "Самый теплый регион Анталийского побережья"
+        beach_profile = "Песчано-галечный пляж, в Авсалларе (Инжекум) мягкий песок"
+        winter_comfort = "Мягкий климат, море дольше всего сохраняет тепло осенью"
+    elif any(k in h_lower for k in ("kemer", "beldibi", "goynuk", "kiris", "camyuva", "tekirova", "meder", "sungate", "alva donna world")):
+        bay_or_area = "Кемер (Kemer)"
+        wind_shelter = "Окружен хвойными Таврскими горами"
+        beach_profile = "Кристально чистая прозрачная вода, галька и пирсы"
+        winter_comfort = "Хвойный воздух и горы, в межсезонье приятный прохладный бриз"
+    elif any(k in h_lower for k in ("belek", "kadriye", "bogazkent", "land of legends", "selectum", "papillon", "gural premier")):
+        bay_or_area = "Белек (Belek)"
+        wind_shelter = "Элитный курорт среди хвойных и эвкалиптовых рощ"
+        beach_profile = "Широкий песчаный пляж с мелкой галькой у кромки воды"
+        winter_comfort = "Премиальные отели с круглогодичными теплыми бассейнами и спа"
+    elif any(k in h_lower for k in ("lara", "kundu", "barut lara", "delphin imperial", "delphin be grand", "delphin diva", "titanic mardan", "concorde de luxe")):
+        bay_or_area = "Анталья / Лара (Lara Beach)"
+        wind_shelter = "Быстрый трансфер из аэропорта (15–20 мин)"
+        beach_profile = "Широкий золотой песчаный пляж"
+        winter_comfort = "Отели-дворцы с круглогодичной инфраструктурой и теплыми бассейнами"
+    # Cyprus / Greece / Spain
+    elif any(k in h_lower for k in ("ayia napa", "protaras", "nissi", "fig tree", "paphos", "limassol", "larnaca")) or any(k in (destination_hint or "").lower() for k in ("cypr", "кипр")):
+        bay_or_area = "Кипр"
+        wind_shelter = "Средиземноморское побережье"
+        beach_profile = "Бирюзовые лагуны и золотистый песок"
+        winter_comfort = "Мягкая теплая средиземноморская зима"
+    elif any(k in h_lower for k in ("crete", "rhodes", "corfu", "kos", "hersonissos", "rethymno", "chania", "kallithea")) or any(k in (destination_hint or "").lower() for k in ("grec", "грец")):
+        bay_or_area = "Греческие острова"
+        wind_shelter = "Средиземное и Эгейское моря"
+        beach_profile = "Живописные песчаные и галечные бухты"
+        winter_comfort = "Мягкий климат, экскурсионный сезон"
 
     # Family & Aquapark profiling
-    has_aquapark = any(k in h_lower for k in ("aqua", "park", "water", "splash", "slide", "аквапарк"))
+    has_aquapark = any(k in h_lower for k in (
+        "aqua", "park", "water", "splash", "slide", "аквапарк",
+        "eftalia", "land of legends", "titanic", "ali bey", "delphin",
+        "granada", "long beach", "vonresort", "voyage", "paloma", "kamelya", "pegasos"
+    ))
     is_adults_only = any(k in h_lower for k in ("adults", "16+", "18+", "только для взрослых"))
-    family_friendly = not is_adults_only and (has_aquapark or any(k in h_lower for k in ("family", "kids", "albatros", "pickalbatros", "jaz")))
+    family_friendly = not is_adults_only and (
+        has_aquapark or any(k in h_lower for k in ("family", "kids", "albatros", "pickalbatros", "jaz", "sunrise", "eftalia", "delphin", "voyage", "barut"))
+    )
 
     # Winter amenities (heated pools)
-    has_heated_pool = any(k in h_lower for k in ("albatros", "pickalbatros", "rixos", "jaz", "baron", "sunrise", "steigenberger", "four seasons", "promenade", "maritim"))
+    has_heated_pool = any(k in h_lower for k in (
+        "albatros", "pickalbatros", "rixos", "jaz", "baron", "sunrise", "steigenberger",
+        "four seasons", "promenade", "maritim", "delphin", "voyage", "maxx royal", "titanic",
+        "barut", "akra", "concorde", "alva donna", "dobedan", "gural", "kaya", "cullinan", "regnum"
+    ))
+
+    # Merge deep intelligence from KB if available
+    kb_hotels = {}
+    if isinstance(kb_data, dict):
+        if "hotels" in kb_data and isinstance(kb_data["hotels"], dict):
+            kb_hotels = kb_data["hotels"]
+        else:
+            kb_hotels = kb_data
+
+    season_trend_dict: Dict[str, Any] = {}
+    sentiment_scores_dict: Dict[str, Any] = {}
+    family_and_kids_dict: Dict[str, Any] = {}
+    pros_list: List[str] = []
+    cons_list: List[str] = []
+    verdict_text = ""
+
+    if hotel_name in kb_hotels:
+        kb_h = kb_hotels[hotel_name]
+        fam = kb_h.get("family_and_kids", {})
+        wint = kb_h.get("winter_suitability", {})
+        strend = kb_h.get("season_trend", {})
+
+        if wint.get("bay"):
+            bay_or_area = wint["bay"]
+        if wint.get("wind_shelter"):
+            wind_shelter = wint["wind_shelter"]
+        if fam.get("beach_entry"):
+            beach_profile = fam["beach_entry"]
+
+        if fam.get("suitable_for_children") or float(fam.get("score", 0) or 0) >= 7.5:
+            family_friendly = True
+
+        if wint.get("heated_pools"):
+            has_heated_pool = True
+
+        kids_fac = str(fam.get("kids_facilities", "")).lower()
+        if "аквапарк" in kids_fac or "горк" in kids_fac:
+            has_aquapark = True
+
+        season_trend_dict = strend
+        sentiment_scores_dict = kb_h.get("sentiment_scores", {})
+        family_and_kids_dict = fam
+        pros_list = kb_h.get("pros", [])
+        cons_list = kb_h.get("cons_and_red_flags", [])
+        verdict_text = kb_h.get("verdict", "")
 
     highlights_list = []
     if bay_or_area:
         highlights_list.append(bay_or_area)
-    if winter_comfort:
-        highlights_list.append(winter_comfort)
+    if beach_profile and beach_profile != "Курортный комплекс":
+        highlights_list.append(beach_profile)
     if has_aquapark:
         highlights_list.append("Аквапарк / водные горки")
     if has_heated_pool:
-        highlights_list.append("Подогреваемый бассейн зимой")
+        highlights_list.append("Подогреваемый бассейн")
     if is_adults_only:
         highlights_list.append("Только для взрослых (16+)")
     elif family_friendly:
@@ -291,24 +388,14 @@ def get_hotel_reputation_metadata(
         "has_heated_pool": has_heated_pool,
         "family_friendly": family_friendly,
         "is_adults_only": is_adults_only,
+        "season_trend": season_trend_dict,
+        "sentiment_scores": sentiment_scores_dict,
+        "family_and_kids": family_and_kids_dict,
+        "pros": pros_list,
+        "cons_and_red_flags": cons_list,
+        "verdict": verdict_text,
         "highlights": ", ".join(highlights_list) if highlights_list else "Курортный комплекс",
     }
-
-    # Merge deep intelligence from KB if available
-    if kb_data and "hotels" in kb_data and hotel_name in kb_data["hotels"]:
-        kb_h = kb_data["hotels"][hotel_name]
-        base_res.update({
-            "season_trend": kb_h.get("season_trend", {}),
-            "sentiment_scores": kb_h.get("sentiment_scores", {}),
-            "family_and_kids": kb_h.get("family_and_kids", {}),
-            "pros": kb_h.get("pros", []),
-            "cons_and_red_flags": kb_h.get("cons_and_red_flags", []),
-            "verdict": kb_h.get("verdict", ""),
-        })
-        if kb_h.get("winter_suitability", {}).get("bay"):
-            base_res["bay_or_area"] = kb_h["winter_suitability"]["bay"]
-        if kb_h.get("winter_suitability", {}).get("wind_shelter"):
-            base_res["wind_shelter_winter"] = kb_h["winter_suitability"]["wind_shelter"]
 
     return base_res
 
@@ -502,12 +589,20 @@ def extract_filter_features(
 
     # Load Hotel Reputation Knowledge Base if present
     reputation_kb: Dict[str, Any] = {}
-    if os.path.exists(reputation_kb_path):
-        try:
-            with open(reputation_kb_path, "r", encoding="utf-8") as f:
-                reputation_kb = json.load(f)
-        except Exception as e:
-            logger.warning(f"Could not load Reputation KB from {reputation_kb_path}: {e}")
+    kb_candidates = [
+        reputation_kb_path,
+        os.path.join(os.path.dirname(prices_csv_path), "hotel_reputation_kb.json"),
+        "hotel_reputation_kb.json",
+        os.path.join(os.path.dirname(__file__), "hotel_reputation_kb.json"),
+    ]
+    for p in kb_candidates:
+        if p and os.path.exists(p):
+            try:
+                with open(p, "r", encoding="utf-8") as f:
+                    reputation_kb = json.load(f)
+                break
+            except Exception as e:
+                logger.warning(f"Could not load Reputation KB from {p}: {e}")
 
     # Filter out invalid / domestic outlier rows (< 1000 PLN)
     df["price"] = pd.to_numeric(df["price"], errors="coerce")
@@ -553,6 +648,71 @@ def extract_filter_features(
     furthest_dep = max(dep_dates).strftime("%d.%m") if dep_dates else ""
 
     dominant_phase = max(d_buckets_count.items(), key=lambda x: x[1])[0] if d_buckets_count else "mid_term"
+
+    # Today departure check & next realistic flight
+    has_today_departures = (min_d == 0)
+    today_departures_count = sum(1 for d in d_values if d == 0)
+    future_pairs = [(d, dt) for d, dt in zip(d_values, dep_dates) if d >= 1]
+    if future_pairs:
+        next_realistic_days = int(min(p[0] for p in future_pairs))
+        next_realistic_dep = min(p[1] for p in future_pairs).strftime("%d.%m")
+    else:
+        next_realistic_days = min_d
+        next_realistic_dep = nearest_dep
+
+    # Destination detection & seasonal weather intelligence
+    filter_search_text = f"{filter_id or ''} {filter_title or ''} {prices_csv_path}".lower()
+    sample_hotels_text = " ".join(latest_per_hotel["hotel_name"].astype(str).tolist()).lower()
+    detected_country = "Египет"
+    detected_region = "Красное море"
+
+    if any(k in filter_search_text or k in sample_hotels_text for k in ("turkey", "turcja", "турци", "antalya", "alanya", "side", "kemer", "belek", "eftalia", "xoria")):
+        detected_country = "Турция"
+        detected_region = "Анталийское побережье (Сиде / Аланья / Кемер / Белек)"
+    elif any(k in filter_search_text or k in sample_hotels_text for k in ("cyprus", "cypr", "кипр", "ayia napa", "paphos", "protaras")):
+        detected_country = "Кипр"
+        detected_region = "Айя-Напа / Протарас / Пафос"
+    elif any(k in filter_search_text or k in sample_hotels_text for k in ("greece", "grecja", "греци", "crete", "rhodes", "corfu", "kos")):
+        detected_country = "Греция"
+        detected_region = "Крит / Родос / Корфу"
+    elif any(k in filter_search_text or k in sample_hotels_text for k in ("spain", "hiszpania", "испани", "mallorca", "tenerife", "canaria")):
+        detected_country = "Испания"
+        detected_region = "Канарские / Балеарские острова"
+    elif any(k in filter_search_text or k in sample_hotels_text for k in ("egypt", "egipt", "египет", "sharm", "hurghada", "marsa alam", "makadi", "gouna")):
+        detected_country = "Египет"
+        detected_region = "Шарм-эль-Шейх / Хургада / Марса Алам"
+
+    dep_month = min(dep_dates).month if dep_dates else today.month
+    if detected_country == "Турция":
+        if dep_month in (11, 12, 1, 2, 3):
+            season_phase = "Закрытие пляжного сезона / переход на зимнюю концепцию"
+            weather_advice = "Днем тепло (+20..+24°C), море остывает до +21..+22°C в ноябре, вечера прохладные (+12..+15°C). Выбирайте отели с подогреваемыми бассейнами и спа. Не для жаркого пляжа, а для комфортного отдыха и релакса."
+        elif dep_month in (4, 5):
+            season_phase = "Открытие летнего сезона"
+            weather_advice = "Воздух комфортно теплый (+24..+27°C), море бодрящее (+19..+21°C). Отличные цены перед летним пиком."
+        elif dep_month in (6, 7, 8, 9):
+            season_phase = "Высокий пляжный сезон"
+            weather_advice = "Жаркое средиземноморское лето (+32..+38°C), очень теплое море (+27..+29°C), максимальная загрузка."
+        else:
+            season_phase = "Бархатный сезон"
+            weather_advice = "Мягкая приятная погода (+27..+29°C), очень теплое море (+25..+26°C), отличный период для пляжного отдыха."
+    elif detected_country == "Египет":
+        if dep_month in (11, 12, 1, 2, 3):
+            season_phase = "Зимний сезон Красного моря"
+            weather_advice = "Теплое море (+23..+26°C), воздух днем +24..+28°C. Ключевой фактор комфорта — закрытая от зимних ветров бухта (Наама Бэй, Рас Ум Сид) и подогреваемый бассейн."
+        else:
+            season_phase = "Круглогодичный курорт"
+            weather_advice = "Теплое море и солнце, отличный снорклинг и дайвинг."
+    else:
+        season_phase = "Средиземноморский сезон"
+        weather_advice = "Мягкий климат, европейский сервис и экскурсионные возможности."
+
+    destination_context = {
+        "country": detected_country,
+        "region": detected_region,
+        "season_phase": season_phase,
+        "climate_and_weather_advice": weather_advice,
+    }
 
     # 1. Pre-calculate star clusters, price tiers, and ratings (Peer Group Benchmarking)
     hotel_stars_map: Dict[str, int] = {}
@@ -638,6 +798,18 @@ def extract_filter_features(
                             hotel_reviews_map[hn] = int(c_rev)
                     except (ValueError, TypeError):
                         pass
+
+    # Fallback to Reputation KB for complete rating and review count coverage
+    kb_hotels = reputation_kb.get("hotels", {}) if isinstance(reputation_kb, dict) and "hotels" in reputation_kb else (reputation_kb if isinstance(reputation_kb, dict) else {})
+    for hn in latest_per_hotel["hotel_name"].unique():
+        if hotel_ratings_map.get(hn, 0.0) <= 0 and hn in kb_hotels:
+            kb_entry = kb_hotels[hn]
+            kb_r = kb_entry.get("ta_rating")
+            if kb_r and float(kb_r) > 0:
+                hotel_ratings_map[hn] = float(kb_r)
+            kb_rev = kb_entry.get("ta_review_count")
+            if kb_rev and int(kb_rev) > 0 and hotel_reviews_map.get(hn, 0) <= 0:
+                hotel_reviews_map[hn] = int(kb_rev)
 
     # Peer cohort medians (comparing only with roughly equal hotels)
     peer_medians: Dict[Tuple[int, str], float] = {
@@ -957,6 +1129,10 @@ def extract_filter_features(
         op_name = cand.get("tour_operator") or "Туроператор (Польша)"
         rep_meta = cand.get("reputation") or get_hotel_reputation_metadata(cand["hotel_name"], filter_title or "", kb_data=reputation_kb)
 
+        cand_dep_d = parse_departure_date(str(cand.get("dates", "")))
+        cand_d_days = (cand_dep_d - today).days if cand_dep_d else None
+        is_today_cand = (cand_d_days == 0)
+
         cand_dossier = {
             "hotel_name": cand["hotel_name"],
             "stars": st,
@@ -1000,6 +1176,9 @@ def extract_filter_features(
             "gem_badge": cand["gem"].get("badge", ""),
             "cheaper_alternative": cand.get("dupe_suggestion"),
             "hotel_reputation": rep_meta,
+            "is_departing_today": is_today_cand,
+            "days_to_departure": cand_d_days,
+            "departure_warning": "⚡ ВЫЛЕТ СЕГОДНЯ! Подходит только тем, кто сидит на чемоданах." if is_today_cand else "",
         }
         top_candidates.append(cand_dossier)
 
@@ -1032,6 +1211,11 @@ def extract_filter_features(
             "near_term_count": len([d for d in d_values if d <= 7]),
             "mid_term_count": len([d for d in d_values if 8 <= d <= 21]),
             "far_term_count": len([d for d in d_values if d >= 22]),
+            "has_today_departures": has_today_departures,
+            "today_departures_count": today_departures_count,
+            "next_realistic_departure_date": next_realistic_dep,
+            "next_realistic_days_to_departure": next_realistic_days,
+            "destination_context": destination_context,
         },
         "market_trends": market_trends,
         "airports_comparison": airports_comp,
