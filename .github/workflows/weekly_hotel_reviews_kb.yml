@@ -37,7 +37,7 @@ concurrency:
 jobs:
   build-and-update-reputation-kb:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 60
     env:
       PYTHONUNBUFFERED: "1"
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
@@ -84,10 +84,11 @@ jobs:
             EXTRA_ARGS="$EXTRA_ARGS --destination ${{ github.event.inputs.destination }}"
           fi
 
-          echo "🚀 Executing build_hotel_reviews_kb.py with args: $EXTRA_ARGS"
-          python build_hotel_reviews_kb.py $EXTRA_ARGS
+          echo "🚀 Executing build_hotel_reviews_kb.py with args: --concurrency 5 $EXTRA_ARGS"
+          python build_hotel_reviews_kb.py --concurrency 5 $EXTRA_ARGS
 
       - name: Commit and push updated knowledge base
+        if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
