@@ -26,10 +26,49 @@
       "created_at": "2026-10-26T09:27:42.393920+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Uni Sharm (ex. Karma)_2026-10-26_09-26_-8.4"
+    },
+    {
+      "hotel_name": "Coral Hills Resort Sharm El Sheikh",
+      "duration_bucket": "",
+      "old_price": 3585.0,
+      "new_price": 3286.0,
+      "price_change": -299.0,
+      "price_change_pct": -8.340306834030683,
+      "timestamp": "2026-10-26 11:15:09.004039+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-26T11:17:00.885735+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Coral Hills Resort Sharm El Sheikh_2026-10-26_11-15_-8.3"
+    },
+    {
+      "hotel_name": "Regency Plaza Aqua Park Spa",
+      "duration_bucket": "",
+      "old_price": 4484.0,
+      "new_price": 4484.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-26 11:15:09.004039+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-26T11:17:00.885779+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Regency Plaza Aqua Park Spa_2026-10-26_11-15_zone_out_gone"
+    },
+    {
+      "hotel_name": "Xperience St. George Homestay",
+      "duration_bucket": "",
+      "old_price": 4473.0,
+      "new_price": 4473.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-26 11:15:09.004039+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-26T11:17:00.885796+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xperience St. George Homestay_2026-10-26_11-15_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-26T09:26:34.828674+00:00",
+    "last_processed_run": "2026-10-26T11:15:09.004039+00:00",
     "premium_state": {
       "Amwaj Oyoun Resort & Casino": {
         "history_max": 4219.0,
@@ -149,6 +188,14 @@
       },
       "Eden Rock (Sharm El Sheikh)": {
         "history_max": 3747.0,
+        "premium_peak": null
+      },
+      "Parrotel Aqua Park Resort (ex. Park Inn)": {
+        "history_max": 4467.0,
+        "premium_peak": null
+      },
+      "Star Resort & Aqua Park Sharm El Sheikh": {
+        "history_max": 4375.0,
         "premium_peak": null
       }
     }

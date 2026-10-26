@@ -1,8 +1,35 @@
 {
   "version": 2,
-  "alerts": [],
+  "alerts": [
+    {
+      "hotel_name": "Calimera Blend Paradise Resort",
+      "duration_bucket": "",
+      "old_price": 7957.0,
+      "new_price": 6957.0,
+      "price_change": -1000.0,
+      "price_change_pct": -12.567550584391102,
+      "timestamp": "2026-10-26 11:12:04.336070+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-26T11:14:25.436306+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Calimera Blend Paradise Resort_2026-10-26_11-12_-12.6"
+    },
+    {
+      "hotel_name": "Tropitel Sahl Hasheesh",
+      "duration_bucket": "",
+      "old_price": 9920.0,
+      "new_price": 9920.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-26 11:12:04.336070+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-26T11:14:25.436343+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Tropitel Sahl Hasheesh_2026-10-26_11-12_zone_out_gone"
+    }
+  ],
   "meta": {
-    "last_processed_run": "2026-10-26T06:33:42.609002+00:00",
+    "last_processed_run": "2026-10-26T11:12:04.336070+00:00",
     "premium_state": {
       "Albatros Makadi Resort (ex Royal Pharaohs Makadi)": {
         "history_max": 9452.0,
@@ -45,7 +72,7 @@
         "premium_peak": null
       },
       "Novotel Marsa Alam": {
-        "history_max": 8282.0,
+        "history_max": 8574.0,
         "premium_peak": null
       },
       "Tropitel Sahl Hasheesh": {
@@ -94,6 +121,10 @@
       },
       "Concorde Moreen Beach Resort & Spa": {
         "history_max": 9206.0,
+        "premium_peak": null
+      },
+      "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
+        "history_max": 7863.0,
         "premium_peak": null
       }
     }

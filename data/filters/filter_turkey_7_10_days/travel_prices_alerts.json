@@ -39,13 +39,39 @@
       "created_at": "2026-10-26T09:29:30.116274+00:00",
       "threshold_percent": 8.0,
       "unique_key": "M. C. Arancia Resort_2026-10-26_09-27_zone_out_gone"
+    },
+    {
+      "hotel_name": "Pirates Beach Club",
+      "duration_bucket": "",
+      "old_price": 6455.0,
+      "new_price": 6455.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-26 11:17:36.539150+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-26T11:19:10.969814+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pirates Beach Club_2026-10-26_11-17_zone_out_gone"
+    },
+    {
+      "hotel_name": "The Lumos Deluxe Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 6488.0,
+      "new_price": 6488.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-26 11:17:36.539150+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-26T11:19:10.969842+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "The Lumos Deluxe Resort & Spa_2026-10-26_11-17_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-26T09:27:55.506455+00:00",
+    "last_processed_run": "2026-10-26T11:17:36.539150+00:00",
     "premium_state": {
       "Alaiye Resort & Spa": {
-        "history_max": 5590.0,
+        "history_max": 5599.0,
         "premium_peak": null
       },
       "Kaila Beach (ex Katya)": {
@@ -65,7 +91,7 @@
         "premium_peak": null
       },
       "Meder Resort": {
-        "history_max": 5517.0,
+        "history_max": 5641.0,
         "premium_peak": null
       },
       "Mira Meridia Beach Resort": {
@@ -73,7 +99,7 @@
         "premium_peak": null
       },
       "Nova Park": {
-        "history_max": 6505.0,
+        "history_max": 6529.0,
         "premium_peak": null
       },
       "Orange County Alanya": {
@@ -133,15 +159,15 @@
         "premium_peak": null
       },
       "Cenger Blue Collection": {
-        "history_max": 6153.0,
+        "history_max": 6277.0,
         "premium_peak": null
       },
       "Aska Just in Beach": {
-        "history_max": 6374.0,
+        "history_max": 6508.0,
         "premium_peak": null
       },
       "Club Side Coast": {
-        "history_max": 5217.0,
+        "history_max": 5321.0,
         "premium_peak": null
       },
       "Arnor De Luxe & SPA": {
@@ -149,7 +175,7 @@
         "premium_peak": null
       },
       "Arcanus Hotels Sorgun (ex. Asteria Sorgun)": {
-        "history_max": 6237.0,
+        "history_max": 6387.0,
         "premium_peak": null
       },
       "Barut Goia (ex. Barut Sunwing Side Beach)": {
@@ -161,7 +187,7 @@
         "premium_peak": null
       },
       "Drita Resort & Spa": {
-        "history_max": 5496.0,
+        "history_max": 5620.0,
         "premium_peak": null
       },
       "Limak Limra": {
@@ -170,6 +196,14 @@
       },
       "Orange County (Kemer)": {
         "history_max": 6516.0,
+        "premium_peak": null
+      },
+      "Sensitive Premium Resort & Spa": {
+        "history_max": 6250.0,
+        "premium_peak": null
+      },
+      "Justiniano Deluxe Resort": {
+        "history_max": 6529.0,
         "premium_peak": null
       }
     }

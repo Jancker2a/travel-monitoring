@@ -39,10 +39,101 @@
       "created_at": "2026-10-26T08:00:50.408583+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sirena Beach Resort & Spa_2026-10-26_07-58_zone_out_gone"
+    },
+    {
+      "hotel_name": "Parrotel Beach Resort (ex. Radisson Blu)",
+      "duration_bucket": "",
+      "old_price": 7581.0,
+      "new_price": 6881.0,
+      "price_change": -700.0,
+      "price_change_pct": -9.233610341643583,
+      "timestamp": "2026-10-26 11:12:02.894596+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-26T11:14:07.380788+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Parrotel Beach Resort (ex. Radisson Blu)_2026-10-26_11-12_-9.2"
+    },
+    {
+      "hotel_name": "Calimera Blend Paradise Resort",
+      "duration_bucket": "",
+      "old_price": 7957.0,
+      "new_price": 6957.0,
+      "price_change": -1000.0,
+      "price_change_pct": -12.567550584391102,
+      "timestamp": "2026-10-26 11:12:02.894596+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-26T11:14:07.380813+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Calimera Blend Paradise Resort_2026-10-26_11-12_-12.6"
+    },
+    {
+      "hotel_name": "Amarina Queen Resort",
+      "duration_bucket": "",
+      "old_price": 7250.0,
+      "new_price": 6345.0,
+      "price_change": -905.0,
+      "price_change_pct": -12.482758620689655,
+      "timestamp": "2026-10-26 11:12:02.894596+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-26T11:14:07.380826+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amarina Queen Resort_2026-10-26_11-12_-12.5"
+    },
+    {
+      "hotel_name": "Royal Regency Club",
+      "duration_bucket": "",
+      "old_price": 7734.0,
+      "new_price": 7034.0,
+      "price_change": -700.0,
+      "price_change_pct": -9.05094388414792,
+      "timestamp": "2026-10-26 11:12:02.894596+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-26T11:14:07.380836+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Royal Regency Club_2026-10-26_11-12_-9.1"
+    },
+    {
+      "hotel_name": "Jaz Royal Palmariva",
+      "duration_bucket": "",
+      "old_price": 8034.0,
+      "new_price": 8034.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-26 11:12:02.894596+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-26T11:14:07.380854+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Royal Palmariva_2026-10-26_11-12_zone_out_gone"
+    },
+    {
+      "hotel_name": "Rewaya Inn Resort (ex. Hawaii Paradise Aqua Park Resort)",
+      "duration_bucket": "",
+      "old_price": 8016.0,
+      "new_price": 8016.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-26 11:12:02.894596+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-26T11:14:07.380863+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Inn Resort (ex. Hawaii Paradise Aqua Park Resort)_2026-10-26_11-12_zone_out_gone"
+    },
+    {
+      "hotel_name": "V Grand Beach Resort Sahl Hasheesh",
+      "duration_bucket": "",
+      "old_price": 8037.0,
+      "new_price": 8037.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-26 11:12:02.894596+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-26T11:14:07.380871+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "V Grand Beach Resort Sahl Hasheesh_2026-10-26_11-12_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-26T07:58:45.357064+00:00",
+    "last_processed_run": "2026-10-26T11:12:02.894596+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 7423.0,
@@ -166,6 +257,18 @@
       },
       "Movenpick Waterpark Resort & Spa Soma Bay": {
         "history_max": 7844.0,
+        "premium_peak": null
+      },
+      "Titanic Beach Spa & Aqua Park": {
+        "history_max": 7557.0,
+        "premium_peak": null
+      },
+      "Jaz Mirabel Beach Resort": {
+        "history_max": 7458.0,
+        "premium_peak": null
+      },
+      "Sea Star Beau Rivage": {
+        "history_max": 7698.0,
         "premium_peak": null
       }
     }
