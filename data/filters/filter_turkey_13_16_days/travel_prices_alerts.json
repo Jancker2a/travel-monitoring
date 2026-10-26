@@ -338,13 +338,91 @@
       "created_at": "2026-10-26T09:29:13.141864+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Xoria Deluxe_2026-10-26_09-27_zone_out_gone"
+    },
+    {
+      "hotel_name": "Palmeras Beach",
+      "duration_bucket": "",
+      "old_price": 8336.0,
+      "new_price": 9274.0,
+      "price_change": 938.0,
+      "price_change_pct": 11.252399232245681,
+      "timestamp": "2026-10-26 12:39:55.638971+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-26T12:42:00.723534+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Palmeras Beach_2026-10-26_12-39_+11.3"
+    },
+    {
+      "hotel_name": "Aska Just in Beach",
+      "duration_bucket": "",
+      "old_price": 9968.0,
+      "new_price": 10733.0,
+      "price_change": 765.0,
+      "price_change_pct": 7.674558587479936,
+      "timestamp": "2026-10-26 12:39:55.638971+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-26T12:42:00.723567+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Aska Just in Beach_2026-10-26_12-39_zone_out_+7.7"
+    },
+    {
+      "hotel_name": "Barut Goia (ex. Barut Sunwing Side Beach)",
+      "duration_bucket": "",
+      "old_price": 9797.0,
+      "new_price": 10467.0,
+      "price_change": 670.0,
+      "price_change_pct": 6.8388282127181785,
+      "timestamp": "2026-10-26 12:39:55.638971+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-26T12:42:00.723580+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Barut Goia (ex. Barut Sunwing Side Beach)_2026-10-26_12-39_zone_out_+6.8"
+    },
+    {
+      "hotel_name": "Diamond Hill Resort",
+      "duration_bucket": "",
+      "old_price": 9389.0,
+      "new_price": 10101.0,
+      "price_change": 712.0,
+      "price_change_pct": 7.583342208967942,
+      "timestamp": "2026-10-26 12:39:55.638971+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-26T12:42:00.723590+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Diamond Hill Resort_2026-10-26_12-39_zone_out_+7.6"
+    },
+    {
+      "hotel_name": "Linda Resort (Side)",
+      "duration_bucket": "",
+      "old_price": 9904.0,
+      "new_price": 10444.0,
+      "price_change": 540.0,
+      "price_change_pct": 5.4523424878836835,
+      "timestamp": "2026-10-26 12:39:55.638971+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-26T12:42:00.723600+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Linda Resort (Side)_2026-10-26_12-39_zone_out_+5.5"
+    },
+    {
+      "hotel_name": "Orange County Alanya",
+      "duration_bucket": "",
+      "old_price": 9727.0,
+      "new_price": 10029.0,
+      "price_change": 302.0,
+      "price_change_pct": 3.1047599465405575,
+      "timestamp": "2026-10-26 12:39:55.638971+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-26T12:42:00.723609+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Orange County Alanya_2026-10-26_12-39_zone_out_+3.1"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-26T09:27:44.854372+00:00",
+    "last_processed_run": "2026-10-26T12:39:55.638971+00:00",
     "premium_state": {
       "Alaiye Resort & Spa": {
-        "history_max": 8317.0,
+        "history_max": 8855.0,
         "premium_peak": null
       },
       "Nova Park": {
@@ -376,31 +454,31 @@
         "premium_peak": null
       },
       "Sensitive Premium Resort & Spa": {
-        "history_max": 9421.0,
+        "history_max": 9629.0,
         "premium_peak": null
       },
       "Karmir Resort (Kemer)": {
-        "history_max": 9394.0,
-        "premium_peak": null
+        "history_max": 11507.0,
+        "premium_peak": 11507.0
       },
       "Kaila Beach (ex Katya)": {
         "history_max": 8146.0,
         "premium_peak": null
       },
       "Side Kum": {
-        "history_max": 8714.0,
+        "history_max": 9090.0,
         "premium_peak": null
       },
       "Justiniano Deluxe Resort": {
-        "history_max": 10181.0,
-        "premium_peak": 10181.0
+        "history_max": 10582.0,
+        "premium_peak": 10582.0
       },
       "Greenwood Kemer Resort (ex. Sherwood Greenwood Resort)": {
         "history_max": 9009.0,
         "premium_peak": null
       },
       "Palmeras Beach": {
-        "history_max": 8336.0,
+        "history_max": 9274.0,
         "premium_peak": null
       },
       "Grand Seker": {
@@ -420,12 +498,12 @@
         "premium_peak": null
       },
       "White City Resort": {
-        "history_max": 10816.0,
-        "premium_peak": 10816.0
+        "history_max": 11245.0,
+        "premium_peak": 11245.0
       },
       "Aska Just in Beach": {
-        "history_max": 9968.0,
-        "premium_peak": null
+        "history_max": 10733.0,
+        "premium_peak": 10733.0
       },
       "Cenger Blue Collection": {
         "history_max": 8165.0,
@@ -440,15 +518,15 @@
         "premium_peak": null
       },
       "Numa Bay Exclusive (ex Sentido Numa Bay)": {
-        "history_max": 10683.0,
-        "premium_peak": 10683.0
+        "history_max": 11085.0,
+        "premium_peak": 11085.0
       },
       "VONResort Golden Beach": {
         "history_max": 11059.0,
         "premium_peak": 11059.0
       },
       "Drita Resort & Spa": {
-        "history_max": 8245.0,
+        "history_max": 8894.0,
         "premium_peak": null
       },
       "Eftalia Ocean (Alanya)": {
@@ -456,16 +534,16 @@
         "premium_peak": null
       },
       "The Lumos Deluxe Resort & Spa": {
-        "history_max": 10305.0,
-        "premium_peak": 10305.0
+        "history_max": 11243.0,
+        "premium_peak": 11243.0
       },
       "Diamond Hill Resort": {
-        "history_max": 9389.0,
-        "premium_peak": null
+        "history_max": 10101.0,
+        "premium_peak": 10101.0
       },
       "Marti Myra": {
-        "history_max": 10663.0,
-        "premium_peak": 10663.0
+        "history_max": 11065.0,
+        "premium_peak": 11065.0
       },
       "Side Prenses": {
         "history_max": 11348.0,
@@ -480,44 +558,48 @@
         "premium_peak": 10023.0
       },
       "Lonicera Resort & Spa": {
-        "history_max": 10832.0,
-        "premium_peak": 10832.0
+        "history_max": 11296.0,
+        "premium_peak": 11296.0
       },
       "Alba Queen": {
         "history_max": 11122.0,
         "premium_peak": 11122.0
       },
       "Barut Goia (ex. Barut Sunwing Side Beach)": {
-        "history_max": 9797.0,
-        "premium_peak": null
+        "history_max": 10467.0,
+        "premium_peak": 10467.0
       },
       "Side Premium by OZ Hotels": {
-        "history_max": 10701.0,
-        "premium_peak": 10701.0
+        "history_max": 11124.0,
+        "premium_peak": 11124.0
       },
       "Diamond Premium": {
-        "history_max": 10800.0,
-        "premium_peak": 10800.0
+        "history_max": 11072.0,
+        "premium_peak": 11072.0
       },
       "Seher Resort & Spa": {
-        "history_max": 10031.0,
-        "premium_peak": 10031.0
+        "history_max": 10364.0,
+        "premium_peak": 10364.0
       },
       "Orange County Alanya": {
-        "history_max": 9727.0,
-        "premium_peak": null
+        "history_max": 10029.0,
+        "premium_peak": 10029.0
       },
       "Orange County (Kemer)": {
-        "history_max": 10126.0,
-        "premium_peak": 10126.0
+        "history_max": 10448.0,
+        "premium_peak": 10448.0
       },
       "Gypsophila Club Marine (ex. Amara Club Marine Nature)": {
-        "history_max": 10612.0,
-        "premium_peak": 10612.0
+        "history_max": 11122.0,
+        "premium_peak": 11122.0
       },
       "Linda Resort (Side)": {
-        "history_max": 9904.0,
-        "premium_peak": null
+        "history_max": 10444.0,
+        "premium_peak": 10444.0
+      },
+      "Numa Club (Side)": {
+        "history_max": 11266.0,
+        "premium_peak": 11266.0
       }
     }
   }

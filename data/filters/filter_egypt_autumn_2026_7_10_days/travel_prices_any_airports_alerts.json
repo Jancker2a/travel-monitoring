@@ -130,13 +130,65 @@
       "created_at": "2026-10-26T09:26:32.398724+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Tropitel Sahl Hasheesh_2026-10-26_09-25_zone_out_gone"
+    },
+    {
+      "hotel_name": "Dream Lagoon & Aqua Park Resort (ex. Floriana Dream Lagoon)",
+      "duration_bucket": "",
+      "old_price": 4808.0,
+      "new_price": 4353.0,
+      "price_change": -455.0,
+      "price_change_pct": -9.463394342762063,
+      "timestamp": "2026-10-26 12:37:33.086265+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-26T12:38:15.542375+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Dream Lagoon & Aqua Park Resort (ex. Floriana Dream Lagoon)_2026-10-26_12-37_-9.5"
+    },
+    {
+      "hotel_name": "Amarina Queen Resort",
+      "duration_bucket": "",
+      "old_price": 8262.0,
+      "new_price": 7130.0,
+      "price_change": -1132.0,
+      "price_change_pct": -13.701282982328733,
+      "timestamp": "2026-10-26 12:37:33.086265+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-26T12:38:15.542402+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amarina Queen Resort_2026-10-26_12-37_-13.7"
+    },
+    {
+      "hotel_name": "Titanic Pearl",
+      "duration_bucket": "",
+      "old_price": 7942.0,
+      "new_price": 8865.0,
+      "price_change": 923.0,
+      "price_change_pct": 11.6217577436414,
+      "timestamp": "2026-10-26 12:37:33.086265+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-26T12:38:15.542414+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Titanic Pearl_2026-10-26_12-37_+11.6"
+    },
+    {
+      "hotel_name": "Hilton Plaza (Hurghada)",
+      "duration_bucket": "",
+      "old_price": 8960.0,
+      "new_price": 8960.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-26 12:37:33.086265+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-26T12:38:15.542431+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Hilton Plaza (Hurghada)_2026-10-26_12-37_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-26T09:25:46.284348+00:00",
+    "last_processed_run": "2026-10-26T12:37:33.086265+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
-        "history_max": 7350.0,
+        "history_max": 7863.0,
         "premium_peak": null
       },
       "Parrotel Lagoon Resort": {
@@ -168,7 +220,7 @@
         "premium_peak": null
       },
       "Jaz Aquamarine Resort": {
-        "history_max": 9261.0,
+        "history_max": 9333.0,
         "premium_peak": null
       },
       "Rewaya Luxury Resort": {
@@ -248,7 +300,7 @@
         "premium_peak": null
       },
       "Titanic Pearl": {
-        "history_max": 7942.0,
+        "history_max": 8865.0,
         "premium_peak": null
       },
       "Amarina Queen Resort": {

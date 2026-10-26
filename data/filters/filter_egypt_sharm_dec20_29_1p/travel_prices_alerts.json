@@ -65,10 +65,36 @@
       "created_at": "2026-10-26T11:17:00.885796+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Xperience St. George Homestay_2026-10-26_11-15_zone_out_gone"
+    },
+    {
+      "hotel_name": "Viva Sharm",
+      "duration_bucket": "",
+      "old_price": 2961.0,
+      "new_price": 3825.0,
+      "price_change": 864.0,
+      "price_change_pct": 29.17933130699088,
+      "timestamp": "2026-10-26 12:38:13.651216+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-26T12:40:55.274902+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Viva Sharm_2026-10-26_12-38_+29.2"
+    },
+    {
+      "hotel_name": "Mazar Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 2929.0,
+      "new_price": 3436.0,
+      "price_change": 507.0,
+      "price_change_pct": 17.309662000682827,
+      "timestamp": "2026-10-26 12:38:13.651216+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-26T12:40:55.274933+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Mazar Resort & Spa_2026-10-26_12-38_+17.3"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-26T11:15:09.004039+00:00",
+    "last_processed_run": "2026-10-26T12:38:13.651216+00:00",
     "premium_state": {
       "Amwaj Oyoun Resort & Casino": {
         "history_max": 4219.0,
@@ -119,7 +145,7 @@
         "premium_peak": null
       },
       "Mazar Resort & Spa": {
-        "history_max": 3091.0,
+        "history_max": 3436.0,
         "premium_peak": null
       },
       "Lido Sharm": {
@@ -147,7 +173,7 @@
         "premium_peak": null
       },
       "Viva Sharm": {
-        "history_max": 3189.0,
+        "history_max": 3825.0,
         "premium_peak": null
       },
       "Cataract Layalina & Resort": {
