@@ -133,8 +133,14 @@ def run_test():
             page = browser.new_page(viewport={"width": 1400, "height": 950})
             page.on("pageerror", lambda err: page_errors.append(str(err)))
 
-            # Open local dashboard URL
-            dashboard_url = f"http://localhost:8080/{HTML_OUTPUT.name}"
+            # Open local dashboard URL (fallback to file:// if local server is not running)
+            dashboard_url = f"file://{HTML_OUTPUT.resolve()}"
+            try:
+                import urllib.request
+                urllib.request.urlopen("http://localhost:8080/", timeout=0.5)
+                dashboard_url = f"http://localhost:8080/{HTML_OUTPUT.name}"
+            except Exception:
+                pass
             page.goto(dashboard_url, wait_until="networkidle")
 
             # Check title

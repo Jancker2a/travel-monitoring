@@ -31,6 +31,7 @@ from build_market_dna import parse_departure_date, parse_scraped_date, get_d_buc
 
 logger = logging.getLogger("feature_extractor")
 DEFAULT_DNA_FILE = "market_dna_profile.json"
+DEFAULT_REPUTATION_KB_FILE = "hotel_reputation_kb.json"
 
 BUCKET_CONFIG: Dict[str, Tuple[str, int, int]] = {
     "last_minute": ("D-1…D-3", 1, 3),
@@ -204,10 +205,15 @@ OPERATOR_NAME_MAP: Dict[str, str] = {
 }
 
 
-def get_hotel_reputation_metadata(hotel_name: str, destination_hint: str = "") -> Dict[str, Any]:
+def get_hotel_reputation_metadata(
+    hotel_name: str,
+    destination_hint: str = "",
+    kb_data: Optional[Dict[str, Any]] = None,
+) -> Dict[str, Any]:
     """
     Extracts contextual reputation intelligence, geography/bay profile,
     and suitability (family, winter shelter, aquapark, reef quality).
+    Merges deep AI intelligence from hotel_reputation_kb.json if available.
     """
     h_lower = hotel_name.lower()
 
@@ -276,7 +282,7 @@ def get_hotel_reputation_metadata(hotel_name: str, destination_hint: str = "") -
     elif family_friendly:
         highlights_list.append("Подходит для семей с детьми")
 
-    return {
+    base_res = {
         "bay_or_area": bay_or_area,
         "wind_shelter_winter": wind_shelter,
         "beach_profile": beach_profile,
@@ -287,6 +293,24 @@ def get_hotel_reputation_metadata(hotel_name: str, destination_hint: str = "") -
         "is_adults_only": is_adults_only,
         "highlights": ", ".join(highlights_list) if highlights_list else "Курортный комплекс",
     }
+
+    # Merge deep intelligence from KB if available
+    if kb_data and "hotels" in kb_data and hotel_name in kb_data["hotels"]:
+        kb_h = kb_data["hotels"][hotel_name]
+        base_res.update({
+            "season_trend": kb_h.get("season_trend", {}),
+            "sentiment_scores": kb_h.get("sentiment_scores", {}),
+            "family_and_kids": kb_h.get("family_and_kids", {}),
+            "pros": kb_h.get("pros", []),
+            "cons_and_red_flags": kb_h.get("cons_and_red_flags", []),
+            "verdict": kb_h.get("verdict", ""),
+        })
+        if kb_h.get("winter_suitability", {}).get("bay"):
+            base_res["bay_or_area"] = kb_h["winter_suitability"]["bay"]
+        if kb_h.get("winter_suitability", {}).get("wind_shelter"):
+            base_res["wind_shelter_winter"] = kb_h["winter_suitability"]["wind_shelter"]
+
+    return base_res
 
 
 def calculate_market_trends(df: pd.DataFrame) -> Dict[str, Any]:
@@ -452,6 +476,7 @@ def extract_filter_features(
     filter_id: Optional[str] = None,
     filter_title: Optional[str] = None,
     arbitrage_matches: Optional[List[Dict[str, Any]]] = None,
+    reputation_kb_path: str = DEFAULT_REPUTATION_KB_FILE,
 ) -> Dict[str, Any]:
     """
     Extracts structured market features from a filter's travel_prices.csv.
@@ -474,6 +499,15 @@ def extract_filter_features(
                 macro_dna = dna_data.get("macro_profile", {})
         except Exception as e:
             logger.warning(f"Could not load DNA profile from {dna_profile_path}: {e}")
+
+    # Load Hotel Reputation Knowledge Base if present
+    reputation_kb: Dict[str, Any] = {}
+    if os.path.exists(reputation_kb_path):
+        try:
+            with open(reputation_kb_path, "r", encoding="utf-8") as f:
+                reputation_kb = json.load(f)
+        except Exception as e:
+            logger.warning(f"Could not load Reputation KB from {reputation_kb_path}: {e}")
 
     # Filter out invalid / domestic outlier rows (< 1000 PLN)
     df["price"] = pd.to_numeric(df["price"], errors="coerce")
@@ -790,7 +824,7 @@ def extract_filter_features(
                 "badge": flash_badge,
                 "tip": flash_tip,
             },
-            "reputation": get_hotel_reputation_metadata(h_name, filter_title or ""),
+            "reputation": get_hotel_reputation_metadata(h_name, filter_title or "", kb_data=reputation_kb),
             "dupe_suggestion": None,
         }
 
@@ -921,7 +955,7 @@ def extract_filter_features(
         discount_pct = round(((h_med - cur_p) / max(1.0, h_med)) * 100.0, 1) if h_med > 0 else 0.0
 
         op_name = cand.get("tour_operator") or "Туроператор (Польша)"
-        rep_meta = cand.get("reputation") or get_hotel_reputation_metadata(cand["hotel_name"], filter_title or "")
+        rep_meta = cand.get("reputation") or get_hotel_reputation_metadata(cand["hotel_name"], filter_title or "", kb_data=reputation_kb)
 
         cand_dossier = {
             "hotel_name": cand["hotel_name"],
