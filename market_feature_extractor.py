@@ -614,10 +614,12 @@ def extract_filter_features(
                 "airport_de": m.get("airport_de"),
             })
 
-    # 4. Filter top candidates for Executive LLM Briefing (~6 candidates max)
+    # 4. Filter candidates for Executive LLM Briefing
+    is_deep = os.getenv("AI_ANALYSIS_MODE", "standard").lower() == "full_deep"
+    selected_cands = active_candidates if is_deep else active_candidates[:8]
     top_candidates = []
     # Sort active_candidates by catalyst priority
-    for cand in active_candidates[:8]:
+    for cand in selected_cands:
         cur_p = cand["current_price"]
         h_med = cand["historical_median"]
         discount_pct = round(((h_med - cur_p) / max(1.0, h_med)) * 100.0, 1) if h_med > 0 else 0.0

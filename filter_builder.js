@@ -4,15 +4,16 @@
  */
 
 const DESTINATIONS = {
-  egypt: { id: "egypt", code: "11:", name: "Египет", icon: "🇪🇬", subpath: "/wycieczka/egipt", defaultCeiling: 10000 },
   turkey: { id: "turkey", code: "39:", name: "Турция", icon: "🇹🇷", subpath: "/wycieczka/turcja", defaultCeiling: 12000 },
+  egypt: { id: "egypt", code: "11:", name: "Египет", icon: "🇪🇬", subpath: "/wycieczka/egipt", defaultCeiling: 10000 },
   greece: { id: "greece", code: "14:", name: "Греция", icon: "🇬🇷", subpath: "/wycieczka/grecja", defaultCeiling: 11000 },
-  cyprus: { id: "cyprus", code: "12_170", name: "Кипр", icon: "🇨🇾", subpath: "/wycieczka/cypr", defaultCeiling: 11000 },
-  spain: { id: "spain", code: "13:", name: "Испания", icon: "🇪🇸", subpath: "/wycieczka/hiszpania", defaultCeiling: 13000 },
-  italy: { id: "italy", code: "17:", name: "Италия", icon: "🇮🇹", subpath: "/wycieczka/wlochy", defaultCeiling: 13000 },
-  bulgaria: { id: "bulgaria", code: "15:", name: "Болгария", icon: "🇧🇬", subpath: "/wycieczka/bulgaria", defaultCeiling: 9000 },
-  tunisia: { id: "tunisia", code: "20:", name: "Тунис", icon: "🇹🇳", subpath: "/wycieczka/tunezja", defaultCeiling: 9500 },
-  uae: { id: "uae", code: "21:", name: "ОАЭ", icon: "🇦🇪", subpath: "/wycieczka/zjednoczone-emiraty-arabskie", defaultCeiling: 15000 },
+  spain: { id: "spain", code: "15:", name: "Испания", icon: "🇪🇸", subpath: "/wycieczka/hiszpania", defaultCeiling: 13000 },
+  cyprus: { id: "cyprus", code: "6:", name: "Кипр", icon: "🇨🇾", subpath: "/wycieczka/cypr", defaultCeiling: 11000 },
+  tunisia: { id: "tunisia", code: "38:", name: "Тунис", icon: "🇹🇳", subpath: "/wycieczka/tunezja", defaultCeiling: 9500 },
+  italy: { id: "italy", code: "44:", name: "Италия", icon: "🇮🇹", subpath: "/wycieczka/wlochy", defaultCeiling: 13000 },
+  bulgaria: { id: "bulgaria", code: "3:", name: "Болгария", icon: "🇧🇬", subpath: "/wycieczka/bulgaria", defaultCeiling: 9000 },
+  uae: { id: "uae", code: "372:", name: "ОАЭ", icon: "🇦🇪", subpath: "/wycieczka/zjednoczone-emiraty-arabskie", defaultCeiling: 15000 },
+  malta: { id: "malta", code: "26:", name: "Мальта", icon: "🇲🇹", subpath: "/wycieczka/malta", defaultCeiling: 10000 },
 };
 
 const AIRPORTS = [
@@ -118,7 +119,15 @@ function parseFlyUrl(rawUrl) {
     const destCode = params.get("destinationLocation") || params.get("filter[dest]") || "";
     let matchedDest = null;
     for (const [key, dest] of Object.entries(DESTINATIONS)) {
-      if (destCode.startsWith(dest.code) || destCode === dest.code || (dest.code.includes('_') && destCode.includes(dest.code))) {
+      const baseCode = dest.code.replace(':', '');
+      if (
+        destCode === dest.code ||
+        destCode === baseCode ||
+        destCode.startsWith(dest.code) ||
+        destCode.startsWith(baseCode + ':') ||
+        destCode.startsWith(baseCode + '_') ||
+        (dest.code.includes('_') && destCode.includes(dest.code))
+      ) {
         matchedDest = key;
         break;
       }

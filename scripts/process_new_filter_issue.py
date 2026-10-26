@@ -84,6 +84,9 @@ def validate_and_normalize_filter(cfg: Dict[str, Any]) -> Dict[str, Any]:
         "spain": "/wycieczka/hiszpania",
         "italy": "/wycieczka/wlochy",
         "bulgaria": "/wycieczka/bulgaria",
+        "tunisia": "/wycieczka/tunezja",
+        "uae": "/wycieczka/zjednoczone-emiraty-arabskie",
+        "malta": "/wycieczka/malta",
     }
     req_contains = list(cfg.get("required_offer_url_contains") or [])
     if group in country_subpaths and country_subpaths[group] not in req_contains:

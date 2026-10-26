@@ -101,7 +101,7 @@ def run_tests():
         # ---------------------------------------------------------
         try:
             valid_url = (
-                "https://fly.pl/szukaj-wycieczek/?destinationLocation=12_170"
+            "https://fly.pl/szukaj-wycieczek/?destinationLocation=6:"
                 "&departureLocation=Warszawa,Katowice"
                 "&adults=2&children=10-12-2020&catering=all_inclusive"
                 "&durationFrom=7&durationTo=10&priceTo=15000"

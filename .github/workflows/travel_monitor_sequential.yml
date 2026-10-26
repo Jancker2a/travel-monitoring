@@ -4,7 +4,30 @@ on:
   schedule:
     # Запускаем каждый час со сдвигом от глобального пика GitHub (:17)
     - cron: "17 * * * *"
-  workflow_dispatch: # Позволяет запускать вручную
+  workflow_dispatch:
+    inputs:
+      ai_mode:
+        description: "Режим AI: standard (быстрый, gpt-4o-mini) или full_deep (полный глубокий прогон, флагман 5.4)"
+        required: true
+        type: choice
+        options:
+          - standard
+          - full_deep
+        default: standard
+      openai_model:
+        description: "Модель OpenAI (обычный: gpt-4o-mini, флагман: gpt-5.4-mini)"
+        required: false
+        type: choice
+        options:
+          - gpt-4o-mini
+          - gpt-5.4-mini
+          - gpt-4o
+        default: gpt-4o-mini
+      force_refresh_ai:
+        description: "Принудительно сбросить AI-кэш и пересчитать всё заново"
+        required: false
+        type: boolean
+        default: false
   push:
     branches: [ main ]
 
@@ -139,7 +162,9 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL || 'gemini-2.0-flash' }}
-          OPENAI_MODEL: ${{ vars.OPENAI_MODEL || 'gpt-5.4-mini' }}
+          OPENAI_MODEL: ${{ github.event.inputs.openai_model || (github.event.inputs.ai_mode == 'full_deep' && 'gpt-5.4-mini') || vars.OPENAI_MODEL || 'gpt-4o-mini' }}
+          FORCE_AI_ANALYSIS: ${{ github.event.inputs.force_refresh_ai || (github.event.inputs.ai_mode == 'full_deep' && 'true') || 'false' }}
+          AI_ANALYSIS_MODE: ${{ github.event.inputs.ai_mode || 'standard' }}
         run: |
           echo "🌐 Generating filter dashboards at $(date)"
           python scripts/run_dashboards_parallel.py -j "${DASHBOARD_PARALLEL_JOBS}"

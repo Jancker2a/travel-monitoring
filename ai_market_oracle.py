@@ -641,8 +641,16 @@ def call_gemini_oracle(
         "flash_drops": market_context.get("flash_drops", []),
     }
 
+    is_deep = os.getenv("AI_ANALYSIS_MODE", "standard").lower() == "full_deep"
+    if is_deep:
+        if market_context.get("all_hotels_catalog"):
+            llm_context["all_hotels_catalog"] = market_context.get("all_hotels_catalog", [])
+        deep_note = "\nРЕЖИМ: FULL DEEP (полный глубокий прогон через AI). Тебе переданы ВСЕ отели и кандидаты данного направления. Проведи полный всесторонний разбор рынка и отбери лучших кандидатов для покупки из всего каталога."
+    else:
+        deep_note = ""
+
     user_prompt = f"""
-Проанализируй сжатые метрики рынка пакетных туров направления "{market_context.get('filter_title', '')}" и выдай краткое экспертное резюме в формате JSON:
+Проанализируй сжатые метрики рынка пакетных туров направления "{market_context.get('filter_title', '')}" и выдай краткое экспертное резюме в формате JSON:{deep_note}
 
 ВХОДНЫЕ ДАННЫЕ РЫНКА (МАКРО-СТАТИСТИКА И ТОП-КАНДИДАТЫ):
 {json.dumps(llm_context, ensure_ascii=False, indent=2)}
@@ -781,8 +789,16 @@ def call_openai_oracle(
         "flash_drops": market_context.get("flash_drops", []),
     }
 
+    is_deep = os.getenv("AI_ANALYSIS_MODE", "standard").lower() == "full_deep"
+    if is_deep:
+        if market_context.get("all_hotels_catalog"):
+            llm_context["all_hotels_catalog"] = market_context.get("all_hotels_catalog", [])
+        deep_note = "\nРЕЖИМ: FULL DEEP (полный глубокий прогон через AI). Тебе переданы ВСЕ отели и кандидаты данного направления. Проведи полный всесторонний разбор рынка и отбери лучших кандидатов для покупки из всего каталога."
+    else:
+        deep_note = ""
+
     user_prompt = f"""
-Проанализируй сжатые метрики рынка пакетных туров направления "{market_context.get('filter_title', '')}" и выдай краткое экспертное резюме в формате JSON:
+Проанализируй сжатые метрики рынка пакетных туров направления "{market_context.get('filter_title', '')}" и выдай краткое экспертное резюме в формате JSON:{deep_note}
 
 ВХОДНЫЕ ДАННЫЕ РЫНКА (МАКРО-СТАТИСТИКА И ТОП-КАНДИДАТЫ):
 {json.dumps(llm_context, ensure_ascii=False, indent=2)}

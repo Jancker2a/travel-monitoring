@@ -949,8 +949,13 @@ class TravelPriceMonitor:
         if isinstance(required, str):
             required = [required]
         required = [str(x).lower() for x in required if str(x).strip()]
-        if required and not any(token in offer_url for token in required):
-            return False
+        if required:
+            country_tokens = [t for t in required if t.startswith('/wycieczka/')]
+            other_tokens = [t for t in required if not t.startswith('/wycieczka/')]
+            if country_tokens and not any(ct in offer_url for ct in country_tokens):
+                return False
+            if other_tokens and not all(ot in offer_url for ot in other_tokens):
+                return False
 
         excluded = self.config.get('excluded_offer_url_contains', [])
         if isinstance(excluded, str):

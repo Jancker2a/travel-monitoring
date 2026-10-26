@@ -49,7 +49,7 @@ def run_test():
             "group": "cyprus",
             "group_label": "Кипр",
             "group_icon": "🇨🇾",
-            "url": "https://fly.pl/szukaj-wycieczek/?destinationLocation=12_170&departureLocation=Warszawa&adults=2&catering=all_inclusive&durationFrom=7&durationTo=10&priceTo=15000",
+            "url": "https://fly.pl/szukaj-wycieczek/?destinationLocation=6:&departureLocation=Warszawa&adults=2&catering=all_inclusive&durationFrom=7&durationTo=10&priceTo=15000",
             "max_price_threshold": 15000,
             "min_price_threshold": 3000,
             "display_price_ceiling": 12000,
