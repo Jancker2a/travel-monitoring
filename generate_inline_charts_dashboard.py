@@ -321,79 +321,98 @@ def _parse_ta_rating_value(value: Any) -> Optional[float]:
 def _parse_ta_review_count(value: Any) -> int:
     """Parse review count into a non-negative integer.
 
-    Handles numbers with spaces ("1 250"), textual counts ("731 opinii"),
-    and empty placeholders.
+    Handles numbers with spaces ("1 250"), commas ("3,450"), dots ("3.450"),
+    textual counts ("731 opinii"), and empty placeholders.
     """
     if value is None or pd.isna(value):
         return 0
-    val_str = str(value).strip().replace('\xa0', '').replace(' ', '')
+    val_str = str(value).strip()
     if not val_str or val_str in ('—', 'None', 'nan', 'null'):
         return 0
-    m = re.search(r'(\d+)', val_str)
+    m = re.search(r'([\d\s,.\xa0]+)', val_str)
     if m:
-        try:
-            return max(0, int(m.group(1)))
-        except (TypeError, ValueError):
-            return 0
+        digits_only = re.sub(r'[^\d]', '', m.group(1))
+        if digits_only:
+            try:
+                return max(0, int(digits_only))
+            except (TypeError, ValueError):
+                return 0
     return 0
 
 
-def _build_hotel_ta_cache(df: pd.DataFrame) -> Dict[str, Dict[str, Any]]:
+def _build_hotel_ta_cache(
+    df: pd.DataFrame,
+    reputation_kb_data: Optional[Dict[str, Any]] = None,
+) -> Dict[str, Dict[str, Any]]:
     """Builds a lookup {hotel_name: {'ta_rating': float, 'ta_review_count': int, 'ta_source': str}}
-    from historical data in df so hotels don't lose their rating if the latest scrape row had empty rating.
+    from historical data in df and reputation_kb_data so hotels don't lose their rating if the latest scrape row had empty rating.
     """
-    if df.empty or 'hotel_name' not in df.columns:
-        return {}
     cache: Dict[str, Dict[str, Any]] = {}
-    rating_cols = [c for c in ('ta_rating', 'rating', 'hotel_rating') if c in df.columns]
-    review_cols = [c for c in ('ta_review_count', 'review_count', 'reviews') if c in df.columns]
-    source_cols = [c for c in ('ta_source', 'source') if c in df.columns]
+    if df is not None and not df.empty and 'hotel_name' in df.columns:
+        rating_cols = [c for c in ('ta_rating', 'rating', 'hotel_rating') if c in df.columns]
+        review_cols = [c for c in ('ta_review_count', 'review_count', 'reviews') if c in df.columns]
+        source_cols = [c for c in ('ta_source', 'source') if c in df.columns]
 
-    if not rating_cols:
-        return {}
+        if rating_cols:
+            work_df = df
+            if 'scraped_at_display' in df.columns:
+                work_df = df.sort_values('scraped_at_display')
+            elif 'scraped_at' in df.columns:
+                work_df = df.sort_values('scraped_at')
 
-    work_df = df
-    if 'scraped_at_display' in df.columns:
-        work_df = df.sort_values('scraped_at_display')
-    elif 'scraped_at' in df.columns:
-        work_df = df.sort_values('scraped_at')
+            for hotel_name, grp in work_df.groupby('hotel_name', sort=False):
+                found_rating = None
+                for col in rating_cols:
+                    for val in reversed(grp[col].tolist()):
+                        parsed = _parse_ta_rating_value(val)
+                        if parsed is not None:
+                            found_rating = parsed
+                            break
+                    if found_rating is not None:
+                        break
 
-    for hotel_name, grp in work_df.groupby('hotel_name', sort=False):
-        found_rating = None
-        for col in rating_cols:
-            for val in reversed(grp[col].tolist()):
-                parsed = _parse_ta_rating_value(val)
-                if parsed is not None:
-                    found_rating = parsed
-                    break
-            if found_rating is not None:
-                break
+                found_reviews = 0
+                for col in review_cols:
+                    for val in reversed(grp[col].tolist()):
+                        parsed = _parse_ta_review_count(val)
+                        if parsed > 0:
+                            found_reviews = parsed
+                            break
+                    if found_reviews > 0:
+                        break
 
-        found_reviews = 0
-        for col in review_cols:
-            for val in reversed(grp[col].tolist()):
-                parsed = _parse_ta_review_count(val)
-                if parsed > 0:
-                    found_reviews = parsed
-                    break
-            if found_reviews > 0:
-                break
+                found_source = ""
+                for col in source_cols:
+                    for val in reversed(grp[col].tolist()):
+                        if pd.notna(val) and str(val).strip():
+                            found_source = str(val).strip()
+                            break
+                    if found_source:
+                        break
 
-        found_source = ""
-        for col in source_cols:
-            for val in reversed(grp[col].tolist()):
-                if pd.notna(val) and str(val).strip():
-                    found_source = str(val).strip()
-                    break
-            if found_source:
-                break
+                if found_rating is not None:
+                    cache[hotel_name] = {
+                        'ta_rating': found_rating,
+                        'ta_review_count': found_reviews,
+                        'ta_source': found_source or 'tripadvisor',
+                    }
 
-        if found_rating is not None:
-            cache[hotel_name] = {
-                'ta_rating': found_rating,
-                'ta_review_count': found_reviews,
-                'ta_source': found_source or 'tripadvisor',
-            }
+    # Fallback to AI hotel reputation knowledge base if rating was not in scrape CSV
+    if reputation_kb_data:
+        for h_name, rep in reputation_kb_data.items():
+            if h_name not in cache:
+                r_val = _parse_ta_rating_value(
+                    rep.get('ta_rating') or rep.get('rating') or (rep.get('ratings') or {}).get('tripadvisor')
+                )
+                if r_val is not None:
+                    rev_cnt = _parse_ta_review_count(
+                        rep.get('ta_review_count') or rep.get('review_count') or (rep.get('ratings') or {}).get('tripadvisor_reviews')
+                    )
+                    cache[h_name] = {
+                        'ta_rating': r_val,
+                        'ta_review_count': rev_cnt,
+                        'ta_source': 'tripadvisor',
+                    }
     return cache
 
 
@@ -402,6 +421,7 @@ def _resolve_row_ta(
     grp: Optional[pd.DataFrame],
     hotel_ta_cache: Dict[str, Dict[str, Any]],
     hotel_name: str,
+    reputation_kb_data: Optional[Dict[str, Any]] = None,
 ) -> Tuple[Optional[float], int, str]:
     """Resolves TripAdvisor rating, review count, and source with fallback to grp, other cols, and historical cache."""
     ta_rating = None
@@ -450,6 +470,19 @@ def _resolve_row_ta(
             ta_reviews = cached.get('ta_review_count', 0)
         if not ta_source:
             ta_source = cached.get('ta_source', 'tripadvisor')
+
+    if reputation_kb_data and hotel_name in reputation_kb_data:
+        rep = reputation_kb_data[hotel_name]
+        if ta_rating is None:
+            ta_rating = _parse_ta_rating_value(
+                rep.get('ta_rating') or rep.get('rating') or (rep.get('ratings') or {}).get('tripadvisor')
+            )
+        if ta_reviews == 0:
+            ta_reviews = _parse_ta_review_count(
+                rep.get('ta_review_count') or rep.get('review_count') or (rep.get('ratings') or {}).get('tripadvisor_reviews')
+            )
+        if not ta_source and ta_rating is not None:
+            ta_source = 'tripadvisor'
 
     if not ta_source and ta_rating is not None:
         ta_source = 'tripadvisor'
@@ -2903,7 +2936,16 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
     full_latest_run_slice = _last_run_slice(df)
 
     df_sorted_all = latest_run_slice.sort_values(group_cols + ['scraped_at_display'])
-    hotel_ta_cache = _build_hotel_ta_cache(df)
+    reputation_kb_data = {}
+    kb_path = "hotel_reputation_kb.json"
+    if os.path.exists(kb_path):
+        try:
+            with open(kb_path, "r", encoding="utf-8") as f:
+                reputation_kb_data = json.load(f).get("hotels", {})
+        except Exception:
+            reputation_kb_data = {}
+
+    hotel_ta_cache = _build_hotel_ta_cache(df, reputation_kb_data=reputation_kb_data)
     latest_rows = []
     skipped_above_ceiling = 0
     if ceiling_val is not None and not full_latest_run_slice.empty:
@@ -2923,7 +2965,7 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
                     break
 
         ta_rating_val, ta_reviews_val, ta_source_val = _resolve_row_ta(
-            last, grp, hotel_ta_cache, hotel_name
+            last, grp, hotel_ta_cache, hotel_name, reputation_kb_data
         )
 
         latest_rows.append({
@@ -3039,6 +3081,16 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         print(f"🌍 Cross-Border Arbitrage: найдено {len(arbitrage_matches)} совпадений ({len(arbitrage_by_hotel)} выгоднее в Германии)")
     except Exception as e:
         print(f"⚠️ Cross-Border Arbitrage skipped: {e}")
+
+    if not reputation_kb_data:
+        reputation_kb_data = {}
+    kb_path = "hotel_reputation_kb.json"
+    if os.path.exists(kb_path):
+        try:
+            with open(kb_path, "r", encoding="utf-8") as f:
+                reputation_kb_data = json.load(f).get("hotels", {})
+        except Exception:
+            pass
 
     oracle_report = None
     try:
@@ -3950,6 +4002,35 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
                 f'🌍 <span class="arb-label">Берлин (BER): {m_arb.price_de_eur:.0f} €</span> <span class="arb-savings">(−{m_arb.spread_pln:.0f} PLN)</span></a>'
             )
 
+        card_reputation_badges_html = ""
+        if reputation_kb_data and hotel_name in reputation_kb_data:
+            rep_entry = reputation_kb_data[hotel_name]
+            fam = rep_entry.get("family_and_kids", {})
+            wint = rep_entry.get("winter_suitability", {})
+            strend = rep_entry.get("season_trend", {})
+
+            card_rep_pills = []
+            if fam.get("suitable_for_children") and float(fam.get("score", 0) or 0) >= 7.5:
+                f_tip = html_lib.escape(f"Для детей ({fam.get('score', '')}/10): {fam.get('beach_entry', '')} • {fam.get('kids_facilities', '')}", quote=True)
+                card_rep_pills.append(f'<span class="tbl-badge tbl-badge-kids" title="{f_tip}">👶 Дети {fam.get("score", "")}</span>')
+
+            if wint.get("heated_pools"):
+                h_tip = html_lib.escape(f"Зимний отдых: подогреваемый бассейн • {wint.get('wind_shelter', '')}", quote=True)
+                card_rep_pills.append(f'<span class="tbl-badge tbl-badge-heat" title="{h_tip}">🔥 Теплый бассейн</span>')
+            elif "защищена" in str(wint.get("wind_shelter", "")).lower():
+                w_tip = html_lib.escape(f"Бухта {wint.get('bay', '')}: {wint.get('wind_shelter', '')}", quote=True)
+                card_rep_pills.append(f'<span class="tbl-badge tbl-badge-shelter" title="{w_tip}">🛡️ Без ветра</span>')
+
+            if strend.get("trend") == "BETTER":
+                t_tip = html_lib.escape(f"Стал лучше: {strend.get('summary', '')}", quote=True)
+                card_rep_pills.append(f'<span class="tbl-badge tbl-badge-better" title="{t_tip}">📈 Стал лучше</span>')
+            elif strend.get("trend") == "WORSE":
+                t_tip = html_lib.escape(f"Стал хуже: {strend.get('summary', '')}", quote=True)
+                card_rep_pills.append(f'<span class="tbl-badge tbl-badge-worse" title="{t_tip}">📉 Стал хуже</span>')
+
+            if card_rep_pills:
+                card_reputation_badges_html = "".join(card_rep_pills)
+
         hotel_cards.append({
             "hotel_name": hotel_name,
             "row_id": row_id,
@@ -3984,6 +4065,7 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             "booking_window_badge_html": booking_window_badge_html,
             "gem_badge_html": gem_badge_html,
             "dupe_html": card_dupe_html,
+            "reputation_badges_html": card_reputation_badges_html,
             "ta_rating": hotel.get('ta_rating', ''),
             "ta_review_count": hotel.get('ta_review_count', ''),
             "ta_data_attr": f"{_parse_ta_rating_value(hotel.get('ta_rating', '')):.2f}" if _parse_ta_rating_value(hotel.get('ta_rating', '')) is not None else "-1",
@@ -7515,6 +7597,31 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             color: #c2410c;
             border: 1px solid rgba(249, 115, 22, 0.35);
         }}
+        .tbl-badge-kids {{
+            background: rgba(16, 185, 129, 0.15);
+            color: #047857;
+            border: 1px solid rgba(16, 185, 129, 0.35);
+        }}
+        .tbl-badge-heat {{
+            background: rgba(245, 158, 11, 0.15);
+            color: #b45309;
+            border: 1px solid rgba(245, 158, 11, 0.35);
+        }}
+        .tbl-badge-shelter {{
+            background: rgba(20, 184, 166, 0.15);
+            color: #0f766e;
+            border: 1px solid rgba(20, 184, 166, 0.35);
+        }}
+        .tbl-badge-better {{
+            background: rgba(14, 165, 233, 0.15);
+            color: #0369a1;
+            border: 1px solid rgba(14, 165, 233, 0.35);
+        }}
+        .tbl-badge-worse {{
+            background: rgba(244, 63, 94, 0.15);
+            color: #be123c;
+            border: 1px solid rgba(244, 63, 94, 0.35);
+        }}
         .tbl-dupe-badge {{
             display: inline-flex;
             align-items: center;
@@ -7565,6 +7672,31 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             background: rgba(249, 115, 22, 0.22);
             color: #fb923c;
             border-color: rgba(249, 115, 22, 0.45);
+        }}
+        .dark-theme .tbl-badge-kids {{
+            background: rgba(16, 185, 129, 0.25);
+            color: #6ee7b7;
+            border-color: rgba(16, 185, 129, 0.5);
+        }}
+        .dark-theme .tbl-badge-heat {{
+            background: rgba(245, 158, 11, 0.25);
+            color: #fcd34d;
+            border-color: rgba(245, 158, 11, 0.5);
+        }}
+        .dark-theme .tbl-badge-shelter {{
+            background: rgba(20, 184, 166, 0.25);
+            color: #5eead4;
+            border-color: rgba(20, 184, 166, 0.5);
+        }}
+        .dark-theme .tbl-badge-better {{
+            background: rgba(14, 165, 233, 0.25);
+            color: #7dd3fc;
+            border-color: rgba(14, 165, 233, 0.5);
+        }}
+        .dark-theme .tbl-badge-worse {{
+            background: rgba(244, 63, 94, 0.25);
+            color: #fda4af;
+            border-color: rgba(244, 63, 94, 0.5);
         }}
         .dark-theme .tbl-dupe-badge {{
             color: #a5b4fc;
@@ -10065,6 +10197,7 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
                         {c.get("fair_price_badge_html", "")}
                         {c.get("booking_window_badge_html", "")}
                         {c.get("gem_badge_html", "")}
+                        {c.get("reputation_badges_html", "")}
                     </div>
                     {c["comeback_html"]}
                     {c.get("cheaper_alt_html", "")}
@@ -10775,6 +10908,34 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
                         f'<a href="{html_lib.escape(str(dupe_url), quote=True)}" target="_blank" class="tbl-dupe-badge" title="AI Двойник: отель сравнимого класса заметно дешевле">'
                         f'💡 <span class="tbl-dupe-label">Двойник: {dupe_name}</span> <span class="tbl-dupe-savings">(−{dupe_savings:,.0f} zł)</span></a>'
                     )
+
+        # 6. Hotel Reputation Knowledge Base Badges
+        if reputation_kb_data and hotel_name in reputation_kb_data:
+            rep_entry = reputation_kb_data[hotel_name]
+            fam = rep_entry.get("family_and_kids", {})
+            wint = rep_entry.get("winter_suitability", {})
+            strend = rep_entry.get("season_trend", {})
+
+            # Kids badge
+            if fam.get("suitable_for_children") and float(fam.get("score", 0) or 0) >= 7.5:
+                f_tip = html_lib.escape(f"Для детей ({fam.get('score', '')}/10): {fam.get('beach_entry', '')} • {fam.get('kids_facilities', '')}", quote=True)
+                tbl_smart_badges.append(f'<span class="tbl-badge tbl-badge-kids" title="{f_tip}">👶 Дети {fam.get("score", "")}</span>')
+
+            # Winter heated pool / wind shelter badge
+            if wint.get("heated_pools"):
+                h_tip = html_lib.escape(f"Зимний отдых: подогреваемый бассейн • {wint.get('wind_shelter', '')}", quote=True)
+                tbl_smart_badges.append(f'<span class="tbl-badge tbl-badge-heat" title="{h_tip}">🔥 Теплый бассейн</span>')
+            elif "защищена" in str(wint.get("wind_shelter", "")).lower():
+                w_tip = html_lib.escape(f"Бухта {wint.get('bay', '')}: {wint.get('wind_shelter', '')}", quote=True)
+                tbl_smart_badges.append(f'<span class="tbl-badge tbl-badge-shelter" title="{w_tip}">🛡️ Без ветра</span>')
+
+            # Season trend badge
+            if strend.get("trend") == "BETTER":
+                t_tip = html_lib.escape(f"Стал лучше: {strend.get('summary', '')}", quote=True)
+                tbl_smart_badges.append(f'<span class="tbl-badge tbl-badge-better" title="{t_tip}">📈 Стал лучше</span>')
+            elif strend.get("trend") == "WORSE":
+                t_tip = html_lib.escape(f"Стал хуже: {strend.get('summary', '')}", quote=True)
+                tbl_smart_badges.append(f'<span class="tbl-badge tbl-badge-worse" title="{t_tip}">📉 Стал хуже</span>')
 
         tbl_smart_badges_html = f'<div class="tbl-smart-badges-wrap">{"".join(tbl_smart_badges)}</div>' if tbl_smart_badges else ""
 
