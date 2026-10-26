@@ -91,10 +91,23 @@
       "created_at": "2026-10-26T12:41:52.305905+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Barut Goia (ex. Barut Sunwing Side Beach)_2026-10-26_12-40_zone_out_gone"
+    },
+    {
+      "hotel_name": "Limak Limra",
+      "duration_bucket": "",
+      "old_price": 6181.0,
+      "new_price": 6181.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-26 15:24:20.276536+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-26T15:25:58.421358+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Limak Limra_2026-10-26_15-24_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-26T12:40:30.047554+00:00",
+    "last_processed_run": "2026-10-26T15:24:20.276536+00:00",
     "premium_state": {
       "Alaiye Resort & Spa": {
         "history_max": 5599.0,
@@ -149,7 +162,7 @@
         "premium_peak": null
       },
       "Seher Sun Palace Resort & Spa": {
-        "history_max": 5535.0,
+        "history_max": 5559.0,
         "premium_peak": null
       },
       "Side Kum": {
@@ -230,6 +243,10 @@
       },
       "Justiniano Deluxe Resort": {
         "history_max": 6529.0,
+        "premium_peak": null
+      },
+      "Numa Bay Exclusive (ex Sentido Numa Bay)": {
+        "history_max": 6516.0,
         "premium_peak": null
       }
     }

@@ -1,8 +1,35 @@
 {
   "version": 2,
-  "alerts": [],
+  "alerts": [
+    {
+      "hotel_name": "Amarina Jannah Resort Aquapark",
+      "duration_bucket": "",
+      "old_price": 13235.0,
+      "new_price": 9250.0,
+      "price_change": -3985.0,
+      "price_change_pct": -30.10955799017756,
+      "timestamp": "2026-10-26 15:21:07.368078+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-26T15:22:22.833582+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amarina Jannah Resort Aquapark_2026-10-26_15-21_comeback_30.1"
+    },
+    {
+      "hotel_name": "Amarina Queen Resort",
+      "duration_bucket": "",
+      "old_price": 13091.0,
+      "new_price": 8580.0,
+      "price_change": -4511.0,
+      "price_change_pct": -34.45878848063555,
+      "timestamp": "2026-10-26 15:21:07.368078+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-26T15:22:22.833616+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amarina Queen Resort_2026-10-26_15-21_comeback_34.5"
+    }
+  ],
   "meta": {
-    "last_processed_run": "2026-10-26T11:12:04.981388+00:00",
+    "last_processed_run": "2026-10-26T15:21:07.368078+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 10625.0,
@@ -93,8 +120,8 @@
         "premium_peak": 11311.0
       },
       "Fantazia Resort": {
-        "history_max": 12958.0,
-        "premium_peak": 12958.0
+        "history_max": 13108.0,
+        "premium_peak": 13108.0
       },
       "Calimera Blend Paradise Resort": {
         "history_max": 12257.0,
@@ -131,6 +158,10 @@
       "Jaz Neo Saraya Palms": {
         "history_max": 13330.0,
         "premium_peak": 13330.0
+      },
+      "Jaz Aquamarine Resort": {
+        "history_max": 13557.0,
+        "premium_peak": 13557.0
       }
     }
   }
