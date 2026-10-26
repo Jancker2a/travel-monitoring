@@ -14,7 +14,7 @@ from typing import Any, Dict, List, Optional, Tuple
 import os
 import re
 import html as html_lib
-from urllib.parse import urlparse, parse_qs, quote
+from urllib.parse import urlparse, parse_qs, quote, unquote
 from purchase_timing_analysis import analyze_purchase_timing
 from departure_analytics import (
     build_departure_offers_index,
@@ -488,6 +488,204 @@ def _resolve_row_ta(
         ta_source = 'tripadvisor'
 
     return ta_rating, ta_reviews, ta_source
+
+
+def extract_airport_from_url(url: Any) -> Optional[str]:
+    """Извлекает аэропорт вылета из URL (filter[from], fly_from_code, wylot, etc.)"""
+    if not url or pd.isna(url):
+        return None
+    url_str = str(url).strip()
+    try:
+        parsed_url = urlparse(url_str)
+        query_params = parse_qs(parsed_url.query)
+        for key in ('filter[from]', 'fly_from_code', 'wylot', 'from', 'departure'):
+            val = query_params.get(key, [None])[0]
+            if val:
+                airports = [a.strip() for a in str(val).split(',') if a.strip()]
+                if airports:
+                    return airports[0]
+        # Regex search if encoded or missing in parsed params
+        match = re.search(r'(?:filter\[from\]|fly_from_code|wylot)=([^&]+)', url_str)
+        if match:
+            raw = unquote(match.group(1))
+            return raw.split(',')[0].strip()
+    except Exception:
+        pass
+    return None
+
+
+def normalize_text(value: Any) -> str:
+    try:
+        return ' '.join(str(value).strip().lower().split())
+    except Exception:
+        return str(value)
+
+
+def normalize_dates(value: Any) -> str:
+    """Нормализует строку дат к формату YYYY-MM-DD|YYYY-MM-DD для устойчивого сравнения."""
+    try:
+        s = str(value)
+        m = re.findall(r"(\d{1,2})[\.-](\d{1,2})[\.-](\d{4})", s)
+        if len(m) >= 2:
+            def to_iso(t):
+                d, mth, y = t
+                return f"{int(y):04d}-{int(mth):02d}-{int(d):02d}"
+            return f"{to_iso(m[0])}|{to_iso(m[1])}"
+    except Exception:
+        pass
+    return str(value).strip()
+
+
+_CHEAPER_ALTS_CACHE: Dict[Tuple, List[Dict[str, Any]]] = {}
+
+
+def find_cheaper_airport_alternatives(
+    df_all_airports: Optional[pd.DataFrame],
+    hotel_name: str,
+    dates: str,
+    current_price: float,
+    current_airport: Optional[str] = None,
+    min_savings_pln: float = 150.0,
+    min_savings_pct: float = 3.0,
+) -> List[Dict[str, Any]]:
+    """Находит более дешевые предложения того же отеля на те же даты (или ±1 день) из других аэропортов."""
+    if df_all_airports is None or df_all_airports.empty or not hotel_name or current_price <= 0:
+        return []
+
+    cache_key = (hotel_name, dates, current_price, current_airport, min_savings_pln, min_savings_pct)
+    if cache_key in _CHEAPER_ALTS_CACHE:
+        return _CHEAPER_ALTS_CACHE[cache_key]
+
+    try:
+        hotel_name_norm = normalize_text(hotel_name)
+        dates_norm = normalize_dates(dates)
+        current_airport_norm = (str(current_airport).strip() if current_airport else '') or 'Warszawa'
+
+        # Предобработка столбцов в df_all_airports
+        if '__hotel_norm' not in df_all_airports.columns:
+            df_all_airports['__hotel_norm'] = df_all_airports['hotel_name'].astype(str).map(normalize_text)
+        if '__dates_norm' not in df_all_airports.columns:
+            df_all_airports['__dates_norm'] = df_all_airports['dates'].astype(str).map(normalize_dates)
+
+        # Парсинг дат текущего предложения
+        cur_dep, cur_ret = None, None
+        if '|' in dates_norm:
+            parts = dates_norm.split('|')
+            try:
+                cur_dep = datetime.strptime(parts[0], "%Y-%m-%d").date()
+                cur_ret = datetime.strptime(parts[1], "%Y-%m-%d").date()
+            except Exception:
+                pass
+
+        # 1. Поиск совпадений по отелю
+        hotel_mask = (df_all_airports['__hotel_norm'] == hotel_name_norm)
+        if not hotel_mask.any():
+            base_name = hotel_name_norm.split('(')[0].strip()
+            if len(base_name) >= 6:
+                hotel_mask = df_all_airports['__hotel_norm'].str.startswith(base_name)
+
+        same_hotel = df_all_airports[hotel_mask]
+        if same_hotel.empty:
+            _CHEAPER_ALTS_CACHE[cache_key] = []
+            return []
+
+        # 2. Фильтрация по датам: сначала точное совпадение
+        exact_dates_mask = (same_hotel['__dates_norm'] == dates_norm)
+        matched_candidates = same_hotel[exact_dates_mask]
+
+        # Если есть dates_norm и cur_dep, также допускаем ±1 день по вылету
+        if cur_dep and cur_ret:
+            def dates_within_1_day(d_norm_str: str) -> bool:
+                if '|' not in str(d_norm_str):
+                    return False
+                try:
+                    p = str(d_norm_str).split('|')
+                    d_dep = datetime.strptime(p[0], "%Y-%m-%d").date()
+                    d_ret = datetime.strptime(p[1], "%Y-%m-%d").date()
+                    return abs((d_dep - cur_dep).days) <= 1 and abs((d_ret - cur_ret).days) <= 1
+                except Exception:
+                    return False
+
+            close_dates_mask = same_hotel['__dates_norm'].map(dates_within_1_day)
+            matched_candidates = same_hotel[exact_dates_mask | close_dates_mask]
+
+        if matched_candidates.empty:
+            _CHEAPER_ALTS_CACHE[cache_key] = []
+            return []
+
+        matched_candidates = matched_candidates.copy()
+
+        # 3. Извлечение аэропорта
+        matched_candidates['airport'] = None
+        if 'departure_airport' in matched_candidates.columns:
+            matched_candidates['airport'] = matched_candidates['departure_airport']
+        if 'from_airport' in matched_candidates.columns:
+            matched_candidates['airport'] = matched_candidates['airport'].fillna(matched_candidates['from_airport'])
+
+        matched_candidates['airport'] = matched_candidates['airport'].where(
+            matched_candidates['airport'].astype(str).str.strip().ne('') &
+            matched_candidates['airport'].astype(str).str.strip().ne('Все аэропорты') &
+            matched_candidates['airport'].astype(str).str.strip().ne('None'),
+            None
+        )
+        url_col = 'offer_url' if 'offer_url' in matched_candidates.columns else ('url' if 'url' in matched_candidates.columns else None)
+        if url_col:
+            matched_candidates['airport'] = matched_candidates['airport'].fillna(
+                matched_candidates[url_col].apply(extract_airport_from_url)
+            )
+        matched_candidates['airport'] = matched_candidates['airport'].fillna('Другой город')
+        matched_candidates.loc[matched_candidates['airport'].astype(str).str.strip() == '', 'airport'] = 'Другой город'
+
+        # 4. Выбор записи с минимальной ценой для каждого альтернативного аэропорта
+        idx_min_by_airport = matched_candidates.groupby('airport')['price'].idxmin()
+        cols_to_keep = ['airport', 'price']
+        for col in ('offer_url', 'url'):
+            if col in matched_candidates.columns:
+                cols_to_keep.append(col)
+        airport_prices = matched_candidates.loc[idx_min_by_airport, cols_to_keep].reset_index(drop=True)
+
+        cur_ap_lower = current_airport_norm.lower()
+        is_cur_warsaw = any(w in cur_ap_lower for w in ('warszaw', 'waw', 'wmi', 'rdo')) or not cur_ap_lower
+
+        def is_same_airport(alt_ap: Any) -> bool:
+            alt_lower = str(alt_ap).strip().lower()
+            if is_cur_warsaw and any(w in alt_lower for w in ('warszaw', 'waw', 'wmi', 'rdo')):
+                return True
+            return alt_lower == cur_ap_lower
+
+        # 5. Фильтрация более дешевых предложений из других аэропортов
+        mask_cheaper = (airport_prices['price'] < current_price) & (~airport_prices['airport'].apply(is_same_airport))
+        cheaper_alternatives = airport_prices[mask_cheaper].sort_values('price')
+
+        alternatives = []
+        for _, row in cheaper_alternatives.iterrows():
+            row_p = float(row['price'])
+            savings = current_price - row_p
+            savings_percent = (savings / current_price) * 100.0
+
+            if savings < min_savings_pln or savings_percent < min_savings_pct:
+                continue
+
+            alt_url = ''
+            if 'offer_url' in row and row['offer_url']:
+                alt_url = str(row['offer_url']).strip()
+            if not alt_url and 'url' in row and row['url']:
+                alt_url = str(row['url']).strip()
+
+            alternatives.append({
+                'airport': str(row['airport']).strip(),
+                'price': row_p,
+                'savings': float(savings),
+                'savings_percent': float(savings_percent),
+                'url': alt_url,
+            })
+
+        _CHEAPER_ALTS_CACHE[cache_key] = alternatives
+        return alternatives
+    except Exception as e:
+        print(f"Ошибка при поиске альтернативных аэропортов: {e}")
+        _CHEAPER_ALTS_CACHE[cache_key] = []
+        return []
 
 
 def _resolve_listing_url_for_backfill(
@@ -2548,149 +2746,7 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         
         return hover_data
 
-    def extract_airport_from_url(url):
-        """Извлекает аэропорт вылета из URL"""
-        try:
-            if pd.isna(url) or not url:
-                return None
-            
-            # Парсим URL и извлекаем параметры
-            parsed_url = urlparse(url)
-            query_params = parse_qs(parsed_url.query)
-            
-            # Ищем параметр filter[from]
-            filter_from = query_params.get('filter[from]', [None])[0]
-            if filter_from:
-                # Разделяем по запятой и берем первый аэропорт
-                airports = [airport.strip() for airport in filter_from.split(',')]
-                return airports[0] if airports else None
-            
-            return None
-        except Exception as e:
-            print(f"Ошибка при извлечении аэропорта из URL: {e}")
-            return None
-
-    def normalize_text(value: str) -> str:
-        try:
-            return ' '.join(str(value).strip().lower().split())
-        except Exception:
-            return str(value)
-
-    def normalize_dates(value: str) -> str:
-        """Нормализует строку дат к формату YYYY-MM-DD|YYYY-MM-DD для устойчивого сравнения."""
-        try:
-            s = str(value)
-            # Ищем две даты вида dd.mm.yyyy или dd-mm-yyyy
-            m = re.findall(r"(\d{1,2})[\.-](\d{1,2})[\.-](\d{4})", s)
-            if len(m) >= 2:
-                def to_iso(t):
-                    d, mth, y = t
-                    return f"{int(y):04d}-{int(mth):02d}-{int(d):02d}"
-                return f"{to_iso(m[0])}|{to_iso(m[1])}"
-        except Exception:
-            pass
-        return str(value).strip()
-
-    _cheaper_alts_cache = {}
-
-    def find_cheaper_airport_alternatives(df_source, hotel_name, dates, current_price, current_airport):
-        """Находит более дешевые предложения того же отеля на те же даты из других аэропортов"""
-        cache_key = (hotel_name, dates, current_price, current_airport)
-        if cache_key in _cheaper_alts_cache:
-            return _cheaper_alts_cache[cache_key]
-        try:
-            # Нормализация
-            hotel_name_norm = normalize_text(hotel_name)
-            dates_norm = normalize_dates(dates)
-            current_airport_norm = (str(current_airport).strip() if current_airport else '') or 'Warszawa'
-
-            # Фильтруем данные по отелю и датам
-            if '__hotel_norm' not in df_source.columns:
-                df_source['__hotel_norm'] = df_source['hotel_name'].astype(str).map(normalize_text)
-            if '__dates_norm' not in df_source.columns:
-                df_source['__dates_norm'] = df_source['dates'].astype(str).map(normalize_dates)
-            same_hotel_dates = df_source[(df_source['__hotel_norm'] == hotel_name_norm) & (df_source['__dates_norm'] == dates_norm)]
-            if len(same_hotel_dates) == 0:
-                base_name = hotel_name_norm.split('(')[0].strip()
-                if len(base_name) >= 6:
-                    same_hotel_dates = df_source[
-                        df_source['__hotel_norm'].str.startswith(base_name)
-                        & (df_source['__dates_norm'] == dates_norm)
-                    ]
-            
-            if len(same_hotel_dates) == 0:
-                _cheaper_alts_cache[cache_key] = []
-                return []
-            same_hotel_dates = same_hotel_dates.copy()
-            
-            # Извлекаем аэропорт: сначала 'departure_airport', затем 'from_airport', затем из URL
-            same_hotel_dates['airport'] = None
-            if 'departure_airport' in same_hotel_dates.columns:
-                same_hotel_dates['airport'] = same_hotel_dates['departure_airport']
-            if 'from_airport' in same_hotel_dates.columns:
-                same_hotel_dates['airport'] = same_hotel_dates['airport'].fillna(same_hotel_dates['from_airport'])
-            
-            same_hotel_dates['airport'] = same_hotel_dates['airport'].where(
-                same_hotel_dates['airport'].astype(str).str.strip().ne('') &
-                same_hotel_dates['airport'].astype(str).str.strip().ne('Все аэропорты') &
-                same_hotel_dates['airport'].astype(str).str.strip().ne('None'),
-                None
-            )
-            same_hotel_dates['airport'] = same_hotel_dates['airport'].fillna(
-                same_hotel_dates['url'].apply(extract_airport_from_url)
-            )
-            same_hotel_dates['airport'] = same_hotel_dates['airport'].fillna('Другой город')
-            same_hotel_dates.loc[same_hotel_dates['airport'].astype(str).str.strip()=='', 'airport'] = 'Другой город'
-            
-            # Для каждого аэропорта выбираем запись с минимальной ценой и её offer_url (если есть)
-            idx_min_by_airport = same_hotel_dates.groupby('airport')['price'].idxmin()
-            airport_prices = same_hotel_dates.loc[
-                idx_min_by_airport, ['airport', 'price', 'offer_url', 'url']
-            ].reset_index(drop=True)
-            
-            # Нормализация текущего аэропорта для фильтрации совпадений (например, если текущий - Варшава)
-            cur_ap_lower = current_airport_norm.lower()
-            is_cur_warsaw = 'warszaw' in cur_ap_lower or 'waw' in cur_ap_lower or 'wmi' in cur_ap_lower or 'rdo' in cur_ap_lower or not cur_ap_lower
-            
-            def is_same_airport(alt_ap: str) -> bool:
-                alt_lower = str(alt_ap).strip().lower()
-                if is_cur_warsaw and ('warszaw' in alt_lower or 'waw' in alt_lower or 'wmi' in alt_lower or 'rdo' in alt_lower):
-                    return True
-                return alt_lower == cur_ap_lower
-
-            # Фильтруем аэропорты с ценами дешевле текущей и не из того же города вылета
-            mask_cheaper = (airport_prices['price'] < current_price) & (~airport_prices['airport'].apply(is_same_airport))
-            cheaper_alternatives = airport_prices[mask_cheaper].sort_values('price')
-            
-            alternatives = []
-            for _, row in cheaper_alternatives.iterrows():
-                savings = current_price - row['price']
-                savings_percent = (savings / current_price) * 100
-                
-                # Предпочитаем ссылку на конкретное предложение, иначе fallback на URL поиска
-                alt_url = None
-                try:
-                    alt_url = (row.get('offer_url') or '').strip()
-                except Exception:
-                    alt_url = ''
-                if not alt_url:
-                    alt_url = (row.get('url') or '').strip()
-
-                alternatives.append({
-                    'airport': str(row['airport']).strip(),
-                    'price': float(row['price']),
-                    'savings': float(savings),
-                    'savings_percent': float(savings_percent),
-                    'url': alt_url
-                })
-            
-            _cheaper_alts_cache[cache_key] = alternatives
-            return alternatives
-            
-        except Exception as e:
-            print(f"Ошибка при поиске альтернативных аэропортов: {e}")
-            _cheaper_alts_cache[cache_key] = []
-            return []
+    # Use module-level find_cheaper_airport_alternatives and helpers
 
     # Средняя цена ТОП-10 дешёвых предложений по ранам с детальной информацией
     run_slices = list(iter_scrape_runs(df_canonical))
@@ -3913,13 +3969,13 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
                 alt_savings = best_alt['savings']
                 alt_savings_pct = best_alt['savings_percent']
                 alt_title = html_lib.escape(
-                    f"Вылет из {best_alt['airport']}: {alt_price:.0f} PLN (дешевле на {alt_savings:.0f} PLN / {alt_savings_pct:.1f}%)",
+                    f"Вылет из {best_alt['airport']}: {alt_price:,.0f} zł (дешевле на {alt_savings:,.0f} zł / {alt_savings_pct:.1f}%)",
                     quote=True,
                 )
                 if alt_url:
-                    card_cheaper_alt_html = f'<a href="{html_lib.escape(str(alt_url), quote=True)}" target="_blank" class="cheaper-alt-badge" title="{alt_title}">✈️ <span class="alt-label">{alt_airport}: {alt_price:.0f} PLN</span> <span class="alt-savings">(−{alt_savings:.0f} PLN)</span></a>'
+                    card_cheaper_alt_html = f'<a href="{html_lib.escape(str(alt_url), quote=True)}" target="_blank" class="cheaper-alt-badge" title="{alt_title}">✈️ <span class="alt-label">{alt_airport}: {alt_price:,.0f} zł</span> <span class="alt-savings">(−{alt_savings:,.0f} zł)</span></a>'
                 else:
-                    card_cheaper_alt_html = f'<span class="cheaper-alt-badge" title="{alt_title}">✈️ <span class="alt-label">{alt_airport}: {alt_price:.0f} PLN</span> <span class="alt-savings">(−{alt_savings:.0f} PLN)</span></span>'
+                    card_cheaper_alt_html = f'<span class="cheaper-alt-badge" title="{alt_title}">✈️ <span class="alt-label">{alt_airport}: {alt_price:,.0f} zł</span> <span class="alt-savings">(−{alt_savings:,.0f} zł)</span></span>'
 
         # Hopper & Arbitrage метаданные
         hopper_verdict = str(hotel.get('hopper_verdict') or '')
@@ -8284,7 +8340,7 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         
         .hotels-table {{
             width: 100%;
-            min-width: 1020px;
+            min-width: 1080px;
             table-layout: fixed;
             border-collapse: separate;
             border-spacing: 0 6px;
@@ -8293,13 +8349,13 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         }}
 
         .hotels-table col.col-w-hotel {{ width: 22.0%; }}
-        .hotels-table col.col-w-price {{ width: 12.0%; }}
+        .hotels-table col.col-w-price {{ width: 13.5%; }}
         .hotels-table col.col-w-deal {{ width: 8.0%; }}
         .hotels-table col.col-w-forecast {{ width: 9.0%; }}
         .hotels-table col.col-w-ta {{ width: 7.0%; }}
         .hotels-table col.col-w-d48 {{ width: 5.5%; }}
-        .hotels-table col.col-w-davg {{ width: 8.0%; }}
-        .hotels-table col.col-w-region {{ width: 9.5%; }}
+        .hotels-table col.col-w-davg {{ width: 7.0%; }}
+        .hotels-table col.col-w-region {{ width: 9.0%; }}
         .hotels-table col.col-w-dates {{ width: 11.0%; }}
         .hotels-table col.col-w-dur {{ width: 4.0%; }}
         .hotels-table col.col-w-link {{ width: 4.0%; }}
@@ -8543,23 +8599,93 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             background: rgba(16, 185, 129, 0.16);
             border: 1px solid rgba(16, 185, 129, 0.32);
         }}
+        .hotels-table td.price {{
+            vertical-align: middle;
+            white-space: normal !important;
+            padding: 0.35rem 0.5rem;
+        }}
+        .hotels-table .price-cell-box {{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 2px;
+            max-width: 100%;
+            min-width: 0;
+            overflow: hidden;
+        }}
+        .hotels-table .price-main-row {{
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            white-space: nowrap;
+            max-width: 100%;
+        }}
+        .hotels-table .price-main {{
+            font-weight: 800;
+            font-size: 1.02rem;
+            color: var(--success-color);
+            line-height: 1.2;
+            white-space: nowrap;
+        }}
+        .hotels-table .comeback-badge {{
+            display: inline-flex !important;
+            align-items: center;
+            font-size: 0.68rem;
+            font-weight: 700;
+            padding: 1px 6px;
+            border-radius: 999px;
+            vertical-align: middle;
+            line-height: 1.2;
+            color: #065f46;
+            background: rgba(16, 185, 129, 0.16);
+            border: 1px solid rgba(16, 185, 129, 0.32);
+            white-space: nowrap;
+            flex-shrink: 0;
+        }}
         .hotels-table .cheaper-alt-badge {{
             display: inline-flex !important;
             align-items: center;
-            font-size: 0.65rem;
+            gap: 3px;
+            font-size: 0.64rem;
             font-weight: 600;
-            margin-left: 6px;
+            margin-left: 0 !important;
+            margin-top: 2px;
             padding: 1px 6px;
             border-radius: 6px;
             vertical-align: middle;
-            line-height: 1.2;
+            line-height: 1.25;
             color: #0284c7;
             background: #e0f2fe;
             border: 1px solid #bae6fd;
             text-decoration: none;
             white-space: nowrap;
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            box-sizing: border-box;
+            transition: all 0.15s ease;
+        }}
+        .hotels-table .cheaper-alt-badge:hover {{
+            background: #bae6fd;
+            border-color: #38bdf8;
+            color: #0369a1;
+        }}
+        .hotels-table .cheaper-alt-badge .alt-label {{
+            color: #0369a1;
+            font-weight: 600;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }}
+        .hotels-table .cheaper-alt-badge .alt-savings {{
+            color: #059669;
+            font-weight: 700;
+            flex-shrink: 0;
         }}
         .dark-theme .hotels-table td.price {{
+            color: #34d399 !important;
+        }}
+        .dark-theme .hotels-table .price-main {{
             color: #34d399 !important;
         }}
         .dark-theme .hotels-table .comeback-badge {{
@@ -8571,6 +8697,12 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             color: #38bdf8;
             background: rgba(56, 189, 248, 0.15);
             border-color: rgba(56, 189, 248, 0.3);
+        }}
+        .dark-theme .hotels-table .cheaper-alt-badge .alt-label {{
+            color: #7dd3fc;
+        }}
+        .dark-theme .hotels-table .cheaper-alt-badge .alt-savings {{
+            color: #34d399;
         }}
 
         /* ── Link Button ── */
@@ -10793,13 +10925,13 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
                 alt_savings = best_alt['savings']
                 alt_savings_pct = best_alt['savings_percent']
                 alt_title = html_lib.escape(
-                    f"Вылет из {best_alt['airport']}: {alt_price:.0f} PLN (дешевле на {alt_savings:.0f} PLN / {alt_savings_pct:.1f}%)",
+                    f"Вылет из {best_alt['airport']}: {alt_price:,.0f} zł (дешевле на {alt_savings:,.0f} zł / {alt_savings_pct:.1f}%)",
                     quote=True,
                 )
                 if alt_url:
-                    cheaper_alt_html = f'<a href="{html_lib.escape(str(alt_url), quote=True)}" target="_blank" class="cheaper-alt-badge" title="{alt_title}">✈️ <span class="alt-label">{alt_airport}: {alt_price:.0f} PLN</span> <span class="alt-savings">(−{alt_savings:.0f} PLN)</span></a>'
+                    cheaper_alt_html = f'<a href="{html_lib.escape(str(alt_url), quote=True)}" target="_blank" class="cheaper-alt-badge" title="{alt_title}">✈️ <span class="alt-label">{alt_airport}: {alt_price:,.0f} zł</span> <span class="alt-savings">(−{alt_savings:,.0f} zł)</span></a>'
                 else:
-                    cheaper_alt_html = f'<span class="cheaper-alt-badge" title="{alt_title}">✈️ <span class="alt-label">{alt_airport}: {alt_price:.0f} PLN</span> <span class="alt-savings">(−{alt_savings:.0f} PLN)</span></span>'
+                    cheaper_alt_html = f'<span class="cheaper-alt-badge" title="{alt_title}">✈️ <span class="alt-label">{alt_airport}: {alt_price:,.0f} zł</span> <span class="alt-savings">(−{alt_savings:,.0f} zł)</span></span>'
 
         # Ссылка на предложение
         offer_url = hotel.get('offer_url', '')
@@ -10961,7 +11093,7 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         table_rows_html_parts.append(f"""
                     <tr class="hotel-row {'row-odd' if i % 2 == 0 else 'row-even'}{row_color_class}" data-region="{arrival_hub_html}" data-ta-rating="{ta_data_attr}" data-duration-bucket="{duration_bucket_attr}" data-departure-date="{departure_date_attr}" data-departure-key="{departure_key_attr}">
                         <td class="hotel-name col-hotel" data-label="Отель"><button class="watchlist-star-btn" data-hotel-name="{hotel_name_attr}" title="Добавить в избранное">☆</button><a class="open-chart-link hotel-hover-link" href="{chart_href}" target="_blank" data-hotel-name="{hotel_name_attr}">{hotel_name_html}</a>{tbl_smart_badges_html}</td>
-                        <td class="price col-tight" data-label="Цена" data-sort-value="{price}"><span class="price-main">{price:.0f} PLN</span>{comeback_cell}{cheaper_alt_html}</td>
+                        <td class="price col-tight" data-label="Цена" data-sort-value="{price}"><div class="price-cell-box"><div class="price-main-row"><span class="price-main">{price:.0f} PLN</span>{comeback_cell}</div>{cheaper_alt_html}</div></td>
                         <td class="col-tight col-w-deal-td" data-label="Deal" data-sort-value="{deal_score}" title="{deal_title}"><span class="deal-cell-inline">{deal_score} <span style="opacity:.85;">{deal_badge}</span> <span class="deal-conf-short">{confidence_short}</span></span></td>
                         <td class="col-tight col-w-forecast-td" data-label="Прогноз" data-sort-value="{forecast_sort_val}">{forecast_cell_html}</td>
                         <td class="col-tight col-w-ta-td col-hide-sm" data-label="TripAdvisor">{ta_rating_html}</td>
