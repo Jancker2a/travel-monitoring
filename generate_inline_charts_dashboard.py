@@ -2471,8 +2471,16 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
                 import urllib.parse
                 parsed_u = urllib.parse.urlparse(url_for_dates)
                 qs_u = urllib.parse.parse_qs(parsed_u.query)
-                s_min_val = qs_u.get("startDateMin", [None])[0] or qs_u.get("whenFrom", [None])[0]
-                s_max_val = qs_u.get("startDateMax", [None])[0] or qs_u.get("whenTo", [None])[0]
+                s_min_val = (
+                    qs_u.get("startDateMin", [None])[0]
+                    or qs_u.get("whenFrom", [None])[0]
+                    or qs_u.get("filter[whenFrom]", [None])[0]
+                )
+                s_max_val = (
+                    qs_u.get("startDateMax", [None])[0]
+                    or qs_u.get("whenTo", [None])[0]
+                    or qs_u.get("filter[whenTo]", [None])[0]
+                )
 
                 def _parse_d(s):
                     if not s:
@@ -2531,6 +2539,51 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
                         print(f"🧹 Исключено {dropped_cnt} устаревших/внедиапазонных записей вне диапазона [{lo_d} .. {hi_d}]")
         except Exception as date_filter_err:
             print(f"⚠️ Ошибка фильтрации диапазона дат вылета: {date_filter_err}")
+
+        # Scope / country URL filtering: гарантируем, что в дашборд не попадут офферы не той страны
+        # (например, мусорные офферы Испании/Албании при сбросе параметров поиска fly.pl или из старого кэша)
+        try:
+            cfg_for_scope = load_filter_config(data_file, config_file)
+            if cfg_for_scope:
+                req_contains = cfg_for_scope.get("required_offer_url_contains") or []
+                if isinstance(req_contains, str):
+                    req_contains = [req_contains]
+                req_contains = [str(x).strip().lower() for x in req_contains if str(x).strip()]
+
+                excl_contains = cfg_for_scope.get("excluded_offer_url_contains") or []
+                if isinstance(excl_contains, str):
+                    excl_contains = [excl_contains]
+                excl_contains = [str(x).strip().lower() for x in excl_contains if str(x).strip()]
+
+                if req_contains or excl_contains:
+                    country_tokens = [t for t in req_contains if t.startswith('/wycieczka/')]
+                    other_tokens = [t for t in req_contains if not t.startswith('/wycieczka/')]
+
+                    def _is_valid_scope(row):
+                        u = str(row.get('offer_url') or '').strip().lower()
+                        if not u:
+                            return True
+                        if country_tokens and not any(ct in u for ct in country_tokens):
+                            return False
+                        if other_tokens:
+                            for ot in other_tokens:
+                                if ot == 'transport=accommodation_flight':
+                                    if 'transport=accommodation&' in u and 'transport=accommodation_flight' not in u:
+                                        return False
+                                elif ot not in u:
+                                    return False
+                        if excl_contains and any(et in u for et in excl_contains):
+                            return False
+                        return True
+
+                    scope_before = len(df)
+                    scope_mask = df.apply(_is_valid_scope, axis=1)
+                    df = df[scope_mask].copy()
+                    dropped_scope = scope_before - len(df)
+                    if dropped_scope > 0:
+                        print(f"🧹 Исключено {dropped_scope} офферов, не соответствующих целевой стране/scope фильтра")
+        except Exception as scope_filter_err:
+            print(f"⚠️ Ошибка фильтрации scope офферов: {scope_filter_err}")
 
         # Нормализуем названия отелей: срезаем стрелочные хлебные крошки и хвосты локаций fly.pl
         def _clean_hotel_title(name):

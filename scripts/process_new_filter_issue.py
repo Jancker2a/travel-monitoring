@@ -91,8 +91,6 @@ def validate_and_normalize_filter(cfg: Dict[str, Any]) -> Dict[str, Any]:
     req_contains = list(cfg.get("required_offer_url_contains") or [])
     if group in country_subpaths and country_subpaths[group] not in req_contains:
         req_contains.insert(0, country_subpaths[group])
-    if "transport=accommodation_flight" not in req_contains:
-        req_contains.append("transport=accommodation_flight")
 
     excl_contains = list(cfg.get("excluded_offer_url_contains") or [
         "/wycieczka/polska",

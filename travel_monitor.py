@@ -85,11 +85,14 @@ class TravelPriceMonitor:
         self._timing_summary: Dict[str, float] = {}
         
     def load_config(self) -> Dict[str, Any]:
-        """Загружает конфигурацию из файла"""
+        """Загружает конфигурацию из файла или словаря"""
         try:
-            with open(self.config_file, 'r', encoding='utf-8') as f:
-                config = json.load(f)
-            logger.info(f"Конфигурация загружена из {self.config_file}")
+            if isinstance(self.config_file, dict):
+                config = dict(self.config_file)
+            else:
+                with open(self.config_file, 'r', encoding='utf-8') as f:
+                    config = json.load(f)
+                logger.info(f"Конфигурация загружена из {self.config_file}")
             
             if 'url' in config and config['url']:
                 config['url'] = resolve_config_url(config)
@@ -855,7 +858,7 @@ class TravelPriceMonitor:
                 lo = int(m_from.group(1))
                 hi = int(m_to.group(1))
                 return (min(lo, hi), max(lo, hi))
-            m = re.search(r'(?:duration=)(\d+):(\d+)', url)
+            m = re.search(r'(?:filter(?:\[|%5B)duration(?:\]|%5D)=|duration=)(\d+)(?::|%3A)(\d+)', url)
             if not m:
                 return None
             lo = int(m.group(1))
@@ -954,8 +957,13 @@ class TravelPriceMonitor:
             other_tokens = [t for t in required if not t.startswith('/wycieczka/')]
             if country_tokens and not any(ct in offer_url for ct in country_tokens):
                 return False
-            if other_tokens and not all(ot in offer_url for ot in other_tokens):
-                return False
+            if other_tokens:
+                for ot in other_tokens:
+                    if ot == 'transport=accommodation_flight':
+                        if 'transport=accommodation&' in offer_url and 'transport=accommodation_flight' not in offer_url:
+                            return False
+                    elif ot not in offer_url:
+                        return False
 
         excluded = self.config.get('excluded_offer_url_contains', [])
         if isinstance(excluded, str):

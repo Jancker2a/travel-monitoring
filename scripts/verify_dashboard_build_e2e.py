@@ -56,7 +56,7 @@ def run_test():
             "history_price_ceiling": 12000,
             "data_dir": f"data/filters/filter_{TEST_SLUG}",
             "output_data_file": "travel_prices.csv",
-            "required_offer_url_contains": ["/wycieczka/cypr", "transport=accommodation_flight"],
+            "required_offer_url_contains": ["/wycieczka/cypr"],
             "excluded_offer_url_contains": ["/wycieczka/polska"],
             "wait_timeout": 30000,
             "max_retries": 3,
