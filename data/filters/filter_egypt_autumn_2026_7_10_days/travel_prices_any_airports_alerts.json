@@ -1,5 +1,199 @@
 {
   "version": 2,
-  "alerts": [],
-  "meta": {}
+  "alerts": [
+    {
+      "hotel_name": "Jaz Aquamarine Resort",
+      "duration_bucket": "",
+      "old_price": 8415.0,
+      "new_price": 9261.0,
+      "price_change": 846.0,
+      "price_change_pct": 10.053475935828878,
+      "timestamp": "2026-10-26 06:34:54.575375+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-26T06:35:34.888730+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Aquamarine Resort_2026-10-26_06-34_+10.1"
+    },
+    {
+      "hotel_name": "Rewaya Luxury Resort",
+      "duration_bucket": "",
+      "old_price": 5666.0,
+      "new_price": 6210.0,
+      "price_change": 544.0,
+      "price_change_pct": 9.601129544652313,
+      "timestamp": "2026-10-26 06:34:54.575375+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-26T06:35:34.888761+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Luxury Resort_2026-10-26_06-34_+9.6"
+    },
+    {
+      "hotel_name": "Baron Palace Resort (Sahl Hasheesh)",
+      "duration_bucket": "",
+      "old_price": 9666.0,
+      "new_price": 10769.0,
+      "price_change": 1103.0,
+      "price_change_pct": 11.411131802193255,
+      "timestamp": "2026-10-26 06:34:54.575375+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-26T06:35:34.888771+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Baron Palace Resort (Sahl Hasheesh)_2026-10-26_06-34_+11.4"
+    },
+    {
+      "hotel_name": "Pickalbatros White Beach Resort",
+      "duration_bucket": "",
+      "old_price": 9995.0,
+      "new_price": 9995.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-26 06:34:54.575375+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-26T06:35:34.888785+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros White Beach Resort_2026-10-26_06-34_zone_out_gone"
+    },
+    {
+      "hotel_name": "Serenity Sky Arc",
+      "duration_bucket": "",
+      "old_price": 8496.0,
+      "new_price": 8496.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-26 06:34:54.575375+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-26T06:35:34.888792+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Serenity Sky Arc_2026-10-26_06-34_zone_out_gone"
+    }
+  ],
+  "meta": {
+    "last_processed_run": "2026-10-26T06:34:54.575375+00:00",
+    "premium_state": {
+      "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
+        "history_max": 6355.0,
+        "premium_peak": null
+      },
+      "Parrotel Lagoon Resort": {
+        "history_max": 6522.0,
+        "premium_peak": null
+      },
+      "Pickalbatros White Beach Resort": {
+        "history_max": 9995.0,
+        "premium_peak": null
+      },
+      "Novotel Marsa Alam": {
+        "history_max": 6737.0,
+        "premium_peak": null
+      },
+      "Red Sea Grand Waterworld Makadi (ex. Sunwing Waterworld Makadi)": {
+        "history_max": 9614.0,
+        "premium_peak": null
+      },
+      "Jaz Palmariva Beach": {
+        "history_max": 7663.0,
+        "premium_peak": null
+      },
+      "Tropitel Sahl Hasheesh": {
+        "history_max": 9406.0,
+        "premium_peak": null
+      },
+      "Jaz Grand Marsa (ex Resta Grand Resort)": {
+        "history_max": 6833.0,
+        "premium_peak": null
+      },
+      "Jaz Aquamarine Resort": {
+        "history_max": 9261.0,
+        "premium_peak": null
+      },
+      "Rewaya Luxury Resort": {
+        "history_max": 6210.0,
+        "premium_peak": null
+      },
+      "Jasmine Palace": {
+        "history_max": 7297.0,
+        "premium_peak": null
+      },
+      "IL Mercato Splash Aqua Park": {
+        "history_max": 6948.0,
+        "premium_peak": null
+      },
+      "Royal Regency Club": {
+        "history_max": 8245.0,
+        "premium_peak": null
+      },
+      "Hilton Plaza (Hurghada)": {
+        "history_max": 9525.0,
+        "premium_peak": null
+      },
+      "Pickalbatros Palace Resort": {
+        "history_max": 9113.0,
+        "premium_peak": null
+      },
+      "Serenity Alma Heights (ex. Serenity Fun City)": {
+        "history_max": 7672.0,
+        "premium_peak": null
+      },
+      "Fantazia Resort": {
+        "history_max": 9116.0,
+        "premium_peak": null
+      },
+      "Pickalbatros Dana Beach Resort": {
+        "history_max": 10881.0,
+        "premium_peak": null
+      },
+      "Desert Rose Resort": {
+        "history_max": 9343.0,
+        "premium_peak": null
+      },
+      "Serenity Sky Arc": {
+        "history_max": 8496.0,
+        "premium_peak": null
+      },
+      "Concorde Moreen Beach Resort & Spa": {
+        "history_max": 7404.0,
+        "premium_peak": null
+      },
+      "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort)": {
+        "history_max": 7837.0,
+        "premium_peak": null
+      },
+      "Cleopatra Signature Marsa Alam": {
+        "history_max": 9334.0,
+        "premium_peak": null
+      },
+      "Albatros Makadi Resort (ex Royal Pharaohs Makadi)": {
+        "history_max": 8804.0,
+        "premium_peak": null
+      },
+      "Calimera Blend Paradise Resort": {
+        "history_max": 7897.0,
+        "premium_peak": null
+      },
+      "Dream Lagoon & Aqua Park Resort (ex. Floriana Dream Lagoon)": {
+        "history_max": 4808.0,
+        "premium_peak": null
+      },
+      "Titanic Beach Spa & Aqua Park": {
+        "history_max": 8097.0,
+        "premium_peak": null
+      },
+      "Baron Palace Resort (Sahl Hasheesh)": {
+        "history_max": 10769.0,
+        "premium_peak": null
+      },
+      "Titanic Pearl": {
+        "history_max": 7942.0,
+        "premium_peak": null
+      },
+      "Amarina Queen Resort": {
+        "history_max": 8202.0,
+        "premium_peak": null
+      },
+      "Pickalbatros Aqua Blu Resort": {
+        "history_max": 10875.0,
+        "premium_peak": null
+      }
+    }
+  }
 }

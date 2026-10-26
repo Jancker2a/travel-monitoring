@@ -1,5 +1,88 @@
 {
   "version": 2,
-  "alerts": [],
-  "meta": {}
+  "alerts": [
+    {
+      "hotel_name": "Rewaya Inn Resort (ex.Hawaii Paradise Aq",
+      "duration_bucket": "",
+      "old_price": 9860.0,
+      "new_price": 9860.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-26 06:35:36.556917+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-26T06:36:56.080630+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Inn Resort (ex.Hawaii Paradise Aq_2026-10-26_06-35_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sea Star Beau Rivage",
+      "duration_bucket": "",
+      "old_price": 11807.0,
+      "new_price": 10031.0,
+      "price_change": -1776.0,
+      "price_change_pct": -15.041924282205471,
+      "timestamp": "2026-10-26 06:35:36.556917+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-26T06:36:56.080690+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sea Star Beau Rivage_2026-10-26_06-35_comeback_15.0"
+    }
+  ],
+  "meta": {
+    "last_processed_run": "2026-10-26T06:35:36.556917+00:00",
+    "premium_state": {
+      "AMC Royal Hotel & Spa*****": {
+        "history_max": 12142.0,
+        "premium_peak": 12142.0
+      },
+      "BADAWIA RESORT": {
+        "history_max": 9064.0,
+        "premium_peak": null
+      },
+      "Stella Beach Resort & Spa Makadi Bay": {
+        "history_max": 12056.0,
+        "premium_peak": 12056.0
+      },
+      "Empire Hotel Aqua Park (Ex. Triton Empir": {
+        "history_max": 9500.0,
+        "premium_peak": null
+      },
+      "GRAND PLAZA RESORT SHARM": {
+        "history_max": 9437.0,
+        "premium_peak": null
+      },
+      "Sea Star Beau Rivage": {
+        "history_max": 11807.0,
+        "premium_peak": 11807.0
+      },
+      "MARRIOTT HURGHADA": {
+        "history_max": 11817.0,
+        "premium_peak": 11817.0
+      },
+      "Parrotel Lagoon Resort": {
+        "history_max": 9929.0,
+        "premium_peak": null
+      },
+      "Swisstouch Oriental Resort Marsa Alam": {
+        "history_max": 11173.0,
+        "premium_peak": 11173.0
+      },
+      "Retac Qunay Dahab Resort & Spa": {
+        "history_max": 9767.0,
+        "premium_peak": null
+      },
+      "Royal Lagoons Resort and Aqua Park": {
+        "history_max": 9944.0,
+        "premium_peak": null
+      },
+      "Rewaya Inn Resort (ex.Hawaii Paradise Aq": {
+        "history_max": 9860.0,
+        "premium_peak": null
+      },
+      "Three Corners Fayrouz Plaza": {
+        "history_max": 11837.0,
+        "premium_peak": 11837.0
+      }
+    }
+  }
 }

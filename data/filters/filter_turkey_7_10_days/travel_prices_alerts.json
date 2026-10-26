@@ -1,5 +1,147 @@
 {
   "version": 2,
-  "alerts": [],
-  "meta": {}
+  "alerts": [
+    {
+      "hotel_name": "Nova Park",
+      "duration_bucket": "",
+      "old_price": 6505.0,
+      "new_price": 6505.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-26 06:37:01.074202+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-26T06:38:18.325982+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Nova Park_2026-10-26_06-37_zone_out_gone"
+    }
+  ],
+  "meta": {
+    "last_processed_run": "2026-10-26T06:37:01.074202+00:00",
+    "premium_state": {
+      "Alaiye Resort & Spa": {
+        "history_max": 5590.0,
+        "premium_peak": null
+      },
+      "Kaila Beach (ex Katya)": {
+        "history_max": 6228.0,
+        "premium_peak": null
+      },
+      "Kirbiyik Resort (ex. Dinler)": {
+        "history_max": 6002.0,
+        "premium_peak": null
+      },
+      "Xoria Deluxe": {
+        "history_max": 6045.0,
+        "premium_peak": null
+      },
+      "M. C. Arancia Resort": {
+        "history_max": 6226.0,
+        "premium_peak": null
+      },
+      "Meder Resort": {
+        "history_max": 5517.0,
+        "premium_peak": null
+      },
+      "Mira Meridia Beach Resort": {
+        "history_max": 5429.0,
+        "premium_peak": null
+      },
+      "Nova Park": {
+        "history_max": 6505.0,
+        "premium_peak": null
+      },
+      "Orange County Alanya": {
+        "history_max": 6334.0,
+        "premium_peak": null
+      },
+      "Palmeras Beach": {
+        "history_max": 5468.0,
+        "premium_peak": null
+      },
+      "Pirates Beach Club": {
+        "history_max": 6455.0,
+        "premium_peak": null
+      },
+      "Ramada By Wyndham Istanbul Pera": {
+        "history_max": 6069.0,
+        "premium_peak": null
+      },
+      "Seher Resort & Spa": {
+        "history_max": 5708.0,
+        "premium_peak": null
+      },
+      "Seher Sun Palace Resort & Spa": {
+        "history_max": 5535.0,
+        "premium_peak": null
+      },
+      "Side Kum": {
+        "history_max": 5756.0,
+        "premium_peak": null
+      },
+      "Sural Resort": {
+        "history_max": 5864.0,
+        "premium_peak": null
+      },
+      "The Lumos Deluxe Resort & Spa": {
+        "history_max": 6488.0,
+        "premium_peak": null
+      },
+      "Wyndham Istanbul Old City (ex. Celal Aga Konagi)": {
+        "history_max": 5484.0,
+        "premium_peak": null
+      },
+      "Grand Seker": {
+        "history_max": 5632.0,
+        "premium_peak": null
+      },
+      "Galeri Resort": {
+        "history_max": 5701.0,
+        "premium_peak": null
+      },
+      "Linda Resort (Side)": {
+        "history_max": 6303.0,
+        "premium_peak": null
+      },
+      "Diamond Hill Resort": {
+        "history_max": 5924.0,
+        "premium_peak": null
+      },
+      "Cenger Blue Collection": {
+        "history_max": 6153.0,
+        "premium_peak": null
+      },
+      "Aska Just in Beach": {
+        "history_max": 6374.0,
+        "premium_peak": null
+      },
+      "Club Side Coast": {
+        "history_max": 5217.0,
+        "premium_peak": null
+      },
+      "Arnor De Luxe & SPA": {
+        "history_max": 6495.0,
+        "premium_peak": null
+      },
+      "Arcanus Hotels Sorgun (ex. Asteria Sorgun)": {
+        "history_max": 6237.0,
+        "premium_peak": null
+      },
+      "Barut Goia (ex. Barut Sunwing Side Beach)": {
+        "history_max": 6323.0,
+        "premium_peak": null
+      },
+      "Eftalia Ocean (Alanya)": {
+        "history_max": 5614.0,
+        "premium_peak": null
+      },
+      "Drita Resort & Spa": {
+        "history_max": 5496.0,
+        "premium_peak": null
+      },
+      "Limak Limra": {
+        "history_max": 6181.0,
+        "premium_peak": null
+      }
+    }
+  }
 }

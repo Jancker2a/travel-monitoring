@@ -1,5 +1,143 @@
 {
   "version": 2,
-  "alerts": [],
-  "meta": {}
+  "alerts": [
+    {
+      "hotel_name": "Coral Hills Resort Sharm El Sheikh",
+      "duration_bucket": "",
+      "old_price": 3272.0,
+      "new_price": 3585.0,
+      "price_change": 313.0,
+      "price_change_pct": 9.56601466992665,
+      "timestamp": "2026-10-26 06:35:50.790267+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-26T06:36:56.922900+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Coral Hills Resort Sharm El Sheikh_2026-10-26_06-35_+9.6"
+    }
+  ],
+  "meta": {
+    "last_processed_run": "2026-10-26T06:35:50.790267+00:00",
+    "premium_state": {
+      "Amwaj Oyoun Resort & Casino": {
+        "history_max": 4219.0,
+        "premium_peak": null
+      },
+      "Parrotel Lagoon Resort": {
+        "history_max": 4320.0,
+        "premium_peak": null
+      },
+      "Panorama Naama Heights": {
+        "history_max": 3051.0,
+        "premium_peak": null
+      },
+      "Sharm Bride Resort Aqua & Spa (ex. Aqua Resort & Spa)": {
+        "history_max": 3494.0,
+        "premium_peak": null
+      },
+      "Palma Di Sharm Hollywood Resort": {
+        "history_max": 3346.0,
+        "premium_peak": null
+      },
+      "Oriental Rivoli & Spa (Sharm El Sheikh)": {
+        "history_max": 3442.0,
+        "premium_peak": null
+      },
+      "Xperience St. George Homestay": {
+        "history_max": 4473.0,
+        "premium_peak": null
+      },
+      "Old Vic Sharm Resort": {
+        "history_max": 3517.0,
+        "premium_peak": null
+      },
+      "Sharm Holiday": {
+        "history_max": 3740.0,
+        "premium_peak": null
+      },
+      "Naama Bay Promenade Mountain Resort": {
+        "history_max": 4322.0,
+        "premium_peak": null
+      },
+      "Megan Halomy": {
+        "history_max": 3071.0,
+        "premium_peak": null
+      },
+      "Sharm Reef": {
+        "history_max": 4134.0,
+        "premium_peak": null
+      },
+      "Mazar Resort & Spa": {
+        "history_max": 3091.0,
+        "premium_peak": null
+      },
+      "Lido Sharm": {
+        "history_max": 4301.0,
+        "premium_peak": null
+      },
+      "Rehana Sharm Resort & Spa": {
+        "history_max": 4217.0,
+        "premium_peak": null
+      },
+      "Invidia Coral Beach Tiran": {
+        "history_max": 4785.0,
+        "premium_peak": null
+      },
+      "Sun Resort & Aqua Park Sharm El Sheikh": {
+        "history_max": 4302.0,
+        "premium_peak": null
+      },
+      "Coral Hills Resort Sharm El Sheikh": {
+        "history_max": 3585.0,
+        "premium_peak": null
+      },
+      "Badawia Sharm Resort (ex. All Seasons Badawia)": {
+        "history_max": 3269.0,
+        "premium_peak": null
+      },
+      "Viva Sharm": {
+        "history_max": 3189.0,
+        "premium_peak": null
+      },
+      "Cataract Layalina & Resort": {
+        "history_max": 3870.0,
+        "premium_peak": null
+      },
+      "Cataract Resort": {
+        "history_max": 3763.0,
+        "premium_peak": null
+      },
+      "Viking Club": {
+        "history_max": 3195.0,
+        "premium_peak": null
+      },
+      "IL Mercato Splash Aqua Park": {
+        "history_max": 3973.0,
+        "premium_peak": null
+      },
+      "Regency Plaza Aqua Park Spa": {
+        "history_max": 4484.0,
+        "premium_peak": null
+      },
+      "Uni Sharm (ex. Karma)": {
+        "history_max": 2672.0,
+        "premium_peak": null
+      },
+      "El Faraana Heights": {
+        "history_max": 4224.0,
+        "premium_peak": null
+      },
+      "El Khan Sharm": {
+        "history_max": 3166.0,
+        "premium_peak": null
+      },
+      "Swiss Heaven Sharming Inn": {
+        "history_max": 3224.0,
+        "premium_peak": null
+      },
+      "Eden Rock (Sharm El Sheikh)": {
+        "history_max": 3747.0,
+        "premium_peak": null
+      }
+    }
+  }
 }
