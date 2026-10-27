@@ -572,6 +572,20 @@ def calculate_duration_comparison(df: pd.DataFrame) -> Dict[str, Any]:
     }
 
 
+def extract_stay_days(val: Any) -> Optional[int]:
+    """Extracts integer stay duration in days/nights (e.g. '14 dni' -> 14)."""
+    if val is None:
+        return None
+    s = str(val).lower()
+    m = re.search(r"(\d+)\s*(?:d|n|дн|ноч)", s)
+    if m:
+        return int(m.group(1))
+    m2 = re.search(r"^(\d+)$", s.strip())
+    if m2:
+        return int(m2.group(1))
+    return None
+
+
 def extract_filter_features(
     prices_csv_path: str,
     dna_profile_path: str = DEFAULT_DNA_FILE,
@@ -637,6 +651,46 @@ def extract_filter_features(
     p10_price = float(np.percentile(prices, 10))
     p90_price = float(np.percentile(prices, 90))
 
+    # Stay duration profiling (e.g. 7-10 nights vs long 13-16 nights / 2 weeks)
+    trip_days_list: List[int] = []
+    if "duration" in latest_per_hotel.columns:
+        for val in latest_per_hotel["duration"].dropna():
+            d_len = extract_stay_days(val)
+            if d_len and 2 <= d_len <= 35:
+                trip_days_list.append(d_len)
+
+    if trip_days_list:
+        min_trip_days = int(min(trip_days_list))
+        max_trip_days = int(max(trip_days_list))
+        med_trip_days = int(np.median(trip_days_list))
+    else:
+        # Fallback from filter_title, filter_id, or path (e.g. 13_16 or 7_10)
+        m_span = re.search(r"(\d+)[\-_–:](\d+)", f"{filter_id or ''} {filter_title or ''} {prices_csv_path}")
+        if m_span:
+            min_trip_days = int(m_span.group(1))
+            max_trip_days = int(m_span.group(2))
+            med_trip_days = int(round((min_trip_days + max_trip_days) / 2))
+        else:
+            min_trip_days, max_trip_days, med_trip_days = 7, 10, 8
+
+    if min_trip_days == max_trip_days:
+        trip_duration_label = f"{min_trip_days} ночей"
+    else:
+        trip_duration_label = f"{min_trip_days}–{max_trip_days} ночей"
+
+    if med_trip_days >= 12:
+        duration_category = "длинный двухнедельный тур (2 недели)"
+        is_long_trip = True
+    elif med_trip_days <= 6:
+        duration_category = "короткий тур"
+        is_long_trip = False
+    else:
+        duration_category = "стандартная неделя (7–10 ночей)"
+        is_long_trip = False
+
+    cost_per_day_median = round(med_price / max(1, med_trip_days), 0)
+    cost_per_day_min = round(min_price / max(1, med_trip_days), 0)
+
     # Calculate Days-to-Departure (D-Minus) timeline & horizon
     d_values: List[int] = []
     dep_dates: List[date] = []
@@ -679,28 +733,40 @@ def extract_filter_features(
     filter_search_text = f"{filter_id or ''} {filter_title or ''} {prices_csv_path}".lower()
     sample_hotels_text = " ".join(latest_per_hotel["hotel_name"].astype(str).tolist()).lower()
 
-    # 1. Primary check: Explicit destination in filter_id, title, or directory path
+    # 0. Primary ground truth: Check filter configuration file if available
     detected_country = ""
-    if any(k in filter_search_text for k in ("greece", "grecja", "греци", "athens", "crete", "rhodes", "corfu", "kos", "santorini", "zakynthos")):
-        detected_country = "Греция"
-    elif any(k in filter_search_text for k in ("cyprus", "cypr", "кипр")):
-        detected_country = "Кипр"
-    elif any(k in filter_search_text for k in ("turkey", "turcja", "турци", "antalya", "alanya", "kemer", "belek")):
-        detected_country = "Турция"
-    elif any(k in filter_search_text for k in ("egypt", "egipt", "египет", "sharm", "hurghada", "marsa_alam")):
-        detected_country = "Египет"
-    elif any(k in filter_search_text for k in ("spain", "hiszpania", "испани", "mallorca", "tenerife", "canaria")):
-        detected_country = "Испания"
-    elif any(k in filter_search_text for k in ("tunisia", "tunezja", "тунис")):
-        detected_country = "Тунис"
-    elif any(k in filter_search_text for k in ("italy", "italia", "wlochy", "итали")):
-        detected_country = "Италия"
-    elif any(k in filter_search_text for k in ("bulgaria", "bułgaria", "болгари")):
-        detected_country = "Болгария"
-    elif any(k in filter_search_text for k in ("uae", "emirates", "emiraty", "оаэ", "dubai")):
-        detected_country = "ОАЭ"
-    elif any(k in filter_search_text for k in ("malta", "мальт")):
-        detected_country = "Мальта"
+    try:
+        from filter_params import load_filter_config, _country_label
+        f_cfg = load_filter_config(prices_csv_path)
+        if f_cfg:
+            c_from_cfg = _country_label(f_cfg, f_cfg.get("url", ""))
+            if c_from_cfg and c_from_cfg not in ("—", ""):
+                detected_country = c_from_cfg
+    except Exception:
+        pass
+
+    # 1. Fallback check: Explicit destination in filter_id, title, or directory path
+    if not detected_country:
+        if any(k in filter_search_text for k in ("greece", "grecja", "греци", "athens", "crete", "rhodes", "corfu", "kos", "santorini", "zakynthos")):
+            detected_country = "Греция"
+        elif any(k in filter_search_text for k in ("cyprus", "cypr", "кипр")):
+            detected_country = "Кипр"
+        elif any(k in filter_search_text for k in ("turkey", "turcja", "турци", "antalya", "alanya", "kemer", "belek")):
+            detected_country = "Турция"
+        elif any(k in filter_search_text for k in ("egypt", "egipt", "египет", "sharm", "hurghada", "marsa_alam")):
+            detected_country = "Египет"
+        elif any(k in filter_search_text for k in ("spain", "hiszpania", "испани", "mallorca", "tenerife", "canaria")):
+            detected_country = "Испания"
+        elif any(k in filter_search_text for k in ("tunisia", "tunezja", "тунис")):
+            detected_country = "Тунис"
+        elif any(k in filter_search_text for k in ("italy", "italia", "wlochy", "итали")):
+            detected_country = "Италия"
+        elif any(k in filter_search_text for k in ("bulgaria", "bułgaria", "болгари")):
+            detected_country = "Болгария"
+        elif any(k in filter_search_text for k in ("uae", "emirates", "emiraty", "оаэ", "dubai")):
+            detected_country = "ОАЭ"
+        elif any(k in filter_search_text for k in ("malta", "мальт")):
+            detected_country = "Мальта"
 
     # 2. Secondary check: Word-boundary regex on hotel names (prevents 'side' inside 'residence' from triggering Turkey!)
     if not detected_country:
@@ -1218,11 +1284,16 @@ def extract_filter_features(
         cand_d_days = (cand_dep_d - today).days if cand_dep_d else None
         is_today_cand = (cand_d_days == 0)
 
+        cand_dur_days = extract_stay_days(cand.get("duration", "")) or med_trip_days
+        cand_cost_per_day = round(cur_p / max(1, cand_dur_days), 0)
+
         cand_dossier = {
             "hotel_name": cand["hotel_name"],
             "stars": st,
             "tier": cand["fair_price"].get("tier", "комфорт"),
             "price": cur_p,
+            "duration_days": cand_dur_days,
+            "cost_per_day_pln": cand_cost_per_day,
             "rating": r_val,
             "review_count": rev_count,
             "meal_plan": cand.get("meal_plan", "all_inclusive"),
@@ -1246,6 +1317,8 @@ def extract_filter_features(
             "trip_details": {
                 "dates": cand.get("dates", ""),
                 "duration": cand.get("duration", ""),
+                "duration_days": cand_dur_days,
+                "cost_per_day_pln": cand_cost_per_day,
                 "departure_airport": cand.get("departure_airport", ""),
                 "meal_plan": cand.get("meal_plan", "all_inclusive"),
                 "tour_operator": op_name,
@@ -1309,6 +1382,24 @@ def extract_filter_features(
             "median_price": med_price,
             "p90_price": p90_price,
             "max_price": max_price,
+            "trip_duration": {
+                "min_days": min_trip_days,
+                "max_days": max_trip_days,
+                "median_days": med_trip_days,
+                "label": trip_duration_label,
+                "category": duration_category,
+                "is_long_trip": is_long_trip,
+                "cost_per_day_median_pln": cost_per_day_median,
+                "cost_per_day_min_pln": cost_per_day_min,
+                "context_note": (
+                    f"ВНИМАНИЕ: Это {duration_category} на {trip_duration_label}. "
+                    f"Цены указаны за ДВЕ НЕДЕЛИ ({med_trip_days} дн.), а не за 7 дней! "
+                    f"В пересчете это ~{cost_per_day_median:,.0f} zł/сутки (от ~{cost_per_day_min:,.0f} zł/сутки за двоих на 'всё включено'). "
+                    f"Оценивай бюджет с учетом {med_trip_days} дней отдыха, подчеркивая выгоду долгого отпуска."
+                    if is_long_trip else
+                    f"Тур на {trip_duration_label} (~{cost_per_day_median:,.0f} zł/сутки за двоих)."
+                ),
+            },
             "median_days_to_departure": avg_d,
             "min_days_to_departure": min_d,
             "max_days_to_departure": max_d,
