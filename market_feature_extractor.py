@@ -216,91 +216,162 @@ def get_hotel_reputation_metadata(
     Merges deep AI intelligence from hotel_reputation_kb.json if available.
     """
     h_lower = hotel_name.lower()
+    dest_hint_lower = (destination_hint or "").lower()
+
+    # Determine target destination from filter or context
+    is_target_turkey = any(k in dest_hint_lower for k in ("турци", "turkey", "turcja", "анталья", "сиде", "кемер", "белек", "аланья", "мармарис", "бодрум", "фетхие"))
+    is_target_cyprus = any(k in dest_hint_lower for k in ("кипр", "cypr", "cyprus", "пафос", "айя-напа", "айя напа", "протарас", "ларнака", "лимассол"))
+    is_target_greece = any(k in dest_hint_lower for k in ("грец", "greece", "grecja", "крит", "родос", "корфу", "кос", "закинф"))
+    is_target_spain = any(k in dest_hint_lower for k in ("испан", "spain", "hiszpania", "майорка", "тенерифе", "барселона", "коста"))
+    is_target_egypt = any(k in dest_hint_lower for k in ("египет", "egypt", "красное море", "шарм", "хургада", "марса", "эль гуна", "сахл хашиш"))
+
+    # If destination_hint was ambiguous or generic, infer from hotel name
+    if not (is_target_turkey or is_target_cyprus or is_target_greece or is_target_spain or is_target_egypt):
+        if any(k in h_lower for k in ("sharm", "hurghada", "makadi", "el gouna", "gouna", "marsa alam", "sahl hasheesh", "ras um sid", "naama", "nabq")):
+            is_target_egypt = True
+        elif any(k in h_lower for k in ("side", "alanya", "kemer", "belek", "antalya", "lara", "kundu", "avsallar", "konakli", "manavgat", "marmaris", "bodrum", "fethiye")):
+            is_target_turkey = True
+        elif any(k in h_lower for k in ("cyprus", "paphos", "ayia napa", "protaras", "larnaca", "limassol")):
+            is_target_cyprus = True
+        elif any(k in h_lower for k in ("crete", "rhodes", "corfu", "kos", "greece")):
+            is_target_greece = True
+        elif any(k in h_lower for k in ("spain", "mallorca", "tenerife", "murcia", "costa")):
+            is_target_spain = True
 
     bay_or_area = ""
     wind_shelter = ""
     beach_profile = ""
     winter_comfort = ""
 
-    # Sharm El Sheikh Bays
-    if any(k in h_lower for k in ("naama", "promenade", "novotel", "maritim", "garth", "tropitel", "movenpick")):
-        bay_or_area = "Бухта Наама Бэй (Naama Bay)"
-        wind_shelter = "Защищена от ветра (комфортна зимой)"
-        beach_profile = "Песчаный пологий вход в море, без обязательного понтона"
-        winter_comfort = "Высокий: защищена горами от зимних ветров, море спокойное"
-    elif any(k in h_lower for k in ("hadaba", "ras um sid", "faraana", "jaz fanara", "renaissance", "reef oasis", "sentido")):
-        bay_or_area = "Бухта Рас Ум Сид / Хадаба"
-        wind_shelter = "Защищена от ветра высокими скалами"
-        beach_profile = "Один из лучших живых коралловых рифов Шарма"
-        winter_comfort = "Высокий: безветренная бухта, идеальна для плавания зимой"
-    elif any(k in h_lower for k in ("shark", "sultan gardens", "grand rotana", "pyramisa", "white knight")):
-        bay_or_area = "Бухта Шаркс Бэй (Shark's Bay)"
-        wind_shelter = "Умеренный ветер, открытый вид на остров Тиран"
-        beach_profile = "Красивый коралловый риф, заход с понтона"
-        winter_comfort = "Средний: при сильном ветре возможны волны"
-    elif any(k in h_lower for k in ("nabq", "amwaj", "rehana", "rixos premium seagate", "cleopatra", "parrotel", "barcelo", "albatros laguna")):
-        bay_or_area = "Бухта Набк (Nabq Bay)"
-        wind_shelter = "Открытая бухта, подвержена зимним ветрам"
-        beach_profile = "Длинный понтон (до 500-800 м) через мелководный коралловый риф"
-        winter_comfort = "Низкий зимой: частые ветра, возможен красный флаг на понтоне"
-    # Hurghada Areas
-    elif any(k in h_lower for k in ("makadi", "tia heights", "jaz makadi", "cleopatra makadi")):
-        bay_or_area = "Бухта Макади Бэй (Makadi Bay)"
-        wind_shelter = "Умеренно защищенная бухта"
-        beach_profile = "Песчаный пляж с участками рифа"
-        winter_comfort = "Хороший: песчаный заход и красивый подводный мир"
-    elif any(k in h_lower for k in ("sahl hasheesh", "baron palace", "gravity", "old palace", "citadel")):
-        bay_or_area = "Сахл Хашиш (Sahl Hasheesh)"
-        wind_shelter = "Премиальная курортная зона с длинным променадом"
-        beach_profile = "Широкий песчаный пляж"
-        winter_comfort = "Высокий: красивый променад и качественный сервис"
-    elif any(k in h_lower for k in ("el gouna", "gouna", "mangroovy", "creek hotel")):
-        bay_or_area = "Эль Гуна (El Gouna)"
-        wind_shelter = "Египетская Венеция с лагунами и каналами"
-        beach_profile = "Лагуны и песчаные отмели"
-        winter_comfort = "Европейский сервис, идеально для кайтинга и спокойного отдыха"
-    elif any(k in h_lower for k in ("marsa alam", "port ghalib", "brayka", "sataya", "lazuli", "akassia")):
-        bay_or_area = "Марса Алам / Порт Галиб"
-        wind_shelter = "Открытое побережье Красного моря"
-        beach_profile = "Нетронутые коралловые рифы с морскими черепахами и дюгонями"
-        winter_comfort = "Для дайвинга и снорклинга; зимой возможны волны"
-    # Turkey (Antalya & Aegean)
-    elif any(k in h_lower for k in ("side", "kumkoy", "evrenseki", "colakli", "titreyengol", "manavgat", "sorgun", "kizilot", "kizilagac", "sueno", "kamelya", "club side coast", "mira meridia")):
-        bay_or_area = "Сиде / Манавгат (Side)"
-        wind_shelter = "Широкая береговая линия, пологий заход"
-        beach_profile = "Широкий пологий песчаный вход в море, идеален для детей"
-        winter_comfort = "Живой курорт с красивым променадом вдоль античного города"
-    elif any(k in h_lower for k in ("alanya", "konakli", "avsallar", "okurcalar", "mahmutlar", "incekum", "eftalia", "xoria", "arancia", "kaila", "rubi", "long beach")):
-        bay_or_area = "Аланья / Конаклы / Авсаллар"
-        wind_shelter = "Самый теплый регион Анталийского побережья"
-        beach_profile = "Песчано-галечный пляж, в Авсалларе (Инжекум) мягкий песок"
-        winter_comfort = "Мягкий климат, море дольше всего сохраняет тепло осенью"
-    elif any(k in h_lower for k in ("kemer", "beldibi", "goynuk", "kiris", "camyuva", "tekirova", "meder", "sungate", "alva donna world")):
-        bay_or_area = "Кемер (Kemer)"
-        wind_shelter = "Окружен хвойными Таврскими горами"
-        beach_profile = "Кристально чистая прозрачная вода, галька и пирсы"
-        winter_comfort = "Хвойный воздух и горы, в межсезонье приятный прохладный бриз"
-    elif any(k in h_lower for k in ("belek", "kadriye", "bogazkent", "land of legends", "selectum", "papillon", "gural premier")):
-        bay_or_area = "Белек (Belek)"
-        wind_shelter = "Элитный курорт среди хвойных и эвкалиптовых рощ"
-        beach_profile = "Широкий песчаный пляж с мелкой галькой у кромки воды"
-        winter_comfort = "Премиальные отели с круглогодичными теплыми бассейнами и спа"
-    elif any(k in h_lower for k in ("lara", "kundu", "barut lara", "delphin imperial", "delphin be grand", "delphin diva", "titanic mardan", "concorde de luxe")):
-        bay_or_area = "Анталья / Лара (Lara Beach)"
-        wind_shelter = "Быстрый трансфер из аэропорта (15–20 мин)"
-        beach_profile = "Широкий золотой песчаный пляж"
-        winter_comfort = "Отели-дворцы с круглогодичной инфраструктурой и теплыми бассейнами"
-    # Cyprus / Greece / Spain
-    elif any(k in h_lower for k in ("ayia napa", "protaras", "nissi", "fig tree", "paphos", "limassol", "larnaca")) or any(k in (destination_hint or "").lower() for k in ("cypr", "кипр")):
-        bay_or_area = "Кипр"
-        wind_shelter = "Средиземноморское побережье"
-        beach_profile = "Бирюзовые лагуны и золотистый песок"
-        winter_comfort = "Мягкая теплая средиземноморская зима"
-    elif any(k in h_lower for k in ("crete", "rhodes", "corfu", "kos", "hersonissos", "rethymno", "chania", "kallithea")) or any(k in (destination_hint or "").lower() for k in ("grec", "грец")):
+    if is_target_turkey:
+        if any(k in h_lower for k in ("side", "kumkoy", "evrenseki", "colakli", "titreyengol", "manavgat", "sorgun", "kizilot", "kizilagac", "sueno", "kamelya", "club side coast", "mira meridia", "verbena")):
+            bay_or_area = "Сиде / Манавгат (Side)"
+            wind_shelter = "Широкая береговая линия, пологий заход"
+            beach_profile = "Широкий пологий песчаный вход в море, идеален для детей"
+            winter_comfort = "Живой курорт с красивым променадом вдоль античного города"
+        elif any(k in h_lower for k in ("alanya", "konakli", "avsallar", "okurcalar", "mahmutlar", "incekum", "eftalia", "xoria", "arancia", "kaila", "rubi", "long beach", "numa", "numa bay", "gypsophila")):
+            bay_or_area = "Аланья / Конаклы / Авсаллар"
+            wind_shelter = "Самый теплый регион Анталийского побережья"
+            beach_profile = "Песчано-галечный пляж, в Авсалларе (Инжекум) мягкий песок"
+            winter_comfort = "Мягкий климат, море дольше всего сохраняет тепло осенью"
+        elif any(k in h_lower for k in ("kemer", "beldibi", "goynuk", "kiris", "camyuva", "tekirova", "meder", "sungate", "alva donna world", "royal diwa")):
+            bay_or_area = "Кемер (Kemer)"
+            wind_shelter = "Окружен хвойными Таврскими горами"
+            beach_profile = "Кристально чистая прозрачная вода, галька и пирсы"
+            winter_comfort = "Хвойный воздух и горы, в межсезонье приятный прохладный бриз"
+        elif any(k in h_lower for k in ("belek", "kadriye", "bogazkent", "land of legends", "selectum", "papillon", "gural premier", "pine beach", "maritim pine")):
+            bay_or_area = "Белек (Belek)"
+            wind_shelter = "Элитный курорт среди хвойных и эвкалиптовых рощ"
+            beach_profile = "Широкий песчаный пляж с мелкой галькой у кромки воды"
+            winter_comfort = "Премиальные отели с круглогодичными теплыми бассейнами и спа"
+        elif any(k in h_lower for k in ("lara", "kundu", "barut lara", "delphin imperial", "delphin be grand", "delphin diva", "titanic mardan", "concorde de luxe")):
+            bay_or_area = "Анталья / Лара (Lara Beach)"
+            wind_shelter = "Быстрый трансфер из аэропорта (15–20 мин)"
+            beach_profile = "Широкий золотой песчаный пляж"
+            winter_comfort = "Отели-дворцы с круглогодичной инфраструктурой и теплыми бассейнами"
+        else:
+            bay_or_area = "Анталийское побережье"
+            wind_shelter = "Средиземноморское побережье"
+            beach_profile = "Песчано-галечный пляж с удобным входом в море"
+            winter_comfort = "Мягкий климат, развитая инфраструктура"
+
+    elif is_target_cyprus:
+        if any(k in h_lower for k in ("ayia napa", "nissi", "ая напа", "айя-напа")):
+            bay_or_area = "Айя-Напа (Ayia Napa)"
+            wind_shelter = "Песчаные бухты, защищенные от волн"
+            beach_profile = "Белоснежный песок и лазурная прозрачная вода"
+            winter_comfort = "Живописные прогулки вдоль побережья и мыса Греко"
+        elif any(k in h_lower for k in ("protaras", "fig tree", "протарас")):
+            bay_or_area = "Протарас (Protaras)"
+            wind_shelter = "Уютные закрытые бухты"
+            beach_profile = "Золотистый песок и плавный пологий вход в воду"
+            winter_comfort = "Спокойный курортный отдых у моря"
+        elif any(k in h_lower for k in ("paphos", "пафос")):
+            bay_or_area = "Пафос (Paphos)"
+            wind_shelter = "Западное побережье Кипра"
+            beach_profile = "Скалистые и песчано-галечные бухты"
+            winter_comfort = "Богатая античная история, живописная набережная"
+        elif any(k in h_lower for k in ("limassol", "лимассол")):
+            bay_or_area = "Лимассол (Limassol)"
+            wind_shelter = "Южное побережье Кипра"
+            beach_profile = "Темный вулканический песок, пологий вход"
+            winter_comfort = "Круглогодичный активный город с красивым променадом Молос"
+        elif any(k in h_lower for k in ("larnaca", "ларнака")):
+            bay_or_area = "Ларнака (Larnaca)"
+            wind_shelter = "Спокойное мелкое море"
+            beach_profile = "Широкий песчано-галечный пляж Финикудес"
+            winter_comfort = "Быстрый трансфер, знаменитая пальмовая аллея"
+        else:
+            bay_or_area = "Кипр"
+            wind_shelter = "Средиземноморское побережье"
+            beach_profile = "Бирюзовые лагуны и золотистый песок"
+            winter_comfort = "Мягкая теплая средиземноморская зима"
+
+    elif is_target_greece:
         bay_or_area = "Греческие острова"
         wind_shelter = "Средиземное и Эгейское моря"
         beach_profile = "Живописные песчаные и галечные бухты"
         winter_comfort = "Мягкий климат, экскурсионный сезон"
+
+    elif is_target_spain:
+        bay_or_area = "Испания"
+        wind_shelter = "Средиземноморское побережье"
+        beach_profile = "Широкие благоустроенные пляжи"
+        winter_comfort = "Приятный климат, богатая экскурсионная программа"
+
+    elif is_target_egypt:
+        # Sharm El Sheikh Bays
+        if any(k in h_lower for k in ("naama", "promenade")) or (any(k in h_lower for k in ("sharm", "шарм")) and any(k in h_lower for k in ("novotel", "maritim", "tropitel", "movenpick"))):
+            bay_or_area = "Бухта Наама Бэй (Naama Bay)"
+            wind_shelter = "Защищена от ветра (комфортна зимой)"
+            beach_profile = "Песчаный пологий вход в море, без обязательного понтона"
+            winter_comfort = "Высокий: защищена горами от зимних ветров, море спокойное"
+        elif any(k in h_lower for k in ("hadaba", "ras um sid", "faraana", "jaz fanara", "reef oasis")) or (any(k in h_lower for k in ("sharm", "шарм")) and any(k in h_lower for k in ("renaissance", "sentido"))):
+            bay_or_area = "Бухта Рас Ум Сид / Хадаба"
+            wind_shelter = "Защищена от ветра высокими скалами"
+            beach_profile = "Один из лучших живых коралловых рифов Шарма"
+            winter_comfort = "Высокий: безветренная бухта, идеальна для плавания зимой"
+        elif any(k in h_lower for k in ("shark", "sultan gardens", "grand rotana", "white knight")):
+            bay_or_area = "Бухта Шаркс Бэй (Shark's Bay)"
+            wind_shelter = "Умеренный ветер, открытый вид на остров Тиран"
+            beach_profile = "Красивый коралловый риф, заход с понтона"
+            winter_comfort = "Средний: при сильном ветре возможны волны"
+        elif any(k in h_lower for k in ("nabq", "rehana", "rixos premium seagate", "albatros laguna")) or (any(k in h_lower for k in ("sharm", "шарм")) and any(k in h_lower for k in ("amwaj", "cleopatra", "parrotel", "barcelo"))):
+            bay_or_area = "Бухта Набк (Nabq Bay)"
+            wind_shelter = "Открытая бухта, подвержена зимним ветрам"
+            beach_profile = "Длинный понтон (до 500-800 м) через мелководный коралловый риф"
+            winter_comfort = "Низкий зимой: частые ветра, возможен красный флаг на понтоне"
+        # Hurghada Areas
+        elif any(k in h_lower for k in ("makadi", "tia heights", "jaz makadi", "cleopatra makadi")):
+            bay_or_area = "Бухта Макади Бэй (Makadi Bay)"
+            wind_shelter = "Умеренно защищенная бухта"
+            beach_profile = "Песчаный пляж с участками рифа"
+            winter_comfort = "Хороший: песчаный заход и красивый подводный мир"
+        elif any(k in h_lower for k in ("sahl hasheesh", "baron palace", "gravity", "old palace", "citadel azur")):
+            bay_or_area = "Сахл Хашиш (Sahl Hasheesh)"
+            wind_shelter = "Премиальная курортная зона с длинным променадом"
+            beach_profile = "Широкий песчаный пляж"
+            winter_comfort = "Высокий: красивый променад и качественный сервис"
+        elif any(k in h_lower for k in ("el gouna", "gouna", "mangroovy", "creek hotel")):
+            bay_or_area = "Эль Гуна (El Gouna)"
+            wind_shelter = "Египетская Венеция с лагунами и каналами"
+            beach_profile = "Лагуны и песчаные отмели"
+            winter_comfort = "Европейский сервис, идеально для кайтинга и спокойного отдыха"
+        elif any(k in h_lower for k in ("marsa alam", "port ghalib", "brayka", "sataya", "lazuli", "akassia")):
+            bay_or_area = "Марса Алам / Порт Галиб"
+            wind_shelter = "Открытое побережье Красного моря"
+            beach_profile = "Нетронутые коралловые рифы с морскими черепахами и дюгонями"
+            winter_comfort = "Для дайвинга и снорклинга; зимой возможны волны"
+        else:
+            bay_or_area = "Красное море"
+            wind_shelter = "Побережье Красного моря"
+            beach_profile = "Песчаный пляж с коралловым рифом"
+            winter_comfort = "Теплое море круглый год"
+    else:
+        bay_or_area = "Курортный регион"
+        wind_shelter = "Побережье"
+        beach_profile = "Песчано-галечный пляж с удобным входом в море"
+        winter_comfort = "Мягкий климат"
 
     # Family & Aquapark profiling
     has_aquapark = any(k in h_lower for k in (
@@ -341,12 +412,28 @@ def get_hotel_reputation_metadata(
         wint = kb_h.get("winter_suitability", {})
         strend = kb_h.get("season_trend", {})
 
-        if wint.get("bay"):
-            bay_or_area = wint["bay"]
-        if wint.get("wind_shelter"):
-            wind_shelter = wint["wind_shelter"]
-        if fam.get("beach_entry"):
-            beach_profile = fam["beach_entry"]
+        kb_bay = wint.get("bay", "")
+        kb_wind = wint.get("wind_shelter", "")
+        kb_beach = fam.get("beach_entry", "")
+
+        is_non_egypt = is_target_turkey or is_target_cyprus or is_target_greece or is_target_spain
+        egypt_tokens = ("наама", "рас ум сид", "хадаба", "шаркс", "набк", "макади", "сахл хашиш", "эль гуна", "марса алам", "красное море", "тиран")
+
+        if is_non_egypt:
+            # Drop any Red Sea / Egyptian bay metadata from KB
+            if kb_bay and not any(et in kb_bay.lower() for et in egypt_tokens):
+                bay_or_area = kb_bay
+            if kb_wind and not any(et in kb_wind.lower() for et in egypt_tokens) and "скалист" not in kb_wind.lower():
+                wind_shelter = kb_wind
+            if kb_beach and not any(et in kb_beach.lower() for et in ("риф", "понтон", "коралл")):
+                beach_profile = kb_beach
+        else:
+            if kb_bay:
+                bay_or_area = kb_bay
+            if kb_wind:
+                wind_shelter = kb_wind
+            if kb_beach:
+                beach_profile = kb_beach
 
         if fam.get("suitable_for_children") or float(fam.get("score", 0) or 0) >= 7.5:
             family_friendly = True
@@ -367,18 +454,20 @@ def get_hotel_reputation_metadata(
 
         # Geographic sanity check: Coral reefs and Red Sea bays only belong to Egypt
         dest_val = f"{kb_h.get('destination', '')} {destination_hint}".lower()
-        is_egypt_loc = any(k in dest_val for k in ("египет", "egypt", "красное море", "шарм", "хургада", "марса"))
+        is_egypt_loc = not is_non_egypt and any(k in dest_val for k in ("египет", "egypt", "красное море", "шарм", "хургада", "марса"))
         if not is_egypt_loc:
-            pros_list = [p for p in pros_list if "коралловый" not in p.lower() and "снорклинг" not in p.lower()]
+            pros_list = [p for p in pros_list if not any(k in p.lower() for k in ("кораллов", "снорклин", "риф", "безветренная бухта", "тиран"))]
             if not pros_list:
                 pros_list = [
                     "Удобное расположение относительно моря и курортной инфраструктуры",
                     "Чистое море и благоустроенная пляжная зона"
                 ]
-            if "риф" in beach_profile.lower():
+            if any(k in beach_profile.lower() for k in ("риф", "понтон", "коралл")):
                 beach_profile = "Песчано-галечный пляж с удобным входом в море"
-            if any(k in wind_shelter.lower() for k in ("риф", "ветрам", "скалами")):
+            if any(k in wind_shelter.lower() for k in ("риф", "скалист", "тиран", "северного ветра", "горами от зимних")):
                 wind_shelter = "Средиземноморское побережье"
+            if any(k in winter_comfort.lower() for k in ("безветренная бухта", "купания в декабре-феврале", "красного моря")):
+                winter_comfort = "Мягкий средиземноморский климат"
 
     highlights_list = []
     if bay_or_area:
