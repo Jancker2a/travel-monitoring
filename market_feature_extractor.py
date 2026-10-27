@@ -365,6 +365,21 @@ def get_hotel_reputation_metadata(
         cons_list = kb_h.get("cons_and_red_flags", [])
         verdict_text = kb_h.get("verdict", "")
 
+        # Geographic sanity check: Coral reefs and Red Sea bays only belong to Egypt
+        dest_val = f"{kb_h.get('destination', '')} {destination_hint}".lower()
+        is_egypt_loc = any(k in dest_val for k in ("египет", "egypt", "красное море", "шарм", "хургада", "марса"))
+        if not is_egypt_loc:
+            pros_list = [p for p in pros_list if "коралловый" not in p.lower() and "снорклинг" not in p.lower()]
+            if not pros_list:
+                pros_list = [
+                    "Удобное расположение относительно моря и курортной инфраструктуры",
+                    "Чистое море и благоустроенная пляжная зона"
+                ]
+            if "риф" in beach_profile.lower():
+                beach_profile = "Песчано-галечный пляж с удобным входом в море"
+            if any(k in wind_shelter.lower() for k in ("риф", "ветрам", "скалами")):
+                wind_shelter = "Средиземноморское побережье"
+
     highlights_list = []
     if bay_or_area:
         highlights_list.append(bay_or_area)
@@ -557,6 +572,20 @@ def calculate_duration_comparison(df: pd.DataFrame) -> Dict[str, Any]:
     }
 
 
+def extract_stay_days(val: Any) -> Optional[int]:
+    """Extracts integer stay duration in days/nights (e.g. '14 dni' -> 14)."""
+    if val is None:
+        return None
+    s = str(val).lower()
+    m = re.search(r"(\d+)\s*(?:d|n|дн|ноч)", s)
+    if m:
+        return int(m.group(1))
+    m2 = re.search(r"^(\d+)$", s.strip())
+    if m2:
+        return int(m2.group(1))
+    return None
+
+
 def extract_filter_features(
     prices_csv_path: str,
     dna_profile_path: str = DEFAULT_DNA_FILE,
@@ -622,6 +651,46 @@ def extract_filter_features(
     p10_price = float(np.percentile(prices, 10))
     p90_price = float(np.percentile(prices, 90))
 
+    # Stay duration profiling (e.g. 7-10 nights vs long 13-16 nights / 2 weeks)
+    trip_days_list: List[int] = []
+    if "duration" in latest_per_hotel.columns:
+        for val in latest_per_hotel["duration"].dropna():
+            d_len = extract_stay_days(val)
+            if d_len and 2 <= d_len <= 35:
+                trip_days_list.append(d_len)
+
+    if trip_days_list:
+        min_trip_days = int(min(trip_days_list))
+        max_trip_days = int(max(trip_days_list))
+        med_trip_days = int(np.median(trip_days_list))
+    else:
+        # Fallback from filter_title, filter_id, or path (e.g. 13_16 or 7_10)
+        m_span = re.search(r"(\d+)[\-_–:](\d+)", f"{filter_id or ''} {filter_title or ''} {prices_csv_path}")
+        if m_span:
+            min_trip_days = int(m_span.group(1))
+            max_trip_days = int(m_span.group(2))
+            med_trip_days = int(round((min_trip_days + max_trip_days) / 2))
+        else:
+            min_trip_days, max_trip_days, med_trip_days = 7, 10, 8
+
+    if min_trip_days == max_trip_days:
+        trip_duration_label = f"{min_trip_days} ночей"
+    else:
+        trip_duration_label = f"{min_trip_days}–{max_trip_days} ночей"
+
+    if med_trip_days >= 12:
+        duration_category = "длинный двухнедельный тур (2 недели)"
+        is_long_trip = True
+    elif med_trip_days <= 6:
+        duration_category = "короткий тур"
+        is_long_trip = False
+    else:
+        duration_category = "стандартная неделя (7–10 ночей)"
+        is_long_trip = False
+
+    cost_per_day_median = round(med_price / max(1, med_trip_days), 0)
+    cost_per_day_min = round(min_price / max(1, med_trip_days), 0)
+
     # Calculate Days-to-Departure (D-Minus) timeline & horizon
     d_values: List[int] = []
     dep_dates: List[date] = []
@@ -663,24 +732,80 @@ def extract_filter_features(
     # Destination detection & seasonal weather intelligence
     filter_search_text = f"{filter_id or ''} {filter_title or ''} {prices_csv_path}".lower()
     sample_hotels_text = " ".join(latest_per_hotel["hotel_name"].astype(str).tolist()).lower()
-    detected_country = "Египет"
-    detected_region = "Красное море"
 
-    if any(k in filter_search_text or k in sample_hotels_text for k in ("turkey", "turcja", "турци", "antalya", "alanya", "side", "kemer", "belek", "eftalia", "xoria")):
-        detected_country = "Турция"
+    # 0. Primary ground truth: Check filter configuration file if available
+    detected_country = ""
+    try:
+        from filter_params import load_filter_config, _country_label
+        f_cfg = load_filter_config(prices_csv_path)
+        if f_cfg:
+            c_from_cfg = _country_label(f_cfg, f_cfg.get("url", ""))
+            if c_from_cfg and c_from_cfg not in ("—", ""):
+                detected_country = c_from_cfg
+    except Exception:
+        pass
+
+    # 1. Fallback check: Explicit destination in filter_id, title, or directory path
+    if not detected_country:
+        if any(k in filter_search_text for k in ("greece", "grecja", "греци", "athens", "crete", "rhodes", "corfu", "kos", "santorini", "zakynthos")):
+            detected_country = "Греция"
+        elif any(k in filter_search_text for k in ("cyprus", "cypr", "кипр")):
+            detected_country = "Кипр"
+        elif any(k in filter_search_text for k in ("turkey", "turcja", "турци", "antalya", "alanya", "kemer", "belek")):
+            detected_country = "Турция"
+        elif any(k in filter_search_text for k in ("egypt", "egipt", "египет", "sharm", "hurghada", "marsa_alam")):
+            detected_country = "Египет"
+        elif any(k in filter_search_text for k in ("spain", "hiszpania", "испани", "mallorca", "tenerife", "canaria")):
+            detected_country = "Испания"
+        elif any(k in filter_search_text for k in ("tunisia", "tunezja", "тунис")):
+            detected_country = "Тунис"
+        elif any(k in filter_search_text for k in ("italy", "italia", "wlochy", "итали")):
+            detected_country = "Италия"
+        elif any(k in filter_search_text for k in ("bulgaria", "bułgaria", "болгари")):
+            detected_country = "Болгария"
+        elif any(k in filter_search_text for k in ("uae", "emirates", "emiraty", "оаэ", "dubai")):
+            detected_country = "ОАЭ"
+        elif any(k in filter_search_text for k in ("malta", "мальт")):
+            detected_country = "Мальта"
+
+    # 2. Secondary check: Word-boundary regex on hotel names (prevents 'side' inside 'residence' from triggering Turkey!)
+    if not detected_country:
+        if re.search(r"\b(athens|attica|attyka|crete|kreta|rhodes|rodos|corfu|korfu|kos|zakynthos|santorini)\b", sample_hotels_text):
+            detected_country = "Греция"
+        elif re.search(r"\b(ayia napa|napa|paphos|protaras|limassol|larnaca)\b", sample_hotels_text):
+            detected_country = "Кипр"
+        elif re.search(r"\b(antalya|alanya|kemer|belek|side|manavgat|eftalia|xoria)\b", sample_hotels_text):
+            detected_country = "Турция"
+        elif re.search(r"\b(sharm|hurghada|marsa alam|makadi|gouna|naama|hadaba|nabq)\b", sample_hotels_text):
+            detected_country = "Египет"
+        elif re.search(r"\b(mallorca|tenerife|canaria|ibiza|costa)\b", sample_hotels_text):
+            detected_country = "Испания"
+        else:
+            detected_country = "Египет"
+
+    # Region determination based on country and specific local tokens
+    combined_geo = f"{filter_search_text} {sample_hotels_text}"
+    if detected_country == "Греция":
+        if any(k in combined_geo for k in ("athens", "attica", "attyka", "афин", "аттик")):
+            detected_region = "Афины и Аттика"
+        elif any(k in combined_geo for k in ("crete", "kreta", "крит")):
+            detected_region = "Остров Крит"
+        elif any(k in combined_geo for k in ("rhodes", "rodos", "родос")):
+            detected_region = "Остров Родос"
+        elif any(k in combined_geo for k in ("corfu", "korfu", "корфу")):
+            detected_region = "Остров Корфу"
+        else:
+            detected_region = "Греческие курорты и острова"
+    elif detected_country == "Кипр":
+        detected_region = "Айя-Напа / Протарас / Пафос / Лимассол"
+    elif detected_country == "Турция":
         detected_region = "Анталийское побережье (Сиде / Аланья / Кемер / Белек)"
-    elif any(k in filter_search_text or k in sample_hotels_text for k in ("cyprus", "cypr", "кипр", "ayia napa", "paphos", "protaras")):
-        detected_country = "Кипр"
-        detected_region = "Айя-Напа / Протарас / Пафос"
-    elif any(k in filter_search_text or k in sample_hotels_text for k in ("greece", "grecja", "греци", "crete", "rhodes", "corfu", "kos")):
-        detected_country = "Греция"
-        detected_region = "Крит / Родос / Корфу"
-    elif any(k in filter_search_text or k in sample_hotels_text for k in ("spain", "hiszpania", "испани", "mallorca", "tenerife", "canaria")):
-        detected_country = "Испания"
+    elif detected_country == "Испания":
         detected_region = "Канарские / Балеарские острова"
-    elif any(k in filter_search_text or k in sample_hotels_text for k in ("egypt", "egipt", "египет", "sharm", "hurghada", "marsa alam", "makadi", "gouna")):
-        detected_country = "Египет"
+    elif detected_country == "Египет":
         detected_region = "Шарм-эль-Шейх / Хургада / Марса Алам"
+    else:
+        detected_region = f"Курорты ({detected_country})"
 
     dep_month = min(dep_dates).month if dep_dates else today.month
     if detected_country == "Турция":
@@ -696,6 +821,29 @@ def extract_filter_features(
         else:
             season_phase = "Бархатный сезон"
             weather_advice = "Мягкая приятная погода (+27..+29°C), очень теплое море (+25..+26°C), отличный период для пляжного отдыха."
+    elif detected_country == "Греция":
+        if dep_month in (11, 12, 1, 2, 3):
+            season_phase = "Экскурсионный сезон / средиземноморская зима"
+            weather_advice = "Мягкая приятная зима (+15..+18°C днем), море прохладное (+17..+18°C). Идеальное время для неспешных прогулок по Афинам, музеям и античным памятникам без толп и летней жары."
+        elif dep_month in (4, 5):
+            season_phase = "Весеннее пробуждение"
+            weather_advice = "Комфортное тепло (+20..+24°C), цветущие острова, море освежающее (+18..+20°C). Отлично для автопутешествий и первого загара."
+        elif dep_month in (6, 7, 8, 9):
+            season_phase = "Высокий пляжный сезон"
+            weather_advice = "Жаркое солнце (+30..+35°C), лазурное теплое море (+25..+27°C), чистейшие пляжи и таверны у воды."
+        else:
+            season_phase = "Бархатный сезон"
+            weather_advice = "Идеальное мягкое солнце (+24..+27°C), прогретое за лето море (+23..+25°C), комфортный отдых без изнуряющего зноя."
+    elif detected_country == "Кипр":
+        if dep_month in (11, 12, 1, 2, 3):
+            season_phase = "Мягкая теплая зима"
+            weather_advice = "Самый теплый климат в Европе: днем +19..+23°C, солнце, море остывает медленно (+20..+21°C в ноябре). Отлично для прогулок, хайкинга и отдыха в качественных отелях."
+        elif dep_month in (6, 7, 8, 9):
+            season_phase = "Жаркий пляжный сезон"
+            weather_advice = "Жаркое сухое лето (+32..+37°C), очень теплое море (+27..+29°C), кристально чистые пляжи Айя-Напы и Протараса."
+        else:
+            season_phase = "Бархатный сезон"
+            weather_advice = "Золотое время: комфортное тепло (+26..+29°C), теплое море (+25..+26°C), прекрасный пляжный отдых."
     elif detected_country == "Египет":
         if dep_month in (11, 12, 1, 2, 3):
             season_phase = "Зимний сезон Красного моря"
@@ -860,7 +1008,10 @@ def extract_filter_features(
             archetype = "BALANCED"
 
         # Is current price within 2.5% of historical minimum?
-        is_floor = cur_p <= (hist_min * 1.025)
+        # Sanity check: must have real historical variation (hist_max > hist_min * 1.03)
+        # to avoid falsely marking 100% of newly-tracked hotels as "season floor drops".
+        has_real_history = (hist_max > hist_min * 1.03)
+        is_floor = has_real_history and (cur_p <= (hist_min * 1.025))
         # Quantile relative to current filter
         cur_rank = float(np.sum(prices < cur_p)) / max(1, len(prices))
 
@@ -900,7 +1051,7 @@ def extract_filter_features(
         )
 
         if is_truly_underpriced:
-            fair_badge = f"🔥 −{abs(fair_delta_pct):.0f}% в {tier_name} {st}★"
+            fair_badge = f"🔥 −{abs(fair_delta_pct):.0f}% к равным {tier_name} {st}★"
             fair_class = "fair-underpriced"
             fair_tip = (
                 f"Цена на {abs(fair_delta_pct):.0f}% ниже медианы равных отелей сегмента "
@@ -1133,11 +1284,16 @@ def extract_filter_features(
         cand_d_days = (cand_dep_d - today).days if cand_dep_d else None
         is_today_cand = (cand_d_days == 0)
 
+        cand_dur_days = extract_stay_days(cand.get("duration", "")) or med_trip_days
+        cand_cost_per_day = round(cur_p / max(1, cand_dur_days), 0)
+
         cand_dossier = {
             "hotel_name": cand["hotel_name"],
             "stars": st,
             "tier": cand["fair_price"].get("tier", "комфорт"),
             "price": cur_p,
+            "duration_days": cand_dur_days,
+            "cost_per_day_pln": cand_cost_per_day,
             "rating": r_val,
             "review_count": rev_count,
             "meal_plan": cand.get("meal_plan", "all_inclusive"),
@@ -1152,7 +1308,7 @@ def extract_filter_features(
                 "historical_max": h_max,
                 "diff_from_median_pct": diff_med,
                 "diff_from_min_pct": diff_min,
-                "is_at_season_floor": cur_p <= (h_min * 1.025),
+                "is_at_season_floor": (h_max > h_min * 1.03) and (cur_p <= (h_min * 1.025)),
             },
             "behavioral_archetype": {
                 "type": arch,
@@ -1161,6 +1317,8 @@ def extract_filter_features(
             "trip_details": {
                 "dates": cand.get("dates", ""),
                 "duration": cand.get("duration", ""),
+                "duration_days": cand_dur_days,
+                "cost_per_day_pln": cand_cost_per_day,
                 "departure_airport": cand.get("departure_airport", ""),
                 "meal_plan": cand.get("meal_plan", "all_inclusive"),
                 "tour_operator": op_name,
@@ -1171,6 +1329,7 @@ def extract_filter_features(
                 "tip": cand["booking_window"].get("window_tip", ""),
             },
             "discount_from_median_pct": discount_pct,
+            "peer_cohort_median": cand["fair_price"].get("cluster_median", 0.0),
             "fair_price_badge": cand["fair_price"].get("badge", ""),
             "flash_drop_badge": cand["flash_drop"].get("badge", ""),
             "gem_badge": cand["gem"].get("badge", ""),
@@ -1187,6 +1346,30 @@ def extract_filter_features(
     airports_comp = calculate_airports_comparison(df, latest_per_hotel)
     duration_comp = calculate_duration_comparison(df)
 
+    trend_7d = market_trends.get("trend_7d_pct") or 0.0
+    floor_pct = round((len(floor_breakers) / max(1, len(latest_per_hotel))) * 100.0, 1)
+
+    # Determine human-friendly and accurate dominant phase
+    if dominant_phase == "panic_dump":
+        if trend_7d <= -2.5 or floor_pct >= 40.0:
+            display_phase = "panic_dump"
+            dominant_phase_label = "Сброс цен перед вылетом (D-4…D-7, цены падают)"
+        else:
+            display_phase = "close_in_stable"
+            dominant_phase_label = "Срочные вылеты за 4–7 дн. (цены стабильны)"
+    elif dominant_phase == "last_minute":
+        display_phase = "last_minute"
+        dominant_phase_label = "Горящие туры за 1–3 дн."
+    elif dominant_phase == "first_markdown":
+        display_phase = "first_markdown"
+        dominant_phase_label = "Вылеты через 8–14 дн."
+    elif dominant_phase == "mid_term":
+        display_phase = "mid_term"
+        dominant_phase_label = "Обычный период за 15–30 дн."
+    else:
+        display_phase = "early_bird"
+        dominant_phase_label = f"Раннее бронирование за {min_d}+ дн."
+
     # Assemble compacted market context
     market_context = {
         "filter_id": filter_id or os.path.basename(os.path.dirname(prices_csv_path)),
@@ -1199,6 +1382,24 @@ def extract_filter_features(
             "median_price": med_price,
             "p90_price": p90_price,
             "max_price": max_price,
+            "trip_duration": {
+                "min_days": min_trip_days,
+                "max_days": max_trip_days,
+                "median_days": med_trip_days,
+                "label": trip_duration_label,
+                "category": duration_category,
+                "is_long_trip": is_long_trip,
+                "cost_per_day_median_pln": cost_per_day_median,
+                "cost_per_day_min_pln": cost_per_day_min,
+                "context_note": (
+                    f"ВНИМАНИЕ: Это {duration_category} на {trip_duration_label}. "
+                    f"Цены указаны за ДВЕ НЕДЕЛИ ({med_trip_days} дн.), а не за 7 дней! "
+                    f"В пересчете это ~{cost_per_day_median:,.0f} zł/сутки (от ~{cost_per_day_min:,.0f} zł/сутки за двоих на 'всё включено'). "
+                    f"Оценивай бюджет с учетом {med_trip_days} дней отдыха, подчеркивая выгоду долгого отпуска."
+                    if is_long_trip else
+                    f"Тур на {trip_duration_label} (~{cost_per_day_median:,.0f} zł/сутки за двоих)."
+                ),
+            },
             "median_days_to_departure": avg_d,
             "min_days_to_departure": min_d,
             "max_days_to_departure": max_d,
@@ -1206,7 +1407,8 @@ def extract_filter_features(
             "is_wide_window": is_wide_window,
             "nearest_departure_date": nearest_dep,
             "furthest_departure_date": furthest_dep,
-            "dominant_yield_phase": dominant_phase,
+            "dominant_yield_phase": display_phase,
+            "dominant_phase_label": dominant_phase_label,
             "phase_distribution": d_buckets_count,
             "near_term_count": len([d for d in d_values if d <= 7]),
             "mid_term_count": len([d for d in d_values if 8 <= d <= 21]),
@@ -1222,8 +1424,9 @@ def extract_filter_features(
         "duration_comparison": duration_comp,
         "floor_saturation": {
             "floor_breaker_count": len(floor_breakers),
-            "floor_breaker_pct": round((len(floor_breakers) / max(1, len(latest_per_hotel))) * 100.0, 1),
+            "floor_breaker_pct": floor_pct,
             "sample_floor_hotels": [f["hotel_name"] for f in floor_breakers[:6]],
+            "has_meaningful_history": any((l.get("max", 0) > l.get("min", 0) * 1.03) for l in hotel_hist_stats.values()),
         },
         "top_candidates": top_candidates,
         "arbitrage_highlights": arbitrage_summary,

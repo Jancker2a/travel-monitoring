@@ -369,48 +369,47 @@ def generate_heuristic_reputation(hotel_info: Dict[str, Any]) -> Dict[str, Any]:
     r_val = hotel_info.get("rating")
     rev_cnt = int(hotel_info.get("review_count", 0) or 0)
     if not r_val or float(r_val) <= 0:
-        if any(k in h_lower for k in ("rixos", "four seasons", "baron")):
-            r_val = 4.7
-            rev_cnt = rev_cnt or 3500
-        elif any(k in h_lower for k in ("steigenberger", "jaz", "sunrise", "albatros", "sentido", "iberotel")):
-            r_val = 4.5
-            rev_cnt = rev_cnt or 2800
-        elif stars >= 5:
-            r_val = 4.3
-            rev_cnt = rev_cnt or 1800
-        elif stars == 4:
-            r_val = 4.1
-            rev_cnt = rev_cnt or 1200
-        else:
-            r_val = 3.9
-            rev_cnt = rev_cnt or 600
+        # Do not fabricate fake 4.1 ratings for unrated hotels.
+        # Leave unrated hotels with r_val=0.0 and rev_cnt=0,
+        # so AI adheres to Rule 6 (only use real verified ratings).
+        r_val = 0.0
+        rev_cnt = 0
 
     # 1. Geographic & Bay Nuances
-    bay = "Курортный район"
-    wind_shelter = "Умеренная ветровая защита"
-    beach_entry = "Песчаный пляж с участками рифа"
-    winter_comfort = "Стандартный зимний комфорт"
+    is_egypt = any(k in dest.lower() for k in ("египет", "egypt", "красное море"))
 
-    if any(k in h_lower for k in ("naama", "promenade", "novotel", "maritim", "tropitel", "movenpick")):
-        bay = "Бухта Наама Бэй (Naama Bay)"
-        wind_shelter = "Защищена горами от зимних ветров (море спокойное)"
-        beach_entry = "Пологий песчаный вход в воду, обувь не требуется"
-        winter_comfort = "Высокий: комфортно для купания в декабре-феврале"
-    elif any(k in h_lower for k in ("hadaba", "ras um sid", "faraana", "jaz fanara", "renaissance", "reef oasis", "sentido")):
-        bay = "Бухта Рас Ум Сид / Хадаба"
-        wind_shelter = "Защищена скалистым мысом от северного ветра"
-        beach_entry = "Один из лучших живых коралловых рифов, вход с понтона"
-        winter_comfort = "Высокий: теплая безветренная бухта"
-    elif any(k in h_lower for k in ("shark", "sultan gardens", "grand rotana", "pyramisa", "white knight")):
-        bay = "Бухта Шаркс Бэй (Shark's Bay)"
-        wind_shelter = "Умеренный ветер, вид на остров Тиран"
-        beach_entry = "Красивый риф, заход с понтона"
-        winter_comfort = "Средний: при ветре возможны волны"
-    elif any(k in h_lower for k in ("nabq", "amwaj", "rehana", "rixos premium seagate", "cleopatra", "parrotel", "barcelo", "albatros laguna")):
-        bay = "Бухта Набк (Nabq Bay)"
-        wind_shelter = "Открытая бухта, подвержена зимним ветрам"
-        beach_entry = "Длинный понтон (до 500-800 м) через мелководный риф"
-        winter_comfort = "Низкий зимой: частые ветра, возможен красный флаг на понтоне"
+    if is_egypt:
+        bay = "Курортный район"
+        wind_shelter = "Умеренная ветровая защита"
+        beach_entry = "Песчаный пляж с участками рифа"
+        winter_comfort = "Стандартный зимний комфорт"
+
+        if any(k in h_lower for k in ("naama", "promenade", "novotel", "maritim", "tropitel", "movenpick")):
+            bay = "Бухта Наама Бэй (Naama Bay)"
+            wind_shelter = "Защищена горами от зимних ветров (море спокойное)"
+            beach_entry = "Пологий песчаный вход в воду, обувь не требуется"
+            winter_comfort = "Высокий: комфортно для купания в декабре-феврале"
+        elif any(k in h_lower for k in ("hadaba", "ras um sid", "faraana", "jaz fanara", "renaissance", "reef oasis", "sentido")):
+            bay = "Бухта Рас Ум Сид / Хадаба"
+            wind_shelter = "Защищена скалистым мысом от северного ветра"
+            beach_entry = "Один из лучших живых коралловых рифов, вход с понтона"
+            winter_comfort = "Высокий: теплая безветренная бухта"
+        elif any(k in h_lower for k in ("shark", "sultan gardens", "grand rotana", "pyramisa", "white knight")):
+            bay = "Бухта Шаркс Бэй (Shark's Bay)"
+            wind_shelter = "Умеренный ветер, вид на остров Тиран"
+            beach_entry = "Красивый риф, заход с понтона"
+            winter_comfort = "Средний: при ветре возможны волны"
+        elif any(k in h_lower for k in ("nabq", "amwaj", "rehana", "rixos premium seagate", "cleopatra", "parrotel", "barcelo", "albatros laguna")):
+            bay = "Бухта Набк (Nabq Bay)"
+            wind_shelter = "Открытая бухта, подвержена зимним ветрам"
+            beach_entry = "Длинный понтон (до 500-800 м) через мелководный риф"
+            winter_comfort = "Низкий зимой: частые ветра, возможен красный флаг на понтоне"
+    else:
+        # Mediterranean / European Destinations (Greece, Cyprus, Turkey, Spain, etc.)
+        bay = "Курортная зона"
+        wind_shelter = "Средиземноморское побережье"
+        beach_entry = "Песчано-галечный пляж с удобным входом в море"
+        winter_comfort = "Мягкий климат, экскурсионный сезон"
 
     # 2. Amenities
     has_aquapark = any(k in h_lower for k in ("aqua", "park", "water", "splash", "slide", "аквапарк"))
@@ -426,10 +425,13 @@ def generate_heuristic_reputation(hotel_info: Dict[str, Any]) -> Dict[str, Any]:
         pros.append("Большой аквапарк и водные горки на территории")
     if has_heated_pool:
         pros.append("Бассейны с подогревом в зимний период")
-    if "риф" in beach_entry.lower() or "рас ум сид" in bay.lower():
+    if is_egypt and ("риф" in beach_entry.lower() or "рас ум сид" in bay.lower()):
         pros.append("Живописный коралловый риф для снорклинга")
-    if "наама" in bay.lower():
+    if is_egypt and "наама" in bay.lower():
         pros.append("Безветренная бухта с удобным песчаным входом в море")
+    if not is_egypt:
+        pros.append("Удобное расположение относительно моря и курортной инфраструктуры")
+        pros.append("Чистое море и благоустроенная пляжная зона")
 
     if not pros:
         pros.append("Развитая инфраструктура и большая зеленая территория")

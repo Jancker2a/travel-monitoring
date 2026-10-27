@@ -3207,7 +3207,17 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             oracle_cache_file = os.path.join(os.path.dirname(data_file), "ai_market_oracle_report.json")
             force_ai = os.getenv("FORCE_AI_ANALYSIS", "").lower() in ("true", "1")
 
-            # Reuse cached AI briefing if generated less than 6 hours ago
+            # Determine accurate country label and filter ID
+            cfg_oracle = load_filter_config(data_file, config_file)
+            c_label = _country_label(cfg_oracle, cfg_oracle.get("url", "")) if cfg_oracle else ""
+
+            full_oracle_title = title
+            if c_label and c_label not in ("—", "") and c_label.lower() not in (title or "").lower():
+                full_oracle_title = f"{c_label} • {title}"
+
+            filter_id_str = os.path.basename(os.path.dirname(data_file))
+
+            # Reuse cached AI briefing if generated less than 6 hours ago AND country matches
             if os.path.exists(oracle_cache_file) and not force_ai:
                 try:
                     cache_age_sec = time.time() - os.path.getmtime(oracle_cache_file)
@@ -3215,8 +3225,21 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
                         with open(oracle_cache_file, "r", encoding="utf-8") as f:
                             cached_res = json.load(f)
                         if cached_res and "macro_briefing" in cached_res:
-                            oracle_report = cached_res
-                            print(f"🧠 AI Market Oracle: отчет загружен из кэша (возраст {cache_age_sec / 3600:.1f} ч)")
+                            # Sanity check: invalidate if cached report talks about Turkey when filter is Egypt/Greece/Cyprus!
+                            cached_text = str(cached_res["macro_briefing"]).lower()
+                            is_country_mismatch = False
+                            if c_label == "Египет" and "турци" in cached_text:
+                                is_country_mismatch = True
+                            elif c_label == "Греция" and "турци" in cached_text:
+                                is_country_mismatch = True
+                            elif c_label == "Кипр" and "турци" in cached_text:
+                                is_country_mismatch = True
+
+                            if not is_country_mismatch:
+                                oracle_report = cached_res
+                                print(f"🧠 AI Market Oracle: отчет загружен из кэша (возраст {cache_age_sec / 3600:.1f} ч)")
+                            else:
+                                print(f"🔄 AI Market Oracle: сброс старого кэша из-за несовпадения страны ({c_label} vs кэш)")
                 except Exception as e:
                     pass
 
@@ -3231,7 +3254,8 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
                 oracle_report = synthesize_market_oracle(
                     data_file,
                     dna_profile_path=dna_path,
-                    filter_title=title,
+                    filter_title=full_oracle_title,
+                    filter_id=filter_id_str,
                 )
                 if oracle_report and "macro_briefing" in oracle_report:
                     print(f"🧠 AI Market Oracle: свежий отчет успешно сгенерирован ({len(oracle_report.get('hotel_dossiers', {}))} досье)")

@@ -79,7 +79,16 @@ SYSTEM_INSTRUCTION = """
      * Для семей с детьми отмечай beach_profile (пологий песчаный заход) и has_aquapark / family_and_kids.
      * Проверяй pros, cons_and_red_flags и season_trend (стал лучше / стал хуже) из базы отзывов!
      * Если отель дорогой, используй cheaper_alternative — предложи качественного двойника.
-14. ФОРМАТ ОТВЕТА: строго валидный JSON без markdown-разметки.
+14. ДЛИТЕЛЬНОСТЬ ТУРА И СУТОЧНАЯ СТОИМОСТЬ (market_stats.trip_duration & cost_per_day_pln):
+   - ВСЕГДА обращай внимание на длительность тура (trip_duration):
+     * ДЛИННЫЙ ДВУХНЕДЕЛЬНЫЙ ТУР (13–16 дней / 2 недели, is_long_trip=true):
+       - Помни: общая цена (например, 11 000 – 14 000 zł) — это цена за ДВЕ ПОЛНЫЕ НЕДЕЛИ отдыха, а не за 7 дней!
+       - Не называй тур за 11 000 zł дорогим, если он на 14–16 ночей. Обязательно пересчитывай в стоимость за сутки (cost_per_day_pln): например, 11 400 zł за 14 ночей — это всего ~810 zł/сутки за двоих на «всё включено» в хорошем 5★ отеле (очень выгодная цена за долгий 2-недельный отдых!).
+       - В тексте обязательно явно подчеркивай длительность: «для двухнедельного отдыха (13–16 ночей) цена очень комфортная» или «всего ~X zł в сутки за двоих».
+     * СТАНДАРТНЫЙ ТУР (7–10 ночей / 1 неделя): средний бюджет 4 000 – 7 000 zł.
+     * КОРОТКИЙ ТУР (3–5 ночей): общая цена ниже, но стоимость суток выше.
+   - СТРОГО УКАЗЫВАЙ ПРАВИЛЬНУЮ СТРАНУ НАПРАВЛЕНИЯ из destination_context (например: Египет, а не Турция!).
+15. ФОРМАТ ОТВЕТА: строго валидный JSON без markdown-разметки.
 
 ЭТАЛОННЫЕ ПРИМЕРЫ (FEW-SHOT):
 
@@ -236,6 +245,13 @@ def generate_rule_based_briefing(market_context: Dict[str, Any]) -> Dict[str, An
 
     if weather_note:
         phase_desc = f"{phase_desc} Погода ({country_name}): {weather_note}"
+
+    trip_dur = stats.get("trip_duration", {})
+    dur_label = trip_dur.get("label", "")
+    is_long_trip = trip_dur.get("is_long_trip", False)
+    cost_per_day = trip_dur.get("cost_per_day_median_pln", 0)
+    if is_long_trip and dur_label and cost_per_day > 0:
+        phase_desc = f"{phase_desc} Тур рассчитан на {dur_label} (две недели), средняя стоимость суток — ~{cost_per_day:,.0f} zł за двоих на «всё включено»."
 
     # Top anomalies in everyday language
     anomalies: List[Dict[str, str]] = []
@@ -747,7 +763,7 @@ def call_gemini_oracle(
   "macro_briefing": {{
     "headline": "Честный краткий заголовок ситуации строго по реальным данным min_days_to_departure и nearest_departure_date (СТРОГО БЕЗ названий файлов, slug или filter_id)",
     "market_phase": "Фаза рынка строго по реальному min_days_to_departure (например: 'Раннее бронирование за 56 дн.' если вылет нескоро, или 'Горящие туры за 4 дн.' если вылет на днях)",
-    "charter_dynamics": "2-3 простых понятных предложения с цифрами о ценах и рейсах",
+    "charter_dynamics": "2-3 простых понятных предложения с цифрами о ценах и рейсах, обязательно с точной страной из destination_context и длительностью (например: туры на 13–16 ночей в Египет...)",
     "floor_status": "Сколько отелей сейчас на самом дне цены",
     "strategic_directive": "Простой четкий совет: кому брать тур прямо сейчас, а кому лучше подождать",
     "buy_now_recommendation": {{
@@ -898,7 +914,7 @@ def call_openai_oracle(
   "macro_briefing": {{
     "headline": "Честный краткий заголовок ситуации строго по реальным данным min_days_to_departure и nearest_departure_date (СТРОГО БЕЗ названий файлов, slug или filter_id)",
     "market_phase": "Фаза рынка строго по реальному min_days_to_departure (например: 'Раннее бронирование за 56 дн.' если вылет нескоро, или 'Горящие туры за 4 дн.' если вылет на днях)",
-    "charter_dynamics": "2-3 простых понятных предложения с цифрами о ценах и рейсах",
+    "charter_dynamics": "2-3 простых понятных предложения с цифрами о ценах и рейсах, обязательно с точной страной из destination_context и длительностью (например: туры на 13–16 ночей в Египет...)",
     "floor_status": "Сколько отелей сейчас на самом дне цены",
     "strategic_directive": "Простой четкий совет: кому брать тур прямо сейчас, а кому лучше подождать",
     "buy_now_recommendation": {{
@@ -981,6 +997,7 @@ def synthesize_market_oracle(
     openai_api_key: Optional[str] = None,
     api_key: Optional[str] = None,
     filter_title: Optional[str] = None,
+    filter_id: Optional[str] = None,
 ) -> Dict[str, Any]:
     """
     Main orchestration function: extracts features and generates two-tier AI intelligence.
@@ -991,6 +1008,7 @@ def synthesize_market_oracle(
         prices_csv_path,
         dna_profile_path=dna_profile_path,
         filter_title=filter_title,
+        filter_id=filter_id,
     )
     if "error" in market_context:
         return market_context
