@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import os
+import re
 import subprocess
 import sys
 import time
@@ -73,7 +74,24 @@ def _run_one(spec: dict, log_dir: Path, force_ai: bool = False) -> tuple[str, in
             stderr=subprocess.STDOUT,
             env=env,
         )
-    return output, proc.returncode, time.monotonic() - t0, ""
+    ai_status = ""
+    try:
+        if log_path.is_file():
+            with log_path.open("r", encoding="utf-8", errors="replace") as lf:
+                for line in lf:
+                    if "AI Market Oracle: отчет загружен из кэша" in line:
+                        m_age = re.search(r"\(возраст\s+([0-9.]+\s*ч)\)", line)
+                        age_str = f" ({m_age.group(1)})" if m_age else ""
+                        ai_status = f" [AI: кэш{age_str}]"
+                    elif "AI Market Oracle: свежий отчет успешно сгенерирован" in line:
+                        m_dos = re.search(r"\(([0-9]+)\s*досье\)", line)
+                        dos_str = f" {m_dos.group(1)} досье" if m_dos else ""
+                        ai_status = f" [AI: fresh{dos_str}]"
+                    elif "AI Market Oracle skipped" in line:
+                        ai_status = " [AI: skipped]"
+    except Exception:
+        pass
+    return output, proc.returncode, time.monotonic() - t0, ai_status
 
 
 def main() -> int:
@@ -163,9 +181,17 @@ def main() -> int:
                 if note.startswith("skip:"):
                     print(f"  ⏭ {output} ({note[5:]})")
                 else:
-                    print(f"  ✓ {output} ({elapsed:.0f}s)")
+                    print(f"  ✓ {output} ({elapsed:.0f}s){note}")
             else:
                 print(f"  ✗ {output} exit={code} ({elapsed:.0f}s)")
+                log_file = log_dir / f"{Path(output).stem}.log"
+                if log_file.is_file():
+                    try:
+                        lines = log_file.read_text(encoding="utf-8", errors="replace").splitlines()
+                        for err_line in lines[-12:]:
+                            print(f"    | {err_line}")
+                    except Exception:
+                        pass
                 failed.append(output)
 
     if failed:
