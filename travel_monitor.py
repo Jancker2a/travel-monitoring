@@ -939,13 +939,17 @@ class TravelPriceMonitor:
     def _is_offer_in_expected_scope(self, offer: Dict[str, Any]) -> bool:
         """Проверяет, что оффер соответствует целевому фильтру (страна/тип/длительность/даты вылета)."""
         offer_url = str(offer.get('offer_url') or '').strip().lower()
+        hotel = offer.get('hotel_name', 'Unknown')
         if not offer_url:
+            logger.debug(f"[scope rejected] '{hotel}': empty offer_url")
             return False
         if '/wycieczka/' not in offer_url:
+            logger.debug(f"[scope rejected] '{hotel}': '/wycieczka/' not in {offer_url}")
             return False
 
         # Явно исключаем "только проживание" (без перелета), это источник дешевого мусора.
         if 'transport=accommodation&' in offer_url and 'transport=accommodation_flight' not in offer_url:
+            logger.debug(f"[scope rejected] '{hotel}': accommodation only (no flight)")
             return False
 
         required = self.config.get('required_offer_url_contains', [])
@@ -956,21 +960,26 @@ class TravelPriceMonitor:
             country_tokens = [t for t in required if t.startswith('/wycieczka/')]
             other_tokens = [t for t in required if not t.startswith('/wycieczka/')]
             if country_tokens and not any(ct in offer_url for ct in country_tokens):
+                logger.debug(f"[scope rejected] '{hotel}': country token mismatch ({country_tokens}) in {offer_url}")
                 return False
             if other_tokens:
                 for ot in other_tokens:
                     if ot == 'transport=accommodation_flight':
                         if 'transport=accommodation&' in offer_url and 'transport=accommodation_flight' not in offer_url:
+                            logger.debug(f"[scope rejected] '{hotel}': transport mismatch")
                             return False
                     elif ot not in offer_url:
+                        logger.debug(f"[scope rejected] '{hotel}': missing '{ot}' in {offer_url}")
                         return False
 
         excluded = self.config.get('excluded_offer_url_contains', [])
         if isinstance(excluded, str):
             excluded = [excluded]
         excluded = [str(x).lower() for x in excluded if str(x).strip()]
-        if any(token in offer_url for token in excluded):
-            return False
+        for token in excluded:
+            if token in offer_url:
+                logger.debug(f"[scope rejected] '{hotel}': excluded token '{token}' in {offer_url}")
+                return False
 
         duration_range = self._extract_duration_range_from_url()
         if duration_range:
@@ -978,6 +987,7 @@ class TravelPriceMonitor:
             if days is not None:
                 lo, hi = duration_range
                 if days < lo or days > hi:
+                    logger.debug(f"[scope rejected] '{hotel}': days={days} outside {duration_range}")
                     return False
 
         # Проверяем диапазон дат вылета (критично для праздничных/фиксированных фильтров,
@@ -990,7 +1000,7 @@ class TravelPriceMonitor:
                 lo_d, hi_d = dep_range
                 if offer_dep < lo_d or offer_dep > hi_d:
                     logger.debug(
-                        f"Offer departure date {offer_dep} outside allowed range [{lo_d}, {hi_d}] for '{offer.get('hotel_name')}': rejected"
+                        f"[scope rejected] '{hotel}': dep date {offer_dep} outside [{lo_d}, {hi_d}]"
                     )
                     return False
 
