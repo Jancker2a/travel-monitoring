@@ -132,6 +132,7 @@ jobs:
             python travel_monitor.py --config config_ci_filter_turkey_13_16.json
             python travel_monitor.py --config config_ci_filter_greece_7_10.json
             python travel_monitor.py --config config_ci_filter_greece_13_16.json
+            python travel_monitor.py --config configs/filters/config_ci_cyprus_7_10.json
           fi
           echo "✅ Monitoring completed"
 
@@ -150,10 +151,10 @@ jobs:
           restore-keys: |
             market-dna-
 
-      - name: Build Market DNA Profile (if cache missed)
-        if: hashFiles('market_dna_profile.json') == ''
+      - name: Build Market DNA Profile (if cache missed or force refresh requested)
+        if: hashFiles('market_dna_profile.json') == '' || inputs.force_refresh_ai == true || github.event.inputs.force_refresh_ai == 'true' || inputs.ai_mode == 'full_deep' || github.event.inputs.ai_mode == 'full_deep'
         run: |
-          echo "🧬 Building Market DNA Profile (cache miss or initial run)..."
+          echo "🧬 Building Market DNA Profile..."
           python build_market_dna.py --output market_dna_profile.json || true
 
       - name: Generate dashboards (only new filters) + landing
@@ -162,12 +163,17 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL || 'gemini-2.0-flash' }}
-          OPENAI_MODEL: ${{ github.event.inputs.openai_model || (github.event.inputs.ai_mode == 'full_deep' && 'gpt-5.4-mini') || vars.OPENAI_MODEL || 'gpt-4o-mini' }}
-          FORCE_AI_ANALYSIS: ${{ github.event.inputs.force_refresh_ai || (github.event.inputs.ai_mode == 'full_deep' && 'true') || 'false' }}
-          AI_ANALYSIS_MODE: ${{ github.event.inputs.ai_mode || 'standard' }}
+          OPENAI_MODEL: ${{ inputs.openai_model || github.event.inputs.openai_model || (inputs.ai_mode == 'full_deep' && 'gpt-5.4-mini') || (github.event.inputs.ai_mode == 'full_deep' && 'gpt-5.4-mini') || vars.OPENAI_MODEL || 'gpt-4o-mini' }}
+          FORCE_AI_ANALYSIS: ${{ (inputs.force_refresh_ai == true || inputs.force_refresh_ai == 'true' || inputs.ai_mode == 'full_deep' || github.event.inputs.force_refresh_ai == true || github.event.inputs.force_refresh_ai == 'true' || github.event.inputs.ai_mode == 'full_deep') && 'true' || 'false' }}
+          AI_ANALYSIS_MODE: ${{ inputs.ai_mode || github.event.inputs.ai_mode || 'standard' }}
         run: |
           echo "🌐 Generating filter dashboards at $(date)"
-          python scripts/run_dashboards_parallel.py -j "${DASHBOARD_PARALLEL_JOBS}"
+          echo "🤖 AI configuration: mode=${AI_ANALYSIS_MODE}, model=${OPENAI_MODEL}, force_ai=${FORCE_AI_ANALYSIS}"
+          EXTRA_FLAGS=""
+          if [ "${FORCE_AI_ANALYSIS}" = "true" ] || [ "${FORCE_AI_ANALYSIS}" = "1" ]; then
+            EXTRA_FLAGS="--force-ai"
+          fi
+          python scripts/run_dashboards_parallel.py -j "${DASHBOARD_PARALLEL_JOBS}" ${EXTRA_FLAGS}
           echo "✅ Dashboards + landing generated"
 
       - name: Setup GitHub Pages

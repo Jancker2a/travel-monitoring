@@ -61,6 +61,7 @@ from filter_params import (
     render_filter_params_html,
     render_global_duration_switch_html,
     resolve_config_path,
+    _country_label,
 )
 from filter_trip import (
     _duration_bucket_is_missing,
@@ -2415,7 +2416,7 @@ def _render_hotel_chart_page(
 </html>"""
 
 
-def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', output_file: str = 'index.html', title: str = 'Travel Price Monitor • Расширенный дашборд', charts_subdir: str = 'hotel-charts', tz: str = 'Europe/Warsaw', alerts_file: str = None, all_airports_data_file: str = None, disappeared_after_runs: int = 2, display_price_ceiling: float = None, history_price_ceiling: float = None, write_legacy_hotel_html: bool = False, config_file: str = None, enable_ta_live_backfill: bool = False):
+def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', output_file: str = 'index.html', title: str = 'Travel Price Monitor • Расширенный дашборд', charts_subdir: str = 'hotel-charts', tz: str = 'Europe/Warsaw', alerts_file: str = None, all_airports_data_file: str = None, disappeared_after_runs: int = 2, display_price_ceiling: float = None, history_price_ceiling: float = None, write_legacy_hotel_html: bool = False, config_file: str = None, enable_ta_live_backfill: bool = False, force_ai: bool = False):
     """Генерирует дашборд с встроенными графиками"""
     
     # Загружаем данные (текущий месяц + архивные месяцы для полной истории сезона)
@@ -3205,7 +3206,18 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
     try:
         if synthesize_market_oracle and data_file and os.path.exists(data_file):
             oracle_cache_file = os.path.join(os.path.dirname(data_file), "ai_market_oracle_report.json")
-            force_ai = os.getenv("FORCE_AI_ANALYSIS", "").lower() in ("true", "1")
+            force_ai = bool(force_ai or os.getenv("FORCE_AI_ANALYSIS", "").strip().lower() in ("true", "1", "yes"))
+            print(f"🔄 AI Market Oracle mode: force_ai={force_ai} (flag={force_ai}, env='{os.getenv('FORCE_AI_ANALYSIS', '')}')")
+
+            if force_ai:
+                oracle_report = None
+                print(f"🚀 FORCE_AI_ANALYSIS active: принудительный сброс кэша для {oracle_cache_file}")
+                if os.path.exists(oracle_cache_file):
+                    try:
+                        os.remove(oracle_cache_file)
+                        print(f"✓ Кэш-файл {oracle_cache_file} удален.")
+                    except Exception as e:
+                        print(f"⚠️ Не удалось удалить кэш-файл {oracle_cache_file}: {e}")
 
             # Determine accurate country label and filter ID
             cfg_oracle = load_filter_config(data_file, config_file)
@@ -13372,6 +13384,7 @@ if __name__ == "__main__":
     parser.add_argument('--write-legacy-hotel-html', action='store_true', help='Дополнительно писать hotel-charts/*.html (для старых ссылок)')
     parser.add_argument('--config-file', default=None, help='JSON конфиг фильтра (иначе — по data_dir из --data-file)')
     parser.add_argument('--ta-live-backfill', action='store_true', default=False, help='Включить live-скрапинг fly.pl для TripAdvisor бэкфилла')
+    parser.add_argument('--force-ai', action='store_true', default=False, help='Принудительно сбросить AI-кэш и пересчитать всё заново')
     args = parser.parse_args()
     generate_inline_charts_dashboard(
         data_file=args.data_file,
@@ -13387,4 +13400,5 @@ if __name__ == "__main__":
         write_legacy_hotel_html=args.write_legacy_hotel_html,
         config_file=args.config_file,
         enable_ta_live_backfill=args.ta_live_backfill,
+        force_ai=args.force_ai,
     )

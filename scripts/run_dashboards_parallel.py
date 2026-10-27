@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import os
+import re
 import subprocess
 import sys
 import time
@@ -20,7 +21,7 @@ from filter_registry import get_all_dashboard_configs
 DEFAULT_DASHBOARDS = get_all_dashboard_configs()
 
 
-def _run_one(spec: dict, log_dir: Path) -> tuple[str, int, float, str]:
+def _run_one(spec: dict, log_dir: Path, force_ai: bool = False) -> tuple[str, int, float, str]:
     output = spec["output"]
     config_path = str(spec.get("config") or "").strip()
     if config_path and should_skip_monitor_config(str(ROOT / config_path)):
@@ -57,18 +58,40 @@ def _run_one(spec: dict, log_dir: Path) -> tuple[str, int, float, str]:
         cmd.extend(["--config-file", spec["config"]])
     if spec.get("all_airports_data"):
         cmd.extend(["--all-airports-data-file", spec["all_airports_data"]])
+    if force_ai:
+        cmd.append("--force-ai")
     t0 = time.monotonic()
     with log_path.open("w", encoding="utf-8") as log_f:
         log_f.write(f"# {output}\n# started {time.strftime('%Y-%m-%d %H:%M:%S')}\n\n")
         log_f.flush()
+        env = os.environ.copy()
+        if force_ai:
+            env["FORCE_AI_ANALYSIS"] = "true"
         proc = subprocess.run(
             cmd,
             cwd=str(ROOT),
             stdout=log_f,
             stderr=subprocess.STDOUT,
-            env=os.environ.copy(),
+            env=env,
         )
-    return output, proc.returncode, time.monotonic() - t0, ""
+    ai_status = ""
+    try:
+        if log_path.is_file():
+            with log_path.open("r", encoding="utf-8", errors="replace") as lf:
+                for line in lf:
+                    if "AI Market Oracle: отчет загружен из кэша" in line:
+                        m_age = re.search(r"\(возраст\s+([0-9.]+\s*ч)\)", line)
+                        age_str = f" ({m_age.group(1)})" if m_age else ""
+                        ai_status = f" [AI: кэш{age_str}]"
+                    elif "AI Market Oracle: свежий отчет успешно сгенерирован" in line:
+                        m_dos = re.search(r"\(([0-9]+)\s*досье\)", line)
+                        dos_str = f" {m_dos.group(1)} досье" if m_dos else ""
+                        ai_status = f" [AI: fresh{dos_str}]"
+                    elif "AI Market Oracle skipped" in line:
+                        ai_status = " [AI: skipped]"
+    except Exception:
+        pass
+    return output, proc.returncode, time.monotonic() - t0, ai_status
 
 
 def main() -> int:
@@ -90,9 +113,16 @@ def main() -> int:
         action="store_true",
         help="Only generate filter dashboards, not index.html landing",
     )
+    parser.add_argument(
+        "--force-ai",
+        action="store_true",
+        default=os.getenv("FORCE_AI_ANALYSIS", "").lower() in ("true", "1", "yes"),
+        help="Force regeneration of AI Market Oracle reports (bypass disk cache)",
+    )
     args = parser.parse_args()
     jobs = max(1, args.jobs)
     log_dir = Path(args.log_dir)
+    force_ai = bool(args.force_ai or os.getenv("FORCE_AI_ANALYSIS", "").lower() in ("true", "1", "yes"))
 
     active_specs = []
     for spec in DEFAULT_DASHBOARDS:
@@ -112,10 +142,18 @@ def main() -> int:
         active_specs.append(spec)
 
     print(f"Parallel dashboards: {len(active_specs)}/{len(DEFAULT_DASHBOARDS)} filters, jobs={jobs}")
+    if force_ai:
+        print("🚀 FORCE_AI_ANALYSIS active: AI Market Oracle reports will be regenerated fresh (cache bypass).")
     print(f"Logs: {log_dir}")
     t0 = time.monotonic()
     # Build market_dna_profile.json once before parallel dashboard jobs
     dna_path = ROOT / "market_dna_profile.json"
+    if force_ai and dna_path.is_file():
+        try:
+            os.remove(dna_path)
+            print("✓ Stale market_dna_profile.json removed for fresh rebuild.")
+        except Exception as e:
+            print(f"⚠️ Could not remove stale market_dna_profile.json: {e}")
     if not dna_path.is_file():
         try:
             import json
@@ -136,16 +174,24 @@ def main() -> int:
             if i > 0 and i < jobs:
                 # Staggered delay (2.5s) between initial concurrent starts to prevent HTTP 429 rate limit bursts
                 time.sleep(2.5)
-            futures[pool.submit(_run_one, spec, log_dir)] = spec["output"]
+            futures[pool.submit(_run_one, spec, log_dir, force_ai)] = spec["output"]
         for fut in as_completed(futures):
             output, code, elapsed, note = fut.result()
             if code == 0:
                 if note.startswith("skip:"):
                     print(f"  ⏭ {output} ({note[5:]})")
                 else:
-                    print(f"  ✓ {output} ({elapsed:.0f}s)")
+                    print(f"  ✓ {output} ({elapsed:.0f}s){note}")
             else:
                 print(f"  ✗ {output} exit={code} ({elapsed:.0f}s)")
+                log_file = log_dir / f"{Path(output).stem}.log"
+                if log_file.is_file():
+                    try:
+                        lines = log_file.read_text(encoding="utf-8", errors="replace").splitlines()
+                        for err_line in lines[-12:]:
+                            print(f"    | {err_line}")
+                    except Exception:
+                        pass
                 failed.append(output)
 
     if failed:

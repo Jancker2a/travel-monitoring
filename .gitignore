@@ -86,6 +86,7 @@ data/filters/filter_egypt_autumn_2026_13_16_days/*
 # Allow German package prices and monitor last run status across all filters
 !data/filters/*/germany_prices.csv
 !data/filters/*/.monitor_last_run.json
+!data/filters/*/ai_market_oracle_report.json
 
 
 
