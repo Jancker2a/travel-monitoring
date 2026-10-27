@@ -754,10 +754,114 @@
       "created_at": "2026-10-27T13:27:27.988180+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Swisstouch Oriental Resort (ex. Hotelux Oriental Coast)_2026-10-27_13-26_zone_out_gone"
+    },
+    {
+      "hotel_name": "Amarina Queen Resort",
+      "duration_bucket": "",
+      "old_price": 6513.0,
+      "new_price": 7084.0,
+      "price_change": 571.0,
+      "price_change_pct": 8.767081222171043,
+      "timestamp": "2026-10-27 17:41:01.447517+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-27T17:42:20.762507+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amarina Queen Resort_2026-10-27_17-41_+8.8"
+    },
+    {
+      "hotel_name": "Amwaj Oyoun Resort & Casino",
+      "duration_bucket": "",
+      "old_price": 6847.0,
+      "new_price": 7851.0,
+      "price_change": 1004.0,
+      "price_change_pct": 14.663356214400466,
+      "timestamp": "2026-10-27 17:41:01.447517+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-27T17:42:20.762534+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amwaj Oyoun Resort & Casino_2026-10-27_17-41_+14.7"
+    },
+    {
+      "hotel_name": "Rewaya Luxury Resort",
+      "duration_bucket": "",
+      "old_price": 7187.0,
+      "new_price": 6202.0,
+      "price_change": -985.0,
+      "price_change_pct": -13.705301238347015,
+      "timestamp": "2026-10-27 17:41:01.447517+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-27T17:42:20.762547+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Luxury Resort_2026-10-27_17-41_-13.7"
+    },
+    {
+      "hotel_name": "AMC Royal Hotel & Spa (ex. AMC Azur Resort)",
+      "duration_bucket": "",
+      "old_price": 7629.0,
+      "new_price": 6935.0,
+      "price_change": -694.0,
+      "price_change_pct": -9.096867217197534,
+      "timestamp": "2026-10-27 17:41:01.447517+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-27T17:42:20.762558+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort)_2026-10-27_17-41_-9.1"
+    },
+    {
+      "hotel_name": "V Grand Beach Resort Sahl Hasheesh",
+      "duration_bucket": "",
+      "old_price": 7907.0,
+      "new_price": 6990.0,
+      "price_change": -917.0,
+      "price_change_pct": -11.597318831415201,
+      "timestamp": "2026-10-27 17:41:01.447517+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-27T17:42:20.762569+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "V Grand Beach Resort Sahl Hasheesh_2026-10-27_17-41_-11.6"
+    },
+    {
+      "hotel_name": "Naama Bay Promenade Mountain Resort",
+      "duration_bucket": "",
+      "old_price": 8273.0,
+      "new_price": 8273.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-27 17:41:01.447517+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-27T17:42:20.762584+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Naama Bay Promenade Mountain Resort_2026-10-27_17-41_zone_out_gone"
+    },
+    {
+      "hotel_name": "Pickalbatros Laguna Club Resort",
+      "duration_bucket": "",
+      "old_price": 8312.0,
+      "new_price": 8312.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-27 17:41:01.447517+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-27T17:42:20.762592+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Laguna Club Resort_2026-10-27_17-41_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sunrise Alora Aqua Park Resort",
+      "duration_bucket": "",
+      "old_price": 8206.0,
+      "new_price": 8206.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-27 17:41:01.447517+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-27T17:42:20.762600+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sunrise Alora Aqua Park Resort_2026-10-27_17-41_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-27T13:26:08.567207+00:00",
+    "last_processed_run": "2026-10-27T17:41:01.447517+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 7629.0,
@@ -804,7 +908,7 @@
         "premium_peak": null
       },
       "Serenity Alma Heights (ex. Serenity Fun City)": {
-        "history_max": 7718.0,
+        "history_max": 8017.0,
         "premium_peak": null
       },
       "Jasmine Palace": {
@@ -872,7 +976,7 @@
         "premium_peak": null
       },
       "Stella Beach Resort & Spa": {
-        "history_max": 7816.0,
+        "history_max": 8172.0,
         "premium_peak": null
       },
       "Calimera Blend Paradise Resort": {
@@ -925,6 +1029,10 @@
       },
       "Marriott Hurghada Beach Resort": {
         "history_max": 8157.0,
+        "premium_peak": null
+      },
+      "Creek Hotel and Residences": {
+        "history_max": 8190.0,
         "premium_peak": null
       }
     }

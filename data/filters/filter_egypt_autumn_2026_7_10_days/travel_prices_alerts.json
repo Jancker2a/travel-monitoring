@@ -325,10 +325,62 @@
       "created_at": "2026-10-27T13:26:56.258231+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Pickalbatros Aqua Blu Resort_2026-10-27_13-26_zone_out_gone"
+    },
+    {
+      "hotel_name": "Amarina Queen Resort",
+      "duration_bucket": "",
+      "old_price": 6513.0,
+      "new_price": 9449.0,
+      "price_change": 2936.0,
+      "price_change_pct": 45.0790726239828,
+      "timestamp": "2026-10-27 17:41:02.420870+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-27T17:41:49.196973+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amarina Queen Resort_2026-10-27_17-41_+45.1"
+    },
+    {
+      "hotel_name": "Fantazia Resort",
+      "duration_bucket": "",
+      "old_price": 9193.0,
+      "new_price": 9193.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-27 17:41:02.420870+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-27T17:41:49.197007+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Fantazia Resort_2026-10-27_17-41_zone_out_gone"
+    },
+    {
+      "hotel_name": "Pickalbatros Palace Resort",
+      "duration_bucket": "",
+      "old_price": 10221.0,
+      "new_price": 10221.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-27 17:41:02.420870+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-27T17:41:49.197019+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Palace Resort_2026-10-27_17-41_zone_out_gone"
+    },
+    {
+      "hotel_name": "Serenity Alma Heights (ex. Serenity Fun City)",
+      "duration_bucket": "",
+      "old_price": 9853.0,
+      "new_price": 9853.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-27 17:41:02.420870+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-27T17:41:49.197028+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Serenity Alma Heights (ex. Serenity Fun City)_2026-10-27_17-41_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-27T13:26:08.568353+00:00",
+    "last_processed_run": "2026-10-27T17:41:02.420870+00:00",
     "premium_state": {
       "Albatros Makadi Resort (ex Royal Pharaohs Makadi)": {
         "history_max": 9452.0,
@@ -383,7 +435,7 @@
         "premium_peak": null
       },
       "Jaz Aquamarine Resort": {
-        "history_max": 10807.0,
+        "history_max": 10977.0,
         "premium_peak": null
       },
       "Jasmine Palace": {
@@ -403,7 +455,7 @@
         "premium_peak": null
       },
       "Amarina Queen Resort": {
-        "history_max": 8352.0,
+        "history_max": 9449.0,
         "premium_peak": null
       },
       "Dream Lagoon & Aqua Park Resort (ex. Floriana Dream Lagoon)": {

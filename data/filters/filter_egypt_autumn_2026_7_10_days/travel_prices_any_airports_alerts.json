@@ -455,10 +455,114 @@
       "created_at": "2026-10-27T13:27:47.482889+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Pickalbatros Aqua Blu Resort_2026-10-27_13-26_zone_out_gone"
+    },
+    {
+      "hotel_name": "Novotel Marsa Alam",
+      "duration_bucket": "",
+      "old_price": 5987.0,
+      "new_price": 7738.0,
+      "price_change": 1751.0,
+      "price_change_pct": 29.24670118590279,
+      "timestamp": "2026-10-27 17:41:53.286926+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-27T17:42:41.165396+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Novotel Marsa Alam_2026-10-27_17-41_+29.2"
+    },
+    {
+      "hotel_name": "Titanic Beach Spa & Aqua Park",
+      "duration_bucket": "",
+      "old_price": 7297.0,
+      "new_price": 8957.0,
+      "price_change": 1660.0,
+      "price_change_pct": 22.74907496231328,
+      "timestamp": "2026-10-27 17:41:53.286926+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-27T17:42:41.165423+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Titanic Beach Spa & Aqua Park_2026-10-27_17-41_+22.7"
+    },
+    {
+      "hotel_name": "Dream Lagoon & Aqua Park Resort (ex. Floriana Dream Lagoon)",
+      "duration_bucket": "",
+      "old_price": 5282.0,
+      "new_price": 6012.0,
+      "price_change": 730.0,
+      "price_change_pct": 13.820522529344945,
+      "timestamp": "2026-10-27 17:41:53.286926+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-27T17:42:41.165434+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Dream Lagoon & Aqua Park Resort (ex. Floriana Dream Lagoon)_2026-10-27_17-41_+13.8"
+    },
+    {
+      "hotel_name": "Fantazia Resort",
+      "duration_bucket": "",
+      "old_price": 9193.0,
+      "new_price": 10283.0,
+      "price_change": 1090.0,
+      "price_change_pct": 11.856847601435875,
+      "timestamp": "2026-10-27 17:41:53.286926+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-27T17:42:41.165443+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Fantazia Resort_2026-10-27_17-41_+11.9"
+    },
+    {
+      "hotel_name": "Jaz Aquamarine Resort",
+      "duration_bucket": "",
+      "old_price": 10807.0,
+      "new_price": 9383.0,
+      "price_change": -1424.0,
+      "price_change_pct": -13.176644767280465,
+      "timestamp": "2026-10-27 17:41:53.286926+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-27T17:42:41.165453+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Aquamarine Resort_2026-10-27_17-41_-13.2"
+    },
+    {
+      "hotel_name": "Amarina Queen Resort",
+      "duration_bucket": "",
+      "old_price": 6513.0,
+      "new_price": 7130.0,
+      "price_change": 617.0,
+      "price_change_pct": 9.473360970366958,
+      "timestamp": "2026-10-27 17:41:53.286926+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-27T17:42:41.165462+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amarina Queen Resort_2026-10-27_17-41_+9.5"
+    },
+    {
+      "hotel_name": "Concorde Moreen Beach Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 7994.0,
+      "new_price": 7994.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-27 17:41:53.286926+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-27T17:42:41.165476+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Concorde Moreen Beach Resort & Spa_2026-10-27_17-41_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sunrise Anjum Resort",
+      "duration_bucket": "",
+      "old_price": 10823.0,
+      "new_price": 10823.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-27 17:41:53.286926+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-27T17:42:41.165485+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sunrise Anjum Resort_2026-10-27_17-41_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-27T13:26:57.988548+00:00",
+    "last_processed_run": "2026-10-27T17:41:53.286926+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 7863.0,
@@ -473,7 +577,7 @@
         "premium_peak": null
       },
       "Novotel Marsa Alam": {
-        "history_max": 6737.0,
+        "history_max": 7738.0,
         "premium_peak": null
       },
       "Red Sea Grand Waterworld Makadi (ex. Sunwing Waterworld Makadi)": {
@@ -525,7 +629,7 @@
         "premium_peak": null
       },
       "Fantazia Resort": {
-        "history_max": 9193.0,
+        "history_max": 10283.0,
         "premium_peak": null
       },
       "Pickalbatros Dana Beach Resort": {
@@ -537,7 +641,7 @@
         "premium_peak": null
       },
       "Serenity Sky Arc": {
-        "history_max": 8496.0,
+        "history_max": 9603.0,
         "premium_peak": null
       },
       "Concorde Moreen Beach Resort & Spa": {
@@ -561,11 +665,11 @@
         "premium_peak": null
       },
       "Dream Lagoon & Aqua Park Resort (ex. Floriana Dream Lagoon)": {
-        "history_max": 5282.0,
+        "history_max": 6012.0,
         "premium_peak": null
       },
       "Titanic Beach Spa & Aqua Park": {
-        "history_max": 8097.0,
+        "history_max": 8957.0,
         "premium_peak": null
       },
       "Baron Palace Resort (Sahl Hasheesh)": {
