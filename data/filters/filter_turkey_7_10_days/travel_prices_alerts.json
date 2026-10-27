@@ -208,10 +208,49 @@
       "created_at": "2026-10-27T09:31:04.590213+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Nova Park_2026-10-27_09-29_zone_out_gone"
+    },
+    {
+      "hotel_name": "Aska Just in Beach",
+      "duration_bucket": "",
+      "old_price": 6508.0,
+      "new_price": 6508.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-27 13:29:23.770510+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-27T13:31:02.926176+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Aska Just in Beach_2026-10-27_13-29_zone_out_gone"
+    },
+    {
+      "hotel_name": "Pirates Beach Club",
+      "duration_bucket": "",
+      "old_price": 6529.0,
+      "new_price": 6529.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-27 13:29:23.770510+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-27T13:31:02.926203+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pirates Beach Club_2026-10-27_13-29_zone_out_gone"
+    },
+    {
+      "hotel_name": "Water Side Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 6491.0,
+      "new_price": 6491.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-27 13:29:23.770510+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-27T13:31:02.926215+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Water Side Resort & Spa_2026-10-27_13-29_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-27T09:29:46.092577+00:00",
+    "last_processed_run": "2026-10-27T13:29:23.770510+00:00",
     "premium_state": {
       "Alaiye Resort & Spa": {
         "history_max": 5724.0,
@@ -359,6 +398,14 @@
       },
       "Water Side Resort & Spa": {
         "history_max": 6491.0,
+        "premium_peak": null
+      },
+      "Miarosa Beach (Kemer)": {
+        "history_max": 6244.0,
+        "premium_peak": null
+      },
+      "Bosphorus Sorgun": {
+        "history_max": 6485.0,
         "premium_peak": null
       }
     }

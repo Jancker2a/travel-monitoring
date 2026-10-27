@@ -364,17 +364,108 @@
       "created_at": "2026-10-27T08:53:33.279944+00:00",
       "threshold_percent": 8.0,
       "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort)_2026-10-27_08-52_zone_out_gone"
+    },
+    {
+      "hotel_name": "Jaz Aquamarine Resort",
+      "duration_bucket": "",
+      "old_price": 8658.0,
+      "new_price": 10807.0,
+      "price_change": 2149.0,
+      "price_change_pct": 24.82097482097482,
+      "timestamp": "2026-10-27 13:26:57.988548+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-27T13:27:47.482801+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Aquamarine Resort_2026-10-27_13-26_+24.8"
+    },
+    {
+      "hotel_name": "Amarina Queen Resort",
+      "duration_bucket": "",
+      "old_price": 7130.0,
+      "new_price": 6513.0,
+      "price_change": -617.0,
+      "price_change_pct": -8.653576437587658,
+      "timestamp": "2026-10-27 13:26:57.988548+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-27T13:27:47.482831+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amarina Queen Resort_2026-10-27_13-26_-8.7"
+    },
+    {
+      "hotel_name": "Concorde Moreen Beach Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 6958.0,
+      "new_price": 7994.0,
+      "price_change": 1036.0,
+      "price_change_pct": 14.88933601609658,
+      "timestamp": "2026-10-27 13:26:57.988548+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-27T13:27:47.482845+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Concorde Moreen Beach Resort & Spa_2026-10-27_13-26_+14.9"
+    },
+    {
+      "hotel_name": "Dream Lagoon & Aqua Park Resort (ex. Floriana Dream Lagoon)",
+      "duration_bucket": "",
+      "old_price": 3603.0,
+      "new_price": 5282.0,
+      "price_change": 1679.0,
+      "price_change_pct": 46.6000555092978,
+      "timestamp": "2026-10-27 13:26:57.988548+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-27T13:27:47.482856+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Dream Lagoon & Aqua Park Resort (ex. Floriana Dream Lagoon)_2026-10-27_13-26_+46.6"
+    },
+    {
+      "hotel_name": "Cleopatra Signature Marsa Alam",
+      "duration_bucket": "",
+      "old_price": 8584.0,
+      "new_price": 9924.0,
+      "price_change": 1340.0,
+      "price_change_pct": 15.610438024231128,
+      "timestamp": "2026-10-27 13:26:57.988548+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-27T13:27:47.482865+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Cleopatra Signature Marsa Alam_2026-10-27_13-26_+15.6"
+    },
+    {
+      "hotel_name": "Hilton Plaza (Hurghada)",
+      "duration_bucket": "",
+      "old_price": 8960.0,
+      "new_price": 8960.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-27 13:26:57.988548+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-27T13:27:47.482881+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Hilton Plaza (Hurghada)_2026-10-27_13-26_zone_out_gone"
+    },
+    {
+      "hotel_name": "Pickalbatros Aqua Blu Resort",
+      "duration_bucket": "",
+      "old_price": 10875.0,
+      "new_price": 10875.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-27 13:26:57.988548+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-27T13:27:47.482889+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Aqua Blu Resort_2026-10-27_13-26_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-27T09:27:48.174137+00:00",
+    "last_processed_run": "2026-10-27T13:26:57.988548+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 7863.0,
         "premium_peak": null
       },
       "Parrotel Lagoon Resort": {
-        "history_max": 6522.0,
+        "history_max": 6824.0,
         "premium_peak": null
       },
       "Pickalbatros White Beach Resort": {
@@ -402,7 +493,7 @@
         "premium_peak": null
       },
       "Jaz Aquamarine Resort": {
-        "history_max": 10507.0,
+        "history_max": 10807.0,
         "premium_peak": null
       },
       "Rewaya Luxury Resort": {
@@ -414,11 +505,11 @@
         "premium_peak": null
       },
       "IL Mercato Splash Aqua Park": {
-        "history_max": 6948.0,
+        "history_max": 7250.0,
         "premium_peak": null
       },
       "Royal Regency Club": {
-        "history_max": 8245.0,
+        "history_max": 8547.0,
         "premium_peak": null
       },
       "Hilton Plaza (Hurghada)": {
@@ -450,7 +541,7 @@
         "premium_peak": null
       },
       "Concorde Moreen Beach Resort & Spa": {
-        "history_max": 7404.0,
+        "history_max": 7994.0,
         "premium_peak": null
       },
       "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort)": {
@@ -458,7 +549,7 @@
         "premium_peak": null
       },
       "Cleopatra Signature Marsa Alam": {
-        "history_max": 9334.0,
+        "history_max": 9924.0,
         "premium_peak": null
       },
       "Albatros Makadi Resort (ex Royal Pharaohs Makadi)": {
@@ -470,7 +561,7 @@
         "premium_peak": null
       },
       "Dream Lagoon & Aqua Park Resort (ex. Floriana Dream Lagoon)": {
-        "history_max": 4808.0,
+        "history_max": 5282.0,
         "premium_peak": null
       },
       "Titanic Beach Spa & Aqua Park": {

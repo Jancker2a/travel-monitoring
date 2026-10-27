@@ -1,25 +1,31 @@
 {
   "macro_briefing": {
-    "headline": "Горящие туры: до вылета 3 дня, туроператоры распродают места",
+    "headline": "Горящие туры за 3 дн.: вылет 28.10, цены стабильны",
     "market_phase": "Горящие туры за 3 дн.",
-    "charter_dynamics": "Туры на 10–11 ночей в Турцию сейчас доступны по цене от 5 569 zł. Средняя цена составляет 6 976 zł, а до вылета осталось всего 3 дня.",
-    "floor_status": "На дне цены находятся 5.3% отелей.",
-    "strategic_directive": "Если готовы лететь на днях — сейчас лучший момент бронировать, места на чартерах закончатся за 24–48 часов.",
+    "charter_dynamics": "Туры на 10–11 ночей в Турцию сейчас стоят от 5 569 zł до 7 427 zł. В среднем цена составляет 7 025 zł, а до вылета всего 3 дня.",
+    "floor_status": "На самом дне цены сейчас 5% отелей.",
+    "strategic_directive": "Если готовы вылететь на днях, сейчас отличное время для бронирования.",
     "buy_now_recommendation": {
       "has_worthy_deals": true,
       "headline": "Стоит выбрать из этих вариантов:",
-      "advice": "Бронируйте сегодня, это проверенные отели с высоким рейтингом по цене эконома.",
+      "advice": "Бронируйте сейчас, это проверенные отели по хорошей цене.",
       "top_picks": [
         {
           "hotel_name": "Numa Bay Exclusive (ex Sentido Numa Bay)",
           "price": 7114.0,
-          "badge": "⚡ Сброс цены (−45.5%)",
-          "why_buy": "Цена пробила дно сезона на 45.5%, отличный рейтинг 4.5★ по цене комфорт-сегмента.",
+          "badge": "💎 Жемчужина",
+          "why_buy": "Отель с высоким рейтингом 4.5★ и ценой на 45.5% ниже медианы.",
           "rating": 4.5
         }
       ]
     },
-    "key_anomalies": [],
+    "key_anomalies": [
+      {
+        "type": "gem",
+        "title": "💎 Скрытая жемчужина: Numa Bay Exclusive (ex Sentido Numa Bay)",
+        "text": "Рейтинг 4.5★ в категории 5★ всего за 7,114 zł (дешевле аналогов)."
+      }
+    ],
     "synthesized_by": "OpenAI (gpt-4o-mini)",
     "filter_title": "Турция • 9–11 дней"
   },
@@ -123,6 +129,24 @@
       "booking_window_badge": "🔥 Горящий тур: вылет через 3 дн.!",
       "booking_window_class": "panic",
       "booking_window_tip": "Срочный вылет (3 дн.), туроператор сбрасывает оставшиеся места на рейсе.",
+      "fair_price_badge": "",
+      "fair_price_class": "",
+      "fair_price_tip": "",
+      "gem_badge": "",
+      "gem_tip": "",
+      "flash_drop_badge": "",
+      "flash_drop_tip": "",
+      "dupe_suggestion": null
+    },
+    "Club Nena (Side)": {
+      "verdict": "GOOD_PRICE",
+      "badge_text": "🔵 ХОРОШАЯ ЦЕНА",
+      "rationale": "Цена 7,214 zł на 36% ниже обычной средней цены отеля (11,322 zł).",
+      "risk_assessment": "Следите за доступностью номеров перед вылетом.",
+      "action_advice": "Хорошая цена со скидкой, можно бронировать.",
+      "booking_window_badge": "",
+      "booking_window_class": "late",
+      "booking_window_tip": "Окно максимальных скидок (D-30+) уже прошло. Текущий день: D-7.",
       "fair_price_badge": "",
       "fair_price_class": "",
       "fair_price_tip": "",
@@ -456,6 +480,24 @@
       "flash_drop_tip": "",
       "dupe_suggestion": null
     },
+    "Miarosa Beach (Kemer)": {
+      "verdict": "GOOD_PRICE",
+      "badge_text": "🔵 ХОРОШАЯ ЦЕНА",
+      "rationale": "Цена 7,029 zł на 37% ниже обычной средней цены отеля (11,070 zł).",
+      "risk_assessment": "Следите за доступностью номеров перед вылетом.",
+      "action_advice": "Хорошая цена со скидкой, можно бронировать.",
+      "booking_window_badge": "",
+      "booking_window_class": "early",
+      "booking_window_tip": "Историческое дно цены наступает за D-1…D-3. Сейчас D-18 (рано).",
+      "fair_price_badge": "",
+      "fair_price_class": "",
+      "fair_price_tip": "",
+      "gem_badge": "",
+      "gem_tip": "",
+      "flash_drop_badge": "",
+      "flash_drop_tip": "",
+      "dupe_suggestion": null
+    },
     "Mira Meridia Beach Resort": {
       "verdict": "GOOD_PRICE",
       "badge_text": "🔵 ХОРОШАЯ ЦЕНА",
@@ -504,8 +546,8 @@
       "fair_price_badge": "",
       "fair_price_class": "",
       "fair_price_tip": "",
-      "gem_badge": "",
-      "gem_tip": "",
+      "gem_badge": "💎 Скрытая жемчужина",
+      "gem_tip": "Высокий рейтинг (4.5★, 2800 отз.) при цене в бюджетном сегменте 5★ (7,114 zł).",
       "flash_drop_badge": "",
       "flash_drop_tip": "",
       "dupe_suggestion": null
