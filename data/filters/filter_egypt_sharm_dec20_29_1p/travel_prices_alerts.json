@@ -117,10 +117,36 @@
       "created_at": "2026-10-26T15:23:56.872891+00:00",
       "threshold_percent": 8.0,
       "unique_key": "El Khan Sharm_2026-10-26_15-22_+13.3"
+    },
+    {
+      "hotel_name": "El Khan Sharm",
+      "duration_bucket": "",
+      "old_price": 3330.0,
+      "new_price": 3614.0,
+      "price_change": 284.0,
+      "price_change_pct": 8.528528528528529,
+      "timestamp": "2026-10-27 06:29:42.151107+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-27T06:30:49.575460+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "El Khan Sharm_2026-10-27_06-29_+8.5"
+    },
+    {
+      "hotel_name": "Megan Halomy",
+      "duration_bucket": "",
+      "old_price": 3468.0,
+      "new_price": 3468.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-27 06:29:42.151107+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-27T06:30:49.575505+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Megan Halomy_2026-10-27_06-29_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-27T00:38:58.442952+00:00",
+    "last_processed_run": "2026-10-27T06:29:42.151107+00:00",
     "premium_state": {
       "Amwaj Oyoun Resort & Casino": {
         "history_max": 4219.0,
@@ -231,7 +257,7 @@
         "premium_peak": null
       },
       "El Khan Sharm": {
-        "history_max": 3330.0,
+        "history_max": 3614.0,
         "premium_peak": null
       },
       "Swiss Heaven Sharming Inn": {

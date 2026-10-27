@@ -156,10 +156,36 @@
       "created_at": "2026-10-27T00:41:46.740736+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Villa Side Residence_2026-10-27_00-40_zone_out_gone"
+    },
+    {
+      "hotel_name": "Eftalia Ocean (Alanya)",
+      "duration_bucket": "",
+      "old_price": 5314.0,
+      "new_price": 5782.0,
+      "price_change": 468.0,
+      "price_change_pct": 8.806925103500188,
+      "timestamp": "2026-10-27 06:31:11.821048+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-27T06:32:47.825662+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Eftalia Ocean (Alanya)_2026-10-27_06-31_+8.8"
+    },
+    {
+      "hotel_name": "Nova Park",
+      "duration_bucket": "",
+      "old_price": 6529.0,
+      "new_price": 6529.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-27 06:31:11.821048+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-27T06:32:47.825696+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Nova Park_2026-10-27_06-31_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-27T00:40:22.773932+00:00",
+    "last_processed_run": "2026-10-27T06:31:11.821048+00:00",
     "premium_state": {
       "Alaiye Resort & Spa": {
         "history_max": 5724.0,
@@ -274,7 +300,7 @@
         "premium_peak": null
       },
       "Eftalia Ocean (Alanya)": {
-        "history_max": 5614.0,
+        "history_max": 5782.0,
         "premium_peak": null
       },
       "Drita Resort & Spa": {
@@ -302,7 +328,7 @@
         "premium_peak": null
       },
       "Villa Side Residence": {
-        "history_max": 5932.0,
+        "history_max": 6067.0,
         "premium_peak": null
       },
       "Water Side Resort & Spa": {
