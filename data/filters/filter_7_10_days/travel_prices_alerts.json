@@ -442,10 +442,101 @@
       "created_at": "2026-10-26T20:45:22.489140+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Swisstouch Oriental Resort (ex. Hotelux Oriental Coast)_2026-10-26_20-42_zone_out_gone"
+    },
+    {
+      "hotel_name": "Rewaya Luxury Resort",
+      "duration_bucket": "",
+      "old_price": 7187.0,
+      "new_price": 6612.0,
+      "price_change": -575.0,
+      "price_change_pct": -8.00055656045638,
+      "timestamp": "2026-10-27 00:37:28.890187+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-27T00:38:42.285694+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Luxury Resort_2026-10-27_00-37_-8.0"
+    },
+    {
+      "hotel_name": "Rewaya Majestic Resort",
+      "duration_bucket": "",
+      "old_price": 7386.0,
+      "new_price": 6746.0,
+      "price_change": -640.0,
+      "price_change_pct": -8.665041971297049,
+      "timestamp": "2026-10-27 00:37:28.890187+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-27T00:38:42.285723+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Majestic Resort_2026-10-27_00-37_-8.7"
+    },
+    {
+      "hotel_name": "Royal Regency Club",
+      "duration_bucket": "",
+      "old_price": 8094.0,
+      "new_price": 7421.0,
+      "price_change": -673.0,
+      "price_change_pct": -8.314801087225105,
+      "timestamp": "2026-10-27 00:37:28.890187+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-27T00:38:42.285735+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Royal Regency Club_2026-10-27_00-37_-8.3"
+    },
+    {
+      "hotel_name": "AMC Royal Hotel & Spa (ex. AMC Azur Resort)",
+      "duration_bucket": "",
+      "old_price": 7415.0,
+      "new_price": 6775.0,
+      "price_change": -640.0,
+      "price_change_pct": -8.631153068105192,
+      "timestamp": "2026-10-27 00:37:28.890187+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-27T00:38:42.285745+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort)_2026-10-27_00-37_-8.6"
+    },
+    {
+      "hotel_name": "Titanic Pearl",
+      "duration_bucket": "",
+      "old_price": 8163.0,
+      "new_price": 8163.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-27 00:37:28.890187+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-27T00:38:42.285761+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Titanic Pearl_2026-10-27_00-37_zone_out_gone"
+    },
+    {
+      "hotel_name": "Xperience Kiroseiz Parkland",
+      "duration_bucket": "",
+      "old_price": 8019.0,
+      "new_price": 8019.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-27 00:37:28.890187+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-27T00:38:42.285770+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xperience Kiroseiz Parkland_2026-10-27_00-37_zone_out_gone"
+    },
+    {
+      "hotel_name": "Xperience Kiroseiz Premier",
+      "duration_bucket": "",
+      "old_price": 7885.0,
+      "new_price": 7885.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-27 00:37:28.890187+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-27T00:38:42.285778+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xperience Kiroseiz Premier_2026-10-27_00-37_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-26T20:42:55.975688+00:00",
+    "last_processed_run": "2026-10-27T00:37:28.890187+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 7423.0,
@@ -597,6 +688,14 @@
       },
       "Concorde Moreen Beach Resort & Spa": {
         "history_max": 7405.0,
+        "premium_peak": null
+      },
+      "Pickalbatros Laguna Club Resort": {
+        "history_max": 8017.0,
+        "premium_peak": null
+      },
+      "Old Palace Resort": {
+        "history_max": 7846.0,
         "premium_peak": null
       }
     }
