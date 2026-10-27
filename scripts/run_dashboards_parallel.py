@@ -20,7 +20,7 @@ from filter_registry import get_all_dashboard_configs
 DEFAULT_DASHBOARDS = get_all_dashboard_configs()
 
 
-def _run_one(spec: dict, log_dir: Path) -> tuple[str, int, float, str]:
+def _run_one(spec: dict, log_dir: Path, force_ai: bool = False) -> tuple[str, int, float, str]:
     output = spec["output"]
     config_path = str(spec.get("config") or "").strip()
     if config_path and should_skip_monitor_config(str(ROOT / config_path)):
@@ -57,16 +57,21 @@ def _run_one(spec: dict, log_dir: Path) -> tuple[str, int, float, str]:
         cmd.extend(["--config-file", spec["config"]])
     if spec.get("all_airports_data"):
         cmd.extend(["--all-airports-data-file", spec["all_airports_data"]])
+    if force_ai:
+        cmd.append("--force-ai")
     t0 = time.monotonic()
     with log_path.open("w", encoding="utf-8") as log_f:
         log_f.write(f"# {output}\n# started {time.strftime('%Y-%m-%d %H:%M:%S')}\n\n")
         log_f.flush()
+        env = os.environ.copy()
+        if force_ai:
+            env["FORCE_AI_ANALYSIS"] = "true"
         proc = subprocess.run(
             cmd,
             cwd=str(ROOT),
             stdout=log_f,
             stderr=subprocess.STDOUT,
-            env=os.environ.copy(),
+            env=env,
         )
     return output, proc.returncode, time.monotonic() - t0, ""
 
@@ -90,9 +95,16 @@ def main() -> int:
         action="store_true",
         help="Only generate filter dashboards, not index.html landing",
     )
+    parser.add_argument(
+        "--force-ai",
+        action="store_true",
+        default=os.getenv("FORCE_AI_ANALYSIS", "").lower() in ("true", "1", "yes"),
+        help="Force regeneration of AI Market Oracle reports (bypass disk cache)",
+    )
     args = parser.parse_args()
     jobs = max(1, args.jobs)
     log_dir = Path(args.log_dir)
+    force_ai = bool(args.force_ai or os.getenv("FORCE_AI_ANALYSIS", "").lower() in ("true", "1", "yes"))
 
     active_specs = []
     for spec in DEFAULT_DASHBOARDS:
@@ -112,10 +124,18 @@ def main() -> int:
         active_specs.append(spec)
 
     print(f"Parallel dashboards: {len(active_specs)}/{len(DEFAULT_DASHBOARDS)} filters, jobs={jobs}")
+    if force_ai:
+        print("🚀 FORCE_AI_ANALYSIS active: AI Market Oracle reports will be regenerated fresh (cache bypass).")
     print(f"Logs: {log_dir}")
     t0 = time.monotonic()
     # Build market_dna_profile.json once before parallel dashboard jobs
     dna_path = ROOT / "market_dna_profile.json"
+    if force_ai and dna_path.is_file():
+        try:
+            os.remove(dna_path)
+            print("✓ Stale market_dna_profile.json removed for fresh rebuild.")
+        except Exception as e:
+            print(f"⚠️ Could not remove stale market_dna_profile.json: {e}")
     if not dna_path.is_file():
         try:
             import json
@@ -136,7 +156,7 @@ def main() -> int:
             if i > 0 and i < jobs:
                 # Staggered delay (2.5s) between initial concurrent starts to prevent HTTP 429 rate limit bursts
                 time.sleep(2.5)
-            futures[pool.submit(_run_one, spec, log_dir)] = spec["output"]
+            futures[pool.submit(_run_one, spec, log_dir, force_ai)] = spec["output"]
         for fut in as_completed(futures):
             output, code, elapsed, note = fut.result()
             if code == 0:

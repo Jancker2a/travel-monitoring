@@ -3206,9 +3206,11 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
     try:
         if synthesize_market_oracle and data_file and os.path.exists(data_file):
             oracle_cache_file = os.path.join(os.path.dirname(data_file), "ai_market_oracle_report.json")
-            force_ai = force_ai or os.getenv("FORCE_AI_ANALYSIS", "").lower() in ("true", "1")
+            force_ai = bool(force_ai or os.getenv("FORCE_AI_ANALYSIS", "").strip().lower() in ("true", "1", "yes"))
+            print(f"🔄 AI Market Oracle mode: force_ai={force_ai} (flag={force_ai}, env='{os.getenv('FORCE_AI_ANALYSIS', '')}')")
 
             if force_ai:
+                oracle_report = None
                 print(f"🚀 FORCE_AI_ANALYSIS active: принудительный сброс кэша для {oracle_cache_file}")
                 if os.path.exists(oracle_cache_file):
                     try:
