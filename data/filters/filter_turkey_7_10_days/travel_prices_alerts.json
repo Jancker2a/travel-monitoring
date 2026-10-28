@@ -364,10 +364,23 @@
       "created_at": "2026-10-28T06:02:52.552252+00:00",
       "threshold_percent": 8.0,
       "unique_key": "OZ Incekum Beach Resort_2026-10-28_06-01_zone_out_gone"
+    },
+    {
+      "hotel_name": "Kirbiyik Resort (ex. Dinler)",
+      "duration_bucket": "",
+      "old_price": 6002.0,
+      "new_price": 6002.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-28 09:53:44.422968+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-28T09:55:08.490768+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Kirbiyik Resort (ex. Dinler)_2026-10-28_09-53_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-28T06:01:22.660652+00:00",
+    "last_processed_run": "2026-10-28T09:53:44.422968+00:00",
     "premium_state": {
       "Alaiye Resort & Spa": {
         "history_max": 5724.0,
@@ -406,7 +419,7 @@
         "premium_peak": null
       },
       "Palmeras Beach": {
-        "history_max": 5602.0,
+        "history_max": 5608.0,
         "premium_peak": null
       },
       "Pirates Beach Club": {
@@ -510,7 +523,7 @@
         "premium_peak": null
       },
       "Villa Side Residence": {
-        "history_max": 6297.0,
+        "history_max": 6408.0,
         "premium_peak": null
       },
       "Water Side Resort & Spa": {
@@ -543,6 +556,10 @@
       },
       "Side Premium by OZ Hotels": {
         "history_max": 6209.0,
+        "premium_peak": null
+      },
+      "Grand Kolibri Prestige & Spa": {
+        "history_max": 6070.0,
         "premium_peak": null
       }
     }

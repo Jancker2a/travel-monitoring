@@ -169,13 +169,26 @@
       "created_at": "2026-10-27T19:36:27.296073+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Mazar Resort & Spa_2026-10-27_19-35_-11.8"
+    },
+    {
+      "hotel_name": "Badawia Sharm Resort (ex. All Seasons Badawia)",
+      "duration_bucket": "",
+      "old_price": 3269.0,
+      "new_price": 3269.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-28 09:52:22.583177+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-28T09:53:29.281997+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Badawia Sharm Resort (ex. All Seasons Badawia)_2026-10-28_09-52_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-28T05:59:59.973051+00:00",
+    "last_processed_run": "2026-10-28T09:52:22.583177+00:00",
     "premium_state": {
       "Amwaj Oyoun Resort & Casino": {
-        "history_max": 4219.0,
+        "history_max": 4349.0,
         "premium_peak": null
       },
       "Parrotel Lagoon Resort": {
@@ -299,7 +312,7 @@
         "premium_peak": null
       },
       "Star Resort & Aqua Park Sharm El Sheikh": {
-        "history_max": 4375.0,
+        "history_max": 4420.0,
         "premium_peak": null
       }
     }

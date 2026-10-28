@@ -455,10 +455,36 @@
       "created_at": "2026-10-28T06:00:20.259956+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sea Star Beau Rivage_2026-10-28_05-59_comeback_12.1"
+    },
+    {
+      "hotel_name": "AMC Royal Hotel & Spa (ex. AMC Azur Resort)",
+      "duration_bucket": "",
+      "old_price": 10965.0,
+      "new_price": 10965.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-28 09:52:07.767982+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-28T09:52:45.669438+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort)_2026-10-28_09-52_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sea Star Beau Rivage",
+      "duration_bucket": "",
+      "old_price": 10375.0,
+      "new_price": 10375.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-28 09:52:07.767982+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-28T09:52:45.669463+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sea Star Beau Rivage_2026-10-28_09-52_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-28T05:59:41.885723+00:00",
+    "last_processed_run": "2026-10-28T09:52:07.767982+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa*****": {
         "history_max": 12142.0,
