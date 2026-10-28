@@ -416,10 +416,23 @@
       "created_at": "2026-10-26T12:42:00.723609+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Orange County Alanya_2026-10-26_12-39_zone_out_+3.1"
+    },
+    {
+      "hotel_name": "Villa Side Residence",
+      "duration_bucket": "",
+      "old_price": 9446.0,
+      "new_price": 10117.0,
+      "price_change": 671.0,
+      "price_change_pct": 7.103535888206649,
+      "timestamp": "2026-10-27 23:56:35.331771+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-27T23:57:49.671973+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Villa Side Residence_2026-10-27_23-56_zone_out_+7.1"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-27T19:36:29.417089+00:00",
+    "last_processed_run": "2026-10-27T23:56:35.331771+00:00",
     "premium_state": {
       "Alaiye Resort & Spa": {
         "history_max": 9254.0,
@@ -510,8 +523,8 @@
         "premium_peak": null
       },
       "Villa Side Residence": {
-        "history_max": 9605.0,
-        "premium_peak": null
+        "history_max": 10117.0,
+        "premium_peak": 10117.0
       },
       "Galeri Resort": {
         "history_max": 7567.0,

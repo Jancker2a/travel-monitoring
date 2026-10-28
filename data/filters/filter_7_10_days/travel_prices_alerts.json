@@ -988,10 +988,88 @@
       "created_at": "2026-10-27T19:34:59.019313+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Stella Beach Resort & Spa_2026-10-27_19-33_zone_out_gone"
+    },
+    {
+      "hotel_name": "Royal Regency Club",
+      "duration_bucket": "",
+      "old_price": 7260.0,
+      "new_price": 8094.0,
+      "price_change": 834.0,
+      "price_change_pct": 11.487603305785123,
+      "timestamp": "2026-10-27 23:53:57.519055+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-27T23:55:08.380201+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Royal Regency Club_2026-10-27_23-53_+11.5"
+    },
+    {
+      "hotel_name": "Parrotel Beach Resort (ex. Radisson Blu)",
+      "duration_bucket": "",
+      "old_price": 7241.0,
+      "new_price": 7941.0,
+      "price_change": 700.0,
+      "price_change_pct": 9.667173042397458,
+      "timestamp": "2026-10-27 23:53:57.519055+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-27T23:55:08.380226+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Parrotel Beach Resort (ex. Radisson Blu)_2026-10-27_23-53_+9.7"
+    },
+    {
+      "hotel_name": "Swisstouch Oriental Resort (ex. Hotelux Oriental Coast)",
+      "duration_bucket": "",
+      "old_price": 7285.0,
+      "new_price": 7909.0,
+      "price_change": 624.0,
+      "price_change_pct": 8.565545641729582,
+      "timestamp": "2026-10-27 23:53:57.519055+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-27T23:55:08.380234+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Swisstouch Oriental Resort (ex. Hotelux Oriental Coast)_2026-10-27_23-53_+8.6"
+    },
+    {
+      "hotel_name": "Regency Plaza Aqua Park Spa",
+      "duration_bucket": "",
+      "old_price": 6678.0,
+      "new_price": 7514.0,
+      "price_change": 836.0,
+      "price_change_pct": 12.518718179095536,
+      "timestamp": "2026-10-27 23:53:57.519055+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-27T23:55:08.380242+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Regency Plaza Aqua Park Spa_2026-10-27_23-53_+12.5"
+    },
+    {
+      "hotel_name": "Xperience Kiroseiz Premier",
+      "duration_bucket": "",
+      "old_price": 7185.0,
+      "new_price": 7885.0,
+      "price_change": 700.0,
+      "price_change_pct": 9.742519137091161,
+      "timestamp": "2026-10-27 23:53:57.519055+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-27T23:55:08.380250+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xperience Kiroseiz Premier_2026-10-27_23-53_+9.7"
+    },
+    {
+      "hotel_name": "Marriott Hurghada Beach Resort",
+      "duration_bucket": "",
+      "old_price": 8157.0,
+      "new_price": 8157.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-27 23:53:57.519055+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-27T23:55:08.380261+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Marriott Hurghada Beach Resort_2026-10-27_23-53_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-27T19:33:39.769119+00:00",
+    "last_processed_run": "2026-10-27T23:53:57.519055+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 7629.0,
@@ -1002,7 +1080,7 @@
         "premium_peak": null
       },
       "Regency Plaza Aqua Park Spa": {
-        "history_max": 7494.0,
+        "history_max": 7514.0,
         "premium_peak": null
       },
       "Rewaya Majestic Resort": {
@@ -1138,7 +1216,7 @@
         "premium_peak": null
       },
       "Jaz Aquamarine Resort": {
-        "history_max": 8007.0,
+        "history_max": 8059.0,
         "premium_peak": null
       },
       "Concorde Moreen Beach Resort & Spa": {
@@ -1167,6 +1245,10 @@
       },
       "Jaz Palmariva Beach": {
         "history_max": 8082.0,
+        "premium_peak": null
+      },
+      "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort)": {
+        "history_max": 7899.0,
         "premium_peak": null
       }
     }

@@ -260,10 +260,101 @@
       "created_at": "2026-10-27T17:43:06.089463+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sunrise Alora Aqua Park Resort_2026-10-27_17-42_zone_out_gone"
+    },
+    {
+      "hotel_name": "Rewaya Luxury Resort",
+      "duration_bucket": "",
+      "old_price": 10787.0,
+      "new_price": 8838.0,
+      "price_change": -1949.0,
+      "price_change_pct": -18.068044868823584,
+      "timestamp": "2026-10-27 23:55:11.148838+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-27T23:55:49.106092+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Luxury Resort_2026-10-27_23-55_-18.1"
+    },
+    {
+      "hotel_name": "Rewaya Majestic Resort",
+      "duration_bucket": "",
+      "old_price": 10992.0,
+      "new_price": 8972.0,
+      "price_change": -2020.0,
+      "price_change_pct": -18.377001455604073,
+      "timestamp": "2026-10-27 23:55:11.148838+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-27T23:55:49.106116+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Majestic Resort_2026-10-27_23-55_-18.4"
+    },
+    {
+      "hotel_name": "Royal Regency Club",
+      "duration_bucket": "",
+      "old_price": 10958.0,
+      "new_price": 9602.0,
+      "price_change": -1356.0,
+      "price_change_pct": -12.374520897974083,
+      "timestamp": "2026-10-27 23:55:11.148838+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-27T23:55:49.106124+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Royal Regency Club_2026-10-27_23-55_-12.4"
+    },
+    {
+      "hotel_name": "Xperience Kiroseiz Premier",
+      "duration_bucket": "",
+      "old_price": 10421.0,
+      "new_price": 9001.0,
+      "price_change": -1420.0,
+      "price_change_pct": -13.626331446118414,
+      "timestamp": "2026-10-27 23:55:11.148838+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-27T23:55:49.106131+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xperience Kiroseiz Premier_2026-10-27_23-55_-13.6"
+    },
+    {
+      "hotel_name": "Regency Plaza Aqua Park Spa",
+      "duration_bucket": "",
+      "old_price": 10200.0,
+      "new_price": 8780.0,
+      "price_change": -1420.0,
+      "price_change_pct": -13.92156862745098,
+      "timestamp": "2026-10-27 23:55:11.148838+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-27T23:55:49.106137+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Regency Plaza Aqua Park Spa_2026-10-27_23-55_-13.9"
+    },
+    {
+      "hotel_name": "Xperience Kiroseiz Parkland",
+      "duration_bucket": "",
+      "old_price": 10353.0,
+      "new_price": 9335.0,
+      "price_change": -1018.0,
+      "price_change_pct": -9.832898676712064,
+      "timestamp": "2026-10-27 23:55:11.148838+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-27T23:55:49.106145+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xperience Kiroseiz Parkland_2026-10-27_23-55_-9.8"
+    },
+    {
+      "hotel_name": "Charmillion Garden Aqua Park",
+      "duration_bucket": "",
+      "old_price": 10951.0,
+      "new_price": 10951.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-27 23:55:11.148838+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-27T23:55:49.106155+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Charmillion Garden Aqua Park_2026-10-27_23-55_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-27T19:34:58.457622+00:00",
+    "last_processed_run": "2026-10-27T23:55:11.148838+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 10020.0,
@@ -322,7 +413,7 @@
         "premium_peak": null
       },
       "Creek Hotel and Residences": {
-        "history_max": 10711.0,
+        "history_max": 10972.0,
         "premium_peak": null
       },
       "Dreams Beach Sharm Resort (Sharm El Sheikh)": {
@@ -366,11 +457,19 @@
         "premium_peak": null
       },
       "Park Regency Resort (ex. Hyatt)": {
-        "history_max": 9979.0,
+        "history_max": 10749.0,
         "premium_peak": null
       },
       "Sunrise Alora Aqua Park Resort": {
         "history_max": 10604.0,
+        "premium_peak": null
+      },
+      "V Grand Beach Resort Sahl Hasheesh": {
+        "history_max": 10984.0,
+        "premium_peak": null
+      },
+      "Novotel Marsa Alam": {
+        "history_max": 10533.0,
         "premium_peak": null
       }
     }

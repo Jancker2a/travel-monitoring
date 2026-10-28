@@ -403,10 +403,23 @@
       "created_at": "2026-10-27T17:43:01.389303+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sunrise Alora Aqua Park Resort_2026-10-27_17-42_zone_out_gone"
+    },
+    {
+      "hotel_name": "Rewaya Luxury Resort",
+      "duration_bucket": "",
+      "old_price": 12187.0,
+      "new_price": 10820.0,
+      "price_change": -1367.0,
+      "price_change_pct": -11.216870435710183,
+      "timestamp": "2026-10-27 23:55:10.419753+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-27T23:55:47.552132+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Luxury Resort_2026-10-27_23-55_comeback_11.2"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-27T19:35:02.680902+00:00",
+    "last_processed_run": "2026-10-27T23:55:10.419753+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa*****": {
         "history_max": 12142.0,
@@ -518,6 +531,10 @@
       },
       "Rewaya Majestic Resort": {
         "history_max": 10954.0,
+        "premium_peak": null
+      },
+      "Novotel Marsa Alam": {
+        "history_max": 10533.0,
         "premium_peak": null
       }
     }

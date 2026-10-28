@@ -572,10 +572,75 @@
       "created_at": "2026-10-27T19:35:17.579560+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Dream Lagoon & Aqua Park Resort (ex. Floriana Dream Lagoon)_2026-10-27_19-34_zone_out_gone"
+    },
+    {
+      "hotel_name": "Pickalbatros Palace Resort",
+      "duration_bucket": "",
+      "old_price": 9518.0,
+      "new_price": 10953.0,
+      "price_change": 1435.0,
+      "price_change_pct": 15.076696785038873,
+      "timestamp": "2026-10-27 23:54:42.539514+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-27T23:55:22.007393+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Palace Resort_2026-10-27_23-54_+15.1"
+    },
+    {
+      "hotel_name": "Fantazia Resort",
+      "duration_bucket": "",
+      "old_price": 10283.0,
+      "new_price": 9101.0,
+      "price_change": -1182.0,
+      "price_change_pct": -11.494699990275212,
+      "timestamp": "2026-10-27 23:54:42.539514+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-27T23:55:22.007417+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Fantazia Resort_2026-10-27_23-54_-11.5"
+    },
+    {
+      "hotel_name": "Albatros Makadi Resort (ex Royal Pharaohs Makadi)",
+      "duration_bucket": "",
+      "old_price": 8804.0,
+      "new_price": 7908.0,
+      "price_change": -896.0,
+      "price_change_pct": -10.177192185370286,
+      "timestamp": "2026-10-27 23:54:42.539514+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-27T23:55:22.007426+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Albatros Makadi Resort (ex Royal Pharaohs Makadi)_2026-10-27_23-54_-10.2"
+    },
+    {
+      "hotel_name": "Jaz Aquamarine Resort",
+      "duration_bucket": "",
+      "old_price": 9486.0,
+      "new_price": 10521.0,
+      "price_change": 1035.0,
+      "price_change_pct": 10.910815939278939,
+      "timestamp": "2026-10-27 23:54:42.539514+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-27T23:55:22.007432+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Aquamarine Resort_2026-10-27_23-54_+10.9"
+    },
+    {
+      "hotel_name": "Serenity Sky Arc",
+      "duration_bucket": "",
+      "old_price": 9603.0,
+      "new_price": 9603.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-27 23:54:42.539514+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-27T23:55:22.007442+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Serenity Sky Arc_2026-10-27_23-54_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-27T19:34:30.913149+00:00",
+    "last_processed_run": "2026-10-27T23:54:42.539514+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 7863.0,
@@ -626,7 +691,7 @@
         "premium_peak": null
       },
       "Royal Regency Club": {
-        "history_max": 8547.0,
+        "history_max": 9001.0,
         "premium_peak": null
       },
       "Hilton Plaza (Hurghada)": {
@@ -634,7 +699,7 @@
         "premium_peak": null
       },
       "Pickalbatros Palace Resort": {
-        "history_max": 10253.0,
+        "history_max": 10953.0,
         "premium_peak": null
       },
       "Serenity Alma Heights (ex. Serenity Fun City)": {
@@ -703,6 +768,10 @@
       },
       "Sunrise Anjum Resort": {
         "history_max": 10823.0,
+        "premium_peak": null
+      },
+      "Jaz Lamaya Resort (ex Iberotel)": {
+        "history_max": 10994.0,
         "premium_peak": null
       }
     }

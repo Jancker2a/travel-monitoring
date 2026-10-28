@@ -169,10 +169,36 @@
       "created_at": "2026-10-27T13:31:42.556282+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Marvida Family Eco_2026-10-27_13-30_zone_out_gone"
+    },
+    {
+      "hotel_name": "Grand Kolibri Prestige & Spa",
+      "duration_bucket": "",
+      "old_price": 7173.0,
+      "new_price": 4682.0,
+      "price_change": -2491.0,
+      "price_change_pct": -34.727450160323436,
+      "timestamp": "2026-10-27 23:57:50.118998+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-27T23:59:03.664443+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Grand Kolibri Prestige & Spa_2026-10-27_23-57_-34.7"
+    },
+    {
+      "hotel_name": "Villa Side Residence",
+      "duration_bucket": "",
+      "old_price": 7087.0,
+      "new_price": 7087.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-27 23:57:50.118998+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-27T23:59:03.664472+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Villa Side Residence_2026-10-27_23-57_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-27T19:37:47.207971+00:00",
+    "last_processed_run": "2026-10-27T23:57:50.118998+00:00",
     "premium_state": {
       "Alaiye Resort & Spa": {
         "history_max": 6130.0,
@@ -332,6 +358,10 @@
       },
       "Club Nena (Side)": {
         "history_max": 7214.0,
+        "premium_peak": null
+      },
+      "Adalya Art Side (Ex. Grand Art Side)": {
+        "history_max": 7222.0,
         "premium_peak": null
       }
     }
