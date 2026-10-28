@@ -91,10 +91,36 @@
       "created_at": "2026-10-27T19:34:55.509479+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Amarina Jannah Resort Aquapark_2026-10-27_19-33_zone_out_+15.1"
+    },
+    {
+      "hotel_name": "Amarina Queen Resort",
+      "duration_bucket": "",
+      "old_price": 9128.0,
+      "new_price": 8228.0,
+      "price_change": -900.0,
+      "price_change_pct": -9.85977212971078,
+      "timestamp": "2026-10-28 05:58:24.125503+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-28T05:59:36.508960+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amarina Queen Resort_2026-10-28_05-58_-9.9"
+    },
+    {
+      "hotel_name": "Amarina Jannah Resort Aquapark",
+      "duration_bucket": "",
+      "old_price": 13235.0,
+      "new_price": 9286.0,
+      "price_change": -3949.0,
+      "price_change_pct": -29.83755194559879,
+      "timestamp": "2026-10-28 05:58:24.125503+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-28T05:59:36.509005+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amarina Jannah Resort Aquapark_2026-10-28_05-58_comeback_29.8"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-27T23:53:57.171979+00:00",
+    "last_processed_run": "2026-10-28T05:58:24.125503+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 11275.0,
@@ -133,8 +159,8 @@
         "premium_peak": 13136.0
       },
       "Rewaya Luxury Resort": {
-        "history_max": 10297.0,
-        "premium_peak": 10297.0
+        "history_max": 10546.0,
+        "premium_peak": 10546.0
       },
       "Royal Brayka Beach Resort (ex Zee Brayka)": {
         "history_max": 12257.0,
@@ -161,8 +187,8 @@
         "premium_peak": 12857.0
       },
       "V Grand Beach Resort Sahl Hasheesh": {
-        "history_max": 12537.0,
-        "premium_peak": 12537.0
+        "history_max": 12976.0,
+        "premium_peak": 12976.0
       },
       "Xperience Kiroseiz Parkland": {
         "history_max": 12131.0,
@@ -205,8 +231,8 @@
         "premium_peak": 13091.0
       },
       "Charmillion Club Aqua Park": {
-        "history_max": 11632.0,
-        "premium_peak": 11632.0
+        "history_max": 12110.0,
+        "premium_peak": 12110.0
       },
       "Amarina Jannah Resort Aquapark": {
         "history_max": 13235.0,
@@ -243,6 +269,22 @@
       "Stella Beach Resort & Spa": {
         "history_max": 13672.0,
         "premium_peak": 13672.0
+      },
+      "Serenity Alma Heights (ex. Serenity Fun City)": {
+        "history_max": 12245.0,
+        "premium_peak": 12245.0
+      },
+      "Ecotel Dahab Bay View Resort": {
+        "history_max": 11881.0,
+        "premium_peak": 11881.0
+      },
+      "Retac Qunay Dahab Resort & Spa": {
+        "history_max": 13131.0,
+        "premium_peak": 13131.0
+      },
+      "Regency Plaza Aqua Park Spa": {
+        "history_max": 12802.0,
+        "premium_peak": 12802.0
       }
     }
   }

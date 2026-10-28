@@ -416,10 +416,49 @@
       "created_at": "2026-10-27T23:55:47.552132+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Rewaya Luxury Resort_2026-10-27_23-55_comeback_11.2"
+    },
+    {
+      "hotel_name": "Rewaya Luxury Resort",
+      "duration_bucket": "",
+      "old_price": 10820.0,
+      "new_price": 10820.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-28 05:59:41.885723+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-28T06:00:20.259883+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Luxury Resort_2026-10-28_05-59_zone_out_gone"
+    },
+    {
+      "hotel_name": "Rewaya Majestic Resort",
+      "duration_bucket": "",
+      "old_price": 10954.0,
+      "new_price": 10954.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-28 05:59:41.885723+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-28T06:00:20.259926+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Majestic Resort_2026-10-28_05-59_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sea Star Beau Rivage",
+      "duration_bucket": "",
+      "old_price": 11807.0,
+      "new_price": 10375.0,
+      "price_change": -1432.0,
+      "price_change_pct": -12.12839840772423,
+      "timestamp": "2026-10-28 05:59:41.885723+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-28T06:00:20.259956+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sea Star Beau Rivage_2026-10-28_05-59_comeback_12.1"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-27T23:55:10.419753+00:00",
+    "last_processed_run": "2026-10-28T05:59:41.885723+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa*****": {
         "history_max": 12142.0,
@@ -534,7 +573,19 @@
         "premium_peak": null
       },
       "Novotel Marsa Alam": {
-        "history_max": 10533.0,
+        "history_max": 10928.0,
+        "premium_peak": null
+      },
+      "Sirena Beach Resort & Spa": {
+        "history_max": 10774.0,
+        "premium_peak": null
+      },
+      "Fantazia Resort": {
+        "history_max": 10610.0,
+        "premium_peak": null
+      },
+      "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
+        "history_max": 10965.0,
         "premium_peak": null
       }
     }

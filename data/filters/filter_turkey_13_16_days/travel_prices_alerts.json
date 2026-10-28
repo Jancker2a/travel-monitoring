@@ -429,10 +429,88 @@
       "created_at": "2026-10-27T23:57:49.671973+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Villa Side Residence_2026-10-27_23-56_zone_out_+7.1"
+    },
+    {
+      "hotel_name": "Side Kum",
+      "duration_bucket": "",
+      "old_price": 9090.0,
+      "new_price": 8189.0,
+      "price_change": -901.0,
+      "price_change_pct": -9.911991199119912,
+      "timestamp": "2026-10-28 06:01:11.098060+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-28T06:02:34.759158+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Side Kum_2026-10-28_06-01_-9.9"
+    },
+    {
+      "hotel_name": "Grand Seker",
+      "duration_bucket": "",
+      "old_price": 9155.0,
+      "new_price": 8163.0,
+      "price_change": -992.0,
+      "price_change_pct": -10.835608956854179,
+      "timestamp": "2026-10-28 06:01:11.098060+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-28T06:02:34.759189+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Grand Seker_2026-10-28_06-01_-10.8"
+    },
+    {
+      "hotel_name": "Aska Just in Beach",
+      "duration_bucket": "",
+      "old_price": 10733.0,
+      "new_price": 9211.0,
+      "price_change": -1522.0,
+      "price_change_pct": -14.180564613807883,
+      "timestamp": "2026-10-28 06:01:11.098060+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-28T06:02:34.759221+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Aska Just in Beach_2026-10-28_06-01_comeback_14.2"
+    },
+    {
+      "hotel_name": "Seher Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 10364.0,
+      "new_price": 9365.0,
+      "price_change": -999.0,
+      "price_change_pct": -9.639135468930915,
+      "timestamp": "2026-10-28 06:01:11.098060+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-28T06:02:34.759239+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Seher Resort & Spa_2026-10-28_06-01_comeback_9.6"
+    },
+    {
+      "hotel_name": "Diamond Premium",
+      "duration_bucket": "",
+      "old_price": 11072.0,
+      "new_price": 9907.0,
+      "price_change": -1165.0,
+      "price_change_pct": -10.522037572254336,
+      "timestamp": "2026-10-28 06:01:11.098060+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-28T06:02:34.759254+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Diamond Premium_2026-10-28_06-01_comeback_10.5"
+    },
+    {
+      "hotel_name": "Linda Resort (Side)",
+      "duration_bucket": "",
+      "old_price": 10444.0,
+      "new_price": 9563.0,
+      "price_change": -881.0,
+      "price_change_pct": -8.435465338950594,
+      "timestamp": "2026-10-28 06:01:11.098060+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-28T06:02:34.759267+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Linda Resort (Side)_2026-10-28_06-01_comeback_8.4"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-27T23:56:35.331771+00:00",
+    "last_processed_run": "2026-10-28T06:01:11.098060+00:00",
     "premium_state": {
       "Alaiye Resort & Spa": {
         "history_max": 9254.0,
@@ -617,6 +695,30 @@
       "Aydinbey Kings Palace": {
         "history_max": 11154.0,
         "premium_peak": 11154.0
+      },
+      "Seher Sun Palace Resort & Spa": {
+        "history_max": 9667.0,
+        "premium_peak": null
+      },
+      "Port Side Resort": {
+        "history_max": 10191.0,
+        "premium_peak": 10191.0
+      },
+      "Bosphorus Sorgun": {
+        "history_max": 10877.0,
+        "premium_peak": 10877.0
+      },
+      "Sural Resort": {
+        "history_max": 10266.0,
+        "premium_peak": 10266.0
+      },
+      "Terrace Beach Resort (Side)": {
+        "history_max": 10334.0,
+        "premium_peak": 10334.0
+      },
+      "Avia Resort & Spa": {
+        "history_max": 10368.0,
+        "premium_peak": 10368.0
       }
     }
   }
