@@ -390,17 +390,82 @@
       "created_at": "2026-10-27T19:34:27.270054+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Amarina Queen Resort_2026-10-27_19-33_zone_out_gone"
+    },
+    {
+      "hotel_name": "Jaz Palmariva Beach",
+      "duration_bucket": "",
+      "old_price": 8082.0,
+      "new_price": 8914.0,
+      "price_change": 832.0,
+      "price_change_pct": 10.294481563969313,
+      "timestamp": "2026-10-28 13:15:37.952818+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-28T13:16:20.949836+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Palmariva Beach_2026-10-28_13-15_+10.3"
+    },
+    {
+      "hotel_name": "Albatros Makadi Resort (ex Royal Pharaohs Makadi)",
+      "duration_bucket": "",
+      "old_price": 9452.0,
+      "new_price": 8206.0,
+      "price_change": -1246.0,
+      "price_change_pct": -13.182395260262378,
+      "timestamp": "2026-10-28 13:15:37.952818+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-28T13:16:20.949864+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Albatros Makadi Resort (ex Royal Pharaohs Makadi)_2026-10-28_13-15_-13.2"
+    },
+    {
+      "hotel_name": "Titanic Pearl",
+      "duration_bucket": "",
+      "old_price": 7515.0,
+      "new_price": 9777.0,
+      "price_change": 2262.0,
+      "price_change_pct": 30.099800399201598,
+      "timestamp": "2026-10-28 13:15:37.952818+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-28T13:16:20.949877+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Titanic Pearl_2026-10-28_13-15_+30.1"
+    },
+    {
+      "hotel_name": "Desert Rose Resort",
+      "duration_bucket": "",
+      "old_price": 9343.0,
+      "new_price": 9343.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-28 13:15:37.952818+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-28T13:16:20.949891+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Desert Rose Resort_2026-10-28_13-15_zone_out_gone"
+    },
+    {
+      "hotel_name": "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort)",
+      "duration_bucket": "",
+      "old_price": 7899.0,
+      "new_price": 7899.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-28 13:15:37.952818+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-28T13:16:20.949900+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort)_2026-10-28_13-15_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-28T09:50:50.210432+00:00",
+    "last_processed_run": "2026-10-28T13:15:37.952818+00:00",
     "premium_state": {
       "Albatros Makadi Resort (ex Royal Pharaohs Makadi)": {
         "history_max": 9452.0,
         "premium_peak": null
       },
       "Titanic Pearl": {
-        "history_max": 9457.0,
+        "history_max": 9777.0,
         "premium_peak": null
       },
       "Titanic Beach Spa & Aqua Park": {
@@ -456,7 +521,7 @@
         "premium_peak": null
       },
       "Jaz Palmariva Beach": {
-        "history_max": 8730.0,
+        "history_max": 8914.0,
         "premium_peak": null
       },
       "IL Mercato Splash Aqua Park": {

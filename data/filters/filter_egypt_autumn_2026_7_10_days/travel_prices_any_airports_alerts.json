@@ -650,10 +650,49 @@
       "created_at": "2026-10-28T09:52:19.873739+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Amarina Queen Resort_2026-10-28_09-51_-9.1"
+    },
+    {
+      "hotel_name": "Titanic Beach Spa & Aqua Park",
+      "duration_bucket": "",
+      "old_price": 8557.0,
+      "new_price": 6357.0,
+      "price_change": -2200.0,
+      "price_change_pct": -25.70994507420825,
+      "timestamp": "2026-10-28 13:16:24.167041+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-28T13:17:06.987512+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Titanic Beach Spa & Aqua Park_2026-10-28_13-16_-25.7"
+    },
+    {
+      "hotel_name": "Cleopatra Signature Marsa Alam",
+      "duration_bucket": "",
+      "old_price": 8653.0,
+      "new_price": 9667.0,
+      "price_change": 1014.0,
+      "price_change_pct": 11.718479140182597,
+      "timestamp": "2026-10-28 13:16:24.167041+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-28T13:17:06.987536+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Cleopatra Signature Marsa Alam_2026-10-28_13-16_+11.7"
+    },
+    {
+      "hotel_name": "Amarina Queen Resort",
+      "duration_bucket": "",
+      "old_price": 6141.0,
+      "new_price": 7456.0,
+      "price_change": 1315.0,
+      "price_change_pct": 21.413450578081747,
+      "timestamp": "2026-10-28 13:16:24.167041+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-28T13:17:06.987547+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amarina Queen Resort_2026-10-28_13-16_+21.4"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-28T09:51:36.169298+00:00",
+    "last_processed_run": "2026-10-28T13:16:24.167041+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 7863.0,
