@@ -455,10 +455,62 @@
       "created_at": "2026-10-28T13:16:20.949900+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort)_2026-10-28_13-15_zone_out_gone"
+    },
+    {
+      "hotel_name": "Fantazia Resort",
+      "duration_bucket": "",
+      "old_price": 10882.0,
+      "new_price": 9982.0,
+      "price_change": -900.0,
+      "price_change_pct": -8.27053850395148,
+      "timestamp": "2026-10-28 19:00:13.291950+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-28T19:01:01.431286+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Fantazia Resort_2026-10-28_19-00_-8.3"
+    },
+    {
+      "hotel_name": "Cleopatra Signature Marsa Alam",
+      "duration_bucket": "",
+      "old_price": 10868.0,
+      "new_price": 9968.0,
+      "price_change": -900.0,
+      "price_change_pct": -8.281192491718807,
+      "timestamp": "2026-10-28 19:00:13.291950+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-28T19:01:01.431315+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Cleopatra Signature Marsa Alam_2026-10-28_19-00_-8.3"
+    },
+    {
+      "hotel_name": "Titanic Pearl",
+      "duration_bucket": "",
+      "old_price": 9777.0,
+      "new_price": 7515.0,
+      "price_change": -2262.0,
+      "price_change_pct": -23.135931267259895,
+      "timestamp": "2026-10-28 19:00:13.291950+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-28T19:01:01.431329+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Titanic Pearl_2026-10-28_19-00_-23.1"
+    },
+    {
+      "hotel_name": "Jaz Aquamarine Resort",
+      "duration_bucket": "",
+      "old_price": 10677.0,
+      "new_price": 10677.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-28 19:00:13.291950+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-28T19:01:01.431344+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Aquamarine Resort_2026-10-28_19-00_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-28T13:15:37.952818+00:00",
+    "last_processed_run": "2026-10-28T19:00:13.291950+00:00",
     "premium_state": {
       "Albatros Makadi Resort (ex Royal Pharaohs Makadi)": {
         "history_max": 9452.0,
@@ -469,7 +521,7 @@
         "premium_peak": null
       },
       "Titanic Beach Spa & Aqua Park": {
-        "history_max": 8157.0,
+        "history_max": 9157.0,
         "premium_peak": null
       },
       "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort)": {

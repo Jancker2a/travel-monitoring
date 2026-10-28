@@ -481,10 +481,114 @@
       "created_at": "2026-10-28T13:19:59.770463+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Orange County (Kemer)_2026-10-28_13-18_zone_out_gone"
+    },
+    {
+      "hotel_name": "Mira Meridia Beach Resort",
+      "duration_bucket": "",
+      "old_price": 5553.0,
+      "new_price": 4214.0,
+      "price_change": -1339.0,
+      "price_change_pct": -24.11309202233027,
+      "timestamp": "2026-10-28 19:03:31.756724+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-28T19:05:11.318690+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Mira Meridia Beach Resort_2026-10-28_19-03_-24.1"
+    },
+    {
+      "hotel_name": "Grand Seker",
+      "duration_bucket": "",
+      "old_price": 5632.0,
+      "new_price": 6238.0,
+      "price_change": 606.0,
+      "price_change_pct": 10.759943181818182,
+      "timestamp": "2026-10-28 19:03:31.756724+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-28T19:05:11.318722+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Grand Seker_2026-10-28_19-03_+10.8"
+    },
+    {
+      "hotel_name": "Cenger Blue Collection",
+      "duration_bucket": "",
+      "old_price": 6277.0,
+      "new_price": 6277.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-28 19:03:31.756724+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-28T19:05:11.318744+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Cenger Blue Collection_2026-10-28_19-03_zone_out_gone"
+    },
+    {
+      "hotel_name": "Diamond Premium",
+      "duration_bucket": "",
+      "old_price": 6354.0,
+      "new_price": 6354.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-28 19:03:31.756724+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-28T19:05:11.318754+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Diamond Premium_2026-10-28_19-03_zone_out_gone"
+    },
+    {
+      "hotel_name": "Limak Limra",
+      "duration_bucket": "",
+      "old_price": 6239.0,
+      "new_price": 6239.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-28 19:03:31.756724+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-28T19:05:11.318763+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Limak Limra_2026-10-28_19-03_zone_out_gone"
+    },
+    {
+      "hotel_name": "Orange County Alanya",
+      "duration_bucket": "",
+      "old_price": 6334.0,
+      "new_price": 6334.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-28 19:03:31.756724+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-28T19:05:11.318771+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Orange County Alanya_2026-10-28_19-03_zone_out_gone"
+    },
+    {
+      "hotel_name": "Seher Sun Palace Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 6274.0,
+      "new_price": 6274.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-28 19:03:31.756724+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-28T19:05:11.318778+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Seher Sun Palace Resort & Spa_2026-10-28_19-03_zone_out_gone"
+    },
+    {
+      "hotel_name": "Villa Side Residence",
+      "duration_bucket": "",
+      "old_price": 6067.0,
+      "new_price": 6067.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-28 19:03:31.756724+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-28T19:05:11.318785+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Villa Side Residence_2026-10-28_19-03_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-28T13:18:33.367906+00:00",
+    "last_processed_run": "2026-10-28T19:03:31.756724+00:00",
     "premium_state": {
       "Alaiye Resort & Spa": {
         "history_max": 5724.0,
@@ -559,7 +663,7 @@
         "premium_peak": null
       },
       "Grand Seker": {
-        "history_max": 5818.0,
+        "history_max": 6238.0,
         "premium_peak": null
       },
       "Galeri Resort": {
@@ -676,6 +780,22 @@
       },
       "Gypsophila Club Marine (ex. Amara Club Marine Nature)": {
         "history_max": 6138.0,
+        "premium_peak": null
+      },
+      "Turan Prince": {
+        "history_max": 6012.0,
+        "premium_peak": null
+      },
+      "Monachus Family Resort Sorgun": {
+        "history_max": 5867.0,
+        "premium_peak": null
+      },
+      "Seven Seas Palmeras Bay": {
+        "history_max": 5761.0,
+        "premium_peak": null
+      },
+      "Marvida Family Eco": {
+        "history_max": 5428.0,
         "premium_peak": null
       }
     }
