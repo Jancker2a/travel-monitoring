@@ -1404,10 +1404,88 @@
       "created_at": "2026-10-28T19:01:35.340315+00:00",
       "threshold_percent": 8.0,
       "unique_key": "V Grand Beach Resort Sahl Hasheesh_2026-10-28_19-00_zone_out_gone"
+    },
+    {
+      "hotel_name": "Dreams Beach Sharm Resort (Sharm El Sheikh)",
+      "duration_bucket": "",
+      "old_price": 7438.0,
+      "new_price": 8244.0,
+      "price_change": 806.0,
+      "price_change_pct": 10.836246302769561,
+      "timestamp": "2026-10-28 23:23:28.480289+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-28T23:24:44.991966+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Dreams Beach Sharm Resort (Sharm El Sheikh)_2026-10-28_23-23_+10.8"
+    },
+    {
+      "hotel_name": "Swisstouch Oriental Resort (ex. Hotelux Oriental Coast)",
+      "duration_bucket": "",
+      "old_price": 8063.0,
+      "new_price": 6973.0,
+      "price_change": -1090.0,
+      "price_change_pct": -13.518541485799329,
+      "timestamp": "2026-10-28 23:23:28.480289+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-28T23:24:44.992025+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Swisstouch Oriental Resort (ex. Hotelux Oriental Coast)_2026-10-28_23-23_-13.5"
+    },
+    {
+      "hotel_name": "Rewaya Luxury Resort",
+      "duration_bucket": "",
+      "old_price": 7717.0,
+      "new_price": 7040.0,
+      "price_change": -677.0,
+      "price_change_pct": -8.77283918621226,
+      "timestamp": "2026-10-28 23:23:28.480289+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-28T23:24:44.992042+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Luxury Resort_2026-10-28_23-23_-8.8"
+    },
+    {
+      "hotel_name": "Rewaya Majestic Resort",
+      "duration_bucket": "",
+      "old_price": 7916.0,
+      "new_price": 7176.0,
+      "price_change": -740.0,
+      "price_change_pct": -9.348155634158665,
+      "timestamp": "2026-10-28 23:23:28.480289+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-28T23:24:44.992049+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Majestic Resort_2026-10-28_23-23_-9.3"
+    },
+    {
+      "hotel_name": "Naama Bay Promenade Mountain Resort",
+      "duration_bucket": "",
+      "old_price": 8307.0,
+      "new_price": 8307.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-28 23:23:28.480289+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-28T23:24:44.992064+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Naama Bay Promenade Mountain Resort_2026-10-28_23-23_zone_out_gone"
+    },
+    {
+      "hotel_name": "Pickalbatros Laguna Club Resort",
+      "duration_bucket": "",
+      "old_price": 8337.0,
+      "new_price": 8337.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-28 23:23:28.480289+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-28T23:24:44.992072+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Laguna Club Resort_2026-10-28_23-23_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-28T19:00:14.595395+00:00",
+    "last_processed_run": "2026-10-28T23:23:28.480289+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 7742.0,
@@ -1470,7 +1548,7 @@
         "premium_peak": null
       },
       "Gemma Resort (ex. Labranda Gemma Premium Resort)": {
-        "history_max": 8005.0,
+        "history_max": 8075.0,
         "premium_peak": null
       },
       "Sirena Beach Resort & Spa": {
@@ -1514,7 +1592,7 @@
         "premium_peak": null
       },
       "Charmillion Club Aqua Park": {
-        "history_max": 7941.0,
+        "history_max": 8038.0,
         "premium_peak": null
       },
       "Dream Lagoon & Aqua Park Resort (ex. Floriana Dream Lagoon)": {
@@ -1538,7 +1616,7 @@
         "premium_peak": null
       },
       "Jaz Mirabel Beach Resort": {
-        "history_max": 8158.0,
+        "history_max": 8281.0,
         "premium_peak": null
       },
       "Sea Star Beau Rivage": {
@@ -1594,11 +1672,11 @@
         "premium_peak": null
       },
       "Dreams Beach Sharm Resort (Sharm El Sheikh)": {
-        "history_max": 7438.0,
+        "history_max": 8244.0,
         "premium_peak": null
       },
       "Charmillion Garden Aqua Park": {
-        "history_max": 7851.0,
+        "history_max": 8187.0,
         "premium_peak": null
       }
     }

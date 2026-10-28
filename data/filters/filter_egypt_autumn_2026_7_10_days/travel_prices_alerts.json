@@ -507,10 +507,62 @@
       "created_at": "2026-10-28T19:01:01.431344+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Jaz Aquamarine Resort_2026-10-28_19-00_zone_out_gone"
+    },
+    {
+      "hotel_name": "Royal Regency Club",
+      "duration_bucket": "",
+      "old_price": 9181.0,
+      "new_price": 10978.0,
+      "price_change": 1797.0,
+      "price_change_pct": 19.57303126021131,
+      "timestamp": "2026-10-28 23:23:28.622153+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-28T23:24:14.859400+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Royal Regency Club_2026-10-28_23-23_+19.6"
+    },
+    {
+      "hotel_name": "Parrotel Lagoon Resort",
+      "duration_bucket": "",
+      "old_price": 7456.0,
+      "new_price": 8813.0,
+      "price_change": 1357.0,
+      "price_change_pct": 18.20010729613734,
+      "timestamp": "2026-10-28 23:23:28.622153+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-28T23:24:14.859436+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Parrotel Lagoon Resort_2026-10-28_23-23_+18.2"
+    },
+    {
+      "hotel_name": "Cleopatra Signature Marsa Alam",
+      "duration_bucket": "",
+      "old_price": 9968.0,
+      "new_price": 8468.0,
+      "price_change": -1500.0,
+      "price_change_pct": -15.048154093097912,
+      "timestamp": "2026-10-28 23:23:28.622153+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-28T23:24:14.859451+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Cleopatra Signature Marsa Alam_2026-10-28_23-23_-15.0"
+    },
+    {
+      "hotel_name": "IL Mercato Splash Aqua Park",
+      "duration_bucket": "",
+      "old_price": 7885.0,
+      "new_price": 9338.0,
+      "price_change": 1453.0,
+      "price_change_pct": 18.42739378566899,
+      "timestamp": "2026-10-28 23:23:28.622153+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-28T23:24:14.859462+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "IL Mercato Splash Aqua Park_2026-10-28_23-23_+18.4"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-28T19:00:13.291950+00:00",
+    "last_processed_run": "2026-10-28T23:23:28.622153+00:00",
     "premium_state": {
       "Albatros Makadi Resort (ex Royal Pharaohs Makadi)": {
         "history_max": 9452.0,
@@ -533,7 +585,7 @@
         "premium_peak": null
       },
       "Royal Regency Club": {
-        "history_max": 9181.0,
+        "history_max": 10978.0,
         "premium_peak": null
       },
       "Rewaya Luxury Resort": {
@@ -549,7 +601,7 @@
         "premium_peak": null
       },
       "Parrotel Lagoon Resort": {
-        "history_max": 7456.0,
+        "history_max": 8813.0,
         "premium_peak": null
       },
       "Novotel Marsa Alam": {
@@ -577,7 +629,7 @@
         "premium_peak": null
       },
       "IL Mercato Splash Aqua Park": {
-        "history_max": 7885.0,
+        "history_max": 9338.0,
         "premium_peak": null
       },
       "Fantazia Resort": {
