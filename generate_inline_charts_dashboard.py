@@ -3294,66 +3294,78 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         print(f"💎 Дороже потолка показа (>{ceiling_val:.0f} PLN, только в истории): {skipped_above_ceiling}")
     print(f"🧹 Таблица отфильтрована по последнему рану: {len(all_hotels)} актуальных отелей")
 
+    # ── Config & Module Toggles ──────────────────────────────────────────────
+    _cfg_data = {}
+    if config_file and os.path.exists(config_file):
+        try:
+            with open(config_file, 'r', encoding='utf-8') as _cf:
+                _cfg_data = json.load(_cf)
+        except Exception:
+            _cfg_data = {}
+    _cfg_modules = _cfg_data.get('modules') or {}
+    _is_early_booking = bool(_cfg_data.get('early_booking_tracking')) or (_cfg_data.get('group') == 'early_booking')
+
     # ── Hopper Prediction Engine Enrichment ──────────────────────────────────
-    if not all_hotels.empty:
+    run_hopper = (not _is_early_booking) and bool(_cfg_modules.get('hopper_predictor', True))
+    if not all_hotels.empty and run_hopper:
         try:
             hist_input = df_history if (df_history is not None and not df_history.empty) else df_canonical
             all_hotels = batch_predict_offers(all_hotels, history_df=hist_input)
             print(f"🔮 Hopper Engine: рассчитаны прогнозы для {len(all_hotels)} отелей")
         except Exception as e:
             print(f"⚠️ Hopper Engine calculation failed: {e}")
+    elif _is_early_booking:
+        print("⏭️ Hopper Engine: отключен для раннего бронирования (D > 60 дн.)")
 
     # ── Cross-Border Arbitrage Engine (Poland vs Germany) ────────────────────
     arbitrage_matches = []
     arbitrage_by_hotel = {}
-    dest_str = str(data_file or "") + " " + str(config_file or "") + " " + str(title or "")
-    if config_file and os.path.exists(config_file):
-        try:
-            with open(config_file, 'r', encoding='utf-8') as _cf:
-                _cfg_data = json.load(_cf)
-                dest_str += " " + str(_cfg_data.get('url', ''))
-                dest_str += " " + str(_cfg_data.get('description', ''))
-                dest_str += " " + " ".join(_cfg_data.get('required_offer_url_contains', []))
-                dest_str += " " + str(_cfg_data.get('data_dir', ''))
-        except Exception:
-            pass
-    dest_str = dest_str.lower()
+    run_arbitrage = (not _is_early_booking) and bool(_cfg_modules.get('arbitrage_germany', True))
+    if run_arbitrage:
+        dest_str = str(data_file or "") + " " + str(config_file or "") + " " + str(title or "")
+        dest_str += " " + str(_cfg_data.get('url', ''))
+        dest_str += " " + str(_cfg_data.get('description', ''))
+        dest_str += " " + " ".join(_cfg_data.get('required_offer_url_contains', []))
+        dest_str += " " + str(_cfg_data.get('data_dir', ''))
+        dest_str = dest_str.lower()
 
-    if any(k in dest_str for k in ["sharm", "11_154", "шарм"]):
-        dest_code = "egypt_sharm"
-    elif any(k in dest_str for k in ["egypt", "egipt", "египет", "хургада", "hurghada", "11:", "11_"]):
-        dest_code = "egypt"
-    elif any(k in dest_str for k in ["greece", "grecja", "греция", "kreta", "крит", "rhodes", "rodos", "родос", "14:", "14_"]):
-        dest_code = "greece"
-    elif any(k in dest_str for k in ["turkey", "turcja", "турция", "antalya", "анталья", "анталия", "39:", "39_"]):
-        dest_code = "turkey"
-    else:
-        dest_code = "turkey"
-    try:
-        de_client = GermanyTourClient()
-        cur_data_dir = os.path.dirname(os.path.abspath(data_file)) if data_file else None
-        filter_de_csv = os.path.join(cur_data_dir, "germany_prices.csv") if cur_data_dir else None
-        de_packages = de_client.fetch_destination_packages(
-            dest_code, ["BER", "DRS"], use_mock_fallback=True, csv_path=filter_de_csv
-        )
-        arb_engine = CrossBorderArbitrageEngine()
-        if 'df_canonical' in locals() and not df_canonical.empty:
-            canonical_latest = (
-                df_canonical.sort_values('scraped_at')
-                .groupby('hotel_name', as_index=False)
-                .last()
-            )
-            arb_pl_candidates = canonical_latest.to_dict('records')
+        if any(k in dest_str for k in ["sharm", "11_154", "шарм"]):
+            dest_code = "egypt_sharm"
+        elif any(k in dest_str for k in ["egypt", "egipt", "египет", "хургада", "hurghada", "11:", "11_"]):
+            dest_code = "egypt"
+        elif any(k in dest_str for k in ["greece", "grecja", "греция", "kreta", "крит", "rhodes", "rodos", "родос", "14:", "14_"]):
+            dest_code = "greece"
+        elif any(k in dest_str for k in ["turkey", "turcja", "турция", "antalya", "анталья", "анталия", "39:", "39_"]):
+            dest_code = "turkey"
         else:
-            arb_pl_candidates = all_hotels
+            dest_code = "turkey"
+        try:
+            de_client = GermanyTourClient()
+            cur_data_dir = os.path.dirname(os.path.abspath(data_file)) if data_file else None
+            filter_de_csv = os.path.join(cur_data_dir, "germany_prices.csv") if cur_data_dir else None
+            de_packages = de_client.fetch_destination_packages(
+                dest_code, ["BER", "DRS"], use_mock_fallback=True, csv_path=filter_de_csv
+            )
+            arb_engine = CrossBorderArbitrageEngine()
+            if 'df_canonical' in locals() and not df_canonical.empty:
+                canonical_latest = (
+                    df_canonical.sort_values('scraped_at')
+                    .groupby('hotel_name', as_index=False)
+                    .last()
+                )
+                arb_pl_candidates = canonical_latest.to_dict('records')
+            else:
+                arb_pl_candidates = all_hotels
 
-        arbitrage_matches = arb_engine.compare_offers(arb_pl_candidates, de_packages)
-        for m in arbitrage_matches:
-            if m.spread_pln > 0 and m.hotel_name_pl not in arbitrage_by_hotel:
-                arbitrage_by_hotel[m.hotel_name_pl] = m
-        print(f"🌍 Cross-Border Arbitrage: найдено {len(arbitrage_matches)} совпадений ({len(arbitrage_by_hotel)} выгоднее в Германии)")
-    except Exception as e:
-        print(f"⚠️ Cross-Border Arbitrage skipped: {e}")
+            arbitrage_matches = arb_engine.compare_offers(arb_pl_candidates, de_packages)
+            for m in arbitrage_matches:
+                if m.spread_pln > 0 and m.hotel_name_pl not in arbitrage_by_hotel:
+                    arbitrage_by_hotel[m.hotel_name_pl] = m
+            print(f"🌍 Cross-Border Arbitrage: найдено {len(arbitrage_matches)} совпадений ({len(arbitrage_by_hotel)} выгоднее в Германии)")
+        except Exception as e:
+            print(f"⚠️ Cross-Border Arbitrage skipped: {e}")
+    elif _is_early_booking:
+        print("⏭️ Cross-Border Arbitrage: отключен для раннего бронирования")
 
     if not reputation_kb_data:
         reputation_kb_data = {}
@@ -3366,81 +3378,85 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             pass
 
     oracle_report = None
-    try:
-        if synthesize_market_oracle and data_file and os.path.exists(data_file):
-            oracle_cache_file = os.path.join(os.path.dirname(data_file), "ai_market_oracle_report.json")
-            force_ai = bool(force_ai or os.getenv("FORCE_AI_ANALYSIS", "").strip().lower() in ("true", "1", "yes"))
-            print(f"🔄 AI Market Oracle mode: force_ai={force_ai} (flag={force_ai}, env='{os.getenv('FORCE_AI_ANALYSIS', '')}')")
+    run_oracle = (not _is_early_booking) and bool(_cfg_modules.get('ai_market_oracle', True))
+    if run_oracle:
+        try:
+            if synthesize_market_oracle and data_file and os.path.exists(data_file):
+                oracle_cache_file = os.path.join(os.path.dirname(data_file), "ai_market_oracle_report.json")
+                force_ai = bool(force_ai or os.getenv("FORCE_AI_ANALYSIS", "").strip().lower() in ("true", "1", "yes"))
+                print(f"🔄 AI Market Oracle mode: force_ai={force_ai} (flag={force_ai}, env='{os.getenv('FORCE_AI_ANALYSIS', '')}')")
 
-            if force_ai:
-                oracle_report = None
-                print(f"🚀 FORCE_AI_ANALYSIS active: принудительный сброс кэша для {oracle_cache_file}")
-                if os.path.exists(oracle_cache_file):
+                if force_ai:
+                    oracle_report = None
+                    print(f"🚀 FORCE_AI_ANALYSIS active: принудительный сброс кэша для {oracle_cache_file}")
+                    if os.path.exists(oracle_cache_file):
+                        try:
+                            os.remove(oracle_cache_file)
+                            print(f"✓ Кэш-файл {oracle_cache_file} удален.")
+                        except Exception as e:
+                            print(f"⚠️ Не удалось удалить кэш-файл {oracle_cache_file}: {e}")
+
+                # Determine accurate country label and filter ID
+                cfg_oracle = load_filter_config(data_file, config_file)
+                c_label = _country_label(cfg_oracle, cfg_oracle.get("url", "")) if cfg_oracle else ""
+
+                full_oracle_title = title
+                if c_label and c_label not in ("—", "") and c_label.lower() not in (title or "").lower():
+                    full_oracle_title = f"{c_label} • {title}"
+
+                filter_id_str = os.path.basename(os.path.dirname(data_file))
+
+                # Reuse cached AI briefing if generated less than 6 hours ago AND country matches
+                if os.path.exists(oracle_cache_file) and not force_ai:
                     try:
-                        os.remove(oracle_cache_file)
-                        print(f"✓ Кэш-файл {oracle_cache_file} удален.")
-                    except Exception as e:
-                        print(f"⚠️ Не удалось удалить кэш-файл {oracle_cache_file}: {e}")
+                        cache_age_sec = time.time() - os.path.getmtime(oracle_cache_file)
+                        if cache_age_sec < 6 * 3600:
+                            with open(oracle_cache_file, "r", encoding="utf-8") as f:
+                                cached_res = json.load(f)
+                            if cached_res and "macro_briefing" in cached_res:
+                                # Sanity check: invalidate if cached report talks about Turkey when filter is Egypt/Greece/Cyprus!
+                                cached_text = str(cached_res["macro_briefing"]).lower()
+                                is_country_mismatch = False
+                                if c_label == "Египет" and "турци" in cached_text:
+                                    is_country_mismatch = True
+                                elif c_label == "Греция" and "турци" in cached_text:
+                                    is_country_mismatch = True
+                                elif c_label == "Кипр" and "турци" in cached_text:
+                                    is_country_mismatch = True
 
-            # Determine accurate country label and filter ID
-            cfg_oracle = load_filter_config(data_file, config_file)
-            c_label = _country_label(cfg_oracle, cfg_oracle.get("url", "")) if cfg_oracle else ""
-
-            full_oracle_title = title
-            if c_label and c_label not in ("—", "") and c_label.lower() not in (title or "").lower():
-                full_oracle_title = f"{c_label} • {title}"
-
-            filter_id_str = os.path.basename(os.path.dirname(data_file))
-
-            # Reuse cached AI briefing if generated less than 6 hours ago AND country matches
-            if os.path.exists(oracle_cache_file) and not force_ai:
-                try:
-                    cache_age_sec = time.time() - os.path.getmtime(oracle_cache_file)
-                    if cache_age_sec < 6 * 3600:
-                        with open(oracle_cache_file, "r", encoding="utf-8") as f:
-                            cached_res = json.load(f)
-                        if cached_res and "macro_briefing" in cached_res:
-                            # Sanity check: invalidate if cached report talks about Turkey when filter is Egypt/Greece/Cyprus!
-                            cached_text = str(cached_res["macro_briefing"]).lower()
-                            is_country_mismatch = False
-                            if c_label == "Египет" and "турци" in cached_text:
-                                is_country_mismatch = True
-                            elif c_label == "Греция" and "турци" in cached_text:
-                                is_country_mismatch = True
-                            elif c_label == "Кипр" and "турци" in cached_text:
-                                is_country_mismatch = True
-
-                            if not is_country_mismatch:
-                                oracle_report = cached_res
-                                print(f"🧠 AI Market Oracle: отчет загружен из кэша (возраст {cache_age_sec / 3600:.1f} ч)")
-                            else:
-                                print(f"🔄 AI Market Oracle: сброс старого кэша из-за несовпадения страны ({c_label} vs кэш)")
-                except Exception as e:
-                    pass
-
-            if not oracle_report:
-                dna_path = "market_dna_profile.json"
-                if not os.path.exists(dna_path):
-                    from build_market_dna import build_market_dna
-                    dna_res = build_market_dna()
-                    if dna_res:
-                        with open(dna_path, "w", encoding="utf-8") as f:
-                            json.dump(dna_res, f, ensure_ascii=False, indent=2)
-                oracle_report = synthesize_market_oracle(
-                    data_file,
-                    dna_profile_path=dna_path,
-                    filter_title=full_oracle_title,
-                    filter_id=filter_id_str,
-                )
-                if oracle_report and "macro_briefing" in oracle_report:
-                    print(f"🧠 AI Market Oracle: свежий отчет успешно сгенерирован ({len(oracle_report.get('hotel_dossiers', {}))} досье)")
-                    try:
-                        with open(oracle_cache_file, "w", encoding="utf-8") as f:
-                            json.dump(oracle_report, f, ensure_ascii=False, indent=2)
+                                if not is_country_mismatch:
+                                    oracle_report = cached_res
+                                    print(f"🧠 AI Market Oracle: отчет загружен из кэша (возраст {cache_age_sec / 3600:.1f} ч)")
+                                else:
+                                    print(f"🔄 AI Market Oracle: сброс старого кэша из-за несовпадения страны ({c_label} vs кэш)")
                     except Exception as e:
                         pass
-    except Exception as e:
-        print(f"⚠️ AI Market Oracle skipped: {e}")
+
+                if not oracle_report:
+                    dna_path = "market_dna_profile.json"
+                    if not os.path.exists(dna_path):
+                        from build_market_dna import build_market_dna
+                        dna_res = build_market_dna()
+                        if dna_res:
+                            with open(dna_path, "w", encoding="utf-8") as f:
+                                json.dump(dna_res, f, ensure_ascii=False, indent=2)
+                    oracle_report = synthesize_market_oracle(
+                        data_file,
+                        dna_profile_path=dna_path,
+                        filter_title=full_oracle_title,
+                        filter_id=filter_id_str,
+                    )
+                    if oracle_report and "macro_briefing" in oracle_report:
+                        print(f"🧠 AI Market Oracle: свежий отчет успешно сгенерирован ({len(oracle_report.get('hotel_dossiers', {}))} досье)")
+                        try:
+                            with open(oracle_cache_file, "w", encoding="utf-8") as f:
+                                json.dump(oracle_report, f, ensure_ascii=False, indent=2)
+                        except Exception as e:
+                            pass
+        except Exception as e:
+            print(f"⚠️ AI Market Oracle skipped: {e}")
+    elif _is_early_booking:
+        print("⏭️ AI Market Oracle: отключен для раннего бронирования (используется First Minute EBAS анализ)")
 
 
     #
