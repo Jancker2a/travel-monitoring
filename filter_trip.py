@@ -241,15 +241,13 @@ def check_early_booking_skip_reason(
     return ""
 
 
-def skip_monitor_reason(
-    config: Dict[str, Any],
-    *,
-    today: Optional[date] = None,
-    now: Optional[datetime] = None,
-    base_dir: Optional[str] = None,
-    config_path: Optional[str] = None,
-) -> str:
-    """Human-readable reason to skip scraping, or empty string."""
+def is_config_archived(config: Dict[str, Any], *, today: Optional[date] = None) -> bool:
+    """True if config is permanently archived, retired, or departure window expired."""
+    return bool(archive_reason(config, today=today))
+
+
+def archive_reason(config: Dict[str, Any], *, today: Optional[date] = None) -> str:
+    """Human-readable reason if filter is permanently archived/retired, or empty string."""
     if bool(config.get("archived")):
         return "в архиве"
     if is_filter_retired(config, today=today):
@@ -261,6 +259,21 @@ def skip_monitor_reason(
             f"(anchor {config.get('trip_anchor_date')} ± "
             f"{config.get('trip_departure_slip_days', 7)} дн., до {end})"
         )
+    return ""
+
+
+def skip_monitor_reason(
+    config: Dict[str, Any],
+    *,
+    today: Optional[date] = None,
+    now: Optional[datetime] = None,
+    base_dir: Optional[str] = None,
+    config_path: Optional[str] = None,
+) -> str:
+    """Human-readable reason to skip scraping on this cycle, or empty string."""
+    arch = archive_reason(config, today=today)
+    if arch:
+        return arch
     actual_base_dir = base_dir
     if not actual_base_dir and config_path:
         actual_base_dir = os.path.dirname(os.path.abspath(config_path))

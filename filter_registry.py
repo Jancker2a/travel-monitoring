@@ -8,7 +8,7 @@ import json
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
-from filter_trip import should_skip_monitor_config
+from filter_trip import should_skip_monitor_config, is_config_archived, load_config_json
 
 FILTER_GROUPS = [
     {
@@ -399,7 +399,14 @@ def is_filter_archived(flt: Dict[str, Any], *, today: Optional[date] = None) -> 
     config_path = str(flt.get('config') or '').strip()
     if not config_path:
         return False
-    return should_skip_monitor_config(config_path, today=today)
+    cfg_file = ROOT / config_path if not Path(config_path).is_absolute() else Path(config_path)
+    if not cfg_file.is_file():
+        return False
+    try:
+        cfg = load_config_json(str(cfg_file))
+        return is_config_archived(cfg, today=today)
+    except Exception:
+        return False
 
 
 def should_scrape_filter(flt: Dict[str, Any], *, today: Optional[date] = None) -> bool:
