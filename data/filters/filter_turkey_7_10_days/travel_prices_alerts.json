@@ -663,10 +663,114 @@
       "created_at": "2026-10-29T06:06:13.833567+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Wyndham Istanbul Old City (ex. Celal Aga Konagi)_2026-10-29_06-04_zone_out_gone"
+    },
+    {
+      "hotel_name": "Palmeras Beach",
+      "duration_bucket": "",
+      "old_price": 5608.0,
+      "new_price": 5062.0,
+      "price_change": -546.0,
+      "price_change_pct": -9.736091298145507,
+      "timestamp": "2026-10-29 11:52:13.689092+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-29T11:53:38.165804+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Palmeras Beach_2026-10-29_11-52_-9.7"
+    },
+    {
+      "hotel_name": "Alaiye Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 5724.0,
+      "new_price": 4117.0,
+      "price_change": -1607.0,
+      "price_change_pct": -28.07477288609364,
+      "timestamp": "2026-10-29 11:52:13.689092+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-29T11:53:38.165827+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Alaiye Resort & Spa_2026-10-29_11-52_-28.1"
+    },
+    {
+      "hotel_name": "Limak Limra",
+      "duration_bucket": "",
+      "old_price": 5973.0,
+      "new_price": 5313.0,
+      "price_change": -660.0,
+      "price_change_pct": -11.049723756906078,
+      "timestamp": "2026-10-29 11:52:13.689092+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-29T11:53:38.165836+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Limak Limra_2026-10-29_11-52_-11.0"
+    },
+    {
+      "hotel_name": "Aska Just in Beach",
+      "duration_bucket": "",
+      "old_price": 6286.0,
+      "new_price": 6286.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-29 11:52:13.689092+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-29T11:53:38.165850+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Aska Just in Beach_2026-10-29_11-52_zone_out_gone"
+    },
+    {
+      "hotel_name": "Cenger Blue Collection",
+      "duration_bucket": "",
+      "old_price": 6277.0,
+      "new_price": 6277.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-29 11:52:13.689092+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-29T11:53:38.165856+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Cenger Blue Collection_2026-10-29_11-52_zone_out_gone"
+    },
+    {
+      "hotel_name": "Miarosa Beach (Kemer)",
+      "duration_bucket": "",
+      "old_price": 6259.0,
+      "new_price": 6259.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-29 11:52:13.689092+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-29T11:53:38.165862+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Miarosa Beach (Kemer)_2026-10-29_11-52_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sensitive Premium Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 6250.0,
+      "new_price": 6250.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-29 11:52:13.689092+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-29T11:53:38.165868+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sensitive Premium Resort & Spa_2026-10-29_11-52_zone_out_gone"
+    },
+    {
+      "hotel_name": "Xoria Deluxe",
+      "duration_bucket": "",
+      "old_price": 6169.0,
+      "new_price": 6169.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-29 11:52:13.689092+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-29T11:53:38.165873+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xoria Deluxe_2026-10-29_11-52_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-29T06:04:53.915864+00:00",
+    "last_processed_run": "2026-10-29T11:52:13.689092+00:00",
     "premium_state": {
       "Alaiye Resort & Spa": {
         "history_max": 5724.0,
@@ -874,6 +978,26 @@
       },
       "Marvida Family Eco": {
         "history_max": 5428.0,
+        "premium_peak": null
+      },
+      "Side Prenses": {
+        "history_max": 5196.0,
+        "premium_peak": null
+      },
+      "Royal Garden Beach (ex Royal Garden Select & Suite)": {
+        "history_max": 5882.0,
+        "premium_peak": null
+      },
+      "Mediterra Art": {
+        "history_max": 6000.0,
+        "premium_peak": null
+      },
+      "VONResort Golden Beach": {
+        "history_max": 5274.0,
+        "premium_peak": null
+      },
+      "Adora Hotel & Resort (ex. Adora Golf)": {
+        "history_max": 5958.0,
         "premium_peak": null
       }
     }
