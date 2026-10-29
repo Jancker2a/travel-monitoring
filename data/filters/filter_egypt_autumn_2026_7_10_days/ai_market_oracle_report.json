@@ -2,9 +2,9 @@
   "macro_briefing": {
     "headline": "Срочные вылеты сегодня: 29.10.2026, Египет",
     "market_phase": "Срочные вылеты сегодня",
-    "charter_dynamics": "Туры на 8–9 ночей в Египет стоят от 6 377 zł до 10 978 zł. На сегодня доступны 23 рейса с вылетом, следующий спокойный вылет — 29.10.",
+    "charter_dynamics": "Туры на 8 ночей в Египет стоят от 6 030 zł до 10 978 zł. На сегодня доступны 28 рейсов, следующий спокойный вылет — 30.10.",
     "floor_status": "Лишь 0% отелей на минимуме цен.",
-    "strategic_directive": "Если вы готовы вылететь сегодня, берите сейчас. Для спокойной поездки лучше подождать до следующего рейса.",
+    "strategic_directive": "Если готовы выехать сегодня, берите сейчас. Для спокойной поездки планируйте вылет на 30.10.",
     "buy_now_recommendation": {
       "has_worthy_deals": true,
       "headline": "Стоит выбрать из этих вариантов:",
@@ -14,14 +14,7 @@
           "hotel_name": "Albatros Makadi Resort (ex Royal Pharaohs Makadi)",
           "price": 8206.0,
           "badge": "💎 Жемчужина",
-          "why_buy": "Отличный рейтинг 4.5★ и цена ниже медианы на 20%.",
-          "rating": 4.5
-        },
-        {
-          "hotel_name": "Jaz Palmariva Beach",
-          "price": 8914.0,
-          "badge": "💎 Жемчужина",
-          "why_buy": "Проверенный отель с высоким рейтингом 4.5★ и хорошими отзывами.",
+          "why_buy": "Отличный рейтинг 4.5★ и подогреваемый бассейн. Цена ниже сезонной медианы на 20%.",
           "rating": 4.5
         }
       ]
@@ -33,20 +26,33 @@
         "text": "Рейтинг 4.5★ в категории 5★ всего за 8,206 zł (дешевле аналогов)."
       },
       {
-        "type": "duration",
-        "title": "⏳ Выгодная длительность: 10 дн.",
-        "text": "Доплата за отдых 10 дн. вместо 8 дн. составляет 481 zł (240 zł в день)"
-      },
-      {
         "type": "arbitrage",
-        "title": "✈️ Разница вылетов: Warszawa - Okęcie vs Warszawa - Modlin",
-        "text": "Вылет из Warszawa - Okęcie в среднем на 451 zł дешевле, чем из Warszawa - Modlin"
+        "title": "✈️ Разница вылетов: Katowice vs Warszawa - Modlin",
+        "text": "Вылет из Katowice в среднем на 1,281 zł дешевле, чем из Warszawa - Modlin"
       }
     ],
     "synthesized_by": "OpenAI (gpt-4o-mini)",
     "filter_title": "Египет • осень 2026 • 7–10 дн."
   },
   "hotel_dossiers": {
+    "ALBATROS MAKADI RESORT": {
+      "verdict": "BUY_NOW",
+      "badge_text": "🟢 ПОКУПАТЬ",
+      "rationale": "Цена 7,908 zł — на самом дне за всё время наблюдений (7,908 zł).",
+      "risk_assessment": "Следите за доступностью номеров перед вылетом.",
+      "action_advice": "Отличный момент для покупки, дешевле уже вряд ли будет.",
+      "booking_window_badge": "🔥 Горящий тур: вылет сегодня!",
+      "booking_window_class": "panic",
+      "booking_window_tip": "Срочный вылет (0 дн.), туроператор сбрасывает оставшиеся места на рейсе.",
+      "fair_price_badge": "",
+      "fair_price_class": "",
+      "fair_price_tip": "",
+      "gem_badge": "",
+      "gem_tip": "",
+      "flash_drop_badge": "",
+      "flash_drop_tip": "",
+      "dupe_suggestion": null
+    },
     "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
       "verdict": "GOOD_PRICE",
       "badge_text": "🔵 ХОРОШАЯ ЦЕНА",
@@ -191,6 +197,24 @@
       "flash_drop_tip": "",
       "dupe_suggestion": null
     },
+    "JAZ PALMARIVA BEACH": {
+      "verdict": "BUY_NOW",
+      "badge_text": "🟢 ПОКУПАТЬ",
+      "rationale": "Цена 8,083 zł — на самом дне за всё время наблюдений (8,083 zł).",
+      "risk_assessment": "Следите за доступностью номеров перед вылетом.",
+      "action_advice": "Отличный момент для покупки, дешевле уже вряд ли будет.",
+      "booking_window_badge": "🔥 Горящий тур: вылет сегодня!",
+      "booking_window_class": "panic",
+      "booking_window_tip": "Срочный вылет (0 дн.), туроператор сбрасывает оставшиеся места на рейсе.",
+      "fair_price_badge": "",
+      "fair_price_class": "",
+      "fair_price_tip": "",
+      "gem_badge": "",
+      "gem_tip": "",
+      "flash_drop_badge": "",
+      "flash_drop_tip": "",
+      "dupe_suggestion": null
+    },
     "Jasmine Palace": {
       "verdict": "GOOD_PRICE",
       "badge_text": "🔵 ХОРОШАЯ ЦЕНА",
@@ -239,8 +263,26 @@
       "fair_price_badge": "",
       "fair_price_class": "",
       "fair_price_tip": "",
-      "gem_badge": "💎 Скрытая жемчужина",
-      "gem_tip": "Высокий рейтинг (4.5★, 2800 отз.) при цене в бюджетном сегменте 5★ (8,914 zł).",
+      "gem_badge": "",
+      "gem_tip": "",
+      "flash_drop_badge": "",
+      "flash_drop_tip": "",
+      "dupe_suggestion": null
+    },
+    "NOVOTEL MARSA ALAM": {
+      "verdict": "BUY_NOW",
+      "badge_text": "🟢 ПОКУПАТЬ",
+      "rationale": "Цена 6,030 zł — на самом дне за всё время наблюдений (6,030 zł).",
+      "risk_assessment": "Следите за доступностью номеров перед вылетом.",
+      "action_advice": "Отличный момент для покупки, дешевле уже вряд ли будет.",
+      "booking_window_badge": "🔥 Горящий тур: вылет сегодня!",
+      "booking_window_class": "panic",
+      "booking_window_tip": "Срочный вылет (0 дн.), туроператор сбрасывает оставшиеся места на рейсе.",
+      "fair_price_badge": "🔥 −18% к равным эконом 4★",
+      "fair_price_class": "fair-underpriced",
+      "fair_price_tip": "Цена на 18% ниже медианы равных отелей сегмента эконом 4★ (7,357 zł) и не превышает обычную цену отеля (6,030 zł).",
+      "gem_badge": "",
+      "gem_tip": "",
       "flash_drop_badge": "",
       "flash_drop_tip": "",
       "dupe_suggestion": null
@@ -364,7 +406,7 @@
       "booking_window_tip": "Окно максимальных скидок (D-30+) уже прошло. Текущий день: D-0.",
       "fair_price_badge": "⚠️ Дороже обычного",
       "fair_price_class": "fair-overpriced",
-      "fair_price_tip": "Цена на +10% отличается от сопоставимых отелей сегмента премиум 4★ (9,951 zł) или превышает историческую норму отеля (9,405 zł).",
+      "fair_price_tip": "Цена на +11% отличается от сопоставимых отелей сегмента премиум 4★ (9,920 zł) или превышает историческую норму отеля (9,405 zł).",
       "gem_badge": "",
       "gem_tip": "",
       "flash_drop_badge": "",
@@ -377,6 +419,24 @@
         "rating": 4.5,
         "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/harmony-makadi-bay/ppf9YkQPDJ6NoqASQ56pXDAAoglBiTW7wQUW0P1KVRmhSy9wAAAAAaiAQAUboEAAcAGAAqBFdFWlkw5MKL1wZIjkBQQVj6__________8BYANqE0xPVCBQb2xpc2ggQWlybGluZXNqBDA3NDVyQp4BkwEfABwBAgAWBBcCEUcSpgMViQcUChjUAkDGc0zLMk8AS5yTAVAAHZLJDyC3ZBvElR4NkMejCQESYwENYwECDHsvrVQ/?operator=WEZY&adults=2&children=2020-12-10&objectId=565&durationFrom=7&durationTo=10&departureDate=2026-10-29&returnDate=2026-11-05&departureLocation=Warszawa&catering=all_inclusive&transport=accommodation_flight&duration=7&nights=7"
       }
+    },
+    "SWISS INN RESORT HURGHADA": {
+      "verdict": "BUY_NOW",
+      "badge_text": "🟢 ПОКУПАТЬ",
+      "rationale": "Цена 7,900 zł — на самом дне за всё время наблюдений (7,900 zł).",
+      "risk_assessment": "Следите за доступностью номеров перед вылетом.",
+      "action_advice": "Отличный момент для покупки, дешевле уже вряд ли будет.",
+      "booking_window_badge": "🔥 Горящий тур: вылет сегодня!",
+      "booking_window_class": "panic",
+      "booking_window_tip": "Срочный вылет (0 дн.), туроператор сбрасывает оставшиеся места на рейсе.",
+      "fair_price_badge": "",
+      "fair_price_class": "",
+      "fair_price_tip": "",
+      "gem_badge": "",
+      "gem_tip": "",
+      "flash_drop_badge": "",
+      "flash_drop_tip": "",
+      "dupe_suggestion": null
     },
     "Serenity Alma Heights (ex. Serenity Fun City)": {
       "verdict": "OVERPRICED",
@@ -408,6 +468,24 @@
       "fair_price_badge": "",
       "fair_price_class": "",
       "fair_price_tip": "",
+      "gem_badge": "",
+      "gem_tip": "",
+      "flash_drop_badge": "",
+      "flash_drop_tip": "",
+      "dupe_suggestion": null
+    },
+    "TITANIC PEARL": {
+      "verdict": "BUY_NOW",
+      "badge_text": "🟢 ПОКУПАТЬ",
+      "rationale": "Цена 6,766 zł — на самом дне за всё время наблюдений (6,766 zł).",
+      "risk_assessment": "Следите за доступностью номеров перед вылетом.",
+      "action_advice": "Отличный момент для покупки, дешевле уже вряд ли будет.",
+      "booking_window_badge": "🔥 Горящий тур: вылет сегодня!",
+      "booking_window_class": "panic",
+      "booking_window_tip": "Срочный вылет (0 дн.), туроператор сбрасывает оставшиеся места на рейсе.",
+      "fair_price_badge": "🔥 −14% к равным эконом 5★",
+      "fair_price_class": "fair-underpriced",
+      "fair_price_tip": "Цена на 14% ниже медианы равных отелей сегмента эконом 5★ (7,899 zł) и не превышает обычную цену отеля (6,766 zł).",
       "gem_badge": "",
       "gem_tip": "",
       "flash_drop_badge": "",

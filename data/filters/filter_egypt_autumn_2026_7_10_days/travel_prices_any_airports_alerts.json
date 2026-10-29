@@ -910,10 +910,75 @@
       "created_at": "2026-10-29T11:50:38.669539+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Titanic Beach Spa & Aqua Park_2026-10-29_11-49_zone_out_gone"
+    },
+    {
+      "hotel_name": "Serenity Alma Heights (ex. Serenity Fun City)",
+      "duration_bucket": "",
+      "old_price": 7781.0,
+      "new_price": 8877.0,
+      "price_change": 1096.0,
+      "price_change_pct": 14.085593111425268,
+      "timestamp": "2026-10-29 14:52:07.767587+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-29T14:52:51.803790+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Serenity Alma Heights (ex. Serenity Fun City)_2026-10-29_14-52_+14.1"
+    },
+    {
+      "hotel_name": "Cleopatra Signature Marsa Alam",
+      "duration_bucket": "",
+      "old_price": 8467.0,
+      "new_price": 8467.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-29 14:52:07.767587+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-29T14:52:51.803819+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Cleopatra Signature Marsa Alam_2026-10-29_14-52_zone_out_gone"
+    },
+    {
+      "hotel_name": "Fantazia Resort",
+      "duration_bucket": "",
+      "old_price": 8481.0,
+      "new_price": 8481.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-29 14:52:07.767587+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-29T14:52:51.803829+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Fantazia Resort_2026-10-29_14-52_zone_out_gone"
+    },
+    {
+      "hotel_name": "Jaz Lamaya Resort (ex Iberotel)",
+      "duration_bucket": "",
+      "old_price": 10994.0,
+      "new_price": 10994.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-29 14:52:07.767587+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-29T14:52:51.803837+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Lamaya Resort (ex Iberotel)_2026-10-29_14-52_zone_out_gone"
+    },
+    {
+      "hotel_name": "Red Sea Grand Waterworld Makadi (ex. Sunwing Waterworld Makadi)",
+      "duration_bucket": "",
+      "old_price": 9614.0,
+      "new_price": 9614.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-29 14:52:07.767587+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-29T14:52:51.803844+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Red Sea Grand Waterworld Makadi (ex. Sunwing Waterworld Makadi)_2026-10-29_14-52_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-29T13:22:01.707572+00:00",
+    "last_processed_run": "2026-10-29T14:52:07.767587+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 7863.0,
@@ -976,7 +1041,7 @@
         "premium_peak": null
       },
       "Serenity Alma Heights (ex. Serenity Fun City)": {
-        "history_max": 8229.0,
+        "history_max": 8877.0,
         "premium_peak": null
       },
       "Fantazia Resort": {
