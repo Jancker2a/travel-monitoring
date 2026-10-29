@@ -1,0 +1,38 @@
+{
+  "title": "Турция • Июль 2027 • 13–16 дн.",
+  "subtitle": "🏷️ First Minute Tracker • 01.07–31.07.2027 • WAW/RDO • 2+1",
+  "group": "early_booking",
+  "early_booking_tracking": true,
+  "dynamic_search_dates": false,
+  "allow_empty_offers": true,
+  "trip_anchor_date": "2027-07-15",
+  "retire_after": "2027-08-01",
+  "scrape_interval_rules": [
+    {"d_min": 60, "d_max": 9999, "every_hours": 24},
+    {"d_min": 30, "d_max": 60, "every_hours": 12},
+    {"d_min": 0, "d_max": 30, "every_hours": 1}
+  ],
+  "url": "https://fly.pl/szukaj-wycieczek/?destinationLocation=39:&departureLocation=Warszawa,Warszawa+-+Radom&startDateMin=01-07-2027&startDateMax=31-07-2027&returnDate=20-08-2027&adults=2&children=12-08-2020&catering=all_inclusive&offerTypes=accommodation_flight&categoryRating=50&durationFrom=13&durationTo=16&priceFrom=6000&priceTo=35000&order=price",
+  "max_price_threshold": 35000,
+  "min_price_threshold": 6000,
+  "required_offer_url_contains": [
+    "/wycieczka/turcja",
+    "transport=accommodation_flight"
+  ],
+  "excluded_offer_url_contains": [
+    "/wycieczka/polska",
+    "/wycieczka/czechy",
+    "transport=accommodation&"
+  ],
+  "wait_timeout": 30000,
+  "max_retries": 3,
+  "max_offers": 0,
+  "max_pages": 10,
+  "display_price_ceiling": 16000,
+  "retry_delay": 5,
+  "data_dir": "data/filters/filter_eb_turkey_jul27_13_16",
+  "output_data_file": "travel_prices.csv",
+  "href": "index_filter_eb_turkey_jul27_13_16.html",
+  "charts_subdir": "hotel-charts/filter_eb_turkey_jul27_13_16",
+  "description": "🏷️ Early Booking Tracker • Турция • Июль 2027 • 13–16 дн."
+}

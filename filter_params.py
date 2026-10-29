@@ -23,6 +23,7 @@ DATA_DIR_CONFIG_FILES: Dict[str, str] = {
     "filter_egypt_sharm_dec20_29_1p": "config_ci_filter_egypt_sharm_dec20_29_1p.json",
     "filter_greece_7_10_days": "config_ci_filter_greece_7_10.json",
     "filter_greece_13_16_days": "config_ci_filter_greece_13_16.json",
+    "filter_cyprus_7_10": "configs/filters/config_ci_cyprus_7_10.json",
 }
 
 COUNTRY_FROM_URL_FRAGMENT = {
@@ -180,12 +181,36 @@ def child_age_param(url: str) -> str:
 def resolve_config_path(data_file: str, config_file: str | None = None) -> Optional[str]:
     if config_file and os.path.isfile(config_file):
         return config_file
-    match = re.search(r"data/filters/([^/]+)/", str(data_file or ""))
+    match = re.search(r"data/filters/([^/]+)/?", str(data_file or ""))
     if not match:
         return None
-    rel = DATA_DIR_CONFIG_FILES.get(match.group(1))
+    key = match.group(1)
+    rel = DATA_DIR_CONFIG_FILES.get(key)
     if rel and os.path.isfile(rel):
         return rel
+
+    candidates = [
+        os.path.join("configs", "filters", f"config_ci_{key}.json"),
+        os.path.join("configs", "filters", f"{key}.json"),
+        f"config_ci_{key}.json",
+        f"{key}.json",
+    ]
+    for cand in candidates:
+        if os.path.isfile(cand):
+            return cand
+
+    configs_dir = os.path.join("configs", "filters")
+    if os.path.isdir(configs_dir):
+        for fname in os.listdir(configs_dir):
+            if fname.endswith(".json"):
+                fpath = os.path.join(configs_dir, fname)
+                try:
+                    with open(fpath, "r", encoding="utf-8") as f:
+                        data = json.load(f)
+                        if data.get("id") == key or (data.get("data_dir") and key in str(data.get("data_dir"))):
+                            return fpath
+                except Exception:
+                    pass
     return None
 
 
@@ -220,6 +245,10 @@ def _country_label(config: Dict[str, Any], url: str) -> str:
         if "grecja" in path or dest.startswith("14"):
             return "Греция"
         return "Турция"
+    if dest.startswith("6"):
+        return "Кипр"
+    if dest.startswith("15"):
+        return "Испания"
     return "—"
 
 

@@ -162,6 +162,7 @@ KNOWN_GROUPS = {
     'tunisia': {'id': 'tunisia', 'label': 'Тунис', 'icon': '🇹🇳'},
     'uae': {'id': 'uae', 'label': 'ОАЭ', 'icon': '🇦🇪'},
     'malta': {'id': 'malta', 'label': 'Мальта', 'icon': '🇲🇹'},
+    'early_booking': {'id': 'early_booking', 'label': 'Раннее бронирование', 'icon': '🏷️'},
     'custom': {'id': 'custom', 'label': 'Мои поездки', 'icon': '✨'},
 }
 
@@ -210,6 +211,9 @@ def detect_group_for_config(cfg: Dict[str, Any], known: Optional[Dict[str, Dict[
         g = str(cfg['group']).lower()
         if g in known_groups:
             return g
+
+    if bool(cfg.get('early_booking_tracking')):
+        return 'early_booking'
 
     haystack = " ".join([
         str(cfg.get('title', '')),

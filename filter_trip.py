@@ -170,7 +170,85 @@ def is_trip_window_expired(config: Dict[str, Any], *, today: Optional[date] = No
     return ref >= end
 
 
-def skip_monitor_reason(config: Dict[str, Any], *, today: Optional[date] = None) -> str:
+def check_early_booking_skip_reason(
+    config: Dict[str, Any],
+    *,
+    today: Optional[date] = None,
+    now: Optional[datetime] = None,
+    base_dir: Optional[str] = None,
+) -> str:
+    """Checks whether an early booking filter should be skipped based on adaptive interval."""
+    if not bool(config.get("early_booking_tracking")):
+        return ""
+
+    ref_date = today or date.today()
+    ref_time = now or datetime.now()
+
+    # Determine departure anchor
+    anchor_str = config.get("trip_anchor_date") or config.get("retire_after")
+    anchor_date = _parse_iso_date(anchor_str) if anchor_str else None
+    if anchor_date is None:
+        url = str(config.get("url") or "")
+        m = re.search(r"startDateMin=(\d{2})-(\d{2})-(\d{4})", url)
+        if m:
+            d, mth, y = m.groups()
+            try:
+                anchor_date = date(int(y), int(mth), int(d))
+            except ValueError:
+                anchor_date = None
+
+    if anchor_date is None:
+        return ""
+
+    d_days = (anchor_date - ref_date).days
+    if d_days <= 0:
+        return "вылет уже наступил"
+
+    # Locate CSV file to check last scrape timestamp
+    data_dir = str(config.get("data_dir") or ".")
+    data_file = str(config.get("output_data_file") or "travel_prices.csv")
+    csv_path = os.path.join(data_dir, data_file)
+    if base_dir and not os.path.isabs(csv_path):
+        candidate_path = os.path.join(base_dir, csv_path)
+        if os.path.isfile(candidate_path):
+            csv_path = candidate_path
+
+    if not os.path.isfile(csv_path) or os.path.getsize(csv_path) == 0:
+        # First run: never scraped or empty -> do not skip
+        return ""
+
+    try:
+        mtime = datetime.fromtimestamp(os.path.getmtime(csv_path))
+        hours_since = (ref_time - mtime).total_seconds() / 3600.0
+    except OSError:
+        return ""
+
+    rules = config.get("scrape_interval_rules") or [
+        {"d_min": 60, "d_max": 9999, "every_hours": 24},
+        {"d_min": 30, "d_max": 60, "every_hours": 12},
+        {"d_min": 0, "d_max": 30, "every_hours": 1},
+    ]
+
+    required_hours = 1
+    for r in rules:
+        if r.get("d_min", 0) <= d_days < r.get("d_max", 9999):
+            required_hours = r.get("every_hours", 1)
+            break
+
+    if hours_since < required_hours:
+        return f"EB расписание: D={d_days}дн., интервал {required_hours}ч (прошло {hours_since:.1f}ч)"
+
+    return ""
+
+
+def skip_monitor_reason(
+    config: Dict[str, Any],
+    *,
+    today: Optional[date] = None,
+    now: Optional[datetime] = None,
+    base_dir: Optional[str] = None,
+    config_path: Optional[str] = None,
+) -> str:
     """Human-readable reason to skip scraping, or empty string."""
     if bool(config.get("archived")):
         return "в архиве"
@@ -183,6 +261,12 @@ def skip_monitor_reason(config: Dict[str, Any], *, today: Optional[date] = None)
             f"(anchor {config.get('trip_anchor_date')} ± "
             f"{config.get('trip_departure_slip_days', 7)} дн., до {end})"
         )
+    actual_base_dir = base_dir
+    if not actual_base_dir and config_path:
+        actual_base_dir = os.path.dirname(os.path.abspath(config_path))
+    eb_reason = check_early_booking_skip_reason(config, today=today, now=now, base_dir=actual_base_dir)
+    if eb_reason:
+        return eb_reason
     return ""
 
 
@@ -258,11 +342,16 @@ def load_config_json(path: str) -> Dict[str, Any]:
         return json.load(fh)
 
 
-def should_skip_monitor_config(config_path: str, *, today: Optional[date] = None) -> bool:
+def should_skip_monitor_config(
+    config_path: str,
+    *,
+    today: Optional[date] = None,
+    now: Optional[datetime] = None,
+) -> bool:
     if not os.path.isfile(config_path):
         return False
     try:
         cfg = load_config_json(config_path)
     except (OSError, json.JSONDecodeError):
         return False
-    return bool(skip_monitor_reason(cfg, today=today))
+    return bool(skip_monitor_reason(cfg, today=today, now=now, config_path=config_path))

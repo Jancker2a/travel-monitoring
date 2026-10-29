@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-24T17:03:20.928444Z",
+  "generated_at": "2026-10-29T10:29:16.362643Z",
   "groups": {
     "trips": {
       "id": "trips",
@@ -40,6 +40,26 @@
       "id": "bulgaria",
       "label": "Болгария",
       "icon": "🇧🇬"
+    },
+    "tunisia": {
+      "id": "tunisia",
+      "label": "Тунис",
+      "icon": "🇹🇳"
+    },
+    "uae": {
+      "id": "uae",
+      "label": "ОАЭ",
+      "icon": "🇦🇪"
+    },
+    "malta": {
+      "id": "malta",
+      "label": "Мальта",
+      "icon": "🇲🇹"
+    },
+    "early_booking": {
+      "id": "early_booking",
+      "label": "Раннее бронирование",
+      "icon": "🏷️"
     },
     "custom": {
       "id": "custom",
@@ -307,11 +327,131 @@
       "csv_size_kb": 0.0,
       "last_scraped_iso": null,
       "has_dashboard": false
+    },
+    {
+      "id": "filter_cyprus_7_10",
+      "title": "Кипр • 7–10 дней",
+      "subtitle": "9 аэр. • 1 взр • 7–10 дн. • показ ≤6k PLN",
+      "href": "index_filter_cyprus_7_10.html",
+      "charts_subdir": "hotel-charts/filter_cyprus_7_10",
+      "config": "configs/filters/config_ci_cyprus_7_10.json",
+      "group_id": "cyprus",
+      "group_label": "Кипр",
+      "group_icon": "🇨🇾",
+      "status": "active",
+      "pinned": false,
+      "order": 999,
+      "data_dir": "data/filters/filter_cyprus_7_10",
+      "offers_count": 2,
+      "min_price": null,
+      "csv_size_kb": 3.3,
+      "last_scraped_iso": "2026-10-26T15:35:21.843365",
+      "has_dashboard": true
+    },
+    {
+      "id": "eb_greece_aug27_7_10",
+      "title": "Греция • Август 2027 • 7–10 дн.",
+      "subtitle": "🏷️ First Minute Tracker • 01.08–31.08.2027 • WAW/WMI/RDO • 2+1",
+      "href": "index_filter_eb_greece_aug27_7_10.html",
+      "charts_subdir": "hotel-charts/filter_eb_greece_aug27_7_10",
+      "config": "config_ci_eb_greece_aug27_7_10.json",
+      "group_id": "early_booking",
+      "group_label": "Раннее бронирование",
+      "group_icon": "🏷️",
+      "status": "active",
+      "pinned": false,
+      "order": 999,
+      "data_dir": "data/filters/filter_eb_greece_aug27_7_10",
+      "offers_count": 0,
+      "min_price": null,
+      "csv_size_kb": 0.0,
+      "last_scraped_iso": null,
+      "has_dashboard": false
+    },
+    {
+      "id": "eb_greece_jul27_7_10",
+      "title": "Греция • Июль 2027 • 7–10 дн.",
+      "subtitle": "🏷️ First Minute Tracker • 01.07–31.07.2027 • WAW/WMI/RDO • 2+1",
+      "href": "index_filter_eb_greece_jul27_7_10.html",
+      "charts_subdir": "hotel-charts/filter_eb_greece_jul27_7_10",
+      "config": "config_ci_eb_greece_jul27_7_10.json",
+      "group_id": "early_booking",
+      "group_label": "Раннее бронирование",
+      "group_icon": "🏷️",
+      "status": "active",
+      "pinned": false,
+      "order": 999,
+      "data_dir": "data/filters/filter_eb_greece_jul27_7_10",
+      "offers_count": 0,
+      "min_price": null,
+      "csv_size_kb": 0.0,
+      "last_scraped_iso": null,
+      "has_dashboard": false
+    },
+    {
+      "id": "eb_turkey_aug27_7_10",
+      "title": "Турция • Август 2027 • 7–10 дн.",
+      "subtitle": "🏷️ First Minute Tracker • 01.08–31.08.2027 • WAW/RDO • 2+1",
+      "href": "index_filter_eb_turkey_aug27_7_10.html",
+      "charts_subdir": "hotel-charts/filter_eb_turkey_aug27_7_10",
+      "config": "config_ci_eb_turkey_aug27_7_10.json",
+      "group_id": "early_booking",
+      "group_label": "Раннее бронирование",
+      "group_icon": "🏷️",
+      "status": "active",
+      "pinned": false,
+      "order": 999,
+      "data_dir": "data/filters/filter_eb_turkey_aug27_7_10",
+      "offers_count": 0,
+      "min_price": null,
+      "csv_size_kb": 0.0,
+      "last_scraped_iso": null,
+      "has_dashboard": false
+    },
+    {
+      "id": "eb_turkey_jul27_13_16",
+      "title": "Турция • Июль 2027 • 13–16 дн.",
+      "subtitle": "🏷️ First Minute Tracker • 01.07–31.07.2027 • WAW/RDO • 2+1",
+      "href": "index_filter_eb_turkey_jul27_13_16.html",
+      "charts_subdir": "hotel-charts/filter_eb_turkey_jul27_13_16",
+      "config": "config_ci_eb_turkey_jul27_13_16.json",
+      "group_id": "early_booking",
+      "group_label": "Раннее бронирование",
+      "group_icon": "🏷️",
+      "status": "active",
+      "pinned": false,
+      "order": 999,
+      "data_dir": "data/filters/filter_eb_turkey_jul27_13_16",
+      "offers_count": 0,
+      "min_price": null,
+      "csv_size_kb": 0.0,
+      "last_scraped_iso": null,
+      "has_dashboard": false
+    },
+    {
+      "id": "eb_turkey_jul27_7_10",
+      "title": "Турция • Июль 2027 • 7–10 дн.",
+      "subtitle": "🏷️ First Minute Tracker • 01.07–31.07.2027 • WAW/RDO • 2+1",
+      "href": "index_filter_eb_turkey_jul27_7_10.html",
+      "charts_subdir": "hotel-charts/filter_eb_turkey_jul27_7_10",
+      "config": "config_ci_eb_turkey_jul27_7_10.json",
+      "group_id": "early_booking",
+      "group_label": "Раннее бронирование",
+      "group_icon": "🏷️",
+      "status": "active",
+      "pinned": false,
+      "order": 999,
+      "data_dir": "data/filters/filter_eb_turkey_jul27_7_10",
+      "offers_count": 0,
+      "min_price": null,
+      "csv_size_kb": 0.0,
+      "last_scraped_iso": null,
+      "has_dashboard": false
     }
   ],
   "counts": {
-    "total": 13,
-    "active": 11,
+    "total": 19,
+    "active": 17,
     "paused": 0,
     "archived": 2
   }
