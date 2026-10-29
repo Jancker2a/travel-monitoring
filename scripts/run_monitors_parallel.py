@@ -26,7 +26,7 @@ def _run_one(config_name: str, log_dir: Path, timeout_s: int = 300) -> tuple[str
         return config_name, 127, 0.0
     if should_skip_monitor_config(str(config_path)):
         try:
-            reason = skip_monitor_reason(load_config_json(str(config_path))) or "пропуск"
+            reason = skip_monitor_reason(load_config_json(str(config_path)), config_path=str(config_path)) or "пропуск"
         except Exception:
             reason = "пропуск"
         print(f"  ⏭ {config_name} ({reason})", flush=True)

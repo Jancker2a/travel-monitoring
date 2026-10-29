@@ -168,6 +168,8 @@ def validate_and_normalize_filter(cfg: Dict[str, Any]) -> Dict[str, Any]:
         normalized["trip_anchor_date"] = cfg["trip_anchor_date"]
     if "retire_after" in cfg:
         normalized["retire_after"] = cfg["retire_after"]
+    if "trip_departure_slip_days" in cfg:
+        normalized["trip_departure_slip_days"] = cfg["trip_departure_slip_days"]
     if "trip_duration_buckets" in cfg:
         normalized["trip_duration_buckets"] = cfg["trip_duration_buckets"]
 

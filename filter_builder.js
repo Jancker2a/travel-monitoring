@@ -175,17 +175,17 @@ function parseFlyUrl(rawUrl) {
     const durFilter = params.get("filter[duration]");
     if (durFrom) result.durationFrom = parseInt(durFrom, 10);
     if (durTo) result.durationTo = parseInt(durTo, 10);
-    if (durFilter && durFilter.includes("-")) {
-      const [f, t] = durFilter.split("-").map(n => parseInt(n, 10));
+    if (durFilter && (durFilter.includes("-") || durFilter.includes(":"))) {
+      const [f, t] = durFilter.split(/[:-]/).map(n => parseInt(n, 10));
       if (!isNaN(f)) result.durationFrom = f;
       if (!isNaN(t)) result.durationTo = t;
     }
 
     // 5. Adults & Children
-    const ad = params.get("adults") || params.get("filter[adults]");
+    const ad = params.get("adults") || params.get("filter[adults]") || params.get("filter[person]");
     if (ad) result.adults = parseInt(ad, 10);
 
-    const chRaw = params.get("children") || params.get("filter[child]");
+    const chRaw = params.get("children") || params.get("filter[child]") || params.get("filter[childBirthdays]");
     if (chRaw !== null && chRaw !== undefined) {
       if (chRaw === "" || chRaw === "0") {
         result.childrenCount = 0;
@@ -232,46 +232,47 @@ function buildFlyUrl(state) {
   const baseUrl = "https://fly.pl/szukaj-wycieczek/";
   const searchParams = new URLSearchParams();
 
-  searchParams.set("destinationLocation", dest.code);
+  // Canonical modern Fly.pl SPA query structure
+  searchParams.set("filter[type]", "1");
+  searchParams.set("filter[dest]", dest.code);
+  searchParams.set("filter[hotelids]", "0");
+  searchParams.set("filter[cityids]", "0");
 
   if (state.departureAirports && state.departureAirports.length > 0) {
-    searchParams.set("departureLocation", state.departureAirports.join(","));
+    searchParams.set("filter[from]", state.departureAirports.join(","));
   }
 
   // Dates
   if (state.startDateMin) {
     const dMin = parseDateDDMMYYYY(state.startDateMin) || new Date(state.startDateMin);
-    searchParams.set("startDateMin", formatDateDDMMYYYY(dMin));
+    searchParams.set("filter[whenFrom]", formatDateDDMMYYYY(dMin));
   }
   if (state.startDateMax) {
     const dMax = parseDateDDMMYYYY(state.startDateMax) || new Date(state.startDateMax);
-    searchParams.set("startDateMax", formatDateDDMMYYYY(dMax));
-  }
-  if (state.returnDate) {
-    const dRet = parseDateDDMMYYYY(state.returnDate) || new Date(state.returnDate);
-    searchParams.set("returnDate", formatDateDDMMYYYY(dRet));
+    searchParams.set("filter[whenTo]", formatDateDDMMYYYY(dMax));
   }
 
-  searchParams.set("adults", String(state.adults || 2));
+  searchParams.set("filter[person]", String(state.adults || 2));
+  searchParams.set("filter[child]", String(state.childrenCount || 0));
 
   if (state.childrenCount > 0 && state.childrenBirthdays && state.childrenBirthdays.length > 0) {
-    searchParams.set("children", state.childrenBirthdays.slice(0, state.childrenCount).join(","));
-  }
-
-  if (state.catering) {
-    searchParams.set("catering", state.catering);
-  }
-
-  searchParams.set("offerTypes", "accommodation_flight");
-
-  if (state.categoryRating) {
-    searchParams.set("categoryRating", state.categoryRating);
+    searchParams.set("filter[childBirthdays]", state.childrenBirthdays.slice(0, state.childrenCount).join(","));
   }
 
   const dFrom = state.durationFrom || 7;
   const dTo = state.durationTo || 10;
   searchParams.set("durationFrom", String(dFrom));
   searchParams.set("durationTo", String(dTo));
+  searchParams.set("filter[duration]", `${dFrom}:${dTo}`);
+  searchParams.set("filter[addTransport]", "F");
+
+  if (state.catering) {
+    searchParams.set("catering", state.catering);
+  }
+
+  if (state.categoryRating) {
+    searchParams.set("categoryRating", state.categoryRating);
+  }
 
   if (state.minPrice) {
     searchParams.set("priceFrom", String(state.minPrice));
@@ -280,7 +281,7 @@ function buildFlyUrl(state) {
     searchParams.set("priceTo", String(state.maxPrice));
   }
 
-  searchParams.set("order", "price");
+  searchParams.set("order_by", "ofr_price");
 
   return `${baseUrl}?${searchParams.toString()}`;
 }

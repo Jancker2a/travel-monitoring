@@ -81,6 +81,11 @@ try:
 except ImportError:
     synthesize_market_oracle = None
 
+try:
+    from early_booking_analyzer import analyze_dataframe as analyze_early_booking
+except ImportError:
+    analyze_early_booking = None
+
 
 def render_ai_market_briefing_html(
     oracle_report: Optional[Dict[str, Any]],
@@ -289,6 +294,166 @@ TRIPADVISOR_HEADER_ICON_HTML = (
     '<path fill="#000" d="M37.74486,11.3094a6.231,6.231,0,1,0,6.22779,6.23A6.23822,6.23822,0,0,0,37.74486,11.3094Zm0,10.31575a4.08508,4.08508,0,1,1,4.08367-4.08574A4.091,4.091,0,0,1,37.74486,21.62515Z"/>'
     '</svg></span>'
 )
+
+
+def render_early_booking_section_html(eb_res: Optional[Dict[str, Any]]) -> Tuple[str, str, str]:
+    """Renders the Early Booking fold with EBAS Score banner and Plotly chart slots."""
+    if not eb_res or eb_res.get("error") or eb_res.get("summary", {}).get("verdict") == "INSUFFICIENT_DATA":
+        empty_html = """
+        <details class="dashboard-fold" id="earlyBookingFold">
+            <summary>
+                <span>🏷️ Анализ раннего бронирования (First Minute vs Last Minute)</span>
+                <span class="fold-title-meta">Накопление данных</span>
+                <span class="fold-chevron">⌄</span>
+            </summary>
+            <div class="fold-content" style="padding: 1rem 1.25rem;">
+                <div class="timing-reco" style="background: rgba(59, 130, 246, 0.08); border-left: 4px solid #3b82f6; padding: 1rem; border-radius: 6px; margin: 0.5rem 0;">
+                    💡 <strong>Накапливаем историю раннего бронирования для этого направления.</strong>
+                    <p style="margin: 0.5rem 0 0 0; font-size: 0.88rem; color: #64748b;">
+                        Графики когортной динамики и сравнение First Minute vs Last Minute появятся здесь автоматически при накоплении срезов цен за 60+ дней до вылета.
+                    </p>
+                </div>
+            </div>
+        </details>
+        """
+        return empty_html, "null", "null"
+
+    summary = eb_res.get("summary", {})
+    score = summary.get("ebas_score") or 50.0
+    verdict = summary.get("verdict", "NEUTRAL")
+    paired_traj = eb_res.get("paired_price_trajectory", {})
+    survival = eb_res.get("survival_curve", [])
+
+    if verdict == "EARLY_BOOKING_HIGHLY_FAVORABLE":
+        v_icon = "🏆"
+        v_title = "Раннее бронирование однозначно выгодно"
+        v_color = "#059669"
+        v_bg = "rgba(16, 185, 129, 0.08)"
+        v_border = "#a7f3d0"
+        badge_meta = f"Выгодно брать заранее (EBAS {score:.0f})"
+        v_desc = "Цены большинства отелей растут по мере приближения к вылету, а популярные 4–5★ варианты раскупаются первыми. Ожидание горящих туров несет высокий риск распродажи."
+    elif verdict == "EARLY_BOOKING_RECOMMENDED":
+        v_icon = "🏷️"
+        v_title = "Рекомендуется раннее бронирование"
+        v_color = "#2563eb"
+        v_bg = "rgba(59, 130, 246, 0.08)"
+        v_border = "#bfdbfe"
+        badge_meta = f"Рекомендуется FM (EBAS {score:.0f})"
+        v_desc = "Умеренная экономия при бронировании в First Minute. Отели премиум-сегмента дорожают, базовый масс-маркет сохраняет стабильность."
+    elif verdict == "WAIT_FOR_LAST_MINUTE":
+        v_icon = "⚡"
+        v_title = "Выгоднее ждать горящих туров (Last Minute)"
+        v_color = "#ea580c"
+        v_bg = "rgba(234, 88, 12, 0.08)"
+        v_border = "#fed7aa"
+        badge_meta = f"Ждать Last Minute (EBAS {score:.0f})"
+        v_desc = "Направление характеризуется высокой емкостью чартеров. За 7–14 дней до вылета часто происходят масштабные сбросы цен от туроператоров."
+    else:
+        v_icon = "⚖️"
+        v_title = "Нейтральная динамика цен"
+        v_color = "#475569"
+        v_bg = "rgba(100, 116, 139, 0.08)"
+        v_border = "#cbd5e1"
+        badge_meta = f"Нейтрально (EBAS {score:.0f})"
+        v_desc = "Цены между ранним бронированием и вылетом колеблются незначительно. Покупка зависит от персональных дат отпуска."
+
+    lm_delta = paired_traj.get("LM", {}).get("median_delta_pct")
+    if lm_delta is None:
+        lm_delta = paired_traj.get("LATE", {}).get("median_delta_pct")
+    
+    if lm_delta is not None:
+        lm_text = f"+{lm_delta:.1f}%" if lm_delta > 0 else f"{lm_delta:.1f}%"
+        lm_color = "#dc2626" if lm_delta > 0 else "#059669"
+    else:
+        lm_text = "—"
+        lm_color = "#64748b"
+
+    surv_14 = next((item["survival_rate"] for item in survival if item["d"] == 14), 0.5)
+    sold_out_pct = max(0.0, min(100.0, (1.0 - surv_14) * 100.0))
+
+    html = f"""
+        <details class="dashboard-fold" id="earlyBookingFold">
+            <summary>
+                <span>🏷️ Анализ раннего бронирования (First Minute vs Last Minute)</span>
+                <span class="fold-title-meta">{badge_meta}</span>
+                <span class="fold-chevron">⌄</span>
+            </summary>
+            <div class="fold-content" style="padding: 1rem 1.25rem;">
+                <div class="eb-score-banner" style="display:flex; flex-wrap:wrap; gap:1.25rem; align-items:center; background: {v_bg}; border: 1px solid {v_border}; padding:1.25rem; border-radius:10px; margin: 0.5rem 0 1.5rem 0;">
+                    <div style="flex:1; min-width:280px;">
+                        <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.5rem;">
+                            <span style="font-size:1.75rem;">{v_icon}</span>
+                            <div>
+                                <div style="font-size:1.15rem; font-weight:700; color:{v_color};">{v_title}</div>
+                                <div style="font-size:0.85rem; color:#64748b;">Индекс выгоды раннего бронирования (EBAS): <strong>{score:.1f} / 100</strong></div>
+                            </div>
+                        </div>
+                        <p style="margin:0; font-size:0.9rem; line-height:1.5; color:#334155;">{v_desc}</p>
+                    </div>
+                    <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
+                        <div style="background:rgba(255,255,255,0.85); border:1px solid rgba(0,0,0,0.06); padding:0.6rem 0.9rem; border-radius:8px; text-align:center; min-width:105px;">
+                            <div style="font-size:0.75rem; color:#64748b; text-transform:uppercase;">Когорт в базе</div>
+                            <div style="font-size:1.25rem; font-weight:700; color:#1e293b;">{summary.get('total_cohorts', 0)}</div>
+                        </div>
+                        <div style="background:rgba(255,255,255,0.85); border:1px solid rgba(0,0,0,0.06); padding:0.6rem 0.9rem; border-radius:8px; text-align:center; min-width:115px;">
+                            <div style="font-size:0.75rem; color:#64748b; text-transform:uppercase;">Δ к Last Minute</div>
+                            <div style="font-size:1.25rem; font-weight:700; color:{lm_color};">{lm_text}</div>
+                        </div>
+                        <div style="background:rgba(255,255,255,0.85); border:1px solid rgba(0,0,0,0.06); padding:0.6rem 0.9rem; border-radius:8px; text-align:center; min-width:115px;">
+                            <div style="font-size:0.75rem; color:#64748b; text-transform:uppercase;">Риск Sold Out</div>
+                            <div style="font-size:1.25rem; font-weight:700; color:#e11d48;">{sold_out_pct:.0f}%</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); gap:1.5rem;">
+                    <div style="background:#fff; border:1px solid #e2e8f0; border-radius:10px; padding:1.25rem;">
+                        <h4 style="margin:0 0 0.5rem 0; font-size:1rem; display:flex; align-items:center; gap:0.5rem;">
+                            <span>📊 Парная динамика цен по горизонтам</span>
+                        </h4>
+                        <p style="margin:0 0 1rem 0; font-size:0.82rem; color:#64748b;">
+                            Изменение цены одних и тех же отелей относительно First Minute (базис 0% на D 60–120 дней).
+                        </p>
+                        <div id="ebTrajectoryChart" style="height:290px;"></div>
+                    </div>
+                    <div style="background:#fff; border:1px solid #e2e8f0; border-radius:10px; padding:1.25rem;">
+                        <h4 style="margin:0 0 0.5rem 0; font-size:1rem; display:flex; align-items:center; gap:0.5rem;">
+                            <span>📉 Кривая доступности отелей (Survival Rate)</span>
+                        </h4>
+                        <p style="margin:0 0 1rem 0; font-size:0.82rem; color:#64748b;">
+                            Доля отелей из раннего бронирования, оставшихся в наличии к моменту D дней до вылета.
+                        </p>
+                        <div id="ebSurvivalChart" style="height:290px;"></div>
+                    </div>
+                </div>
+            </div>
+        </details>
+    """
+
+    traj_x = []
+    traj_y = []
+    bucket_order = [
+        ("EB", "Early Bird (>120d)"),
+        ("FM", "First Minute (60-120d)"),
+        ("STD", "Standard (30-60d)"),
+        ("LATE", "Late (14-30d)"),
+        ("LM", "Last Minute (7-14d)"),
+        ("PANIC", "Panic Dump (≤7d)"),
+    ]
+    for b_code, b_label in bucket_order:
+        b_info = paired_traj.get(b_code, {})
+        val = b_info.get("median_delta_pct")
+        if val is not None:
+            traj_x.append(b_label)
+            traj_y.append(float(val))
+    
+    surv_x = [int(item["d"]) for item in survival]
+    surv_y = [round(float(item["survival_rate"]) * 100.0, 1) for item in survival]
+
+    traj_json = json.dumps({"x": traj_x, "y": traj_y}, ensure_ascii=False) if traj_x else "null"
+    surv_json = json.dumps({"x": surv_x, "y": surv_y}, ensure_ascii=False) if surv_x else "null"
+
+    return html, traj_json, surv_json
 
 
 def _parse_ta_rating_value(value: Any) -> Optional[float]:
@@ -707,12 +872,10 @@ def _resolve_listing_url_for_backfill(
         for val in reversed(df["url"].dropna().astype(str).tolist()):
             if "fly.pl" in val and ("/oferta/" in val or "/szukaj-wycieczek/" in val or "/kierunek/" in val):
                 return val
-    data_dir = os.path.dirname(data_file) or "."
-    folder = os.path.basename(os.path.normpath(data_dir))
-    cfg_name = DATA_DIR_CONFIG_FILES.get(folder)
-    if cfg_name and os.path.isfile(cfg_name):
+    cfg_path = resolve_config_path(data_file, config_file)
+    if cfg_path and os.path.isfile(cfg_path):
         try:
-            with open(cfg_name, encoding="utf-8") as f:
+            with open(cfg_path, encoding="utf-8") as f:
                 return resolve_config_url(json.load(f))
         except Exception:
             pass
@@ -10539,6 +10702,15 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         </details>
 """
 
+    eb_analysis_res = None
+    if analyze_early_booking is not None:
+        try:
+            eb_analysis_res = analyze_early_booking(df, filter_id=_current_filter if '_current_filter' in locals() else '')
+        except Exception as _e_eb:
+            print(f"⚠️ Ошибка анализа раннего бронирования: {_e_eb}")
+            eb_analysis_res = None
+    early_booking_section_html, eb_traj_json, eb_surv_json = render_early_booking_section_html(eb_analysis_res)
+
     _price_scope_tip = (
         f"Таблица и алерты — только ≤{ceiling_val:.0f} PLN. "
         f"История и графики — до {history_val:.0f} PLN "
@@ -10646,6 +10818,7 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
                 {departure_block_html}
                 {departure_history_html}
                 {alerts_html}
+                {early_booking_section_html}
                 <details class="dashboard-fold" id="calendarFold">
                     <summary>
                         <span>📅 Ценовой календарь по датам вылета</span>
@@ -11698,6 +11871,69 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         window.renderOffersCountChart(offersDates, offersCounts, offersMeta);
       })();
 
+      // Секция «Анализ раннего бронирования»
+      (function(){
+        const ebTrajData = """ + eb_traj_json + """;
+        const ebSurvData = """ + eb_surv_json + """;
+
+        window.renderEarlyBookingCharts = function(traj, surv) {
+          if (!window.Plotly) return;
+          const trajEl = document.getElementById('ebTrajectoryChart');
+          const survEl = document.getElementById('ebSurvivalChart');
+
+          if (trajEl && traj && Array.isArray(traj.x) && traj.x.length) {
+            try { Plotly.purge(trajEl); } catch (e) {}
+            trajEl.innerHTML = '';
+            const barColors = traj.y.map(function(v) { return v > 0 ? '#ef4444' : (v < 0 ? '#10b981' : '#64748b'); });
+            const trajTrace = {
+              x: traj.x,
+              y: traj.y,
+              type: 'bar',
+              marker: { color: barColors },
+              text: traj.y.map(function(v) { return (v > 0 ? '+' : '') + v.toFixed(1) + '%'; }),
+              textposition: 'auto',
+              hovertemplate: '<b>%{x}</b><br>Δ цены к First Minute: %{y:.1f}%<extra></extra>',
+            };
+            const trajLayout = {
+              margin: { t: 20, r: 15, b: 50, l: 48 },
+              yaxis: { title: 'Δ цены к FM (%)', zeroline: true, zerolinecolor: '#94a3b8', zerolinewidth: 1.5, gridcolor: '#e2e8f0' },
+              xaxis: { title: 'Горизонт до вылета' },
+              paper_bgcolor: 'rgba(0,0,0,0)',
+              plot_bgcolor: 'rgba(0,0,0,0)',
+              font: { family: 'Inter, sans-serif', size: 11 },
+            };
+            Plotly.newPlot('ebTrajectoryChart', [trajTrace], trajLayout, { responsive: true, displayModeBar: false });
+          }
+
+          if (survEl && surv && Array.isArray(surv.x) && surv.x.length) {
+            try { Plotly.purge(survEl); } catch (e) {}
+            survEl.innerHTML = '';
+            const survTrace = {
+              x: surv.x,
+              y: surv.y,
+              type: 'scatter',
+              mode: 'lines+markers',
+              fill: 'tozeroy',
+              fillcolor: 'rgba(59, 130, 246, 0.12)',
+              line: { color: '#2563eb', width: 2.5 },
+              marker: { size: 6, color: '#1d4ed8' },
+              hovertemplate: '<b>%{x} дн. до вылета</b><br>Доступно отелей: %{y:.1f}%<extra></extra>',
+            };
+            const survLayout = {
+              margin: { t: 20, r: 15, b: 50, l: 48 },
+              xaxis: { title: 'Дней до вылета (D)', autorange: 'reversed' },
+              yaxis: { title: '% доступных отелей', range: [0, 105], gridcolor: '#e2e8f0' },
+              paper_bgcolor: 'rgba(0,0,0,0)',
+              plot_bgcolor: 'rgba(0,0,0,0)',
+              font: { family: 'Inter, sans-serif', size: 11 },
+            };
+            Plotly.newPlot('ebSurvivalChart', [survTrace], survLayout, { responsive: true, displayModeBar: false });
+          }
+        };
+
+        window.renderEarlyBookingCharts(ebTrajData, ebSurvData);
+      })();
+
       // Секция «Когда покупать»: статистика снижения цен по времени
       (function(){
         const TIMING = """ + timing_json + """;
@@ -11949,7 +12185,7 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             setTimeout(() => {
               window.dispatchEvent(new Event('resize'));
               if (window.Plotly && window.Plotly.Plots) {
-                document.querySelectorAll('.js-plotly-plot, #avgTop10, #offersCountChart, #timingHourChart, #timingDowChart, #timingHeatmap, #timingPartChart, #timingMonthChart, #departurePriceChart').forEach(p => {
+                document.querySelectorAll('.js-plotly-plot, #avgTop10, #offersCountChart, #timingHourChart, #timingDowChart, #timingHeatmap, #timingPartChart, #timingMonthChart, #departurePriceChart, #ebTrajectoryChart, #ebSurvivalChart').forEach(p => {
                   try { window.Plotly.Plots.resize(p); } catch (e) {}
                 });
               }
@@ -11976,7 +12212,7 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             setTimeout(function() {
               window.dispatchEvent(new Event('resize'));
               if (window.Plotly && window.Plotly.Plots) {
-                document.querySelectorAll('.js-plotly-plot, #avgTop10, #offersCountChart, #timingHourChart, #timingDowChart, #timingHeatmap, #timingPartChart, #timingMonthChart, #departurePriceChart').forEach(function(p) {
+                document.querySelectorAll('.js-plotly-plot, #avgTop10, #offersCountChart, #timingHourChart, #timingDowChart, #timingHeatmap, #timingPartChart, #timingMonthChart, #departurePriceChart, #ebTrajectoryChart, #ebSurvivalChart').forEach(function(p) {
                   try { window.Plotly.Plots.resize(p); } catch (e) {}
                 });
               }
@@ -12128,6 +12364,7 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         bindFoldPersistence('offersCountFold', 'dashboard_fold_offers_count', false);
         bindFoldPersistence('trendFold', 'dashboard_fold_trend', false);
         bindFoldPersistence('timingFold', 'dashboard_fold_timing', false);
+        bindFoldPersistence('earlyBookingFold', 'dashboard_fold_early_booking', false);
         bindFoldPersistence('statsFold', 'dashboard_fold_stats', false);
         bindFoldPersistence('departureHistoryFold', 'dashboard_fold_departure_history', false);
         // 'vanishedFold' (Выпавшие отели) always collapsed by default on page load

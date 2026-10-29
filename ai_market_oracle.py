@@ -40,32 +40,47 @@ SYSTEM_INSTRUCTION = """
    - Вместо «риск sold-out» пиши: «хорошие номера в этом отеле быстро разбирают».
 3. ПРИВОДИ КОНКРЕТНЫЕ ЦИФРЫ: цены в злотых (zł), сколько дней осталось до вылета, сколько можно сэкономить.
 4. УЧИТЫВАЙ РЕАЛЬНЫЕ ДАТЫ ВЫЛЕТА И ВЫЛЕТЫ «СЕГОДНЯ» (market_stats):
-   - Обязательно смотри на min_days_to_departure, nearest_departure_date, has_today_departures и dominant_yield_phase!
+   - Обязательно смотри на min_days_to_departure, nearest_departure_date, has_today_departures, is_wide_window и dominant_yield_phase!
    - ВЫЛЕТЫ СЕГОДНЯ (min_days_to_departure = 0 или has_today_departures = true):
      * Помни: рейс улетает СЕГОДНЯ. Это экстремально горящий тур ТОЛЬКО для тех, кто уже сидит на собранных чемоданах и готов выехать в аэропорт через пару часов!
-     * Обязательно предупреждай об этом и указывай следующую реалистичную дату вылета (next_realistic_departure_date через next_realistic_days_to_departure дн.).
-   - Если до вылета больше 20 дней (например, 56 дней в декабре): это РАННЕЕ БРОНИРОВАНИЕ (early_bird / mid_term). Цены спокойные, спешить с покупкой не нужно. КАТЕГОРИЧЕСКИ ЗАПРЕЩЕНО писать «Горящие туры», «вылет через 6 дн.» или советовать брать тур прямо сейчас!
-   - Термин «Горящие туры» и совет «брать срочно» допустимы ТОЛЬКО если до вылета РЕАЛЬНО осталось от 1 до 7 дней!
+     * В совете (strategic_directive) обязательно предупреждай об этом и ДЛЯ СПОКОЙНОЙ ПОЕЗДКИ указывай следующую реалистичную дату вылета (next_realistic_departure_date через next_realistic_days_to_departure дн.).
+     * КАТЕГОРИЧЕСКИ ЗАПРЕЩЕНО писать «Горящие туры за 0 дн.» — пиши «Срочные вылеты сегодня» (или «Срочные вылеты сегодня и даты до {furthest_departure_date}» при широком окне)!
+   - ЕСЛИ is_wide_window=true (даты вылетов охватывают разные недели, например от 0/2 до 23 дней):
+     * КАТЕГОРИЧЕСКИ ЗАПРЕЩЕНО называть ВЕСЬ рынок «Горящими турами» или писать, что все билеты закончатся через 24–48 часов!
+     * В заголовке (headline) и фазе (market_phase) обязательно укажи весь диапазон: «Вылеты {nearest_departure_date}–{furthest_departure_date}: на ближайшие даты цены падают, на дальние — стабильны».
+     * В совете (strategic_directive) четко раздели туристов на две группы:
+       1) Тем, кто готов лететь сегодня/на днях ({nearest_departure_date}) — брать сейчас, билетов на рейсы мало.
+       2) Тем, кто планирует поездку позже (до {furthest_departure_date}) — не спешить, добавить в «Избранное» (☆) и ждать: ближе к вылету туроператоры часто снижают цены.
    - Если is_wide_window=false (все даты в пределах 2-3 дней): НЕ дели даты на «ближайшие» и «дальние», вылет один!
+   - Если до вылета больше 20 дней (например, 56 дней в декабре): это РАННЕЕ БРОНИРОВАНИЕ (early_bird / mid_term). Цены спокойные, спешить с покупкой не нужно. КАТЕГОРИЧЕСКИ ЗАПРЕЩЕНО писать «Горящие туры», «вылет через 6 дн.» или советовать брать тур прямо сейчас!
+   - Термин «Горящие туры» и совет «брать срочно» допустимы ТОЛЬКО если до вылета РЕАЛЬНО осталось от 1 до 7 дней при отсутствии широкого окна (или строго для ближайшей группы в широком окне)!
 5. БЛОК «ЕСЛИ ПОКУПАТЬ СЕЙЧАС» (buy_now_recommendation):
-   - Изучи переданный список top_candidates, flash_drops и gems.
-   - Если есть 1-2 реально выгодных предложения с высоким рейтингом (rating >= 4.0) и скидкой от 7% к норме — укажи has_worthy_deals: true, заголовок «Стоит выбрать из этих вариантов:» и выдели 1-2 отеля в top_picks с объяснением "why_buy". Обязательно передавай точную цену отеля в поле "price".
-   - Если же на рынке ВСЕ варианты средние, плохие или переоценены — укажи has_worthy_deals: false, заголовок «Лучше ничего не покупать — подождите», и объясни, почему сейчас не время для покупки.
+   - Изучи переданные flash_drops, gems, arbitrage_highlights и top_candidates.
+   - СТРОГИЙ АЛГОРИТМ ОТБОРА ДЛЯ TOP_PICKS (СТРОГО ПО ШАГАМ):
+     1) ШАГ 1 (ЖЕСТКИЙ ФИЛЬТР КАЧЕСТВА): Рассматривай ТОЛЬКО отели с подтвержденным высоким рейтингом rating >= 4.0 и реальными отзывами (review_count > 0).
+        Отели с rating = 0 (без отзывов) или rating < 4.0 ИСКЛЮЧАЮТСЯ ИЗ TOP_PICKS БЕЗУСЛОВНО, какая бы супер-скидка или низкая цена там ни была! КАТЕГОРИЧЕСКИ ЗАПРЕЩЕНО называть отели с 0 отзывов «проверенными с высоким рейтингом»!
+     2) ШАГ 2 (КАТАЛИЗАТОР ВЫГОДЫ): Среди прошедших фильтр качественных отелей выбери 1–2 лучших с реальным сбросом цены (flash drop), статусом скрытой жемчужины (gem), историческим минимумом сезона или скидкой от 7% к медиане. Обязательно указывай точную цену отеля в поле "price".
+     3) ШАГ 3 (ЕСЛИ КАЧЕСТВЕННЫХ ВЫГОДНЫХ СДЕЛОК НЕТ): Верни has_worthy_deals: false, headline: «Лучше ничего не покупать — подождите» (или «Срочные вылеты: нет выраженных супер-скидок в 4–5★» если вылет на днях), advice: «Честное объяснение...», top_picks: [].
 6. СТРОГАЯ ТОЧНОСТЬ РЕЙТИНГОВ И ЦЕН (АНТИ-ГАЛЛЮЦИНАЦИЯ):
    - КАТЕГОРИЧЕСКИ ЗАПРЕЩЕНО придумывать рейтинг отеля или писать «рейтинг 4.5★», если в данных указан другой рейтинг или rating=0!
    - Указывай ТОЛЬКО реальный рейтинг из поля rating отеля (например: «рейтинг 4.2★»). Если рейтинг равен 0 или отсутствует — вообще не упоминай рейтинг.
    - Отели с рейтингом ниже 4.0 КАТЕГОРИЧЕСКИ ЗАПРЕЩЕНО называть «Жемчужиной» или рекомендовать в блоке «Стоит выбрать»!
 7. СРАВНЕНИЕ ТОЛЬКО С ПРИМЕРНО РАВНЫМИ:
    - Не сравнивай бюджетный отель со средней ценой по всему рынку. Сравнивай отель только с его собственной историей или равными отелями его категории.
-8. СТРОГИЙ ЗАПРЕТ БРЕДОВЫХ ФРАЗ «НА 0% НИЖЕ» ИЛИ «НА 0% ВЫШЕ»:
-   - КАТЕГОРИЧЕСКИ ЗАПРЕЩЕНО писать «на 0% ниже» или «на 0% выше»! Если цена не снижена или разница меньше 7%, это обычная базовая цена.
+8. СТРОГИЙ ЗАПРЕТ БРЕДОВЫХ ФРАЗ И ФАЛЬШИВЫХ СБРОСОВ ЦЕНЫ:
+   - КАТЕГОРИЧЕСКИ ЗАПРЕЩЕНО использовать бейдж «⚡ Сброс цены», если скидка меньше 15%!
+   - Скидка 1–6% — это НЕ скидка и НЕ сброс цены, это обычные суточные колебания. Запрещено называть это выгодной ценой или скидкой!
+   - Скидка 7–14% — умеренная скидка («🔵 Скидка −X%»).
+   - Скидка 15%+ или подтвержденный flash drop — реальный обвал цены («⚡ Сброс цены (−X%)»).
+   - КАТЕГОРИЧЕСКИ ЗАПРЕЩЕНО писать «на 0% ниже» или «на 0% выше»!
 9. ИСПОЛЬЗУЙ РЫНОЧНЫЙ ТРЕНД (market_trends):
    - Если trend_7d_pct <= -2.5% (рынок падает): отметь это в charter_dynamics как позитивный сигнал для выжидания (туроператоры снижают планку).
    - Если trend_7d_pct >= +2.5% (рынок растет): предупреди туриста, что цены начали подниматься.
 10. АРБИТРАЖ АЭРОПОРТОВ (airports_comparison):
    - Если вылет из одного города заметно дешевле другого (spread_pln >= 300 zł): обязательно дай этот практический совет (например: «Вылет из Катовице на 650 zł выгоднее Варшавы на те же отели»).
 11. АРБИТРАЖ ПО ДЛИТЕЛЬНОСТИ (duration_comparison):
-   - Если разница в цене между 7 и 10 ночами небольшая (доплата до 350-400 zł), подскажи туристу: «10 дней брать намного выгоднее — доплата всего X zł за 3 лишних дня на море».
+   - Если multi_duration=true и доплата за дополнительные дни минимальна (cost_per_extra_day_pln <= 250 zł или delta_pln до 350-400 zł):
+     ОБЯЗАТЕЛЬНО добавь это как аномалию в key_anomalies (type: "duration" или "arbitrage") и подскажи туристу: «10 дней брать намного выгоднее — доплата всего X zł за дополнительные дни на море».
 12. ПОВЕДЕНЧЕСКИЙ АРХЕТИП ОТЕЛЯ (behavioral_archetype):
    - LATE_DUMPER: если до вылета еще много дней (D-30+), советуй ждать — отель регулярно сбрасывает цену в последние дни. Если вылет через 2–4 дня и цена упала — время брать.
    - ROCK_SOLID: держит стабильную цену весь сезон, ждать скидок перед вылетом бессмысленно.
@@ -112,36 +127,62 @@ SYSTEM_INSTRUCTION = """
   }
 }
 
-ПРИМЕР 2 (Срочный вылет, горящие туры за 3 дня):
-Вход: min_days=3, nearest_date="28.10", median_price=4900 zł, floor_pct=64%, top_candidates=[{"hotel_name": "Pickalbatros Aqua Park", "price": 3150, "rating": 4.6, "discount_from_median_pct": 22.0}]
+ПРИМЕР 2 (Срочный вылет СЕГОДНЯ + широкий диапазон дат, отель без рейтинга отсеян):
+Вход: min_days=0, has_today_departures=true, nearest_date="29.10", next_realistic_date="31.10", next_realistic_days=2, is_wide_window=true, furthest_date="21.11", median_price=7900 zł, floor_pct=4%, duration_comparison={cost_per_extra_day_pln: 98, delta_days: 2, delta_pln: 197}, top_candidates=[{"hotel_name": "Titanic Pearl", "price": 6915, "rating": 0.0, "review_count": 0, "discount_from_median_pct": 36.7}, {"hotel_name": "Albatros Makadi Resort", "price": 8206, "rating": 4.5, "review_count": 2800, "discount_from_median_pct": 20.1, "is_departing_today": true}, {"hotel_name": "Jaz Royal Palmariva", "price": 7644, "rating": 4.5, "review_count": 2800, "discount_from_median_pct": 42.4, "is_departing_today": false, "days_to_departure": 21}]
 Ответ:
 {
   "macro_briefing": {
-    "headline": "Горящие туры: до вылета 3 дня, туроператоры распродают места",
-    "market_phase": "Горящие туры за 3 дн.",
-    "charter_dynamics": "Вылет уже через 3 дня, на рейсах закрывают остатки мест со скидками до 22%. Более половины отелей (64%) упали на историческое дно цены.",
-    "floor_status": "Большинство отелей на минимальной планке сезона, рынок в фазе активного сброса.",
-    "strategic_directive": "Если готовы лететь на днях — сейчас лучший момент бронировать, места на чартерах закончатся за 24–48 часов.",
+    "headline": "Египет: стабильный рынок за 2–3 недели до вылета со срочными билетами на сегодня",
+    "market_phase": "Срочные вылеты (29.10) и даты до 21.11",
+    "charter_dynamics": "Базовые цены на стандартную неделю (8–9 ночей) стабильны и держатся около 7 900 zł за двоих. На сегодня есть срочные места со сбросом цен, но следующий спокойный вылет — 31.10 (через 2 дн.).",
+    "floor_status": "Только 4% отелей находятся на историческом дне цены, массового сброса нет.",
+    "strategic_directive": "Если готовы выехать в аэропорт через пару часов — берите проверенный Albatros на сегодня. Для спокойной поездки планируйте вылет на 31.10 или выбирайте Jaz Royal на вторую половину ноября по цене исторического дна.",
     "buy_now_recommendation": {
       "has_worthy_deals": true,
       "headline": "Стоит выбрать из этих вариантов:",
-      "advice": "Бронируйте сегодня, это проверенные отели с высоким рейтингом по цене эконома.",
+      "advice": "Для вылета сегодня подходит проверенный Albatros, а для планового отдыха в ноябре — Jaz Royal на абсолютном минимуме цены.",
       "top_picks": [
         {
-          "hotel_name": "Pickalbatros Aqua Park",
-          "price": 3150.0,
-          "badge": "⚡ Сброс цены (−22%)",
-          "why_buy": "Цена пробила дно сезона на 22%, отличный рейтинг 4.6★ по цене эконом-сегмента."
+          "hotel_name": "Albatros Makadi Resort (ex Royal Pharaohs Makadi)",
+          "price": 8206.0,
+          "badge": "⚡ Горящий вылет сегодня (−20%)",
+          "why_buy": "Отличный рейтинг 4.5★ и подогреваемый бассейн. Цена ниже сезонной медианы на 20% (вылет сегодня, только на собранных чемоданах)."
+        },
+        {
+          "hotel_name": "Jaz Royal Palmariva",
+          "price": 7644.0,
+          "badge": "💎 Историческое дно цены",
+          "why_buy": "Вылет 19.11 на 9 ночей. Цена пробила абсолютный минимум сезона (−42% от нормы), отличный риф и высокий рейтинг 4.5★."
         }
       ]
     },
     "key_anomalies": [
       {
-        "type": "drop",
-        "title": "Сброс чартера на 28.10",
-        "text": "Резкое удешевление качественных отелей на ближайший рейс."
+        "type": "duration",
+        "title": "⏳ Выгодная доплата за 10 дней",
+        "text": "Отдых на 10 ночей стоит всего на 197 zł дороже 8 ночей (доплата 98 zł в день за двоих). Имеет смысл брать более длинный тур."
       }
     ]
+  }
+}
+
+ПРИМЕР 3 (Широкое окно дат 2–23 дня, спокойный рынок без супер-скидок):
+Вход: is_wide_window=true, min_days=2, max_days=23, nearest_date="30.10", furthest_date="20.11", median_price=8000 zł, dominant_yield_phase="mid_term", gems=[], flash_drops=[], top_candidates=[{"hotel_name": "NLH Fix", "price": 6677, "rating": 0.0, "discount_from_median_pct": 4.0}]
+Ответ:
+{
+  "macro_briefing": {
+    "headline": "Вылеты 30.10–20.11: на ближайшие даты цены падают, на дальние — стабильны",
+    "market_phase": "Ближайшие вылеты (30.10) и даты до 20.11",
+    "charter_dynamics": "Подборка охватывает вылеты от ближайших дней (30.10, через 2 дн.) до конца ноября (20.11). На ближайшие рейсы туроператоры закрывают остатки мест, а на ноябрьские даты цены держатся на стабильном уровне около 8 000 zł.",
+    "floor_status": "Только 12% отелей сейчас на локальном минимуме, рынок в спокойном режиме.",
+    "strategic_directive": "Если планируете лететь на днях (30.10) — лучше брать сейчас, билетов на рейсы мало. Если поездка планируется позже (20.11) — можно не спешить, добавьте отели в «Избранное» (☆) и следите за ценой: ближе к вылету она часто снижается.",
+    "buy_now_recommendation": {
+      "has_worthy_deals": false,
+      "headline": "Срочные вылеты: нет выраженных супер-скидок в 4–5★",
+      "advice": "Ближайший вылет уже через 2 дня, но среди отелей с подтвержденным высоким рейтингом (4.0+★) глубоких скидок сейчас нет. Спешить с покупкой на ноябрь не стоит.",
+      "top_picks": []
+    },
+    "key_anomalies": []
   }
 }
 """
@@ -310,6 +351,23 @@ def generate_rule_based_briefing(market_context: Dict[str, Any]) -> Dict[str, An
                 "text": f"Средняя цена за последние 7 дней поднялась на {t7:.1f}% ({m_trends.get('delta_7d_pln', 0):,.0f} zł).",
             })
 
+    eb_ctx = market_context.get("early_booking", {})
+    if eb_ctx:
+        eb_verdict = eb_ctx.get("verdict")
+        eb_sold_out = eb_ctx.get("sold_out_rate_at_14d")
+        if eb_verdict == "EARLY_BOOKING_HIGHLY_FAVORABLE":
+            anomalies.append({
+                "type": "early_booking",
+                "title": "🏷️ Раннее бронирование выгодно",
+                "text": f"По нашей когортной статистике отели этого направления дорожают к вылету, а ~{int((eb_sold_out or 0.44)*100)}% номеров распродаются до горящих туров. Бронирование заранее надёжнее.",
+            })
+        elif eb_verdict == "WAIT_FOR_LAST_MINUTE":
+            anomalies.append({
+                "type": "early_booking",
+                "title": "⚡ Выгоднее ждать Last Minute",
+                "text": "По исторической динамике туроператоры снижают цены ближе к вылету. Ожидание горящих предложений здесь статистически оправдано.",
+            })
+
     dossiers: Dict[str, Dict[str, Any]] = {}
     hotels_to_process = market_context.get("all_hotel_intelligence") or {
         h["hotel_name"]: h for h in market_context.get("selected_hotel_dossiers", [])
@@ -395,16 +453,18 @@ def compute_buy_now_recommendation(
     all_intel = market_context.get("all_hotel_intelligence", {})
     if not all_intel:
         all_intel = {
-            h["hotel_name"]: h for h in market_context.get("selected_hotel_dossiers", [])
+            c["hotel_name"]: c for c in market_context.get("top_candidates", []) if isinstance(c, dict) and c.get("hotel_name")
+        } or {
+            h["hotel_name"]: h for h in market_context.get("selected_hotel_dossiers", []) if isinstance(h, dict) and h.get("hotel_name")
         }
 
     scored_candidates = []
     for h_name, h_info in all_intel.items():
-        cur_p = float(h_info.get("current_price", 0.0) or 0.0)
+        cur_p = float(h_info.get("current_price") or h_info.get("price") or 0.0)
         if cur_p <= 0:
             continue
 
-        hist_min = float(h_info.get("historical_min", cur_p) or cur_p)
+        hist_min = float(h_info.get("historical_min") or h_info.get("price_history", {}).get("historical_min") or cur_p or 0.0)
         flash = h_info.get("flash_drop", {})
         gem = h_info.get("gem", {})
         bw = h_info.get("booking_window", {})
@@ -412,7 +472,7 @@ def compute_buy_now_recommendation(
         dossier = dossiers.get(h_name, {})
         verdict = dossier.get("verdict", "")
 
-        hist_med = float(h_info.get("historical_median", cur_p) or cur_p)
+        hist_med = float(h_info.get("historical_median") or h_info.get("price_history", {}).get("historical_median") or cur_p or 0.0)
 
         # Исключаем заведомо переоценённые варианты или варианты выше собственной нормы
         if verdict == "OVERPRICED" or fp.get("class") == "fair-overpriced" or (hist_med > 0 and cur_p > hist_med * 1.03):
@@ -460,7 +520,7 @@ def compute_buy_now_recommendation(
             has_real_catalyst = True
 
         # 5. Реальное дно сезона (только если цена на минимуме и была выше)
-        hist_max = float(h_info.get("historical_max", cur_p) or cur_p)
+        hist_max = float(h_info.get("historical_max") or h_info.get("price_history", {}).get("historical_max") or cur_p or 0.0)
         if cur_p <= hist_min * 1.01 and (hist_max >= cur_p * 1.05 or hist_med >= cur_p * 1.03):
             score += 50
             if hist_max > cur_p:
@@ -471,9 +531,9 @@ def compute_buy_now_recommendation(
             if not best_badge:
                 best_badge = "⚡ Дно цены"
 
-        rating = float(h_info.get("rating", 0.0) or 0.0)
-        # Quality Guard: low-rated (< 4.0) hotels should not be recommended in top picks
-        if rating > 0 and rating < 4.0:
+        rating = float(h_info.get("rating") or h_info.get("ta_rating") or 0.0)
+        # Quality Guard: unrated (0.0) or low-rated (< 4.0) hotels should not be recommended in top picks
+        if rating < 4.0:
             continue
 
         if rating >= 4.5:
@@ -641,6 +701,26 @@ def enrich_oracle_report_with_smart_features(
                 "text": f"{r_str} в категории {g.get('stars', 4)}★ всего за {g['price']:,.0f} zł (дешевле аналогов)."
             })
 
+    # Duration arbitrage auto-injection
+    dur_comp = market_context.get("duration_comparison", {})
+    if dur_comp.get("multi_duration") and dur_comp.get("cost_per_extra_day_pln", 9999) <= 250:
+        if not any(a.get("type") in ("duration", "arbitrage") and ("дн" in str(a.get("title", "")).lower() or "длительн" in str(a.get("title", "")).lower()) for a in existing_anomalies):
+            existing_anomalies.append({
+                "type": "duration",
+                "title": f"⏳ Выгодная длительность: {dur_comp.get('longer_duration_days')} дн.",
+                "text": dur_comp.get("insight", "Доплата за дополнительные дни минимальна."),
+            })
+
+    # Airport arbitrage auto-injection
+    apt_comp = market_context.get("airports_comparison", {})
+    if apt_comp.get("multi_airport") and apt_comp.get("spread_pln", 0) >= 300:
+        if not any(a.get("type") == "arbitrage" and "вылет" in str(a.get("title", "")).lower() for a in existing_anomalies):
+            existing_anomalies.append({
+                "type": "arbitrage",
+                "title": f"✈️ Разница вылетов: {apt_comp.get('cheapest_hub')} vs {apt_comp.get('expensive_hub')}",
+                "text": apt_comp.get("insight", f"Экономия {apt_comp.get('spread_pln', 0):,.0f} zł при смене аэропорта."),
+            })
+
     # 6. Buy Now Recommendation validation & ground-truth enrichment
     buy_rec = macro.get("buy_now_recommendation")
     all_intel = market_context.get("all_hotel_intelligence", {})
@@ -659,9 +739,9 @@ def enrich_oracle_report_with_smart_features(
                 pick["price"] = cur_p
                 pick["rating"] = real_r
 
-                # Disqualify hotels with poor ratings (< 4.0) from buy recommendations
-                if real_r > 0 and real_r < 4.0:
-                    logger.info(f"Disqualifying {hn} from top picks due to low TripAdvisor rating ({real_r}★)")
+                # Disqualify hotels with unrated or poor ratings (< 4.0) from buy recommendations
+                if real_r < 4.0 or (intel.get("review_count", 0) == 0 and real_r == 0.0):
+                    logger.info(f"Disqualifying {hn} from top picks due to unrated or low TripAdvisor rating ({real_r}★)")
                     continue
 
                 # Fix hallucinated ratings in why_buy (fixes 'Ложь про рейтинг 4.5' bug!)
@@ -675,7 +755,9 @@ def enrich_oracle_report_with_smart_features(
                 verified_picks.append(pick)
             else:
                 if hn in dossiers:
-                    verified_picks.append(pick)
+                    d_r = float(dossiers[hn].get("rating") or dossiers[hn].get("ta_rating") or 0.0)
+                    if d_r >= 4.0:
+                        verified_picks.append(pick)
 
         buy_rec["top_picks"] = verified_picks
         if not verified_picks:
@@ -685,8 +767,19 @@ def enrich_oracle_report_with_smart_features(
     stats = market_context.get("market_stats", {})
     min_d = stats.get("min_days_to_departure", 14)
     nearest_dep = stats.get("nearest_departure_date", "")
+    furthest_dep = stats.get("furthest_departure_date", "")
     is_wide = stats.get("is_wide_window", False)
     phase_str = str(macro.get("market_phase", ""))
+    has_today = stats.get("has_today_departures", min_d == 0)
+
+    # Sanitize clumsy '0 дн.' phrasing in market_phase
+    if has_today or min_d == 0:
+        if any(token in phase_str.lower() for token in ("0 дн", "0 дней", "через 0", "за 0")):
+            if is_wide and furthest_dep:
+                macro["market_phase"] = f"Срочные вылеты ({nearest_dep}) и даты до {furthest_dep}"
+            else:
+                macro["market_phase"] = f"Срочный вылет СЕГОДНЯ ({nearest_dep})" if nearest_dep else "Срочный вылет СЕГОДНЯ"
+            logger.info(f"Sanitized '0 дн.' phrasing in market_phase from '{phase_str}' to '{macro['market_phase']}'")
 
     # If departure is > 20 days away, but AI hallucinated "Горящие туры" or "через X дн."
     if min_d >= 20 and ("горящ" in phase_str.lower() or re.search(r"через\s*[1-9]\s*дн", phase_str, re.I)):
@@ -706,6 +799,13 @@ def enrich_oracle_report_with_smart_features(
     if min_d >= 20 and ("на ближайшие даты, стоит брать" in directive_str.lower() or "брать прямо сейчас" in directive_str.lower() or "стоит брать туры сейчас" in directive_str.lower()):
         macro["strategic_directive"] = f"До вылета еще много времени ({min_d} дн.). Цены находятся на обычном уровне. Спешить с бронированием не нужно: добавьте отели в «Избранное» (☆) и наблюдайте за ценой за 10–14 дней до вылета."
         logger.info("Corrected rushed buy directive for distant departure (>20 days).")
+    elif has_today:
+        next_real_dep = stats.get("next_realistic_departure_date", "")
+        next_real_d = stats.get("next_realistic_days_to_departure", 0)
+        charter_str = str(macro.get("charter_dynamics", ""))
+        if next_real_dep and next_real_d > 0 and next_real_dep not in directive_str and next_real_dep not in charter_str:
+            macro["strategic_directive"] = directive_str.rstrip() + f" Для спокойного вылета ближайшая дата — {next_real_dep} (через {next_real_d} дн.)."
+            logger.info("Appended next realistic departure date for today's flight.")
 
     if market_context.get("filter_title"):
         macro["filter_title"] = market_context["filter_title"]
@@ -743,6 +843,8 @@ def call_gemini_oracle(
         "gems": market_context.get("gems", []),
         "flash_drops": market_context.get("flash_drops", []),
     }
+    if market_context.get("early_booking"):
+        llm_context["early_booking"] = market_context.get("early_booking")
 
     is_deep = os.getenv("AI_ANALYSIS_MODE", "standard").lower() == "full_deep"
     if is_deep:
@@ -762,20 +864,20 @@ def call_gemini_oracle(
 {{
   "macro_briefing": {{
     "headline": "Честный краткий заголовок ситуации строго по реальным данным min_days_to_departure и nearest_departure_date (СТРОГО БЕЗ названий файлов, slug или filter_id)",
-    "market_phase": "Фаза рынка строго по реальному min_days_to_departure (например: 'Раннее бронирование за 56 дн.' если вылет нескоро, или 'Горящие туры за 4 дн.' если вылет на днях)",
-    "charter_dynamics": "2-3 простых понятных предложения с цифрами о ценах и рейсах, обязательно с точной страной из destination_context и длительностью (например: туры на 13–16 ночей в Египет...)",
-    "floor_status": "Сколько отелей сейчас на самом дне цены",
-    "strategic_directive": "Простой четкий совет: кому брать тур прямо сейчас, а кому лучше подождать",
+    "market_phase": "Фаза рынка: если вылет сегодня (0 дн.) — 'Срочные вылеты сегодня' (при широком окне: 'Срочные вылеты сегодня и даты до DD.MM'); если вылет нескоро — 'Раннее бронирование за X дн.'; если через 1–7 дн. — 'Горящие туры за X дн.'",
+    "charter_dynamics": "2-3 простых понятных предложения с цифрами о ценах и рейсах, обязательно с точной страной из destination_context и длительностью (например: туры на 8–9 ночей в Египет...). При вылетах сегодня обязательно укажи дату следующего спокойного рейса (next_realistic_departure_date)",
+    "floor_status": "Сколько отелей сейчас на самом дне цены (например: 'Лишь 4% отелей на минимуме...')",
+    "strategic_directive": "Простой четкий совет: кому брать тур прямо сейчас (если вылет сегодня — только на чемоданах; для остальных указать next_realistic_departure_date), а кому лучше подождать",
     "buy_now_recommendation": {{
       "has_worthy_deals": true,
       "headline": "Стоит выбрать из этих вариантов: (или: 'Лучше ничего не покупать — подождите')",
-      "advice": "Короткий живой совет туристу",
+      "advice": "Короткий живой совет туристу (никогда не называй непроверенные отели с 0 отзывов проверенными!)",
       "top_picks": [
-        {{ "hotel_name": "Точное имя отеля из top_candidates", "price": 1234.0, "badge": "⚡ Сброс цены / 💎 Жемчужина", "why_buy": "Краткое обоснование с цифрами" }}
+        {{ "hotel_name": "Точное имя отеля из top_candidates СТРОГО с rating >= 4.0", "price": 1234.0, "badge": "⚡ Сброс цены / 💎 Жемчужина", "why_buy": "Краткое обоснование с цифрами" }}
       ]
     }},
     "key_anomalies": [
-      {{ "type": "drop|arbitrage|overprice", "title": "...", "text": "..." }}
+      {{ "type": "drop|arbitrage|overprice|duration", "title": "...", "text": "..." }}
     ]
   }}
 }}
@@ -894,6 +996,8 @@ def call_openai_oracle(
         "gems": market_context.get("gems", []),
         "flash_drops": market_context.get("flash_drops", []),
     }
+    if market_context.get("early_booking"):
+        llm_context["early_booking"] = market_context.get("early_booking")
 
     is_deep = os.getenv("AI_ANALYSIS_MODE", "standard").lower() == "full_deep"
     if is_deep:
@@ -913,20 +1017,20 @@ def call_openai_oracle(
 {{
   "macro_briefing": {{
     "headline": "Честный краткий заголовок ситуации строго по реальным данным min_days_to_departure и nearest_departure_date (СТРОГО БЕЗ названий файлов, slug или filter_id)",
-    "market_phase": "Фаза рынка строго по реальному min_days_to_departure (например: 'Раннее бронирование за 56 дн.' если вылет нескоро, или 'Горящие туры за 4 дн.' если вылет на днях)",
-    "charter_dynamics": "2-3 простых понятных предложения с цифрами о ценах и рейсах, обязательно с точной страной из destination_context и длительностью (например: туры на 13–16 ночей в Египет...)",
-    "floor_status": "Сколько отелей сейчас на самом дне цены",
-    "strategic_directive": "Простой четкий совет: кому брать тур прямо сейчас, а кому лучше подождать",
+    "market_phase": "Фаза рынка: если вылет сегодня (0 дн.) — 'Срочные вылеты сегодня' (при широком окне: 'Срочные вылеты сегодня и даты до DD.MM'); если вылет нескоро — 'Раннее бронирование за X дн.'; если через 1–7 дн. — 'Горящие туры за X дн.'",
+    "charter_dynamics": "2-3 простых понятных предложения с цифрами о ценах и рейсах, обязательно с точной страной из destination_context и длительностью (например: туры на 8–9 ночей в Египет...). При вылетах сегодня обязательно укажи дату следующего спокойного рейса (next_realistic_departure_date)",
+    "floor_status": "Сколько отелей сейчас на самом дне цены (например: 'Лишь 4% отелей на минимуме...')",
+    "strategic_directive": "Простой четкий совет: кому брать тур прямо сейчас (если вылет сегодня — только на чемоданах; для остальных указать next_realistic_departure_date), а кому лучше подождать",
     "buy_now_recommendation": {{
       "has_worthy_deals": true,
       "headline": "Стоит выбрать из этих вариантов: (или: 'Лучше ничего не покупать — подождите')",
-      "advice": "Короткий живой совет туристу",
+      "advice": "Короткий живой совет туристу (никогда не называй непроверенные отели с 0 отзывов проверенными!)",
       "top_picks": [
-        {{ "hotel_name": "Точное имя отеля из top_candidates", "price": 1234.0, "badge": "⚡ Сброс цены / 💎 Жемчужина", "why_buy": "Краткое обоснование с цифрами" }}
+        {{ "hotel_name": "Точное имя отеля из top_candidates СТРОГО с rating >= 4.0", "price": 1234.0, "badge": "⚡ Сброс цены / 💎 Жемчужина", "why_buy": "Краткое обоснование с цифрами" }}
       ]
     }},
     "key_anomalies": [
-      {{ "type": "drop|arbitrage|overprice", "title": "...", "text": "..." }}
+      {{ "type": "drop|arbitrage|overprice|duration", "title": "...", "text": "..." }}
     ]
   }}
 }}

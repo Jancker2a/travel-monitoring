@@ -29,6 +29,11 @@ import pandas as pd
 
 from build_market_dna import parse_departure_date, parse_scraped_date, get_d_bucket, extract_operator_from_url
 
+try:
+    from early_booking_analyzer import analyze_dataframe as analyze_early_booking
+except ImportError:
+    analyze_early_booking = None
+
 logger = logging.getLogger("feature_extractor")
 DEFAULT_DNA_FILE = "market_dna_profile.json"
 DEFAULT_REPUTATION_KB_FILE = "hotel_reputation_kb.json"
@@ -742,8 +747,11 @@ def extract_filter_features(
 
     # Stay duration profiling (e.g. 7-10 nights vs long 13-16 nights / 2 weeks)
     trip_days_list: List[int] = []
-    if "duration" in latest_per_hotel.columns:
-        for val in latest_per_hotel["duration"].dropna():
+    latest_ts = df["scraped_at"].max() if "scraped_at" in df.columns else None
+    active_slice = df[df["scraped_at"] == latest_ts] if latest_ts is not None else latest_per_hotel
+    source_df = active_slice if "duration" in active_slice.columns else latest_per_hotel
+    if "duration" in source_df.columns:
+        for val in source_df["duration"].dropna():
             d_len = extract_stay_days(val)
             if d_len and 2 <= d_len <= 35:
                 trip_days_list.append(d_len)
@@ -1240,7 +1248,12 @@ def extract_filter_features(
             "dupe_suggestion": None,
         }
 
-        if is_floor:
+        # Exclude expired departures (dates in the past) only if dataset contains active/future departures
+        h_dep_d = parse_departure_date(str(row.get("dates", "")))
+        h_d_days = (h_dep_d - today).days if h_dep_d else None
+        is_past_departure = (h_d_days is not None and h_d_days < 0) if d_values else False
+
+        if is_floor and not is_past_departure:
             floor_breakers.append(cand_info)
 
         has_buy_catalyst = (
@@ -1249,11 +1262,12 @@ def extract_filter_features(
             or is_gem
             or (is_truly_underpriced and r_val >= 4.2)
         )
-        # Low rating (< 4.0) hotels should NEVER be candidates for buy recommendations
-        if has_buy_catalyst and (r_val >= 4.0 or r_val == 0.0):
+        # Low rating (< 4.0) or unrated (0.0) hotels, as well as past departures, should NEVER be candidates for buy recommendations
+        if has_buy_catalyst and r_val >= 4.0 and not is_past_departure:
             active_candidates.append(cand_info)
 
-        hotel_records_list.append(cand_info)
+        if not is_past_departure:
+            hotel_records_list.append(cand_info)
 
     # 3. Second pass: AI Dupe (Двойник / Альтернатива) Matching for expensive hotels
     for cand in hotel_records_list:
@@ -1333,8 +1347,10 @@ def extract_filter_features(
         selected_cands = list(active_candidates)
         if len(selected_cands) < 6:
             seen = {c["hotel_name"] for c in selected_cands}
-            # Backfill with highest-rated and best-value hotels from catalog
-            sorted_by_quality = sorted(hotel_records_list, key=lambda x: (-x["rating"], x["current_price"]))
+            # Backfill with highest-rated and best-value hotels from catalog (rating >= 4.0 first)
+            rated_first = [c for c in hotel_records_list if c["rating"] >= 4.0]
+            unrated = [c for c in hotel_records_list if c["rating"] < 4.0]
+            sorted_by_quality = sorted(rated_first, key=lambda x: (-x["rating"], x["current_price"])) + sorted(unrated, key=lambda x: x["current_price"])
             for cand in sorted_by_quality:
                 if cand["hotel_name"] not in seen:
                     selected_cands.append(cand)
@@ -1352,6 +1368,10 @@ def extract_filter_features(
     }
 
     for cand in selected_cands:
+        cand_dep_d = parse_departure_date(str(cand.get("dates", "")))
+        cand_d_days = (cand_dep_d - today).days if cand_dep_d else None
+        if d_values and cand_d_days is not None and cand_d_days < 0:
+            continue
         cur_p = cand["current_price"]
         h_med = cand["historical_median"]
         h_min = cand["historical_min"]
@@ -1368,9 +1388,6 @@ def extract_filter_features(
 
         op_name = cand.get("tour_operator") or "Туроператор (Польша)"
         rep_meta = cand.get("reputation") or get_hotel_reputation_metadata(cand["hotel_name"], filter_title or "", kb_data=reputation_kb)
-
-        cand_dep_d = parse_departure_date(str(cand.get("dates", "")))
-        cand_d_days = (cand_dep_d - today).days if cand_dep_d else None
         is_today_cand = (cand_d_days == 0)
 
         cand_dur_days = extract_stay_days(cand.get("duration", "")) or med_trip_days
@@ -1526,6 +1543,22 @@ def extract_filter_features(
         "flash_drops": flash_drops,
         "cluster_medians": cluster_medians,
     }
+
+    if analyze_early_booking is not None:
+        try:
+            eb_res = analyze_early_booking(df, filter_id=filter_id or "")
+            if not eb_res.get("error") and eb_res.get("summary", {}).get("verdict") != "INSUFFICIENT_DATA":
+                surv_14 = next((item["survival_rate"] for item in eb_res.get("survival_curve", []) if item["d"] == 14), None)
+                market_context["early_booking"] = {
+                    "ebas_score": eb_res["summary"].get("ebas_score"),
+                    "verdict": eb_res["summary"].get("verdict"),
+                    "best_d_bucket": eb_res["summary"].get("best_price_d_bucket"),
+                    "paired_trajectory": eb_res.get("paired_price_trajectory"),
+                    "survival_rate_at_14d": surv_14,
+                    "sold_out_rate_at_14d": round(1.0 - surv_14, 3) if surv_14 is not None else None,
+                }
+        except Exception as e_eb:
+            logger.debug(f"Early booking extraction skipped: {e_eb}")
 
     return market_context
 
