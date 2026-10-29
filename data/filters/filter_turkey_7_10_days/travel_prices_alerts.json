@@ -611,10 +611,62 @@
       "created_at": "2026-10-28T23:28:00.120758+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Grand Kolibri Prestige & Spa_2026-10-28_23-26_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sural Resort",
+      "duration_bucket": "",
+      "old_price": 6274.0,
+      "new_price": 5744.0,
+      "price_change": -530.0,
+      "price_change_pct": -8.447561364360855,
+      "timestamp": "2026-10-29 06:04:53.915864+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-29T06:06:13.833527+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sural Resort_2026-10-29_06-04_-8.4"
+    },
+    {
+      "hotel_name": "Grand Seker",
+      "duration_bucket": "",
+      "old_price": 6238.0,
+      "new_price": 5306.0,
+      "price_change": -932.0,
+      "price_change_pct": -14.940686117345303,
+      "timestamp": "2026-10-29 06:04:53.915864+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-29T06:06:13.833550+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Grand Seker_2026-10-29_06-04_-14.9"
+    },
+    {
+      "hotel_name": "Turan Prince",
+      "duration_bucket": "",
+      "old_price": 6012.0,
+      "new_price": 6012.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-29 06:04:53.915864+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-29T06:06:13.833562+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Turan Prince_2026-10-29_06-04_zone_out_gone"
+    },
+    {
+      "hotel_name": "Wyndham Istanbul Old City (ex. Celal Aga Konagi)",
+      "duration_bucket": "",
+      "old_price": 5484.0,
+      "new_price": 5484.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-29 06:04:53.915864+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-29T06:06:13.833567+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Wyndham Istanbul Old City (ex. Celal Aga Konagi)_2026-10-29_06-04_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-28T23:26:29.622929+00:00",
+    "last_processed_run": "2026-10-29T06:04:53.915864+00:00",
     "premium_state": {
       "Alaiye Resort & Spa": {
         "history_max": 5724.0,
@@ -665,7 +717,7 @@
         "premium_peak": null
       },
       "Seher Resort & Spa": {
-        "history_max": 5914.0,
+        "history_max": 6029.0,
         "premium_peak": null
       },
       "Seher Sun Palace Resort & Spa": {
