@@ -1742,10 +1742,101 @@
       "created_at": "2026-10-29T14:53:45.355995+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sirena Beach Resort & Spa_2026-10-29_14-51_zone_out_gone"
+    },
+    {
+      "hotel_name": "AMC Royal Hotel & Spa (ex. AMC Azur Resort)",
+      "duration_bucket": "",
+      "old_price": 6970.0,
+      "new_price": 7929.0,
+      "price_change": 959.0,
+      "price_change_pct": 13.758967001434721,
+      "timestamp": "2026-10-29 19:05:58.129462+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-29T19:07:09.709963+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort)_2026-10-29_19-05_+13.8"
+    },
+    {
+      "hotel_name": "Gemma Resort (ex. Labranda Gemma Premium Resort)",
+      "duration_bucket": "",
+      "old_price": 7965.0,
+      "new_price": 7189.0,
+      "price_change": -776.0,
+      "price_change_pct": -9.742623979912116,
+      "timestamp": "2026-10-29 19:05:58.129462+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-29T19:07:09.709986+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Gemma Resort (ex. Labranda Gemma Premium Resort)_2026-10-29_19-05_-9.7"
+    },
+    {
+      "hotel_name": "Amarina Queen Resort",
+      "duration_bucket": "",
+      "old_price": 6872.0,
+      "new_price": 7450.0,
+      "price_change": 578.0,
+      "price_change_pct": 8.41094295692666,
+      "timestamp": "2026-10-29 19:05:58.129462+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-29T19:07:09.709992+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amarina Queen Resort_2026-10-29_19-05_+8.4"
+    },
+    {
+      "hotel_name": "Novotel Marsa Alam",
+      "duration_bucket": "",
+      "old_price": 7717.0,
+      "new_price": 6827.0,
+      "price_change": -890.0,
+      "price_change_pct": -11.532979136970326,
+      "timestamp": "2026-10-29 19:05:58.129462+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-29T19:07:09.709998+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Novotel Marsa Alam_2026-10-29_19-05_-11.5"
+    },
+    {
+      "hotel_name": "IL Mercato Splash Aqua Park",
+      "duration_bucket": "",
+      "old_price": 5720.0,
+      "new_price": 7218.0,
+      "price_change": 1498.0,
+      "price_change_pct": 26.18881118881119,
+      "timestamp": "2026-10-29 19:05:58.129462+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-29T19:07:09.710003+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "IL Mercato Splash Aqua Park_2026-10-29_19-05_+26.2"
+    },
+    {
+      "hotel_name": "Naama Bay Promenade Mountain Resort",
+      "duration_bucket": "",
+      "old_price": 7095.0,
+      "new_price": 8307.0,
+      "price_change": 1212.0,
+      "price_change_pct": 17.082452431289642,
+      "timestamp": "2026-10-29 19:05:58.129462+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-29T19:07:09.710007+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Naama Bay Promenade Mountain Resort_2026-10-29_19-05_+17.1"
+    },
+    {
+      "hotel_name": "Fantazia Resort",
+      "duration_bucket": "",
+      "old_price": 8377.0,
+      "new_price": 8377.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-29 19:05:58.129462+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-29T19:07:09.710017+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Fantazia Resort_2026-10-29_19-05_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-29T14:51:14.064285+00:00",
+    "last_processed_run": "2026-10-29T19:05:58.129462+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 7929.0,
@@ -1792,7 +1883,7 @@
         "premium_peak": null
       },
       "Serenity Alma Heights (ex. Serenity Fun City)": {
-        "history_max": 8217.0,
+        "history_max": 8237.0,
         "premium_peak": null
       },
       "Jasmine Palace": {
@@ -1804,7 +1895,7 @@
         "premium_peak": null
       },
       "Rewaya Luxury Resort": {
-        "history_max": 7780.0,
+        "history_max": 7880.0,
         "premium_peak": null
       },
       "Gemma Resort (ex. Labranda Gemma Premium Resort)": {
@@ -1832,7 +1923,7 @@
         "premium_peak": null
       },
       "Amarina Queen Resort": {
-        "history_max": 7250.0,
+        "history_max": 7450.0,
         "premium_peak": null
       },
       "V Grand Beach Resort Sahl Hasheesh": {
@@ -1856,7 +1947,7 @@
         "premium_peak": null
       },
       "Dream Lagoon & Aqua Park Resort (ex. Floriana Dream Lagoon)": {
-        "history_max": 7967.0,
+        "history_max": 7987.0,
         "premium_peak": null
       },
       "Stella Beach Resort & Spa": {
