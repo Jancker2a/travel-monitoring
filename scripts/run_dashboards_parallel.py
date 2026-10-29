@@ -15,7 +15,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from filter_trip import should_skip_monitor_config, skip_monitor_reason, load_config_json
+from filter_trip import should_skip_monitor_config, skip_monitor_reason, load_config_json, is_config_archived, archive_reason
 from filter_registry import get_all_dashboard_configs
 
 DEFAULT_DASHBOARDS = get_all_dashboard_configs()
@@ -24,15 +24,19 @@ DEFAULT_DASHBOARDS = get_all_dashboard_configs()
 def _run_one(spec: dict, log_dir: Path, force_ai: bool = False) -> tuple[str, int, float, str]:
     output = spec["output"]
     config_path = str(spec.get("config") or "").strip()
-    if config_path and should_skip_monitor_config(str(ROOT / config_path)):
-        if (ROOT / output).is_file():
+    if config_path:
+        full_cfg = ROOT / config_path
+        if full_cfg.is_file():
             try:
-                reason = skip_monitor_reason(load_config_json(str(ROOT / config_path))) or "пропуск"
+                cfg_obj = load_config_json(str(full_cfg))
+                if is_config_archived(cfg_obj):
+                    if (ROOT / output).is_file():
+                        reason = archive_reason(cfg_obj) or "архив"
+                        return output, 0, 0.0, f"skip:{reason}"
+                    if not (ROOT / spec["data"]).is_file():
+                        return output, 0, 0.0, "skip:no_data_csv"
             except Exception:
-                reason = "пропуск"
-            return output, 0, 0.0, f"skip:{reason}"
-        if not (ROOT / spec["data"]).is_file():
-            return output, 0, 0.0, "skip:no_data_csv"
+                pass
 
     log_dir.mkdir(parents=True, exist_ok=True)
     log_path = log_dir / f"{Path(output).stem}.log"
@@ -128,17 +132,21 @@ def main() -> int:
     for spec in DEFAULT_DASHBOARDS:
         config_path = str(spec.get("config") or "").strip()
         output_file = ROOT / spec["output"]
-        if config_path and should_skip_monitor_config(str(ROOT / config_path)):
-            if output_file.is_file():
+        if config_path:
+            full_cfg = ROOT / config_path
+            if full_cfg.is_file():
                 try:
-                    reason = skip_monitor_reason(load_config_json(str(ROOT / config_path))) or "пропуск"
+                    cfg_obj = load_config_json(str(full_cfg))
+                    if is_config_archived(cfg_obj):
+                        if output_file.is_file():
+                            reason = archive_reason(cfg_obj) or "архив"
+                            print(f"  ⏭ {spec['output']} ({reason})")
+                            continue
+                        if not (ROOT / spec["data"]).is_file():
+                            print(f"  ⏭ {spec['output']} (нет CSV данных)")
+                            continue
                 except Exception:
-                    reason = "пропуск"
-                print(f"  ⏭ {spec['output']} ({reason})")
-                continue
-            if not (ROOT / spec["data"]).is_file():
-                print(f"  ⏭ {spec['output']} (нет CSV данных)")
-                continue
+                    pass
         active_specs.append(spec)
 
     print(f"Parallel dashboards: {len(active_specs)}/{len(DEFAULT_DASHBOARDS)} filters, jobs={jobs}")
