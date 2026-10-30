@@ -2067,10 +2067,49 @@
       "created_at": "2026-10-30T06:40:25.127434+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Royal Brayka Beach Resort (ex Zee Brayka)_2026-10-30_06-39_zone_out_gone"
+    },
+    {
+      "hotel_name": "Amarina Queen Resort",
+      "duration_bucket": "",
+      "old_price": 6872.0,
+      "new_price": 7450.0,
+      "price_change": 578.0,
+      "price_change_pct": 8.41094295692666,
+      "timestamp": "2026-10-30 08:44:32.786024+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-30T08:45:44.061353+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amarina Queen Resort_2026-10-30_08-44_+8.4"
+    },
+    {
+      "hotel_name": "Rewaya Majestic Resort",
+      "duration_bucket": "",
+      "old_price": 8256.0,
+      "new_price": 8256.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-30 08:44:32.786024+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-30T08:45:44.061383+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Majestic Resort_2026-10-30_08-44_zone_out_gone"
+    },
+    {
+      "hotel_name": "Swisstouch Oriental Resort (ex. Hotelux Oriental Coast)",
+      "duration_bucket": "",
+      "old_price": 8273.0,
+      "new_price": 8273.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-30 08:44:32.786024+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-30T08:45:44.061389+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Swisstouch Oriental Resort (ex. Hotelux Oriental Coast)_2026-10-30_08-44_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-30T06:39:04.020593+00:00",
+    "last_processed_run": "2026-10-30T08:44:32.786024+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 8031.0,
@@ -2169,7 +2208,7 @@
         "premium_peak": null
       },
       "Rewaya Inn Resort (ex. Hawaii Paradise Aqua Park Resort)": {
-        "history_max": 8016.0,
+        "history_max": 8086.0,
         "premium_peak": null
       },
       "Swisstouch Oriental Resort (ex. Hotelux Oriental Coast)": {
@@ -2221,7 +2260,7 @@
         "premium_peak": null
       },
       "Concorde Moreen Beach Resort & Spa": {
-        "history_max": 8256.0,
+        "history_max": 8402.0,
         "premium_peak": null
       },
       "Pickalbatros Laguna Club Resort": {
