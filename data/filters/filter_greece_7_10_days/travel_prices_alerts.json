@@ -39,10 +39,23 @@
       "created_at": "2026-10-27T06:31:07.832816+00:00",
       "threshold_percent": 8.0,
       "unique_key": "NLH Fix_2026-10-27_06-30_zone_out_gone"
+    },
+    {
+      "hotel_name": "Titania Hotel",
+      "duration_bucket": "",
+      "old_price": 5364.0,
+      "new_price": 5364.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-30 18:47:57.009539+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-30T18:48:59.296971+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Titania Hotel_2026-10-30_18-47_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-30T13:48:10.570343+00:00",
+    "last_processed_run": "2026-10-30T18:47:57.009539+00:00",
     "premium_state": {
       "DOLCE ATHENS ATTICA RIVIERA": {
         "history_max": 8007.0,
@@ -81,7 +94,7 @@
         "premium_peak": 11089.0
       },
       "Ambrosia Suites": {
-        "history_max": 4016.0,
+        "history_max": 4066.0,
         "premium_peak": null
       },
       "Titania Hotel": {
@@ -94,6 +107,10 @@
       },
       "Evita Asty Hotel": {
         "history_max": 5071.0,
+        "premium_peak": null
+      },
+      "Athens Zafolia Hotel": {
+        "history_max": 5599.0,
         "premium_peak": null
       }
     }
