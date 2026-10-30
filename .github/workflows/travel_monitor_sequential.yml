@@ -163,7 +163,7 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL || 'gemini-2.0-flash' }}
-          OPENAI_MODEL: ${{ inputs.openai_model || github.event.inputs.openai_model || (inputs.ai_mode == 'full_deep' && 'gpt-5.4-mini') || (github.event.inputs.ai_mode == 'full_deep' && 'gpt-5.4-mini') || vars.OPENAI_MODEL || 'gpt-4o-mini' }}
+          OPENAI_MODEL: ${{ inputs.openai_model || github.event.inputs.openai_model || vars.OPENAI_MODEL || 'gpt-5.4-mini' }}
           FORCE_AI_ANALYSIS: ${{ (inputs.force_refresh_ai == true || inputs.force_refresh_ai == 'true' || inputs.ai_mode == 'full_deep' || github.event.inputs.force_refresh_ai == true || github.event.inputs.force_refresh_ai == 'true' || github.event.inputs.ai_mode == 'full_deep') && 'true' || 'false' }}
           AI_ANALYSIS_MODE: ${{ inputs.ai_mode || github.event.inputs.ai_mode || 'standard' }}
         run: |

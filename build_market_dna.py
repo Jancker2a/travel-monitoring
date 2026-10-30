@@ -37,23 +37,74 @@ DEFAULT_OUTPUT_FILE = "market_dna_profile.json"
 
 
 @functools.lru_cache(maxsize=50000)
-def parse_departure_date(dates_str: str) -> Optional[date]:
-    """Extracts first departure date from dates string (e.g. '06.06.2026 - 13.06.2026')."""
+def parse_departure_date(
+    dates_str: Any,
+    offer_url: Optional[str] = None,
+    reference_date: Optional[date] = None,
+) -> Optional[date]:
+    """
+    Extracts first departure date from:
+    - offer_url parameter 'departureDate=YYYY-MM-DD'
+    - ISO '2026-06-01'
+    - '28.12.2026 - 06.01.2027' or '28-12-2026' or '28/12/2026'
+    - '28.12 - 06.01.2027' (year only at the end)
+    - '28.12 - 06.01' or '28.12' (inferred year based on reference_date or date.today())
+    - strings with duration parentheses like '28.12 - 06.01 (8 dni)'
+    """
+    # 1. From offer_url departureDate query param
+    if offer_url and isinstance(offer_url, str):
+        m_url = re.search(r"[?&]departureDate=(\d{4}-\d{2}-\d{2})", offer_url)
+        if m_url:
+            try:
+                y, mon, d = m_url.group(1).split("-")
+                return date(int(y), int(mon), int(d))
+            except (ValueError, TypeError):
+                pass
+
     if not dates_str or not isinstance(dates_str, str):
         return None
-    m = re.search(r"(\d{2})[./-](\d{2})[./-](\d{4})", dates_str)
-    if m:
-        try:
-            return date(int(m.group(3)), int(m.group(2)), int(m.group(1)))
-        except ValueError:
-            pass
-    # ISO fallback '2026-06-06'
-    m_iso = re.search(r"(\d{4})[./-](\d{2})[./-](\d{2})", dates_str)
+
+    text = re.sub(r"\s*\([^)]*\)", "", str(dates_str)).strip()
+
+    # 2. ISO 'YYYY-MM-DD'
+    m_iso = re.search(r"(\d{4})[./-](\d{2})[./-](\d{2})", text)
     if m_iso:
         try:
             return date(int(m_iso.group(1)), int(m_iso.group(2)), int(m_iso.group(3)))
         except ValueError:
             pass
+
+    # 3. Full dates 'DD.MM.YYYY' (or 'DD.MM.YYYY - ...')
+    m_full = re.search(r"(\d{1,2})[./-](\d{1,2})[./-](\d{4})", text)
+    if m_full:
+        try:
+            return date(int(m_full.group(3)), int(m_full.group(2)), int(m_full.group(1)))
+        except ValueError:
+            pass
+
+    # 4. Short start with year at the end 'DD.MM - DD.MM.YYYY'
+    m_tail = re.search(r"(\d{1,2})[./-](\d{1,2})\s*-\s*\d{1,2}[./-]\d{1,2}[./-](\d{4})", text)
+    if m_tail:
+        try:
+            return date(int(m_tail.group(3)), int(m_tail.group(2)), int(m_tail.group(1)))
+        except ValueError:
+            pass
+
+    # 5. Short dates 'DD.MM - DD.MM' or 'DD.MM' (no year)
+    m_short = re.search(r"(\d{1,2})[./-](\d{1,2})", text)
+    if m_short:
+        try:
+            d_val = int(m_short.group(1))
+            m_val = int(m_short.group(2))
+            ref = reference_date or date.today()
+            year = ref.year
+            # If departure month is earlier than reference month by > 1, it's next year
+            if m_val < ref.month - 1:
+                year += 1
+            return date(year, m_val, d_val)
+        except ValueError:
+            pass
+
     return None
 
 

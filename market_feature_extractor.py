@@ -57,6 +57,78 @@ BUCKET_CONFIG: Dict[str, Tuple[str, int, int]] = {
 }
 
 
+def format_tourist_composition(adults: int = 2, children: int = 0, child_years: Optional[int] = None) -> Dict[str, Any]:
+    """
+    Returns rich grammatical representations of the travel party composition:
+    - adults: int
+    - children: int
+    - child_years: Optional[int]
+    - short_label: '2 взр. + 1 реб.' / '1 взр.' / '2 взр.'
+    - price_scope: 'на семью (2 взр. + 1 реб.)' / 'на одного' / 'за двоих'
+    - per_day_scope: 'на семью' / 'на одного' / 'за двоих'
+    - full_description: 'для семьи с ребенком (2 взр. + 1 реб.)' / 'для одного туриста' / 'для двоих взрослых'
+    """
+    if adults == 1 and not children:
+        return {
+            "adults": 1,
+            "children": 0,
+            "child_years": None,
+            "short_label": "1 взр.",
+            "price_scope": "на одного",
+            "per_day_scope": "на одного",
+            "full_description": "для одного человека (1 взр.)",
+        }
+    elif adults == 2 and not children:
+        return {
+            "adults": 2,
+            "children": 0,
+            "child_years": None,
+            "short_label": "2 взр.",
+            "price_scope": "за двоих",
+            "per_day_scope": "за двоих",
+            "full_description": "для двоих взрослых",
+        }
+    elif children > 0:
+        ch_str = f"{children} реб."
+        if child_years is not None:
+            ch_str += f" (~{child_years}л)"
+        return {
+            "adults": adults,
+            "children": children,
+            "child_years": child_years,
+            "short_label": f"{adults} взр. + {children} реб.",
+            "price_scope": f"на семью ({adults} взр. + {children} реб.)",
+            "per_day_scope": "на семью",
+            "full_description": f"для семьи с детьми ({adults} взр. + {children} реб.)",
+        }
+    else:
+        return {
+            "adults": adults,
+            "children": 0,
+            "child_years": None,
+            "short_label": f"{adults} взр.",
+            "price_scope": f"на состав {adults} взр.",
+            "per_day_scope": f"на {adults} чел.",
+            "full_description": f"для {adults} взрослых",
+        }
+
+
+def extract_row_departure_date(row: Any) -> Optional[date]:
+    """Helper to extract departure date from departure_date col, dates col, or offer_url."""
+    dep_d = None
+    if isinstance(row, dict) or hasattr(row, "__getitem__"):
+        try:
+            if "departure_date" in row and pd.notna(row["departure_date"]) and str(row["departure_date"]).strip():
+                dep_d = parse_departure_date(str(row["departure_date"]))
+            if not dep_d and "dates" in row and pd.notna(row["dates"]):
+                dep_d = parse_departure_date(str(row["dates"]), offer_url=str(row.get("offer_url", "")))
+            if not dep_d and "offer_url" in row and pd.notna(row["offer_url"]):
+                dep_d = parse_departure_date("", offer_url=str(row["offer_url"]))
+        except Exception:
+            pass
+    return dep_d
+
+
 def infer_stars(hotel_name: str, row: pd.Series, dna: Optional[Dict[str, Any]] = None) -> int:
     """Infers hotel star rating (3, 4, 5). Defaults to 5 if luxury brand, else 4."""
     for col in ("stars", "hotel_stars", "star_rating"):
@@ -788,6 +860,31 @@ def extract_filter_features(
     cost_per_day_median = round(med_price / max(1, med_trip_days), 0)
     cost_per_day_min = round(min_price / max(1, med_trip_days), 0)
 
+    # 0. Primary ground truth: Check filter configuration file if available
+    f_cfg: Dict[str, Any] = {}
+    detected_country = ""
+    try:
+        from filter_params import load_filter_config, _country_label
+        f_cfg = load_filter_config(prices_csv_path)
+        if f_cfg:
+            c_from_cfg = _country_label(f_cfg, f_cfg.get("url", ""))
+            if c_from_cfg and c_from_cfg not in ("—", ""):
+                detected_country = c_from_cfg
+    except Exception:
+        pass
+
+    # Extract travel party composition (e.g. 2+1, 1 adult, 2 adults)
+    cfg_url = str(f_cfg.get("url") or "") if f_cfg else ""
+    if cfg_url:
+        try:
+            from filter_params import _party_counts
+            adults_cnt, children_cnt, child_years_cnt = _party_counts(cfg_url)
+        except Exception:
+            adults_cnt, children_cnt, child_years_cnt = 2, 0, None
+    else:
+        adults_cnt, children_cnt, child_years_cnt = 2, 0, None
+    tourists_info = format_tourist_composition(adults_cnt, children_cnt, child_years_cnt)
+
     # Calculate Days-to-Departure (D-Minus) timeline & horizon
     d_values: List[int] = []
     dep_dates: List[date] = []
@@ -795,7 +892,7 @@ def extract_filter_features(
     today = date.today()
 
     for _, row in latest_per_hotel.iterrows():
-        dep_d = parse_departure_date(str(row.get("dates", "")))
+        dep_d = extract_row_departure_date(row)
         if dep_d:
             d = (dep_d - today).days
             if d >= 0:
@@ -804,16 +901,45 @@ def extract_filter_features(
                 b = get_d_bucket(d)
                 d_buckets_count[b] = d_buckets_count.get(b, 0) + 1
 
-    min_d = int(np.min(d_values)) if d_values else 14
-    max_d = int(np.max(d_values)) if d_values else 14
-    avg_d = int(np.median(d_values)) if d_values else 14
+    # If rows have no departure dates, resolve anchor from filter configuration URL
+    fallback_d = None
+    fallback_anchor_date = None
+    if cfg_url:
+        from urllib.parse import parse_qs, urlparse
+        qs = parse_qs(urlparse(cfg_url).query)
+        s_date_str = (
+            qs.get("startDateMin", [""])[0]
+            or qs.get("filter[whenFrom]", [""])[0]
+            or qs.get("whenFrom", [""])[0]
+            or qs.get("departureDate", [""])[0]
+        )
+        if s_date_str:
+            fallback_anchor_date = parse_departure_date(s_date_str)
+            if fallback_anchor_date:
+                fallback_d = max(0, (fallback_anchor_date - today).days)
+                if not dep_dates:
+                    dep_dates.append(fallback_anchor_date)
+
+    if d_values:
+        min_d = int(np.min(d_values))
+        max_d = int(np.max(d_values))
+        avg_d = int(np.median(d_values))
+    elif fallback_d is not None:
+        min_d = fallback_d
+        max_d = fallback_d
+        avg_d = fallback_d
+    else:
+        min_d = 14
+        max_d = 14
+        avg_d = 14
+
     span_d = max(0, max_d - min_d)
     is_wide_window = span_d >= 7
 
     nearest_dep = min(dep_dates).strftime("%d.%m") if dep_dates else ""
     furthest_dep = max(dep_dates).strftime("%d.%m") if dep_dates else ""
 
-    dominant_phase = max(d_buckets_count.items(), key=lambda x: x[1])[0] if d_buckets_count else "mid_term"
+    dominant_phase = max(d_buckets_count.items(), key=lambda x: x[1])[0] if d_buckets_count else ("early_bird" if min_d >= 22 else "mid_term")
 
     # Today departure check & next realistic flight
     has_today_departures = (min_d == 0)
@@ -829,18 +955,6 @@ def extract_filter_features(
     # Destination detection & seasonal weather intelligence
     filter_search_text = f"{filter_id or ''} {filter_title or ''} {prices_csv_path}".lower()
     sample_hotels_text = " ".join(latest_per_hotel["hotel_name"].astype(str).tolist()).lower()
-
-    # 0. Primary ground truth: Check filter configuration file if available
-    detected_country = ""
-    try:
-        from filter_params import load_filter_config, _country_label
-        f_cfg = load_filter_config(prices_csv_path)
-        if f_cfg:
-            c_from_cfg = _country_label(f_cfg, f_cfg.get("url", ""))
-            if c_from_cfg and c_from_cfg not in ("—", ""):
-                detected_country = c_from_cfg
-    except Exception:
-        pass
 
     # 1. Fallback check: Explicit destination in filter_id, title, or directory path
     if not detected_country:
@@ -1113,7 +1227,7 @@ def extract_filter_features(
         cur_rank = float(np.sum(prices < cur_p)) / max(1, len(prices))
 
         # Departure days for this hotel
-        h_dep_d = parse_departure_date(str(row.get("dates", "")))
+        h_dep_d = extract_row_departure_date(row)
         h_d_days = (h_dep_d - today).days if h_dep_d else None
 
         # Feature 1: Optimal Booking Window
@@ -1249,7 +1363,7 @@ def extract_filter_features(
         }
 
         # Exclude expired departures (dates in the past) only if dataset contains active/future departures
-        h_dep_d = parse_departure_date(str(row.get("dates", "")))
+        h_dep_d = extract_row_departure_date(row)
         h_d_days = (h_dep_d - today).days if h_dep_d else None
         is_past_departure = (h_d_days is not None and h_d_days < 0) if d_values else False
 
@@ -1368,7 +1482,7 @@ def extract_filter_features(
     }
 
     for cand in selected_cands:
-        cand_dep_d = parse_departure_date(str(cand.get("dates", "")))
+        cand_dep_d = extract_row_departure_date(cand)
         cand_d_days = (cand_dep_d - today).days if cand_dep_d else None
         if d_values and cand_d_days is not None and cand_d_days < 0:
             continue
@@ -1500,10 +1614,10 @@ def extract_filter_features(
                 "context_note": (
                     f"ВНИМАНИЕ: Это {duration_category} на {trip_duration_label}. "
                     f"Цены указаны за ДВЕ НЕДЕЛИ ({med_trip_days} дн.), а не за 7 дней! "
-                    f"В пересчете это ~{cost_per_day_median:,.0f} zł/сутки (от ~{cost_per_day_min:,.0f} zł/сутки за двоих на 'всё включено'). "
+                    f"В пересчете это ~{cost_per_day_median:,.0f} zł/сутки (от ~{cost_per_day_min:,.0f} zł/сутки {tourists_info['price_scope']} на 'всё включено'). "
                     f"Оценивай бюджет с учетом {med_trip_days} дней отдыха, подчеркивая выгоду долгого отпуска."
                     if is_long_trip else
-                    f"Тур на {trip_duration_label} (~{cost_per_day_median:,.0f} zł/сутки за двоих)."
+                    f"Тур на {trip_duration_label} (~{cost_per_day_median:,.0f} zł/сутки {tourists_info['price_scope']})."
                 ),
             },
             "median_days_to_departure": avg_d,
@@ -1523,6 +1637,7 @@ def extract_filter_features(
             "today_departures_count": today_departures_count,
             "next_realistic_departure_date": next_realistic_dep,
             "next_realistic_days_to_departure": next_realistic_days,
+            "tourists": tourists_info,
             "destination_context": destination_context,
         },
         "market_trends": market_trends,
