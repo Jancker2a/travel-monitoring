@@ -1157,10 +1157,23 @@
       "created_at": "2026-10-30T18:50:57.617760+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sunis Evren Beach & Spa_2026-10-30_18-49_zone_out_gone"
+    },
+    {
+      "hotel_name": "Alaiye Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 7897.0,
+      "new_price": 7897.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-30 23:10:58.457235+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-30T23:12:21.677659+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Alaiye Resort & Spa_2026-10-30_23-10_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-30T18:49:30.576988+00:00",
+    "last_processed_run": "2026-10-30T23:10:58.457235+00:00",
     "premium_state": {
       "Alaiye Resort & Spa": {
         "history_max": 7897.0,
@@ -1407,7 +1420,7 @@
         "premium_peak": null
       },
       "Port Side Resort": {
-        "history_max": 7571.0,
+        "history_max": 7761.0,
         "premium_peak": null
       }
     }

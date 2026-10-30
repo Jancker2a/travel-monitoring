@@ -2301,10 +2301,114 @@
       "created_at": "2026-10-30T18:45:58.643225+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Serenity Alma Heights (ex. Serenity Fun City)_2026-10-30_18-44_zone_out_gone"
+    },
+    {
+      "hotel_name": "Xperience Kiroseiz Premier",
+      "duration_bucket": "",
+      "old_price": 6979.0,
+      "new_price": 7739.0,
+      "price_change": 760.0,
+      "price_change_pct": 10.889812294024932,
+      "timestamp": "2026-10-30 23:06:11.517910+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-30T23:07:28.408849+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xperience Kiroseiz Premier_2026-10-30_23-06_+10.9"
+    },
+    {
+      "hotel_name": "Royal Regency Club",
+      "duration_bucket": "",
+      "old_price": 7192.0,
+      "new_price": 7952.0,
+      "price_change": 760.0,
+      "price_change_pct": 10.567296996662959,
+      "timestamp": "2026-10-30 23:06:11.517910+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-30T23:07:28.408880+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Royal Regency Club_2026-10-30_23-06_+10.6"
+    },
+    {
+      "hotel_name": "Xperience Kiroseiz Parkland",
+      "duration_bucket": "",
+      "old_price": 7115.0,
+      "new_price": 7875.0,
+      "price_change": 760.0,
+      "price_change_pct": 10.681658468025299,
+      "timestamp": "2026-10-30 23:06:11.517910+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-30T23:07:28.408892+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xperience Kiroseiz Parkland_2026-10-30_23-06_+10.7"
+    },
+    {
+      "hotel_name": "Rewaya Majestic Resort",
+      "duration_bucket": "",
+      "old_price": 7899.0,
+      "new_price": 6886.0,
+      "price_change": -1013.0,
+      "price_change_pct": -12.824408152930749,
+      "timestamp": "2026-10-30 23:06:11.517910+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-10-30T23:07:28.408901+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Majestic Resort_2026-10-30_23-06_-12.8"
+    },
+    {
+      "hotel_name": "Jaz Grand Marsa (ex Resta Grand Resort)",
+      "duration_bucket": "",
+      "old_price": 7765.0,
+      "new_price": 7765.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-30 23:06:11.517910+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-30T23:07:28.408916+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Grand Marsa (ex Resta Grand Resort)_2026-10-30_23-06_zone_out_gone"
+    },
+    {
+      "hotel_name": "Jaz Mirabel Beach Resort",
+      "duration_bucket": "",
+      "old_price": 8020.0,
+      "new_price": 8020.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-30 23:06:11.517910+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-30T23:07:28.408925+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Mirabel Beach Resort_2026-10-30_23-06_zone_out_gone"
+    },
+    {
+      "hotel_name": "Pickalbatros Laguna Club Resort",
+      "duration_bucket": "",
+      "old_price": 8208.0,
+      "new_price": 8208.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-30 23:06:11.517910+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-30T23:07:28.408932+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Laguna Club Resort_2026-10-30_23-06_zone_out_gone"
+    },
+    {
+      "hotel_name": "Regency Plaza Aqua Park Spa",
+      "duration_bucket": "",
+      "old_price": 6584.0,
+      "new_price": 6584.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-30 23:06:11.517910+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-30T23:07:28.408939+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Regency Plaza Aqua Park Spa_2026-10-30_23-06_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-30T18:44:39.489325+00:00",
+    "last_processed_run": "2026-10-30T23:06:11.517910+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 8031.0,
@@ -2516,6 +2620,14 @@
       },
       "Caribbean World Soma Bay": {
         "history_max": 8137.0,
+        "premium_peak": null
+      },
+      "Cleopatra Signature Marsa Alam": {
+        "history_max": 7486.0,
+        "premium_peak": null
+      },
+      "Pickalbatros Palace Resort": {
+        "history_max": 7746.0,
         "premium_peak": null
       }
     }
