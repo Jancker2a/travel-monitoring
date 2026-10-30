@@ -594,6 +594,9 @@ def get_all_germany_configs() -> List[str]:
         if not cfg_path or not (ROOT / cfg_path).is_file():
             continue
 
+        if bool(flt.get('early_booking_tracking')) or flt.get('group_id') == 'early_booking':
+            continue
+
         modules = flt.get('modules') or {}
         if modules.get('arbitrage_germany') is False:
             continue
