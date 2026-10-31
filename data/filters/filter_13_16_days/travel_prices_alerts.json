@@ -195,10 +195,75 @@
       "created_at": "2026-10-29T11:49:54.448751+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Amarina Jannah Resort Aquapark_2026-10-29_11-48_zone_out_+14.7"
+    },
+    {
+      "hotel_name": "Regency Plaza Aqua Park Spa",
+      "duration_bucket": "",
+      "old_price": 13729.0,
+      "new_price": 9312.0,
+      "price_change": -4417.0,
+      "price_change_pct": -32.17277296234249,
+      "timestamp": "2026-10-31 02:34:15.852734+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-31T02:35:33.112648+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Regency Plaza Aqua Park Spa_2026-10-31_02-34_comeback_32.2"
+    },
+    {
+      "hotel_name": "AMC Royal Hotel & Spa (ex. AMC Azur Resort)",
+      "duration_bucket": "",
+      "old_price": 11741.0,
+      "new_price": 9601.0,
+      "price_change": -2140.0,
+      "price_change_pct": -18.226726854612043,
+      "timestamp": "2026-10-31 02:34:15.852734+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-31T02:35:33.112701+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort)_2026-10-31_02-34_comeback_18.2"
+    },
+    {
+      "hotel_name": "Rewaya Luxury Resort",
+      "duration_bucket": "",
+      "old_price": 11517.0,
+      "new_price": 9242.0,
+      "price_change": -2275.0,
+      "price_change_pct": -19.753408005557002,
+      "timestamp": "2026-10-31 02:34:15.852734+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-31T02:35:33.112716+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Luxury Resort_2026-10-31_02-34_comeback_19.8"
+    },
+    {
+      "hotel_name": "Dream Lagoon & Aqua Park Resort (ex. Floriana Dream Lagoon)",
+      "duration_bucket": "",
+      "old_price": 13317.0,
+      "new_price": 9977.0,
+      "price_change": -3340.0,
+      "price_change_pct": -25.08072388676128,
+      "timestamp": "2026-10-31 02:34:15.852734+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-31T02:35:33.112727+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Dream Lagoon & Aqua Park Resort (ex. Floriana Dream Lagoon)_2026-10-31_02-34_comeback_25.1"
+    },
+    {
+      "hotel_name": "Rewaya Majestic Resort",
+      "duration_bucket": "",
+      "old_price": 12183.0,
+      "new_price": 9512.0,
+      "price_change": -2671.0,
+      "price_change_pct": -21.923992448493802,
+      "timestamp": "2026-10-31 02:34:15.852734+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-10-31T02:35:33.112738+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Majestic Resort_2026-10-31_02-34_comeback_21.9"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-30T23:06:11.557668+00:00",
+    "last_processed_run": "2026-10-31T02:34:15.852734+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 11741.0,
@@ -579,6 +644,14 @@
       "Fantazia Royal Resort": {
         "history_max": 16137.0,
         "premium_peak": 16137.0
+      },
+      "Concorde El Salam Sport": {
+        "history_max": 11834.0,
+        "premium_peak": 11834.0
+      },
+      "Old Palace Resort": {
+        "history_max": 11964.0,
+        "premium_peak": 11964.0
       }
     }
   }

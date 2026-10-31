@@ -1170,10 +1170,49 @@
       "created_at": "2026-10-30T23:12:21.677659+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Alaiye Resort & Spa_2026-10-30_23-10_zone_out_gone"
+    },
+    {
+      "hotel_name": "Limak Limra",
+      "duration_bucket": "",
+      "old_price": 7140.0,
+      "new_price": 8258.0,
+      "price_change": 1118.0,
+      "price_change_pct": 15.658263305322128,
+      "timestamp": "2026-10-31 02:39:16.887511+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-31T02:40:47.049332+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Limak Limra_2026-10-31_02-39_+15.7"
+    },
+    {
+      "hotel_name": "Side Moon Palace",
+      "duration_bucket": "",
+      "old_price": 8404.0,
+      "new_price": 8404.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-31 02:39:16.887511+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-31T02:40:47.049366+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Side Moon Palace_2026-10-31_02-39_zone_out_gone"
+    },
+    {
+      "hotel_name": "Side Royal Style (ex. Side Royal Luxury)",
+      "duration_bucket": "",
+      "old_price": 8256.0,
+      "new_price": 8256.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-31 02:39:16.887511+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-31T02:40:47.049379+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Side Royal Style (ex. Side Royal Luxury)_2026-10-31_02-39_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-30T23:10:58.457235+00:00",
+    "last_processed_run": "2026-10-31T02:39:16.887511+00:00",
     "premium_state": {
       "Alaiye Resort & Spa": {
         "history_max": 7897.0,
@@ -1312,7 +1351,7 @@
         "premium_peak": null
       },
       "Limak Limra": {
-        "history_max": 7999.0,
+        "history_max": 8258.0,
         "premium_peak": null
       },
       "Numa Bay Exclusive (ex Sentido Numa Bay)": {
@@ -1421,6 +1460,10 @@
       },
       "Port Side Resort": {
         "history_max": 7761.0,
+        "premium_peak": null
+      },
+      "Castival (ex. La Grande Resort & Spa)": {
+        "history_max": 8300.0,
         "premium_peak": null
       }
     }
