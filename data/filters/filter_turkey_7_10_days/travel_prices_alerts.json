@@ -1417,10 +1417,49 @@
       "created_at": "2026-10-31T15:56:53.179566+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Kaila Beach (ex Katya)_2026-10-31_15-55_zone_out_gone"
+    },
+    {
+      "hotel_name": "Arcanus Hotels Sorgun (ex. Asteria Sorgun)",
+      "duration_bucket": "",
+      "old_price": 5455.0,
+      "new_price": 5455.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-31 18:30:27.027764+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-31T18:31:55.829339+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Arcanus Hotels Sorgun (ex. Asteria Sorgun)_2026-10-31_18-30_zone_out_gone"
+    },
+    {
+      "hotel_name": "Seher Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 5124.0,
+      "new_price": 5124.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-31 18:30:27.027764+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-31T18:31:55.829363+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Seher Resort & Spa_2026-10-31_18-30_zone_out_gone"
+    },
+    {
+      "hotel_name": "Seher Sun Palace Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 5048.0,
+      "new_price": 5048.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-31 18:30:27.027764+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-31T18:31:55.829371+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Seher Sun Palace Resort & Spa_2026-10-31_18-30_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-31T17:31:55.773459+00:00",
+    "last_processed_run": "2026-10-31T18:30:27.027764+00:00",
     "premium_state": {
       "Alaiye Resort & Spa": {
         "history_max": 5724.0,
@@ -1668,6 +1707,10 @@
       },
       "Side Moon Palace": {
         "history_max": 5451.0,
+        "premium_peak": null
+      },
+      "Azura Deluxe Resort & Spa": {
+        "history_max": 5585.0,
         "premium_peak": null
       }
     }
