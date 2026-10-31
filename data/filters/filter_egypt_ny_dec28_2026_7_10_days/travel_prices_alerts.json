@@ -754,10 +754,75 @@
       "created_at": "2026-10-31T02:37:01.454146+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Rewaya Luxury Resort_2026-10-31_02-36_comeback_13.1"
+    },
+    {
+      "hotel_name": "AMC Royal Hotel & Spa (ex. AMC Azur Resort)",
+      "duration_bucket": "",
+      "old_price": 10589.0,
+      "new_price": 10589.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-31 09:54:08.218525+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-31T09:54:45.821062+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort)_2026-10-31_09-54_zone_out_gone"
+    },
+    {
+      "hotel_name": "Marriott Hurghada Beach Resort",
+      "duration_bucket": "",
+      "old_price": 10971.0,
+      "new_price": 10971.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-31 09:54:08.218525+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-31T09:54:45.821101+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Marriott Hurghada Beach Resort_2026-10-31_09-54_zone_out_gone"
+    },
+    {
+      "hotel_name": "Rewaya Luxury Resort",
+      "duration_bucket": "",
+      "old_price": 10587.0,
+      "new_price": 10587.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-31 09:54:08.218525+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-31T09:54:45.821119+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Luxury Resort_2026-10-31_09-54_zone_out_gone"
+    },
+    {
+      "hotel_name": "Rewaya Majestic Resort",
+      "duration_bucket": "",
+      "old_price": 10723.0,
+      "new_price": 10723.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-31 09:54:08.218525+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-31T09:54:45.821133+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Majestic Resort_2026-10-31_09-54_zone_out_gone"
+    },
+    {
+      "hotel_name": "V Grand Beach Resort Sahl Hasheesh",
+      "duration_bucket": "",
+      "old_price": 10970.0,
+      "new_price": 10970.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-31 09:54:08.218525+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-31T09:54:45.821147+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "V Grand Beach Resort Sahl Hasheesh_2026-10-31_09-54_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-31T02:36:22.843194+00:00",
+    "last_processed_run": "2026-10-31T09:54:08.218525+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa*****": {
         "history_max": 12142.0,
@@ -780,15 +845,15 @@
         "premium_peak": null
       },
       "Sea Star Beau Rivage": {
-        "history_max": 11807.0,
-        "premium_peak": 11807.0
+        "history_max": 11813.0,
+        "premium_peak": 11813.0
       },
       "MARRIOTT HURGHADA": {
         "history_max": 11857.0,
         "premium_peak": 11857.0
       },
       "Parrotel Lagoon Resort": {
-        "history_max": 10990.0,
+        "history_max": 11000.0,
         "premium_peak": null
       },
       "Swisstouch Oriental Resort Marsa Alam": {
@@ -796,7 +861,7 @@
         "premium_peak": 11424.0
       },
       "Retac Qunay Dahab Resort & Spa": {
-        "history_max": 9767.0,
+        "history_max": 10937.0,
         "premium_peak": null
       },
       "Royal Lagoons Resort and Aqua Park": {
@@ -933,6 +998,30 @@
       },
       "V Grand Beach Resort Sahl Hasheesh": {
         "history_max": 10970.0,
+        "premium_peak": null
+      },
+      "Beach Safari Nubian Resort": {
+        "history_max": 9434.0,
+        "premium_peak": null
+      },
+      "DEXON Roma Hotel & Aqua Park ***": {
+        "history_max": 9015.0,
+        "premium_peak": null
+      },
+      "King Tut Resort": {
+        "history_max": 9607.0,
+        "premium_peak": null
+      },
+      "Empire Hotel Aqua Park": {
+        "history_max": 9473.0,
+        "premium_peak": null
+      },
+      "Concorde Moreen Beach Resort & Spa Marsa Alam": {
+        "history_max": 11977.0,
+        "premium_peak": 11977.0
+      },
+      "Dream Lagoon & Aqua Park Resort": {
+        "history_max": 10989.0,
         "premium_peak": null
       }
     }

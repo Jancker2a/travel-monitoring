@@ -260,10 +260,49 @@
       "created_at": "2026-10-31T02:35:33.112738+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Rewaya Majestic Resort_2026-10-31_02-34_comeback_21.9"
+    },
+    {
+      "hotel_name": "AMC Royal Hotel & Spa (ex. AMC Azur Resort)",
+      "duration_bucket": "",
+      "old_price": 9601.0,
+      "new_price": 10075.0,
+      "price_change": 474.0,
+      "price_change_pct": 4.936985730653057,
+      "timestamp": "2026-10-31 09:52:01.415789+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-31T09:53:17.059405+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort)_2026-10-31_09-52_zone_out_+4.9"
+    },
+    {
+      "hotel_name": "Regency Plaza Aqua Park Spa",
+      "duration_bucket": "",
+      "old_price": 9312.0,
+      "new_price": 10112.0,
+      "price_change": 800.0,
+      "price_change_pct": 8.59106529209622,
+      "timestamp": "2026-10-31 09:52:01.415789+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-31T09:53:17.059438+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Regency Plaza Aqua Park Spa_2026-10-31_09-52_zone_out_+8.6"
+    },
+    {
+      "hotel_name": "Rewaya Majestic Resort",
+      "duration_bucket": "",
+      "old_price": 9512.0,
+      "new_price": 10072.0,
+      "price_change": 560.0,
+      "price_change_pct": 5.887300252312868,
+      "timestamp": "2026-10-31 09:52:01.415789+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-31T09:53:17.059456+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Majestic Resort_2026-10-31_09-52_zone_out_+5.9"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-31T02:34:15.852734+00:00",
+    "last_processed_run": "2026-10-31T09:52:01.415789+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 11741.0,
@@ -646,8 +685,8 @@
         "premium_peak": 16137.0
       },
       "Concorde El Salam Sport": {
-        "history_max": 11834.0,
-        "premium_peak": 11834.0
+        "history_max": 11980.0,
+        "premium_peak": 11980.0
       },
       "Old Palace Resort": {
         "history_max": 11964.0,
