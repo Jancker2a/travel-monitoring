@@ -224,7 +224,7 @@ def check_early_booking_skip_reason(
         return ""
 
     rules = config.get("scrape_interval_rules") or [
-        {"d_min": 60, "d_max": 9999, "every_hours": 24},
+        {"d_min": 60, "d_max": 9999, "every_hours": 12},
         {"d_min": 30, "d_max": 60, "every_hours": 12},
         {"d_min": 0, "d_max": 30, "every_hours": 1},
     ]
