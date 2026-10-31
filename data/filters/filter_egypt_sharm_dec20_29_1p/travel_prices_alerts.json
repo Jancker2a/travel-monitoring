@@ -325,10 +325,75 @@
       "created_at": "2026-10-30T06:42:20.201146+00:00",
       "threshold_percent": 8.0,
       "unique_key": "El Khan Sharm_2026-10-30_06-41_-19.0"
+    },
+    {
+      "hotel_name": "Rehana Sharm Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 4271.0,
+      "new_price": 4617.0,
+      "price_change": 346.0,
+      "price_change_pct": 8.101147272301569,
+      "timestamp": "2026-10-31 15:53:29.534857+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-31T15:54:37.073310+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rehana Sharm Resort & Spa_2026-10-31_15-53_+8.1"
+    },
+    {
+      "hotel_name": "Invidia Coral Beach Tiran",
+      "duration_bucket": "",
+      "old_price": 4935.0,
+      "new_price": 6433.0,
+      "price_change": 1498.0,
+      "price_change_pct": 30.354609929078013,
+      "timestamp": "2026-10-31 15:53:29.534857+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-31T15:54:37.073338+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Invidia Coral Beach Tiran_2026-10-31_15-53_+30.4"
+    },
+    {
+      "hotel_name": "Grand Rotana Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 6584.0,
+      "new_price": 6584.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-31 15:53:29.534857+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-31T15:54:37.073358+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Grand Rotana Resort & Spa_2026-10-31_15-53_zone_out_gone"
+    },
+    {
+      "hotel_name": "Regency Plaza Aqua Park Spa",
+      "duration_bucket": "",
+      "old_price": 5043.0,
+      "new_price": 5043.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-31 15:53:29.534857+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-31T15:54:37.073365+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Regency Plaza Aqua Park Spa_2026-10-31_15-53_zone_out_gone"
+    },
+    {
+      "hotel_name": "Rehana Royal Beach Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 5018.0,
+      "new_price": 5018.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-31 15:53:29.534857+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-31T15:54:37.073371+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rehana Royal Beach Resort & Spa_2026-10-31_15-53_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-31T09:54:10.055513+00:00",
+    "last_processed_run": "2026-10-31T15:53:29.534857+00:00",
     "premium_state": {
       "Amwaj Oyoun Resort & Casino": {
         "history_max": 4649.0,
@@ -383,15 +448,15 @@
         "premium_peak": null
       },
       "Lido Sharm": {
-        "history_max": 4317.0,
+        "history_max": 5230.0,
         "premium_peak": null
       },
       "Rehana Sharm Resort & Spa": {
-        "history_max": 4271.0,
+        "history_max": 4617.0,
         "premium_peak": null
       },
       "Invidia Coral Beach Tiran": {
-        "history_max": 4935.0,
+        "history_max": 6433.0,
         "premium_peak": null
       },
       "Sun Resort & Aqua Park Sharm El Sheikh": {
@@ -472,6 +537,14 @@
       },
       "Sharm Dreams Vacation Club": {
         "history_max": 4811.0,
+        "premium_peak": null
+      },
+      "Amphoras Aqua": {
+        "history_max": 5049.0,
+        "premium_peak": null
+      },
+      "Gafy Resort": {
+        "history_max": 5290.0,
         "premium_peak": null
       }
     }

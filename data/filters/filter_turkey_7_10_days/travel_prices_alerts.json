@@ -1339,10 +1339,88 @@
       "created_at": "2026-10-31T09:58:04.906100+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Royal Garden Beach (ex Royal Garden Select & Suite)_2026-10-31_09-56_zone_out_gone"
+    },
+    {
+      "hotel_name": "Eftalia Ocean (Alanya)",
+      "duration_bucket": "",
+      "old_price": 4332.0,
+      "new_price": 4853.0,
+      "price_change": 521.0,
+      "price_change_pct": 12.026777469990767,
+      "timestamp": "2026-10-31 15:55:23.475380+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-10-31T15:56:53.179502+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Eftalia Ocean (Alanya)_2026-10-31_15-55_+12.0"
+    },
+    {
+      "hotel_name": "Alaiye Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 4653.0,
+      "new_price": 4653.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-31 15:55:23.475380+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-31T15:56:53.179538+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Alaiye Resort & Spa_2026-10-31_15-55_zone_out_gone"
+    },
+    {
+      "hotel_name": "Aska Just in Beach",
+      "duration_bucket": "",
+      "old_price": 4901.0,
+      "new_price": 4901.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-31 15:55:23.475380+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-31T15:56:53.179548+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Aska Just in Beach_2026-10-31_15-55_zone_out_gone"
+    },
+    {
+      "hotel_name": "Dosinia Luxury Resort",
+      "duration_bucket": "",
+      "old_price": 4778.0,
+      "new_price": 4778.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-31 15:55:23.475380+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-31T15:56:53.179554+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Dosinia Luxury Resort_2026-10-31_15-55_zone_out_gone"
+    },
+    {
+      "hotel_name": "Fore Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 5237.0,
+      "new_price": 5237.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-31 15:55:23.475380+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-31T15:56:53.179559+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Fore Resort & Spa_2026-10-31_15-55_zone_out_gone"
+    },
+    {
+      "hotel_name": "Kaila Beach (ex Katya)",
+      "duration_bucket": "",
+      "old_price": 4793.0,
+      "new_price": 4793.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-31 15:55:23.475380+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-31T15:56:53.179566+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Kaila Beach (ex Katya)_2026-10-31_15-55_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-31T09:56:27.096738+00:00",
+    "last_processed_run": "2026-10-31T15:55:23.475380+00:00",
     "premium_state": {
       "Alaiye Resort & Spa": {
         "history_max": 5724.0,
@@ -1586,6 +1664,10 @@
       },
       "Fore Resort & Spa": {
         "history_max": 5237.0,
+        "premium_peak": null
+      },
+      "Side Moon Palace": {
+        "history_max": 5451.0,
         "premium_peak": null
       }
     }

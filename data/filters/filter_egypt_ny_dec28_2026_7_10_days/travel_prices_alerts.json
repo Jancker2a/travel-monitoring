@@ -819,10 +819,23 @@
       "created_at": "2026-10-31T09:54:45.821147+00:00",
       "threshold_percent": 8.0,
       "unique_key": "V Grand Beach Resort Sahl Hasheesh_2026-10-31_09-54_zone_out_gone"
+    },
+    {
+      "hotel_name": "King Tut Resort",
+      "duration_bucket": "",
+      "old_price": 9607.0,
+      "new_price": 9607.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-10-31 15:53:23.118092+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-10-31T15:53:59.752159+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "King Tut Resort_2026-10-31_15-53_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-31T09:54:08.218525+00:00",
+    "last_processed_run": "2026-10-31T15:53:23.118092+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa*****": {
         "history_max": 12142.0,
@@ -909,7 +922,7 @@
         "premium_peak": null
       },
       "Empire Beach Resort***": {
-        "history_max": 9508.0,
+        "history_max": 9658.0,
         "premium_peak": null
       },
       "Charmillion Gardens Aqua Park (ex. Sea G": {
@@ -1022,6 +1035,10 @@
       },
       "Dream Lagoon & Aqua Park Resort": {
         "history_max": 10989.0,
+        "premium_peak": null
+      },
+      "Shams Alam Beach Resort": {
+        "history_max": 9861.0,
         "premium_peak": null
       }
     }
