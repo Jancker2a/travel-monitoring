@@ -3824,11 +3824,19 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
                 ds = ds_info.get('score', 0)
                 cur_verdict = str(row.get('hopper_verdict') or '')
                 p_val = int(row.get('price', 0))
+                med_val = float(ds_info.get('median', 0.0) or 0.0)
+                d_avg_v = ((p_val - med_val) / max(1.0, med_val)) * 100.0 if med_val > 0 else 0.0
                 if ds >= 70 and cur_verdict == "OVERPRICED":
                     all_hotels.at[idx, 'hopper_verdict'] = 'BUY_NOW'
                     all_hotels.at[idx, 'hopper_badge'] = '🟢 ПОКУПАТЬ'
                     all_hotels.at[idx, 'hopper_reasoning'] = (
                         f"Отличный момент для покупки: Deal Score {ds}, цена на минимуме истории ({p_val} PLN)."
+                    )
+                elif (ds <= 35 or d_avg_v >= 8.0) and cur_verdict in ("BUY_NOW", "GOOD_PRICE"):
+                    all_hotels.at[idx, 'hopper_verdict'] = 'OVERPRICED'
+                    all_hotels.at[idx, 'hopper_badge'] = '🔴 ДОРОГО'
+                    all_hotels.at[idx, 'hopper_reasoning'] = (
+                        f"Цена завышена (+{d_avg_v:.1f}% к средней, Deal Score {ds}). Лучше подождать снижения."
                     )
 
     entry_candidates = sorted(
@@ -4267,11 +4275,11 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
                 hopper_badge = h_dossier.get("badge_text", hopper_badge)
                 v_raw = h_dossier.get("verdict", "")
                 if v_raw in ("BUY_NOW", "GOOD_PRICE"):
-                    hopper_class = "buy-now"
+                    hopper_verdict = "BUY_NOW"
                 elif v_raw == "WAIT":
-                    hopper_class = "wait"
+                    hopper_verdict = "WAIT"
                 elif v_raw == "OVERPRICED":
-                    hopper_class = "overpriced"
+                    hopper_verdict = "OVERPRICED"
                 hopper_reasoning = f"{h_dossier.get('rationale', '')} • Риск: {h_dossier.get('risk_assessment', '')} • Совет: {h_dossier.get('action_advice', '')}"
 
                 # 1. Optimal Booking Window
@@ -4312,6 +4320,21 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
                         f'💡 <strong>Двойник:</strong> <a href="{html_lib.escape(str(dupe_url), quote=True)}" target="_blank">{dupe_name}</a> '
                         f'(−{dupe_savings:,.0f} zł при {dupe_rating:g}★)</div>'
                     )
+
+        # Guardrail: Never show positive purchase/good price badge if price is overpriced or Deal Score is bad
+        d_avg_card = float(avg_info[1]) if avg_info is not None else 0.0
+        d48_card = float(delta_info[1]) if delta_info is not None else 0.0
+        is_overpriced_card = (deal_score <= 35 or d_avg_card >= 8.0 or d48_card >= 12.0)
+        has_positive_badge_card = (
+            hopper_verdict in ("BUY_NOW", "GOOD_PRICE")
+            or any(k in hopper_badge for k in ("ПОКУПАТЬ", "ХОРОШАЯ", "СБРОС"))
+        )
+        if is_overpriced_card and has_positive_badge_card:
+            hopper_verdict = "OVERPRICED"
+            hopper_badge = "🔴 ДОРОГО"
+            hopper_reasoning = f"Цена завышена: {d_avg_card:+.1f}% к своей средней (Deal Score {deal_score}). Лучше подождать снижения."
+
+        hopper_class = "buy-now" if hopper_verdict == "BUY_NOW" else ("wait" if hopper_verdict == "WAIT" else ("overpriced" if hopper_verdict == "OVERPRICED" else "neutral"))
 
         card_arbitrage_html = ""
         m_arb = arbitrage_by_hotel.get(hotel_name)
@@ -11318,6 +11341,19 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
                         f'<a href="{html_lib.escape(str(dupe_url), quote=True)}" target="_blank" class="tbl-dupe-badge" title="AI Двойник: отель сравнимого класса заметно дешевле">'
                         f'💡 <span class="tbl-dupe-label">Двойник: {dupe_name}</span> <span class="tbl-dupe-savings">(−{dupe_savings:,.0f} zł)</span></a>'
                     )
+
+        # Guardrail: Never show positive purchase/good price badge if price is overpriced or Deal Score is bad
+        d_avg_tbl_val = d_avg_tbl if d_avg_tbl is not None else 0.0
+        d48_tbl_val = d48_tbl if d48_tbl is not None else 0.0
+        is_overpriced_tbl = (deal_score <= 35 or d_avg_tbl_val >= 8.0 or d48_tbl_val >= 12.0)
+        has_positive_badge_tbl = (
+            hopper_verdict_tbl in ("BUY_NOW", "GOOD_PRICE")
+            or any(k in hopper_badge_tbl for k in ("ПОКУПАТЬ", "ХОРОШАЯ", "СБРОС"))
+        )
+        if is_overpriced_tbl and has_positive_badge_tbl:
+            hopper_verdict_tbl = "OVERPRICED"
+            hopper_badge_tbl = "🔴 ДОРОГО"
+            hopper_reasoning_tbl = f"Цена завышена: {d_avg_tbl_val:+.1f}% к своей средней (Deal Score {deal_score}). Лучше подождать снижения."
 
         # 6. Hotel Reputation Knowledge Base Badges
         if reputation_kb_data and hotel_name in reputation_kb_data:

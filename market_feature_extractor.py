@@ -1190,7 +1190,7 @@ def extract_filter_features(
     hotel_records_list: List[Dict[str, Any]] = []
 
     # Pre-calculate local price history per hotel from df
-    hotel_hist_stats: Dict[str, Dict[str, float]] = {}
+    hotel_hist_stats: Dict[str, Dict[str, Any]] = {}
     for hn, grp in df.groupby("hotel_name"):
         plist = grp["price"].dropna().astype(float).tolist()
         if plist:
@@ -1198,6 +1198,7 @@ def extract_filter_features(
                 "min": float(min(plist)),
                 "med": float(np.median(plist)),
                 "max": float(max(plist)),
+                "count": len(plist),
             }
 
     for _, row in latest_per_hotel.iterrows():
@@ -1205,18 +1206,24 @@ def extract_filter_features(
         cur_p = float(row["price"])
         r_val = hotel_ratings_map.get(h_name, 0.0)
         h_dna = dna_hotels.get(h_name)
-        l_stats = hotel_hist_stats.get(h_name, {"min": cur_p, "med": cur_p, "max": cur_p})
+        l_stats = hotel_hist_stats.get(h_name, {"min": cur_p, "med": cur_p, "max": cur_p, "count": 1})
 
-        if h_dna:
+        # Local filter measurements for the exact dates/package take precedence if we have enough observations
+        l_count = l_stats.get("count", 1)
+        if l_count >= 2:
+            hist_min = float(l_stats["min"])
+            hist_med = float(l_stats["med"])
+            hist_max = float(l_stats["max"])
+        elif h_dna:
             hist_min = float(h_dna.get("min_price", l_stats["min"]))
             hist_med = float(h_dna.get("median_price", l_stats["med"]))
             hist_max = float(h_dna.get("max_price", l_stats["max"]))
-            archetype = h_dna.get("archetype", "BALANCED")
         else:
-            hist_min = l_stats["min"]
-            hist_med = l_stats["med"]
-            hist_max = l_stats["max"]
-            archetype = "BALANCED"
+            hist_min = float(l_stats["min"])
+            hist_med = float(l_stats["med"])
+            hist_max = float(l_stats["max"])
+
+        archetype = h_dna.get("archetype", "BALANCED") if h_dna else "BALANCED"
 
         # Is current price within 2.5% of historical minimum?
         # Sanity check: must have real historical variation (hist_max > hist_min * 1.03)
