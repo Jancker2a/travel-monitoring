@@ -124,3 +124,47 @@ def test_dashboard_scope_filtering_logic():
     filtered_df = df[df.apply(_is_valid_scope, axis=1)]
     assert len(filtered_df) == 1
     assert filtered_df.iloc[0]["hotel_name"] == "Navarria"
+
+
+def test_early_booking_skip_reason_uses_csv_scraped_at(tmp_path):
+    """Verifies check_early_booking_skip_reason reads real scraped_at from CSV rather than git checkout mtime."""
+    from datetime import datetime, date, timedelta
+    from filter_trip import check_early_booking_skip_reason, extract_last_scraped_at_from_csv
+
+    csv_file = tmp_path / "travel_prices.csv"
+    # Scraped 2 days ago
+    past_iso = (datetime.now() - timedelta(hours=48)).isoformat()
+    csv_file.write_text(
+        f'"hotel_name","price","dates","duration","duration_bucket","rating","ta_rating","ta_review_count","ta_source","departure_airport","scraped_at"\n'
+        f'"Grand Santana","7642.0","03.07.2027 - 10.07.2027","8 dni","","","","","","Warszawa - Okęcie","{past_iso}"\n',
+        encoding="utf-8",
+    )
+
+    extracted_dt = extract_last_scraped_at_from_csv(str(csv_file))
+    assert extracted_dt is not None
+
+    cfg = {
+        "early_booking_tracking": True,
+        "trip_anchor_date": "2027-07-15",
+        "data_dir": str(tmp_path),
+        "output_data_file": "travel_prices.csv",
+        "scrape_interval_rules": [
+            {"d_min": 60, "d_max": 9999, "every_hours": 12},
+        ],
+    }
+
+    # 48 hours passed > 12 hours required -> should NOT skip (return empty reason)
+    reason = check_early_booking_skip_reason(cfg, today=date(2026, 10, 31), now=datetime.now())
+    assert reason == ""
+
+    # Now write a row scraped 2 hours ago
+    recent_iso = (datetime.now() - timedelta(hours=2)).isoformat()
+    csv_file.write_text(
+        f'"hotel_name","price","dates","duration","duration_bucket","rating","ta_rating","ta_review_count","ta_source","departure_airport","scraped_at"\n'
+        f'"Grand Santana","7642.0","03.07.2027 - 10.07.2027","8 dni","","","","","","Warszawa - Okęcie","{recent_iso}"\n',
+        encoding="utf-8",
+    )
+    # 2 hours passed < 12 hours required -> SHOULD skip
+    reason_recent = check_early_booking_skip_reason(cfg, today=date(2026, 10, 31), now=datetime.now())
+    assert "EB расписание" in reason_recent
+
