@@ -1,5 +1,181 @@
 {
   "version": 2,
-  "alerts": [],
-  "meta": {}
+  "alerts": [
+    {
+      "hotel_name": "Green Nature Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 13457.0,
+      "new_price": 13457.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-01 07:56:34.718594+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-01T07:57:40.065887+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Green Nature Resort & Spa_2026-11-01_07-56_zone_out_gone"
+    },
+    {
+      "hotel_name": "Holiday Garden Resort (Okurcalar)",
+      "duration_bucket": "",
+      "old_price": 13591.0,
+      "new_price": 13591.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-01 07:56:34.718594+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-01T07:57:40.065917+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Holiday Garden Resort (Okurcalar)_2026-11-01_07-56_zone_out_gone"
+    },
+    {
+      "hotel_name": "Holiday Park Resort (Okurcalar)",
+      "duration_bucket": "",
+      "old_price": 13591.0,
+      "new_price": 13591.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-01 07:56:34.718594+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-01T07:57:40.065926+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Holiday Park Resort (Okurcalar)_2026-11-01_07-56_zone_out_gone"
+    }
+  ],
+  "meta": {
+    "last_processed_run": "2026-11-01T07:56:34.718594+00:00",
+    "premium_state": {
+      "Miarosa Incekum Beach (ex Alara Kum)": {
+        "history_max": 12604.0,
+        "premium_peak": null
+      },
+      "Perre Delta": {
+        "history_max": 12245.0,
+        "premium_peak": null
+      },
+      "Prestige Alanya": {
+        "history_max": 12213.0,
+        "premium_peak": null
+      },
+      "Misal (ex. Nox Inn Club)": {
+        "history_max": 11717.0,
+        "premium_peak": null
+      },
+      "Mira Meridia Beach Resort": {
+        "history_max": 13088.0,
+        "premium_peak": null
+      },
+      "World Star Beach Resort & Spa": {
+        "history_max": 13437.0,
+        "premium_peak": null
+      },
+      "Senza Grand Santana (Alanya)": {
+        "history_max": 12851.0,
+        "premium_peak": null
+      },
+      "M. C. Beach Resort (ex. Otium MC Beach Resort)": {
+        "history_max": 12515.0,
+        "premium_peak": null
+      },
+      "Sultan of Side": {
+        "history_max": 12872.0,
+        "premium_peak": null
+      },
+      "M. C. Arancia Resort": {
+        "history_max": 13416.0,
+        "premium_peak": null
+      },
+      "Kirbiyik Resort (ex. Dinler)": {
+        "history_max": 12385.0,
+        "premium_peak": null
+      },
+      "Holiday Park Resort (Okurcalar)": {
+        "history_max": 13591.0,
+        "premium_peak": null
+      },
+      "Holiday Garden Resort (Okurcalar)": {
+        "history_max": 13591.0,
+        "premium_peak": null
+      },
+      "Sun Star Resort": {
+        "history_max": 12163.0,
+        "premium_peak": null
+      },
+      "First Class": {
+        "history_max": 12620.0,
+        "premium_peak": null
+      },
+      "Green Nature Resort & Spa": {
+        "history_max": 13457.0,
+        "premium_peak": null
+      },
+      "The Marilis Hill Resort and Spa (Alanya)": {
+        "history_max": 13878.0,
+        "premium_peak": null
+      },
+      "Armas Gul Beach": {
+        "history_max": 12402.0,
+        "premium_peak": null
+      },
+      "Armella Hill": {
+        "history_max": 13663.0,
+        "premium_peak": null
+      },
+      "Viking Star": {
+        "history_max": 12051.0,
+        "premium_peak": null
+      },
+      "Aventura Park": {
+        "history_max": 12337.0,
+        "premium_peak": null
+      },
+      "Casa Fora Beach Resort": {
+        "history_max": 13577.0,
+        "premium_peak": null
+      },
+      "Unique Residence Golf Spa": {
+        "history_max": 13541.0,
+        "premium_peak": null
+      },
+      "Presa Di Finica (Finike)": {
+        "history_max": 13457.0,
+        "premium_peak": null
+      },
+      "Club Side Coast": {
+        "history_max": 12760.0,
+        "premium_peak": null
+      },
+      "The Nora Hotels Family Club (Kargicak)": {
+        "history_max": 10137.0,
+        "premium_peak": null
+      },
+      "Cenger Beach Resort (Side)": {
+        "history_max": 13110.0,
+        "premium_peak": null
+      },
+      "PrimaSol Telatiye Resort": {
+        "history_max": 13717.0,
+        "premium_peak": null
+      },
+      "Armas Green Fugla": {
+        "history_max": 13743.0,
+        "premium_peak": null
+      },
+      "Daima Biz (Kemer)": {
+        "history_max": 13451.0,
+        "premium_peak": null
+      },
+      "Dedeman Kemer Resort": {
+        "history_max": 13436.0,
+        "premium_peak": null
+      },
+      "Mandarin Resort (Bodrum)": {
+        "history_max": 13503.0,
+        "premium_peak": null
+      },
+      "Drita Resort & Spa": {
+        "history_max": 11828.0,
+        "premium_peak": null
+      }
+    }
+  }
 }
