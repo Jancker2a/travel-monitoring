@@ -181,17 +181,18 @@ def render_ai_market_briefing_html(
                         except (ValueError, TypeError):
                             pass
 
+                h_slug = slugify(h_name)
                 h_badge = html_lib.escape(str(p.get("badge", "🟢 Выгодно")))
                 h_why = html_lib.escape(str(p.get("why_buy", "")))
                 offer_url = meta.get("offer_url") or p.get("offer_url", "")
                 chart_href = meta.get("chart_href", "")
 
-                chart_btn = f'<a href="{html_lib.escape(chart_href, quote=True)}" target="_blank" class="ai-pick-btn ai-pick-btn--chart">График</a>' if chart_href else ''
-                offer_btn = f'<a href="{html_lib.escape(offer_url, quote=True)}" target="_blank" class="ai-pick-btn ai-pick-btn--offer">Открыть оффер ↗</a>' if offer_url else ''
+                chart_btn = f'<a href="{html_lib.escape(chart_href, quote=True)}" onclick="if(window.openHotelPassport){{window.openHotelPassport(\'{h_slug}\'); return false;}}" class="ai-pick-btn ai-pick-btn--chart">Паспорт отеля 📊</a>'
+                offer_btn = f'<a href="{html_lib.escape(offer_url, quote=True)}" target="_blank" rel="noopener" class="ai-pick-btn ai-pick-btn--offer">Купить ↗</a>' if offer_url else ''
                 price_badge_html = f'<span class="ai-pick-price">{h_price:,.0f} zł</span>' if h_price > 0.0 else ''
 
                 picks_items_html += f"""
-                    <div class="ai-pick-card">
+                    <div class="ai-pick-card" style="cursor:pointer;" onclick="if(event.target.tagName!=='A'&&event.target.tagName!=='BUTTON'&&window.openHotelPassport){{window.openHotelPassport('{h_slug}');}}">
                         <div class="ai-pick-header">
                             <span class="ai-pick-name">{html_lib.escape(h_name)}</span>
                             {price_badge_html}
@@ -1569,7 +1570,7 @@ def _render_top_movers_html(decreases_48h, increases_48h, slugify_fn, filter_dat
             sign = '' if pct < 0 else '+'
             arrow = '↓' if is_drop else '↑'
             rows.append(
-                f'<a href="{href}" target="_blank" class="top-mover-item">'
+                f'<a href="{href}" onclick="if(window.openHotelPassport){{window.openHotelPassport(\'{slug}\'); return false;}}" class="top-mover-item" title="Открыть паспорт отеля">'
                 f'<span class="top-mover-name" title="{hotel_name}">{hotel_name}</span>'
                 f'<span class="top-mover-prices">{old_p:.0f} → <strong>{new_p:.0f} PLN</strong></span>'
                 f'<span class="top-mover-badge {cls}">{arrow} {sign}{pct:.1f}%</span>'
@@ -1732,6 +1733,7 @@ def _alert_display_fields(alert, meta, slugify_fn, parse_iso_fn):
 
     meta_line = f'{html_lib.escape(str(dates))} · {html_lib.escape(str(duration))}'
     return {
+        'slug': slugify_fn(hotel_name),
         'alert_type': alert_type,
         'kind': kind,
         'badge': badge,
@@ -1813,13 +1815,13 @@ def _render_alert_card(alert, meta, slugify_fn, parse_iso_fn):
                         <div class="alert-card-img">{img_block}</div>
                         <div class="alert-card-body">
                             <div class="alert-card-top">
-                                <h4 class="alert-card-title"><a href="{d["chart_href"]}" target="_blank" rel="noopener">{d["hotel_name_html"]}</a></h4>
+                                <h4 class="alert-card-title"><a href="{d["chart_href"]}" onclick="if(window.openHotelPassport){{window.openHotelPassport('{d["slug"]}'); return false;}}">{d["hotel_name_html"]}</a></h4>
                                 <span class="alert-badge {d["kind"]}">{d["badge"]}</span>
                             </div>
                             {price_block}
                             <div class="alert-card-meta">{sub_line}</div>
                             <div class="alert-card-actions">
-                                <a class="card-btn primary" href="{d["chart_href"]}" target="_blank" rel="noopener">График</a>
+                                <a class="card-btn primary" href="{d["chart_href"]}" onclick="if(window.openHotelPassport){{window.openHotelPassport('{d["slug"]}'); return false;}}">Паспорт и график</a>
                                 {offer_btn}
                             </div>
                         </div>
@@ -1849,12 +1851,12 @@ def _render_alert_history_row(alert, meta, slugify_fn, parse_iso_fn):
                         <div class="alert-history-row {d["kind"]}">
                             <span class="alert-history-badge {d["kind"]}" aria-hidden="true">{d["badge"]}</span>
                             <div class="alert-history-info">
-                                <a class="alert-history-name" href="{d["chart_href"]}" target="_blank" rel="noopener">{d["hotel_name_html"]}</a>
+                                <a class="alert-history-name" href="{d["chart_href"]}" onclick="if(window.openHotelPassport){{window.openHotelPassport('{d["slug"]}'); return false;}}">{d["hotel_name_html"]}</a>
                                 <span class="alert-history-sub">{d["ts_fmt"]} · {d["meta_line"]}</span>
                             </div>
                             <div class="alert-history-price">{price_html}{pct_html}</div>
                             <div class="alert-history-links">
-                                <a class="alert-history-chart" href="{d["chart_href"]}" target="_blank" rel="noopener">График</a>
+                                <a class="alert-history-chart" href="{d["chart_href"]}" onclick="if(window.openHotelPassport){{window.openHotelPassport('{d["slug"]}'); return false;}}">Паспорт</a>
                                 {offer_link}
                             </div>
                         </div>
@@ -5331,6 +5333,7 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
                         offer["chart_href"] = _resolve_chart_href(
                             hotel_name, chart_href_lookup, charts_subdir, slugify
                         )
+                        offer["slug"] = slugify(hotel_name)
                         hist = departure_hotel_histories.get(hotel_name)
                         try:
                             offer_price = float(offer.get("price"))
@@ -13458,8 +13461,9 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
               const deltaAvg = offer.delta_avg || '—';
               const deltaCls = deltaAvg.startsWith('-') ? 'delta-drop' : (deltaAvg.startsWith('+') ? 'delta-up' : 'delta-flat');
               const actions = [];
-              if (offer.chart_href) {
-                actions.push('<a class="departure-offers-link secondary" href="' + escapeHtml(offer.chart_href) + '" target="_blank" rel="noopener">График</a>');
+              if (offer.slug || offer.chart_href) {
+                const s = offer.slug || '';
+                actions.push('<a class="departure-offers-link secondary" href="' + escapeHtml(offer.chart_href || '#') + '" onclick="if(window.openHotelPassport){window.openHotelPassport(\'' + escapeHtml(s) + '\'); return false;}">Паспорт</a>');
               }
               if (offer.offer_url) {
                 actions.push('<a class="departure-offers-link" href="' + escapeHtml(offer.offer_url) + '" target="_blank" rel="noopener">Оффер</a>');

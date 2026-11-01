@@ -226,8 +226,14 @@ def generate_hotel_ai_profile(
         suitable_for = "Премиальный отдых и семьи"
 
     food_snippet = f"Концепция «{food_concept}»: гости хвалят свежевыжатые соки, блюда на гриле, свежую выпечку и разнообразие десертов. Доступны a la carte рестораны."
-    beach_snippet = f"{beach_line}-я линия ({beach_type}). {sea_entry}. Пляж оборудован бесплатными шезлонгами, зонтами и пляжным баром."
-    review_snippet = f"«Отдыхали здесь в этом сезоне. Территория безупречно чистая, питание вкусное и разнообразное, персонал очень приветливый. Пляж отличный!» (Отзыв туриста, TripAdvisor)"
+    review_snippet = ""
+    if rep_data and isinstance(rep_data, dict):
+        if rep_data.get("review_snippet"):
+            review_snippet = str(rep_data["review_snippet"]).strip()
+        elif rep_data.get("season_trend", {}).get("summary"):
+            s_sum = str(rep_data["season_trend"]["summary"]).strip()
+            if s_sum and len(s_sum) > 15:
+                review_snippet = f"«{s_sum}» (Сводка отзывов туристов)"
 
     # 6. Price Intelligence status
     if price_drop_pct >= 8.0:
@@ -2278,9 +2284,9 @@ def render_hotel_passport_drawer_html() -> str:
             </div>
           </div>
 
-          <!-- Real Quotes -->
-          <div style="background:#fffbeb; border:1px solid #fef3c7; border-radius:10px; padding:12px 14px;" class="drawer-quote-box">
-            <h5 style="margin:0 0 4px; font-size:0.82rem; font-weight:800; color:#92400e;">💬 Цитата из свежего отзыва</h5>
+          <!-- Real Quotes / Reviews Summary (hidden when no real quote) -->
+          <div id="drawerQuoteBox" style="background:#fffbeb; border:1px solid #fef3c7; border-radius:10px; padding:12px 14px; display:none;" class="drawer-quote-box">
+            <h5 style="margin:0 0 4px; font-size:0.82rem; font-weight:800; color:#92400e;">💬 Резюме отзывов туристов</h5>
             <p id="drawerQuoteDetail" style="margin:0; font-size:0.78rem; font-style:italic; line-height:1.35; color:#78350f;"></p>
           </div>
         </div>
@@ -2482,9 +2488,17 @@ def get_hotel_passport_js() -> str:
         consList.innerHTML = (h.cons || []).map(c => `<li>${c}</li>`).join('');
       }
 
-      // 7. Quote
+      // 7. Quote / Reviews Summary
+      const quoteBox = document.getElementById('drawerQuoteBox');
       const quoteDet = document.getElementById('drawerQuoteDetail');
-      if (quoteDet) quoteDet.textContent = h.review_snippet || '';
+      if (quoteBox && quoteDet) {
+        if (h.review_snippet && h.review_snippet.trim()) {
+          quoteBox.style.display = 'block';
+          quoteDet.textContent = h.review_snippet;
+        } else {
+          quoteBox.style.display = 'none';
+        }
+      }
 
       // 8. Benchmarks & Price Tab
       const bmCurr = document.getElementById('bmCurrentPrice');
