@@ -218,6 +218,17 @@ def main() -> int:
             return proc.returncode
         print(f"  ✓ landing ({time.monotonic() - landing_t0:.0f}s)")
 
+        print("▶ build_hotel_catalog.py")
+        cat_t0 = time.monotonic()
+        proc_cat = subprocess.run(
+            [sys.executable, str(ROOT / "build_hotel_catalog.py")],
+            cwd=str(ROOT),
+        )
+        if proc_cat.returncode != 0:
+            print("✗ build_hotel_catalog.py failed")
+            return proc_cat.returncode
+        print(f"  ✓ hotel catalog ({time.monotonic() - cat_t0:.0f}s)")
+
     print(f"Done in {time.monotonic() - t0:.0f}s")
     return 0
 

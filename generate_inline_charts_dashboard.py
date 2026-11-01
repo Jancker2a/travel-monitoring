@@ -5215,6 +5215,9 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         '<a href="index.html" class="nav-item">'
         '<span class="flag">🏠</span>'
         '<span class="country-name">Главная</span></a>',
+        '<a href="hotels.html" class="nav-item" style="color:var(--primary);font-weight:700;">'
+        '<span class="flag">🏨</span>'
+        '<span class="country-name">Каталог отелей</span></a>',
         '<a href="create_filter.html" class="nav-item nav-item-create" style="color:var(--primary);font-weight:700;">'
         '<span class="flag">✨</span>'
         '<span class="country-name">+ Новый фильтр</span></a>',
