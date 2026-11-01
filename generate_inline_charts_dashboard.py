@@ -4650,6 +4650,17 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
     else:
         default_country = "Курорт"
 
+    catalog_hotels_index = {}
+    if os.path.exists("hotels_catalog_data.json"):
+        try:
+            with open("hotels_catalog_data.json", "r", encoding="utf-8") as f:
+                cat_data = json.load(f)
+                for h_entry in cat_data.get("hotels", []):
+                    norm_k = re.sub(r"[^\w\d]+", "", h_entry.get("hotel_name", "").lower())
+                    catalog_hotels_index[norm_k] = h_entry
+        except Exception:
+            pass
+
     hotel_passport_data = {}
     hotel_ai_profiles = {}
 
@@ -4688,6 +4699,24 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
                     "url": str(r_pkg.get("offer_url") or ""),
                 })
 
+        # Cross-filter tracking lookup
+        norm_k = re.sub(r"[^\w\d]+", "", h_name.lower())
+        cat_entry = catalog_hotels_index.get(norm_k)
+        other_filters_list = []
+        if cat_entry:
+            for pkg in cat_entry.get("packages", []):
+                f_id = pkg.get("filter_id", "")
+                if f_id and f_id.lower() not in filter_lower:
+                    d_url = f"index_{f_id}.html" if f_id.startswith("filter_") else f"index_filter_{f_id}.html"
+                    other_filters_list.append({
+                        "filter_id": f_id,
+                        "label": pkg.get("filter_name") or f_id.replace("filter_", "").replace("_", " ").title(),
+                        "price": pkg.get("current_price") or pkg.get("price") or 0,
+                        "duration": pkg.get("duration", "—"),
+                        "dates": pkg.get("ref_dates", "—"),
+                        "dashboard_url": d_url,
+                    })
+
         prof = generate_hotel_ai_profile(
             hotel_name=h_name,
             country=default_country,
@@ -4699,6 +4728,8 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             max_price=max_p_card,
             price_drop_pct=drop_pct_card,
             packages=h_pkgs,
+            main_image_url=c.get("image_url", ""),
+            other_filters=other_filters_list,
         )
         hotel_ai_profiles[h_name] = prof
 
@@ -4735,10 +4766,13 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             "tripadvisor_url": prof["tripadvisor_url"],
             "google_reviews_url": prof["google_reviews_url"],
             "youtube_search_url": prof["youtube_search_url"],
-            "youtube_snippets": prof["youtube_snippets"],
+            "gallery_photos": prof["gallery_photos"],
+            "infra_rich": prof["infra_rich"],
+            "other_filters": prof["other_filters"],
             "history_points": h_pts_data[-35:],
             "packages": h_pkgs,
         }
+
 
     passport_css = get_hotel_passport_css()
     passport_drawer_markup = render_hotel_passport_drawer_html()
@@ -11498,7 +11532,7 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
 
         table_rows_html_parts.append(f"""
                     <tr class="hotel-row {'row-odd' if i % 2 == 0 else 'row-even'}{row_color_class}" data-region="{arrival_hub_html}" data-ta-rating="{ta_data_attr}" data-duration-bucket="{duration_bucket_attr}" data-departure-date="{departure_date_attr}" data-departure-key="{departure_key_attr}">
-                        <td class="hotel-name col-hotel" data-label="Отель"><button class="watchlist-star-btn" data-hotel-name="{hotel_name_attr}" title="Добавить в избранное">☆</button><a class="open-chart-link hotel-hover-link" href="{chart_href}" target="_blank" data-hotel-name="{hotel_name_attr}">{hotel_name_html}</a>{tbl_smart_badges_html}</td>
+                        <td class="hotel-name col-hotel" data-label="Отель"><button class="watchlist-star-btn" data-hotel-name="{hotel_name_attr}" title="Добавить в избранное">☆</button><a class="open-chart-link hotel-hover-link" href="{chart_href}" target="_blank" data-hotel-name="{hotel_name_attr}">{hotel_name_html}</a><button type="button" class="tbl-passport-btn" data-hotel-name="{hotel_name_attr}" onclick="event.preventDefault(); event.stopPropagation(); openHotelPassport('{slugify(hotel_name)}');" title="Открыть Паспорт и график отеля">📋 Паспорт</button>{tbl_smart_badges_html}</td>
                         <td class="price col-tight" data-label="Цена" data-sort-value="{price}"><div class="price-cell-box"><div class="price-main-row"><span class="price-main">{price:.0f} PLN</span>{comeback_cell}</div>{cheaper_alt_html}</div></td>
                         <td class="col-tight col-w-deal-td" data-label="Deal" data-sort-value="{deal_score}" title="{deal_title}"><span class="deal-cell-inline">{deal_score} <span style="opacity:.85;">{deal_badge}</span> <span class="deal-conf-short">{confidence_short}</span></span></td>
                         <td class="col-tight col-w-forecast-td" data-label="Прогноз" data-sort-value="{forecast_sort_val}">{forecast_cell_html}</td>
@@ -11508,7 +11542,7 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
                         <td class="arrival-hub col-tight" data-label="Регион" data-sort-value="{arrival_hub_html}">{arrival_hub_html}</td>
                         <td class="col-tight col-dates" data-label="Даты" data-sort-value="{dates}">{dates}</td>
                         <td class="col-tight col-w-dur-td col-duration" data-label="Длительность" data-sort-value="{duration}" title="{duration_title}">{duration_display}</td>
-                        <td class="offer-link-cell col-tight" data-label="Ссылка">{offer_link_html}</td>
+                        <td class="offer-link-cell col-tight" data-label="Ссылка"><div style="display:inline-flex; align-items:center; justify-content:center; gap:5px;">{offer_link_html}<button type="button" class="tbl-passport-btn" data-hotel-name="{hotel_name_attr}" onclick="event.preventDefault(); event.stopPropagation(); openHotelPassport('{slugify(hotel_name)}');" title="Паспорт отеля и график" style="margin-left:0; padding:4px 6px;">📈</button></div></td>
                     </tr>""")
 
     table_rows_html = "".join(table_rows_html_parts)

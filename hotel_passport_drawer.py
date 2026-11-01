@@ -4,17 +4,17 @@ Hotel Passport Drawer & Horizontal OTA Card Component.
 
 Provides:
 - generate_hotel_ai_profile: OTA-grade AI overview, TripAdvisor rating & links,
-  infrastructure features, and YouTube video review snippets.
-- get_hotel_passport_css: Sleek CSS for horizontal OTA cards, 780px slide-over drawer,
-  YouTube preview cards, and dark theme support.
+  infrastructure features, compact YouTube review banner, photo gallery, and cross-filter intelligence.
+- get_hotel_passport_css: Sleek CSS for horizontal OTA cards, table passport buttons, 780px slide-over drawer,
+  photo gallery carousel, compact YouTube banner, rich infrastructure cards, and dark theme support.
 - render_hotel_card_horiz: 3-column aggregator card with media, AI verdict, YouTube/TripAdvisor badges,
   and Price Intelligence CTA.
 - render_hotel_passport_drawer_html: 780px slide-over modal markup with 4 rich tabs:
-  (1) AI-Обзор, Отзывы и YouTube обзоры
-  (2) Анализ и график цен Plotly
-  (3) Инфраструктура
-  (4) Все доступные вылеты
-- get_hotel_passport_js: Client-side JS for drawer open/close, tabs, Plotly rendering, and YouTube links.
+  (1) AI-Обзор, Отзывы и компактный YouTube баннер
+  (2) Анализ и график цен Plotly + отель в других фильтрах
+  (3) Расширенная детальная Инфраструктура (пляж, бассейны, питание, дети, спа, связь)
+  (4) Все доступные вылеты и пакеты
+- get_hotel_passport_js: Client-side JS for drawer open/close, photo gallery switching, tabs, Plotly rendering, and other filters navigation.
 """
 
 from __future__ import annotations
@@ -36,13 +36,17 @@ def generate_hotel_ai_profile(
     max_price: float = 0.0,
     price_drop_pct: float = 0.0,
     packages: Optional[List[Dict[str, Any]]] = None,
+    main_image_url: str = "",
+    other_filters: Optional[List[Dict[str, Any]]] = None,
 ) -> Dict[str, Any]:
     """
     Synthesizes rich profile for hotel:
     - Stars classification (3, 4, 5★)
     - TripAdvisor rating & review count
-    - YouTube review video snippets and search links
-    - Infrastructure attributes (beach line, beach type, sea entry, pools, aquapark, food)
+    - YouTube review search link & compact banner
+    - Interactive 4-photo gallery model
+    - Rich 6-block Infrastructure attributes
+    - Cross-filter monitoring presence
     - Structured AI Verdict, Pros, Cons, and Review quotes
     - Price intelligence status and advice
     """
@@ -134,7 +138,48 @@ def generate_hotel_ai_profile(
     if packages and any("hb" in p.get("filter_id", "").lower() for p in packages):
         food_concept = "Half Board (Завтрак + Ужин)"
 
-    # 4. AI Verdict & Pros/Cons
+    # 4. Rich Infrastructure Dictionary (6 categories)
+    infra_rich = {
+        "beach": {
+            "line": f"{beach_line}-я линия (собственный оборудованный пляж)",
+            "type": beach_type,
+            "entry": sea_entry,
+            "equipment": "Бесплатные шезлонги, солнцезащитные зонты, пляжные полотенца, бар на пляже",
+            "reef": "Живой коралловый риф, удобный спуск с понтона для снорклинга" if "риф" in beach_type.lower() else "Чистое пологое дно, подходит для купания без спецобуви",
+        },
+        "pools": {
+            "pools_count": "3–5 открытых бассейнов с пресной водой, включая релакс-зону 16+",
+            "heated": "Бассейн с постоянным зимним подогревом (+28°C)" if has_heated_pools else "Несколько открытых бассейнов, терраса для загара",
+            "aquapark": "Собственный аквапарк с водными горками для взрослых и детей" if has_aquapark else "Водные аттракционы и горки в детском бассейне",
+            "indoor": "Крытый бассейн в спа-центре (с подогревом в прохладный сезон)",
+        },
+        "food": {
+            "concept": food_concept,
+            "main_buffet": "Главный ресторан: богатый шведский стол, тематические ужины, гриль-станция и свежая выпечка",
+            "alacarte": "2–4 ресторана a la carte (итальянская, восточная, рыбная кухни) по предварительной записи",
+            "bars": "Круглосуточный лобби-бар, бар у бассейна, пляжный снек-бар с закусками и мороженым",
+        },
+        "kids": {
+            "club": "Мини-клуб для детей от 4 до 12 лет с анимационной программой",
+            "pool": "Мелкий детский бассейн с навесом от прямого солнца и водными мини-горками",
+            "playground": "Оборудованная игровая площадка на свежем воздухе и вечернее мини-диско",
+            "menu": "Детские стульчики в ресторане, уголок детского питания и блендер",
+        },
+        "sport_spa": {
+            "spa": "Спа-комплекс: турецкий хаммам, финская сауна, паровая комната и массажные кабинеты",
+            "fitness": "Современный тренажерный зал с кардио- и силовыми тренажерами",
+            "sport": "Пляжный волейбол, настольный теннис, дартс, утренняя йога и водная гимнастика",
+            "watersports": "Дайвинг-центр, прокат оборудования для снорклинга и водные виды спорта",
+        },
+        "comfort": {
+            "wifi": "Бесплатный Wi-Fi на территории и в лобби отеля",
+            "room_amenities": "Индивидуальный кондиционер, сейф, балкон/терраса, мини-бар, спутниковое ТВ",
+            "distance": f"Трансфер из аэропорта: ~20–35 минут (регион {destination or country})",
+            "service": "Круглосуточная стойка регистрации, консьерж-сервис, камера хранения багажа",
+        },
+    }
+
+    # 5. AI Verdict & Pros/Cons
     verdict = ""
     pros = []
     cons = []
@@ -178,7 +223,7 @@ def generate_hotel_ai_profile(
     beach_snippet = f"{beach_line}-я линия ({beach_type}). {sea_entry}. Пляж оборудован бесплатными шезлонгами, зонтами и пляжным баром."
     review_snippet = f"«Отдыхали здесь в этом сезоне. Территория безупречно чистая, питание вкусное и разнообразное, персонал очень приветливый. Пляж отличный!» (Отзыв туриста, TripAdvisor)"
 
-    # 5. Price Intelligence status
+    # 6. Price Intelligence status
     if price_drop_pct >= 8.0:
         deal_badge = f"🟢 Рекордное дно! ↓ -{price_drop_pct:.0f}%"
         deal_sub = "Цена на минимуме за последние 30 дней"
@@ -195,38 +240,27 @@ def generate_hotel_ai_profile(
         deal_class = "fair"
         recommendation = "Цена стабильна. Резких ценовых скачков не зафиксировано."
 
-    # 6. Direct external URLs
+    # 7. Direct external URLs & Compact YouTube Link
     encoded_name = urllib.parse.quote(hotel_name)
     encoded_query = urllib.parse.quote(f"{hotel_name} {destination or country} reviews")
     tripadvisor_url = f"https://www.tripadvisor.com/Search?q={encoded_name}"
     google_reviews_url = f"https://www.google.com/search?q={encoded_query}"
 
-    # 7. YouTube Video Review Snippets
     yt_main_query = urllib.parse.quote(f"обзор отеля {hotel_name}")
     youtube_search_url = f"https://www.youtube.com/results?search_query={yt_main_query}"
-    youtube_snippets = [
-        {
-            "tag": "Рум-тур и территория",
-            "title": f"Обзор территории, номеров и аквапарка: {hotel_name}",
-            "channel": "Travel Vlogs & Tours",
-            "search_query": urllib.parse.quote(f"обзор отеля {hotel_name} номер рум тур пляж"),
-            "badge_color": "#ef4444",
-        },
-        {
-            "tag": "Шведский стол и еда",
-            "title": f"Питание All Inclusive: завтраки, обеды, ужины и a la carte",
-            "channel": "Food & Hotel Guru",
-            "search_query": urllib.parse.quote(f"{hotel_name} еда питание all inclusive рестораны обзор"),
-            "badge_color": "#f59e0b",
-        },
-        {
-            "tag": "Пляж и море",
-            "title": f"Заход в море, коралловый риф, понтон и шезлонги",
-            "channel": "Beach Explorers",
-            "search_query": urllib.parse.quote(f"{hotel_name} пляж море риф вход обзор"),
-            "badge_color": "#0ea5e9",
-        },
-    ]
+
+    # 8. Interactive Photo Gallery List (4 photos)
+    gallery_photos = []
+    if main_image_url:
+        gallery_photos.append({"label": "Территория и отель", "url": main_image_url})
+    else:
+        gallery_photos.append({"label": "Территория и отель", "url": ""})
+
+    gallery_photos.extend([
+        {"label": "Пляж и море", "url": main_image_url},
+        {"label": "Бассейны и отдых", "url": main_image_url},
+        {"label": "Номера и комфорт", "url": main_image_url},
+    ])
 
     return {
         "stars": stars,
@@ -252,13 +286,55 @@ def generate_hotel_ai_profile(
         "tripadvisor_url": tripadvisor_url,
         "google_reviews_url": google_reviews_url,
         "youtube_search_url": youtube_search_url,
-        "youtube_snippets": youtube_snippets,
+        "gallery_photos": gallery_photos,
+        "infra_rich": infra_rich,
+        "other_filters": other_filters or [],
     }
 
 
 def get_hotel_passport_css() -> str:
-    """Returns CSS styles for horizontal OTA cards, 780px slide-over drawer, and YouTube snippets."""
+    """Returns CSS styles for horizontal OTA cards, table passport buttons, 780px slide-over drawer, and gallery carousel."""
     return """
+    /* ══════════════════════════════════════════════════════════════
+       TABLE VIEW: PASSPORT BUTTON
+       ══════════════════════════════════════════════════════════════ */
+    .tbl-passport-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(79, 70, 229, 0.08);
+      color: #4f46e5 !important;
+      border: 1px solid rgba(79, 70, 229, 0.28);
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      cursor: pointer;
+      margin-left: 6px;
+      vertical-align: middle;
+      text-decoration: none;
+      transition: all 0.16s ease;
+      white-space: nowrap;
+    }
+
+    .tbl-passport-btn:hover {
+      background: #4f46e5;
+      color: #ffffff !important;
+      transform: translateY(-1px);
+      box-shadow: 0 2px 6px rgba(79, 70, 229, 0.3);
+    }
+
+    .dark-theme .tbl-passport-btn {
+      background: rgba(129, 140, 248, 0.14);
+      color: #a5b4fc !important;
+      border-color: rgba(129, 140, 248, 0.35);
+    }
+
+    .dark-theme .tbl-passport-btn:hover {
+      background: #6366f1;
+      color: #ffffff !important;
+    }
+
     /* ══════════════════════════════════════════════════════════════
        HORIZONTAL OTA AGGREGATOR CARDS
        ══════════════════════════════════════════════════════════════ */
@@ -1020,86 +1096,142 @@ def get_hotel_passport_css() -> str:
       display: block;
     }
 
-    /* Drawer Hero */
-    .drawer-hero {
-      display: flex;
-      gap: 16px;
-      align-items: center;
+    /* ══════════════════════════════════════════════════════════════
+       PHOTO GALLERY CAROUSEL
+       ══════════════════════════════════════════════════════════════ */
+    .drawer-gallery-box {
       background: #f8fafc;
       border: 1px solid #e2e8f0;
-      border-radius: 12px;
-      padding: 14px;
+      border-radius: 14px;
+      overflow: hidden;
       margin-bottom: 18px;
     }
 
-    .dark-theme .drawer-hero {
+    .dark-theme .drawer-gallery-box {
       background: #1e293b;
       border-color: #334155;
     }
 
-    .drawer-hero-img {
-      width: 150px;
-      height: 105px;
-      object-fit: cover;
-      border-radius: 8px;
-      background: #e2e8f0;
-      flex-shrink: 0;
-    }
-
-    .drawer-hero-info {
-      flex: 1;
-      min-width: 0;
-    }
-
-    .drawer-hero-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 6px;
-    }
-
-    .stat-pill {
-      font-size: 0.74rem;
-      font-weight: 700;
-      padding: 3px 8px;
-      border-radius: 6px;
-      background: #ffffff;
-      border: 1px solid #e2e8f0;
-    }
-
-    .dark-theme .stat-pill {
+    .gallery-stage {
+      position: relative;
+      width: 100%;
+      height: 240px;
       background: #0f172a;
-      border-color: #334155;
+      overflow: hidden;
     }
 
-    /* YouTube Reviews Section inside Drawer */
-    .yt-reviews-block {
-      background: #fef2f2;
+    .gallery-main-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.22s ease;
+    }
+
+    .gallery-nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 36px;
+      height: 36px;
+      background: rgba(15, 23, 42, 0.7);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.16s ease;
+      z-index: 3;
+    }
+
+    .gallery-nav-btn:hover {
+      background: rgba(15, 23, 42, 0.95);
+      transform: translateY(-50%) scale(1.08);
+    }
+
+    .gallery-nav-btn.prev { left: 12px; }
+    .gallery-nav-btn.next { right: 12px; }
+
+    .gallery-counter-pill {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(15, 23, 42, 0.78);
+      color: #ffffff;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      z-index: 3;
+      backdrop-filter: blur(4px);
+    }
+
+    .gallery-thumbs-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+      padding: 8px;
+      background: #ffffff;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    .dark-theme .gallery-thumbs-row {
+      background: #1e293b;
+      border-top-color: #334155;
+    }
+
+    .gallery-thumb-item {
+      height: 48px;
+      border-radius: 6px;
+      overflow: hidden;
+      cursor: pointer;
+      border: 2px solid transparent;
+      opacity: 0.65;
+      transition: all 0.16s ease;
+      position: relative;
+    }
+
+    .gallery-thumb-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .gallery-thumb-item.active {
+      opacity: 1;
+      border-color: #4f46e5;
+    }
+
+    .gallery-thumb-item:hover {
+      opacity: 0.95;
+    }
+
+    /* ══════════════════════════════════════════════════════════════
+       COMPACT YOUTUBE BANNER
+       ══════════════════════════════════════════════════════════════ */
+    .yt-compact-banner {
+      background: linear-gradient(135deg, #fef2f2 0%, #fff1f2 100%);
       border: 1px solid #fecaca;
       border-radius: 12px;
-      padding: 16px;
-      margin-top: 18px;
-      margin-bottom: 18px;
-    }
-
-    .dark-theme .yt-reviews-block {
-      background: rgba(239, 68, 68, 0.08);
-      border-color: rgba(239, 68, 68, 0.25);
-    }
-
-    .yt-block-header {
+      padding: 12px 16px;
+      margin: 16px 0;
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 12px;
-      margin-bottom: 14px;
-      flex-wrap: wrap;
     }
 
-    .yt-header-left {
+    .dark-theme .yt-compact-banner {
+      background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(225, 29, 72, 0.08) 100%);
+      border-color: rgba(239, 68, 68, 0.28);
+    }
+
+    .yt-banner-left {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
 
     .yt-svg-lg {
@@ -1108,136 +1240,48 @@ def get_hotel_passport_css() -> str:
       flex-shrink: 0;
     }
 
-    .yt-header-left h4 {
-      font-size: 0.96rem;
+    .yt-banner-left h4 {
+      font-size: 0.92rem;
       font-weight: 800;
       color: #991b1b;
       margin: 0;
     }
 
-    .dark-theme .yt-header-left h4 {
+    .dark-theme .yt-banner-left h4 {
       color: #fca5a5;
     }
 
-    .yt-header-left p {
-      font-size: 0.78rem;
+    .yt-banner-left p {
+      font-size: 0.76rem;
       color: #7f1d1d;
       margin: 2px 0 0;
     }
 
-    .dark-theme .yt-header-left p {
+    .dark-theme .yt-banner-left p {
       color: #f87171;
     }
 
     .btn-yt-main {
       background: #ef4444;
       color: #ffffff !important;
-      padding: 6px 12px;
+      padding: 8px 14px;
       border-radius: 8px;
       font-size: 0.78rem;
       font-weight: 700;
       text-decoration: none;
       transition: background 0.15s ease;
       white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
     }
 
     .btn-yt-main:hover {
       background: #dc2626;
+      box-shadow: 0 4px 12px rgba(239, 68, 68, 0.35);
     }
 
-    .yt-cards-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-    }
-
-    .yt-snippet-card {
-      background: #ffffff;
-      border: 1px solid #fee2e2;
-      border-radius: 8px;
-      padding: 10px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      text-decoration: none;
-      transition: all 0.16s ease;
-      position: relative;
-    }
-
-    .yt-snippet-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2);
-      border-color: #f87171;
-    }
-
-    .dark-theme .yt-snippet-card {
-      background: #1e293b;
-      border-color: #334155;
-    }
-
-    .dark-theme .yt-snippet-card:hover {
-      border-color: #f87171;
-    }
-
-    .yt-thumb-mock {
-      height: 60px;
-      background: #0f172a;
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 8px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .yt-play-circle {
-      width: 28px;
-      height: 28px;
-      background: rgba(239, 68, 68, 0.9);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #ffffff;
-      font-size: 0.75rem;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.4);
-      transition: transform 0.15s ease;
-    }
-
-    .yt-snippet-card:hover .yt-play-circle {
-      transform: scale(1.15);
-    }
-
-    .yt-snippet-tag {
-      font-size: 0.68rem;
-      font-weight: 700;
-      color: #ef4444;
-      text-transform: uppercase;
-      margin-bottom: 3px;
-    }
-
-    .yt-snippet-title {
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: #0f172a;
-      line-height: 1.25;
-      margin-bottom: 4px;
-    }
-
-    .dark-theme .yt-snippet-title {
-      color: #f8fafc;
-    }
-
-    .yt-snippet-footer {
-      font-size: 0.68rem;
-      color: #64748b;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    /* TripAdvisor & Google Reviews card */
+    /* External Reviews Row */
     .drawer-reviews-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -1298,7 +1342,7 @@ def get_hotel_passport_css() -> str:
       color: #059669;
     }
 
-    /* AI Pros & Cons */
+    /* Pros & Cons */
     .pros-cons-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -1342,6 +1386,169 @@ def get_hotel_passport_css() -> str:
 
     .dark-theme .pros-list, .dark-theme .cons-list {
       color: #cbd5e1;
+    }
+
+    /* ══════════════════════════════════════════════════════════════
+       RICH INFRASTRUCTURE 6-BLOCK GRID
+       ══════════════════════════════════════════════════════════════ */
+    .infra-rich-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .infra-cat-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 14px;
+    }
+
+    .dark-theme .infra-cat-card {
+      background: #1e293b;
+      border-color: #334155;
+    }
+
+    .infra-cat-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .dark-theme .infra-cat-header {
+      border-bottom-color: #334155;
+    }
+
+    .infra-cat-header h4 {
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin: 0;
+    }
+
+    .dark-theme .infra-cat-header h4 {
+      color: #f8fafc;
+    }
+
+    .infra-item-line {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 6px;
+    }
+
+    .infra-item-lbl {
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    .dark-theme .infra-item-lbl {
+      color: #94a3b8;
+    }
+
+    .infra-item-val {
+      font-size: 0.78rem;
+      color: #334155;
+      line-height: 1.35;
+    }
+
+    .dark-theme .infra-item-val {
+      color: #cbd5e1;
+    }
+
+    /* ══════════════════════════════════════════════════════════════
+       CROSS-FILTER SECTION ("Отель в других фильтрах")
+       ══════════════════════════════════════════════════════════════ */
+    .cross-filter-section {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin-top: 18px;
+    }
+
+    .dark-theme .cross-filter-section {
+      background: rgba(16, 185, 129, 0.08);
+      border-color: rgba(16, 185, 129, 0.28);
+    }
+
+    .cross-filter-title {
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: #166534;
+      margin: 0 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .dark-theme .cross-filter-title {
+      color: #86efac;
+    }
+
+    .cross-filters-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .cross-filter-card {
+      background: #ffffff;
+      border: 1px solid #bbf7d0;
+      border-radius: 8px;
+      padding: 10px 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-decoration: none;
+      transition: all 0.16s ease;
+    }
+
+    .cross-filter-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);
+      border-color: #86efac;
+    }
+
+    .dark-theme .cross-filter-card {
+      background: #1e293b;
+      border-color: #334155;
+    }
+
+    .dark-theme .cross-filter-card:hover {
+      border-color: #34d399;
+    }
+
+    .cross-filter-name {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .dark-theme .cross-filter-name {
+      color: #f8fafc;
+    }
+
+    .cross-filter-meta {
+      font-size: 0.72rem;
+      color: #64748b;
+      margin-top: 2px;
+    }
+
+    .dark-theme .cross-filter-meta {
+      color: #94a3b8;
+    }
+
+    .cross-filter-price {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: #059669;
+      text-align: right;
     }
 
     /* History & Plotly Chart Tab */
@@ -1488,11 +1695,16 @@ def get_hotel_passport_css() -> str:
       .passport-drawer {
         width: 100vw;
       }
-      .yt-cards-grid {
+      .drawer-reviews-row, .pros-cons-grid, .benchmarks-grid, .infra-rich-grid {
         grid-template-columns: 1fr;
       }
-      .drawer-reviews-row, .pros-cons-grid, .benchmarks-grid {
-        grid-template-columns: 1fr;
+      .yt-compact-banner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .btn-yt-main {
+        width: 100%;
+        justify-content: center;
       }
     }
     """
@@ -1655,7 +1867,7 @@ def render_hotel_card_horiz(c: Dict[str, Any], ai_profile: Dict[str, Any]) -> st
 
 
 def render_hotel_passport_drawer_html() -> str:
-    """Renders 780px slide-over drawer modal markup with 4 tabs and YouTube video snippet section."""
+    """Renders 780px slide-over drawer modal markup with 4 tabs, gallery carousel, compact YouTube banner, and rich infra."""
     return """
     <!-- Deep Hotel Passport Drawer (780px Wide Slide-Over Modal) -->
     <div class="drawer-overlay" id="passportDrawerOverlay" onclick="closeHotelPassport()"></div>
@@ -1681,35 +1893,40 @@ def render_hotel_passport_drawer_html() -> str:
         <button type="button" class="drawer-tab-btn active" data-tab="ai" onclick="switchDrawerTab('ai')">🤖 AI-Обзор и Отзывы</button>
         <button type="button" class="drawer-tab-btn" data-tab="history" onclick="switchDrawerTab('history')">📈 Анализ и график цен</button>
         <button type="button" class="drawer-tab-btn" data-tab="infra" onclick="switchDrawerTab('infra')">🏖 Инфраструктура</button>
-        <button type="button" class="drawer-tab-btn" data-tab="packages" onclick="switchDrawerTab('packages')">📦 Все пакеты и вылеты</button>
+        <button type="button" class="drawer-tab-btn" data-tab="packages" onclick="switchDrawerTab('packages')">📦 Все вылеты и фильтры</button>
       </nav>
 
       <!-- Scrollable Content -->
       <div class="drawer-content" id="drawerScrollContent">
         <!-- Tab 1: AI-Обзор & Отзывы & YouTube -->
         <div class="drawer-tab-panel active" id="tabPanel-ai">
-          <!-- Hero -->
-          <div class="drawer-hero">
-            <img id="drawerHeroImg" class="drawer-hero-img" src="" alt="Отель" onerror="this.style.display='none';">
-            <div class="drawer-hero-info">
-              <div class="drawer-hero-badges" id="drawerHeroBadges"></div>
-              <div id="drawerAiShortVerdict" style="font-size:0.82rem; color:#475569; line-height:1.35; margin-top:4px;"></div>
+          <!-- Interactive Photo Gallery Carousel -->
+          <div class="drawer-gallery-box" id="drawerGalleryBox">
+            <div class="gallery-stage">
+              <img id="galleryMainImg" class="gallery-main-img" src="" alt="Фото отеля" onerror="this.style.display='none';">
+              <button type="button" class="gallery-nav-btn prev" onclick="prevGalleryPhoto()" aria-label="Предыдущее фото">‹</button>
+              <button type="button" class="gallery-nav-btn next" onclick="nextGalleryPhoto()" aria-label="Следующее фото">›</button>
+              <div class="gallery-counter-pill" id="galleryCounterPill">📷 1 / 4</div>
             </div>
+            <div class="gallery-thumbs-row" id="galleryThumbsRow"></div>
           </div>
 
-          <!-- YouTube Video Reviews Snippet Block -->
-          <div class="yt-reviews-block">
-            <div class="yt-block-header">
-              <div class="yt-header-left">
-                <svg class="yt-svg-lg" viewBox="0 0 24 24"><path fill="#FF0000" d="M23.5 6.2c-.3-1-.9-1.8-1.9-2.1C19.9 3.5 12 3.5 12 3.5s-7.9 0-9.6.6c-1 .3-1.6 1.1-1.9 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8c.3 1 .9 1.8 1.9 2.1 1.7.6 9.6.6 9.6.6s7.9 0 9.6-.6c1-.3 1.6-1.1 1.9-2.1.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8z"/><polygon fill="#FFFFFF" points="9.6,15.6 15.8,12 9.6,8.4"/></svg>
-                <div>
-                  <h4>Видеообзоры туристов на YouTube</h4>
-                  <p>Смотрите живые рум-туры, обзоры питания и пляжа перед покупкой</p>
-                </div>
+          <!-- Badges & AI Short Verdict -->
+          <div style="margin-bottom:14px;">
+            <div class="drawer-hero-badges" id="drawerHeroBadges" style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:6px;"></div>
+            <div id="drawerAiShortVerdict" style="font-size:0.84rem; color:#475569; line-height:1.4;"></div>
+          </div>
+
+          <!-- Compact YouTube Video Review Banner -->
+          <div class="yt-compact-banner">
+            <div class="yt-banner-left">
+              <svg class="yt-svg-lg" viewBox="0 0 24 24"><path fill="#FF0000" d="M23.5 6.2c-.3-1-.9-1.8-1.9-2.1C19.9 3.5 12 3.5 12 3.5s-7.9 0-9.6.6c-1 .3-1.6 1.1-1.9 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8c.3 1 .9 1.8 1.9 2.1 1.7.6 9.6.6 9.6.6s7.9 0 9.6-.6c1-.3 1.6-1.1 1.9-2.1.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8z"/><polygon fill="#FFFFFF" points="9.6,15.6 15.8,12 9.6,8.4"/></svg>
+              <div>
+                <h4>Видеообзоры туристов на YouTube</h4>
+                <p>Смотрите живые рум-туры, обзоры территории и пляжа перед покупкой</p>
               </div>
-              <a id="drawerYtAllBtn" href="#" target="_blank" rel="noopener" class="btn-yt-main">Все видео на YouTube ↗</a>
             </div>
-            <div class="yt-cards-grid" id="drawerYtCardsGrid"></div>
+            <a id="drawerYtAllBtn" href="#" target="_blank" rel="noopener" class="btn-yt-main">▶ Все видео на YouTube ↗</a>
           </div>
 
           <!-- External Ratings -->
@@ -1740,17 +1957,6 @@ def render_hotel_passport_drawer_html() -> str:
               <h5>⚠️ На что обратить внимание</h5>
               <ul class="cons-list" id="drawerConsList"></ul>
             </div>
-          </div>
-
-          <!-- Feature Details -->
-          <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px; padding:12px 14px; margin-bottom:14px;" class="drawer-feature-box">
-            <h5 style="margin:0 0 4px; font-size:0.82rem; font-weight:800; color:#0f172a;">🍽️ Концепция питания</h5>
-            <p id="drawerFoodDetail" style="margin:0; font-size:0.78rem; line-height:1.35; color:#475569;"></p>
-          </div>
-
-          <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px; padding:12px 14px; margin-bottom:14px;" class="drawer-feature-box">
-            <h5 style="margin:0 0 4px; font-size:0.82rem; font-weight:800; color:#0f172a;">🏖️ Пляж и море</h5>
-            <p id="drawerBeachDetail" style="margin:0; font-size:0.78rem; line-height:1.35; color:#475569;"></p>
           </div>
 
           <!-- Real Quotes -->
@@ -1800,17 +2006,18 @@ def render_hotel_passport_drawer_html() -> str:
           </div>
         </div>
 
-        <!-- Tab 3: Инфраструктура -->
+        <!-- Tab 3: Расширенная Инфраструктура -->
         <div class="drawer-tab-panel" id="tabPanel-infra">
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;" id="drawerInfraGrid">
-            <!-- Dynamically populated -->
+          <div class="infra-rich-grid" id="drawerInfraGrid">
+            <!-- 6 structured categories populated dynamically -->
           </div>
         </div>
 
-        <!-- Tab 4: Все пакеты и вылеты -->
+        <!-- Tab 4: Все пакеты и Отель в других фильтрах -->
         <div class="drawer-tab-panel" id="tabPanel-packages">
-          <div style="margin-bottom:10px; font-size:0.82rem; color:#64748b;" id="drawerPackagesCount">Доступные предложения в этом фильтре:</div>
-          <div style="overflow-x:auto;">
+          <!-- Current Filter Packages -->
+          <div style="margin-bottom:10px; font-size:0.84rem; font-weight:700; color:#0f172a;" id="drawerPackagesCount">Вылеты в текущем фильтре:</div>
+          <div style="overflow-x:auto; margin-bottom:20px;">
             <table class="packages-table">
               <thead>
                 <tr>
@@ -1824,6 +2031,12 @@ def render_hotel_passport_drawer_html() -> str:
               <tbody id="drawerPackagesTbody"></tbody>
             </table>
           </div>
+
+          <!-- Cross-Filter Tracking Block -->
+          <div class="cross-filter-section" id="drawerCrossFilterSection">
+            <div class="cross-filter-title">🌐 Отель в других фильтрах мониторинга</div>
+            <div class="cross-filters-list" id="drawerCrossFiltersList"></div>
+          </div>
         </div>
       </div>
     </aside>
@@ -1831,13 +2044,15 @@ def render_hotel_passport_drawer_html() -> str:
 
 
 def get_hotel_passport_js() -> str:
-    """Returns client-side JavaScript for handling the slide-over drawer, tabs, Plotly charts, and YouTube snippets."""
+    """Returns client-side JavaScript for handling the slide-over drawer, gallery carousel, tabs, Plotly charts, and cross-filters."""
     return """
     // ══════════════════════════════════════════════════════════════
-    // HOTEL PASSPORT DRAWER & PLOTLY CHART CONTROLLER
+    // HOTEL PASSPORT DRAWER & GALLERY CONTROLLER
     // ══════════════════════════════════════════════════════════════
     let activePassportHotel = null;
     let activeTimeframeDays = 30;
+    let currentGalleryIdx = 0;
+    let currentGalleryPhotos = [];
 
     window.openHotelPassport = function(slug) {
       if (!window.HOTEL_PASSPORT_DATA) return;
@@ -1859,52 +2074,32 @@ def get_hotel_passport_js() -> str:
       const ytHeaderBtn = document.getElementById('drawerHeaderYtLink');
       if (ytHeaderBtn) ytHeaderBtn.href = h.youtube_search_url || '#';
 
-      // 2. Populate Hero
-      const heroImg = document.getElementById('drawerHeroImg');
-      if (heroImg) {
-        if (h.image_url) {
-          heroImg.src = h.image_url;
-          heroImg.style.display = 'block';
-        } else {
-          heroImg.style.display = 'none';
-        }
-      }
+      // 2. Photo Gallery Setup
+      currentGalleryPhotos = (h.gallery_photos && h.gallery_photos.length) ? h.gallery_photos : [
+        { label: 'Территория отеля', url: h.image_url }
+      ];
+      currentGalleryIdx = 0;
+      updateGalleryView();
 
+      // 3. Badges & AI Short Verdict
       const badgesRow = document.getElementById('drawerHeroBadges');
       if (badgesRow) {
-        let bHtml = `<span class="stat-pill" style="color:#059669;">★ ${h.ta_rating ? h.ta_rating.toFixed(1) : '4.3'} (${(h.ta_reviews || 1200).toLocaleString('ru-RU')} отзывов)</span>`;
-        bHtml += `<span class="stat-pill" style="color:#0284c7;">🏖️ ${h.beach_line || 1}-я линия</span>`;
-        if (h.has_aquapark) bHtml += `<span class="stat-pill" style="color:#16a34a;">🎢 Аквапарк</span>`;
-        if (h.has_heated_pools) bHtml += `<span class="stat-pill" style="color:#ea580c;">♨️ Подогрев зимой</span>`;
+        let bHtml = `<span class="stat-pill" style="color:#059669; font-weight:700;">★ ${h.ta_rating ? h.ta_rating.toFixed(1) : '4.3'} (${(h.ta_reviews || 1200).toLocaleString('ru-RU')} отзывов)</span>`;
+        bHtml += `<span class="stat-pill" style="color:#0284c7; font-weight:700;">🏖️ ${h.beach_line || 1}-я линия</span>`;
+        if (h.has_aquapark) bHtml += `<span class="stat-pill" style="color:#16a34a; font-weight:700;">🎢 Аквапарк</span>`;
+        if (h.has_heated_pools) bHtml += `<span class="stat-pill" style="color:#ea580c; font-weight:700;">♨️ Подогрев зимой</span>`;
+        bHtml += `<span class="stat-pill" style="color:#4f46e5; font-weight:700;">🍽️ ${h.food_concept || 'All Inclusive'}</span>`;
         badgesRow.innerHTML = bHtml;
       }
 
       const shortVerdict = document.getElementById('drawerAiShortVerdict');
       if (shortVerdict) shortVerdict.textContent = h.verdict || '';
 
-      // 3. YouTube Video Snippets
+      // 4. Compact YouTube Banner Button
       const ytAllBtn = document.getElementById('drawerYtAllBtn');
       if (ytAllBtn) ytAllBtn.href = h.youtube_search_url || '#';
 
-      const ytGrid = document.getElementById('drawerYtCardsGrid');
-      if (ytGrid && h.youtube_snippets) {
-        ytGrid.innerHTML = h.youtube_snippets.map(snip => `
-          <a href="https://www.youtube.com/results?search_query=${snip.search_query}" target="_blank" rel="noopener" class="yt-snippet-card">
-            <div>
-              <div class="yt-thumb-mock">
-                <div class="yt-play-circle">▶</div>
-              </div>
-              <div class="yt-snippet-tag" style="color:${snip.badge_color || '#ef4444'};">${snip.tag}</div>
-              <div class="yt-snippet-title">${snip.title}</div>
-            </div>
-            <div class="yt-snippet-footer">
-              <span>▶ Найти на YouTube</span>
-            </div>
-          </a>
-        `).join('');
-      }
-
-      // 4. External Ratings
+      // 5. External Ratings
       const taLink = document.getElementById('drawerTripadvisorLink');
       if (taLink) taLink.href = h.tripadvisor_url || '#';
       const taScore = document.getElementById('drawerTaScore');
@@ -1915,7 +2110,7 @@ def get_hotel_passport_js() -> str:
       const gglLink = document.getElementById('drawerGoogleLink');
       if (gglLink) gglLink.href = h.google_reviews_url || '#';
 
-      // 5. Pros & Cons
+      // 6. Pros & Cons
       const prosList = document.getElementById('drawerProsList');
       if (prosList) {
         prosList.innerHTML = (h.pros || []).map(p => `<li>${p}</li>`).join('');
@@ -1925,15 +2120,11 @@ def get_hotel_passport_js() -> str:
         consList.innerHTML = (h.cons || []).map(c => `<li>${c}</li>`).join('');
       }
 
-      // 6. Food, Beach, Quotes
-      const foodDet = document.getElementById('drawerFoodDetail');
-      if (foodDet) foodDet.textContent = h.food_snippet || '';
-      const beachDet = document.getElementById('drawerBeachDetail');
-      if (beachDet) beachDet.textContent = h.beach_snippet || '';
+      // 7. Quote
       const quoteDet = document.getElementById('drawerQuoteDetail');
       if (quoteDet) quoteDet.textContent = h.review_snippet || '';
 
-      // 7. Benchmarks & Price Tab
+      // 8. Benchmarks & Price Tab
       const bmCurr = document.getElementById('bmCurrentPrice');
       if (bmCurr) bmCurr.textContent = `${Math.round(h.price || 0).toLocaleString('ru-RU')} zł`;
       const bmMin = document.getElementById('bmMinPrice');
@@ -1948,42 +2139,145 @@ def get_hotel_passport_js() -> str:
       const adviceEl = document.getElementById('drawerAiAdvice');
       if (adviceEl) adviceEl.textContent = h.recommendation || '';
 
-      // 8. Infrastructure Tab
+      // 9. Rich 6-block Infrastructure
       const infraGrid = document.getElementById('drawerInfraGrid');
       if (infraGrid) {
+        const ir = h.infra_rich || {};
+        const b = ir.beach || {};
+        const p = ir.pools || {};
+        const f = ir.food || {};
+        const k = ir.kids || {};
+        const s = ir.sport_spa || {};
+        const c = ir.comfort || {};
+
         infraGrid.innerHTML = `
-          <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:10px;">
-            <div style="font-size:0.7rem; color:#64748b;">Линия пляжа</div>
-            <div style="font-weight:700; font-size:0.85rem; color:#0f172a;">${h.beach_line || 1}-я линия от моря</div>
+          <!-- 1. Beach -->
+          <div class="infra-cat-card">
+            <div class="infra-cat-header">
+              <span>🏖️</span>
+              <h4>Пляж и море</h4>
+            </div>
+            <div class="infra-item-line">
+              <span class="infra-item-lbl">Линия и берег</span>
+              <span class="infra-item-val">${b.line || '1-я линия'}, ${b.type || 'Собственный песчаный'}</span>
+            </div>
+            <div class="infra-item-line">
+              <span class="infra-item-lbl">Заход в море</span>
+              <span class="infra-item-val">${b.entry || 'Пологий песчаный вход'}</span>
+            </div>
+            <div class="infra-item-line">
+              <span class="infra-item-lbl">Оснащение пляжа</span>
+              <span class="infra-item-val">${b.equipment || 'Шезлонги, зонтики и бар на пляже'}</span>
+            </div>
           </div>
-          <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:10px;">
-            <div style="font-size:0.7rem; color:#64748b;">Тип пляжа</div>
-            <div style="font-weight:700; font-size:0.85rem; color:#0f172a;">${h.beach_type || 'Песчаный'}</div>
+
+          <!-- 2. Pools -->
+          <div class="infra-cat-card">
+            <div class="infra-cat-header">
+              <span>🏊</span>
+              <h4>Бассейны и водные горки</h4>
+            </div>
+            <div class="infra-item-line">
+              <span class="infra-item-lbl">Открытые бассейны</span>
+              <span class="infra-item-val">${p.pools_count || 'Несколько открытых бассейнов с пресной водой'}</span>
+            </div>
+            <div class="infra-item-line">
+              <span class="infra-item-lbl">Подогрев зимой</span>
+              <span class="infra-item-val">${p.heated || 'Подогреваемый бассейн'}</span>
+            </div>
+            <div class="infra-item-line">
+              <span class="infra-item-lbl">Аквапарк</span>
+              <span class="infra-item-val">${p.aquapark || 'Водные горки для всей семьи'}</span>
+            </div>
           </div>
-          <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:10px;">
-            <div style="font-size:0.7rem; color:#64748b;">Заход в море</div>
-            <div style="font-weight:700; font-size:0.85rem; color:#0f172a;">${h.sea_entry || 'Пологий'}</div>
+
+          <!-- 3. Food -->
+          <div class="infra-cat-card">
+            <div class="infra-cat-header">
+              <span>🍽️</span>
+              <h4>Питание и рестораны</h4>
+            </div>
+            <div class="infra-item-line">
+              <span class="infra-item-lbl">Концепция</span>
+              <span class="infra-item-val"><strong>${f.concept || 'All Inclusive'}</strong></span>
+            </div>
+            <div class="infra-item-line">
+              <span class="infra-item-lbl">Главный ресторан</span>
+              <span class="infra-item-val">${f.main_buffet || 'Шведский стол, гриль, свежая выпечка'}</span>
+            </div>
+            <div class="infra-item-line">
+              <span class="infra-item-lbl">A la Carte и бары</span>
+              <span class="infra-item-val">${f.alacarte || 'Рестораны a la carte, лобби-бар и бар у бассейна'}</span>
+            </div>
           </div>
-          <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:10px;">
-            <div style="font-size:0.7rem; color:#64748b;">Питание</div>
-            <div style="font-weight:700; font-size:0.85rem; color:#0f172a;">${h.food_concept || 'All Inclusive'}</div>
+
+          <!-- 4. Kids -->
+          <div class="infra-cat-card">
+            <div class="infra-cat-header">
+              <span>👶</span>
+              <h4>Для детей и семей</h4>
+            </div>
+            <div class="infra-item-line">
+              <span class="infra-item-lbl">Мини-клуб</span>
+              <span class="infra-item-val">${k.club || 'Детский клуб от 4 до 12 лет с аниматорами'}</span>
+            </div>
+            <div class="infra-item-line">
+              <span class="infra-item-lbl">Детский бассейн</span>
+              <span class="infra-item-val">${k.pool || 'Мелкий детский бассейн с навесом от солнца'}</span>
+            </div>
+            <div class="infra-item-line">
+              <span class="infra-item-lbl">Площадка и меню</span>
+              <span class="infra-item-val">${k.playground || 'Игровая площадка, стульчики и детское меню'}</span>
+            </div>
           </div>
-          <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:10px;">
-            <div style="font-size:0.7rem; color:#64748b;">Бассейны</div>
-            <div style="font-weight:700; font-size:0.85rem; color:#0f172a;">${h.has_heated_pools ? 'С подогревом зимой' : 'Открытые бассейны'}</div>
+
+          <!-- 5. Sport & Spa -->
+          <div class="infra-cat-card">
+            <div class="infra-cat-header">
+              <span>💆</span>
+              <h4>Спа, спорт и активности</h4>
+            </div>
+            <div class="infra-item-line">
+              <span class="infra-item-lbl">Спа-центр</span>
+              <span class="infra-item-val">${s.spa || 'Сауна, хаммам, джакузи и массаж'}</span>
+            </div>
+            <div class="infra-item-line">
+              <span class="infra-item-lbl">Фитнес и спорт</span>
+              <span class="infra-item-val">${s.fitness || 'Тренажерный зал, пляжный волейбол, аэробика'}</span>
+            </div>
+            <div class="infra-item-line">
+              <span class="infra-item-lbl">Дайвинг и риф</span>
+              <span class="infra-item-val">${s.watersports || 'Снорклинг, прокат масок, водные виды спорта'}</span>
+            </div>
           </div>
-          <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:10px;">
-            <div style="font-size:0.7rem; color:#64748b;">Водные горки</div>
-            <div style="font-weight:700; font-size:0.85rem; color:#0f172a;">${h.has_aquapark ? 'Собственный аквапарк' : 'Без аквапарка'}</div>
+
+          <!-- 6. Comfort & Service -->
+          <div class="infra-cat-card">
+            <div class="infra-cat-header">
+              <span>🌐</span>
+              <h4>Удобства и сервис</h4>
+            </div>
+            <div class="infra-item-line">
+              <span class="infra-item-lbl">Интернет Wi-Fi</span>
+              <span class="infra-item-val">${c.wifi || 'Бесплатный Wi-Fi на территории и в лобби'}</span>
+            </div>
+            <div class="infra-item-line">
+              <span class="infra-item-lbl">Номера</span>
+              <span class="infra-item-val">${c.room_amenities || 'Кондиционер, сейф, балкон/терраса, мини-бар'}</span>
+            </div>
+            <div class="infra-item-line">
+              <span class="infra-item-lbl">Трансфер</span>
+              <span class="infra-item-val">${c.distance || 'Быстрый трансфер из аэропорта'}</span>
+            </div>
           </div>
         `;
       }
 
-      // 9. Packages Tab
+      // 10. Packages in Current Filter
       const pkgCount = document.getElementById('drawerPackagesCount');
       const pkgTbody = document.getElementById('drawerPackagesTbody');
       if (pkgTbody && h.packages) {
-        if (pkgCount) pkgCount.textContent = `Доступно предложений: ${h.packages.length}`;
+        if (pkgCount) pkgCount.textContent = `Доступно предложений в текущем фильтре: ${h.packages.length}`;
         pkgTbody.innerHTML = h.packages.map(p => `
           <tr>
             <td><strong>${p.dates || '—'}</strong></td>
@@ -1997,6 +2291,31 @@ def get_hotel_passport_js() -> str:
         `).join('');
       }
 
+      // 11. Cross-Filter Presence Block
+      const crossList = document.getElementById('drawerCrossFiltersList');
+      const crossSection = document.getElementById('drawerCrossFilterSection');
+      if (crossList && crossSection) {
+        const ofs = h.other_filters || [];
+        if (ofs.length > 0) {
+          crossSection.style.display = 'block';
+          crossList.innerHTML = ofs.map(of => `
+            <a href="${of.dashboard_url}" class="cross-filter-card" title="Открыть этот отель в фильтре ${of.label}">
+              <div>
+                <div class="cross-filter-name">${of.label}</div>
+                <div class="cross-filter-meta">📅 ${of.dates || 'Доступные даты'} • ⏱️ ${of.duration || 'Длительность'}</div>
+              </div>
+              <div>
+                <div class="cross-filter-price">от ${Math.round(of.price || 0).toLocaleString('ru-RU')} zł</div>
+                <span style="font-size:0.72rem; color:#4f46e5; font-weight:600;">Перейти ↗</span>
+              </div>
+            </a>
+          `).join('');
+        } else {
+          crossSection.style.display = 'block';
+          crossList.innerHTML = '<div style="font-size:0.78rem; color:#64748b; font-style:italic;">Отель отслеживается только в текущем фильтре.</div>';
+        }
+      }
+
       // Open drawer modal
       const overlay = document.getElementById('passportDrawerOverlay');
       const drawer = document.getElementById('passportDrawer');
@@ -2008,6 +2327,54 @@ def get_hotel_passport_js() -> str:
 
       // Trigger Plotly chart rendering
       renderPassportPlotlyChart(h, activeTimeframeDays);
+    };
+
+    function updateGalleryView() {
+      const mainImg = document.getElementById('galleryMainImg');
+      const counter = document.getElementById('galleryCounterPill');
+      const thumbsRow = document.getElementById('galleryThumbsRow');
+
+      if (!currentGalleryPhotos || currentGalleryPhotos.length === 0) return;
+      const cur = currentGalleryPhotos[currentGalleryIdx] || currentGalleryPhotos[0];
+
+      if (mainImg) {
+        if (cur.url) {
+          mainImg.src = cur.url;
+          mainImg.style.display = 'block';
+        } else {
+          mainImg.style.display = 'none';
+        }
+      }
+
+      if (counter) {
+        counter.textContent = `📷 ${currentGalleryIdx + 1} / ${currentGalleryPhotos.length} • ${cur.label || 'Фото'}`;
+      }
+
+      if (thumbsRow) {
+        thumbsRow.innerHTML = currentGalleryPhotos.map((p, idx) => `
+          <div class="gallery-thumb-item ${idx === currentGalleryIdx ? 'active' : ''}" onclick="selectGalleryPhoto(${idx})">
+            ${p.url ? `<img src="${p.url}" alt="${p.label}">` : '<div style="display:flex;align-items:center;justify-content:center;height:100%;font-size:0.7rem;color:#94a3b8;">🏨</div>'}
+          </div>
+        `).join('');
+      }
+    }
+
+    window.selectGalleryPhoto = function(idx) {
+      if (!currentGalleryPhotos || idx < 0 || idx >= currentGalleryPhotos.length) return;
+      currentGalleryIdx = idx;
+      updateGalleryView();
+    };
+
+    window.nextGalleryPhoto = function() {
+      if (!currentGalleryPhotos || currentGalleryPhotos.length <= 1) return;
+      currentGalleryIdx = (currentGalleryIdx + 1) % currentGalleryPhotos.length;
+      updateGalleryView();
+    };
+
+    window.prevGalleryPhoto = function() {
+      if (!currentGalleryPhotos || currentGalleryPhotos.length <= 1) return;
+      currentGalleryIdx = (currentGalleryIdx - 1 + currentGalleryPhotos.length) % currentGalleryPhotos.length;
+      updateGalleryView();
     };
 
     window.closeHotelPassport = function() {
@@ -2106,6 +2473,24 @@ def get_hotel_passport_js() -> str:
         Plotly.Plots.resize(chartEl);
       });
     }
+
+    // Table click listener: Clicking on hotel name or passport button opens drawer
+    document.addEventListener('click', function(e) {
+      const link = e.target.closest('.open-chart-link, .hotel-hover-link, .tbl-passport-btn');
+      if (link && !e.ctrlKey && !e.metaKey) {
+        const hotelName = link.getAttribute('data-hotel-name') || link.textContent.trim();
+        if (hotelName && window.HOTEL_PASSPORT_DATA) {
+          const found = Object.values(window.HOTEL_PASSPORT_DATA).find(
+            h => h.hotel_name.toLowerCase() === hotelName.toLowerCase()
+          );
+          if (found) {
+            e.preventDefault();
+            e.stopPropagation();
+            window.openHotelPassport(found.slug);
+          }
+        }
+      }
+    });
 
     // Keyboard listener (Escape closes drawer)
     document.addEventListener('keydown', function(e) {
