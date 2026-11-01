@@ -38,6 +38,12 @@ def generate_hotel_ai_profile(
     packages: Optional[List[Dict[str, Any]]] = None,
     main_image_url: str = "",
     other_filters: Optional[List[Dict[str, Any]]] = None,
+    deal_score: Optional[int] = None,
+    delta_avg: Optional[str] = None,
+    delta48: Optional[str] = None,
+    hopper_verdict: Optional[str] = None,
+    hopper_reasoning: Optional[str] = None,
+    forecast_text: Optional[str] = None,
 ) -> Dict[str, Any]:
     """
     Synthesizes rich profile for hotel:
@@ -240,7 +246,56 @@ def generate_hotel_ai_profile(
         deal_class = "fair"
         recommendation = "Цена стабильна. Резких ценовых скачков не зафиксировано."
 
-    # 7. Direct external URLs & Compact YouTube Link
+    # 7. AI Executive Dossier: Hotel & Live Price Summaries
+    ai_hotel_summary = (
+        f"{hotel_name} — современный курортный комплекс категории {stars}★ в регионе {destination or country}. "
+        f"Расположен на {beach_line}-й линии ({beach_type.lower()}). "
+        f"Ключевые преимущества: концепция питания «{food_concept}», {pros[0].lower() if pros else 'чистая территория'}, "
+        f"{'собственный аквапарк с горками' if has_aquapark else 'несколько открытых бассейнов'}"
+        f"{' и бассейны с подогревом в зимний период' if has_heated_pools else ''}."
+    )
+
+    diff_text = ""
+    if delta_avg:
+        diff_text = f"{delta_avg} к средней"
+    elif min_price > 0 and current_price <= min_price:
+        diff_text = "Исторический минимум"
+    elif max_price > min_price:
+        pct_from_min = ((current_price - min_price) / max_price) * 100
+        diff_text = f"+{pct_from_min:.0f}% от минимума"
+    else:
+        diff_text = "Стабильная цена"
+
+    if deal_score is not None and deal_score >= 70:
+        price_signal = "🟢 ПОКУПАТЬ СЕЙЧАС"
+        ai_price_summary = (
+            f"Текущая цена {int(current_price):,} zł — исключительно выгодный момент. "
+            f"Deal Score {deal_score}/100 фиксирует сильную ценовую аномалию. "
+            f"{hopper_reasoning or recommendation} "
+            f"Вероятность дальнейшего снижения цены минимальна."
+        )
+    elif price_drop_pct >= 6.0:
+        price_signal = "🟢 ПОКУПАТЬ (ЦЕНА УПАЛА)"
+        ai_price_summary = (
+            f"Текущая цена {int(current_price):,} zł упала на -{price_drop_pct:.0f}% за последние 48 часов. "
+            f"{deal_sub}. Рекомендуется фиксировать тур, пока есть доступные места."
+        )
+    elif min_price > 0 and current_price <= (min_price + (max_price - min_price) * 0.25):
+        price_signal = "🟢 ВЫГОДНАЯ ЦЕНА"
+        ai_price_summary = (
+            f"Текущая цена {int(current_price):,} zł находится в нижней четверти исторического диапазона ({int(min_price):,} – {int(max_price):,} zł). "
+            f"Сигнал Hopper: «{hopper_verdict or 'Покупать'}». Отличное соотношение цены и качества."
+        )
+    else:
+        price_signal = "🟡 ЦЕНА СТАБИЛЬНА"
+        ai_price_summary = (
+            f"Текущая цена {int(current_price):,} zł соответствует сезонной норме для этого отеля. "
+            f"{forecast_text or 'Резких ценовых колебаний не зафиксировано'}. Можно бронировать при совпадении дат."
+        )
+
+    ai_audience = f"{suitable_for}. Рекомендуется тем, кому важны {'аквапарк и активная семейная анимация' if has_aquapark else 'спокойный качественный пляжный отдых'} и сервис уровня {stars}★."
+
+    # 8. Direct external URLs & Compact YouTube Link
     encoded_name = urllib.parse.quote(hotel_name)
     encoded_query = urllib.parse.quote(f"{hotel_name} {destination or country} reviews")
     tripadvisor_url = f"https://www.tripadvisor.com/Search?q={encoded_name}"
@@ -249,7 +304,7 @@ def generate_hotel_ai_profile(
     yt_main_query = urllib.parse.quote(f"обзор отеля {hotel_name}")
     youtube_search_url = f"https://www.youtube.com/results?search_query={yt_main_query}"
 
-    # 8. Interactive Photo Gallery List (4 photos)
+    # 9. Interactive Photo Gallery List (4 photos)
     gallery_photos = []
     if main_image_url:
         gallery_photos.append({"label": "Территория и отель", "url": main_image_url})
@@ -274,6 +329,11 @@ def generate_hotel_ai_profile(
         "food_concept": food_concept,
         "suitable_for": suitable_for,
         "verdict": verdict,
+        "ai_hotel_summary": ai_hotel_summary,
+        "ai_price_summary": ai_price_summary,
+        "ai_audience": ai_audience,
+        "ai_action_signal": price_signal,
+        "price_diff_text": diff_text,
         "pros": pros[:3],
         "cons": cons[:2],
         "food_snippet": food_snippet,
@@ -1234,6 +1294,207 @@ def get_hotel_passport_css() -> str:
     }
 
     /* ══════════════════════════════════════════════════════════════
+       AI EXECUTIVE DOSSIER & LIVE PRICE ORACLE CARD
+       ══════════════════════════════════════════════════════════════ */
+    .drawer-ai-oracle-card {
+      background: linear-gradient(135deg, #f8fafc 0%, #f0fdf4 50%, #eff6ff 100%);
+      border: 1px solid #cbd5e1;
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin: 14px 0 16px;
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .dark-theme .drawer-ai-oracle-card {
+      background: linear-gradient(135deg, #1e293b 0%, #064e3b 40%, #1e1b4b 100%);
+      border-color: #334155;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+    }
+
+    .oracle-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding-bottom: 10px;
+      margin-bottom: 12px;
+      border-bottom: 1px solid rgba(203, 213, 225, 0.7);
+    }
+
+    .dark-theme .oracle-header {
+      border-bottom-color: rgba(51, 65, 85, 0.8);
+    }
+
+    .oracle-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .oracle-robot-icon {
+      font-size: 1.4rem;
+      background: #ffffff;
+      padding: 4px 6px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    }
+
+    .dark-theme .oracle-robot-icon {
+      background: #0f172a;
+    }
+
+    .oracle-title {
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.01em;
+    }
+
+    .dark-theme .oracle-title {
+      color: #f8fafc;
+    }
+
+    .oracle-subtitle {
+      font-size: 0.72rem;
+      color: #64748b;
+    }
+
+    .dark-theme .oracle-subtitle {
+      color: #94a3b8;
+    }
+
+    .oracle-deal-pill {
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 20px;
+      background: #dcfce7;
+      color: #166534;
+      border: 1px solid #bbf7d0;
+      white-space: nowrap;
+    }
+
+    .dark-theme .oracle-deal-pill {
+      background: #064e3b;
+      color: #6ee7b7;
+      border-color: #047857;
+    }
+
+    .oracle-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 14px;
+    }
+
+    @media (max-width: 680px) {
+      .oracle-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .oracle-col {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .oracle-col-title {
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #2563eb;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .dark-theme .oracle-col-title {
+      color: #60a5fa;
+    }
+
+    .oracle-body-text {
+      margin: 0;
+      font-size: 0.81rem;
+      line-height: 1.45;
+      color: #334155;
+    }
+
+    .dark-theme .oracle-body-text {
+      color: #cbd5e1;
+    }
+
+    .oracle-meta-line {
+      margin-top: auto;
+      font-size: 0.75rem;
+      line-height: 1.35;
+      background: rgba(255, 255, 255, 0.75);
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      border-radius: 6px;
+      padding: 6px 8px;
+    }
+
+    .dark-theme .oracle-meta-line {
+      background: rgba(15, 23, 42, 0.65);
+      border-color: rgba(51, 65, 85, 0.85);
+    }
+
+    .oracle-meta-lbl {
+      font-weight: 700;
+      color: #475569;
+      margin-right: 4px;
+    }
+
+    .dark-theme .oracle-meta-lbl {
+      color: #94a3b8;
+    }
+
+    .oracle-meta-val {
+      font-weight: 600;
+      color: #0f172a;
+    }
+
+    .dark-theme .oracle-meta-val {
+      color: #f1f5f9;
+    }
+
+    .oracle-price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 2px;
+    }
+
+    .oracle-price-val {
+      font-size: 1.28rem;
+      font-weight: 900;
+      color: #15803d;
+      letter-spacing: -0.02em;
+    }
+
+    .dark-theme .oracle-price-val {
+      color: #4ade80;
+    }
+
+    .oracle-diff-pill {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 12px;
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+    }
+
+    .dark-theme .oracle-diff-pill {
+      background: #1e3a8a;
+      color: #93c5fd;
+      border-color: #3b82f6;
+    }
+
+    /* ══════════════════════════════════════════════════════════════
        COMPACT YOUTUBE BANNER
        ══════════════════════════════════════════════════════════════ */
     .yt-compact-banner {
@@ -1936,10 +2197,47 @@ def render_hotel_passport_drawer_html() -> str:
             <div class="gallery-thumbs-row" id="galleryThumbsRow"></div>
           </div>
 
-          <!-- Badges & AI Short Verdict -->
-          <div style="margin-bottom:14px;">
-            <div class="drawer-hero-badges" id="drawerHeroBadges" style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:6px;"></div>
-            <div id="drawerAiShortVerdict" style="font-size:0.84rem; color:#475569; line-height:1.4;"></div>
+          <!-- Badges -->
+          <div class="drawer-hero-badges" id="drawerHeroBadges" style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;"></div>
+
+          <!-- AI Executive Dossier & Live Price Oracle Card -->
+          <div class="drawer-ai-oracle-card">
+            <div class="oracle-header">
+              <div class="oracle-title-wrap">
+                <span class="oracle-robot-icon">🤖</span>
+                <div>
+                  <div class="oracle-title">AI-Саммари и Ценовой Анализ</div>
+                  <div class="oracle-subtitle">Анализ отеля, инфраструктуры и текущей точки входа</div>
+                </div>
+              </div>
+              <div id="drawerOraclePriceBadge" class="oracle-deal-pill">🟢 Выгодно брать</div>
+            </div>
+
+            <div class="oracle-grid">
+              <!-- Left: Hotel Dossier -->
+              <div class="oracle-col hotel-col">
+                <div class="oracle-col-title">🏨 Об отеле и отдыхе</div>
+                <p id="drawerAiHotelSummaryText" class="oracle-body-text"></p>
+                <div class="oracle-meta-line">
+                  <span class="oracle-meta-lbl">🎯 Для кого:</span>
+                  <span id="drawerAiAudienceText" class="oracle-meta-val"></span>
+                </div>
+              </div>
+
+              <!-- Right: Price Intelligence & Live Action Signal -->
+              <div class="oracle-col price-col">
+                <div class="oracle-col-title">💰 Текущая цена и выгода</div>
+                <div class="oracle-price-row">
+                  <span id="drawerOracleCurPrice" class="oracle-price-val">—</span>
+                  <span id="drawerOraclePriceDiff" class="oracle-diff-pill">—</span>
+                </div>
+                <p id="drawerAiPriceVerdictText" class="oracle-body-text"></p>
+                <div class="oracle-meta-line">
+                  <span class="oracle-meta-lbl">🔮 Сигнал Hopper:</span>
+                  <span id="drawerAiActionSignal" class="oracle-meta-val"></span>
+                </div>
+              </div>
+            </div>
           </div>
 
           <!-- Compact YouTube Video Review Banner -->
@@ -2117,8 +2415,51 @@ def get_hotel_passport_js() -> str:
         badgesRow.innerHTML = bHtml;
       }
 
-      const shortVerdict = document.getElementById('drawerAiShortVerdict');
-      if (shortVerdict) shortVerdict.textContent = h.verdict || '';
+      // 3. AI Executive Dossier & Live Price Oracle Card
+      const oracleBadge = document.getElementById('drawerOraclePriceBadge');
+      if (oracleBadge) {
+        oracleBadge.textContent = h.deal_badge || '🟢 Выгодная цена';
+        if (h.deal_class === 'drop') {
+          oracleBadge.style.background = '#dcfce7';
+          oracleBadge.style.color = '#15803d';
+        } else if (h.deal_class === 'good') {
+          oracleBadge.style.background = '#e0f2fe';
+          oracleBadge.style.color = '#0369a1';
+        } else {
+          oracleBadge.style.background = '#fef3c7';
+          oracleBadge.style.color = '#92400e';
+        }
+      }
+
+      const hotelSummaryEl = document.getElementById('drawerAiHotelSummaryText');
+      if (hotelSummaryEl) {
+        hotelSummaryEl.textContent = h.ai_hotel_summary || h.verdict || '';
+      }
+
+      const audEl = document.getElementById('drawerAiAudienceText');
+      if (audEl) {
+        audEl.textContent = h.ai_audience || h.suitable_for || 'Семьи и пары';
+      }
+
+      const curPriceEl = document.getElementById('drawerOracleCurPrice');
+      if (curPriceEl) {
+        curPriceEl.textContent = `${Math.round(h.price || 0).toLocaleString('ru-RU')} zł`;
+      }
+
+      const diffEl = document.getElementById('drawerOraclePriceDiff');
+      if (diffEl) {
+        diffEl.textContent = h.price_diff_text || 'Норма сезона';
+      }
+
+      const priceVerdictEl = document.getElementById('drawerAiPriceVerdictText');
+      if (priceVerdictEl) {
+        priceVerdictEl.textContent = h.ai_price_summary || h.recommendation || '';
+      }
+
+      const signalEl = document.getElementById('drawerAiActionSignal');
+      if (signalEl) {
+        signalEl.textContent = h.ai_action_signal || '🟢 ПОКУПАТЬ СЕЙЧАС';
+      }
 
       // 4. Compact YouTube Banner Button
       const ytAllBtn = document.getElementById('drawerYtAllBtn');
