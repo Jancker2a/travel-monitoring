@@ -170,6 +170,52 @@ def is_trip_window_expired(config: Dict[str, Any], *, today: Optional[date] = No
     return ref >= end
 
 
+def extract_last_scraped_at_from_csv(csv_path: str) -> Optional[datetime]:
+    """Extracts the latest scraped_at timestamp directly from the CSV content."""
+    try:
+        if not os.path.isfile(csv_path) or os.path.getsize(csv_path) == 0:
+            return None
+        with open(csv_path, "r", encoding="utf-8", errors="ignore") as f:
+            lines = f.readlines()
+        if len(lines) <= 1:
+            return None
+
+        import csv
+        import io
+        header_reader = csv.reader(io.StringIO(lines[0]))
+        header = next(header_reader, [])
+        header = [h.strip().strip('"').strip("'") for h in header]
+        scraped_idx = header.index("scraped_at") if "scraped_at" in header else -1
+
+        for line in reversed(lines[1:]):
+            line = line.strip()
+            if not line:
+                continue
+            row_reader = csv.reader(io.StringIO(line))
+            row = next(row_reader, [])
+            if not row:
+                continue
+            val = ""
+            if scraped_idx >= 0 and scraped_idx < len(row):
+                val = row[scraped_idx].strip().strip('"')
+            if not val:
+                for part in row:
+                    part_str = part.strip().strip('"')
+                    if re.match(r"^\d{4}-\d{2}-\d{2}", part_str):
+                        val = part_str
+                        break
+            if val:
+                clean_val = re.sub(r"[+-]\d{2}:\d{2}$", "", val).rstrip("Z")
+                for fmt in ("%Y-%m-%dT%H:%M:%S.%f", "%Y-%m-%dT%H:%M:%S", "%Y-%m-%d %H:%M:%S", "%Y-%m-%d"):
+                    try:
+                        return datetime.strptime(clean_val, fmt)
+                    except ValueError:
+                        pass
+    except Exception:
+        pass
+    return None
+
+
 def check_early_booking_skip_reason(
     config: Dict[str, Any],
     *,
@@ -217,11 +263,15 @@ def check_early_booking_skip_reason(
         # First run: never scraped or empty -> do not skip
         return ""
 
-    try:
-        mtime = datetime.fromtimestamp(os.path.getmtime(csv_path))
-        hours_since = (ref_time - mtime).total_seconds() / 3600.0
-    except OSError:
-        return ""
+    last_scrape_dt = extract_last_scraped_at_from_csv(csv_path)
+    if last_scrape_dt is not None:
+        hours_since = max(0.0, (ref_time - last_scrape_dt).total_seconds() / 3600.0)
+    else:
+        try:
+            mtime = datetime.fromtimestamp(os.path.getmtime(csv_path))
+            hours_since = max(0.0, (ref_time - mtime).total_seconds() / 3600.0)
+        except OSError:
+            return ""
 
     rules = config.get("scrape_interval_rules") or [
         {"d_min": 60, "d_max": 9999, "every_hours": 12},
