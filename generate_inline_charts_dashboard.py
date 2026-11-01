@@ -4669,9 +4669,13 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
     def _parse_tour_departure_date(dates_str, dep_date_val=None, offer_url_val=None, ref_year=None):
         if ref_year is None:
             ref_year = datetime.now().year
-        if dep_date_val is not None and pd.notna(dep_date_val):
+        if dep_date_val is not None and pd.notna(dep_date_val) and dep_date_val is not pd.NaT and type(dep_date_val).__name__ != 'NaTType':
             try:
-                return pd.to_datetime(dep_date_val).date()
+                dt_obj = pd.to_datetime(dep_date_val)
+                if pd.notna(dt_obj) and dt_obj is not pd.NaT and type(dt_obj).__name__ != 'NaTType':
+                    d_val = dt_obj.date()
+                    if pd.notna(d_val) and d_val is not pd.NaT and type(d_val).__name__ != 'NaTType':
+                        return d_val
             except Exception:
                 pass
         if offer_url_val and pd.notna(offer_url_val):
@@ -4737,9 +4741,17 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         c_price = float(c.get("price") or 0)
         c_dep_date = _parse_tour_departure_date(c_dates, c.get("departure_date"), c_url)
 
-        if c_dep_date is None or c_dep_date >= today_date:
+        c_is_future = True
+        if c_dep_date is not None and pd.notna(c_dep_date) and c_dep_date is not pd.NaT and type(c_dep_date).__name__ != 'NaTType':
+            try:
+                c_is_future = (c_dep_date >= today_date)
+            except Exception:
+                c_is_future = True
+
+        if c_is_future:
             if c_price > 0:
-                norm_d_key = c_dep_date.isoformat() if c_dep_date else str(c_dates).strip()
+                c_iso = c_dep_date.isoformat() if (c_dep_date and pd.notna(c_dep_date) and c_dep_date is not pd.NaT and type(c_dep_date).__name__ != 'NaTType') else ""
+                norm_d_key = c_iso if c_iso else str(c_dates).strip()
                 seen_dates.add(norm_d_key)
                 h_pkgs.append({
                     "dates": str(c_dates or "—"),
@@ -4747,7 +4759,7 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
                     "composition": str(c.get("duration_bucket") or "2 взр."),
                     "price": c_price,
                     "url": str(c_url),
-                    "dep_date_sort": c_dep_date.isoformat() if c_dep_date else "9999-12-31",
+                    "dep_date_sort": c_iso or "9999-12-31",
                 })
 
         # 2. Collect other recent future departures for this hotel from recent runs (last 72 hours)
@@ -4765,11 +4777,16 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
                     continue
 
                 r_dep_date = _parse_tour_departure_date(r_dates, r_pkg.get("departure_date"), r_url)
-                # Skip past departures!
-                if r_dep_date is not None and r_dep_date < today_date:
-                    continue
+                # Skip past departures safely!
+                if r_dep_date is not None and pd.notna(r_dep_date) and r_dep_date is not pd.NaT and type(r_dep_date).__name__ != 'NaTType':
+                    try:
+                        if r_dep_date < today_date:
+                            continue
+                    except Exception:
+                        pass
 
-                norm_d_key = r_dep_date.isoformat() if r_dep_date else str(r_dates).strip()
+                r_iso = r_dep_date.isoformat() if (r_dep_date and pd.notna(r_dep_date) and r_dep_date is not pd.NaT and type(r_dep_date).__name__ != 'NaTType') else ""
+                norm_d_key = r_iso if r_iso else str(r_dates).strip()
                 if norm_d_key in seen_dates:
                     continue
                 seen_dates.add(norm_d_key)
@@ -4780,7 +4797,7 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
                     "composition": str(c.get("duration_bucket") or "2 взр."),
                     "price": r_price,
                     "url": str(r_url),
-                    "dep_date_sort": r_dep_date.isoformat() if r_dep_date else "9999-12-31",
+                    "dep_date_sort": r_iso or "9999-12-31",
                 })
 
         # Sort packages chronologically by departure date ascending
