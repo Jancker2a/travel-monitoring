@@ -1300,10 +1300,36 @@
       "created_at": "2026-11-01T18:03:34.113929+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Magic Beach_2026-11-01_18-02_zone_out_gone"
+    },
+    {
+      "hotel_name": "Dream Lagoon & Aqua Park Resort",
+      "duration_bucket": "",
+      "old_price": 10989.0,
+      "new_price": 10989.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-01 19:51:43.843447+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-01T19:52:19.864557+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Dream Lagoon & Aqua Park Resort_2026-11-01_19-51_zone_out_gone"
+    },
+    {
+      "hotel_name": "Le Pacha Resort",
+      "duration_bucket": "",
+      "old_price": 8997.0,
+      "new_price": 8997.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-01 19:51:43.843447+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-01T19:52:19.864585+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Le Pacha Resort_2026-11-01_19-51_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-01T18:02:57.353424+00:00",
+    "last_processed_run": "2026-11-01T19:51:43.843447+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa*****": {
         "history_max": 12142.0,
@@ -1558,8 +1584,12 @@
         "premium_peak": 11989.0
       },
       "Eagles Downtown Zahabia Resort & Aqua Park": {
-        "history_max": 8993.0,
+        "history_max": 9403.0,
         "premium_peak": null
+      },
+      "JAZ BELVEDERE": {
+        "history_max": 11897.0,
+        "premium_peak": 11897.0
       }
     }
   }
