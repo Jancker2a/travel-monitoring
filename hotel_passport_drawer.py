@@ -304,18 +304,14 @@ def generate_hotel_ai_profile(
     yt_main_query = urllib.parse.quote(f"обзор отеля {hotel_name}")
     youtube_search_url = f"https://www.youtube.com/results?search_query={yt_main_query}"
 
-    # 9. Interactive Photo Gallery List (4 photos)
+    # 9. Interactive Photo Gallery List
     gallery_photos = []
-    if main_image_url:
+    if specs and isinstance(specs, dict) and specs.get("gallery_photos"):
+        gallery_photos = list(specs.get("gallery_photos"))
+    elif main_image_url:
         gallery_photos.append({"label": "Территория и отель", "url": main_image_url})
     else:
         gallery_photos.append({"label": "Территория и отель", "url": ""})
-
-    gallery_photos.extend([
-        {"label": "Пляж и море", "url": main_image_url},
-        {"label": "Бассейны и отдых", "url": main_image_url},
-        {"label": "Номера и комфорт", "url": main_image_url},
-    ])
 
     return {
         "stars": stars,
@@ -2642,19 +2638,34 @@ def get_hotel_passport_js() -> str:
       // 10. Packages in Current Filter
       const pkgCount = document.getElementById('drawerPackagesCount');
       const pkgTbody = document.getElementById('drawerPackagesTbody');
-      if (pkgTbody && h.packages) {
-        if (pkgCount) pkgCount.textContent = `Доступно предложений в текущем фильтре: ${h.packages.length}`;
-        pkgTbody.innerHTML = h.packages.map(p => `
-          <tr>
-            <td><strong>${p.dates || '—'}</strong></td>
-            <td>${p.duration || '—'}</td>
-            <td>${p.composition || '2 взр.'}</td>
-            <td><strong style="color:#059669;">${Math.round(p.price).toLocaleString('ru-RU')} zł</strong></td>
-            <td>
-              ${p.url ? `<a href="${p.url}" target="_blank" rel="noopener" class="btn-book-main" style="padding:4px 8px; font-size:0.72rem; display:inline-block;">Купить ↗</a>` : '—'}
-            </td>
-          </tr>
-        `).join('');
+      if (pkgTbody) {
+        const pkgs = (h.packages || []).filter(p => p && p.price > 0);
+        if (pkgCount) {
+          pkgCount.textContent = pkgs.length > 0
+            ? `Доступно предложений в текущем фильтре: ${pkgs.length}`
+            : `В текущем фильтре нет активных вылетов`;
+        }
+        if (pkgs.length === 0) {
+          pkgTbody.innerHTML = `
+            <tr>
+              <td colspan="5" style="text-align:center; padding:18px; color:#64748b; font-size:0.82rem;">
+                Нет активных туров на будущие даты в этом фильтре. Проверьте отель в других фильтрах ниже.
+              </td>
+            </tr>
+          `;
+        } else {
+          pkgTbody.innerHTML = pkgs.map(p => `
+            <tr>
+              <td><strong>${p.dates || '—'}</strong></td>
+              <td>${p.duration || '—'}</td>
+              <td>${p.composition || '2 взр.'}</td>
+              <td><strong style="color:#059669;">${Math.round(p.price).toLocaleString('ru-RU')} zł</strong></td>
+              <td>
+                ${p.url ? `<a href="${p.url}" target="_blank" rel="noopener" class="btn-book-main" style="padding:4px 8px; font-size:0.72rem; display:inline-block;">Купить ↗</a>` : '—'}
+              </td>
+            </tr>
+          `).join('');
+        }
       }
 
       // 11. Cross-Filter Presence Block
@@ -2699,6 +2710,8 @@ def get_hotel_passport_js() -> str:
       const mainImg = document.getElementById('galleryMainImg');
       const counter = document.getElementById('galleryCounterPill');
       const thumbsRow = document.getElementById('galleryThumbsRow');
+      const prevBtn = document.querySelector('.gallery-nav-btn.prev');
+      const nextBtn = document.querySelector('.gallery-nav-btn.next');
 
       if (!currentGalleryPhotos || currentGalleryPhotos.length === 0) return;
       const cur = currentGalleryPhotos[currentGalleryIdx] || currentGalleryPhotos[0];
@@ -2712,16 +2725,30 @@ def get_hotel_passport_js() -> str:
         }
       }
 
+      const totalPhotos = currentGalleryPhotos.length;
       if (counter) {
-        counter.textContent = `📷 ${currentGalleryIdx + 1} / ${currentGalleryPhotos.length} • ${cur.label || 'Фото'}`;
+        if (totalPhotos <= 1) {
+          counter.textContent = `📷 ${cur.label || 'Фото отеля'}`;
+        } else {
+          counter.textContent = `📷 ${currentGalleryIdx + 1} / ${totalPhotos} • ${cur.label || 'Фото'}`;
+        }
       }
 
+      // Hide navigation arrows and thumbnails row if only 1 photo exists
+      if (prevBtn) prevBtn.style.display = totalPhotos > 1 ? 'flex' : 'none';
+      if (nextBtn) nextBtn.style.display = totalPhotos > 1 ? 'flex' : 'none';
+
       if (thumbsRow) {
-        thumbsRow.innerHTML = currentGalleryPhotos.map((p, idx) => `
-          <div class="gallery-thumb-item ${idx === currentGalleryIdx ? 'active' : ''}" onclick="selectGalleryPhoto(${idx})">
-            ${p.url ? `<img src="${p.url}" alt="${p.label}">` : '<div style="display:flex;align-items:center;justify-content:center;height:100%;font-size:0.7rem;color:#94a3b8;">🏨</div>'}
-          </div>
-        `).join('');
+        if (totalPhotos <= 1) {
+          thumbsRow.style.display = 'none';
+        } else {
+          thumbsRow.style.display = 'flex';
+          thumbsRow.innerHTML = currentGalleryPhotos.map((p, idx) => `
+            <div class="gallery-thumb-item ${idx === currentGalleryIdx ? 'active' : ''}" onclick="selectGalleryPhoto(${idx})">
+              ${p.url ? `<img src="${p.url}" alt="${p.label}">` : '<div style="display:flex;align-items:center;justify-content:center;height:100%;font-size:0.7rem;color:#94a3b8;">🏨</div>'}
+            </div>
+          `).join('');
+        }
       }
     }
 
@@ -2785,10 +2812,24 @@ def get_hotel_passport_js() -> str:
       const chartEl = document.getElementById('drawerPlotlyChart');
       if (!chartEl || !window.Plotly) return;
 
-      const pts = (hotel.history_points || []).filter(p => p && p.price > 0);
+      let pts = (hotel.history_points || []).filter(p => p && p.price > 0);
       if (pts.length === 0) {
         chartEl.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100%;color:#94a3b8;font-size:0.85rem;">Недостаточно исторических точек для отображения</div>';
         return;
+      }
+
+      // Filter by timeframe: 7 days, 30 days, or 90+ (all time)
+      if (days && days < 90 && pts.length > 0) {
+        const lastPt = pts[pts.length - 1];
+        const lastTs = lastPt.ts || (lastPt.iso ? new Date(lastPt.iso).getTime() : Date.now());
+        const cutoffTs = lastTs - (days * 24 * 3600 * 1000);
+        const filtered = pts.filter(p => {
+          const ptTs = p.ts || (p.iso ? new Date(p.iso).getTime() : 0);
+          return ptTs >= cutoffTs;
+        });
+        if (filtered.length >= 2) {
+          pts = filtered;
+        }
       }
 
       const isDark = document.body.classList.contains('dark-theme') || document.documentElement.getAttribute('data-theme') === 'dark';
@@ -2796,9 +2837,9 @@ def get_hotel_passport_js() -> str:
       const fontColor = isDark ? '#cbd5e1' : '#334155';
       const gridColor = isDark ? 'rgba(51, 65, 85, 0.5)' : '#f1f5f9';
 
-      const xVals = pts.map(p => p.date);
+      const xVals = pts.map(p => p.iso || p.date);
       const yVals = pts.map(p => p.price);
-      const hoverTexts = pts.map(p => `${p.date}<br><b>${p.price.toLocaleString('ru-RU')} zł</b>`);
+      const hoverTexts = pts.map(p => `${p.date || p.iso}<br><b>${Math.round(p.price).toLocaleString('ru-RU')} zł</b>`);
 
       const trace = {
         x: xVals,
@@ -2824,6 +2865,8 @@ def get_hotel_passport_js() -> str:
           gridcolor: gridColor,
           linecolor: gridColor,
           tickfont: { color: fontColor },
+          type: 'date',
+          tickformat: '%d.%m',
         },
         yaxis: {
           gridcolor: gridColor,

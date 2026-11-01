@@ -4664,16 +4664,55 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
     hotel_passport_data = {}
     hotel_ai_profiles = {}
 
+    def _parse_tour_departure_date(dates_str, dep_date_val=None, offer_url_val=None, ref_year=None):
+        if ref_year is None:
+            ref_year = datetime.now().year
+        if dep_date_val is not None and pd.notna(dep_date_val):
+            try:
+                return pd.to_datetime(dep_date_val).date()
+            except Exception:
+                pass
+        if offer_url_val and pd.notna(offer_url_val):
+            m = re.search(r'departureDate=(\d{4}-\d{2}-\d{2})', str(offer_url_val))
+            if m:
+                try:
+                    return datetime.strptime(m.group(1), '%Y-%m-%d').date()
+                except Exception:
+                    pass
+        if dates_str and pd.notna(dates_str):
+            s = str(dates_str).strip()
+            first = s.split('-')[0].strip()
+            m = re.match(r'^(\d{1,2})\.(\d{1,2})\.(\d{4})$', first)
+            if m:
+                d, mth, y = int(m.group(1)), int(m.group(2)), int(m.group(3))
+                try:
+                    return date(y, mth, d)
+                except Exception:
+                    pass
+            m2 = re.match(r'^(\d{1,2})\.(\d{1,2})$', first)
+            if m2:
+                d, mth = int(m2.group(1)), int(m2.group(2))
+                try:
+                    return date(ref_year, mth, d)
+                except Exception:
+                    pass
+        return None
+
+    today_date = datetime.now().date()
+
     for c in hotel_cards:
         h_name = c["hotel_name"]
         h_slug = slugify(h_name)
         h_pts_data = []
         h_grp = history_by_hotel.get(h_name)
         if h_grp is not None and not h_grp.empty:
-            for t_val, p_val in zip(h_grp['scraped_at_display'], h_grp['price']):
+            sorted_grp = h_grp.sort_values('scraped_at_display')
+            for t_val, p_val in zip(sorted_grp['scraped_at_display'], sorted_grp['price']):
                 if pd.notna(t_val) and pd.notna(p_val) and float(p_val) > 0:
                     h_pts_data.append({
                         "date": t_val.strftime('%d.%m %H:%M'),
+                        "iso": t_val.strftime('%Y-%m-%d %H:%M:%S'),
+                        "ts": int(t_val.timestamp() * 1000),
                         "price": float(p_val)
                     })
         min_p_card = min([pt['price'] for pt in h_pts_data]) if h_pts_data else float(c["price"])
@@ -4688,16 +4727,64 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
                 pass
 
         h_pkgs = []
-        if h_grp is not None and not h_grp.empty:
-            h_latest = h_grp.sort_values('scraped_at_display').groupby('dates').last().reset_index()
-            for _, r_pkg in h_latest.head(12).iterrows():
+        seen_dates = set()
+
+        # 1. Primary guaranteed active offer from current run (card 'c')
+        c_dates = c.get("dates")
+        c_url = c.get("offer_url") or c.get("url") or ""
+        c_price = float(c.get("price") or 0)
+        c_dep_date = _parse_tour_departure_date(c_dates, c.get("departure_date"), c_url)
+
+        if c_dep_date is None or c_dep_date >= today_date:
+            if c_price > 0:
+                norm_d_key = c_dep_date.isoformat() if c_dep_date else str(c_dates).strip()
+                seen_dates.add(norm_d_key)
                 h_pkgs.append({
-                    "dates": str(r_pkg.get("dates") or "—"),
+                    "dates": str(c_dates or "—"),
+                    "duration": str(c.get("duration") or "—"),
+                    "composition": str(c.get("duration_bucket") or "2 взр."),
+                    "price": c_price,
+                    "url": str(c_url),
+                    "dep_date_sort": c_dep_date.isoformat() if c_dep_date else "9999-12-31",
+                })
+
+        # 2. Collect other recent future departures for this hotel from recent runs (last 72 hours)
+        if h_grp is not None and not h_grp.empty:
+            latest_grp_ts = h_grp['scraped_at_display'].max()
+            recent_cutoff = latest_grp_ts - pd.Timedelta(days=3) if pd.notna(latest_grp_ts) else None
+            recent_grp = h_grp[h_grp['scraped_at_display'] >= recent_cutoff] if recent_cutoff is not None else h_grp
+
+            # Sort descending by scrape time so freshest offers/urls come first
+            for _, r_pkg in recent_grp.sort_values('scraped_at_display', ascending=False).iterrows():
+                r_dates = r_pkg.get("dates")
+                r_url = r_pkg.get("offer_url") or r_pkg.get("url") or ""
+                r_price = float(r_pkg.get("price") or 0)
+                if r_price <= 0:
+                    continue
+
+                r_dep_date = _parse_tour_departure_date(r_dates, r_pkg.get("departure_date"), r_url)
+                # Skip past departures!
+                if r_dep_date is not None and r_dep_date < today_date:
+                    continue
+
+                norm_d_key = r_dep_date.isoformat() if r_dep_date else str(r_dates).strip()
+                if norm_d_key in seen_dates:
+                    continue
+                seen_dates.add(norm_d_key)
+
+                h_pkgs.append({
+                    "dates": str(r_dates or "—"),
                     "duration": str(r_pkg.get("duration") or "—"),
                     "composition": str(c.get("duration_bucket") or "2 взр."),
-                    "price": float(r_pkg.get("price") or 0),
-                    "url": str(r_pkg.get("offer_url") or ""),
+                    "price": r_price,
+                    "url": str(r_url),
+                    "dep_date_sort": r_dep_date.isoformat() if r_dep_date else "9999-12-31",
                 })
+
+        # Sort packages chronologically by departure date ascending
+        h_pkgs.sort(key=lambda p: (p["dep_date_sort"], p["price"]))
+        for p in h_pkgs:
+            p.pop("dep_date_sort", None)
 
         # Cross-filter tracking lookup
         norm_k = re.sub(r"[^\w\d]+", "", h_name.lower())
@@ -4780,7 +4867,7 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             "gallery_photos": prof["gallery_photos"],
             "infra_rich": prof["infra_rich"],
             "other_filters": prof["other_filters"],
-            "history_points": h_pts_data[-35:],
+            "history_points": h_pts_data,
             "packages": h_pkgs,
         }
 
