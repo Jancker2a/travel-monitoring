@@ -1872,10 +1872,101 @@
       "created_at": "2026-11-01T08:02:19.110722+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Xoria Deluxe_2026-11-01_08-01_zone_out_gone"
+    },
+    {
+      "hotel_name": "Limak Limra",
+      "duration_bucket": "",
+      "old_price": 6647.0,
+      "new_price": 5870.0,
+      "price_change": -777.0,
+      "price_change_pct": -11.689483977734316,
+      "timestamp": "2026-11-01 16:52:53.985664+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-01T16:54:32.668547+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Limak Limra_2026-11-01_16-52_-11.7"
+    },
+    {
+      "hotel_name": "Baia Lara",
+      "duration_bucket": "",
+      "old_price": 6302.0,
+      "new_price": 6302.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-01 16:52:53.985664+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-01T16:54:32.668603+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Baia Lara_2026-11-01_16-52_zone_out_gone"
+    },
+    {
+      "hotel_name": "Royal Dragon",
+      "duration_bucket": "",
+      "old_price": 6807.0,
+      "new_price": 6807.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-01 16:52:53.985664+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-01T16:54:32.668618+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Royal Dragon_2026-11-01_16-52_zone_out_gone"
+    },
+    {
+      "hotel_name": "Royal Taj Mahal",
+      "duration_bucket": "",
+      "old_price": 6528.0,
+      "new_price": 6528.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-01 16:52:53.985664+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-01T16:54:32.668627+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Royal Taj Mahal_2026-11-01_16-52_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sherwood Dreams Resort",
+      "duration_bucket": "",
+      "old_price": 5699.0,
+      "new_price": 5699.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-01 16:52:53.985664+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-01T16:54:32.668635+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sherwood Dreams Resort_2026-11-01_16-52_zone_out_gone"
+    },
+    {
+      "hotel_name": "Side Star Park",
+      "duration_bucket": "",
+      "old_price": 6024.0,
+      "new_price": 6024.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-01 16:52:53.985664+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-01T16:54:32.668643+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Side Star Park_2026-11-01_16-52_zone_out_gone"
+    },
+    {
+      "hotel_name": "Side Star Resort",
+      "duration_bucket": "",
+      "old_price": 6683.0,
+      "new_price": 6683.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-01 16:52:53.985664+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-01T16:54:32.668650+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Side Star Resort_2026-11-01_16-52_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-01T08:01:01.923311+00:00",
+    "last_processed_run": "2026-11-01T16:52:53.985664+00:00",
     "premium_state": {
       "Alaiye Resort & Spa": {
         "history_max": 5724.0,
@@ -2134,7 +2225,7 @@
         "premium_peak": null
       },
       "Corendon Playa Kemer": {
-        "history_max": 5706.0,
+        "history_max": 6771.0,
         "premium_peak": null
       },
       "Royal Dragon": {
@@ -2142,7 +2233,7 @@
         "premium_peak": null
       },
       "Karmir Resort (Kemer)": {
-        "history_max": 6017.0,
+        "history_max": 6389.0,
         "premium_peak": null
       },
       "Royal Taj Mahal": {
@@ -2150,7 +2241,7 @@
         "premium_peak": null
       },
       "Limak Arcadia Sport Resort": {
-        "history_max": 6590.0,
+        "history_max": 6630.0,
         "premium_peak": null
       },
       "Paloma Oceana Resort (ex Paloma Beach)": {
@@ -2162,7 +2253,7 @@
         "premium_peak": null
       },
       "Club Nena (Side)": {
-        "history_max": 6660.0,
+        "history_max": 6810.0,
         "premium_peak": null
       },
       "Side Star Resort": {
@@ -2186,7 +2277,19 @@
         "premium_peak": null
       },
       "Seamelia Beach Resort & Spa": {
-        "history_max": 6010.0,
+        "history_max": 6382.0,
+        "premium_peak": null
+      },
+      "Castival (ex. La Grande Resort & Spa)": {
+        "history_max": 6844.0,
+        "premium_peak": null
+      },
+      "Aydinbey Kings Palace": {
+        "history_max": 6590.0,
+        "premium_peak": null
+      },
+      "Orange Palace": {
+        "history_max": 6832.0,
         "premium_peak": null
       }
     }

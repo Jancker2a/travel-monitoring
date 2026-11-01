@@ -1235,10 +1235,62 @@
       "created_at": "2026-11-01T08:00:11.275508+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Shams Alam Beach Resort_2026-11-01_07-59_zone_out_gone"
+    },
+    {
+      "hotel_name": "Amwaj Oyoun Resort & Casino",
+      "duration_bucket": "",
+      "old_price": 10106.0,
+      "new_price": 10106.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-01 16:50:26.887490+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-01T16:51:04.504280+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amwaj Oyoun Resort & Casino_2026-11-01_16-50_zone_out_gone"
+    },
+    {
+      "hotel_name": "Le Pacha Resort",
+      "duration_bucket": "",
+      "old_price": 9277.0,
+      "new_price": 9277.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-01 16:50:26.887490+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-01T16:51:04.504303+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Le Pacha Resort_2026-11-01_16-50_zone_out_gone"
+    },
+    {
+      "hotel_name": "Royal Lagoons Resort and Aqua Park",
+      "duration_bucket": "",
+      "old_price": 9944.0,
+      "new_price": 9944.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-01 16:50:26.887490+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-01T16:51:04.504314+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Royal Lagoons Resort and Aqua Park_2026-11-01_16-50_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sea Star Beau Rivage",
+      "duration_bucket": "",
+      "old_price": 10405.0,
+      "new_price": 10405.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-01 16:50:26.887490+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-01T16:51:04.504322+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sea Star Beau Rivage_2026-11-01_16-50_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-01T07:59:35.765727+00:00",
+    "last_processed_run": "2026-11-01T16:50:26.887490+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa*****": {
         "history_max": 12142.0,
@@ -1486,6 +1538,14 @@
       },
       "Le Pacha Resort": {
         "history_max": 9277.0,
+        "premium_peak": null
+      },
+      "AMC Royal Hotel & Spa": {
+        "history_max": 11989.0,
+        "premium_peak": 11989.0
+      },
+      "Eagles Downtown Zahabia Resort & Aqua Park": {
+        "history_max": 8993.0,
         "premium_peak": null
       }
     }
