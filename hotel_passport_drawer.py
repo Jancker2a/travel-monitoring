@@ -226,6 +226,7 @@ def generate_hotel_ai_profile(
         suitable_for = "Премиальный отдых и семьи"
 
     food_snippet = f"Концепция «{food_concept}»: гости хвалят свежевыжатые соки, блюда на гриле, свежую выпечку и разнообразие десертов. Доступны a la carte рестораны."
+    beach_snippet = f"{beach_line}-я линия ({beach_type}). {sea_entry}. Пляж оборудован бесплатными шезлонгами, зонтами и пляжным баром."
     review_snippet = ""
     if rep_data and isinstance(rep_data, dict):
         if rep_data.get("review_snippet"):
