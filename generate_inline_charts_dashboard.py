@@ -4706,6 +4706,16 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
 
     today_date = datetime.now().date()
 
+    specs_kb_norm = {}
+    if isinstance(specs_kb, dict):
+        for sk, sv in specs_kb.items():
+            specs_kb_norm[re.sub(r"[^\w\d]+", "", sk.lower())] = sv
+
+    rep_kb_norm = {}
+    if isinstance(reputation_kb_data, dict):
+        for rk, rv in reputation_kb_data.items():
+            rep_kb_norm[re.sub(r"[^\w\d]+", "", rk.lower())] = rv
+
     for c in hotel_cards:
         h_name = c["hotel_name"]
         h_slug = slugify(h_name)
@@ -4823,12 +4833,23 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
                         "dashboard_url": d_url,
                     })
 
+        # Resolve specs & reputation with exact and normalized match
+        h_specs = None
+        if isinstance(specs_kb, dict):
+            h_specs = specs_kb.get(h_name) or specs_kb_norm.get(norm_k)
+            if isinstance(h_specs, dict) and "specs" in h_specs and isinstance(h_specs["specs"], dict):
+                h_specs = h_specs["specs"]
+
+        h_rep = None
+        if isinstance(reputation_kb_data, dict):
+            h_rep = reputation_kb_data.get(h_name) or rep_kb_norm.get(norm_k)
+
         prof = generate_hotel_ai_profile(
             hotel_name=h_name,
             country=default_country,
             destination=c.get("region", ""),
-            specs=specs_kb.get(h_name) if isinstance(specs_kb, dict) else None,
-            rep_data=reputation_kb_data.get(h_name) if isinstance(reputation_kb_data, dict) else None,
+            specs=h_specs,
+            rep_data=h_rep,
             current_price=float(c["price"]),
             min_price=min_p_card,
             max_price=max_p_card,

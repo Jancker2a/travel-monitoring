@@ -56,6 +56,10 @@ def generate_hotel_ai_profile(
     - Structured AI Verdict, Pros, Cons, and Review quotes
     - Price intelligence status and advice
     """
+    # 0. Specs unwrap if nested
+    if specs and isinstance(specs, dict) and "specs" in specs and isinstance(specs["specs"], dict):
+        specs = specs["specs"]
+
     # 1. Stars
     stars = 4
     if re.search(r"5\s*(?:\*|★)|5-star|luxury|palace|resort & spa|premium|deluxe", hotel_name, re.I):
