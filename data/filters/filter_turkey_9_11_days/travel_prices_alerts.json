@@ -1287,10 +1287,49 @@
       "created_at": "2026-10-31T23:38:48.899589+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Eftalia Ocean (Alanya)_2026-10-31_23-37_+11.7"
+    },
+    {
+      "hotel_name": "Villa Side Residence",
+      "duration_bucket": "",
+      "old_price": 6684.0,
+      "new_price": 7629.0,
+      "price_change": 945.0,
+      "price_change_pct": 14.138240574506284,
+      "timestamp": "2026-11-01 06:31:29.704673+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-01T06:32:58.636796+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Villa Side Residence_2026-11-01_06-31_+14.1"
+    },
+    {
+      "hotel_name": "Aydinbey Kings Palace",
+      "duration_bucket": "",
+      "old_price": 7900.0,
+      "new_price": 7900.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-01 06:31:29.704673+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-01T06:32:58.636833+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Aydinbey Kings Palace_2026-11-01_06-31_zone_out_gone"
+    },
+    {
+      "hotel_name": "Side Royal Palace",
+      "duration_bucket": "",
+      "old_price": 8180.0,
+      "new_price": 8180.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-01 06:31:29.704673+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-01T06:32:58.636845+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Side Royal Palace_2026-11-01_06-31_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-31T23:37:26.897951+00:00",
+    "last_processed_run": "2026-11-01T06:31:29.704673+00:00",
     "premium_state": {
       "Alaiye Resort & Spa": {
         "history_max": 7897.0,
@@ -1477,7 +1516,7 @@
         "premium_peak": null
       },
       "Side Premium by OZ Hotels": {
-        "history_max": 8048.0,
+        "history_max": 8312.0,
         "premium_peak": null
       },
       "Sunis Evren Beach & Spa": {

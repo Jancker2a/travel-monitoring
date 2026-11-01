@@ -1066,10 +1066,114 @@
       "created_at": "2026-10-31T23:35:20.485669+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Shams Alam Beach Resort_2026-10-31_23-34_zone_out_gone"
+    },
+    {
+      "hotel_name": "ARENA BEACH RESORT & SPA",
+      "duration_bucket": "",
+      "old_price": 8676.0,
+      "new_price": 8676.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-01 06:28:46.151842+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-01T06:29:23.658469+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "ARENA BEACH RESORT & SPA_2026-11-01_06-28_zone_out_gone"
+    },
+    {
+      "hotel_name": "BLEND CLUB AQUA RESORT EX.THE CLUB HOTEL",
+      "duration_bucket": "",
+      "old_price": 9623.0,
+      "new_price": 9623.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-01 06:28:46.151842+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-01T06:29:23.658493+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "BLEND CLUB AQUA RESORT EX.THE CLUB HOTEL_2026-11-01_06-28_zone_out_gone"
+    },
+    {
+      "hotel_name": "Dream Lagoon & Aqua Park Resort",
+      "duration_bucket": "",
+      "old_price": 10989.0,
+      "new_price": 10989.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-01 06:28:46.151842+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-01T06:29:23.658504+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Dream Lagoon & Aqua Park Resort_2026-11-01_06-28_zone_out_gone"
+    },
+    {
+      "hotel_name": "Parrotel Lagoon Resort",
+      "duration_bucket": "",
+      "old_price": 11000.0,
+      "new_price": 11000.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-01 06:28:46.151842+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-01T06:29:23.658513+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Parrotel Lagoon Resort_2026-11-01_06-28_zone_out_gone"
+    },
+    {
+      "hotel_name": "ROYAL STAR BEACH RESORT",
+      "duration_bucket": "",
+      "old_price": 9569.0,
+      "new_price": 9569.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-01 06:28:46.151842+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-01T06:29:23.658520+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "ROYAL STAR BEACH RESORT_2026-11-01_06-28_zone_out_gone"
+    },
+    {
+      "hotel_name": "Rewaya Inn Resort (ex.Hawaii Paradise Aq",
+      "duration_bucket": "",
+      "old_price": 10902.0,
+      "new_price": 10902.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-01 06:28:46.151842+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-01T06:29:23.658527+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Inn Resort (ex.Hawaii Paradise Aq_2026-11-01_06-28_zone_out_gone"
+    },
+    {
+      "hotel_name": "SWISS HEAVEN SHARMING INN",
+      "duration_bucket": "",
+      "old_price": 9232.0,
+      "new_price": 9232.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-01 06:28:46.151842+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-01T06:29:23.658534+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "SWISS HEAVEN SHARMING INN_2026-11-01_06-28_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sea Star Beau Rivage",
+      "duration_bucket": "",
+      "old_price": 11813.0,
+      "new_price": 10405.0,
+      "price_change": -1408.0,
+      "price_change_pct": -11.919072208583763,
+      "timestamp": "2026-11-01 06:28:46.151842+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-11-01T06:29:23.658554+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sea Star Beau Rivage_2026-11-01_06-28_comeback_11.9"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-31T23:34:43.729056+00:00",
+    "last_processed_run": "2026-11-01T06:28:46.151842+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa*****": {
         "history_max": 12142.0,
@@ -1305,6 +1409,10 @@
       },
       "BLEND CLUB AQUA RESORT EX.THE CLUB HOTEL": {
         "history_max": 9623.0,
+        "premium_peak": null
+      },
+      "Royal Star Beach Resort": {
+        "history_max": 9503.0,
         "premium_peak": null
       }
     }

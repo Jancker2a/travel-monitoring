@@ -598,10 +598,49 @@
       "created_at": "2026-10-31T15:56:01.605807+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Seher Sun Palace Resort & Spa_2026-10-31_15-54_zone_out_+3.0"
+    },
+    {
+      "hotel_name": "Villa Side Residence",
+      "duration_bucket": "",
+      "old_price": 8326.0,
+      "new_price": 9320.0,
+      "price_change": 994.0,
+      "price_change_pct": 11.938505885178957,
+      "timestamp": "2026-11-01 06:30:04.745104+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-01T06:31:39.142106+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Villa Side Residence_2026-11-01_06-30_+11.9"
+    },
+    {
+      "hotel_name": "Aydinbey Kings Palace",
+      "duration_bucket": "",
+      "old_price": 9804.0,
+      "new_price": 10902.0,
+      "price_change": 1098.0,
+      "price_change_pct": 11.199510403916769,
+      "timestamp": "2026-11-01 06:30:04.745104+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-01T06:31:39.142150+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Aydinbey Kings Palace_2026-11-01_06-30_zone_out_+11.2"
+    },
+    {
+      "hotel_name": "Port Side Resort",
+      "duration_bucket": "",
+      "old_price": 9891.0,
+      "new_price": 9891.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-01 06:30:04.745104+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-01T06:31:39.142167+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Port Side Resort_2026-11-01_06-30_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-10-31T23:36:03.067060+00:00",
+    "last_processed_run": "2026-11-01T06:30:04.745104+00:00",
     "premium_state": {
       "Alaiye Resort & Spa": {
         "history_max": 9254.0,
@@ -800,8 +839,8 @@
         "premium_peak": 10877.0
       },
       "Sural Resort": {
-        "history_max": 10466.0,
-        "premium_peak": 10466.0
+        "history_max": 10783.0,
+        "premium_peak": 10783.0
       },
       "Terrace Beach Resort (Side)": {
         "history_max": 10334.0,
@@ -820,16 +859,16 @@
         "premium_peak": 10826.0
       },
       "Side Royal Style (ex. Side Royal Luxury)": {
-        "history_max": 10544.0,
-        "premium_peak": 10544.0
+        "history_max": 10826.0,
+        "premium_peak": 10826.0
       },
       "Corendon Playa Kemer": {
         "history_max": 10629.0,
         "premium_peak": 10629.0
       },
       "Seamelia Beach Resort & Spa": {
-        "history_max": 10255.0,
-        "premium_peak": 10255.0
+        "history_max": 10675.0,
+        "premium_peak": 10675.0
       },
       "Limak Limra": {
         "history_max": 9584.0,
