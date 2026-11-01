@@ -296,43 +296,68 @@ def get_hotel_passport_css() -> str:
     """Returns CSS styles for horizontal OTA cards, table passport buttons, 780px slide-over drawer, and gallery carousel."""
     return """
     /* ══════════════════════════════════════════════════════════════
-       TABLE VIEW: PASSPORT BUTTON
+       TABLE VIEW: FULL ROW CLICKABLE INTERACTION
        ══════════════════════════════════════════════════════════════ */
-    .tbl-passport-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      background: rgba(79, 70, 229, 0.08);
-      color: #4f46e5 !important;
-      border: 1px solid rgba(79, 70, 229, 0.28);
-      padding: 3px 8px;
-      border-radius: 6px;
-      font-size: 0.72rem;
-      font-weight: 700;
+    .hotels-table tbody tr.hotel-row {
+      cursor: pointer !important;
+      transition: background-color 0.15s ease, transform 0.12s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.15s ease;
+    }
+
+    .hotels-table tbody tr.hotel-row:hover td {
+      background: #f0f7ff !important;
+      border-top-color: #38bdf8 !important;
+      border-bottom-color: #38bdf8 !important;
+    }
+
+    .hotels-table tbody tr.hotel-row:hover td:first-child {
+      border-left-color: #38bdf8 !important;
+    }
+
+    .hotels-table tbody tr.hotel-row:hover td:last-child {
+      border-right-color: #38bdf8 !important;
+    }
+
+    .dark-theme .hotels-table tbody tr.hotel-row:hover td {
+      background: #1e293b !important;
+      border-top-color: #6366f1 !important;
+      border-bottom-color: #6366f1 !important;
+    }
+
+    .dark-theme .hotels-table tbody tr.hotel-row:hover td:first-child {
+      border-left-color: #6366f1 !important;
+    }
+
+    .dark-theme .hotels-table tbody tr.hotel-row:hover td:last-child {
+      border-right-color: #6366f1 !important;
+    }
+
+    .hotels-table tbody tr.hotel-row .hotel-hover-link {
       cursor: pointer;
-      margin-left: 6px;
-      vertical-align: middle;
+      color: #0f172a;
       text-decoration: none;
-      transition: all 0.16s ease;
-      white-space: nowrap;
+      font-weight: 700;
     }
 
-    .tbl-passport-btn:hover {
-      background: #4f46e5;
-      color: #ffffff !important;
-      transform: translateY(-1px);
-      box-shadow: 0 2px 6px rgba(79, 70, 229, 0.3);
+    .hotels-table tbody tr.hotel-row:hover .hotel-hover-link {
+      color: #0284c7;
+      text-decoration: underline;
     }
 
-    .dark-theme .tbl-passport-btn {
-      background: rgba(129, 140, 248, 0.14);
-      color: #a5b4fc !important;
-      border-color: rgba(129, 140, 248, 0.35);
+    .dark-theme .hotels-table tbody tr.hotel-row .hotel-hover-link {
+      color: #f1f5f9;
     }
 
-    .dark-theme .tbl-passport-btn:hover {
-      background: #6366f1;
-      color: #ffffff !important;
+    .dark-theme .hotels-table tbody tr.hotel-row:hover .hotel-hover-link {
+      color: #38bdf8;
+    }
+
+    /* Isolated controls inside row */
+    .hotels-table tbody tr.hotel-row .watchlist-star-btn,
+    .hotels-table tbody tr.hotel-row .offer-link-cell a,
+    .hotels-table tbody tr.hotel-row .cheaper-alt-badge {
+      cursor: pointer;
+      position: relative;
+      z-index: 2;
     }
 
     /* ══════════════════════════════════════════════════════════════
@@ -2474,12 +2499,48 @@ def get_hotel_passport_js() -> str:
       });
     }
 
-    // Table click listener: Clicking on hotel name or passport button opens drawer
+    // Table click listener: Clicking anywhere on a hotel row opens drawer
+    // (excluding direct clicks on watchlist star, operator link, or airport alt badge)
     document.addEventListener('click', function(e) {
-      const link = e.target.closest('.open-chart-link, .hotel-hover-link, .tbl-passport-btn');
-      if (link && !e.ctrlKey && !e.metaKey) {
-        const hotelName = link.getAttribute('data-hotel-name') || link.textContent.trim();
+      // 1. Direct interactive exclusions (stars, external tour operator links, etc.)
+      if (e.target.closest('.watchlist-star-btn, .col-link-btn, .cheaper-alt-badge, .offer-link-cell a')) {
+        return;
+      }
+
+      // 2. Check if clicked on a hotel table row
+      const row = e.target.closest('tr.hotel-row');
+      if (row && !e.ctrlKey && !e.metaKey) {
+        const slug = row.getAttribute('data-hotel-slug');
+        const hotelName = row.getAttribute('data-hotel-name') || (row.querySelector('.hotel-hover-link') ? row.querySelector('.hotel-hover-link').textContent.trim() : '');
+
+        if (slug && window.HOTEL_PASSPORT_DATA && window.HOTEL_PASSPORT_DATA[slug]) {
+          e.preventDefault();
+          window.openHotelPassport(slug);
+          return;
+        }
+
         if (hotelName && window.HOTEL_PASSPORT_DATA) {
+          const found = Object.values(window.HOTEL_PASSPORT_DATA).find(
+            h => h.hotel_name.toLowerCase() === hotelName.toLowerCase()
+          );
+          if (found) {
+            e.preventDefault();
+            window.openHotelPassport(found.slug);
+            return;
+          }
+        }
+      }
+
+      // 3. Fallback for standalone links if rendered elsewhere
+      const link = e.target.closest('.open-chart-link, .hotel-hover-link');
+      if (link && !e.ctrlKey && !e.metaKey) {
+        const slug = link.getAttribute('data-hotel-slug');
+        const hotelName = link.getAttribute('data-hotel-name') || link.textContent.trim();
+        if (slug && window.HOTEL_PASSPORT_DATA && window.HOTEL_PASSPORT_DATA[slug]) {
+          e.preventDefault();
+          e.stopPropagation();
+          window.openHotelPassport(slug);
+        } else if (hotelName && window.HOTEL_PASSPORT_DATA) {
           const found = Object.values(window.HOTEL_PASSPORT_DATA).find(
             h => h.hotel_name.toLowerCase() === hotelName.toLowerCase()
           );
