@@ -394,11 +394,16 @@ def generate_hotel_ai_profile(
 
     beach_line = 1
     if specs and specs.get("beach_line"):
-        beach_line = int(specs["beach_line"])
-    elif re.search(r"beach|sea|resort|bay|palace|coast", hotel_name, re.I):
+        try:
+            beach_line = int(specs["beach_line"])
+        except (ValueError, TypeError):
+            beach_line = 2
+    elif re.search(r"beachfront|seafront|oceanfront|beach\s+resort", hotel_name, re.I):
         beach_line = 1
+    elif re.search(r"city|inn|suites|apart|residence|garden|park", hotel_name, re.I):
+        beach_line = 2
     else:
-        beach_line = 1 if (sum(ord(c) for c in hotel_name) % 3 != 0) else 2
+        beach_line = 2
 
     # Beach type & entry
     if country == "Египет":

@@ -56,6 +56,10 @@ def generate_hotel_ai_profile(
     - Structured AI Verdict, Pros, Cons, and Review quotes
     - Price intelligence status and advice
     """
+    # 0. Specs unwrap if nested
+    if specs and isinstance(specs, dict) and "specs" in specs and isinstance(specs["specs"], dict):
+        specs = specs["specs"]
+
     # 1. Stars
     stars = 4
     if re.search(r"5\s*(?:\*|★)|5-star|luxury|palace|resort & spa|premium|deluxe", hotel_name, re.I):
@@ -67,11 +71,13 @@ def generate_hotel_ai_profile(
 
     # 2. TripAdvisor Rating & Reviews
     ta_rating = None
-    ta_reviews = None
+    ta_reviews = 0
     if specs and specs.get("tripadvisor_rating"):
         try:
-            ta_rating = float(specs["tripadvisor_rating"])
-            ta_reviews = specs.get("tripadvisor_reviews")
+            r_val = float(specs["tripadvisor_rating"])
+            if r_val > 0:
+                ta_rating = r_val
+                ta_reviews = int(specs.get("tripadvisor_reviews") or 0)
         except (ValueError, TypeError):
             pass
     elif rep_data and rep_data.get("ta_rating"):
@@ -79,7 +85,7 @@ def generate_hotel_ai_profile(
             r_val = float(rep_data["ta_rating"])
             if r_val > 0:
                 ta_rating = r_val
-                ta_reviews = rep_data.get("ta_review_count") or 1450
+                ta_reviews = int(rep_data.get("ta_review_count") or 0)
         except (ValueError, TypeError):
             pass
     elif rep_data and rep_data.get("sentiment_scores"):
@@ -89,10 +95,8 @@ def generate_hotel_ai_profile(
             ta_rating = round(sum(valid) / len(valid) / 2, 1)
 
     if not ta_rating or ta_rating < 3.0:
-        base_r = 4.6 if stars == 5 else 4.2
-        hash_val = sum(ord(c) for c in hotel_name) % 5
-        ta_rating = round(base_r + (hash_val * 0.1) - 0.2, 1)
-        ta_reviews = 750 + (sum(ord(c) for c in hotel_name) % 2200)
+        ta_rating = 4.5 if stars == 5 else (4.1 if stars == 4 else 3.8)
+        ta_reviews = 0
 
     # 3. Infrastructure traits
     has_aquapark = False
@@ -100,21 +104,28 @@ def generate_hotel_ai_profile(
         has_aquapark = True
 
     has_heated_pools = False
-    if (specs and specs.get("heated_pools_winter")) or (rep_data and rep_data.get("winter_suitability", {}).get("heated_pools")):
-        has_heated_pools = True
-    elif country in ("Египет", "egipt") and stars >= 4:
+    cons_text = " ".join((rep_data.get("cons_and_red_flags") or []) if rep_data else []).lower()
+    if "отсутствие гарантированного подогрева" in cons_text or "без подогрева" in cons_text or "нет подогрева" in cons_text:
+        has_heated_pools = False
+    elif specs and "heated_pools_winter" in specs:
+        has_heated_pools = bool(specs["heated_pools_winter"])
+    elif rep_data and "winter_suitability" in rep_data and "heated_pools" in rep_data["winter_suitability"]:
+        has_heated_pools = bool(rep_data["winter_suitability"]["heated_pools"])
+    elif country in ("Египет", "egipt") and stars >= 5:
         has_heated_pools = True
 
-    beach_line = 1
+    beach_line = 2
     if specs and specs.get("beach_line"):
         try:
             beach_line = int(specs["beach_line"])
         except (ValueError, TypeError):
-            beach_line = 1
-    elif re.search(r"beach|sea|resort|bay|palace|coast", hotel_name, re.I):
+            beach_line = 2
+    elif re.search(r"\b(beach\s*resort|seafront|beachfront|on the beach|plage|strand)\b", hotel_name, re.I):
         beach_line = 1
+    elif re.search(r"\b(city|inn|suites|apartments|gardens?|hills?|residence|village)\b", hotel_name, re.I):
+        beach_line = 2
     else:
-        beach_line = 1 if (sum(ord(c) for c in hotel_name) % 3 != 0) else 2
+        beach_line = 2
 
     # Beach type & entry
     c_lower = country.lower()
@@ -228,12 +239,21 @@ def generate_hotel_ai_profile(
     food_snippet = f"Концепция «{food_concept}»: гости хвалят свежевыжатые соки, блюда на гриле, свежую выпечку и разнообразие десертов. Доступны a la carte рестораны."
     beach_snippet = f"{beach_line}-я линия ({beach_type}). {sea_entry}. Пляж оборудован бесплатными шезлонгами, зонтами и пляжным баром."
     review_snippet = ""
+    canned_phrases = (
+        "стабильное качество обслуживания",
+        "на уровне категории отеля",
+        "отдыхали здесь в этом сезоне",
+        "удобное расположение относительно",
+        "качественный отель категории",
+    )
     if rep_data and isinstance(rep_data, dict):
         if rep_data.get("review_snippet"):
-            review_snippet = str(rep_data["review_snippet"]).strip()
+            cand = str(rep_data["review_snippet"]).strip()
+            if cand and not any(cp in cand.lower() for cp in canned_phrases):
+                review_snippet = cand
         elif rep_data.get("season_trend", {}).get("summary"):
             s_sum = str(rep_data["season_trend"]["summary"]).strip()
-            if s_sum and len(s_sum) > 15:
+            if s_sum and len(s_sum) > 15 and not any(cp in s_sum.lower() for cp in canned_phrases):
                 review_snippet = f"«{s_sum}» (Сводка отзывов туристов)"
 
     # 6. Price Intelligence status
@@ -323,7 +343,7 @@ def generate_hotel_ai_profile(
     return {
         "stars": stars,
         "ta_rating": ta_rating,
-        "ta_reviews": int(ta_reviews or 1200),
+        "ta_reviews": int(ta_reviews or 0),
         "beach_line": beach_line,
         "beach_type": beach_type,
         "sea_entry": sea_entry,
@@ -2410,8 +2430,13 @@ def get_hotel_passport_js() -> str:
       // 3. Badges & AI Short Verdict
       const badgesRow = document.getElementById('drawerHeroBadges');
       if (badgesRow) {
-        let bHtml = `<span class="stat-pill" style="color:#059669; font-weight:700;">★ ${h.ta_rating ? h.ta_rating.toFixed(1) : '4.3'} (${(h.ta_reviews || 1200).toLocaleString('ru-RU')} отзывов)</span>`;
-        bHtml += `<span class="stat-pill" style="color:#0284c7; font-weight:700;">🏖️ ${h.beach_line || 1}-я линия</span>`;
+        let bHtml = '';
+        if (h.ta_reviews && h.ta_reviews > 0) {
+          bHtml += `<span class="stat-pill" style="color:#059669; font-weight:700;">★ ${h.ta_rating ? h.ta_rating.toFixed(1) : '4.3'} (${h.ta_reviews.toLocaleString('ru-RU')} отзывов)</span>`;
+        } else if (h.ta_rating) {
+          bHtml += `<span class="stat-pill" style="color:#059669; font-weight:700;">★ ${h.ta_rating.toFixed(1)} Рейтинг</span>`;
+        }
+        bHtml += `<span class="stat-pill" style="color:#0284c7; font-weight:700;">🏖️ ${h.beach_line || 2}-я линия</span>`;
         if (h.has_aquapark) bHtml += `<span class="stat-pill" style="color:#16a34a; font-weight:700;">🎢 Аквапарк</span>`;
         if (h.has_heated_pools) bHtml += `<span class="stat-pill" style="color:#ea580c; font-weight:700;">♨️ Подогрев зимой</span>`;
         bHtml += `<span class="stat-pill" style="color:#4f46e5; font-weight:700;">🍽️ ${h.food_concept || 'All Inclusive'}</span>`;
@@ -2474,7 +2499,11 @@ def get_hotel_passport_js() -> str:
       const taScore = document.getElementById('drawerTaScore');
       if (taScore) taScore.textContent = `★ ${h.ta_rating ? h.ta_rating.toFixed(1) : '4.3'}`;
       const taRev = document.getElementById('drawerTaReviewsCount');
-      if (taRev) taRev.textContent = `на основе ${(h.ta_reviews || 1200).toLocaleString('ru-RU')} отзывов`;
+      if (taRev) {
+        taRev.textContent = (h.ta_reviews && h.ta_reviews > 0)
+          ? `на основе ${h.ta_reviews.toLocaleString('ru-RU')} отзывов`
+          : 'Смотреть отзывы на TripAdvisor';
+      }
 
       const gglLink = document.getElementById('drawerGoogleLink');
       if (gglLink) gglLink.href = h.google_reviews_url || '#';
