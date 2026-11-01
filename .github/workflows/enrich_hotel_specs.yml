@@ -91,13 +91,17 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add hotel_specs_kb.json
-          if ! git diff --staged --quiet; then
-            git commit -m "chore(kb): update verified hotel specifications knowledge base [skip ci]"
-            git push origin HEAD
-            echo "✅ hotel_specs_kb.json updated and committed"
+          if [ -f "hotel_specs_kb.json" ]; then
+            git add hotel_specs_kb.json
+            if ! git diff --staged --quiet; then
+              git commit -m "chore(kb): update verified hotel specifications knowledge base [skip ci]"
+              git push origin HEAD
+              echo "✅ hotel_specs_kb.json updated and committed"
+            else
+              echo "ℹ️ No changes in hotel_specs_kb.json to commit"
+            fi
           else
-            echo "ℹ️ No changes in hotel_specs_kb.json to commit"
+            echo "ℹ️ hotel_specs_kb.json not found on disk, skipping commit"
           fi
 
       - name: Summary Report

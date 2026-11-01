@@ -116,10 +116,16 @@ def validate_specs_payload(payload: Dict[str, Any]) -> Tuple[bool, Optional[str]
 
 def is_template_response(payload: Dict[str, Any]) -> bool:
     """Anti-template detector: detects canned or repetitive responses."""
-    # Check for known template phrases
-    highlights = payload.get("highlights", [])
-    caution = payload.get("caution_notes", [])
-    combined_text = " ".join([str(h) for h in highlights] + [str(c) for c in caution]).lower()
+    if not isinstance(payload, dict):
+        return True
+
+    # Safely extract lists (handling explicit None or non-list values)
+    raw_hl = payload.get("highlights")
+    highlights = raw_hl if isinstance(raw_hl, list) else ([raw_hl] if raw_hl else [])
+    raw_ca = payload.get("caution_notes")
+    caution = raw_ca if isinstance(raw_ca, list) else ([raw_ca] if raw_ca else [])
+
+    combined_text = " ".join([str(h) for h in highlights if h is not None] + [str(c) for c in caution if c is not None]).lower()
 
     banned_canned = [
         "песчано-галечный пляж с удобным входом в море",
@@ -289,77 +295,83 @@ def enrich_specs_pipeline(
 
     logger.info(f"Enrichment pipeline started. Total candidates: {len(candidates)}, max_hotels: {max_hotels}")
 
-    for item in candidates:
-        if processed >= max_hotels:
-            break
+    gemini_model = os.getenv("GEMINI_MODEL", "gemini-2.0-flash")
+    openai_model = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
 
-        h_name = item["hotel_name"]
-        existing = kb["hotels"].get(h_name)
+    try:
+        for item in candidates:
+            if processed >= max_hotels:
+                break
 
-        if existing and existing.get("is_enriched") and not force:
-            continue
+            h_name = item["hotel_name"]
+            existing = kb["hotels"].get(h_name)
 
-        processed += 1
-        logger.info(f"[{processed}/{max_hotels}] Enriching '{h_name}' ({item['destination']})...")
-
-        raw_specs = None
-        if not dry_run:
-            if gemini_key:
-                raw_specs = call_gemini_specs(h_name, item["destination"], gemini_key)
-            if not raw_specs and openai_key:
-                raw_specs = call_openai_specs(h_name, item["destination"], openai_key)
-
-        if raw_specs:
-            is_valid, err_msg = validate_specs_payload(raw_specs)
-            if not is_valid:
-                logger.warning(f"Schema validation failed for '{h_name}': {err_msg}")
+            if existing and existing.get("is_enriched") and not force:
                 continue
 
-            if is_template_response(raw_specs):
-                logger.warning(f"Anti-template check failed for '{h_name}' (canned response detected)")
-                continue
+            processed += 1
+            logger.info(f"[{processed}/{max_hotels}] Enriching '{h_name}' ({item['destination']})...")
 
-            record = {
-                "hotel_name": h_name,
-                "destination": item["destination"],
-                "is_enriched": True,
-                "enriched_at": datetime.utcnow().isoformat() + "Z",
-                "source": "llm_verified",
-                "specs": {
-                    "beach_type": raw_specs.get("beach_type"),
-                    "beach_line": raw_specs.get("beach_line"),
-                    "sea_entry": raw_specs.get("sea_entry"),
-                    "heated_pools_winter": bool(raw_specs.get("heated_pools_winter")),
-                    "pool_count": raw_specs.get("pool_count"),
-                    "aquapark": bool(raw_specs.get("aquapark")),
-                    "food_concept": raw_specs.get("food_concept", "AI"),
-                    "last_renovation_year": raw_specs.get("last_renovation_year"),
-                    "tripadvisor_rating": raw_specs.get("tripadvisor_rating"),
-                    "tripadvisor_reviews": raw_specs.get("tripadvisor_reviews"),
-                    "transfer_minutes": raw_specs.get("transfer_minutes"),
-                    "highlights": raw_specs.get("highlights", []),
-                    "caution_notes": raw_specs.get("caution_notes", []),
-                }
-            }
-            kb["hotels"][h_name] = record
-            enriched_count += 1
-            # Rate limit politeness
-            time.sleep(1.0)
-        else:
-            if dry_run or (not gemini_key and not openai_key):
-                # In zero-key/dry-run mode, register record as pending/un-enriched without fake data
-                if h_name not in kb["hotels"]:
-                    kb["hotels"][h_name] = {
-                        "hotel_name": h_name,
-                        "destination": item["destination"],
-                        "is_enriched": False,
-                        "enriched_at": None,
-                        "source": "pending_enrichment",
-                        "specs": None,
+            raw_specs = None
+            if not dry_run:
+                if gemini_key:
+                    raw_specs = call_gemini_specs(h_name, item["destination"], gemini_key, model_name=gemini_model)
+                if not raw_specs and openai_key:
+                    raw_specs = call_openai_specs(h_name, item["destination"], openai_key, model_name=openai_model)
+
+            if raw_specs:
+                is_valid, err_msg = validate_specs_payload(raw_specs)
+                if not is_valid:
+                    logger.warning(f"Schema validation failed for '{h_name}': {err_msg}")
+                    continue
+
+                if is_template_response(raw_specs):
+                    logger.warning(f"Anti-template check failed for '{h_name}' (canned response detected)")
+                    continue
+
+                record = {
+                    "hotel_name": h_name,
+                    "destination": item["destination"],
+                    "is_enriched": True,
+                    "enriched_at": datetime.utcnow().isoformat() + "Z",
+                    "source": "llm_verified",
+                    "specs": {
+                        "beach_type": raw_specs.get("beach_type"),
+                        "beach_line": raw_specs.get("beach_line"),
+                        "sea_entry": raw_specs.get("sea_entry"),
+                        "heated_pools_winter": bool(raw_specs.get("heated_pools_winter")),
+                        "pool_count": raw_specs.get("pool_count"),
+                        "aquapark": bool(raw_specs.get("aquapark")),
+                        "food_concept": raw_specs.get("food_concept", "AI"),
+                        "last_renovation_year": raw_specs.get("last_renovation_year"),
+                        "tripadvisor_rating": raw_specs.get("tripadvisor_rating"),
+                        "tripadvisor_reviews": raw_specs.get("tripadvisor_reviews"),
+                        "transfer_minutes": raw_specs.get("transfer_minutes"),
+                        "highlights": raw_specs.get("highlights") or [],
+                        "caution_notes": raw_specs.get("caution_notes") or [],
                     }
-
-    if not dry_run:
-        save_hotel_specs_kb(kb, specs_path)
+                }
+                kb["hotels"][h_name] = record
+                enriched_count += 1
+                if enriched_count % 5 == 0 and not dry_run:
+                    save_hotel_specs_kb(kb, specs_path)
+                # Rate limit politeness
+                time.sleep(1.0)
+            else:
+                if dry_run or (not gemini_key and not openai_key):
+                    # In zero-key/dry-run mode, register record as pending/un-enriched without fake data
+                    if h_name not in kb["hotels"]:
+                        kb["hotels"][h_name] = {
+                            "hotel_name": h_name,
+                            "destination": item["destination"],
+                            "is_enriched": False,
+                            "enriched_at": None,
+                            "source": "pending_enrichment",
+                            "specs": None,
+                        }
+    finally:
+        if not dry_run:
+            save_hotel_specs_kb(kb, specs_path)
 
     logger.info(f"Pipeline complete. Processed {processed}, Newly enriched: {enriched_count}")
     return kb
