@@ -41,6 +41,98 @@ SPECS_KB_FILE = "hotel_specs_kb.json"
 REPUTATION_KB_FILE = "hotel_reputation_kb.json"
 DNA_PROFILE_FILE = "market_dna_profile.json"
 
+COUNTRY_SLUG_MAP = {
+    "egipt": "Египет",
+    "turcja": "Турция",
+    "cypr": "Кипр",
+    "grecja": "Греция",
+    "hiszpania": "Испания",
+    "bulgaria": "Болгария",
+}
+
+RESORT_SLUG_MAP = {
+    "marsa-alam": "Марса Алам",
+    "sharm-el-sheikh": "Шарм-эль-Шейх",
+    "szarm-el-szejk": "Шарм-эль-Шейх",
+    "hurghada": "Хургада",
+    "hurgada": "Хургада",
+    "makadi-bay": "Макади Бэй",
+    "el-gouna": "Эль Гуна",
+    "soma-bay": "Сома Бэй",
+    "dahab": "Дахаб",
+    "sahl-hasheesh": "Сахл Хашиш",
+    "alanya": "Аланья",
+    "side": "Сиде",
+    "kemer": "Кемер",
+    "belek": "Белек",
+    "antalya": "Анталья",
+    "lara": "Лара",
+    "kundu": "Кунду",
+    "bodrum": "Бодрум",
+    "marmaris": "Мармарис",
+    "fethiye": "Фетхие",
+    "paphos": "Пафос",
+    "ayia-napa": "Айя-Напа",
+    "limassol": "Лимассол",
+    "larnaca": "Ларнака",
+    "protaras": "Протарас",
+    "rhodes": "Родос",
+    "rodos": "Родос",
+    "crete": "Крит",
+    "kreta": "Крит",
+    "corfu": "Корфу",
+    "kos": "Кос",
+    "zakynthos": "Закинф",
+    "mallorca": "Майорка",
+}
+
+
+def detect_country_and_resort(offer_url: str = "", hotel_name: str = "", dest_hint: str = "") -> Tuple[str, str]:
+    """Accurately detects country and resort from offer_url, hotel name, and destination hint."""
+    country = ""
+    resort = ""
+
+    # 1. From offer_url
+    if offer_url:
+        m = re.search(r"/wycieczka/([^,/]+)(?:,([^,/]+))?", offer_url.lower())
+        if m:
+            c_slug = m.group(1)
+            r_slug = m.group(2) or ""
+            if c_slug in COUNTRY_SLUG_MAP:
+                country = COUNTRY_SLUG_MAP[c_slug]
+            if r_slug in RESORT_SLUG_MAP:
+                resort = RESORT_SLUG_MAP[r_slug]
+            elif r_slug:
+                resort = r_slug.replace("-", " ").title()
+
+    # 2. From destination hint / hotel tokens if country not detected
+    combined = f"{hotel_name} {dest_hint}".lower()
+    if not country:
+        if any(w in combined for w in ("египет", "egypt", "sharm", "hurghada", "marsa alam", "makadi", "gouna")):
+            country = "Египет"
+        elif any(w in combined for w in ("кипр", "cypr", "paphos", "ayia napa", "limassol", "larnaca")):
+            country = "Кипр"
+        elif any(w in combined for w in ("турци", "turkey", "alanya", "side", "kemer", "belek", "antalya", "lara")):
+            country = "Турция"
+        elif any(w in combined for w in ("грец", "grec", "rhodes", "crete", "corfu", "kos")):
+            country = "Греция"
+        elif any(w in combined for w in ("испан", "spain", "mallorca", "ibiza")):
+            country = "Испания"
+        elif any(w in combined for w in ("болгар", "bulgar", "varna", "burgas")):
+            country = "Болгария"
+        else:
+            country = "Турция"
+
+    # 3. Detect resort from hotel name if missing
+    if not resort:
+        for r_slug, r_name in RESORT_SLUG_MAP.items():
+            if r_slug.replace("-", " ") in combined or r_slug in combined:
+                resort = r_name
+                break
+
+    destination_display = resort or (dest_hint if dest_hint and dest_hint != "Средиземноморье" else country)
+    return country, destination_display
+
 
 def extract_package_composition(config_dict: Dict[str, Any], url_str: str = "") -> Dict[str, Any]:
     """
@@ -470,19 +562,12 @@ def collect_hotel_data() -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
             elif specs and specs.get("highlights"):
                 verdict = " • ".join(specs["highlights"][:2])
 
-        # Country / Destination detection
-        country = "Турция"
-        dest_str = entry["destination"].lower()
-        if "египет" in dest_str or "egypt" in dest_str:
-            country = "Египет"
-        elif "кипр" in dest_str or "cypr" in dest_str:
-            country = "Кипр"
-        elif "грец" in dest_str or "grec" in dest_str:
-            country = "Греция"
-        elif "испан" in dest_str or "spain" in dest_str:
-            country = "Испания"
-        elif "болгар" in dest_str or "bulgar" in dest_str:
-            country = "Болгария"
+        # Country & Resort detection (accurate parsing from offer URLs and geography)
+        country, destination_display = detect_country_and_resort(
+            offer_url=entry["latest_offer_url"] or (deduped_packages[0]["offer_url"] if deduped_packages else ""),
+            hotel_name=h_name,
+            dest_hint=entry["destination"],
+        )
 
         # Rating: verified TripAdvisor or rep rating
         rating = None
@@ -514,7 +599,7 @@ def collect_hotel_data() -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
             "slug": slug,
             "hotel_name": h_name,
             "country": country,
-            "destination": entry["destination"],
+            "destination": destination_display,
             "image_url": image_url,
             "offer_url": entry["latest_offer_url"],
             "rating": rating,
