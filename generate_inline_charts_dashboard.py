@@ -75,6 +75,13 @@ from filter_trip import (
 from hopper_prediction_engine import batch_predict_offers, predict_offer_action
 from germany_tour_client import GermanyTourClient
 from cross_border_arbitrage import CrossBorderArbitrageEngine
+from hotel_passport_drawer import (
+    generate_hotel_ai_profile,
+    get_hotel_passport_css,
+    get_hotel_passport_js,
+    render_hotel_card_horiz,
+    render_hotel_passport_drawer_html,
+)
 
 try:
     from ai_market_oracle import synthesize_market_oracle
@@ -3377,6 +3384,15 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         except Exception:
             pass
 
+    specs_kb = {}
+    specs_path = "hotel_specs_kb.json"
+    if os.path.exists(specs_path):
+        try:
+            with open(specs_path, "r", encoding="utf-8") as f:
+                specs_kb = json.load(f).get("hotels", {})
+        except Exception:
+            pass
+
     oracle_report = None
     run_oracle = (not _is_early_booking) and bool(_cfg_modules.get('ai_market_oracle', True))
     if run_oracle:
@@ -4621,6 +4637,158 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         if href:
             _register_chart_href(chart_href_lookup, str(name), str(href))
 
+    # Country detection for Passport & OTA cards
+    filter_lower = (str(data_file) + " " + str(output_file)).lower()
+    if any(k in filter_lower for k in ("turkey", "turcja")):
+        default_country = "Турция"
+    elif any(k in filter_lower for k in ("egypt", "egipt")):
+        default_country = "Египет"
+    elif any(k in filter_lower for k in ("greece", "grecja")):
+        default_country = "Греция"
+    elif any(k in filter_lower for k in ("cypr", "cyprus")):
+        default_country = "Кипр"
+    else:
+        default_country = "Курорт"
+
+    catalog_hotels_index = {}
+    if os.path.exists("hotels_catalog_data.json"):
+        try:
+            with open("hotels_catalog_data.json", "r", encoding="utf-8") as f:
+                cat_data = json.load(f)
+                for h_entry in cat_data.get("hotels", []):
+                    norm_k = re.sub(r"[^\w\d]+", "", h_entry.get("hotel_name", "").lower())
+                    catalog_hotels_index[norm_k] = h_entry
+        except Exception:
+            pass
+
+    hotel_passport_data = {}
+    hotel_ai_profiles = {}
+
+    for c in hotel_cards:
+        h_name = c["hotel_name"]
+        h_slug = slugify(h_name)
+        h_pts_data = []
+        h_grp = history_by_hotel.get(h_name)
+        if h_grp is not None and not h_grp.empty:
+            for t_val, p_val in zip(h_grp['scraped_at_display'], h_grp['price']):
+                if pd.notna(t_val) and pd.notna(p_val) and float(p_val) > 0:
+                    h_pts_data.append({
+                        "date": t_val.strftime('%d.%m %H:%M'),
+                        "price": float(p_val)
+                    })
+        min_p_card = min([pt['price'] for pt in h_pts_data]) if h_pts_data else float(c["price"])
+        max_p_card = max([pt['price'] for pt in h_pts_data]) if h_pts_data else float(c["price"])
+
+        drop_pct_card = 0.0
+        d48_str = str(c.get("delta48", ""))
+        if "-" in d48_str:
+            try:
+                drop_pct_card = abs(float(re.sub(r"[^\d.]", "", d48_str)))
+            except (ValueError, TypeError):
+                pass
+
+        h_pkgs = []
+        if h_grp is not None and not h_grp.empty:
+            h_latest = h_grp.sort_values('scraped_at_display').groupby('dates').last().reset_index()
+            for _, r_pkg in h_latest.head(12).iterrows():
+                h_pkgs.append({
+                    "dates": str(r_pkg.get("dates") or "—"),
+                    "duration": str(r_pkg.get("duration") or "—"),
+                    "composition": str(c.get("duration_bucket") or "2 взр."),
+                    "price": float(r_pkg.get("price") or 0),
+                    "url": str(r_pkg.get("offer_url") or ""),
+                })
+
+        # Cross-filter tracking lookup
+        norm_k = re.sub(r"[^\w\d]+", "", h_name.lower())
+        cat_entry = catalog_hotels_index.get(norm_k)
+        other_filters_list = []
+        if cat_entry:
+            for pkg in cat_entry.get("packages", []):
+                f_id = pkg.get("filter_id", "")
+                if f_id and f_id.lower() not in filter_lower:
+                    d_url = f"index_{f_id}.html" if f_id.startswith("filter_") else f"index_filter_{f_id}.html"
+                    other_filters_list.append({
+                        "filter_id": f_id,
+                        "label": pkg.get("filter_name") or f_id.replace("filter_", "").replace("_", " ").title(),
+                        "price": pkg.get("current_price") or pkg.get("price") or 0,
+                        "duration": pkg.get("duration", "—"),
+                        "dates": pkg.get("ref_dates", "—"),
+                        "dashboard_url": d_url,
+                    })
+
+        prof = generate_hotel_ai_profile(
+            hotel_name=h_name,
+            country=default_country,
+            destination=c.get("region", ""),
+            specs=specs_kb.get(h_name) if isinstance(specs_kb, dict) else None,
+            rep_data=reputation_kb_data.get(h_name) if isinstance(reputation_kb_data, dict) else None,
+            current_price=float(c["price"]),
+            min_price=min_p_card,
+            max_price=max_p_card,
+            price_drop_pct=drop_pct_card,
+            packages=h_pkgs,
+            main_image_url=c.get("image_url", ""),
+            other_filters=other_filters_list,
+            deal_score=c.get("deal_score"),
+            delta_avg=c.get("delta_avg"),
+            delta48=c.get("delta48"),
+            hopper_verdict=c.get("hopper_verdict"),
+            hopper_reasoning=c.get("hopper_reasoning"),
+            forecast_text=c.get("forecast_text"),
+        )
+        hotel_ai_profiles[h_name] = prof
+
+        hotel_passport_data[h_slug] = {
+            "hotel_name": h_name,
+            "slug": h_slug,
+            "country": default_country,
+            "region": c.get("region", ""),
+            "stars": prof["stars"],
+            "image_url": c.get("image_url", ""),
+            "price": float(c["price"]),
+            "min_price": min_p_card,
+            "max_price": max_p_card,
+            "deal_score": c.get("deal_score", 50),
+            "deal_badge": prof["deal_badge"],
+            "deal_sub": prof["deal_sub"],
+            "deal_class": prof["deal_class"],
+            "recommendation": prof["recommendation"],
+            "ai_hotel_summary": prof["ai_hotel_summary"],
+            "ai_price_summary": prof["ai_price_summary"],
+            "ai_audience": prof["ai_audience"],
+            "ai_action_signal": prof["ai_action_signal"],
+            "price_diff_text": prof["price_diff_text"],
+            "ta_rating": prof["ta_rating"],
+            "ta_reviews": prof["ta_reviews"],
+            "beach_line": prof["beach_line"],
+            "beach_type": prof["beach_type"],
+            "sea_entry": prof["sea_entry"],
+            "has_aquapark": prof["has_aquapark"],
+            "has_heated_pools": prof["has_heated_pools"],
+            "food_concept": prof["food_concept"],
+            "suitable_for": prof["suitable_for"],
+            "verdict": prof["verdict"],
+            "pros": prof["pros"],
+            "cons": prof["cons"],
+            "food_snippet": prof["food_snippet"],
+            "beach_snippet": prof["beach_snippet"],
+            "review_snippet": prof["review_snippet"],
+            "tripadvisor_url": prof["tripadvisor_url"],
+            "google_reviews_url": prof["google_reviews_url"],
+            "youtube_search_url": prof["youtube_search_url"],
+            "gallery_photos": prof["gallery_photos"],
+            "infra_rich": prof["infra_rich"],
+            "other_filters": prof["other_filters"],
+            "history_points": h_pts_data[-35:],
+            "packages": h_pkgs,
+        }
+
+
+    passport_css = get_hotel_passport_css()
+    passport_drawer_markup = render_hotel_passport_drawer_html()
+    passport_js = get_hotel_passport_js()
+
     # HTML шаблон
     # Готовим HTML блок изменений, выводим только если есть хотя бы один список
     changes_html = ""
@@ -5215,6 +5383,9 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         '<a href="index.html" class="nav-item">'
         '<span class="flag">🏠</span>'
         '<span class="country-name">Главная</span></a>',
+        '<a href="hotels.html" class="nav-item" style="color:var(--primary);font-weight:700;">'
+        '<span class="flag">🏨</span>'
+        '<span class="country-name">Каталог отелей</span></a>',
         '<a href="create_filter.html" class="nav-item nav-item-create" style="color:var(--primary);font-weight:700;">'
         '<span class="flag">✨</span>'
         '<span class="country-name">+ Новый фильтр</span></a>',
@@ -10435,6 +10606,7 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             box-shadow: 0 0 0 3px var(--color-primary) !important;
             border-color: var(--color-primary) !important;
         }}
+        {passport_css}
     </style>
     <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='&#123;&quot;token&quot;: &quot;1b9c3c0ee6164106a1cb5eda9e61a045&quot;&#125;'></script><!-- End Cloudflare Web Analytics -->
 </head>
@@ -10602,43 +10774,8 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             <div class="cards-grid" id="cardsGrid">
 """
     for c in hotel_cards:
-        img_html = (
-            f'<img src="{html_lib.escape(c["image_url"], quote=True)}" alt="hotel image" loading="lazy" '
-            f'onerror="this.onerror=null;this.parentElement.innerHTML=\'<div>Фото отеля</div>\';" />'
-        ) if c["image_url"] else '<div>Фото отеля</div>'
-        offer_btn = f'<a class="card-btn" href="{html_lib.escape(c["offer_url"], quote=True)}" target="_blank">Открыть оффер</a>' if c["offer_url"] else '<span class="card-btn" style="opacity:.6;">Оффер недоступен</span>'
-        card_article = f"""
-            <article class="hotel-card" data-duration-bucket="{html_lib.escape(c.get('duration_bucket', ''), quote=True)}" data-departure-date="{html_lib.escape(c.get('departure_date', ''), quote=True)}" data-departure-key="{html_lib.escape(c.get('departure_key', ''), quote=True)}" data-ta-rating="{c.get('ta_data_attr', '-1')}" data-region="{c.get('region', '')}">
-                <div class="hotel-card-img">{img_html}<button class="watchlist-star-btn card-star" data-hotel-name="{html_lib.escape(c['hotel_name'], quote=True)}" title="Добавить в избранное">☆</button></div>
-                <div class="hotel-card-body">
-                    <h4 class="hotel-card-title">{c["hotel_name_html"]}</h4>
-                    <div class="hotel-card-meta">
-                        <div class="hotel-card-price">{c["price"]:.0f} PLN</div>
-                        <span class="deal-pill {c["deal_class"]}">Deal {c["deal_score"]} • {c["deal_label"]}</span>
-                        {f'<span class="hopper-pill {c["hopper_class"]}" data-tip="{html_lib.escape(c["hopper_reasoning"], quote=True)}" title="{html_lib.escape(c["hopper_reasoning"], quote=True)}">{c["hopper_badge"]}</span>' if c.get("hopper_badge") and "НЕТ ДАННЫХ" not in str(c.get("hopper_badge")) else f'<span class="forecast-pill {c["forecast_class"]}">{c["forecast_icon"]} {c["forecast_text"]}</span>'}
-                        {c.get("flash_drop_badge_html", "")}
-                        {c.get("fair_price_badge_html", "")}
-                        {c.get("booking_window_badge_html", "")}
-                        {c.get("gem_badge_html", "")}
-                        {c.get("reputation_badges_html", "")}
-                    </div>
-                    {c["comeback_html"]}
-                    {c.get("cheaper_alt_html", "")}
-                    {c.get("dupe_html", "")}
-                    {c.get("arbitrage_badge_html", "")}
-                    <div class="hotel-card-stats">
-                        <div>Δ48ч: <strong>{c["delta48"]}</strong></div>
-                        <div>Δср: <strong>{c["delta_avg"]}</strong></div>
-                        <div>{html_lib.escape(c["duration"])}</div>
-                        <div>{html_lib.escape(c["confidence"])} confidence</div>
-                    </div>
-                    <div class="hotel-card-actions">
-                        <a class="card-btn primary" href="{html_lib.escape(c["chart_href"], quote=True)}" target="_blank">График</a>
-                        {offer_btn}
-                    </div>
-                </div>
-            </article>
-"""
+        ai_prof = hotel_ai_profiles.get(c["hotel_name"], {})
+        card_article = render_hotel_card_horiz(c, ai_prof)
         cards_html += card_article
         cards_inner_html += card_article
 
@@ -11405,8 +11542,8 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             row_color_class = ''
 
         table_rows_html_parts.append(f"""
-                    <tr class="hotel-row {'row-odd' if i % 2 == 0 else 'row-even'}{row_color_class}" data-region="{arrival_hub_html}" data-ta-rating="{ta_data_attr}" data-duration-bucket="{duration_bucket_attr}" data-departure-date="{departure_date_attr}" data-departure-key="{departure_key_attr}">
-                        <td class="hotel-name col-hotel" data-label="Отель"><button class="watchlist-star-btn" data-hotel-name="{hotel_name_attr}" title="Добавить в избранное">☆</button><a class="open-chart-link hotel-hover-link" href="{chart_href}" target="_blank" data-hotel-name="{hotel_name_attr}">{hotel_name_html}</a>{tbl_smart_badges_html}</td>
+                    <tr class="hotel-row {'row-odd' if i % 2 == 0 else 'row-even'}{row_color_class}" data-region="{arrival_hub_html}" data-ta-rating="{ta_data_attr}" data-duration-bucket="{duration_bucket_attr}" data-departure-date="{departure_date_attr}" data-departure-key="{departure_key_attr}" data-hotel-slug="{slugify(hotel_name)}" data-hotel-name="{hotel_name_attr}" title="Нажмите на строку отеля, чтобы открыть Паспорт и график цен">
+                        <td class="hotel-name col-hotel" data-label="Отель"><button class="watchlist-star-btn" data-hotel-name="{hotel_name_attr}" title="Добавить в избранное">☆</button><a class="open-chart-link hotel-hover-link" href="{chart_href}" data-hotel-slug="{slugify(hotel_name)}" data-hotel-name="{hotel_name_attr}">{hotel_name_html}</a>{tbl_smart_badges_html}</td>
                         <td class="price col-tight" data-label="Цена" data-sort-value="{price}"><div class="price-cell-box"><div class="price-main-row"><span class="price-main">{price:.0f} PLN</span>{comeback_cell}</div>{cheaper_alt_html}</div></td>
                         <td class="col-tight col-w-deal-td" data-label="Deal" data-sort-value="{deal_score}" title="{deal_title}"><span class="deal-cell-inline">{deal_score} <span style="opacity:.85;">{deal_badge}</span> <span class="deal-conf-short">{confidence_short}</span></span></td>
                         <td class="col-tight col-w-forecast-td" data-label="Прогноз" data-sort-value="{forecast_sort_val}">{forecast_cell_html}</td>
@@ -11646,6 +11783,17 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             <div class="departure-modal-body" id="departureModalBody"></div>
         </div>
     </div>
+    {passport_drawer_markup}
+"""
+
+    # Вставляем данные и логику паспорта отеля
+    html_template += """
+    <script>
+      window.HOTEL_PASSPORT_DATA = """ + json.dumps(hotel_passport_data, ensure_ascii=False) + """;
+    </script>
+    <script>
+    """ + passport_js + """
+    </script>
 """
 
     # Вставляем скрипт превью слиянием JSON вне f-строки, чтобы избежать конфликтов с фигурными скобками
@@ -12641,7 +12789,7 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             const taValueAttr = card.dataset.taRating || card.dataset.ta || '-1';
             const rowTa = parseFloat(taValueAttr);
             const cardStats = card.querySelector('.hotel-card-stats');
-            const delta48Text = cardStats ? cardStats.querySelector('div:first-child strong')?.textContent || '' : '';
+            const delta48Text = card.dataset.delta48 || (cardStats ? cardStats.querySelector('div:first-child strong')?.textContent || '' : '');
 
             if (searchTerm && !hotelName.includes(searchTerm)) {
               return false;

@@ -42,6 +42,12 @@ mkdir -p site/data/filters
 cp -f favicon.svg site/favicon.svg
 cp -f hotel-chart.html site/hotel-chart.html
 cp -f index.html site/index.html
+if [ -f "${ROOT}/hotels.html" ]; then
+  cp -f "${ROOT}/hotels.html" site/hotels.html
+fi
+if [ -f "${ROOT}/hotels_catalog_data.json" ]; then
+  cp -f "${ROOT}/hotels_catalog_data.json" site/hotels_catalog_data.json
+fi
 [ -f "${ROOT}/help.html" ] && cp -f "${ROOT}/help.html" site/help.html
 [ -f "${ROOT}/create_filter.html" ] && cp -f "${ROOT}/create_filter.html" site/create_filter.html
 [ -f "${ROOT}/filter_builder.js" ] && cp -f "${ROOT}/filter_builder.js" site/filter_builder.js

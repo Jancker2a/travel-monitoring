@@ -44,6 +44,7 @@ scheduler_config.json
 
 # Tests
 test_*.py
+!test_hotel_*.py
 *_test.py
 dev_*_travel_prices.csv
 
@@ -104,5 +105,8 @@ telegram_sent_cache.json
 
 # Generated HTML dashboards and legacy charts (built on CI and deployed to Pages from site/)
 index*.html
+hotels.html
+hotels_catalog_data.json
+hotel_aliases_review.json
 hotel-charts/
 site/

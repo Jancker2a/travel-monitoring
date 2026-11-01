@@ -598,6 +598,7 @@ def generate_landing(tiles=None, output_file='index.html'):
       <div class="header-top">
         <h1>🌊 Travel Price Monitor</h1>
         <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+          <a href="hotels.html" class="help-btn" style="background:rgba(255,255,255,0.25);border-color:rgba(255,255,255,0.5);font-weight:700;" title="Единый каталог отелей">🏨 Каталог отелей</a>
           <a href="create_filter.html" class="create-btn">✨ + Добавить поездку</a>
           <a href="admin_filters.html" class="help-btn" style="background:rgba(255,255,255,0.22);border-color:rgba(255,255,255,0.4);" title="Центр управления фильтрами">🎛️ Admin Hub</a>
           <button type="button" class="help-btn" id="themeToggleBtn" onclick="toggleTheme()" title="Переключить тему">🌙 Тема</button>
