@@ -9,6 +9,7 @@ Aggregates hotel pricing, package options, specs, and monitoring coverage across
 - Cross-references hotel_specs_kb.json, hotel_reputation_kb.json, and market_dna_profile.json
 - Assigns strict confidence_level ('high', 'medium', 'low') preventing hallucinated archetypes
 - Produces hotels_catalog_data.json and builds a premium interactive hotels.html dashboard
+  with Light/Dark theme, multi-dimensional filtering, and an informative Plotly history chart.
 """
 
 from __future__ import annotations
@@ -86,6 +87,40 @@ RESORT_SLUG_MAP = {
     "mallorca": "Майорка",
 }
 
+FRIENDLY_FILTER_NAMES = {
+    "filter_7_10_days": "Египет • 7–10 дней (2 взр.)",
+    "egypt_7_10": "Египет • 7–10 дней (2 взр.)",
+    "filter_13_16_days": "Египет • 13–16 дней",
+    "egypt_13_16": "Египет • 13–16 дней",
+    "filter_turkey_7_10_days": "Турция • 7–10 дней (2+1)",
+    "turkey_7_10": "Турция • 7–10 дней (2+1)",
+    "filter_turkey_9_11_days": "Турция • 9–11 дней",
+    "turkey_9_11": "Турция • 9–11 дней",
+    "filter_turkey_13_16_days": "Турция • 13–16 дней",
+    "turkey_13_16": "Турция • 13–16 дней",
+    "filter_cyprus_7_10": "Кипр • 7–10 дней (1 взр.)",
+    "filter_greece_7_10_days": "Греция • 7–10 дней",
+    "greece_7_10": "Греция • 7–10 дней",
+    "filter_greece_13_16_days": "Греция • 13–16 дней",
+    "greece_13_16": "Греция • 13–16 дней",
+    "filter_egypt_autumn_2026_7_10_days": "Египет • Осень 2026 (7–10 дн.)",
+    "filter_egypt_autumn_2026_13_16_days": "Египет • Осень 2026 (13–16 дн.)",
+    "turkey_8_days": "Турция • 8 дней",
+    "turkey_13_days": "Турция • 13 дней",
+    "egypt_8_days": "Египет • 8 дней",
+    "egypt_13_days": "Египет • 13 дней",
+}
+
+
+def resolve_friendly_filter_name(filter_id: str, default_name: str = "") -> str:
+    """Returns human-friendly readable name for a filter ID."""
+    if filter_id in FRIENDLY_FILTER_NAMES:
+        return FRIENDLY_FILTER_NAMES[filter_id]
+    if default_name and not default_name.startswith("filter_") and not default_name.endswith("_days"):
+        return default_name
+    cleaned = filter_id.replace("filter_", "").replace("_days", " дней").replace("_", " ").title()
+    return cleaned
+
 
 def detect_country_and_resort(offer_url: str = "", hotel_name: str = "", dest_hint: str = "") -> Tuple[str, str]:
     """Accurately detects country and resort from offer_url, hotel name, and destination hint."""
@@ -157,7 +192,6 @@ def extract_package_composition(config_dict: Dict[str, Any], url_str: str = "") 
         m_children_raw = re.search(r"[?&]children=([\d\-,]+)", url)
         if m_children_raw:
             val = m_children_raw.group(1)
-            # e.g. children=10-12-2020 or children=20201210
             years = re.findall(r"(?:19|20)\d{2}", val)
             children = len(years) if years else 1
 
@@ -203,6 +237,11 @@ def load_filters_meta(manifest_path: str = MANIFEST_FILE) -> Dict[str, Dict[str,
                     f_id = f_item.get("id")
                     if f_id:
                         filters[f_id] = f_item
+                    data_dir = f_item.get("data_dir", "")
+                    if data_dir:
+                        d_name = os.path.basename(data_dir)
+                        if d_name not in filters:
+                            filters[d_name] = f_item
         except Exception as e:
             logger.warning(f"Error loading {manifest_path}: {e}")
 
@@ -216,7 +255,7 @@ def load_filters_meta(manifest_path: str = MANIFEST_FILE) -> Dict[str, Dict[str,
                     continue
                 f_id = c_data.get("id") or os.path.splitext(os.path.basename(c_path))[0]
                 if f_id not in filters:
-                    filters[f_id] = {
+                    item_def = {
                         "id": f_id,
                         "title": c_data.get("title") or c_data.get("description") or f_id,
                         "subtitle": c_data.get("subtitle") or "",
@@ -224,6 +263,9 @@ def load_filters_meta(manifest_path: str = MANIFEST_FILE) -> Dict[str, Dict[str,
                         "config": c_path,
                         "data_dir": c_data.get("data_dir") or f"data/filters/{f_id}",
                     }
+                    filters[f_id] = item_def
+                    if item_def.get("data_dir"):
+                        filters[os.path.basename(item_def["data_dir"])] = item_def
         except Exception:
             pass
 
@@ -273,8 +315,6 @@ def collect_hotel_data() -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
     reputation_kb = load_reputation_kb()
     market_dna = load_market_dna()
 
-    # Raw collections per canonical slug:
-    # slug -> { "canonical_record": ..., "history_points": [], "packages": [], "filters": {} }
     hotel_entries: Dict[str, Dict[str, Any]] = {}
 
     def get_or_create_entry(raw_hotel_name: str, dest_hint: str = "") -> Dict[str, Any]:
@@ -286,9 +326,9 @@ def collect_hotel_data() -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
                 "canonical_name": can_rec["canonical_name"],
                 "destination": dest_hint or can_rec["destination"] or "Средиземноморье",
                 "aliases": can_rec["aliases"],
-                "history_points": [],  # list of {date, price, filter_id}
-                "packages": [],        # list of package offers
-                "tracked_filters": {}, # filter_id -> filter summary dict
+                "history_points": [],
+                "packages": [],
+                "tracked_filters": {},
                 "images": set(),
                 "latest_offer_url": "",
                 "stars": 4,
@@ -296,7 +336,7 @@ def collect_hotel_data() -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
             }
         return hotel_entries[slug]
 
-    # 1. Parse hotel_series JSON files (data/filters/**/hotel_series/*.json and data_runs/**/hotel_series/*.json)
+    # 1. Parse hotel_series JSON files
     series_files = glob.glob("data/filters/**/hotel_series/*.json", recursive=True) + \
                    glob.glob("data_runs/**/hotel_series/*.json", recursive=True)
 
@@ -311,7 +351,6 @@ def collect_hotel_data() -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
 
                 filter_id = s_data.get("filter_id")
                 if not filter_id:
-                    # Deduce from path
                     parts = s_path.split(os.sep)
                     for i, p in enumerate(parts):
                         if p in ("filters", "data_runs") and i + 1 < len(parts):
@@ -319,6 +358,7 @@ def collect_hotel_data() -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
                             break
                 filter_id = filter_id or "default_filter"
                 f_meta = filters_meta.get(filter_id, {})
+                friendly_name = resolve_friendly_filter_name(filter_id, f_meta.get("title", ""))
                 comp = extract_package_composition(f_meta)
 
                 dest = f_meta.get("group_label") or ("Кипр" if "cyprus" in filter_id else "Турция" if "turkey" in filter_id else "Египет" if "egypt" in filter_id else "")
@@ -352,12 +392,11 @@ def collect_hotel_data() -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
                         entry["history_points"].append(pt)
                         filter_points.append(pt)
 
-                    # Update tracked filter for this hotel
                     f_prices = [p["price"] for p in filter_points if p["price"] > 0]
                     if f_prices:
                         entry["tracked_filters"][filter_id] = {
                             "filter_id": filter_id,
-                            "filter_name": f_meta.get("title") or filter_id,
+                            "filter_name": friendly_name,
                             "dashboard_file": f_meta.get("href") or f"index_{filter_id}.html",
                             "adults": comp["adults"],
                             "children": comp["children"],
@@ -369,7 +408,16 @@ def collect_hotel_data() -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
                             "min_price": min(f_prices),
                             "max_price": max(f_prices),
                             "current_price": f_prices[-1],
-                            "series": [{"x": p["date"], "y": p["price"]} for p in filter_points],
+                            "series": [
+                                {
+                                    "x": p["date"],
+                                    "y": p["price"],
+                                    "hover": p.get("hover", ""),
+                                    "dates": meta.get("dates", s_data.get("trip_dates_label", "")),
+                                    "duration": meta.get("duration", "7-10"),
+                                }
+                                for p in filter_points
+                            ],
                         }
 
                 # Register package
@@ -377,7 +425,7 @@ def collect_hotel_data() -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
                 if ys:
                     entry["packages"].append({
                         "filter_id": filter_id,
-                        "filter_title": f_meta.get("title") or filter_id,
+                        "filter_title": friendly_name,
                         "duration": dur,
                         "duration_days": parse_duration_days(dur),
                         "dates": meta.get("dates", s_data.get("trip_dates_label", "—")),
@@ -390,7 +438,7 @@ def collect_hotel_data() -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
         except Exception as e:
             logger.debug(f"Could not parse series {s_path}: {e}")
 
-    # 2. Parse CSV files (data/filters/**/travel_prices.csv and data_runs/**/*.csv)
+    # 2. Parse CSV files
     csv_files = glob.glob("data/filters/**/travel_prices.csv", recursive=True) + \
                 glob.glob("data_runs/**/*.csv", recursive=True)
 
@@ -408,6 +456,7 @@ def collect_hotel_data() -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
                         break
 
                 f_meta = filters_meta.get(filter_id, {})
+                friendly_name = resolve_friendly_filter_name(filter_id, f_meta.get("title", ""))
                 comp = extract_package_composition(f_meta)
                 dest = f_meta.get("group_label") or ("Турция" if "turkey" in filter_id else "Египет" if "egypt" in filter_id else "Кипр" if "cyprus" in filter_id else "")
 
@@ -432,20 +481,22 @@ def collect_hotel_data() -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
                         entry["latest_offer_url"] = offer_url
 
                     scraped_at = row.get("scraped_at") or ""
+                    dur = row.get("duration", "7-10")
+                    dates_str = row.get("dates", "—")
+
                     entry["history_points"].append({
                         "date": scraped_at,
                         "price": p_val,
                         "filter_id": filter_id,
-                        "hover": f"{row.get('dates', '')} • {p_val:g} zł",
+                        "hover": f"{dates_str} • {p_val:g} zł",
                     })
 
-                    dur = row.get("duration", "7-10")
                     entry["packages"].append({
                         "filter_id": filter_id,
-                        "filter_title": f_meta.get("title") or filter_id,
+                        "filter_title": friendly_name,
                         "duration": dur,
                         "duration_days": parse_duration_days(dur),
-                        "dates": row.get("dates", "—"),
+                        "dates": dates_str,
                         "composition_label": comp["label"],
                         "composition_short": comp["short_label"],
                         "departure": row.get("departure_airport", "WAW/WMI"),
@@ -456,10 +507,9 @@ def collect_hotel_data() -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
         except Exception as e:
             logger.debug(f"Error parsing CSV {c_path}: {e}")
 
-    # Also register review candidates
     registry.save_review_manifest()
 
-    # 3. Consolidate and compute metrics for each canonical hotel
+    # 3. Consolidate canonical hotel profiles
     catalog_hotels = []
     logger.info(f"Consolidating {len(hotel_entries)} canonical hotel profiles...")
 
@@ -484,15 +534,10 @@ def collect_hotel_data() -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
         if max_price > min_price and current_price < max_price:
             price_drop_pct = round(((max_price - current_price) / max_price) * 100, 1)
 
-        # Select primary image
         image_url = sorted(list(entry["images"]))[0] if entry["images"] else ""
 
-        # Price Cascade for reference badge:
-        # Priority 1: 7-8 days, minimal composition
-        # Priority 2: 9-11 days
-        # Priority 3: 13-16 days
+        # Price Cascade for reference badge
         packages = entry["packages"]
-        # Deduplicate packages by (duration_days, composition_label, price)
         unique_packages = {}
         for pkg in packages:
             key = (pkg["duration_days"], pkg["composition_label"])
@@ -511,14 +556,17 @@ def collect_hotel_data() -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
             if p2:
                 ref_pkg = p2[0]
             else:
-                # P3: any other
                 ref_pkg = deduped_packages[0] if deduped_packages else None
 
         if ref_pkg:
             ref_price = ref_pkg["price"]
+            ref_duration_days = ref_pkg["duration_days"]
+            ref_composition = ref_pkg["composition_label"]
             ref_badge = f"{int(ref_price):,} zł · {ref_pkg['duration_days']} дн. · {ref_pkg['composition_label']}".replace(",", " ")
         else:
             ref_price = current_price
+            ref_duration_days = 7
+            ref_composition = "2 взр."
             ref_badge = f"{int(current_price):,} zł · 7 дн. · 2 взр.".replace(",", " ")
 
         # Specs & KB integration
@@ -529,7 +577,6 @@ def collect_hotel_data() -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
         rep_data = reputation_kb.get(h_name) or reputation_kb.get(clean_hotel_title(h_name))
         dna_data = market_dna.get(h_name) or market_dna.get(clean_hotel_title(h_name))
 
-        # Check if reputation is template
         is_rep_canned = False
         if rep_data:
             fk = rep_data.get("family_and_kids", {})
@@ -537,10 +584,6 @@ def collect_hotel_data() -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
                 is_rep_canned = True
 
         # STRICT CONFIDENCE LEVEL CALCULATION
-        # Decision 9:
-        # high: >=5 samples + verified KB (not canned)
-        # medium: 3-4 samples
-        # low: 1-2 samples or canned template
         if total_samples >= 5 and (is_specs_enriched or (rep_data and not is_rep_canned)):
             confidence_level = "high"
             confidence_badge = "Высокая надежность"
@@ -551,7 +594,6 @@ def collect_hotel_data() -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
             confidence_level = "low"
             confidence_badge = "Мало замеров"
 
-        # Verdict and Archetype: ONLY DISPLAYED IF CONFIDENCE IS HIGH OR MEDIUM!
         archetype = None
         verdict = None
         if confidence_level in ("high", "medium"):
@@ -578,7 +620,7 @@ def collect_hotel_data() -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
         elif rep_data and rep_data.get("sentiment_scores"):
             scores = rep_data["sentiment_scores"]
             if any(s > 0 for s in scores.values()):
-                rating = round(sum(scores.values()) / max(len(scores), 1) / 2, 1)  # scale 10 to 5
+                rating = round(sum(scores.values()) / max(len(scores), 1) / 2, 1)
 
         # Smart Collections tagging
         collections = []
@@ -610,6 +652,8 @@ def collect_hotel_data() -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
             "median_price": median_price,
             "price_drop_pct": price_drop_pct,
             "ref_price": ref_price,
+            "ref_duration_days": ref_duration_days,
+            "ref_composition": ref_composition,
             "ref_badge": ref_badge,
             "total_samples": total_samples,
             "confidence_level": confidence_level,
@@ -623,7 +667,6 @@ def collect_hotel_data() -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
             "packages": deduped_packages,
         })
 
-    # Sort catalog: hotels with best price drop and most tracked filters first
     catalog_hotels.sort(key=lambda h: (len(h["collections"]), h["price_drop_pct"], len(h["tracked_filters"])), reverse=True)
 
     summary_stats = {
@@ -640,13 +683,15 @@ def collect_hotel_data() -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
 
 def render_hotel_catalog_html(hotels: List[Dict[str, Any]], stats: Dict[str, Any]) -> str:
     """
-    Renders premium hotels.html single-page application with inline data, Plotly charts,
-    instant search, filtering chips, and side drawer passport.
+    Renders premium hotels.html single-page application with:
+    - Light / Dark theme toggle
+    - Multi-dimensional filtering panel (Price inputs, Resort chips, Rating, Composition, Duration, Specs)
+    - Highly informative Plotly history chart with benchmarks, KPIs, and timeframe buttons.
     """
     hotels_json = json.dumps(hotels, ensure_ascii=False, separators=(",", ":"))
 
     html_content = f"""<!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -660,6 +705,35 @@ def render_hotel_catalog_html(hotels: List[Dict[str, Any]], stats: Dict[str, Any
   <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
   <style>
     :root {{
+      --bg-body: #f8fafc;
+      --bg-card: #ffffff;
+      --bg-card-hover: #f1f5f9;
+      --bg-surface: #e2e8f0;
+      --bg-drawer: #ffffff;
+      --border-color: rgba(15, 23, 42, 0.08);
+      --border-accent: rgba(79, 70, 229, 0.3);
+      --primary: #4f46e5;
+      --primary-hover: #4338ca;
+      --primary-light: rgba(79, 70, 229, 0.1);
+      --accent-cyan: #0284c7;
+      --accent-emerald: #059669;
+      --accent-amber: #d97706;
+      --accent-rose: #e11d48;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --text-dim: #64748b;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+      --radius-full: 9999px;
+      --shadow-card: 0 4px 16px rgba(15, 23, 42, 0.06);
+      --shadow-hover: 0 12px 32px -4px rgba(79, 70, 229, 0.18);
+      --chart-grid: rgba(0, 0, 0, 0.06);
+      --chart-text: #475569;
+      --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }}
+
+    [data-theme="dark"] {{
       --bg-body: #0b0f19;
       --bg-card: #131b2e;
       --bg-card-hover: #1a253e;
@@ -677,13 +751,10 @@ def render_hotel_catalog_html(hotels: List[Dict[str, Any]], stats: Dict[str, Any
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
       --text-dim: #64748b;
-      --radius-sm: 8px;
-      --radius-md: 12px;
-      --radius-lg: 18px;
-      --radius-full: 9999px;
       --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.5);
       --shadow-hover: 0 12px 32px -4px rgba(99, 102, 241, 0.25);
-      --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --chart-grid: rgba(255, 255, 255, 0.06);
+      --chart-text: #94a3b8;
     }}
 
     * {{ box-sizing: border-box; margin: 0; padding: 0; }}
@@ -696,11 +767,11 @@ def render_hotel_catalog_html(hotels: List[Dict[str, Any]], stats: Dict[str, Any
       display: flex;
       flex-direction: column;
       overflow-x: hidden;
+      transition: background-color 0.2s ease, color 0.2s ease;
     }}
 
     a {{ color: inherit; text-decoration: none; }}
 
-    /* Layout Container */
     .catalog-container {{
       max-width: 1380px;
       margin: 0 auto;
@@ -708,12 +779,12 @@ def render_hotel_catalog_html(hotels: List[Dict[str, Any]], stats: Dict[str, Any
       width: 100%;
     }}
 
-    /* Header & Top Bar */
+    /* Header */
     .catalog-header {{
       display: flex;
       flex-direction: column;
       gap: 1.25rem;
-      margin-bottom: 2rem;
+      margin-bottom: 1.75rem;
     }}
     .header-top {{
       display: flex;
@@ -736,15 +807,12 @@ def render_hotel_catalog_html(hotels: List[Dict[str, Any]], stats: Dict[str, Any
       align-items: center;
       justify-content: center;
       font-size: 1.5rem;
-      box-shadow: 0 0 16px rgba(99, 102, 241, 0.4);
+      box-shadow: 0 0 16px rgba(99, 102, 241, 0.3);
     }}
     .brand-title h1 {{
       font-size: 1.5rem;
       font-weight: 800;
       letter-spacing: -0.02em;
-      background: linear-gradient(to right, #fff, #cbd5e1);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
     }}
     .brand-title p {{
       font-size: 0.85rem;
@@ -758,7 +826,7 @@ def render_hotel_catalog_html(hotels: List[Dict[str, Any]], stats: Dict[str, Any
     }}
     .btn-nav {{
       padding: 0.5rem 1rem;
-      background: var(--bg-surface);
+      background: var(--bg-card);
       border: 1px solid var(--border-color);
       border-radius: var(--radius-sm);
       color: var(--text-main);
@@ -768,12 +836,12 @@ def render_hotel_catalog_html(hotels: List[Dict[str, Any]], stats: Dict[str, Any
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
+      box-shadow: var(--shadow-card);
       transition: all 0.2s ease;
     }}
     .btn-nav:hover {{
-      background: var(--primary);
       border-color: var(--primary);
-      color: #fff;
+      color: var(--primary);
     }}
 
     /* KPI Bar */
@@ -785,18 +853,12 @@ def render_hotel_catalog_html(hotels: List[Dict[str, Any]], stats: Dict[str, Any
       border: 1px solid var(--border-color);
       border-radius: var(--radius-md);
       padding: 1rem 1.25rem;
+      box-shadow: var(--shadow-card);
     }}
-    .kpi-item {{
-      display: flex;
-      flex-direction: column;
-    }}
-    .kpi-val {{
-      font-size: 1.4rem;
-      font-weight: 800;
-      color: #fff;
-    }}
+    .kpi-item {{ display: flex; flex-direction: column; }}
+    .kpi-val {{ font-size: 1.4rem; font-weight: 800; }}
     .kpi-val.highlight-green {{ color: var(--accent-emerald); }}
-    .kpi-val.highlight-indigo {{ color: #818cf8; }}
+    .kpi-val.highlight-indigo {{ color: var(--primary); }}
     .kpi-val.highlight-cyan {{ color: var(--accent-cyan); }}
     .kpi-lbl {{
       font-size: 0.75rem;
@@ -805,7 +867,7 @@ def render_hotel_catalog_html(hotels: List[Dict[str, Any]], stats: Dict[str, Any
       letter-spacing: 0.04em;
     }}
 
-    /* Control Panel: Search & Chips */
+    /* Controls Panel */
     .controls-panel {{
       background: var(--bg-card);
       border: 1px solid var(--border-color);
@@ -813,7 +875,7 @@ def render_hotel_catalog_html(hotels: List[Dict[str, Any]], stats: Dict[str, Any
       padding: 1.25rem;
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      gap: 1.25rem;
       margin-bottom: 2rem;
       box-shadow: var(--shadow-card);
     }}
@@ -839,10 +901,10 @@ def render_hotel_catalog_html(hotels: List[Dict[str, Any]], stats: Dict[str, Any
     .search-input {{
       width: 100%;
       padding: 0.75rem 1rem 0.75rem 2.75rem;
-      background: var(--bg-body);
+      background: var(--bg-surface);
       border: 1px solid var(--border-color);
       border-radius: var(--radius-md);
-      color: #fff;
+      color: var(--text-main);
       font-size: 0.95rem;
       font-family: inherit;
       outline: none;
@@ -854,31 +916,39 @@ def render_hotel_catalog_html(hotels: List[Dict[str, Any]], stats: Dict[str, Any
     }}
     .sort-select {{
       padding: 0.75rem 1rem;
-      background: var(--bg-body);
+      background: var(--bg-surface);
       border: 1px solid var(--border-color);
       border-radius: var(--radius-md);
-      color: #fff;
+      color: var(--text-main);
       font-size: 0.9rem;
       font-family: inherit;
       outline: none;
       cursor: pointer;
     }}
 
-    /* Filter Chips */
-    .chips-group {{
+    /* Filter Sections Inside Controls */
+    .filters-grid {{
       display: flex;
-      flex-wrap: wrap;
+      flex-direction: column;
+      gap: 0.85rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border-color);
+    }}
+    .filter-row {{
+      display: flex;
       align-items: center;
+      flex-wrap: wrap;
       gap: 0.5rem;
     }}
-    .chips-label {{
+    .filter-row-title {{
       font-size: 0.8rem;
-      font-weight: 600;
+      font-weight: 700;
       color: var(--text-muted);
-      margin-right: 0.5rem;
+      width: 95px;
+      flex-shrink: 0;
     }}
     .chip {{
-      padding: 0.4rem 0.85rem;
+      padding: 0.35rem 0.75rem;
       background: var(--bg-surface);
       border: 1px solid var(--border-color);
       border-radius: var(--radius-full);
@@ -893,21 +963,61 @@ def render_hotel_catalog_html(hotels: List[Dict[str, Any]], stats: Dict[str, Any
       user-select: none;
     }}
     .chip:hover {{
-      background: var(--bg-card-hover);
-      color: #fff;
-      border-color: rgba(255, 255, 255, 0.2);
+      color: var(--text-main);
+      border-color: var(--primary);
     }}
     .chip.active {{
       background: var(--primary);
       border-color: var(--primary);
       color: #fff;
-      box-shadow: 0 0 12px rgba(99, 102, 241, 0.4);
+      box-shadow: 0 2px 8px rgba(79, 70, 229, 0.3);
     }}
-    .chip-count {{
-      background: rgba(0, 0, 0, 0.3);
-      padding: 0.1rem 0.4rem;
-      border-radius: var(--radius-full);
-      font-size: 0.7rem;
+
+    /* Price inputs row */
+    .price-filter-inputs {{
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-right: 0.5rem;
+    }}
+    .price-inp {{
+      width: 105px;
+      padding: 0.35rem 0.6rem;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      color: var(--text-main);
+      font-size: 0.82rem;
+      font-family: inherit;
+      outline: none;
+    }}
+    .price-inp:focus {{
+      border-color: var(--primary);
+    }}
+
+    /* Active filter counter & reset */
+    .filter-status-bar {{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      padding-top: 0.5rem;
+      border-top: 1px solid var(--border-color);
+    }}
+    .btn-reset-filters {{
+      background: transparent;
+      border: none;
+      color: var(--accent-rose);
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }}
+    .btn-reset-filters:hover {{
+      text-decoration: underline;
     }}
 
     /* Hotel Cards Grid */
@@ -940,7 +1050,7 @@ def render_hotel_catalog_html(hotels: List[Dict[str, Any]], stats: Dict[str, Any
       width: 100%;
       height: 190px;
       position: relative;
-      background: linear-gradient(135deg, #1e293b, #0f172a);
+      background: var(--bg-surface);
       overflow: hidden;
     }}
     .card-img {{
@@ -973,9 +1083,9 @@ def render_hotel_catalog_html(hotels: List[Dict[str, Any]], stats: Dict[str, Any
     }}
     .badge-country {{
       padding: 0.25rem 0.65rem;
-      background: rgba(15, 23, 42, 0.85);
+      background: rgba(15, 23, 42, 0.8);
       backdrop-filter: blur(8px);
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       border-radius: var(--radius-full);
       font-size: 0.75rem;
       font-weight: 700;
@@ -1008,7 +1118,6 @@ def render_hotel_catalog_html(hotels: List[Dict[str, Any]], stats: Dict[str, Any
     .card-title {{
       font-size: 1.05rem;
       font-weight: 700;
-      color: #fff;
       line-height: 1.35;
       display: -webkit-box;
       -webkit-line-clamp: 2;
@@ -1019,7 +1128,7 @@ def render_hotel_catalog_html(hotels: List[Dict[str, Any]], stats: Dict[str, Any
       display: inline-flex;
       align-items: center;
       gap: 0.25rem;
-      background: rgba(16, 185, 129, 0.15);
+      background: rgba(16, 185, 129, 0.12);
       border: 1px solid rgba(16, 185, 129, 0.3);
       color: var(--accent-emerald);
       padding: 0.15rem 0.45rem;
@@ -1039,8 +1148,8 @@ def render_hotel_catalog_html(hotels: List[Dict[str, Any]], stats: Dict[str, Any
 
     .card-verdict-snippet {{
       font-size: 0.8rem;
-      color: #cbd5e1;
-      background: rgba(255, 255, 255, 0.03);
+      color: var(--text-muted);
+      background: var(--bg-surface);
       border-left: 2px solid var(--primary);
       padding: 0.4rem 0.6rem;
       border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
@@ -1071,14 +1180,10 @@ def render_hotel_catalog_html(hotels: List[Dict[str, Any]], stats: Dict[str, Any
       justify-content: space-between;
       align-items: flex-end;
     }}
-    .price-wrap {{
-      display: flex;
-      flex-direction: column;
-    }}
+    .price-wrap {{ display: flex; flex-direction: column; }}
     .price-main {{
       font-size: 1.35rem;
       font-weight: 800;
-      color: #fff;
       line-height: 1.1;
     }}
     .price-sub {{
@@ -1098,39 +1203,31 @@ def render_hotel_catalog_html(hotels: List[Dict[str, Any]], stats: Dict[str, Any
       display: inline-flex;
       align-items: center;
       gap: 0.25rem;
-      color: #818cf8;
+      color: var(--primary);
       font-weight: 600;
     }}
 
     /* Slide-Over Side Drawer / Modal (Deep Hotel Passport) */
     .drawer-overlay {{
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.7);
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.65);
       backdrop-filter: blur(6px);
       z-index: 1000;
       opacity: 0;
       visibility: hidden;
       transition: all 0.25s ease;
     }}
-    .drawer-overlay.open {{
-      opacity: 1;
-      visibility: visible;
-    }}
+    .drawer-overlay.open {{ opacity: 1; visibility: visible; }}
 
     .passport-drawer {{
       position: fixed;
-      top: 0;
-      right: 0;
-      bottom: 0;
+      top: 0; right: 0; bottom: 0;
       width: 100%;
-      max-width: 820px;
+      max-width: 860px;
       background: var(--bg-drawer);
       border-left: 1px solid var(--border-color);
-      box-shadow: -8px 0 32px rgba(0, 0, 0, 0.8);
+      box-shadow: -8px 0 32px rgba(0, 0, 0, 0.4);
       z-index: 1001;
       transform: translateX(100%);
       transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -1138,11 +1235,8 @@ def render_hotel_catalog_html(hotels: List[Dict[str, Any]], stats: Dict[str, Any
       flex-direction: column;
       overflow: hidden;
     }}
-    .passport-drawer.open {{
-      transform: translateX(0);
-    }}
+    .passport-drawer.open {{ transform: translateX(0); }}
 
-    /* Drawer Top Bar */
     .drawer-header {{
       padding: 1.25rem 1.5rem;
       border-bottom: 1px solid var(--border-color);
@@ -1151,34 +1245,19 @@ def render_hotel_catalog_html(hotels: List[Dict[str, Any]], stats: Dict[str, Any
       align-items: center;
       background: var(--bg-card);
     }}
-    .drawer-title-box h2 {{
-      font-size: 1.25rem;
-      font-weight: 800;
-      color: #fff;
-    }}
-    .drawer-title-box p {{
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }}
+    .drawer-title-box h2 {{ font-size: 1.25rem; font-weight: 800; }}
+    .drawer-title-box p {{ font-size: 0.85rem; color: var(--text-muted); }}
     .drawer-close-btn {{
-      width: 36px;
-      height: 36px;
+      width: 36px; height: 36px;
       border-radius: var(--radius-full);
       background: var(--bg-surface);
       border: 1px solid var(--border-color);
       color: var(--text-main);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-      cursor: pointer;
-      transition: background 0.15s;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; cursor: pointer;
     }}
-    .drawer-close-btn:hover {{
-      background: var(--bg-card-hover);
-    }}
+    .drawer-close-btn:hover {{ background: var(--border-color); }}
 
-    /* Drawer Scrollable Content */
     .drawer-content {{
       padding: 1.5rem;
       overflow-y: auto;
@@ -1188,7 +1267,6 @@ def render_hotel_catalog_html(hotels: List[Dict[str, Any]], stats: Dict[str, Any
       gap: 1.5rem;
     }}
 
-    /* Passport Hero */
     .passport-hero {{
       display: grid;
       grid-template-columns: 200px 1fr;
@@ -1199,21 +1277,15 @@ def render_hotel_catalog_html(hotels: List[Dict[str, Any]], stats: Dict[str, Any
       padding: 1.25rem;
     }}
     .hero-thumb {{
-      width: 100%;
-      height: 140px;
+      width: 100%; height: 140px;
       border-radius: var(--radius-sm);
       object-fit: cover;
     }}
     .hero-info {{
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      display: flex; flex-direction: column; justify-content: space-between;
     }}
     .hero-stat-pills {{
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 0.5rem;
+      display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem;
     }}
     .stat-pill {{
       padding: 0.35rem 0.65rem;
@@ -1222,9 +1294,7 @@ def render_hotel_catalog_html(hotels: List[Dict[str, Any]], stats: Dict[str, Any
       font-size: 0.75rem;
       color: var(--text-muted);
     }}
-    .stat-pill strong {{
-      color: #fff;
-    }}
+    .stat-pill strong {{ color: var(--text-main); }}
 
     /* Tabs Bar */
     .tabs-nav {{
@@ -1249,7 +1319,7 @@ def render_hotel_catalog_html(hotels: List[Dict[str, Any]], stats: Dict[str, Any
       gap: 0.4rem;
     }}
     .tab-btn:hover {{
-      color: #fff;
+      color: var(--text-main);
       background: var(--bg-surface);
     }}
     .tab-btn.active {{
@@ -1257,24 +1327,85 @@ def render_hotel_catalog_html(hotels: List[Dict[str, Any]], stats: Dict[str, Any
       background: var(--primary);
     }}
 
-    /* Tab Panes */
     .tab-pane {{
       display: none;
       flex-direction: column;
       gap: 1rem;
     }}
-    .tab-pane.active {{
-      display: flex;
-    }}
+    .tab-pane.active {{ display: flex; }}
 
-    /* Plotly Chart Container */
-    .chart-box {{
-      width: 100%;
-      min-height: 380px;
+    /* High-Information Chart Container & Toolbar */
+    .chart-box-wrapper {{
       background: var(--bg-card);
       border: 1px solid var(--border-color);
       border-radius: var(--radius-md);
-      padding: 1rem;
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }}
+    .chart-kpi-bar {{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 0.75rem;
+    }}
+    .chart-kpi-card {{
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 0.75rem 0.85rem;
+      display: flex;
+      flex-direction: column;
+    }}
+    .chart-kpi-val {{
+      font-size: 1.15rem;
+      font-weight: 800;
+    }}
+    .chart-kpi-lbl {{
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }}
+    .chart-kpi-badge {{
+      font-size: 0.7rem;
+      font-weight: 700;
+      margin-top: 0.2rem;
+    }}
+    .chart-kpi-badge.green {{ color: var(--accent-emerald); }}
+    .chart-kpi-badge.rose {{ color: var(--accent-rose); }}
+
+    .chart-toolbar {{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }}
+    .timeframe-group {{
+      display: inline-flex;
+      gap: 0.35rem;
+    }}
+    .btn-tf {{
+      padding: 0.25rem 0.65rem;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+    }}
+    .btn-tf:hover {{ color: var(--text-main); }}
+    .btn-tf.active {{
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }}
+
+    .chart-plot-area {{
+      width: 100%;
+      min-height: 380px;
     }}
 
     /* Packages Table */
@@ -1299,7 +1430,6 @@ def render_hotel_catalog_html(hotels: List[Dict[str, Any]], stats: Dict[str, Any
     .packages-table td {{
       padding: 0.75rem 1rem;
       border-top: 1px solid var(--border-color);
-      color: #cbd5e1;
     }}
     .packages-table tr:hover td {{
       background: var(--bg-card-hover);
@@ -1334,21 +1464,14 @@ def render_hotel_catalog_html(hotels: List[Dict[str, Any]], stats: Dict[str, Any
       flex-direction: column;
       gap: 0.35rem;
     }}
-    .infra-icon {{
-      font-size: 1.5rem;
-      margin-bottom: 0.25rem;
-    }}
+    .infra-icon {{ font-size: 1.5rem; margin-bottom: 0.25rem; }}
     .infra-title {{
       font-size: 0.8rem;
       color: var(--text-muted);
       text-transform: uppercase;
       font-weight: 600;
     }}
-    .infra-val {{
-      font-size: 1rem;
-      font-weight: 700;
-      color: #fff;
-    }}
+    .infra-val {{ font-size: 1rem; font-weight: 700; }}
 
     /* Tracked Filters List */
     .filter-coverage-list {{
@@ -1367,11 +1490,7 @@ def render_hotel_catalog_html(hotels: List[Dict[str, Any]], stats: Dict[str, Any
       flex-wrap: wrap;
       gap: 0.75rem;
     }}
-    .coverage-info h4 {{
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: #fff;
-    }}
+    .coverage-info h4 {{ font-size: 0.95rem; font-weight: 700; }}
     .coverage-meta {{
       font-size: 0.8rem;
       color: var(--text-muted);
@@ -1384,7 +1503,7 @@ def render_hotel_catalog_html(hotels: List[Dict[str, Any]], stats: Dict[str, Any
       border-radius: var(--radius-sm);
       font-size: 0.8rem;
       font-weight: 600;
-      color: #818cf8;
+      color: var(--primary);
       display: inline-flex;
       align-items: center;
       gap: 0.35rem;
@@ -1404,14 +1523,14 @@ def render_hotel_catalog_html(hotels: List[Dict[str, Any]], stats: Dict[str, Any
       border-radius: var(--radius-lg);
     }}
     .empty-icon {{ font-size: 3rem; margin-bottom: 1rem; opacity: 0.5; }}
-    .empty-title {{ font-size: 1.2rem; font-weight: 700; color: #fff; }}
+    .empty-title {{ font-size: 1.2rem; font-weight: 700; }}
     .empty-desc {{ font-size: 0.9rem; color: var(--text-muted); margin-top: 0.5rem; }}
 
-    /* Responsive */
     @media (max-width: 768px) {{
       .passport-hero {{ grid-template-columns: 1fr; }}
       .hero-thumb {{ height: 160px; }}
       .catalog-container {{ padding: 1rem 1rem 3rem; }}
+      .filter-row-title {{ width: 100%; }}
     }}
   </style>
 </head>
@@ -1429,6 +1548,7 @@ def render_hotel_catalog_html(hotels: List[Dict[str, Any]], stats: Dict[str, Any
           </div>
         </div>
         <div class="nav-actions">
+          <button type="button" class="btn-nav" id="themeToggleBtn" onclick="toggleTheme()" title="Переключить тему оформления">🌙 Тёмная</button>
           <a href="index.html" class="btn-nav">← К дашбордам</a>
         </div>
       </div>
@@ -1454,9 +1574,9 @@ def render_hotel_catalog_html(hotels: List[Dict[str, Any]], stats: Dict[str, Any
       </div>
     </header>
 
-    <!-- Controls Panel -->
+    <!-- Controls Panel (Multi-dimensional filtering) -->
     <section class="controls-panel">
-      <!-- Search & Sort -->
+      <!-- Search & Sort Row -->
       <div class="search-row">
         <div class="search-box-wrapper">
           <span class="search-icon">🔍</span>
@@ -1470,27 +1590,74 @@ def render_hotel_catalog_html(hotels: List[Dict[str, Any]], stats: Dict[str, Any
         </select>
       </div>
 
-      <!-- Country Chips -->
-      <div class="chips-group" id="countryChips">
-        <span class="chips-label">Страна:</span>
-        <button class="chip active" data-country="all">Все страны</button>
-        <button class="chip" data-country="Турция">🇹🇷 Турция</button>
-        <button class="chip" data-country="Египет">🇪🇬 Египет</button>
-        <button class="chip" data-country="Кипр">🇨🇾 Кипр</button>
-        <button class="chip" data-country="Греция">🇬🇷 Греция</button>
-        <button class="chip" data-country="Испания">🇪🇸 Испания</button>
-        <button class="chip" data-country="Болгария">🇧🇬 Болгария</button>
+      <!-- Advanced Filter Grid -->
+      <div class="filters-grid">
+        <!-- Countries -->
+        <div class="filter-row" id="countryRow">
+          <span class="filter-row-title">Страна:</span>
+          <button class="chip active" data-country="all">Все страны</button>
+          <button class="chip" data-country="Турция">🇹🇷 Турция</button>
+          <button class="chip" data-country="Египет">🇪🇬 Египет</button>
+          <button class="chip" data-country="Кипр">🇨🇾 Кипр</button>
+          <button class="chip" data-country="Греция">🇬🇷 Греция</button>
+          <button class="chip" data-country="Испания">🇪🇸 Испания</button>
+          <button class="chip" data-country="Болгария">🇧🇬 Болгария</button>
+        </div>
+
+        <!-- Dynamic Resorts -->
+        <div class="filter-row" id="resortRow">
+          <span class="filter-row-title">Курорт:</span>
+          <div id="resortChipsContainer" style="display:flex; flex-wrap:wrap; gap:0.4rem;">
+            <!-- Dynamically populated based on selected country -->
+          </div>
+        </div>
+
+        <!-- Budget / Price Range -->
+        <div class="filter-row" id="priceRow">
+          <span class="filter-row-title">Бюджет:</span>
+          <div class="price-filter-inputs">
+            <input type="number" id="priceMinInput" class="price-inp" placeholder="От 2 000 zł" min="0" step="500">
+            <span>—</span>
+            <input type="number" id="priceMaxInput" class="price-inp" placeholder="До 20 000 zł" min="0" step="500">
+          </div>
+          <button class="chip active" data-budget="all">Все цены</button>
+          <button class="chip" data-budget="under5k">&lt; 5 000 zł</button>
+          <button class="chip" data-budget="5k-8k">5 000–8 000 zł</button>
+          <button class="chip" data-budget="8k-12k">8 000–12 000 zł</button>
+          <button class="chip" data-budget="above12k">&gt; 12 000 zł</button>
+        </div>
+
+        <!-- Composition & Duration -->
+        <div class="filter-row" id="compDurationRow">
+          <span class="filter-row-title">Состав:</span>
+          <button class="chip active" data-comp="all">Любой состав</button>
+          <button class="chip" data-comp="2+1">👨‍👩‍👧 2 взр. + 1 реб.</button>
+          <button class="chip" data-comp="2 взр.">👫 2 взрослых</button>
+          <button class="chip" data-comp="1 взр.">👤 1 взрослый</button>
+
+          <span class="filter-row-title" style="margin-left:0.75rem; width:auto;">Длительность:</span>
+          <button class="chip active" data-duration="all">Любая</button>
+          <button class="chip" data-duration="7-8">7–8 дней</button>
+          <button class="chip" data-duration="9-11">9–11 дней</button>
+          <button class="chip" data-duration="12+">12+ дней</button>
+        </div>
+
+        <!-- Rating & Smart Collections -->
+        <div class="filter-row" id="collectionsRow">
+          <span class="filter-row-title">Подборки:</span>
+          <button class="chip" data-collection="flash_drops">⚡ Горящие скидки (≥8%)</button>
+          <button class="chip" data-collection="hidden_gems">💎 Жемчужины (★ 4.4+)</button>
+          <button class="chip" data-collection="family_kids">👶 С детьми</button>
+          <button class="chip" data-collection="warm_winter">☀️ Теплая зима</button>
+          <button class="chip" data-collection="early_booking">🏷️ Раннее бронь</button>
+          <button class="chip" data-collection="ber_arbitrage">🇩🇪 Выгода BER</button>
+        </div>
       </div>
 
-      <!-- Collection Chips -->
-      <div class="chips-group" id="collectionChips">
-        <span class="chips-label">Подборки:</span>
-        <button class="chip" data-collection="flash_drops">⚡ Скидки</button>
-        <button class="chip" data-collection="hidden_gems">💎 Жемчужины</button>
-        <button class="chip" data-collection="family_kids">👶 С детьми</button>
-        <button class="chip" data-collection="warm_winter">☀️ Теплая зима</button>
-        <button class="chip" data-collection="early_booking">🏷️ Раннее бронь</button>
-        <button class="chip" data-collection="ber_arbitrage">🇩🇪 Выгода BER</button>
+      <!-- Filter Status & Reset -->
+      <div class="filter-status-bar">
+        <span id="filterMatchesText">Найдено: 0 отелей</span>
+        <button type="button" class="btn-reset-filters" id="resetFiltersBtn" onclick="resetAllFilters()">✕ Сбросить все фильтры</button>
       </div>
     </section>
 
@@ -1518,7 +1685,7 @@ def render_hotel_catalog_html(hotels: List[Dict[str, Any]], stats: Dict[str, Any
         <div class="hero-info">
           <div>
             <div id="drawerBadgeRow" style="display:flex; gap:0.5rem; align-items:center;"></div>
-            <p id="drawerVerdict" style="margin-top:0.4rem; font-size:0.85rem; color:#cbd5e1;"></p>
+            <p id="drawerVerdict" style="margin-top:0.4rem; font-size:0.85rem; color:var(--text-muted);"></p>
           </div>
           <div class="hero-stat-pills" id="drawerHeroStats"></div>
         </div>
@@ -1532,9 +1699,47 @@ def render_hotel_catalog_html(hotels: List[Dict[str, Any]], stats: Dict[str, Any
         <button class="tab-btn" data-tab="monitoring">📡 Мониторинг</button>
       </div>
 
-      <!-- Tab 1: History Plotly Chart -->
+      <!-- Tab 1: High-Information Price History Chart -->
       <div class="tab-pane active" id="paneHistory">
-        <div class="chart-box" id="hotelPlotlyChart"></div>
+        <div class="chart-box-wrapper">
+          <!-- Analytical KPIs Above Chart -->
+          <div class="chart-kpi-bar" id="chartKpisRow">
+            <div class="chart-kpi-card">
+              <span class="chart-kpi-lbl">Текущая цена</span>
+              <span class="chart-kpi-val" id="chartKpiCurrent">—</span>
+              <span class="chart-kpi-badge" id="chartKpiCurrentSub">последний замер</span>
+            </div>
+            <div class="chart-kpi-card">
+              <span class="chart-kpi-lbl">Исторический минимум</span>
+              <span class="chart-kpi-val" style="color:var(--accent-emerald);" id="chartKpiMin">—</span>
+              <span class="chart-kpi-badge green" id="chartKpiMinSub">лучшая цена</span>
+            </div>
+            <div class="chart-kpi-card">
+              <span class="chart-kpi-lbl">Пик цены</span>
+              <span class="chart-kpi-val" style="color:var(--accent-rose);" id="chartKpiMax">—</span>
+              <span class="chart-kpi-badge rose" id="chartKpiMaxSub">максимум</span>
+            </div>
+            <div class="chart-kpi-card">
+              <span class="chart-kpi-lbl">Размах колебаний</span>
+              <span class="chart-kpi-val" id="chartKpiSpread">—</span>
+              <span class="chart-kpi-badge" id="chartKpiSpreadSub">диапазон цен</span>
+            </div>
+          </div>
+
+          <!-- Timeframe buttons -->
+          <div class="chart-toolbar">
+            <div class="timeframe-group">
+              <span style="font-size:0.75rem; color:var(--text-muted); font-weight:700; margin-right:0.3rem; align-self:center;">Период:</span>
+              <button class="btn-tf active" data-days="30" onclick="setTimeframe(30)">30 дней</button>
+              <button class="btn-tf" data-days="14" onclick="setTimeframe(14)">14 дней</button>
+              <button class="btn-tf" data-days="all" onclick="setTimeframe('all')">Вся история</button>
+            </div>
+            <div style="font-size:0.75rem; color:var(--text-muted);" id="chartPointsCount">38 замеров</div>
+          </div>
+
+          <!-- Plotly Area -->
+          <div class="chart-plot-area" id="hotelPlotlyChart"></div>
+        </div>
       </div>
 
       <!-- Tab 2: Packages Table -->
@@ -1570,11 +1775,20 @@ def render_hotel_catalog_html(hotels: List[Dict[str, Any]], stats: Dict[str, Any
   <script>
     const RAW_HOTELS = {hotels_json};
     let currentHotels = [...RAW_HOTELS];
+
+    // Filter states
     let selectedCountry = 'all';
+    let selectedResort = 'all';
     let selectedCollection = null;
+    let selectedBudget = 'all';
+    let selectedComposition = 'all';
+    let selectedDuration = 'all';
+    let minPriceVal = null;
+    let maxPriceVal = null;
     let searchQuery = '';
     let currentSort = 'drop';
     let activeHotel = null;
+    let currentTimeframe = 30; // default to recent active window
 
     // Elements
     const hotelsGrid = document.getElementById('hotelsGrid');
@@ -1583,6 +1797,36 @@ def render_hotel_catalog_html(hotels: List[Dict[str, Any]], stats: Dict[str, Any
     const drawerOverlay = document.getElementById('drawerOverlay');
     const passportDrawer = document.getElementById('passportDrawer');
     const drawerCloseBtn = document.getElementById('drawerCloseBtn');
+    const filterMatchesText = document.getElementById('filterMatchesText');
+    const priceMinInput = document.getElementById('priceMinInput');
+    const priceMaxInput = document.getElementById('priceMaxInput');
+    const resortChipsContainer = document.getElementById('resortChipsContainer');
+
+    // Theme Management
+    function initTheme() {{
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      updateThemeButtonLabel(savedTheme);
+    }}
+
+    function toggleTheme() {{
+      const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateThemeButtonLabel(newTheme);
+
+      if (activeHotel) {{
+        renderHotelPlotlyChart(activeHotel, currentTimeframe);
+      }}
+    }}
+
+    function updateThemeButtonLabel(theme) {{
+      const btn = document.getElementById('themeToggleBtn');
+      if (btn) {{
+        btn.textContent = theme === 'dark' ? '☀️ Светлая' : '🌙 Тёмная';
+      }}
+    }}
 
     // Debounce helper
     function debounce(fn, ms) {{
@@ -1593,19 +1837,76 @@ def render_hotel_catalog_html(hotels: List[Dict[str, Any]], stats: Dict[str, Any
       }};
     }}
 
+    // Dynamic Resorts population
+    function updateResortChips() {{
+      const resorts = new Set();
+      RAW_HOTELS.forEach(h => {{
+        if (selectedCountry === 'all' || h.country === selectedCountry) {{
+          if (h.destination && h.destination !== h.country) {{
+            resorts.add(h.destination);
+          }}
+        }}
+      }});
+
+      const sortedResorts = Array.from(resorts).sort();
+      let html = `<button class="chip ${{selectedResort === 'all' ? 'active' : ''}}" data-resort="all">Все курорты</button>`;
+      sortedResorts.slice(0, 12).forEach(r => {{
+        const active = selectedResort === r ? 'active' : '';
+        html += `<button class="chip ${{active}}" data-resort="${{escapeHtml(r)}}">${{escapeHtml(r)}}</button>`;
+      }});
+      resortChipsContainer.innerHTML = html;
+
+      // Attach click listeners to new chips
+      resortChipsContainer.querySelectorAll('.chip').forEach(c => {{
+        c.onclick = function(e) {{
+          e.preventDefault();
+          resortChipsContainer.querySelectorAll('.chip').forEach(b => b.classList.remove('active'));
+          c.classList.add('active');
+          selectedResort = c.dataset.resort;
+          filterAndRender();
+        }};
+      }});
+    }}
+
     // Filter & Render Pipeline
     function filterAndRender() {{
       const q = searchQuery.toLowerCase().trim();
+
       currentHotels = RAW_HOTELS.filter(h => {{
-        // Country filter
+        // 1. Country filter
         if (selectedCountry !== 'all' && h.country !== selectedCountry) {{
           return false;
         }}
-        // Collection filter
+        // 2. Resort filter
+        if (selectedResort !== 'all' && h.destination !== selectedResort) {{
+          return false;
+        }}
+        // 3. Collection filter
         if (selectedCollection && !h.collections.includes(selectedCollection)) {{
           return false;
         }}
-        // Search text
+        // 4. Composition filter
+        if (selectedComposition !== 'all') {{
+          const hasComp = h.packages && h.packages.some(p => p.composition_label.includes(selectedComposition) || p.composition_short === selectedComposition);
+          if (!hasComp) return false;
+        }}
+        // 5. Duration filter
+        if (selectedDuration !== 'all') {{
+          if (selectedDuration === '7-8' && !(h.ref_duration_days >= 7 && h.ref_duration_days <= 8)) return false;
+          if (selectedDuration === '9-11' && !(h.ref_duration_days >= 9 && h.ref_duration_days <= 11)) return false;
+          if (selectedDuration === '12+' && !(h.ref_duration_days >= 12)) return false;
+        }}
+        // 6. Budget Preset
+        if (selectedBudget === 'under5k' && h.current_price >= 5000) return false;
+        if (selectedBudget === '5k-8k' && (h.current_price < 5000 || h.current_price > 8000)) return false;
+        if (selectedBudget === '8k-12k' && (h.current_price < 8000 || h.current_price > 12000)) return false;
+        if (selectedBudget === 'above12k' && h.current_price <= 12000) return false;
+
+        // 7. Numeric Price Range
+        if (minPriceVal !== null && h.current_price < minPriceVal) return false;
+        if (maxPriceVal !== null && h.current_price > maxPriceVal) return false;
+
+        // 8. Search query
         if (q) {{
           const matchName = h.hotel_name.toLowerCase().includes(q);
           const matchDest = (h.destination || '').toLowerCase().includes(q);
@@ -1626,7 +1927,36 @@ def render_hotel_catalog_html(hotels: List[Dict[str, Any]], stats: Dict[str, Any
         currentHotels.sort((a, b) => (b.tracked_filters.length || 0) - (a.tracked_filters.length || 0));
       }}
 
+      filterMatchesText.textContent = `Найдено отелей: ${{currentHotels.length}} из ${{RAW_HOTELS.length}}`;
       renderGrid();
+    }}
+
+    function resetAllFilters() {{
+      selectedCountry = 'all';
+      selectedResort = 'all';
+      selectedCollection = null;
+      selectedBudget = 'all';
+      selectedComposition = 'all';
+      selectedDuration = 'all';
+      minPriceVal = null;
+      maxPriceVal = null;
+      searchQuery = '';
+      currentSort = 'drop';
+
+      searchInput.value = '';
+      priceMinInput.value = '';
+      priceMaxInput.value = '';
+      sortSelect.value = 'drop';
+
+      // Reset chips active state
+      document.querySelectorAll('#countryRow .chip').forEach(c => c.classList.toggle('active', c.dataset.country === 'all'));
+      document.querySelectorAll('#priceRow .chip').forEach(c => c.classList.toggle('active', c.dataset.budget === 'all'));
+      document.querySelectorAll('#compDurationRow .chip[data-comp]').forEach(c => c.classList.toggle('active', c.dataset.comp === 'all'));
+      document.querySelectorAll('#compDurationRow .chip[data-duration]').forEach(c => c.classList.toggle('active', c.dataset.duration === 'all'));
+      document.querySelectorAll('#collectionsRow .chip').forEach(c => c.classList.remove('active'));
+
+      updateResortChips();
+      filterAndRender();
     }}
 
     function renderGrid() {{
@@ -1635,7 +1965,8 @@ def render_hotel_catalog_html(hotels: List[Dict[str, Any]], stats: Dict[str, Any
           <div class="empty-state">
             <div class="empty-icon">🔍</div>
             <div class="empty-title">Отели не найдены</div>
-            <div class="empty-desc">Попробуйте изменить поисковый запрос или сбросить фильтры</div>
+            <div class="empty-desc">Попробуйте ослабить фильтры цены или сбросить параметры</div>
+            <button class="btn-nav" style="margin-top:1rem;" onclick="resetAllFilters()">Сбросить фильтры</button>
           </div>
         `;
         return;
@@ -1696,7 +2027,7 @@ def render_hotel_catalog_html(hotels: List[Dict[str, Any]], stats: Dict[str, Any
       return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
     }}
 
-    // Hotel Passport Side Drawer
+    // Hotel Passport Drawer
     window.openHotelPassport = function(slug) {{
       const h = RAW_HOTELS.find(item => item.slug === slug);
       if (!h) return;
@@ -1716,7 +2047,7 @@ def render_hotel_catalog_html(hotels: List[Dict[str, Any]], stats: Dict[str, Any
 
       // Badge row
       const badgeRow = document.getElementById('drawerBadgeRow');
-      let badgesHtml = `<span class="stat-pill" style="color:#818cf8; font-weight:700;">${{h.confidence_badge}}</span>`;
+      let badgesHtml = `<span class="stat-pill" style="color:var(--primary); font-weight:700;">${{h.confidence_badge}}</span>`;
       if (h.rating) {{
         badgesHtml += `<span class="stat-pill" style="color:var(--accent-emerald); font-weight:700;">★ ${{h.rating.toFixed(1)}} (${{h.reviews_count || 'TripAdvisor'}})</span>`;
       }}
@@ -1746,7 +2077,7 @@ def render_hotel_catalog_html(hotels: List[Dict[str, Any]], stats: Dict[str, Any
             <td>${{p.duration_days}} дн.</td>
             <td>${{escapeHtml(p.composition_label)}}</td>
             <td>${{escapeHtml(p.dates)}}</td>
-            <td style="color:#fff; font-weight:700;">${{Math.round(p.price).toLocaleString('ru-RU')}} zł</td>
+            <td style="font-weight:700;">${{Math.round(p.price).toLocaleString('ru-RU')}} zł</td>
             <td>
               ${{p.offer_url ? `<a href="${{escapeHtml(p.offer_url)}}" target="_blank" rel="noopener" class="btn-book-sm">Fly.pl ↗</a>` : '—'}}
             </td>
@@ -1794,7 +2125,7 @@ def render_hotel_catalog_html(hotels: List[Dict[str, Any]], stats: Dict[str, Any
         `;
       }} else {{
         infraGrid.innerHTML = `
-          <div style="grid-column:1/-1; padding:2rem; text-align:center; color:var(--text-muted); background:var(--bg-card); border-radius:var(--radius-md);">
+          <div style="grid-column:1/-1; padding:2rem; text-align:center; color:var(--text-muted); background:var(--bg-surface); border-radius:var(--radius-md);">
             ℹ️ Точные характеристики инфраструктуры для данного отеля находятся на этапе верификации.
           </div>
         `;
@@ -1821,8 +2152,22 @@ def render_hotel_catalog_html(hotels: List[Dict[str, Any]], stats: Dict[str, Any
         coverageList.innerHTML = `<div style="padding:1.5rem; text-align:center; color:var(--text-muted);">Отель отслеживается в общем потоке мониторинга</div>`;
       }}
 
-      // Render Plotly Chart (Tab 1)
-      renderHotelPlotlyChart(h);
+      // Update Chart KPIs
+      document.getElementById('chartKpiCurrent').textContent = `${{Math.round(h.current_price).toLocaleString('ru-RU')}} zł`;
+      document.getElementById('chartKpiMin').textContent = `${{Math.round(h.min_price).toLocaleString('ru-RU')}} zł`;
+      document.getElementById('chartKpiMax').textContent = `${{Math.round(h.max_price).toLocaleString('ru-RU')}} zł`;
+      const spread = Math.round(h.max_price - h.min_price);
+      document.getElementById('chartKpiSpread').textContent = `${{spread.toLocaleString('ru-RU')}} zł`;
+
+      const diffFromMin = Math.round(h.current_price - h.min_price);
+      document.getElementById('chartKpiMinSub').textContent = diffFromMin === 0 ? 'на минимуме прямо сейчас!' : `+${{diffFromMin}} zł от рекорда`;
+      document.getElementById('chartKpiMaxSub').textContent = h.price_drop_pct > 0 ? `-${{h.price_drop_pct}}% от пика` : 'на максимуме';
+      document.getElementById('chartPointsCount').textContent = `${{h.total_samples}} замеров в истории`;
+
+      // Render Plotly Chart
+      currentTimeframe = 30;
+      document.querySelectorAll('.btn-tf').forEach(b => b.classList.toggle('active', b.dataset.days === '30'));
+      renderHotelPlotlyChart(h, currentTimeframe);
 
       // Open Drawer
       drawerOverlay.classList.add('open');
@@ -1837,55 +2182,142 @@ def render_hotel_catalog_html(hotels: List[Dict[str, Any]], stats: Dict[str, Any
       }}
     }}
 
-    // Multi-trace Plotly chart for tracked filters (conforming to AGENTS.md rules)
-    function renderHotelPlotlyChart(h) {{
+    window.setTimeframe = function(days) {{
+      currentTimeframe = days;
+      document.querySelectorAll('.btn-tf').forEach(b => b.classList.toggle('active', String(b.dataset.days) === String(days)));
+      if (activeHotel) {{
+        renderHotelPlotlyChart(activeHotel, days);
+      }}
+    }};
+
+    // Informative & Rich Plotly Chart with benchmarks and formatted hover
+    function renderHotelPlotlyChart(h, timeframe) {{
       const chartEl = document.getElementById('hotelPlotlyChart');
       if (!chartEl || !window.Plotly) return;
 
-      const traces = [];
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      const gridColor = isDark ? 'rgba(255, 255, 255, 0.08)' : 'rgba(0, 0, 0, 0.07)';
+      const textColor = isDark ? '#94a3b8' : '#475569';
       const colors = ['#6366f1', '#06b6d4', '#10b981', '#f59e0b', '#f43f5e', '#a855f7'];
+
+      const traces = [];
+      let allDates = [];
 
       if (h.tracked_filters && h.tracked_filters.length > 0) {{
         h.tracked_filters.forEach((tf, idx) => {{
           if (tf.series && tf.series.length > 0) {{
+            const seriesSorted = [...tf.series].sort((a, b) => (a.x || '').localeCompare(b.x || ''));
+            const xs = seriesSorted.map(pt => pt.x);
+            const ys = seriesSorted.map(pt => pt.y);
+            allDates.push(...xs);
+
+            // Rich custom hover text
+            const hoverTexts = seriesSorted.map(pt => {{
+              const dObj = new Date(pt.x);
+              const dateStr = !isNaN(dObj.getTime())
+                ? dObj.toLocaleDateString('ru-RU', {{ day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' }})
+                : pt.x;
+              const diffMin = Math.round(pt.y - h.min_price);
+              const diffText = diffMin === 0 ? '🟢 <b>Рекордный минимум</b>' : `+${{diffMin}} zł от минимума`;
+              const tripDates = pt.dates ? `<br>✈️ Даты тура: ${{pt.dates}}` : '';
+
+              return `<b>${{escapeHtml(tf.filter_name)}}</b><br>📅 Проверка: ${{dateStr}}<br>💰 Цена: <b>${{Math.round(pt.y).toLocaleString('ru-RU')}} zł</b> (${{diffText}})${{tripDates}}`;
+            }});
+
             traces.push({{
-              x: tf.series.map(pt => pt.x),
-              y: tf.series.map(pt => pt.y),
+              x: xs,
+              y: ys,
               mode: 'lines+markers',
               name: tf.filter_name,
-              line: {{ color: colors[idx % colors.length], width: 2 }},
-              marker: {{ size: 5 }},
-              hovertemplate: tf.filter_name + '<br>Дата: %{{x}}<br>Цена: %{{y}} zł<extra></extra>',
+              line: {{ color: colors[idx % colors.length], width: 2.5, shape: 'spline', smoothing: 0.8 }},
+              marker: {{ size: 6, color: colors[idx % colors.length] }},
+              text: hoverTexts,
+              hoverinfo: 'text',
             }});
           }}
         }});
       }}
 
-      // If no tracked series, fallback to single trace
+      // Fallback if no points
       if (traces.length === 0 && h.current_price) {{
         traces.push({{
           x: [new Date().toISOString()],
           y: [h.current_price],
           mode: 'markers',
           name: 'Текущая цена',
-          marker: {{ color: '#6366f1', size: 10 }},
+          marker: {{ color: '#6366f1', size: 12 }},
+          text: [`Текущая цена: ${{Math.round(h.current_price)}} zł`],
+          hoverinfo: 'text',
+        }});
+      }}
+
+      // X-axis timeframe zoom calculation
+      let xRange = null;
+      if (timeframe !== 'all' && allDates.length > 0) {{
+        const sortedAll = [...allDates].sort();
+        const latestDate = new Date(sortedAll[sortedAll.length - 1]);
+        const earliestView = new Date(latestDate.getTime() - (Number(timeframe) * 24 * 3600 * 1000));
+        xRange = [earliestView.toISOString(), new Date(latestDate.getTime() + (24 * 3600 * 1000)).toISOString()];
+      }}
+
+      // Horizontal Benchmark Lines
+      const shapes = [];
+      const annotations = [];
+
+      if (h.min_price && h.max_price && h.max_price > h.min_price) {{
+        // Min Price dashed green line
+        shapes.push({{
+          type: 'line',
+          xref: 'paper', x0: 0, x1: 1,
+          yref: 'y', y0: h.min_price, y1: h.min_price,
+          line: {{ color: '#10b981', width: 1.5, dash: 'dash' }},
+        }});
+        annotations.push({{
+          xref: 'paper', x: 0.02,
+          yref: 'y', y: h.min_price,
+          text: `Мин: ${{Math.round(h.min_price).toLocaleString('ru-RU')}} zł`,
+          showarrow: false,
+          font: {{ size: 10, color: '#10b981', family: 'Inter, sans-serif' }},
+          bgcolor: isDark ? 'rgba(15, 23, 42, 0.85)' : 'rgba(255, 255, 255, 0.85)',
+          yshift: 12,
+        }});
+
+        // Max Price dashed rose line
+        shapes.push({{
+          type: 'line',
+          xref: 'paper', x0: 0, x1: 1,
+          yref: 'y', y0: h.max_price, y1: h.max_price,
+          line: {{ color: '#f43f5e', width: 1.5, dash: 'dash' }},
+        }});
+        annotations.push({{
+          xref: 'paper', x: 0.02,
+          yref: 'y', y: h.max_price,
+          text: `Пик: ${{Math.round(h.max_price).toLocaleString('ru-RU')}} zł`,
+          showarrow: false,
+          font: {{ size: 10, color: '#f43f5e', family: 'Inter, sans-serif' }},
+          bgcolor: isDark ? 'rgba(15, 23, 42, 0.85)' : 'rgba(255, 255, 255, 0.85)',
+          yshift: -12,
         }});
       }}
 
       const layout = {{
         paper_bgcolor: 'transparent',
         plot_bgcolor: 'transparent',
-        margin: {{ l: 50, r: 20, t: 25, b: 50 }},
-        font: {{ family: 'Inter, sans-serif', color: '#94a3b8' }},
+        margin: {{ l: 55, r: 25, t: 25, b: 45 }},
+        font: {{ family: 'Inter, sans-serif', color: textColor }},
         xaxis: {{
-          gridcolor: 'rgba(255, 255, 255, 0.06)',
+          gridcolor: gridColor,
           tickformat: '%d.%m',
-          hoverformat: '%d.%m.%Y',
+          range: xRange,
+          zeroline: false,
         }},
         yaxis: {{
-          gridcolor: 'rgba(255, 255, 255, 0.06)',
+          gridcolor: gridColor,
           ticksuffix: ' zł',
+          zeroline: false,
         }},
+        shapes: shapes,
+        annotations: annotations,
         hovermode: 'closest',
         legend: {{
           orientation: 'h',
@@ -1893,7 +2325,7 @@ def render_hotel_catalog_html(hotels: List[Dict[str, Any]], stats: Dict[str, Any
           y: 1.02,
           xanchor: 'right',
           x: 1,
-          font: {{ size: 11 }},
+          font: {{ size: 11, color: textColor }},
         }},
       }};
 
@@ -1905,7 +2337,6 @@ def render_hotel_catalog_html(hotels: List[Dict[str, Any]], stats: Dict[str, Any
       Plotly.newPlot('hotelPlotlyChart', traces, layout, config);
     }}
 
-    // Multi-phase resize for tabs/accordions (AGENTS.md rule 3)
     function triggerPlotlyResize() {{
       const chartEl = document.getElementById('hotelPlotlyChart');
       if (chartEl && window.Plotly) {{
@@ -1957,26 +2388,78 @@ def render_hotel_catalog_html(hotels: List[Dict[str, Any]], stats: Dict[str, Any
       filterAndRender();
     }});
 
+    // Numeric price inputs
+    priceMinInput.addEventListener('input', debounce(function() {{
+      const val = parseFloat(priceMinInput.value);
+      minPriceVal = isNaN(val) ? null : val;
+      filterAndRender();
+    }}, 120));
+
+    priceMaxInput.addEventListener('input', debounce(function() {{
+      const val = parseFloat(priceMaxInput.value);
+      maxPriceVal = isNaN(val) ? null : val;
+      filterAndRender();
+    }}, 120));
+
     // Country chips
-    document.querySelectorAll('#countryChips .chip').forEach(chip => {{
+    document.querySelectorAll('#countryRow .chip').forEach(chip => {{
       chip.onclick = function(e) {{
         e.preventDefault();
-        document.querySelectorAll('#countryChips .chip').forEach(c => c.classList.remove('active'));
+        document.querySelectorAll('#countryRow .chip').forEach(c => c.classList.remove('active'));
         chip.classList.add('active');
         selectedCountry = chip.dataset.country;
+        selectedResort = 'all';
+        updateResortChips();
+        filterAndRender();
+      }};
+    }});
+
+    // Budget chips
+    document.querySelectorAll('#priceRow .chip').forEach(chip => {{
+      chip.onclick = function(e) {{
+        e.preventDefault();
+        document.querySelectorAll('#priceRow .chip').forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        selectedBudget = chip.dataset.budget;
+        priceMinInput.value = '';
+        priceMaxInput.value = '';
+        minPriceVal = null;
+        maxPriceVal = null;
+        filterAndRender();
+      }};
+    }});
+
+    // Composition chips
+    document.querySelectorAll('#compDurationRow .chip[data-comp]').forEach(chip => {{
+      chip.onclick = function(e) {{
+        e.preventDefault();
+        document.querySelectorAll('#compDurationRow .chip[data-comp]').forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        selectedComposition = chip.dataset.comp;
+        filterAndRender();
+      }};
+    }});
+
+    // Duration chips
+    document.querySelectorAll('#compDurationRow .chip[data-duration]').forEach(chip => {{
+      chip.onclick = function(e) {{
+        e.preventDefault();
+        document.querySelectorAll('#compDurationRow .chip[data-duration]').forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        selectedDuration = chip.dataset.duration;
         filterAndRender();
       }};
     }});
 
     // Collection chips
-    document.querySelectorAll('#collectionChips .chip').forEach(chip => {{
+    document.querySelectorAll('#collectionsRow .chip').forEach(chip => {{
       chip.onclick = function(e) {{
         e.preventDefault();
         if (chip.classList.contains('active')) {{
           chip.classList.remove('active');
           selectedCollection = null;
         }} else {{
-          document.querySelectorAll('#collectionChips .chip').forEach(c => c.classList.remove('active'));
+          document.querySelectorAll('#collectionsRow .chip').forEach(c => c.classList.remove('active'));
           chip.classList.add('active');
           selectedCollection = chip.dataset.collection;
         }}
@@ -1984,7 +2467,14 @@ def render_hotel_catalog_html(hotels: List[Dict[str, Any]], stats: Dict[str, Any
       }};
     }});
 
-    // Deep linking handler: checks #slug on page load and hashchange
+    // Escape key closes drawer
+    window.addEventListener('keydown', function(e) {{
+      if (e.key === 'Escape') {{
+        closeHotelPassport();
+      }}
+    }});
+
+    // Deep linking handler
     function checkHashRoute() {{
       const hash = window.location.hash.replace('#', '').trim();
       if (hash) {{
@@ -1993,7 +2483,9 @@ def render_hotel_catalog_html(hotels: List[Dict[str, Any]], stats: Dict[str, Any
     }}
     window.addEventListener('hashchange', checkHashRoute);
 
-    // Initial render
+    // Initial setup
+    initTheme();
+    updateResortChips();
     filterAndRender();
     checkHashRoute();
   </script>
@@ -2011,7 +2503,6 @@ def build_hotel_catalog(
     hotels, stats = collect_hotel_data()
     logger.info(f"Built catalog with {len(hotels)} hotels. Stats: {stats}")
 
-    # 1. Write JSON data
     try:
         with open(output_json, "w", encoding="utf-8") as f:
             json.dump({
@@ -2023,7 +2514,6 @@ def build_hotel_catalog(
     except Exception as e:
         logger.warning(f"Error saving JSON {output_json}: {e}")
 
-    # 2. Render HTML
     html_markup = render_hotel_catalog_html(hotels, stats)
     with open(output_html, "w", encoding="utf-8") as f:
         f.write(html_markup)
