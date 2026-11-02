@@ -434,9 +434,14 @@ def generate_hotel_ai_profile(
     cons = []
     if rep_data and rep_data.get("verdict") and len(rep_data["verdict"]) > 25:
         verdict = rep_data["verdict"]
-    if rep_data and rep_data.get("pros"):
+    if specs and specs.get("highlights"):
+        pros = [p for p in specs["highlights"] if len(p) > 8][:3]
+    elif rep_data and rep_data.get("pros"):
         pros = [p for p in rep_data["pros"] if len(p) > 10][:3]
-    if rep_data and rep_data.get("cons_and_red_flags"):
+
+    if specs and specs.get("caution_notes"):
+        cons = [c for c in specs["caution_notes"] if len(c) > 8][:2]
+    elif rep_data and rep_data.get("cons_and_red_flags"):
         cons = [c for c in rep_data["cons_and_red_flags"] if len(c) > 10][:2]
 
     if not verdict:
