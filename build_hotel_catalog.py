@@ -383,16 +383,20 @@ def generate_hotel_ai_profile(
 
     # 3. Infrastructure traits
     has_aquapark = False
-    if (specs and specs.get("aquapark")) or re.search(r"aqua|water|park|albatros|slide|горк", hotel_name, re.I):
+    if specs and "aquapark" in specs:
+        has_aquapark = bool(specs["aquapark"])
+    elif re.search(r"aqua\s*park|water\s*park|аквапарк", hotel_name, re.I):
         has_aquapark = True
 
     has_heated_pools = False
-    if (specs and specs.get("heated_pools_winter")) or (rep_data and rep_data.get("winter_suitability", {}).get("heated_pools")):
-        has_heated_pools = True
-    elif country == "Египет" and stars >= 4:
+    if specs and "heated_pools_winter" in specs:
+        has_heated_pools = bool(specs["heated_pools_winter"])
+    elif rep_data and "winter_suitability" in rep_data and "heated_pools" in rep_data["winter_suitability"]:
+        has_heated_pools = bool(rep_data["winter_suitability"]["heated_pools"])
+    elif country == "Египет" and stars >= 5:
         has_heated_pools = True
 
-    beach_line = 1
+    beach_line = 2
     if specs and specs.get("beach_line"):
         try:
             beach_line = int(specs["beach_line"])
@@ -475,7 +479,23 @@ def generate_hotel_ai_profile(
 
     food_snippet = f"Концепция «{food_concept}»: гости хвалят свежевыжатые соки, блюда на гриле, свежую выпечку и разнообразие десертов. Доступны a la carte рестораны."
     beach_snippet = f"{beach_line}-я линия ({beach_type}). {sea_entry}. Пляж оборудован бесплатными шезлонгами, зонтами и пляжным баром."
-    review_snippet = f"«Отдыхали здесь в этом сезоне. Территория безупречно чистая, питание вкусное и разнообразное, персонал очень приветливый. Пляж отличный!» (Отзыв туриста, TripAdvisor)"
+    review_snippet = ""
+    canned_phrases = (
+        "стабильное качество обслуживания",
+        "на уровне категории отеля",
+        "отдыхали здесь в этом сезоне",
+        "удобное расположение относительно",
+        "качественный отель категории",
+    )
+    if rep_data and isinstance(rep_data, dict):
+        if rep_data.get("review_snippet"):
+            cand = str(rep_data["review_snippet"]).strip()
+            if cand and not any(cp in cand.lower() for cp in canned_phrases):
+                review_snippet = cand
+        elif rep_data.get("season_trend", {}).get("summary"):
+            s_sum = str(rep_data["season_trend"]["summary"]).strip()
+            if s_sum and len(s_sum) > 15 and not any(cp in s_sum.lower() for cp in canned_phrases):
+                review_snippet = f"«{s_sum}» (Сводка отзывов туристов)"
 
     # 5. Price Intelligence status
     if price_drop_pct >= 8.0:
@@ -2790,11 +2810,17 @@ def render_hotel_catalog_html(hotels: List[Dict[str, Any]], stats: Dict[str, Any
       document.getElementById('drawerBeachDetail').textContent = h.beach_snippet || 'Собственный песчаный пляж с шезлонгами, пологий вход в море и живописный риф.';
 
       const quotesContainer = document.getElementById('drawerReviewQuotes');
-      quotesContainer.innerHTML = `
-        <div class="quote-item">
-          <div class="quote-body">${{escapeHtml(h.review_snippet || '«Отличный отель для спокойного и качественного отдыха. Питание на высоте, море шикарное!»')}}</div>
-        </div>
-      `;
+      if (h.review_snippet && h.review_snippet.trim()) {
+        quotesContainer.style.display = 'block';
+        quotesContainer.innerHTML = `
+          <div class="quote-item">
+            <div class="quote-body">${{escapeHtml(h.review_snippet)}}</div>
+          </div>
+        `;
+      } else {
+        quotesContainer.style.display = 'none';
+        quotesContainer.innerHTML = '';
+      }
 
       // Tab 2: Chart & KPIs
       document.getElementById('chartKpiCurrent').textContent = `${{Math.round(h.current_price).toLocaleString('ru-RU')}} zł`;
