@@ -113,6 +113,8 @@ def generate_hotel_ai_profile(
     hopper_verdict: Optional[str] = None,
     hopper_reasoning: Optional[str] = None,
     forecast_text: Optional[str] = None,
+    ta_rating_override: Optional[float] = None,
+    ta_reviews_override: Optional[int] = None,
 ) -> Dict[str, Any]:
     """
     Synthesizes rich profile for hotel:
@@ -164,10 +166,13 @@ def generate_hotel_ai_profile(
         else:
             gallery_photos.append({"label": "Территория и отель", "url": ""})
 
+        ta_rating_final = ta_rating_override if (ta_rating_override is not None and ta_rating_override > 0) else p.get("ta_rating", 4.2)
+        ta_reviews_final = ta_reviews_override if (ta_reviews_override is not None and ta_reviews_override > 0) else int(p.get("ta_reviews", 0))
+
         return {
             "stars": p.get("stars", 4),
-            "ta_rating": p.get("ta_rating", 4.2),
-            "ta_reviews": int(p.get("ta_reviews", 0)),
+            "ta_rating": ta_rating_final,
+            "ta_reviews": int(ta_reviews_final or 0),
             "beach_line": p.get("beach_line", 1),
             "beach_type": p.get("beach_type", "Песчаный пляж"),
             "sea_entry": p.get("sea_entry", "Пологий песчаный вход"),
@@ -216,9 +221,9 @@ def generate_hotel_ai_profile(
             stars = 4
 
     # 2. TripAdvisor Rating & Reviews
-    ta_rating = None
-    ta_reviews = 0
-    if specs and specs.get("tripadvisor_rating"):
+    ta_rating = ta_rating_override if (ta_rating_override is not None and ta_rating_override > 0) else None
+    ta_reviews = ta_reviews_override if (ta_reviews_override is not None and ta_reviews_override > 0) else 0
+    if not ta_rating and specs and specs.get("tripadvisor_rating"):
         try:
             r_val = float(specs["tripadvisor_rating"])
             if r_val > 0:

@@ -133,7 +133,7 @@
       },
       "winter_suitability": {
         "bay": "makadi_bay",
-        "wind_shelter": "moderate",
+        "wind_shelter": "moderate_wind",
         "heated_pools": true
       },
       "sentiment_scores": {
@@ -703,7 +703,7 @@
       },
       "winter_suitability": {
         "bay": "makadi_bay",
-        "wind_shelter": "moderate",
+        "wind_shelter": "moderate_wind",
         "heated_pools": true
       },
       "sentiment_scores": {
@@ -855,7 +855,7 @@
       },
       "winter_suitability": {
         "bay": "makadi_bay",
-        "wind_shelter": "protected",
+        "wind_shelter": "sheltered_bay",
         "heated_pools": true
       },
       "sentiment_scores": {
@@ -1688,7 +1688,7 @@
       },
       "winter_suitability": {
         "bay": "makadi_bay",
-        "wind_shelter": "protected",
+        "wind_shelter": "sheltered_bay",
         "heated_pools": true
       },
       "sentiment_scores": {
@@ -2296,7 +2296,7 @@
       },
       "winter_suitability": {
         "bay": "naama",
-        "wind_shelter": "protected",
+        "wind_shelter": "sheltered_bay",
         "heated_pools": true
       },
       "sentiment_scores": {
@@ -2523,7 +2523,7 @@
       },
       "winter_suitability": {
         "bay": "makadi_bay",
-        "wind_shelter": "protected",
+        "wind_shelter": "sheltered_bay",
         "heated_pools": true
       },
       "sentiment_scores": {
@@ -2712,7 +2712,7 @@
       },
       "winter_suitability": {
         "bay": "naama",
-        "wind_shelter": "protected",
+        "wind_shelter": "sheltered_bay",
         "heated_pools": true
       },
       "sentiment_scores": {
@@ -2826,7 +2826,7 @@
       },
       "winter_suitability": {
         "bay": "nabq",
-        "wind_shelter": "windy",
+        "wind_shelter": "windy_exposed",
         "heated_pools": true
       },
       "sentiment_scores": {
@@ -2864,7 +2864,7 @@
       },
       "winter_suitability": {
         "bay": "nabq",
-        "wind_shelter": "windy",
+        "wind_shelter": "windy_exposed",
         "heated_pools": true
       },
       "sentiment_scores": {
@@ -3319,7 +3319,7 @@
       },
       "winter_suitability": {
         "bay": "sahl_hasheesh",
-        "wind_shelter": "moderate",
+        "wind_shelter": "moderate_wind",
         "heated_pools": true
       },
       "sentiment_scores": {
@@ -3584,7 +3584,7 @@
       },
       "winter_suitability": {
         "bay": "hadaba_ras_um_sid",
-        "wind_shelter": "moderate",
+        "wind_shelter": "moderate_wind",
         "heated_pools": true
       },
       "sentiment_scores": {
@@ -3883,7 +3883,7 @@
       },
       "winter_suitability": {
         "bay": "hadaba_ras_um_sid",
-        "wind_shelter": "moderate",
+        "wind_shelter": "moderate_wind",
         "heated_pools": true
       },
       "sentiment_scores": {
@@ -4489,7 +4489,7 @@
       },
       "winter_suitability": {
         "bay": "soma_bay",
-        "wind_shelter": "moderate",
+        "wind_shelter": "moderate_wind",
         "heated_pools": true
       },
       "sentiment_scores": {
@@ -4678,7 +4678,7 @@
       },
       "winter_suitability": {
         "bay": "sahl_hasheesh",
-        "wind_shelter": "moderate",
+        "wind_shelter": "moderate_wind",
         "heated_pools": true
       },
       "sentiment_scores": {
@@ -8888,7 +8888,7 @@
       },
       "winter_suitability": {
         "bay": "makadi_bay",
-        "wind_shelter": "protected",
+        "wind_shelter": "sheltered_bay",
         "heated_pools": true
       },
       "sentiment_scores": {
@@ -8926,7 +8926,7 @@
       },
       "winter_suitability": {
         "bay": "sharm_el_maya",
-        "wind_shelter": "protected",
+        "wind_shelter": "sheltered_bay",
         "heated_pools": true
       },
       "sentiment_scores": {
@@ -9192,7 +9192,7 @@
       },
       "winter_suitability": {
         "bay": "hadaba_ras_um_sid",
-        "wind_shelter": "moderate",
+        "wind_shelter": "moderate_wind",
         "heated_pools": false
       },
       "sentiment_scores": {
@@ -9230,7 +9230,7 @@
       },
       "winter_suitability": {
         "bay": "naama",
-        "wind_shelter": "protected",
+        "wind_shelter": "sheltered_bay",
         "heated_pools": false
       },
       "sentiment_scores": {
@@ -9268,7 +9268,7 @@
       },
       "winter_suitability": {
         "bay": "hadaba_ras_um_sid",
-        "wind_shelter": "moderate",
+        "wind_shelter": "moderate_wind",
         "heated_pools": false
       },
       "sentiment_scores": {
@@ -9345,7 +9345,7 @@
       },
       "winter_suitability": {
         "bay": "sharm_el_maya",
-        "wind_shelter": "protected",
+        "wind_shelter": "sheltered_bay",
         "heated_pools": false
       },
       "sentiment_scores": {
@@ -9383,7 +9383,7 @@
       },
       "winter_suitability": {
         "bay": "hadaba_ras_um_sid",
-        "wind_shelter": "moderate",
+        "wind_shelter": "moderate_wind",
         "heated_pools": false
       },
       "sentiment_scores": {
@@ -9632,7 +9632,7 @@
     "Viva Sharm": {
       "hotel_name": "Viva Sharm",
       "destination": "Египет",
-      "stars": 4,
+      "stars": 3,
       "analyzed_at": "2026-10-26T13:04:39.566426Z",
       "season_trend": {
         "trend": "STABLE",
@@ -9646,7 +9646,7 @@
       },
       "winter_suitability": {
         "bay": "hadaba_ras_um_sid",
-        "wind_shelter": "moderate",
+        "wind_shelter": "moderate_wind",
         "heated_pools": false
       },
       "sentiment_scores": {
@@ -9663,9 +9663,9 @@
         "3-я линия: расстояние до моря около 2.4 км",
         "Бассейны без подогрева зимой"
       ],
-      "verdict": "Качественный отель категории 4★ для комфортного отдыха на море.",
-      "ta_rating": 3.4,
-      "ta_review_count": 390
+      "verdict": "Качественный отель категории 3★ для комфортного отдыха на море.",
+      "ta_rating": 4.0,
+      "ta_review_count": 1504
     },
     "Viking Club": {
       "hotel_name": "Viking Club",
@@ -9910,7 +9910,7 @@
       },
       "winter_suitability": {
         "bay": "hadaba_ras_um_sid",
-        "wind_shelter": "moderate",
+        "wind_shelter": "moderate_wind",
         "heated_pools": false
       },
       "sentiment_scores": {
@@ -9938,7 +9938,7 @@
       "analyzed_at": "2026-10-26T13:04:39.566426Z",
       "season_trend": {
         "trend": "STABLE",
-        "summary": "Уютная зеленая территория в центре Хадабы"
+        "summary": "Два открытых плавательных бассейна в центре района Хадаба"
       },
       "family_and_kids": {
         "score": 6.5,
@@ -9948,7 +9948,7 @@
       },
       "winter_suitability": {
         "bay": "hadaba_ras_um_sid",
-        "wind_shelter": "moderate",
+        "wind_shelter": "moderate_wind",
         "heated_pools": false
       },
       "sentiment_scores": {
@@ -9958,7 +9958,7 @@
         "beach_and_reef": 8.5
       },
       "pros": [
-        "Уютная зеленая территория в центре Хадабы",
+        "Два открытых плавательных бассейна в центре района Хадаба",
         "Бесплатный автобус на пляж"
       ],
       "cons_and_red_flags": [
@@ -9986,7 +9986,7 @@
       },
       "winter_suitability": {
         "bay": "naama",
-        "wind_shelter": "protected",
+        "wind_shelter": "sheltered_bay",
         "heated_pools": true
       },
       "sentiment_scores": {
@@ -10024,7 +10024,7 @@
       },
       "winter_suitability": {
         "bay": "sharm_el_maya",
-        "wind_shelter": "protected",
+        "wind_shelter": "sheltered_bay",
         "heated_pools": true
       },
       "sentiment_scores": {
@@ -10214,7 +10214,7 @@
       },
       "winter_suitability": {
         "bay": "sharks_bay",
-        "wind_shelter": "moderate",
+        "wind_shelter": "moderate_wind",
         "heated_pools": true
       },
       "sentiment_scores": {
@@ -10401,7 +10401,7 @@
       },
       "winter_suitability": {
         "bay": "nabq",
-        "wind_shelter": "windy",
+        "wind_shelter": "windy_exposed",
         "heated_pools": true
       },
       "sentiment_scores": {
@@ -10514,7 +10514,7 @@
       },
       "winter_suitability": {
         "bay": "naama",
-        "wind_shelter": "protected",
+        "wind_shelter": "sheltered_bay",
         "heated_pools": true
       },
       "sentiment_scores": {
@@ -10590,7 +10590,7 @@
       },
       "winter_suitability": {
         "bay": "hadaba_ras_um_sid",
-        "wind_shelter": "protected",
+        "wind_shelter": "sheltered_bay",
         "heated_pools": false
       },
       "sentiment_scores": {
@@ -10629,7 +10629,7 @@
       },
       "winter_suitability": {
         "bay": "ras_nasrani",
-        "wind_shelter": "moderate",
+        "wind_shelter": "moderate_wind",
         "heated_pools": true
       },
       "sentiment_scores": {
@@ -10933,7 +10933,7 @@
       },
       "winter_suitability": {
         "bay": "naama",
-        "wind_shelter": "protected",
+        "wind_shelter": "sheltered_bay",
         "heated_pools": true
       },
       "sentiment_scores": {
@@ -10971,7 +10971,7 @@
       },
       "winter_suitability": {
         "bay": "sharm_el_maya",
-        "wind_shelter": "protected",
+        "wind_shelter": "sheltered_bay",
         "heated_pools": false
       },
       "sentiment_scores": {
@@ -11048,7 +11048,7 @@
       },
       "winter_suitability": {
         "bay": "nabq",
-        "wind_shelter": "windy",
+        "wind_shelter": "windy_exposed",
         "heated_pools": true
       },
       "sentiment_scores": {
@@ -11086,7 +11086,7 @@
       },
       "winter_suitability": {
         "bay": "sharm_el_maya",
-        "wind_shelter": "protected",
+        "wind_shelter": "sheltered_bay",
         "heated_pools": true
       },
       "sentiment_scores": {
@@ -11124,7 +11124,7 @@
       },
       "winter_suitability": {
         "bay": "sharks_bay",
-        "wind_shelter": "moderate",
+        "wind_shelter": "moderate_wind",
         "heated_pools": true
       },
       "sentiment_scores": {
@@ -11314,7 +11314,7 @@
       },
       "winter_suitability": {
         "bay": "hadaba_ras_um_sid",
-        "wind_shelter": "protected",
+        "wind_shelter": "sheltered_bay",
         "heated_pools": true
       },
       "sentiment_scores": {
@@ -11352,7 +11352,7 @@
       },
       "winter_suitability": {
         "bay": "nabq",
-        "wind_shelter": "windy",
+        "wind_shelter": "windy_exposed",
         "heated_pools": true
       },
       "sentiment_scores": {
@@ -11466,7 +11466,7 @@
       },
       "winter_suitability": {
         "bay": "ras_nasrani",
-        "wind_shelter": "moderate",
+        "wind_shelter": "moderate_wind",
         "heated_pools": true
       },
       "sentiment_scores": {
@@ -11504,7 +11504,7 @@
       },
       "winter_suitability": {
         "bay": "sharks_bay",
-        "wind_shelter": "moderate",
+        "wind_shelter": "moderate_wind",
         "heated_pools": true
       },
       "sentiment_scores": {
@@ -11580,7 +11580,7 @@
       },
       "winter_suitability": {
         "bay": "sharm_el_maya",
-        "wind_shelter": "protected",
+        "wind_shelter": "sheltered_bay",
         "heated_pools": true
       },
       "sentiment_scores": {
@@ -11656,7 +11656,7 @@
       },
       "winter_suitability": {
         "bay": "hadaba_ras_um_sid",
-        "wind_shelter": "moderate",
+        "wind_shelter": "moderate_wind",
         "heated_pools": true
       },
       "sentiment_scores": {
@@ -11732,7 +11732,7 @@
       },
       "winter_suitability": {
         "bay": "ras_nasrani",
-        "wind_shelter": "moderate",
+        "wind_shelter": "moderate_wind",
         "heated_pools": true
       },
       "sentiment_scores": {
@@ -11808,7 +11808,7 @@
       },
       "winter_suitability": {
         "bay": "naama",
-        "wind_shelter": "protected",
+        "wind_shelter": "sheltered_bay",
         "heated_pools": true
       },
       "sentiment_scores": {
@@ -11846,7 +11846,7 @@
       },
       "winter_suitability": {
         "bay": "hadaba_ras_um_sid",
-        "wind_shelter": "protected",
+        "wind_shelter": "sheltered_bay",
         "heated_pools": true
       },
       "sentiment_scores": {
@@ -11960,7 +11960,7 @@
       },
       "winter_suitability": {
         "bay": "sharks_bay",
-        "wind_shelter": "moderate",
+        "wind_shelter": "moderate_wind",
         "heated_pools": true
       },
       "sentiment_scores": {
@@ -11998,7 +11998,7 @@
       },
       "winter_suitability": {
         "bay": "nabq",
-        "wind_shelter": "windy",
+        "wind_shelter": "windy_exposed",
         "heated_pools": true
       },
       "sentiment_scores": {
@@ -12036,7 +12036,7 @@
       },
       "winter_suitability": {
         "bay": "hadaba_ras_um_sid",
-        "wind_shelter": "moderate",
+        "wind_shelter": "moderate_wind",
         "heated_pools": true
       },
       "sentiment_scores": {
@@ -12112,7 +12112,7 @@
       },
       "winter_suitability": {
         "bay": "sharks_bay",
-        "wind_shelter": "moderate",
+        "wind_shelter": "moderate_wind",
         "heated_pools": true
       },
       "sentiment_scores": {
@@ -12226,7 +12226,7 @@
       },
       "winter_suitability": {
         "bay": "nabq",
-        "wind_shelter": "windy",
+        "wind_shelter": "windy_exposed",
         "heated_pools": true
       },
       "sentiment_scores": {
@@ -12264,7 +12264,7 @@
       },
       "winter_suitability": {
         "bay": "nabq",
-        "wind_shelter": "windy",
+        "wind_shelter": "windy_exposed",
         "heated_pools": true
       },
       "sentiment_scores": {
@@ -12302,7 +12302,7 @@
       },
       "winter_suitability": {
         "bay": "hadaba_ras_um_sid",
-        "wind_shelter": "moderate",
+        "wind_shelter": "moderate_wind",
         "heated_pools": true
       },
       "sentiment_scores": {
@@ -12340,7 +12340,7 @@
       },
       "winter_suitability": {
         "bay": "naama",
-        "wind_shelter": "protected",
+        "wind_shelter": "sheltered_bay",
         "heated_pools": true
       },
       "sentiment_scores": {
@@ -12378,7 +12378,7 @@
       },
       "winter_suitability": {
         "bay": "sharm_el_maya",
-        "wind_shelter": "protected",
+        "wind_shelter": "sheltered_bay",
         "heated_pools": true
       },
       "sentiment_scores": {
@@ -12530,7 +12530,7 @@
       },
       "winter_suitability": {
         "bay": "ras_nasrani",
-        "wind_shelter": "moderate",
+        "wind_shelter": "moderate_wind",
         "heated_pools": true
       },
       "sentiment_scores": {
@@ -12606,7 +12606,7 @@
       },
       "winter_suitability": {
         "bay": "ras_nasrani",
-        "wind_shelter": "moderate",
+        "wind_shelter": "moderate_wind",
         "heated_pools": true
       },
       "sentiment_scores": {
@@ -12644,7 +12644,7 @@
       },
       "winter_suitability": {
         "bay": "nabq",
-        "wind_shelter": "windy",
+        "wind_shelter": "windy_exposed",
         "heated_pools": true
       },
       "sentiment_scores": {
@@ -12682,7 +12682,7 @@
       },
       "winter_suitability": {
         "bay": "nabq",
-        "wind_shelter": "windy",
+        "wind_shelter": "windy_exposed",
         "heated_pools": true
       },
       "sentiment_scores": {
@@ -12720,7 +12720,7 @@
       },
       "winter_suitability": {
         "bay": "ras_nasrani",
-        "wind_shelter": "moderate",
+        "wind_shelter": "moderate_wind",
         "heated_pools": true
       },
       "sentiment_scores": {
@@ -12796,7 +12796,7 @@
       },
       "winter_suitability": {
         "bay": "ras_nasrani",
-        "wind_shelter": "moderate",
+        "wind_shelter": "moderate_wind",
         "heated_pools": true
       },
       "sentiment_scores": {
@@ -12908,7 +12908,7 @@
       },
       "winter_suitability": {
         "bay": "sharks_bay",
-        "wind_shelter": "moderate",
+        "wind_shelter": "moderate_wind",
         "heated_pools": true
       },
       "sentiment_scores": {
@@ -18546,7 +18546,7 @@
       },
       "winter_suitability": {
         "bay": "hadaba_ras_um_sid",
-        "wind_shelter": "moderate",
+        "wind_shelter": "moderate_wind",
         "heated_pools": false
       },
       "sentiment_scores": {
@@ -21371,7 +21371,7 @@
       },
       "winter_suitability": {
         "bay": "hadaba_ras_um_sid",
-        "wind_shelter": "moderate",
+        "wind_shelter": "moderate_wind",
         "heated_pools": false
       },
       "sentiment_scores": {
@@ -21789,7 +21789,7 @@
       },
       "winter_suitability": {
         "bay": "sahl_hasheesh",
-        "wind_shelter": "moderate",
+        "wind_shelter": "moderate_wind",
         "heated_pools": true
       },
       "sentiment_scores": {
@@ -21903,7 +21903,7 @@
       },
       "winter_suitability": {
         "bay": "naama",
-        "wind_shelter": "protected",
+        "wind_shelter": "sheltered_bay",
         "heated_pools": true
       },
       "sentiment_scores": {
@@ -22017,7 +22017,7 @@
       },
       "winter_suitability": {
         "bay": "makadi_bay",
-        "wind_shelter": "protected",
+        "wind_shelter": "sheltered_bay",
         "heated_pools": true
       },
       "sentiment_scores": {
@@ -22284,7 +22284,7 @@
       },
       "winter_suitability": {
         "bay": "sharks_bay",
-        "wind_shelter": "moderate",
+        "wind_shelter": "moderate_wind",
         "heated_pools": true
       },
       "sentiment_scores": {
@@ -22626,7 +22626,7 @@
       },
       "winter_suitability": {
         "bay": "makadi_bay",
-        "wind_shelter": "protected",
+        "wind_shelter": "sheltered_bay",
         "heated_pools": true
       },
       "sentiment_scores": {
@@ -22740,7 +22740,7 @@
       },
       "winter_suitability": {
         "bay": "makadi_bay",
-        "wind_shelter": "protected",
+        "wind_shelter": "sheltered_bay",
         "heated_pools": true
       },
       "sentiment_scores": {
@@ -22778,7 +22778,7 @@
       },
       "winter_suitability": {
         "bay": "makadi_bay",
-        "wind_shelter": "moderate",
+        "wind_shelter": "moderate_wind",
         "heated_pools": true
       },
       "sentiment_scores": {
@@ -29513,7 +29513,7 @@
       },
       "winter_suitability": {
         "bay": "sharks_bay",
-        "wind_shelter": "moderate",
+        "wind_shelter": "moderate_wind",
         "heated_pools": true
       },
       "sentiment_scores": {

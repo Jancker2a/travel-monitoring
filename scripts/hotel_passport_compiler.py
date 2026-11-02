@@ -374,3 +374,4 @@ def compile_hotel_passport(name: str, hdata: Dict[str, Any]) -> Dict[str, Any]:
         "review_snippet": review_snippet,
         "infra_rich": infra,
     }
+
