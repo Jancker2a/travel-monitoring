@@ -2810,17 +2810,17 @@ def render_hotel_catalog_html(hotels: List[Dict[str, Any]], stats: Dict[str, Any
       document.getElementById('drawerBeachDetail').textContent = h.beach_snippet || 'Собственный песчаный пляж с шезлонгами, пологий вход в море и живописный риф.';
 
       const quotesContainer = document.getElementById('drawerReviewQuotes');
-      if (h.review_snippet && h.review_snippet.trim()) {
+      if (h.review_snippet && h.review_snippet.trim()) {{
         quotesContainer.style.display = 'block';
         quotesContainer.innerHTML = `
           <div class="quote-item">
             <div class="quote-body">${{escapeHtml(h.review_snippet)}}</div>
           </div>
         `;
-      } else {
+      }} else {{
         quotesContainer.style.display = 'none';
         quotesContainer.innerHTML = '';
-      }
+      }}
 
       // Tab 2: Chart & KPIs
       document.getElementById('chartKpiCurrent').textContent = `${{Math.round(h.current_price).toLocaleString('ru-RU')}} zł`;
