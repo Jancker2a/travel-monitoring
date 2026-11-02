@@ -157,6 +157,15 @@ jobs:
           echo "🧬 Building Market DNA Profile..."
           python build_market_dna.py --output market_dna_profile.json || true
 
+      - name: Auto-enrich unindexed hotels into Knowledge Base
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL || 'gemini-2.0-flash' }}
+        run: |
+          echo "🔍 Checking for unindexed hotels in scrape data..."
+          python scripts/auto_enrich_delta.py || echo "⚠️ Auto-enrichment finished with warnings (non-fatal)"
+
       - name: Generate dashboards (only new filters) + landing
         env:
           DASHBOARD_PARALLEL_JOBS: "3"
@@ -222,7 +231,7 @@ jobs:
           
           # Добавляем файлы данных фильтров, данные Германии и калибровку Hopper
           git add data/filters/ data/germany/ || true
-          git add hopper_prediction_ledger.json hopper_calibration.json hotel_crossborder_mapping.json || true
+          git add hopper_prediction_ledger.json hopper_calibration.json hotel_crossborder_mapping.json hotel_specs_kb.json || true
           git reset HEAD -- data/price_alerts_history.json "data/filters/*/price_alerts_history.json" "data/filters/*/hotel_series" "data/filters/*/hotel_series/*" 2>/dev/null || true
           # Проверяем размер файлов перед коммитом чтобы поймать проблему заранее
           echo "📏 Файлы >40MB в staging:" && git diff --cached --name-only | xargs -I{} sh -c 'sz=$(git cat-file -s ":{}") 2>/dev/null; [ "$sz" -gt 41943040 ] 2>/dev/null && echo "  $sz bytes: {}" || true' || true

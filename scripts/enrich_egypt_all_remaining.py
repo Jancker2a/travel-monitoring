@@ -378,7 +378,7 @@ ALL_REMAINING_SPECS = {
     },
     "Domina Coral Bay Bella Vista": {
         "stars": 5, "beach_type": "coral", "beach_line": 1, "beach_distance_meters": 0, "shuttle_bus": "none",
-        "sea_entry": "pontoon_lagoon", "bay": "pasha_coast", "wind_shelter": "moderate", "heated_pools_winter": True,
+        "sea_entry": "pontoon_to_reef", "bay": "pasha_coast", "wind_shelter": "moderate", "heated_pools_winter": True,
         "aquapark": False, "slides_total": 0, "pool_count": 7, "food_concept": "AI", "last_renovation_year": 2021,
         "tripadvisor_rating": 4.3, "tripadvisor_reviews": 2900, "transfer_minutes": 15,
         "highlights": ["Огромный мега-курорт Domina Coral Bay с пляжем длиной 1.8 км", "Плавучие понтоны с морскими бассейнами в открытом море", "Подогреваемый бассейн зимой и внутренний транспорт таф-таф"],
@@ -394,7 +394,7 @@ ALL_REMAINING_SPECS = {
     },
     "Domina Coral Bay Prestige": {
         "stars": 5, "beach_type": "coral", "beach_line": 1, "beach_distance_meters": 0, "shuttle_bus": "none",
-        "sea_entry": "pontoon_lagoon", "bay": "pasha_coast", "wind_shelter": "moderate", "heated_pools_winter": True,
+        "sea_entry": "pontoon_to_reef", "bay": "pasha_coast", "wind_shelter": "moderate", "heated_pools_winter": True,
         "aquapark": False, "slides_total": 0, "pool_count": 3, "food_concept": "UAI", "last_renovation_year": 2022,
         "tripadvisor_rating": 4.8, "tripadvisor_reviews": 1500, "transfer_minutes": 15,
         "highlights": ["VIP-корпус курорта Domina на первой линии у моря", "Подогреваемый спа-бассейн Elisir и персональный лаундж", "Персональный клабкар для поездок по курорту"],

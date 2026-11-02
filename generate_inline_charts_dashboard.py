@@ -496,16 +496,26 @@ def _parse_ta_review_count(value: Any) -> int:
     """Parse review count into a non-negative integer.
 
     Handles numbers with spaces ("1 250"), commas ("3,450"), dots ("3.450"),
-    textual counts ("731 opinii"), and empty placeholders.
+    pandas float strings ("1454.0"), textual counts ("731 opinii"), and empty placeholders.
     """
     if value is None or pd.isna(value):
         return 0
+    if isinstance(value, (int, float)):
+        return max(0, int(value))
     val_str = str(value).strip()
     if not val_str or val_str in ('—', 'None', 'nan', 'null'):
         return 0
+    try:
+        f = float(val_str)
+        return max(0, int(f))
+    except (ValueError, TypeError):
+        pass
     m = re.search(r'([\d\s,.\xa0]+)', val_str)
     if m:
-        digits_only = re.sub(r'[^\d]', '', m.group(1))
+        cleaned = m.group(1).replace('\xa0', ' ').strip()
+        if cleaned.endswith('.0'):
+            cleaned = cleaned[:-2]
+        digits_only = re.sub(r'[^\d]', '', cleaned)
         if digits_only:
             try:
                 return max(0, int(digits_only))
@@ -4844,6 +4854,9 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         if isinstance(reputation_kb_data, dict):
             h_rep = reputation_kb_data.get(h_name) or rep_kb_norm.get(norm_k)
 
+        ta_r_val = _parse_ta_rating_value(c.get("ta_rating"))
+        ta_rev_val = _parse_ta_review_count(c.get("ta_review_count"))
+
         prof = generate_hotel_ai_profile(
             hotel_name=h_name,
             country=default_country,
@@ -4863,6 +4876,8 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             hopper_verdict=c.get("hopper_verdict"),
             hopper_reasoning=c.get("hopper_reasoning"),
             forecast_text=c.get("forecast_text"),
+            ta_rating_override=ta_r_val,
+            ta_reviews_override=ta_rev_val,
         )
         hotel_ai_profiles[h_name] = prof
 
