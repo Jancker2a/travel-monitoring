@@ -25,6 +25,75 @@ import urllib.parse
 from typing import Any, Dict, List, Optional
 
 
+def _compute_price_intelligence(
+    current_price: float,
+    min_price: float,
+    max_price: float,
+    price_drop_pct: float,
+    deal_score: Optional[int] = None,
+    delta_avg: Optional[str] = None,
+    delta48: Optional[str] = None,
+    hopper_verdict: Optional[str] = None,
+    hopper_reasoning: Optional[str] = None,
+    forecast_text: Optional[str] = None,
+):
+    if price_drop_pct >= 8.0:
+        deal_badge = f"🟢 Рекордное дно! ↓ -{price_drop_pct:.0f}%"
+        deal_sub = "Цена на минимуме за последние 30 дней"
+        deal_class = "drop"
+        recommendation = "Идеальный момент для покупки: зафиксировано рекордное падение цены относительно пика сезона."
+    elif min_price > 0 and current_price <= (min_price + (max_price - min_price) * 0.25):
+        deal_badge = "🟢 Выгодная цена"
+        deal_sub = "В нижней четверти ценового диапазона"
+        deal_class = "good"
+        recommendation = "Хороший момент для бронирования: цена близка к историческому минимуму."
+    else:
+        deal_badge = "🟡 Стабильная цена"
+        deal_sub = "В пределах среднерыночной нормы"
+        deal_class = "fair"
+        recommendation = "Цена стабильна. Резких ценовых скачков не зафиксировано."
+
+    diff_text = ""
+    if delta_avg:
+        diff_text = f"{delta_avg} к средней"
+    elif min_price > 0 and current_price <= min_price:
+        diff_text = "Исторический минимум"
+    elif max_price > min_price:
+        pct_from_min = ((current_price - min_price) / max_price) * 100
+        diff_text = f"+{pct_from_min:.0f}% от минимума"
+    else:
+        diff_text = "Стабильная цена"
+
+    if deal_score is not None and deal_score >= 70:
+        price_signal = "🟢 ПОКУПАТЬ СЕЙЧАС"
+        ai_price_summary = (
+            f"Текущая цена {int(current_price):,} zł — исключительно выгодный момент. "
+            f"Deal Score {deal_score}/100 фиксирует сильную ценовую аномалию. "
+            f"{hopper_reasoning or recommendation} "
+            f"Вероятность дальнейшего снижения цены минимальна."
+        )
+    elif price_drop_pct >= 6.0:
+        price_signal = "🟢 ПОКУПАТЬ (ЦЕНА УПАЛА)"
+        ai_price_summary = (
+            f"Текущая цена {int(current_price):,} zł упала на -{price_drop_pct:.0f}% за последние 48 часов. "
+            f"{deal_sub}. Рекомендуется фиксировать тур, пока есть доступные места."
+        )
+    elif min_price > 0 and current_price <= (min_price + (max_price - min_price) * 0.25):
+        price_signal = "🟢 ВЫГОДНАЯ ЦЕНА"
+        ai_price_summary = (
+            f"Текущая цена {int(current_price):,} zł находится в нижней четверти исторического диапазона ({int(min_price):,} – {int(max_price):,} zł). "
+            f"Сигнал Hopper: «{hopper_verdict or 'Покупать'}». Отличное соотношение цены и качества."
+        )
+    else:
+        price_signal = "🟡 ЦЕНА СТАБИЛЬНА"
+        ai_price_summary = (
+            f"Текущая цена {int(current_price):,} zł соответствует сезонной норме для этого отеля. "
+            f"{forecast_text or 'Резких ценовых колебаний не зафиксировано'}. Можно бронировать при совпадении дат."
+        )
+
+    return deal_badge, deal_sub, deal_class, recommendation, price_signal, ai_price_summary, diff_text
+
+
 def generate_hotel_ai_profile(
     hotel_name: str,
     country: str = "",
@@ -60,7 +129,72 @@ def generate_hotel_ai_profile(
     if specs and isinstance(specs, dict) and "specs" in specs and isinstance(specs["specs"], dict):
         specs = specs["specs"]
 
-    # 1. Stars
+    # 1. Use verified, pre-compiled Passport if present in Knowledge Base (Zero runtime heuristics)
+    if specs and "passport" in specs and isinstance(specs["passport"], dict):
+        p = specs["passport"]
+        deal_badge, deal_sub, deal_class, recommendation, price_signal, ai_price_summary, diff_text = _compute_price_intelligence(
+            current_price=current_price,
+            min_price=min_price,
+            max_price=max_price,
+            price_drop_pct=price_drop_pct,
+            deal_score=deal_score,
+            delta_avg=delta_avg,
+            delta48=delta48,
+            hopper_verdict=hopper_verdict,
+            hopper_reasoning=hopper_reasoning,
+            forecast_text=forecast_text,
+        )
+
+        encoded_name = urllib.parse.quote(hotel_name)
+        encoded_query = urllib.parse.quote(f"{hotel_name} {destination or country} reviews")
+        tripadvisor_url = f"https://www.tripadvisor.com/Search?q={encoded_name}"
+        google_reviews_url = f"https://www.google.com/search?q={encoded_query}"
+        yt_main_query = urllib.parse.quote(f"обзор отеля {hotel_name}")
+        youtube_search_url = f"https://www.youtube.com/results?search_query={yt_main_query}"
+
+        gallery_photos = []
+        if specs.get("gallery_photos"):
+            gallery_photos = list(specs["gallery_photos"])
+        elif main_image_url:
+            gallery_photos.append({"label": "Территория и отель", "url": main_image_url})
+        else:
+            gallery_photos.append({"label": "Территория и отель", "url": ""})
+
+        return {
+            "stars": p.get("stars", 4),
+            "ta_rating": p.get("ta_rating", 4.2),
+            "ta_reviews": int(p.get("ta_reviews", 0)),
+            "beach_line": p.get("beach_line", 1),
+            "beach_type": p.get("beach_type", "Песчаный пляж"),
+            "sea_entry": p.get("sea_entry", "Пологий песчаный вход"),
+            "has_aquapark": p.get("has_aquapark", False),
+            "has_heated_pools": p.get("has_heated_pools", False),
+            "food_concept": p.get("food_concept", "All Inclusive"),
+            "suitable_for": p.get("suitable_for", "Отдых и релакс"),
+            "verdict": p.get("verdict", ""),
+            "ai_hotel_summary": p.get("ai_hotel_summary", ""),
+            "ai_price_summary": ai_price_summary,
+            "ai_audience": p.get("ai_audience", ""),
+            "ai_action_signal": price_signal,
+            "price_diff_text": diff_text,
+            "pros": list(p.get("pros", []))[:3],
+            "cons": list(p.get("cons", []))[:2],
+            "food_snippet": p.get("food_snippet", ""),
+            "beach_snippet": p.get("beach_snippet", ""),
+            "review_snippet": p.get("review_snippet", ""),
+            "deal_badge": deal_badge,
+            "deal_sub": deal_sub,
+            "deal_class": deal_class,
+            "recommendation": recommendation,
+            "tripadvisor_url": tripadvisor_url,
+            "google_reviews_url": google_reviews_url,
+            "youtube_search_url": youtube_search_url,
+            "gallery_photos": gallery_photos,
+            "infra_rich": p.get("infra_rich", {}),
+            "other_filters": other_filters or [],
+        }
+
+    # Fallback generation for non-indexed/new hotels
     stars = None
     if specs and specs.get("stars"):
         try:
