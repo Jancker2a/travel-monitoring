@@ -100,7 +100,9 @@ def generate_hotel_ai_profile(
 
     # 3. Infrastructure traits
     has_aquapark = False
-    if (specs and specs.get("aquapark")) or re.search(r"aqua|water|park|albatros|slide|горк", hotel_name, re.I):
+    if specs and "aquapark" in specs:
+        has_aquapark = bool(specs["aquapark"])
+    elif re.search(r"aqua\s*park|water\s*park|аквапарк", hotel_name, re.I):
         has_aquapark = True
 
     has_heated_pools = False

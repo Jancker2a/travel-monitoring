@@ -1175,7 +1175,7 @@
         "sea_entry": "shallow_sand",
         "beach_distance_meters": 0,
         "shuttle_bus": "none",
-        "heated_pools_winter": true,
+        "heated_pools_winter": false,
         "heated_pools_details": "Бассейн с подогревом в зимний период с ноября по март",
         "pool_count": 4,
         "aquapark": true,
@@ -1186,8 +1186,8 @@
         "tripadvisor_reviews": 2900,
         "transfer_minutes": 15,
         "nearest_airport": "HRG",
-        "bay": "samra_bay",
-        "wind_shelter": "protected",
+        "bay": "sahl_hasheesh",
+        "wind_shelter": "moderate",
         "highlights": [
           "1-я линия с естественной защищенной песчаной лагуной и мягким входом",
           "Грандиозный собственный аквапарк с 30 водными горками для всех возрастов",
@@ -1603,7 +1603,7 @@
         "sea_entry": "shallow_sand",
         "heated_pools_winter": true,
         "pool_count": 5,
-        "aquapark": true,
+        "aquapark": false,
         "food_concept": "AI",
         "last_renovation_year": 2019,
         "tripadvisor_rating": 4.0,
@@ -2900,7 +2900,7 @@
         "sea_entry": "shallow_sand",
         "heated_pools_winter": false,
         "pool_count": 5,
-        "aquapark": true,
+        "aquapark": false,
         "food_concept": "UAI",
         "last_renovation_year": 2021,
         "tripadvisor_rating": 4.0,
@@ -2930,7 +2930,7 @@
         "sea_entry": "pontoon_to_reef",
         "beach_distance_meters": 0,
         "shuttle_bus": "none",
-        "heated_pools_winter": true,
+        "heated_pools_winter": false,
         "heated_pools_details": "Бассейн с олимпийскими дорожками и семейный бассейн с подогревом",
         "pool_count": 6,
         "aquapark": true,
@@ -7010,26 +7010,30 @@
       "source": "llm_verified",
       "specs": {
         "beach_type": "sand",
-        "beach_line": 1,
+        "beach_line": 3,
         "sea_entry": "shallow_sand",
         "heated_pools_winter": false,
-        "pool_count": 3,
-        "aquapark": true,
+        "pool_count": 1,
+        "aquapark": false,
         "food_concept": "AI",
         "last_renovation_year": 2020,
-        "tripadvisor_rating": 4.0,
-        "tripadvisor_reviews": 1500,
+        "tripadvisor_rating": 3.5,
+        "tripadvisor_reviews": 420,
         "transfer_minutes": 30,
         "highlights": [
-          "Хорошая территория с зелеными насаждениями",
-          "Разнообразное питание"
+          "Открытый бассейн с 2 водными горками",
+          "Бесплатный регулярный шаттл-бас на песчаный пляж",
+          "Доступный отдых по системе All Inclusive"
         ],
         "caution_notes": [
-          "Старый номерной фонд",
-          "Бассейны без постоянного зимнего подогрева"
+          "3-я линия: расстояние до моря около 2.2 км (шаттл-бас по расписанию)",
+          "Бассейн без зимнего подогрева"
         ],
-        "beach_distance_meters": 0,
-        "shuttle_bus": "none"
+        "beach_distance_meters": 2200,
+        "shuttle_bus": "free",
+        "slides_total": 2,
+        "bay": "hadaba_ras_um_sid",
+        "wind_shelter": "moderate"
       }
     },
     "Panorama Naama Heights": {
@@ -7740,7 +7744,7 @@
         "sea_entry": "shallow_sand",
         "heated_pools_winter": false,
         "pool_count": 5,
-        "aquapark": true,
+        "aquapark": false,
         "food_concept": "UAI",
         "last_renovation_year": 2021,
         "tripadvisor_rating": 4.0,
@@ -12332,7 +12336,7 @@
         "sea_entry": "shallow_sand",
         "heated_pools_winter": false,
         "pool_count": 5,
-        "aquapark": true,
+        "aquapark": false,
         "food_concept": "UAI",
         "last_renovation_year": 2021,
         "tripadvisor_rating": 4.2,
@@ -13002,7 +13006,7 @@
         "sea_entry": "shallow_sand",
         "heated_pools_winter": false,
         "pool_count": 3,
-        "aquapark": true,
+        "aquapark": false,
         "food_concept": "UAI",
         "last_renovation_year": 2021,
         "tripadvisor_rating": 4.0,
@@ -14555,26 +14559,29 @@
       "source": "llm_verified",
       "specs": {
         "beach_type": "sand",
-        "beach_line": 1,
+        "beach_line": 3,
         "sea_entry": "shallow_sand",
         "heated_pools_winter": false,
-        "pool_count": 3,
-        "aquapark": true,
+        "pool_count": 1,
+        "aquapark": false,
         "food_concept": "AI",
         "last_renovation_year": 2018,
-        "tripadvisor_rating": 4.0,
-        "tripadvisor_reviews": 1500,
+        "tripadvisor_rating": 3.2,
+        "tripadvisor_reviews": 280,
         "transfer_minutes": 30,
         "highlights": [
-          "Просторные номера",
-          "Разнообразное питание"
+          "Экономичный отдых в районе Хадаба",
+          "Бесплатный шаттл-бас на пляж",
+          "Открытый плавательный бассейн"
         ],
         "caution_notes": [
-          "Слабый Wi-Fi в номерах",
-          "Некоторые услуги платные"
+          "3-я линия: расстояние до пляжа около 2.5 км (на автобусе)",
+          "Бассейн без зимнего подогрева"
         ],
-        "beach_distance_meters": 0,
-        "shuttle_bus": "none"
+        "beach_distance_meters": 2500,
+        "shuttle_bus": "free",
+        "bay": "hadaba_ras_um_sid",
+        "wind_shelter": "moderate"
       }
     },
     "Royal Lagoons Resort and Aqua Park": {
@@ -16730,26 +16737,29 @@
       "source": "llm_verified",
       "specs": {
         "beach_type": "sand",
-        "beach_line": 2,
+        "beach_line": 3,
         "sea_entry": "shallow_sand",
         "heated_pools_winter": false,
-        "pool_count": 2,
+        "pool_count": 1,
         "aquapark": false,
         "food_concept": "AI",
         "last_renovation_year": null,
-        "tripadvisor_rating": 3.5,
-        "tripadvisor_reviews": 1500,
+        "tripadvisor_rating": 3.2,
+        "tripadvisor_reviews": 280,
         "transfer_minutes": 20,
         "highlights": [
-          "Уютная атмосфера",
-          "Доступные цены"
+          "Экономичный отдых в районе Хадаба",
+          "Бесплатный шаттл-бас на пляж",
+          "Открытый плавательный бассейн"
         ],
         "caution_notes": [
-          "Старый номерной фонд",
-          "Необходимость обновления инфраструктуры"
+          "3-я линия: расстояние до пляжа около 2.5 км (на автобусе)",
+          "Бассейн без зимнего подогрева"
         ],
-        "beach_distance_meters": 400,
-        "shuttle_bus": "free"
+        "beach_distance_meters": 2500,
+        "shuttle_bus": "free",
+        "bay": "hadaba_ras_um_sid",
+        "wind_shelter": "moderate"
       }
     },
     "Grecotel Costa Botanica (ex. Gelina Village) Grecja, Korfu, Acharavi": {
@@ -18179,7 +18189,7 @@
         "sea_entry": "shallow_sand",
         "heated_pools_winter": true,
         "pool_count": 3,
-        "aquapark": true,
+        "aquapark": false,
         "food_concept": "UAI",
         "last_renovation_year": 2021,
         "tripadvisor_rating": 4.2,
@@ -18573,7 +18583,7 @@
         "sea_entry": "shallow_sand",
         "heated_pools_winter": true,
         "pool_count": 5,
-        "aquapark": true,
+        "aquapark": false,
         "food_concept": "UAI",
         "last_renovation_year": 2021,
         "tripadvisor_rating": 4.3,
@@ -18664,7 +18674,7 @@
         "sea_entry": "shallow_sand",
         "heated_pools_winter": false,
         "pool_count": 5,
-        "aquapark": true,
+        "aquapark": false,
         "food_concept": "UAI",
         "last_renovation_year": 2021,
         "tripadvisor_rating": 4.0,
@@ -21183,10 +21193,10 @@
       "source": "curated_expert_verified",
       "specs": {
         "beach_type": "mixed",
-        "beach_line": 1,
+        "beach_line": 2,
         "sea_entry": "shallow_sand",
-        "beach_distance_meters": 0,
-        "shuttle_bus": "none",
+        "beach_distance_meters": 450,
+        "shuttle_bus": "free",
         "heated_pools_winter": true,
         "heated_pools_details": "Крытый бассейн с подогревом в спа-центре в зимние месяцы",
         "pool_count": 3,
@@ -21271,7 +21281,7 @@
         "transfer_minutes": 10,
         "nearest_airport": "SSH",
         "bay": "sharks_bay",
-        "wind_shelter": "protected",
+        "wind_shelter": "moderate",
         "highlights": [
           "Расположение прямо на знаменитой площади SOHO Square с шоу фонтанов и ресторанами",
           "Один из лучших живых коралловых рифов в безветренной бухте Шаркс Бэй",
@@ -21295,7 +21305,7 @@
         "sea_entry": "shallow_sand",
         "beach_distance_meters": 0,
         "shuttle_bus": "none",
-        "heated_pools_winter": true,
+        "heated_pools_winter": false,
         "heated_pools_details": "Бассейн с подогревом зимой (+28°C)",
         "pool_count": 3,
         "aquapark": false,
@@ -21334,7 +21344,7 @@
         "heated_pools_winter": true,
         "heated_pools_details": "Главный бассейн с гарантированным подогревом в зимний сезон",
         "pool_count": 2,
-        "aquapark": true,
+        "aquapark": false,
         "slides_total": 50,
         "food_concept": "AI",
         "last_renovation_year": 2021,
@@ -21343,7 +21353,7 @@
         "transfer_minutes": 30,
         "nearest_airport": "HRG",
         "bay": "makadi_bay",
-        "wind_shelter": "protected",
+        "wind_shelter": "moderate",
         "highlights": [
           "Расположение в престижном курортном городке Madinat Makadi в защищенной бухте",
           "Бесплатный доступ в грандиозный аквапарк Makadi Water World (50 горок)",
@@ -21358,6 +21368,6 @@
   },
   "updated_at": "2026-11-02T06:13:38.907808Z",
   "total_hotels": 706,
-  "verified_at": "2026-11-02T06:13:21.863359Z",
+  "verified_at": "2026-11-02T07:44:26.022046Z",
   "audit_version": "2.0_verified"
 }

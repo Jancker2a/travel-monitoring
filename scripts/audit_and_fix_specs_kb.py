@@ -29,6 +29,7 @@ REPUTATION_FILE = "hotel_reputation_kb.json"
 INLAND_KEYWORDS = [
     r"\b(city|inn|suites|apartments?|gardens?|hills?|residences?|village|park)\b",
     r"\b(old vic|coral hills|falcon hills|falcon naama|delta sharm|verginia sharm|sharm cliff)\b",
+    r"\b(uni sharm|karma|amar sin|badawia|luna sharm|viva sharm|aida sharm|amar sharm)\b",
     r"\b(tivoli|sharm holiday|amphoras aqua|albatros aqua blu|albatros aqua park)\b",
     r"\b(parrotel aqua park|palma dive|eden rock|halomy|sharm reef|dive inn)\b",
     r"\b(solymar naama|jaz fanara residence|regency lodge|sunset)\b",
@@ -106,9 +107,9 @@ def audit_and_cleanse_specs(specs_path: str = SPECS_FILE, rep_path: str = REPUTA
 
         if (is_inland or has_shuttle_mention) and cur_line == 1:
             # Determine whether 2nd or 3rd line
-            if "old vic" in h_lower or "falcon hills" in h_lower or "delta sharm" in h_lower or "2.5" in spec_cautions:
+            if any(k in h_lower for k in ["old vic", "falcon hills", "delta sharm", "uni sharm", "karma", "amar sin", "badawia", "luna sharm", "viva sharm"]) or "2.5" in spec_cautions or "2.2" in spec_cautions:
                 new_line = 3
-                dist = 2500
+                dist = 2200
             elif "aqua park" in h_lower or "aqua blu" in h_lower:
                 new_line = 2
                 dist = 600
@@ -164,11 +165,15 @@ def audit_and_cleanse_specs(specs_path: str = SPECS_FILE, rep_path: str = REPUTA
         has_aqua_in_name = bool(re.search(r"aqua\s*park|water\s*park|аквапарк", h_lower))
         has_slides_in_hl = any("аквапарк" in str(h).lower() or "горк" in str(h).lower() for h in (specs.get("highlights") or []))
 
-        # If flagged as aquapark but hotel is 3-star or small city hotel without slides in highlights or name
-        if cur_aqua and not has_aqua_in_name and not has_slides_in_hl:
-            if is_inland or (specs.get("pool_count") or 1) <= 2:
+        # If flagged as aquapark but hotel is 3-star or inland without real water park in name
+        if cur_aqua and not has_aqua_in_name:
+            if is_inland or (specs.get("pool_count") or 1) <= 2 or entry.get("stars", 4) <= 3:
                 specs["aquapark"] = False
                 fixed_aquaparks += 1
+                # If hotel has modest slides, note it accurately
+                if any(w in h_lower for w in ["uni sharm", "karma"]):
+                    specs["slides_total"] = 2
+                    specs["pool_count"] = 1
 
         # ----------------------------------------------------
         # 4. BAY & WIND SHELTER RESOLUTION (EGYPT)
