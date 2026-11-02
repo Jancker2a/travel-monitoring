@@ -125,9 +125,13 @@ def generate_hotel_ai_profile(
     - Structured AI Verdict, Pros, Cons, and Review quotes
     - Price intelligence status and advice
     """
-    # 0. Specs unwrap if nested
+    # 0. Specs unwrap if nested & safe dict initialization
     if specs and isinstance(specs, dict) and "specs" in specs and isinstance(specs["specs"], dict):
         specs = specs["specs"]
+    if not isinstance(specs, dict):
+        specs = {}
+    if not isinstance(rep_data, dict):
+        rep_data = {}
 
     # 1. Use verified, pre-compiled Passport if present in Knowledge Base (Zero runtime heuristics)
     if specs and "passport" in specs and isinstance(specs["passport"], dict):
@@ -320,7 +324,7 @@ def generate_hotel_ai_profile(
             pools_count_str = "Открытый плавательный бассейн"
 
         if has_heated_pools:
-            heated_desc = specs.get("heated_pools_details") or "Бассейн с постоянным зимним подогревом (+28°C)"
+            heated_desc = (specs.get("heated_pools_details") if specs else None) or "Бассейн с постоянным зимним подогревом (+28°C)"
         else:
             heated_desc = "Открытый бассейн, терраса для загара (зимний подогрев отсутствует)" if pool_cnt == 1 else "Открытые бассейны, терраса для загара (зимний подогрев отсутствует)"
 
