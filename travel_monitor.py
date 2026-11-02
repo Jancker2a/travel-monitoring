@@ -780,12 +780,36 @@ class TravelPriceMonitor:
                         logger.info(f"На странице {page_number} не найдено подходящих предложений{scope_info}")
                         break
                     
-                    load_more_btn = await page.query_selector('button:has-text("Doładuj więcej ofert")')
+                    load_more_btn = await page.query_selector('button.listing-load-more-btn, button:has-text("Doładuj więcej ofert"), button:has-text("Pokaż więcej")')
                     if load_more_btn and page_number < max_pages:
                         logger.info(f"Найдена кнопка 'Doładuj więcej ofert', подгружаем порцию {page_number + 1}...")
                         try:
-                            await load_more_btn.click()
-                            await page.wait_for_timeout(2000)
+                            try:
+                                await load_more_btn.scroll_into_view_if_needed(timeout=3000)
+                            except Exception:
+                                pass
+                            await page.wait_for_timeout(300)
+                            try:
+                                await load_more_btn.click(timeout=3000)
+                            except Exception:
+                                # Fallback на прямой DOM-клик в обход оверлеев/шторки cookie
+                                await page.evaluate('(b) => b.click()', load_more_btn)
+
+                            # Динамическое ожидание появления новых карточек в выдаче
+                            prev_cards_cnt = len(all_found_cards)
+                            cards_loaded = False
+                            for _ in range(30):  # до 6 сек (30 * 200ms)
+                                await page.wait_for_timeout(200)
+                                new_cards = await self.find_offers(page)
+                                if len(new_cards) > prev_cards_cnt:
+                                    cards_loaded = True
+                                    break
+
+                            if not cards_loaded:
+                                logger.info("Новые карточки не появились после первого клика, пробуем повторный DOM-клик...")
+                                await page.evaluate('(b) => b.click()', load_more_btn)
+                                await page.wait_for_timeout(2500)
+
                             _log_timing(f"Playwright страница {page_number} total", page_t0)
                             page_number += 1
                         except Exception as e:
@@ -1276,10 +1300,10 @@ class TravelPriceMonitor:
                 'a[aria-label*="next"]',
                 'a[title*="następna"]',
                 'a[title*="next"]',
-                '.pagination a:contains("Następna")',
-                '.pagination a:contains("Next")',
-                '.pagination a:contains(">")',
-                '.pagination a:contains("»")',
+                '.pagination a:has-text("Następna")',
+                '.pagination a:has-text("Next")',
+                '.pagination a:has-text(">")',
+                '.pagination a:has-text("»")',
                 'a[class*="next"]',
                 'a[class*="pagination"]',
                 'button[class*="next"]',
