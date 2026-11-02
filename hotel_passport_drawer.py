@@ -20,9 +20,31 @@ Provides:
 from __future__ import annotations
 
 import html
+import json
+import os
 import re
 import urllib.parse
 from typing import Any, Dict, List, Optional
+
+_HOTEL_GALLERIES_CACHE: Optional[Dict[str, Any]] = None
+
+
+def _get_galleries_kb() -> Dict[str, Any]:
+    """Loads and caches hotel_galleries_kb.json for instant multi-photo lookup."""
+    global _HOTEL_GALLERIES_CACHE
+    if _HOTEL_GALLERIES_CACHE is None:
+        _HOTEL_GALLERIES_CACHE = {}
+        for path in ("hotel_galleries_kb.json", os.path.join(os.path.dirname(__file__), "hotel_galleries_kb.json")):
+            if os.path.exists(path):
+                try:
+                    with open(path, "r", encoding="utf-8") as f:
+                        data = json.load(f)
+                        if isinstance(data, dict):
+                            _HOTEL_GALLERIES_CACHE = data.get("galleries", {})
+                        break
+                except Exception:
+                    pass
+    return _HOTEL_GALLERIES_CACHE
 
 
 def _compute_price_intelligence(
@@ -161,10 +183,14 @@ def generate_hotel_ai_profile(
         gallery_photos = []
         if specs.get("gallery_photos"):
             gallery_photos = list(specs["gallery_photos"])
-        elif main_image_url:
-            gallery_photos.append({"label": "Территория и отель", "url": main_image_url})
         else:
-            gallery_photos.append({"label": "Территория и отель", "url": ""})
+            g_kb = _get_galleries_kb()
+            if hotel_name in g_kb:
+                gallery_photos = list(g_kb[hotel_name])
+            elif main_image_url:
+                gallery_photos.append({"label": "Территория и отель", "url": main_image_url})
+            else:
+                gallery_photos.append({"label": "Территория и отель", "url": ""})
 
         ta_rating_final = ta_rating_override if (ta_rating_override is not None and ta_rating_override > 0) else p.get("ta_rating", 4.2)
         ta_reviews_final = ta_reviews_override if (ta_reviews_override is not None and ta_reviews_override > 0) else int(p.get("ta_reviews", 0))
@@ -570,10 +596,14 @@ def generate_hotel_ai_profile(
     gallery_photos = []
     if specs and isinstance(specs, dict) and specs.get("gallery_photos"):
         gallery_photos = list(specs.get("gallery_photos"))
-    elif main_image_url:
-        gallery_photos.append({"label": "Территория и отель", "url": main_image_url})
     else:
-        gallery_photos.append({"label": "Территория и отель", "url": ""})
+        g_kb = _get_galleries_kb()
+        if hotel_name in g_kb:
+            gallery_photos = list(g_kb[hotel_name])
+        elif main_image_url:
+            gallery_photos.append({"label": "Территория и отель", "url": main_image_url})
+        else:
+            gallery_photos.append({"label": "Территория и отель", "url": ""})
 
     return {
         "stars": stars,
@@ -2450,7 +2480,7 @@ def render_hotel_passport_drawer_html() -> str:
               <img id="galleryMainImg" class="gallery-main-img" src="" alt="Фото отеля" onerror="this.style.display='none';">
               <button type="button" class="gallery-nav-btn prev" onclick="prevGalleryPhoto()" aria-label="Предыдущее фото">‹</button>
               <button type="button" class="gallery-nav-btn next" onclick="nextGalleryPhoto()" aria-label="Следующее фото">›</button>
-              <div class="gallery-counter-pill" id="galleryCounterPill">📷 1 / 4</div>
+              <div class="gallery-counter-pill" id="galleryCounterPill" style="display:none;"></div>
             </div>
             <div class="gallery-thumbs-row" id="galleryThumbsRow"></div>
           </div>
@@ -2669,7 +2699,7 @@ def get_hotel_passport_js() -> str:
         if (h.ta_reviews && h.ta_reviews > 0) {
           bHtml += `<span class="stat-pill" style="color:#059669; font-weight:700;">★ ${h.ta_rating ? h.ta_rating.toFixed(1) : '4.3'} (${h.ta_reviews.toLocaleString('ru-RU')} отзывов)</span>`;
         } else if (h.ta_rating) {
-          bHtml += `<span class="stat-pill" style="color:#059669; font-weight:700;">★ ${h.ta_rating.toFixed(1)} Рейтинг</span>`;
+          bHtml += `<span class="stat-pill" style="color:#059669; font-weight:700;">★ ${h.ta_rating.toFixed(1)} на TripAdvisor</span>`;
         }
         bHtml += `<span class="stat-pill" style="color:#0284c7; font-weight:700;">🏖️ ${h.beach_line || 2}-я линия</span>`;
         if (h.has_aquapark) bHtml += `<span class="stat-pill" style="color:#16a34a; font-weight:700;">🎢 Аквапарк</span>`;
@@ -3007,8 +3037,10 @@ def get_hotel_passport_js() -> str:
       const totalPhotos = currentGalleryPhotos.length;
       if (counter) {
         if (totalPhotos <= 1) {
+          counter.style.display = cur.url ? 'block' : 'none';
           counter.textContent = `📷 ${cur.label || 'Фото отеля'}`;
         } else {
+          counter.style.display = 'block';
           counter.textContent = `📷 ${currentGalleryIdx + 1} / ${totalPhotos} • ${cur.label || 'Фото'}`;
         }
       }
@@ -3116,7 +3148,7 @@ def get_hotel_passport_js() -> str:
       const fontColor = isDark ? '#cbd5e1' : '#334155';
       const gridColor = isDark ? 'rgba(51, 65, 85, 0.5)' : '#f1f5f9';
 
-      const xVals = pts.map(p => p.iso || p.date);
+      const xVals = pts.map(p => p.ts ? new Date(p.ts).toISOString() : (p.iso ? p.iso.replace(' ', 'T') : p.date));
       const yVals = pts.map(p => p.price);
       const hoverTexts = pts.map(p => `${p.date || p.iso}<br><b>${Math.round(p.price).toLocaleString('ru-RU')} zł</b>`);
 
@@ -3127,7 +3159,7 @@ def get_hotel_passport_js() -> str:
         hoverinfo: 'text',
         mode: 'lines+markers',
         type: 'scatter',
-        line: { color: '#6366f1', width: 3, shape: 'spline' },
+        line: { color: '#6366f1', width: 3, shape: pts.length > 2 ? 'spline' : 'linear' },
         marker: { color: '#4f46e5', size: 6 },
         fill: 'tozeroy',
         fillcolor: isDark ? 'rgba(99, 102, 241, 0.12)' : 'rgba(99, 102, 241, 0.08)',
@@ -3157,6 +3189,9 @@ def get_hotel_passport_js() -> str:
       };
 
       const config = { responsive: true, displayModeBar: false };
+      if (window.Plotly && window.Plotly.purge) {
+        Plotly.purge(chartEl);
+      }
       Plotly.newPlot('drawerPlotlyChart', [trace], layout, config).then(() => {
         Plotly.Plots.resize(chartEl);
       });

@@ -140,6 +140,13 @@ def main():
     except Exception as e:
         logger.warning(f"Auto-enrichment step encountered an error: {e}. Non-critical, proceeding.")
 
+    # Synchronize photo galleries into specs KB if available
+    try:
+        from scripts.fetch_hotel_galleries import sync_galleries_into_specs_kb
+        sync_galleries_into_specs_kb(specs_kb_path=args.specs_kb)
+    except Exception as e:
+        logger.debug(f"Gallery sync skipped: {e}")
+
 
 if __name__ == "__main__":
     main()

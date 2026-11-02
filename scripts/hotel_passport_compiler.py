@@ -207,7 +207,8 @@ def compile_hotel_passport(name: str, hdata: Dict[str, Any]) -> Dict[str, Any]:
     heated = bool(specs.get("heated_pools_winter", False))
     food_concept = specs.get("food_concept", "AI")
     ta_rating = specs.get("tripadvisor_rating", 4.2)
-    ta_reviews = specs.get("tripadvisor_reviews", 1000)
+    ta_reviews = specs.get("tripadvisor_reviews", 0)
+    gallery_photos = specs.get("gallery_photos", [])
     highlights = specs.get("highlights", [])
     caution_notes = specs.get("caution_notes", [])
 
@@ -372,6 +373,7 @@ def compile_hotel_passport(name: str, hdata: Dict[str, Any]) -> Dict[str, Any]:
         "food_snippet": food_snippet,
         "beach_snippet": beach_snippet,
         "review_snippet": review_snippet,
+        "gallery_photos": gallery_photos,
         "infra_rich": infra,
     }
 
