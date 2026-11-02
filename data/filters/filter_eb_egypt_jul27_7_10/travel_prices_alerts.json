@@ -39,10 +39,23 @@
       "created_at": "2026-11-01T07:55:24.108241+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort)_2026-11-01_07-54_zone_out_gone"
+    },
+    {
+      "hotel_name": "The V Luxury Resort",
+      "duration_bucket": "",
+      "old_price": 8548.0,
+      "new_price": 8548.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-01 23:45:30.019526+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-01T23:46:37.850354+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "The V Luxury Resort_2026-11-01_23-45_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-01T07:54:17.925818+00:00",
+    "last_processed_run": "2026-11-01T23:45:30.019526+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 8575.0,
@@ -53,7 +66,7 @@
         "premium_peak": null
       },
       "Jaz Grand Marsa (ex Resta Grand Resort)": {
-        "history_max": 6947.0,
+        "history_max": 7007.0,
         "premium_peak": null
       },
       "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort)": {
@@ -77,7 +90,7 @@
         "premium_peak": null
       },
       "Novotel Marsa Alam": {
-        "history_max": 7967.0,
+        "history_max": 7987.0,
         "premium_peak": null
       },
       "Parrotel Lagoon Resort": {
@@ -97,7 +110,7 @@
         "premium_peak": null
       },
       "Royal Lagoons Aqua (ex. Premium Blue)": {
-        "history_max": 7749.0,
+        "history_max": 7867.0,
         "premium_peak": null
       },
       "Rewaya Inn Resort (ex. Hawaii Paradise Aqua Park Resort)": {
@@ -165,7 +178,7 @@
         "premium_peak": null
       },
       "Sea Star Beau Rivage": {
-        "history_max": 8922.0,
+        "history_max": 8929.0,
         "premium_peak": null
       },
       "The V Luxury Resort": {
@@ -174,6 +187,10 @@
       },
       "V Grand Beach Resort Sahl Hasheesh": {
         "history_max": 8927.0,
+        "premium_peak": null
+      },
+      "Dream Lagoon & Aqua Park Resort (ex. Floriana Dream Lagoon)": {
+        "history_max": 8929.0,
         "premium_peak": null
       }
     }
