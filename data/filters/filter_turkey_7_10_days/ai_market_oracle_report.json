@@ -3,14 +3,24 @@
     "headline": "Вылеты 04.11–25.11: на ближайшие даты цены падают, на дальние — стабильны",
     "market_phase": "Ближайшие вылеты через 2 дн.",
     "filter_title": "Турция • 7–10 дней",
-    "charter_dynamics": "На рейсы в ближайшие дни (04.11, через 2 дн.) туроператоры уже распродают последние места со скидками. На более дальние даты (до 25.11) цены пока держатся на среднем уровне (~6,544 zł). По мере приближения вылетов окно скидок будет постепенно смещаться и на следующие недели. Погода (Турция): Днем тепло (+20..+24°C), море остывает до +21..+22°C в ноябре, вечера прохладные (+12..+15°C). Выбирайте отели с подогреваемыми бассейнами и спа. Не для жаркого пляжа, а для комфортного отдыха и релакса.",
-    "floor_status": "0 отелей (0.0%) сейчас отдают по минимальной цене за сезон.",
+    "charter_dynamics": "На рейсы в ближайшие дни (04.11, через 2 дн.) туроператоры уже распродают последние места со скидками. На более дальние даты (до 25.11) цены пока держатся на среднем уровне (~6,475 zł). По мере приближения вылетов окно скидок будет постепенно смещаться и на следующие недели. Погода (Турция): Днем тепло (+20..+24°C), море остывает до +21..+22°C в ноябре, вечера прохладные (+12..+15°C). Выбирайте отели с подогреваемыми бассейнами и спа. Не для жаркого пляжа, а для комфортного отдыха и релакса.",
+    "floor_status": "11 отелей (32.4%) сейчас отдают по минимальной цене за сезон.",
     "strategic_directive": "Если планируете лететь на днях (04.11) — лучше брать сейчас, билетов на рейсы осталось мало. Если поездка планируется позже (25.11) — можно не спешить, добавьте отели в «Избранное» (☆) и следите за ценой: ближе к вылету она часто снижается.",
     "key_anomalies": [
       {
+        "type": "floor",
+        "title": "Ценовое дно: 11 отелей (32.4%)",
+        "text": "Зафиксирована самая низкая цена за весь сезон. Цены начинаются от 5,481 zł."
+      },
+      {
+        "type": "drop",
+        "title": "⚡ Резкий сброс: Sunis Evren Beach & Spa",
+        "text": "Цена упала на 24% ниже обычного минимума (сейчас 6,694 zł). Туроператор может закрыть скидку в любой момент."
+      },
+      {
         "type": "gem",
-        "title": "💎 Скрытая жемчужина: Diamond Premium",
-        "text": "Высокий рейтинг 4.5★ в категории 4★ всего за 6,212 zł (намного дешевле похожих отелей)."
+        "title": "💎 Скрытая жемчужина: Avia Resort & Spa",
+        "text": "Высокий рейтинг 4.4★ в категории 4★ всего за 6,632 zł (намного дешевле похожих отелей)."
       }
     ],
     "synthesized_by": "Rule-Based Deterministic Engine (Offline)",
@@ -21,20 +31,20 @@
       "advice": "Если вы планируете поездку на ближайшее время — это самые удачные предложения по соотношению цена/качество прямо сейчас.",
       "top_picks": [
         {
+          "hotel_name": "Avia Resort & Spa",
+          "price": 6632.0,
+          "score": 170,
+          "badge": "💎 Жемчужина 4.5★",
+          "why_buy": "Высокий рейтинг 4.5★ по цене эконом-сегмента, цена на дне сезона (−7% от пика), хороший рейтинг 4.4★ (6,632 zł).",
+          "offer_url": "https://fly.pl/wycieczka/turcja,side,colakli/avia-resort-spa-15/p3w4VYOcMcDVyoJ2IGHyv1AAogjneOQ9S_Wj6CrKlpuC1ZmgAAAADHtAQA4LQEAAcABAAqBFdFWlkwtMyi1wZI6DNQQVi4A2ADaglFbnRlciBBaXJqBDA4MzByQp4BkwEfAAIBFgAcABcGEu0DFMgGFVUYc0-BY0wAQJwSS-fFAVAAEaLGAh2d3A0gGRvf2XwNwo7FCAESYwEMYwEDC1glces/?operator=WEZY&adults=2&children=2020-12-10&objectId=238657&durationFrom=7&durationTo=10&departureDate=2026-11-21&returnDate=2026-11-28&departureLocation=Warszawa&catering=all_inclusive&transport=accommodation_flight&duration=7&nights=7"
+        },
+        {
           "hotel_name": "Diamond Premium",
           "price": 6212.0,
           "score": 140,
           "badge": "💎 Жемчужина 4.5★",
           "why_buy": "Высокий рейтинг 4.5★ по цене эконом-сегмента, высокий рейтинг 4.5★ (6,212 zł).",
-          "offer_url": "https://fly.pl/wycieczka/turcja,side,titreyengol/diamond-premium/praztxRFUPdp_4nBICYJpyAAog4YgTsb2n369yc1KQAEPKLgAAAADHtAQA4LQEAAcAAAAqBFdFWlkwt_6h1wZIxDBQQVi7A2ADaglFbnRlciBBaXJqBDA4MzByP54BkwEfAAIBFgAcABcGEu0DFMgGFVUYcxHAYkxBTwBAnBJL58UBUAAbzkgd8dkPIBkNoejBCQESYwENYwEDDAxlVe4/?operator=WEZY&adults=2&children=2020-12-10&objectId=173180&durationFrom=7&durationTo=10&departureDate=2026-11-21&returnDate=2026-11-28&departureLocation=Warszawa&catering=all_inclusive&transport=accommodation_flight&duration=7&nights=7"
-        },
-        {
-          "hotel_name": "Sensitive Premium Resort & Spa",
-          "price": 6074.0,
-          "score": 120,
-          "badge": "💎 Жемчужина 4.5★",
-          "why_buy": "Высокий рейтинг 4.5★ по цене эконом-сегмента, хороший рейтинг 4.4★ (6,074 zł).",
-          "offer_url": "https://fly.pl/wycieczka/turcja,belek,bogazkent/sensitive-premium-resort-spa/pvVa4AfwKpXWXsxzCalA-uAAogCllyreNMtOkE6ctZ1gjHkAAAAADHtAQA4LQEAAcAAwAqBFdFWlkwt_6h1wZIui9QQVi7A2ADaglFbnRlciBBaXJqBDA4MzByQJ4BkwEfAAIBHAAWBBcCEu0DFMgGFVUYc0yBY08AQJwSEa4MS7m5AVAAG5sxHaTxDyAZDaHowQkBEmMBDGMBAwvcvD_2/?operator=WEZY&adults=2&children=2020-12-10&objectId=179779&durationFrom=7&durationTo=10&departureDate=2026-11-21&returnDate=2026-11-28&departureLocation=Warszawa&catering=all_inclusive&transport=accommodation_flight&duration=7&nights=7"
+          "offer_url": "https://fly.pl/wycieczka/turcja,side,titreyengol/diamond-premium/praztxRFUPdp_4nBICYJpyAAog4YgTsb2n369yc1KQAEPKLgAAAADHtAQA4LQEAAcAAAAqBFdFWlkwtMyi1wZIxDBQQVi4A2ADaglFbnRlciBBaXJqBDA4MzByP54BkwEfAAIBFgAcABcGEu0DFMgGFVUYcxHAYkxBTwBAnBJL58UBUAAbzkgd8dkPIBkNoejBCQESYwENYwEDDJmITI4/?operator=WEZY&adults=2&children=2020-12-10&objectId=173180&durationFrom=7&durationTo=10&departureDate=2026-11-21&returnDate=2026-11-28&departureLocation=Warszawa&catering=all_inclusive&transport=accommodation_flight&duration=7&nights=7"
         }
       ]
     }
@@ -43,12 +53,12 @@
     "Alba Queen": {
       "verdict": "BUY_NOW",
       "badge_text": "🟢 ПОКУПАТЬ",
-      "rationale": "Цена 7,157 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
+      "rationale": "Цена 6,011 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
       "risk_assessment": "Номера в этом отеле популярны, к дате вылета мест может не остаться.",
       "action_advice": "Если отель нравится — фиксируйте бронь прямо сегодня, дешевле уже вряд ли будет.",
       "booking_window_badge": "",
       "booking_window_class": "early",
-      "booking_window_tip": "Историческое дно цены наступает за D-4…D-7. Сейчас D-22 (рано).",
+      "booking_window_tip": "Историческое дно цены наступает за D-4…D-7. Сейчас D-19 (рано).",
       "fair_price_badge": "",
       "fair_price_class": "",
       "fair_price_tip": "",
@@ -79,7 +89,7 @@
     "Avia Resort & Spa": {
       "verdict": "BUY_NOW",
       "badge_text": "🟢 ПОКУПАТЬ",
-      "rationale": "Цена 7,098 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
+      "rationale": "Цена 6,632 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
       "risk_assessment": "Номера в этом отеле популярны, к дате вылета мест может не остаться.",
       "action_advice": "Если отель нравится — фиксируйте бронь прямо сегодня, дешевле уже вряд ли будет.",
       "booking_window_badge": "",
@@ -88,8 +98,8 @@
       "fair_price_badge": "",
       "fair_price_class": "",
       "fair_price_tip": "",
-      "gem_badge": "",
-      "gem_tip": "",
+      "gem_badge": "💎 Скрытая жемчужина",
+      "gem_tip": "Высокий рейтинг (4.4★, 3050 отз.) при цене в бюджетном сегменте 4★ (6,632 zł).",
       "flash_drop_badge": "",
       "flash_drop_tip": "",
       "dupe_suggestion": null
@@ -169,12 +179,12 @@
     "Eftalia Ocean (Alanya)": {
       "verdict": "WAIT",
       "badge_text": "🟡 ПОДОЖДАТЬ",
-      "rationale": "Отель сейчас стоит 5,714 zł — это обычная базовая цена за сезон (медиана 5,557 zł).",
+      "rationale": "Отель сейчас стоит 5,529 zł — это обычная базовая цена за сезон (медиана 5,529 zł).",
       "risk_assessment": "Цена не снижена, туроператор пока не давал скидок на эти даты.",
       "action_advice": "Спешить не нужно: добавьте в Избранное (☆) и подождите приближения вылета.",
       "booking_window_badge": "",
       "booking_window_class": "early",
-      "booking_window_tip": "Историческое дно цены наступает за D-4…D-7. Сейчас D-12 (рано).",
+      "booking_window_tip": "Историческое дно цены наступает за D-4…D-7. Сейчас D-10 (рано).",
       "fair_price_badge": "",
       "fair_price_class": "",
       "fair_price_tip": "",
@@ -187,7 +197,7 @@
     "Grand Okan": {
       "verdict": "BUY_NOW",
       "badge_text": "🟢 ПОКУПАТЬ",
-      "rationale": "Цена 7,000 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
+      "rationale": "Цена 6,989 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
       "risk_assessment": "Номера в этом отеле популярны, к дате вылета мест может не остаться.",
       "action_advice": "Если отель нравится — фиксируйте бронь прямо сегодня, дешевле уже вряд ли будет.",
       "booking_window_badge": "",
@@ -203,17 +213,53 @@
       "dupe_suggestion": null
     },
     "Grand Seker": {
-      "verdict": "BUY_NOW",
-      "badge_text": "🟢 ПОКУПАТЬ",
-      "rationale": "Цена 5,306 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
-      "risk_assessment": "Номера в этом отеле популярны, к дате вылета мест может не остаться.",
-      "action_advice": "Если отель нравится — фиксируйте бронь прямо сегодня, дешевле уже вряд ли будет.",
+      "verdict": "WAIT",
+      "badge_text": "🟡 ПОДОЖДАТЬ",
+      "rationale": "Отель сейчас стоит 5,726 zł — это обычная базовая цена за сезон (медиана 5,306 zł).",
+      "risk_assessment": "Цена не снижена, туроператор пока не давал скидок на эти даты.",
+      "action_advice": "Спешить не нужно: добавьте в Избранное (☆) и подождите приближения вылета.",
       "booking_window_badge": "",
       "booking_window_class": "early",
       "booking_window_tip": "Историческое дно цены наступает за D-4…D-7. Сейчас D-19 (рано).",
-      "fair_price_badge": "🔥 −11% к равным эконом 4★",
-      "fair_price_class": "fair-underpriced",
-      "fair_price_tip": "Цена на 11% ниже медианы равных отелей сегмента эконом 4★ (5,952 zł) и не превышает обычную цену отеля (5,306 zł).",
+      "fair_price_badge": "",
+      "fair_price_class": "",
+      "fair_price_tip": "",
+      "gem_badge": "",
+      "gem_tip": "",
+      "flash_drop_badge": "",
+      "flash_drop_tip": "",
+      "dupe_suggestion": null
+    },
+    "Greenwood Suites Resort (ex. Sherwood Suites Resort)": {
+      "verdict": "GOOD_PRICE",
+      "badge_text": "🔵 ХОРОШАЯ ЦЕНА",
+      "rationale": "Цена 6,732 zł на 44% ниже обычной средней цены отеля (11,924 zł).",
+      "risk_assessment": "Цена может слегка колебаться, но предложение уже достаточно выгодное.",
+      "action_advice": "Хорошая цена со скидкой, можно бронировать.",
+      "booking_window_badge": "",
+      "booking_window_class": "early",
+      "booking_window_tip": "Историческое дно цены наступает за D-1…D-3. Сейчас D-19 (рано).",
+      "fair_price_badge": "",
+      "fair_price_class": "",
+      "fair_price_tip": "",
+      "gem_badge": "",
+      "gem_tip": "",
+      "flash_drop_badge": "",
+      "flash_drop_tip": "",
+      "dupe_suggestion": null
+    },
+    "Karmir Resort (Kemer)": {
+      "verdict": "GOOD_PRICE",
+      "badge_text": "🔵 ХОРОШАЯ ЦЕНА",
+      "rationale": "Цена 6,888 zł на 42% ниже обычной средней цены отеля (11,940 zł).",
+      "risk_assessment": "Цена может слегка колебаться, но предложение уже достаточно выгодное.",
+      "action_advice": "Хорошая цена со скидкой, можно бронировать.",
+      "booking_window_badge": "",
+      "booking_window_class": "early",
+      "booking_window_tip": "Историческое дно цены наступает за D-1…D-3. Сейчас D-19 (рано).",
+      "fair_price_badge": "",
+      "fair_price_class": "",
+      "fair_price_tip": "",
       "gem_badge": "",
       "gem_tip": "",
       "flash_drop_badge": "",
@@ -223,12 +269,12 @@
     "Limak Arcadia Sport Resort": {
       "verdict": "BUY_NOW",
       "badge_text": "🟢 ПОКУПАТЬ",
-      "rationale": "Цена 6,630 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
+      "rationale": "Цена 6,442 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
       "risk_assessment": "Номера в этом отеле популярны, к дате вылета мест может не остаться.",
       "action_advice": "Если отель нравится — фиксируйте бронь прямо сегодня, дешевле уже вряд ли будет.",
       "booking_window_badge": "🎯 Окно покупки: D-15…D-30 (сейчас!)",
       "booking_window_class": "in_window",
-      "booking_window_tip": "Текущий момент (D-19) совпадает со скидочным окном (D-15…D-30), и цена снижена относительно нормы (6,630 zł при медиане 14,162 zł).",
+      "booking_window_tip": "Текущий момент (D-19) совпадает со скидочным окном (D-15…D-30), и цена снижена относительно нормы (6,442 zł при медиане 14,162 zł).",
       "fair_price_badge": "",
       "fair_price_class": "",
       "fair_price_tip": "",
@@ -241,7 +287,7 @@
     "Limak Limra": {
       "verdict": "BUY_NOW",
       "badge_text": "🟢 ПОКУПАТЬ",
-      "rationale": "Цена 6,387 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
+      "rationale": "Цена 6,467 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
       "risk_assessment": "Номера в этом отеле популярны, к дате вылета мест может не остаться.",
       "action_advice": "Если отель нравится — фиксируйте бронь прямо сегодня, дешевле уже вряд ли будет.",
       "booking_window_badge": "",
@@ -259,12 +305,12 @@
     "Linda Resort (Side)": {
       "verdict": "BUY_NOW",
       "badge_text": "🟢 ПОКУПАТЬ",
-      "rationale": "Цена 6,459 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
+      "rationale": "Цена 6,040 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
       "risk_assessment": "Номера в этом отеле популярны, к дате вылета мест может не остаться.",
       "action_advice": "Если отель нравится — фиксируйте бронь прямо сегодня, дешевле уже вряд ли будет.",
       "booking_window_badge": "",
       "booking_window_class": "early",
-      "booking_window_tip": "Историческое дно цены наступает за D-1…D-3. Сейчас D-15 (рано).",
+      "booking_window_tip": "Историческое дно цены наступает за D-1…D-3. Сейчас D-19 (рано).",
       "fair_price_badge": "",
       "fair_price_class": "",
       "fair_price_tip": "",
@@ -295,7 +341,7 @@
     "Miarosa Beach (Kemer)": {
       "verdict": "BUY_NOW",
       "badge_text": "🟢 ПОКУПАТЬ",
-      "rationale": "Цена 6,259 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
+      "rationale": "Цена 6,229 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
       "risk_assessment": "Номера в этом отеле популярны, к дате вылета мест может не остаться.",
       "action_advice": "Если отель нравится — фиксируйте бронь прямо сегодня, дешевле уже вряд ли будет.",
       "booking_window_badge": "",
@@ -367,7 +413,7 @@
     "Orange Palace": {
       "verdict": "BUY_NOW",
       "badge_text": "🟢 ПОКУПАТЬ",
-      "rationale": "Цена 6,832 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
+      "rationale": "Цена 6,779 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
       "risk_assessment": "Номера в этом отеле популярны, к дате вылета мест может не остаться.",
       "action_advice": "Если отель нравится — фиксируйте бронь прямо сегодня, дешевле уже вряд ли будет.",
       "booking_window_badge": "",
@@ -385,7 +431,7 @@
     "Port Side Resort": {
       "verdict": "BUY_NOW",
       "badge_text": "🟢 ПОКУПАТЬ",
-      "rationale": "Цена 6,824 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
+      "rationale": "Цена 6,904 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
       "risk_assessment": "Номера в этом отеле популярны, к дате вылета мест может не остаться.",
       "action_advice": "Если отель нравится — фиксируйте бронь прямо сегодня, дешевле уже вряд ли будет.",
       "booking_window_badge": "",
@@ -418,10 +464,10 @@
       "flash_drop_tip": "",
       "dupe_suggestion": null
     },
-    "Seher Resort & Spa": {
+    "Ramada Resort Lara": {
       "verdict": "BUY_NOW",
       "badge_text": "🟢 ПОКУПАТЬ",
-      "rationale": "Цена 5,889 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
+      "rationale": "Цена 6,753 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
       "risk_assessment": "Номера в этом отеле популярны, к дате вылета мест может не остаться.",
       "action_advice": "Если отель нравится — фиксируйте бронь прямо сегодня, дешевле уже вряд ли будет.",
       "booking_window_badge": "",
@@ -436,10 +482,28 @@
       "flash_drop_tip": "",
       "dupe_suggestion": null
     },
+    "Seher Resort & Spa": {
+      "verdict": "BUY_NOW",
+      "badge_text": "🟢 ПОКУПАТЬ",
+      "rationale": "Цена 5,698 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
+      "risk_assessment": "Номера в этом отеле популярны, к дате вылета мест может не остаться.",
+      "action_advice": "Если отель нравится — фиксируйте бронь прямо сегодня, дешевле уже вряд ли будет.",
+      "booking_window_badge": "",
+      "booking_window_class": "early",
+      "booking_window_tip": "Историческое дно цены наступает за D-4…D-7. Сейчас D-10 (рано).",
+      "fair_price_badge": "",
+      "fair_price_class": "",
+      "fair_price_tip": "",
+      "gem_badge": "",
+      "gem_tip": "",
+      "flash_drop_badge": "",
+      "flash_drop_tip": "",
+      "dupe_suggestion": null
+    },
     "Sensitive Premium Resort & Spa": {
       "verdict": "BUY_NOW",
       "badge_text": "🟢 ПОКУПАТЬ",
-      "rationale": "Цена 6,074 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
+      "rationale": "Цена 5,940 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
       "risk_assessment": "Номера в этом отеле популярны, к дате вылета мест может не остаться.",
       "action_advice": "Если отель нравится — фиксируйте бронь прямо сегодня, дешевле уже вряд ли будет.",
       "booking_window_badge": "",
@@ -449,7 +513,7 @@
       "fair_price_class": "",
       "fair_price_tip": "",
       "gem_badge": "💎 Скрытая жемчужина",
-      "gem_tip": "Высокий рейтинг (4.4★, 1986 отз.) при цене в бюджетном сегменте 4★ (6,074 zł).",
+      "gem_tip": "Высокий рейтинг (4.4★, 1986 отз.) при цене в бюджетном сегменте 4★ (5,940 zł).",
       "flash_drop_badge": "",
       "flash_drop_tip": "",
       "dupe_suggestion": null
@@ -457,7 +521,7 @@
     "Side Kum": {
       "verdict": "BUY_NOW",
       "badge_text": "🟢 ПОКУПАТЬ",
-      "rationale": "Цена 6,016 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
+      "rationale": "Цена 5,481 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
       "risk_assessment": "Номера в этом отеле популярны, к дате вылета мест может не остаться.",
       "action_advice": "Если отель нравится — фиксируйте бронь прямо сегодня, дешевле уже вряд ли будет.",
       "booking_window_badge": "",
@@ -475,12 +539,12 @@
     "Side Moon Palace": {
       "verdict": "BUY_NOW",
       "badge_text": "🟢 ПОКУПАТЬ",
-      "rationale": "Цена 6,801 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
+      "rationale": "Цена 6,483 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
       "risk_assessment": "Номера в этом отеле популярны, к дате вылета мест может не остаться.",
       "action_advice": "Если отель нравится — фиксируйте бронь прямо сегодня, дешевле уже вряд ли будет.",
       "booking_window_badge": "",
       "booking_window_class": "early",
-      "booking_window_tip": "Историческое дно цены наступает за D-1…D-3. Сейчас D-12 (рано).",
+      "booking_window_tip": "Историческое дно цены наступает за D-1…D-3. Сейчас D-19 (рано).",
       "fair_price_badge": "",
       "fair_price_class": "",
       "fair_price_tip": "",
@@ -526,10 +590,28 @@
       "flash_drop_tip": "",
       "dupe_suggestion": null
     },
+    "Sunis Evren Beach & Spa": {
+      "verdict": "BUY_NOW",
+      "badge_text": "⚡ СБРОС ЦЕНЫ",
+      "rationale": "Резкий обвал цены до 6,694 zł (на 0% ниже минимума сезона).",
+      "risk_assessment": "Билеты по этой цене туроператор может распродать за считанные часы.",
+      "action_advice": "Если отель вам подходит — бронируйте прямо сейчас.",
+      "booking_window_badge": "",
+      "booking_window_class": "early",
+      "booking_window_tip": "Историческое дно цены наступает за D-1…D-3. Сейчас D-19 (рано).",
+      "fair_price_badge": "",
+      "fair_price_class": "",
+      "fair_price_tip": "",
+      "gem_badge": "",
+      "gem_tip": "",
+      "flash_drop_badge": "⚡ FLASH DROP (−24%)",
+      "flash_drop_tip": "Аномалия: цена пробила исторический минимум на 24% (8,773 zł → 6,694 zł)!",
+      "dupe_suggestion": null
+    },
     "Sural Resort": {
       "verdict": "BUY_NOW",
       "badge_text": "🟢 ПОКУПАТЬ",
-      "rationale": "Цена 5,644 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
+      "rationale": "Цена 5,729 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
       "risk_assessment": "Номера в этом отеле популярны, к дате вылета мест может не остаться.",
       "action_advice": "Если отель нравится — фиксируйте бронь прямо сегодня, дешевле уже вряд ли будет.",
       "booking_window_badge": "",
@@ -539,7 +621,7 @@
       "fair_price_class": "",
       "fair_price_tip": "",
       "gem_badge": "💎 Скрытая жемчужина",
-      "gem_tip": "Высокий рейтинг (4.4★, 2790 отз.) при цене в бюджетном сегменте 4★ (5,644 zł).",
+      "gem_tip": "Высокий рейтинг (4.4★, 2790 отз.) при цене в бюджетном сегменте 4★ (5,729 zł).",
       "flash_drop_badge": "",
       "flash_drop_tip": "",
       "dupe_suggestion": null
@@ -547,7 +629,7 @@
     "Terrace Beach Resort (Side)": {
       "verdict": "BUY_NOW",
       "badge_text": "🟢 ПОКУПАТЬ",
-      "rationale": "Цена 7,157 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
+      "rationale": "Цена 6,585 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
       "risk_assessment": "Номера в этом отеле популярны, к дате вылета мест может не остаться.",
       "action_advice": "Если отель нравится — фиксируйте бронь прямо сегодня, дешевле уже вряд ли будет.",
       "booking_window_badge": "",

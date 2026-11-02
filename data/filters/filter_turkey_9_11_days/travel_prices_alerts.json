@@ -52,10 +52,75 @@
       "created_at": "2026-11-02T12:18:45.687118+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Seamelia Beach Resort & Spa_2026-11-02_12-17_zone_out_gone"
+    },
+    {
+      "hotel_name": "Alba Queen",
+      "duration_bucket": "",
+      "old_price": 8477.0,
+      "new_price": 7512.0,
+      "price_change": -965.0,
+      "price_change_pct": -11.383744249144744,
+      "timestamp": "2026-11-02 15:03:47.422289+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-02T15:05:14.976285+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Alba Queen_2026-11-02_15-03_-11.4"
+    },
+    {
+      "hotel_name": "Side Moon Palace",
+      "duration_bucket": "",
+      "old_price": 8404.0,
+      "new_price": 7638.0,
+      "price_change": -766.0,
+      "price_change_pct": -9.114707282246549,
+      "timestamp": "2026-11-02 15:03:47.422289+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-02T15:05:14.976320+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Side Moon Palace_2026-11-02_15-03_-9.1"
+    },
+    {
+      "hotel_name": "Port Side Resort",
+      "duration_bucket": "",
+      "old_price": 8621.0,
+      "new_price": 8621.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-02 15:03:47.422289+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-02T15:05:14.976350+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Port Side Resort_2026-11-02_15-03_zone_out_gone"
+    },
+    {
+      "hotel_name": "Side Royal Style (ex. Side Royal Luxury)",
+      "duration_bucket": "",
+      "old_price": 8833.0,
+      "new_price": 8833.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-02 15:03:47.422289+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-02T15:05:14.976365+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Side Royal Style (ex. Side Royal Luxury)_2026-11-02_15-03_zone_out_gone"
+    },
+    {
+      "hotel_name": "Yalihan Aspendos",
+      "duration_bucket": "",
+      "old_price": 8859.0,
+      "new_price": 8859.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-02 15:03:47.422289+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-02T15:05:14.976379+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Yalihan Aspendos_2026-11-02_15-03_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-02T12:17:16.270711+00:00",
+    "last_processed_run": "2026-11-02T15:03:47.422289+00:00",
     "premium_state": {
       "Alba Queen": {
         "history_max": 8477.0,
@@ -90,7 +155,7 @@
         "premium_peak": null
       },
       "Numa Bay Exclusive (ex Sentido Numa Bay)": {
-        "history_max": 8106.0,
+        "history_max": 8204.0,
         "premium_peak": null
       },
       "Side Kum": {
@@ -170,11 +235,11 @@
         "premium_peak": null
       },
       "Drita Resort & Spa": {
-        "history_max": 7927.0,
+        "history_max": 8195.0,
         "premium_peak": null
       },
       "Sural Resort": {
-        "history_max": 6729.0,
+        "history_max": 6844.0,
         "premium_peak": null
       },
       "Sunis Evren Beach & Spa": {
@@ -187,6 +252,18 @@
       },
       "Yalihan Aspendos": {
         "history_max": 8859.0,
+        "premium_peak": null
+      },
+      "Beach Club Doganay": {
+        "history_max": 7655.0,
+        "premium_peak": null
+      },
+      "Numa Club (Side)": {
+        "history_max": 8474.0,
+        "premium_peak": null
+      },
+      "Greenwood Suites Resort (ex. Sherwood Suites Resort)": {
+        "history_max": 8444.0,
         "premium_peak": null
       }
     }

@@ -130,10 +130,23 @@
       "created_at": "2026-11-02T12:15:39.103480+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sea Star Beau Rivage_2026-11-02_12-15_zone_out_gone"
+    },
+    {
+      "hotel_name": "AMC Royal Hotel & Spa (ex. AMC Azur Resort)",
+      "duration_bucket": "",
+      "old_price": 10599.0,
+      "new_price": 10599.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-02 15:00:50.747042+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-02T15:01:27.888934+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort)_2026-11-02_15-00_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-02T12:15:01.394863+00:00",
+    "last_processed_run": "2026-11-02T15:00:50.747042+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa": {
         "history_max": 11133.0,
@@ -144,7 +157,7 @@
         "premium_peak": 11042.0
       },
       "Beach Safari Nubian Resort": {
-        "history_max": 9152.0,
+        "history_max": 9421.0,
         "premium_peak": null
       },
       "Bellagio Beach Resort & Spa": {
@@ -152,8 +165,8 @@
         "premium_peak": null
       },
       "Concorde Moreen Beach Resort & Spa Marsa Alam": {
-        "history_max": 11648.0,
-        "premium_peak": 11648.0
+        "history_max": 11917.0,
+        "premium_peak": 11917.0
       },
       "Empire Hotel Aqua Park (Ex. Triton Empir": {
         "history_max": 9671.0,
@@ -193,6 +206,38 @@
       },
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 10599.0,
+        "premium_peak": null
+      },
+      "Sirena Beach Resort Marsa Alam": {
+        "history_max": 11510.0,
+        "premium_peak": 11510.0
+      },
+      "Novotel Marsa Alam": {
+        "history_max": 11662.0,
+        "premium_peak": 11662.0
+      },
+      "ONATTI Beach Resort - Marsa Alam": {
+        "history_max": 9106.0,
+        "premium_peak": null
+      },
+      "Parrotel Lagoon Resort": {
+        "history_max": 10736.0,
+        "premium_peak": null
+      },
+      "Amarina Queen Resort & Aqua Park": {
+        "history_max": 11754.0,
+        "premium_peak": 11754.0
+      },
+      "Shoni Bay Marsa Alam": {
+        "history_max": 9436.0,
+        "premium_peak": null
+      },
+      "Fantazia Marsa Alam": {
+        "history_max": 11681.0,
+        "premium_peak": 11681.0
+      },
+      "Coral Hills Resort Marsa Alam": {
+        "history_max": 8700.0,
         "premium_peak": null
       }
     }
