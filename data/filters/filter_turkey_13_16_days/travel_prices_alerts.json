@@ -1,5 +1,143 @@
 {
   "version": 2,
-  "alerts": [],
-  "meta": {}
+  "alerts": [
+    {
+      "hotel_name": "Beach Club Doganay",
+      "duration_bucket": "",
+      "old_price": 9857.0,
+      "new_price": 10039.0,
+      "price_change": 182.0,
+      "price_change_pct": 1.8464035710662474,
+      "timestamp": "2026-11-02 12:16:20.242136+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-02T12:17:53.557684+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Beach Club Doganay_2026-11-02_12-16_zone_out_+1.8"
+    }
+  ],
+  "meta": {
+    "last_processed_run": "2026-11-02T12:16:20.242136+00:00",
+    "premium_state": {
+      "Alba Queen": {
+        "history_max": 10151.0,
+        "premium_peak": 10151.0
+      },
+      "Seamelia Beach Resort & Spa": {
+        "history_max": 10675.0,
+        "premium_peak": 10675.0
+      },
+      "Port Side Resort": {
+        "history_max": 9891.0,
+        "premium_peak": null
+      },
+      "Side Kum": {
+        "history_max": 8015.0,
+        "premium_peak": null
+      },
+      "Orange County Alanya": {
+        "history_max": 9627.0,
+        "premium_peak": null
+      },
+      "Orange County (Kemer)": {
+        "history_max": 10047.0,
+        "premium_peak": 10047.0
+      },
+      "Villa Side Residence": {
+        "history_max": 9320.0,
+        "premium_peak": null
+      },
+      "Numa Bay Exclusive (ex Sentido Numa Bay)": {
+        "history_max": 9627.0,
+        "premium_peak": null
+      },
+      "Side Moon Palace": {
+        "history_max": 10336.0,
+        "premium_peak": 10336.0
+      },
+      "Linda Resort (Side)": {
+        "history_max": 9004.0,
+        "premium_peak": null
+      },
+      "Limak Limra": {
+        "history_max": 9466.0,
+        "premium_peak": null
+      },
+      "Side Prenses": {
+        "history_max": 9691.0,
+        "premium_peak": null
+      },
+      "Karmir Resort (Kemer)": {
+        "history_max": 10578.0,
+        "premium_peak": 10578.0
+      },
+      "Justiniano Deluxe Resort": {
+        "history_max": 10186.0,
+        "premium_peak": 10186.0
+      },
+      "Sensitive Premium Resort & Spa": {
+        "history_max": 9162.0,
+        "premium_peak": null
+      },
+      "Grand Seker": {
+        "history_max": 8163.0,
+        "premium_peak": null
+      },
+      "Side Royal Palace": {
+        "history_max": 10944.0,
+        "premium_peak": 10944.0
+      },
+      "Barut Goia (ex. Barut Sunwing Side Beach)": {
+        "history_max": 10232.0,
+        "premium_peak": 10232.0
+      },
+      "Aska Just in Beach": {
+        "history_max": 8946.0,
+        "premium_peak": null
+      },
+      "Terrace Beach Resort (Side)": {
+        "history_max": 9931.0,
+        "premium_peak": null
+      },
+      "Avia Resort & Spa": {
+        "history_max": 10054.0,
+        "premium_peak": 10054.0
+      },
+      "Aydinbey Kings Palace": {
+        "history_max": 10902.0,
+        "premium_peak": 10902.0
+      },
+      "Sural Resort": {
+        "history_max": 10783.0,
+        "premium_peak": 10783.0
+      },
+      "Eftalia Ocean (Alanya)": {
+        "history_max": 7543.0,
+        "premium_peak": null
+      },
+      "Seher Resort & Spa": {
+        "history_max": 9131.0,
+        "premium_peak": null
+      },
+      "Sunis Evren Beach & Spa": {
+        "history_max": 10633.0,
+        "premium_peak": 10633.0
+      },
+      "Bosphorus Sorgun": {
+        "history_max": 10531.0,
+        "premium_peak": 10531.0
+      },
+      "Diamond Premium": {
+        "history_max": 9602.0,
+        "premium_peak": null
+      },
+      "Side Royal Style (ex. Side Royal Luxury)": {
+        "history_max": 10826.0,
+        "premium_peak": 10826.0
+      },
+      "Beach Club Doganay": {
+        "history_max": 10039.0,
+        "premium_peak": 10039.0
+      }
+    }
+  }
 }

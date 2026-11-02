@@ -3,35 +3,57 @@
     "headline": "Вылеты 13.11–21.11: цены стабильные, спешить с покупкой не нужно",
     "market_phase": "Спокойные цены (13.11–21.11)",
     "filter_title": "Греция • 7–10 дней",
-    "charter_dynamics": "Ближайшие вылеты стартуют через 11 дн. (13.11), а дальний край охватывает даты до 21.11 (19 дн.). Вся подборка находится на стабильном уровне без резких скачков, средняя цена около 8,845 zł. Подборка живая и регулярно обновляется. Погода (Греция): Мягкая приятная зима (+15..+18°C днем), море прохладное (+17..+18°C). Идеальное время для неспешных прогулок по Афинам, музеям и античным памятникам без толп и летней жары.",
+    "charter_dynamics": "Ближайшие вылеты стартуют через 11 дн. (13.11), а дальний край охватывает даты до 21.11 (19 дн.). Вся подборка находится на стабильном уровне без резких скачков, средняя цена около 8,891 zł. Подборка живая и регулярно обновляется. Погода (Греция): Мягкая приятная зима (+15..+18°C днем), море прохладное (+17..+18°C). Идеальное время для неспешных прогулок по Афинам, музеям и античным памятникам без толп и летней жары.",
     "floor_status": "0 отелей (0.0%) сейчас отдают по минимальной цене за сезон.",
     "strategic_directive": "Спешить некуда, времени достаточно. За 10–14 дней до вылета на 13.11 начнут появляться первые скидки. Для дальних дат (21.11) сейчас имеет смысл бронировать только самые популярные отели, где быстро кончаются номера.",
     "key_anomalies": [
       {
+        "type": "gem",
+        "title": "💎 Скрытая жемчужина: Zeus Dolce Athens (ex. Hotel Dolce Attica Riviera Resort)",
+        "text": "Высокий рейтинг 4.5★ в категории 4★ всего за 7,937 zł (намного дешевле похожих отелей)."
+      },
+      {
         "type": "arbitrage",
         "title": "✈️ Разница вылетов: Modlin vs Warszawa - Modlin",
-        "text": "Вылет из Modlin в среднем на 477 zł дешевле, чем из Warszawa - Modlin"
+        "text": "Вылет из Modlin в среднем на 454 zł дешевле, чем из Warszawa - Modlin"
       }
     ],
     "synthesized_by": "Rule-Based Deterministic Engine (Offline)",
     "buy_now_recommendation": {
-      "has_worthy_deals": false,
-      "headline": "Лучше ничего не покупать — подождите",
-      "status_badge": "✋ ВЫГОДНЫХ СДЕЛОК НЕТ",
-      "advice": "Сейчас на рынке нет действительно выгодных предложений: отели продаются по базовым или завышенным ценам. Спешить с бронированием нет смысла — сохраните отели в «Избранное» (⭐) и подождите приближения вылета (за 7–10 дней туроператоры обычно начинают снижать цены).",
-      "top_picks": []
+      "has_worthy_deals": true,
+      "headline": "Стоит выбрать из этих вариантов:",
+      "status_badge": "🟢 ЕСТЬ ВЫГОДНЫЕ ВАРИАНТЫ",
+      "advice": "Если вы планируете поездку на ближайшее время — это самые удачные предложения по соотношению цена/качество прямо сейчас.",
+      "top_picks": [
+        {
+          "hotel_name": "Zeus Dolce Athens (ex. Hotel Dolce Attica Riviera Resort)",
+          "price": 7937.0,
+          "score": 140,
+          "badge": "💎 Жемчужина 4.5★",
+          "why_buy": "Высокий рейтинг 4.5★ по цене эконом-сегмента, высокий рейтинг 4.5★ (7,937 zł).",
+          "offer_url": "https://fly.pl/wycieczka/grecja,attyka,vravrona/mare-nostrum-thalasso-vravrona/pQY-08_AX2lA9Dm37wWsITAAog14dMRk4kdjZthZVlbF_fEHUj2Kddo3lwBDMB-pSMlG8qBFZJVFgw__2h1wZIgT5QQVijA2ACagxXTUlBVEhEUDYwMTBqDEFUSFdNSURQNjAxMHI4nQGPARoAFwcVAFgIXABAjwNSp2pTAFuAHF7WeUuPR2EATLibFA2e7L0JIABR9uKF1FcCDGMBAgs6tHMU/?operator=VITX&adults=2&children=2020-12-10&objectId=5568&durationFrom=7&durationTo=10&departureDate=2026-11-20&returnDate=2026-11-27&departureLocation=Warszawa+-+Modlin&catering=breakfast&transport=accommodation_flight&duration=7&nights=7"
+        },
+        {
+          "hotel_name": "Zeus Wyndham Grand Athens",
+          "price": 8113.0,
+          "score": 120,
+          "badge": "💎 Жемчужина 4.5★",
+          "why_buy": "Высокий рейтинг 4.5★ по цене эконом-сегмента, хороший рейтинг 4.4★ (8,113 zł).",
+          "offer_url": "https://fly.pl/wycieczka/grecja,ateny,c/wyndham-grand-athens-ex-classical-athen-imperial/XTOP23f21eX_wYAAHNOYVBwWQGuAQDGEoIjCpABCgYIpLsIEAESBgibtgoQARp-TVBVVzJHRjIzTjFWNkpNVzVLSUdTOUdCMVBESFJTTEM5QUVXWjYwNThTOUJOT001T0ZESFRWRE1QUzk5NkdTQlNRRlVGUjQzODBONjkzMkVDM1pNRkg5WTIyVlNKTlRYUkNORk9FMzlMWFJYRDFLRE9WRE9DWDEyMjVDSzkyCn8KBgiwkgcQAhIGCJP_JRABGm1PNTQ1NDRkNTMyZjQxNDc1MjQxNTQ0ODM4NDU0MzU5MmY1MjRkNTM0NDQ0NDIzMDMwMzAzMDJmNDI0MjJmMzcyZjMyMzAzMjM2MzEzMTMxMzQyZjMwMzEzMjMzMzQzNTM2MzczODM5MzAzMTMyCh0KAhABEgIQARoTRFNSVC0xMTAtTk9UUkFOU0ZFUgogCgUIzDoQARIFCPNGEAEaEERTUk0tMTEwLTJyMjI2MDcKIQoFCMYKEAESBQjiDBABGhFEU1JNLTExMC0zNXIyMjYwOAoiCgUI8C4QARIFCJg5EAEaEkRTUlUtMTEwLVViZXpiYXNpYxhuKFQyBgibwjEQATgD/?operator=XTOP&adults=2&children=2020-12-10&objectId=80874&durationFrom=7&durationTo=10&departureDate=2026-11-14&returnDate=2026-11-21&departureLocation=Modlin&catering=breakfast&transport=accommodation_flight&duration=7&nights=7"
+        }
+      ]
     }
   },
   "hotel_dossiers": {
     "NJV Athens Plaza": {
       "verdict": "BUY_NOW",
       "badge_text": "🟢 ПОКУПАТЬ",
-      "rationale": "Цена 11,046 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
+      "rationale": "Цена 10,952 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
       "risk_assessment": "Номера в этом отеле популярны, к дате вылета мест может не остаться.",
       "action_advice": "Если отель нравится — фиксируйте бронь прямо сегодня, дешевле уже вряд ли будет.",
       "booking_window_badge": "",
       "booking_window_class": "in_window",
-      "booking_window_tip": "Период D-15…D-30 исторически благоприятен для покупки, но сейчас отель продаётся по обычной цене (11,046 zł при норме 11,089 zł).",
+      "booking_window_tip": "Период D-15…D-30 исторически благоприятен для покупки, но сейчас отель продаётся по обычной цене (10,952 zł при норме 11,089 zł).",
       "fair_price_badge": "",
       "fair_price_class": "",
       "fair_price_tip": "",
@@ -42,11 +64,11 @@
       "dupe_suggestion": null
     },
     "Royal Olympic": {
-      "verdict": "WAIT",
-      "badge_text": "🟡 ПОДОЖДАТЬ",
-      "rationale": "Отель сейчас стоит 10,707 zł — это обычная базовая цена за сезон (медиана 11,067 zł).",
-      "risk_assessment": "Цена не снижена, туроператор пока не давал скидок на эти даты.",
-      "action_advice": "Спешить не нужно: добавьте в Избранное (☆) и подождите приближения вылета.",
+      "verdict": "BUY_NOW",
+      "badge_text": "🟢 ПОКУПАТЬ",
+      "rationale": "Цена 10,707 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
+      "risk_assessment": "Номера в этом отеле популярны, к дате вылета мест может не остаться.",
+      "action_advice": "Если отель нравится — фиксируйте бронь прямо сегодня, дешевле уже вряд ли будет.",
       "booking_window_badge": "🎯 Окно покупки: D-8…D-14 (сейчас!)",
       "booking_window_class": "in_window",
       "booking_window_tip": "Текущий момент (D-11) совпадает со скидочным окном (D-8…D-14), и цена снижена относительно нормы (10,707 zł при медиане 11,067 zł).",
@@ -60,32 +82,32 @@
       "dupe_suggestion": null
     },
     "Zeus Dolce Athens (ex. Hotel Dolce Attica Riviera Resort)": {
-      "verdict": "WAIT",
-      "badge_text": "🟡 ПОДОЖДАТЬ",
-      "rationale": "Отель сейчас стоит 7,937 zł — это обычная базовая цена за сезон (медиана 8,082 zł).",
-      "risk_assessment": "Цена не снижена, туроператор пока не давал скидок на эти даты.",
-      "action_advice": "Спешить не нужно: добавьте в Избранное (☆) и подождите приближения вылета.",
+      "verdict": "BUY_NOW",
+      "badge_text": "🟢 ПОКУПАТЬ",
+      "rationale": "Цена 7,937 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
+      "risk_assessment": "Номера в этом отеле популярны, к дате вылета мест может не остаться.",
+      "action_advice": "Если отель нравится — фиксируйте бронь прямо сегодня, дешевле уже вряд ли будет.",
       "booking_window_badge": "",
       "booking_window_class": "in_window",
       "booking_window_tip": "Период D-15…D-30 исторически благоприятен для покупки, но сейчас отель продаётся по обычной цене (7,937 zł при норме 8,082 zł).",
       "fair_price_badge": "",
       "fair_price_class": "",
       "fair_price_tip": "",
-      "gem_badge": "",
-      "gem_tip": "",
+      "gem_badge": "💎 Скрытая жемчужина",
+      "gem_tip": "Высокий рейтинг (4.5★, 2329 отз.) при цене в бюджетном сегменте 4★ (7,937 zł).",
       "flash_drop_badge": "",
       "flash_drop_tip": "",
       "dupe_suggestion": null
     },
     "Zeus Essence Wyndham Athens Residence": {
-      "verdict": "WAIT",
-      "badge_text": "🟡 ПОДОЖДАТЬ",
-      "rationale": "Отель сейчас стоит 8,845 zł — это обычная базовая цена за сезон (медиана 8,605 zł).",
-      "risk_assessment": "Цена не снижена, туроператор пока не давал скидок на эти даты.",
-      "action_advice": "Спешить не нужно: добавьте в Избранное (☆) и подождите приближения вылета.",
+      "verdict": "BUY_NOW",
+      "badge_text": "🟢 ПОКУПАТЬ",
+      "rationale": "Цена 8,891 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
+      "risk_assessment": "Номера в этом отеле популярны, к дате вылета мест может не остаться.",
+      "action_advice": "Если отель нравится — фиксируйте бронь прямо сегодня, дешевле уже вряд ли будет.",
       "booking_window_badge": "",
-      "booking_window_class": "in_window",
-      "booking_window_tip": "Период D-15…D-30 исторически благоприятен для покупки, но сейчас отель продаётся по обычной цене (8,845 zł при норме 8,605 zł).",
+      "booking_window_class": "late",
+      "booking_window_tip": "Окно максимальных скидок (D-15…D-30) уже прошло. Текущий день: D-12.",
       "fair_price_badge": "",
       "fair_price_class": "",
       "fair_price_tip": "",
@@ -96,19 +118,19 @@
       "dupe_suggestion": null
     },
     "Zeus Wyndham Grand Athens": {
-      "verdict": "WAIT",
-      "badge_text": "🟡 ПОДОЖДАТЬ",
-      "rationale": "Отель сейчас стоит 8,067 zł — это обычная базовая цена за сезон (медиана 7,825 zł).",
-      "risk_assessment": "Цена не снижена, туроператор пока не давал скидок на эти даты.",
-      "action_advice": "Спешить не нужно: добавьте в Избранное (☆) и подождите приближения вылета.",
+      "verdict": "BUY_NOW",
+      "badge_text": "🟢 ПОКУПАТЬ",
+      "rationale": "Цена 8,113 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
+      "risk_assessment": "Номера в этом отеле популярны, к дате вылета мест может не остаться.",
+      "action_advice": "Если отель нравится — фиксируйте бронь прямо сегодня, дешевле уже вряд ли будет.",
       "booking_window_badge": "",
-      "booking_window_class": "in_window",
-      "booking_window_tip": "Период D-15…D-30 исторически благоприятен для покупки, но сейчас отель продаётся по обычной цене (8,067 zł при норме 7,825 zł).",
+      "booking_window_class": "late",
+      "booking_window_tip": "Окно максимальных скидок (D-15…D-30) уже прошло. Текущий день: D-12.",
       "fair_price_badge": "",
       "fair_price_class": "",
       "fair_price_tip": "",
-      "gem_badge": "",
-      "gem_tip": "",
+      "gem_badge": "💎 Скрытая жемчужина",
+      "gem_tip": "Высокий рейтинг (4.4★, 1400 отз.) при цене в бюджетном сегменте 4★ (8,113 zł).",
       "flash_drop_badge": "",
       "flash_drop_tip": "",
       "dupe_suggestion": null
