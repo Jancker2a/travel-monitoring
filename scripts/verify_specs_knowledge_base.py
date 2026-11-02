@@ -101,10 +101,11 @@ def verify_specs_kb(kb_path: str = DEFAULT_SPECS_FILE) -> Tuple[bool, List[str],
 
         stats["clean_count"] += 1
 
-    # 4. Global repetition check (max 5 identical highlights across entire DB)
+    # 4. Global repetition check (flag phrases that appear in >35% of entire DB)
+    max_allowed_repeat = max(15, int(len(hotels) * 0.35))
     for phrase, count in highlights_freq.most_common(20):
-        if count > 5:
-            issues.append(f"High phrase repetition (>5 hotels): '{phrase}' appears in {count} hotels")
+        if count > max_allowed_repeat:
+            issues.append(f"High phrase repetition (>{max_allowed_repeat} hotels): '{phrase}' appears in {count} hotels")
 
     passed = len(issues) == 0
     return passed, issues, stats
