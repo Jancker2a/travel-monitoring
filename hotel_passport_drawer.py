@@ -200,12 +200,18 @@ def generate_hotel_ai_profile(
     verdict = ""
     pros = []
     cons = []
+    if specs and specs.get("highlights"):
+        pros = [p for p in specs["highlights"] if len(p) > 8][:3]
+    elif rep_data and rep_data.get("pros"):
+        pros = [p for p in rep_data["pros"] if len(p) > 10][:3]
+
+    if specs and specs.get("caution_notes"):
+        cons = [c for c in specs["caution_notes"] if len(c) > 8][:2]
+    elif rep_data and rep_data.get("cons_and_red_flags"):
+        cons = [c for c in rep_data["cons_and_red_flags"] if len(c) > 10][:2]
+
     if rep_data and rep_data.get("verdict") and len(rep_data["verdict"]) > 25:
         verdict = rep_data["verdict"]
-    if rep_data and rep_data.get("pros"):
-        pros = [p for p in rep_data["pros"] if len(p) > 10][:3]
-    if rep_data and rep_data.get("cons_and_red_flags"):
-        cons = [c for c in rep_data["cons_and_red_flags"] if len(c) > 10][:2]
 
     if not verdict:
         if has_aquapark and has_heated_pools:
@@ -237,7 +243,12 @@ def generate_hotel_ai_profile(
         suitable_for = "Премиальный отдых и семьи"
 
     food_snippet = f"Концепция «{food_concept}»: гости хвалят свежевыжатые соки, блюда на гриле, свежую выпечку и разнообразие десертов. Доступны a la carte рестораны."
-    beach_snippet = f"{beach_line}-я линия ({beach_type}). {sea_entry}. Пляж оборудован бесплатными шезлонгами, зонтами и пляжным баром."
+    dist_val = specs.get("beach_distance_meters") if specs else None
+    if beach_line >= 2:
+        dist_text = f" (~{dist_val} м)" if dist_val else ""
+        beach_snippet = f"{beach_line}-я линия{dist_text} ({beach_type}). Курсирует бесплатный шаттл-бас на пляж. {sea_entry}."
+    else:
+        beach_snippet = f"1-я линия ({beach_type}): собственный оборудованный пляж. {sea_entry}."
     review_snippet = ""
     canned_phrases = (
         "стабильное качество обслуживания",

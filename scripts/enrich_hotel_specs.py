@@ -31,65 +31,119 @@ import urllib.request
 from datetime import datetime
 from typing import Any, Dict, List, Optional, Set, Tuple
 
+try:
+    from scripts.audit_and_fix_specs_kb import audit_and_cleanse_specs
+except ImportError:
+    try:
+        from audit_and_fix_specs_kb import audit_and_cleanse_specs
+    except ImportError:
+        audit_and_cleanse_specs = None
+
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 logger = logging.getLogger("enrich_hotel_specs")
 
 DEFAULT_SPECS_FILE = "hotel_specs_kb.json"
 DEFAULT_REPUTATION_FILE = "hotel_reputation_kb.json"
 
-VALID_BEACH_TYPES = {"sand", "gravel", "pontoon", "reef", "mixed"}
-VALID_SEA_ENTRIES = {"shallow_sand", "deep", "pontoon_to_reef", "coral_entry", "mixed"}
+VALID_BEACH_TYPES = {
+    "sand", "gravel", "pontoon", "reef", "mixed",
+    "sand_pebble", "pebble", "coral_rocky", "pontoon_only", "artificial_lagoon"
+}
+VALID_SEA_ENTRIES = {
+    "shallow_sand", "deep", "pontoon_to_reef", "coral_entry", "mixed",
+    "gentle_slope", "coral_plate_shoes", "steep_deep"
+}
+VALID_BAY_WINDS = {
+    "sheltered_bay", "moderate_wind", "windy_exposed", "not_applicable"
+}
+VALID_REEF_PRESENCE = {
+    "live_house_reef", "moderate_reef", "no_reef"
+}
 VALID_FOOD_CONCEPTS = {"AI", "UAI", "HB", "BB", "FB", "RO"}
 
 SYSTEM_PROMPT = """
-Ты — профессиональный эксперт по туристической инфраструктуре и классификации отелей.
-Твоя задача — предоставить точные, проверенные и объективные характеристики конкретного отеля.
+Ты — старший эксперт-аналитик по курортной инфраструктуре, отельной инженерии и географии мировых курортов (Египет, Турция, Кипр, Греция).
+Твоя задача — составить максимально точный, детальный, проверенный и объективный паспорт инфраструктуры для конкретного отеля.
 
-ВАЖНЫЕ ПРАВИЛА:
-1. НИКАКИХ ШАБЛОННЫХ ЗАГЛУШЕК: Если точный год реновации или точное количество бассейнов неизвестны, укажи null. Не придумывай.
-2. ПЛЯЖ И ВХОД В МОРЕ (КРИТИЧЕСКИ ВАЖНО):
-   - beach_type: одно из [sand, gravel, pontoon, reef, mixed]
+ПРИНЦИПЫ И ЖЕЛЕЗНЫЕ ПРАВИЛА (АНТИ-ГАЛЛЮЦИНАЦИЯ):
+1. НИКАКИХ МАРКЕТИНГОВЫХ ШТАМПОВ И ВОДЫ:
+   - Категорически запрещены общие клише вроде: "Разнообразие ресторанов", "Разнообразие водных видов спорта", "Уютная зеленая территория", "Просторные номера с видом на море", "Стандартная детская площадка".
+   - Каждый пункт в highlights и caution_notes обязан содержать ФАКТ: название бухты, реальный километраж/метраж, конкретную зону подогрева, особенности дна или рельефа.
+
+2. ПЛЯЖ, ЛИНИЯ И МОРСКАЯ ТОПОГРАФИЯ (КРИТИЧНО):
    - beach_line:
-     * 1 — ТОЛЬКО если отель стоит непосредственно на берегу моря (beachfront), без дорог и без необходимости трансфера.
-     * 2 — если отель отделен от пляжа променадом/дорогой или находится на 2-й линии (200-800 метров).
-     * 3 — если отель городской, находится в глубине курорта (например, район Hadaba в Шарм-эль-Шейхе вдалеке от побережья) и до пляжа требуется трансфер/шаттл-бас (например, Old Vic Sharm Resort, Falcon Hills и подобные отели в 1.5–3 км от моря).
-   НИКОГДА не ставь 1-ю линию городским отелям или отелям с шаттлом до пляжа!
-   - sea_entry: одно из [shallow_sand, deep, pontoon_to_reef, coral_entry, mixed]
-3. БАССЕЙНЫ И АКВАПАРК:
-   - heated_pools_winter: ставь true ТОЛЬКО если есть 100% проверенный подогрев хотя бы одного бассейна в зимний период (ноябрь-март). Если подогрева нет или он не гарантирован, ОБЯЗАТЕЛЬНО ставь false.
-   - pool_count: ориентировочное число открытых бассейнов (число или null)
-   - aquapark: true ТОЛЬКО если есть полноценный комплекс водных горок (от 3-4 горок). Если просто детская горка в лягушатнике — ставь false.
-4. ПИТАНИЕ:
-   - food_concept: доминирующий концепт [AI, UAI, HB, BB, FB]
-5. РЕЙТИНГИ И РЕНОВАЦИЯ:
-   - last_renovation_year: год последней реновации (число) или null
-   - tripadvisor_rating: рейтинг от 1.0 до 5.0 (число) или null
-   - tripadvisor_reviews: примерное количество отзывов (число) или null
-   - transfer_minutes: ориентировочное время трансфера от ближайшего аэропорта (минуты) или null
-6. ОСОБЕННОСТИ:
-   - highlights: 2-3 ключевых реальных преимущества отеля
-   - caution_notes: 1-2 объективных нюанса (например, отель на 2-3 линии, трансфер на пляж на шаттле, старый номерной фонд, ветреная бухта зимой)
+     * 1 — ТОЛЬКО beachfront: отель стоит прямо на первой линии моря, без дорог, без променадов и без шаттлов.
+     * 2 — если между отелем и морем есть дорога/променад или отель на второй линии (150–700 метров пешком).
+     * 3 — если отель городской, находится в глубине курорта (например, район Хадаба/Hadaba в Шарм-эль-Шейхе вдалеке от моря: Old Vic, Falcon Hills, Coral Hills, Tivoli, Luna Sharm) или на плато, и до моря требуется шаттл-бас (>800м).
+   - beach_type: одно из [sand, sand_pebble, pebble, coral_rocky, pontoon_only, artificial_lagoon, mixed]
+   - sea_entry: одно из [shallow_sand, gentle_slope, pontoon_to_reef, coral_plate_shoes, steep_deep, mixed]
+   - pontoon_length_m: ориентировочная длина понтона в метрах (число, например 50, 250, 750) или null, если вход с берега без понтона.
+   - bay_wind_protection:
+     * sheltered_bay — 100% закрытая безветренная бухта для зимы (в Шарме: Шарм-эль-Майя / Sharm El Maya, Наама Бэй / Naama Bay, Рас-Ум-Сид / Ras Um Sid, часть Шаркс Бэй).
+     * moderate_wind — умеренная продуваемость.
+     * windy_exposed — открытое ветреное побережье (район Набк / Nabq Bay в Шарме — частый красный флаг и волны; открытое побережье Марса Алам).
+     * not_applicable — для Средиземноморья / летних направлений.
+   - reef_presence: одно из [live_house_reef, moderate_reef, no_reef].
 
-Ответь ТОЛЬКО валидным JSON без лишних слов:
+3. БАССЕЙНЫ И ЗИМНИЙ ПОДОГРЕВ (СТРОГАЯ ПРОВЕРКА):
+   - heated_pools_winter: ставь true ТОЛЬКО если есть подтвержденный подогрев хотя бы одного бассейна в зимний период (ноябрь-март). Если подогрева нет или он не гарантирован — СТРОГО false.
+   - heated_pools_details: краткое конкретное описание (например: "Главный открытый бассейн (+28°C) и детский бассейн", "Только крытый бассейн в спа", "Бассейн с горками подогревается", либо null при отсутствии).
+   - pool_count: реальное число бассейнов на территории (число).
+   - aquapark: true ТОЛЬКО если есть полноценный комплекс от 3-4 взрослых/семейных водных горок. (Если 1-2 детские горки в лягушатнике — ставь false).
+   - slides_total: общее число горок (число или null).
+   - indoor_pool: true если есть крытый бассейн, иначе false.
+
+4. ПИТАНИЕ И РЕНОВАЦИЯ:
+   - food_concept: доминирующий концепт [AI, UAI, HB, BB, FB, RO].
+   - alacarte_count: количество ресторанов a la carte (число или null).
+   - last_renovation_year: год последней реновации (число или null).
+   - renovation_scope: одно из ["full_property", "rooms_only", "public_areas", "cosmetic", null].
+   - tripadvisor_rating: рейтинг от 1.0 до 5.0 (число с 1 десятичным знаком, напр. 4.3).
+   - tripadvisor_reviews: примерное количество отзывов (число или null).
+   - transfer_minutes: ориентировочное реальное время трансфера от ближайшего аэропорта (число минут).
+   - nearest_airport: IATA-код аэропорта (напр. "SSH", "HRG", "RMF", "AYT", "PFO", "LCA", "HER", "RHO").
+
+5. HIGHLIGHTS (2-3 конкретных преимущества):
+   - Только объективные факты: песчаная лагуна, безветренная бухта, подогрев олимпийского бассейна, живой коралловый риф с черепахами/дюгонями, свежий номерной фонд после реновации 2023 года.
+
+6. CAUTION_NOTES (2-3 объективных нюанса/предостережения):
+   - Только честные факты: 2-я/3-я линия с трансфером по расписанию, длинный понтон 600м в ветреной бухте Набк с частым красным флагом, каменистый вход в море с необходимостью коралок, ступенчатый каскадный рельеф (неудобно с колясками), старый номерной фонд стандартных корпусов.
+
+Ответь ТОЛЬКО валидным JSON-объектом:
 {
   "beach_type": "sand",
-  "beach_line": 2,
+  "beach_line": 1,
   "sea_entry": "shallow_sand",
-  "heated_pools_winter": false,
-  "pool_count": 2,
-  "aquapark": false,
+  "pontoon_length_m": null,
+  "bay_wind_protection": "sheltered_bay",
+  "reef_presence": "live_house_reef",
+  "heated_pools_winter": true,
+  "heated_pools_details": "Главный открытый бассейн подогревается до +28°C с ноября по март",
+  "pool_count": 3,
+  "aquapark": true,
+  "slides_total": 6,
+  "indoor_pool": false,
   "food_concept": "AI",
-  "last_renovation_year": null,
-  "tripadvisor_rating": 4.1,
-  "tripadvisor_reviews": 850,
-  "transfer_minutes": 30,
-  "highlights": ["Уютная зеленая территория", "Регулярный бесплатный шаттл на пляж"],
-  "caution_notes": ["2-я/3-я линия, до пляжа на шаттле", "Бассейны без зимнего подогрева"]
+  "alacarte_count": 3,
+  "last_renovation_year": 2022,
+  "renovation_scope": "rooms_only",
+  "tripadvisor_rating": 4.4,
+  "tripadvisor_reviews": 2300,
+  "transfer_minutes": 20,
+  "nearest_airport": "SSH",
+  "highlights": [
+    "100% безветренная бухта Шарм-эль-Майя с широким пологим песчаным пляжем",
+    "Гарантированный подогрев главного открытого бассейна и горок аквапарка зимой"
+  ],
+  "caution_notes": [
+    "Мелководье во время отливов на расстоянии до 50 метров от берега",
+    "Высокая загрузка отеля семьями в пиковые каникулярные даты"
+  ]
 }
 """
 
 
-def validate_specs_payload(payload: Dict[str, Any]) -> Tuple[bool, Optional[str]]:
+def validate_specs_payload(payload: Dict[str, Any], hotel_name: str = "") -> Tuple[bool, Optional[str]]:
     """Strictly validates the parsed JSON payload against specifications schema."""
     if not isinstance(payload, dict):
         return False, "Payload is not a dict"
@@ -99,8 +153,13 @@ def validate_specs_payload(payload: Dict[str, Any]) -> Tuple[bool, Optional[str]
         return False, f"Invalid beach_type: {beach_type}"
 
     beach_line = payload.get("beach_line")
-    if beach_line is not None and beach_line not in (1, 2, 3, "1", "2", "3"):
-        return False, f"Invalid beach_line: {beach_line}"
+    if beach_line is not None:
+        try:
+            b_line = int(beach_line)
+            if b_line not in (1, 2, 3):
+                return False, f"Invalid beach_line: {beach_line}"
+        except (ValueError, TypeError):
+            return False, f"Invalid beach_line: {beach_line}"
 
     sea_entry = payload.get("sea_entry")
     if sea_entry and str(sea_entry).lower() not in VALID_SEA_ENTRIES:
@@ -115,11 +174,31 @@ def validate_specs_payload(payload: Dict[str, Any]) -> Tuple[bool, Optional[str]
         except (ValueError, TypeError):
             return False, f"tripadvisor_rating not float: {ta_rating}"
 
+    bay_wind = payload.get("bay_wind_protection")
+    if bay_wind and str(bay_wind).lower() not in VALID_BAY_WINDS:
+        return False, f"Invalid bay_wind_protection: {bay_wind}"
+
+    reef = payload.get("reef_presence")
+    if reef and str(reef).lower() not in VALID_REEF_PRESENCE:
+        return False, f"Invalid reef_presence: {reef}"
+
+    # Anti-hallucination geographical sanity checks
+    if hotel_name:
+        name_lower = hotel_name.lower()
+        # Nabq Bay in Sharm is open and windy; it cannot be wind-protected
+        if "nabq" in name_lower and bay_wind == "sheltered_bay":
+            return False, f"Geographical conflict: Hotel in Nabq Bay '{hotel_name}' cannot be marked 'sheltered_bay'"
+
+        # Inland Hadaba hotels cannot be 1st line
+        inland_sharm = ["falcon hills", "old vic", "coral hills", "tivoli", "sharm cliff", "luna sharm", "verginia"]
+        if any(ih in name_lower for ih in inland_sharm) and beach_line == 1:
+            return False, f"Geographical conflict: Inland hotel '{hotel_name}' cannot be 1st line"
+
     return True, None
 
 
 def is_template_response(payload: Dict[str, Any]) -> bool:
-    """Anti-template detector: detects canned or repetitive responses."""
+    """Anti-template detector: detects canned, repetitive or low-effort filler responses."""
     if not isinstance(payload, dict):
         return True
 
@@ -136,6 +215,18 @@ def is_template_response(payload: Dict[str, Any]) -> bool:
         "стандартная детская площадка",
         "умеренная ветровая защита",
         "стандартный зимний комфорт",
+        "разнообразие ресторанов и баров",
+        "разнообразие ресторанов",
+        "разнообразие водных видов спорта",
+        "просторные номера с видом на море",
+        "большая территория с зелеными насаждениями",
+        "некоторые номера могут быть шумными из-за близости к бассейну",
+        "некоторые номера могут быть шумными",
+        "прекрасный вид на море",
+        "спокойная атмосфера для отдыха",
+        "уютная зеленая территория",
+        "развлекательные программы",
+        "отличное обслуживание",
     ]
     for canned in banned_canned:
         if canned in combined_text:
@@ -146,7 +237,6 @@ def is_template_response(payload: Dict[str, Any]) -> bool:
         return True
 
     return False
-
 
 def call_gemini_specs(hotel_name: str, country: str, api_key: str, model_name: str = "gemini-2.0-flash") -> Optional[Dict[str, Any]]:
     """Queries Google Gemini Flash API for hotel specifications."""
@@ -376,6 +466,8 @@ def enrich_specs_pipeline(
     finally:
         if not dry_run:
             save_hotel_specs_kb(kb, specs_path)
+            if audit_and_cleanse_specs:
+                audit_and_cleanse_specs(specs_path)
 
     logger.info(f"Pipeline complete. Processed {processed}, Newly enriched: {enriched_count}")
     return kb
