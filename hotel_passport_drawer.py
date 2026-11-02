@@ -61,13 +61,21 @@ def generate_hotel_ai_profile(
         specs = specs["specs"]
 
     # 1. Stars
-    stars = 4
-    if re.search(r"5\s*(?:\*|★)|5-star|luxury|palace|resort & spa|premium|deluxe", hotel_name, re.I):
-        stars = 5
-    elif re.search(r"3\s*(?:\*|★)|3-star", hotel_name, re.I):
-        stars = 3
-    elif current_price >= 6500:
-        stars = 5
+    stars = None
+    if specs and specs.get("stars"):
+        try:
+            stars = int(specs["stars"])
+        except (ValueError, TypeError):
+            pass
+    if not stars:
+        if re.search(r"5\s*(?:\*|★)|5-star|luxury|palace|resort & spa|premium|deluxe", hotel_name, re.I):
+            stars = 5
+        elif re.search(r"3\s*(?:\*|★)|3-star", hotel_name, re.I):
+            stars = 3
+        elif current_price >= 6500:
+            stars = 5
+        else:
+            stars = 4
 
     # 2. TripAdvisor Rating & Reviews
     ta_rating = None
@@ -158,55 +166,116 @@ def generate_hotel_ai_profile(
         food_concept = "Half Board (Завтрак + Ужин)"
 
     # 4. Rich Infrastructure Dictionary (6 categories)
-    # Rich specs extractions
-    beach_line_str = f"{beach_line}-я линия (собственный оборудованный пляж)" if beach_line == 1 else (f"{beach_line}-я линия (через променад/дорогу, 200–600м)" if beach_line == 2 else f"{beach_line}-я линия (в глубине курорта, шаттл на пляж)")
-    reef_desc = "Живой коралловый риф, удобный спуск с понтона для снорклинга" if ("риф" in beach_type.lower() or (specs and specs.get("reef_presence") == "live_house_reef")) else "Чистое пологое дно, подходит для купания без спецобуви"
-    if specs and specs.get("pontoon_length_m"):
-        reef_desc += f" (длина понтона: {specs['pontoon_length_m']} м)"
+    if specs and "infrastructure" in specs and isinstance(specs["infrastructure"], dict):
+        infra_rich = specs["infrastructure"]
+    else:
+        # Truthful dynamic fallback based on actual specs and hotel tier
+        beach_line_str = f"{beach_line}-я линия (собственный оборудованный пляж)" if beach_line == 1 else (f"{beach_line}-я линия (через променад/дорогу, 200–600м)" if beach_line == 2 else f"{beach_line}-я линия (в глубине курорта, шаттл на пляж)")
+        reef_desc = "Живой коралловый риф, удобный спуск с понтона для снорклинга" if ("риф" in beach_type.lower() or (specs and specs.get("reef_presence") == "live_house_reef")) else "Чистое пологое дно, подходит для купания без спецобуви"
+        if specs and specs.get("pontoon_length_m"):
+            reef_desc += f" (длина понтона: {specs['pontoon_length_m']} м)"
 
-    pools_count_str = f"{specs.get('pool_count')} открытых бассейна(ов) с пресной водой" if (specs and specs.get('pool_count')) else "3–5 открытых бассейнов с пресной водой, включая релакс-зону 16+"
-    heated_desc = specs.get("heated_pools_details") if (specs and specs.get("heated_pools_details")) else ("Бассейн с постоянным зимним подогревом (+28°C)" if has_heated_pools else "Несколько открытых бассейнов, терраса для загара (зимний подогрев отсутствует)")
-    aqua_desc = f"Собственный аквапарк ({specs.get('slides_total')} водных горок)" if (specs and specs.get("slides_total")) else ("Собственный аквапарк с водными горками для взрослых и детей" if has_aquapark else "Водные аттракционы и горки в детском бассейне")
+        pool_cnt = specs.get('pool_count') if specs else None
+        if pool_cnt == 1:
+            pools_count_str = "1 открытый бассейн с пресной водой"
+        elif pool_cnt and 2 <= pool_cnt <= 4:
+            pools_count_str = f"{pool_cnt} открытых бассейна с пресной водой"
+        elif pool_cnt and pool_cnt >= 5:
+            pools_count_str = f"{pool_cnt} открытых бассейнов с пресной водой"
+        else:
+            pools_count_str = "Открытый плавательный бассейн"
 
-    infra_rich = {
-        "beach": {
-            "line": beach_line_str,
-            "type": beach_type,
-            "entry": sea_entry,
-            "equipment": "Бесплатные шезлонги, солнцезащитные зонты, пляжные полотенца, бар на пляже",
-            "reef": reef_desc,
-        },
-        "pools": {
-            "pools_count": pools_count_str,
-            "heated": heated_desc,
-            "aquapark": aqua_desc,
-            "indoor": "Крытый бассейн в спа-центре (с подогревом в прохладный сезон)",
-        },
-        "food": {
-            "concept": food_concept,
-            "main_buffet": "Главный ресторан: богатый шведский стол, тематические ужины, гриль-станция и свежая выпечка",
-            "alacarte": "2–4 ресторана a la carte (итальянская, восточная, рыбная кухни) по предварительной записи",
-            "bars": "Круглосуточный лобби-бар, бар у бассейна, пляжный снек-бар с закусками и мороженым",
-        },
-        "kids": {
-            "club": "Мини-клуб для детей от 4 до 12 лет с анимационной программой",
-            "pool": "Мелкий детский бассейн с навесом от прямого солнца и водными мини-горками",
-            "playground": "Оборудованная игровая площадка на свежем воздухе и вечернее мини-диско",
-            "menu": "Детские стульчики в ресторане, уголок детского питания и блендер",
-        },
-        "sport_spa": {
-            "spa": "Спа-комплекс: турецкий хаммам, финская сауна, паровая комната и массажные кабинеты",
-            "fitness": "Современный тренажерный зал с кардио- и силовыми тренажерами",
-            "sport": "Пляжный волейбол, настольный теннис, дартс, утренняя йога и водная гимнастика",
-            "watersports": "Дайвинг-центр, прокат оборудования для снорклинга и водные виды спорта",
-        },
-        "comfort": {
-            "wifi": "Бесплатный Wi-Fi на территории и в лобби отеля",
-            "room_amenities": f"Индивидуальный кондиционер, сейф, балкон/терраса, мини-бар. Реновация: {specs.get('last_renovation_year')} г." if (specs and specs.get('last_renovation_year')) else "Индивидуальный кондиционер, сейф, балкон/терраса, мини-бар, спутниковое ТВ",
-            "distance": f"Трансфер из аэропорта ({specs.get('nearest_airport') or 'а/п'}): ~{specs['transfer_minutes']} мин (регион {destination or country})" if (specs and specs.get('transfer_minutes')) else f"Трансфер из аэропорта: ~20–35 минут (регион {destination or country})",
-            "service": "Круглосуточная стойка регистрации, консьерж-сервис, камера хранения багажа",
-        },
-    }
+        if has_heated_pools:
+            heated_desc = specs.get("heated_pools_details") or "Бассейн с постоянным зимним подогревом (+28°C)"
+        else:
+            heated_desc = "Открытый бассейн, терраса для загара (зимний подогрев отсутствует)" if pool_cnt == 1 else "Открытые бассейны, терраса для загара (зимний подогрев отсутствует)"
+
+        slides_cnt = specs.get("slides_total", 0) if specs else 0
+        if has_aquapark and slides_cnt > 0:
+            aqua_desc = f"Собственный аквапарк ({slides_cnt} водных горок)"
+        elif has_aquapark:
+            aqua_desc = "Собственный аквапарк с водными горками для взрослых и детей"
+        elif slides_cnt > 0:
+            aqua_desc = f"{slides_cnt} водные горки при бассейне (не является аквапарком)"
+        else:
+            aqua_desc = "Водные горки и аквапарк отсутствуют"
+
+        if stars >= 5:
+            main_b = "Главный ресторан: богатый шведский стол, тематические ужины, гриль-станция и свежая выпечка"
+            alac = "2–4 ресторана a la carte (итальянская, восточная, рыбная кухни) по предварительной записи"
+            bars_desc = "Круглосуточный лобби-бар, бар у бассейна, пляжный снек-бар с закусками и мороженым"
+            spa_desc = "Спа-комплекс: турецкий хаммам, финская сауна, паровая комната и массажные кабинеты"
+            fit_desc = "Современный тренажерный зал с кардио- и силовыми тренажерами"
+            wifi_desc = "Бесплатный высокоскоростной Wi-Fi на территории и в лобби отеля"
+        elif stars == 4:
+            main_b = "Главный ресторан: разнообразный шведский стол, блюда местной и международной кухни"
+            if beach_line >= 3:
+                alac = "Рестораны a la carte отсутствуют. Работают основной ресторан и бар у бассейна"
+                spa_desc = "Спа-комплекс отсутствует (массаж по запросу за доплату)"
+                fit_desc = "Тренажерный зал отсутствует либо базовая фитнес-комната"
+            else:
+                alac = "1–2 ресторана a la carte (по предварительной записи) и лобби-бар"
+                spa_desc = "Спа-зона: сауна, парная и массажные кабинеты (процедуры платно)"
+                fit_desc = "Тренажерный зал с базовыми кардио- и силовыми тренажерами"
+            bars_desc = "Лобби-бар, бар у бассейна и дневной снек-бар"
+            wifi_desc = "Бесплатный Wi-Fi в лобби и общественных зонах"
+        else: # 3 stars and below
+            main_b = "Главный ресторан: базовый шведский стол с блюдами местной кухни"
+            alac = "Рестораны a la carte отсутствуют. Доступны основной ресторан и бар у бассейна"
+            bars_desc = "Бар у бассейна и напитки в ресторане во время питания"
+            spa_desc = "Спа-комплекс отсутствует (массажные услуги по запросу за доплату)"
+            fit_desc = "Тренажерный зал отсутствует"
+            wifi_desc = "Бесплатный базовый Wi-Fi в зоне лобби (в номерах отсутствует)"
+
+        if beach_line >= 3:
+            beach_equip = "Шезлонги и зонты на арендованном пляже (бесплатно). Напитки в пляжном баре за доплату"
+            watersp = "Снорклинг и водные виды спорта доступны на общественном пляже платно"
+        elif beach_line == 2:
+            beach_equip = "Бесплатные шезлонги и зонты на выделенной пляжной зоне, пляжные полотенца"
+            watersp = "Водные виды спорта и снорклинг на пляже (платно)"
+        else:
+            beach_equip = "Бесплатные шезлонги, солнцезащитные зонты, пляжные полотенца, бар на пляже"
+            watersp = "Дайвинг-центр, прокат оборудования для снорклинга и водные виды спорта"
+
+        infra_rich = {
+            "beach": {
+                "line": beach_line_str,
+                "type": beach_type,
+                "entry": sea_entry,
+                "equipment": beach_equip,
+                "reef": reef_desc,
+            },
+            "pools": {
+                "pools_count": pools_count_str,
+                "heated": heated_desc,
+                "aquapark": aqua_desc,
+                "indoor": "Крытый бассейн в спа-центре" if stars >= 5 else "Крытый бассейн отсутствует",
+            },
+            "food": {
+                "concept": food_concept,
+                "main_buffet": main_b,
+                "alacarte": alac,
+                "bars": bars_desc,
+            },
+            "kids": {
+                "club": "Мини-клуб для детей от 4 до 12 лет с анимационной программой" if stars >= 4 and beach_line <= 2 else "Мини-клуб отсутствует (эконом-формат без специализированной детской анимации)",
+                "pool": "Мелкий детский бассейн с навесом от прямого солнца" if stars >= 4 else "Интегрированная мелкая секция в общем бассейне",
+                "playground": "Оборудованная игровая площадка на свежем воздухе" if stars >= 4 else "Компактная игровая зона на территории",
+                "menu": "Детские стульчики в ресторане",
+            },
+            "sport_spa": {
+                "spa": spa_desc,
+                "fitness": fit_desc,
+                "sport": "Настольный теннис, дартс, утренняя гимнастика",
+                "watersports": watersp,
+            },
+            "comfort": {
+                "wifi": wifi_desc,
+                "room_amenities": f"Индивидуальный кондиционер, сейф, балкон/терраса, мини-бар. Реновация: {specs.get('last_renovation_year')} г." if (specs and specs.get('last_renovation_year')) else "Индивидуальный кондиционер, сейф, балкон/терраса, мини-бар, спутниковое ТВ",
+                "distance": f"Трансфер из аэропорта ({specs.get('nearest_airport') or 'а/п'}): ~{specs['transfer_minutes']} мин (регион {destination or country})" if (specs and specs.get('transfer_minutes')) else f"Трансфер из аэропорта: ~20–35 минут (регион {destination or country})",
+                "service": "Круглосуточная стойка регистрации, камера хранения багажа",
+            },
+        }
 
     # 5. AI Verdict & Pros/Cons
     verdict = ""
