@@ -143,10 +143,36 @@
       "created_at": "2026-11-02T15:01:27.888934+00:00",
       "threshold_percent": 8.0,
       "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort)_2026-11-02_15-00_zone_out_gone"
+    },
+    {
+      "hotel_name": "Beach Safari Nubian Resort",
+      "duration_bucket": "",
+      "old_price": 9421.0,
+      "new_price": 9421.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-02 17:19:27.380956+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-02T17:20:05.401668+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Beach Safari Nubian Resort_2026-11-02_17-19_zone_out_gone"
+    },
+    {
+      "hotel_name": "Empire Hotel Aqua Park (Ex. Triton Empir",
+      "duration_bucket": "",
+      "old_price": 9671.0,
+      "new_price": 9671.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-02 17:19:27.380956+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-02T17:20:05.401743+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Empire Hotel Aqua Park (Ex. Triton Empir_2026-11-02_17-19_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-02T15:00:50.747042+00:00",
+    "last_processed_run": "2026-11-02T17:19:27.380956+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa": {
         "history_max": 11133.0,
@@ -239,6 +265,14 @@
       "Coral Hills Resort Marsa Alam": {
         "history_max": 8700.0,
         "premium_peak": null
+      },
+      "Empire Hotel Aqua Park": {
+        "history_max": 8563.0,
+        "premium_peak": null
+      },
+      "AMC Royal Hotel & Spa*****": {
+        "history_max": 11004.0,
+        "premium_peak": 11004.0
       }
     }
   }

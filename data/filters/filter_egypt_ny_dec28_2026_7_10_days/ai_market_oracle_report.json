@@ -4,23 +4,23 @@
     "market_phase": "Ранний выбор (вылет через 56 дн.)",
     "filter_title": "Египет • НГ 28.12–06.01 • 7–10 дн.",
     "charter_dynamics": "До вылета 56 дн. (28.12). Рынок спокойный, средняя цена держится на уровне 10,599 zł. Резких сбросов цен пока нет. Погода (Египет): Теплое море (+23..+26°C), воздух днем +24..+28°C. Ключевой фактор комфорта — закрытая от зимних ветров бухта (Наама Бэй, Рас Ум Сид) и подогреваемый бассейн.",
-    "floor_status": "1 отелей (4.3%) сейчас отдают по минимальной цене за сезон.",
+    "floor_status": "8 отелей (32.0%) сейчас отдают по минимальной цене за сезон.",
     "strategic_directive": "Спешить не нужно. Сохраняйте понравившиеся отели в Избранное (☆) и ждите: за 10–14 дней до вылета часто начинаются первые скидки.",
     "key_anomalies": [
       {
         "type": "floor",
-        "title": "Ценовое дно: 1 отелей (4.3%)",
-        "text": "Зафиксирована самая низкая цена за весь сезон. Цены начинаются от 8,517 zł."
+        "title": "Ценовое дно: 8 отелей (32.0%)",
+        "text": "Зафиксирована самая низкая цена за весь сезон. Цены начинаются от 8,285 zł."
       },
       {
         "type": "arbitrage",
         "title": "✈️ Разница вылетов: Warszawa - Okęcie vs Warszawa - Modlin",
-        "text": "Вылет из Warszawa - Okęcie в среднем на 1,149 zł дешевле, чем из Warszawa - Modlin"
+        "text": "Вылет из Warszawa - Okęcie в среднем на 1,131 zł дешевле, чем из Warszawa - Modlin"
       },
       {
         "type": "duration",
         "title": "⏳ Выгодная длительность: 9 дн.",
-        "text": "Доплата за отдых 9 дн. вместо 8 дн. составляет -965 zł (-965 zł в день)"
+        "text": "Доплата за отдых 9 дн. вместо 8 дн. составляет -1,015 zł (-1,015 zł в день)"
       }
     ],
     "synthesized_by": "Rule-Based Deterministic Engine (Offline)",
@@ -69,30 +69,41 @@
       "flash_drop_tip": "",
       "dupe_suggestion": null
     },
-    "Amarina Queen Resort & Aqua Park": {
-      "verdict": "OVERPRICED",
-      "badge_text": "🔴 ДОРОГО",
-      "rationale": "Цена 11,754 zł на 116% выше обычной средней цены этого отеля (5,452 zł).",
-      "risk_assessment": "Высокий риск переплаты. Туроператор держит завышенную цену.",
-      "action_advice": "Покупать сейчас крайне невыгодно. Добавьте в Избранное (☆) и ждите снижения.",
+    "AMC Royal Hotel & Spa*****": {
+      "verdict": "BUY_NOW",
+      "badge_text": "🟢 ПОКУПАТЬ",
+      "rationale": "Цена 11,004 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
+      "risk_assessment": "Номера в этом отеле популярны, к дате вылета мест может не остаться.",
+      "action_advice": "Если отель нравится — фиксируйте бронь прямо сегодня, дешевле уже вряд ли будет.",
       "booking_window_badge": "",
-      "booking_window_class": "in_window",
-      "booking_window_tip": "Период D-30+ исторически благоприятен для покупки, но сейчас отель продаётся по обычной цене (11,754 zł при норме 5,452 zł).",
-      "fair_price_badge": "⚠️ Дороже обычного",
-      "fair_price_class": "fair-overpriced",
-      "fair_price_tip": "Цена на +1% отличается от сопоставимых отелей сегмента премиум 4★ (11,662 zł) или превышает историческую норму отеля (5,452 zł).",
+      "booking_window_class": "early",
+      "booking_window_tip": "Историческое окно максимальной выгоды для этого типа отелей наступает за 14–21 день до вылета.",
+      "fair_price_badge": "",
+      "fair_price_class": "",
+      "fair_price_tip": "",
       "gem_badge": "",
       "gem_tip": "",
       "flash_drop_badge": "",
       "flash_drop_tip": "",
-      "dupe_suggestion": {
-        "hotel_name": "Retac Qunay Dahab Resort & Spa",
-        "price": 10417.0,
-        "savings": 1337.0,
-        "savings_pln": 1337.0,
-        "rating": 4.3,
-        "offer_url": "https://fly.pl/wycieczka/egipt,dahab,c/le-meridien-dahab-bay/p4-6wQHL2DERdYq8ghpbw8AAogC2GWWoGmQubsCdzu48v0WjwT7RlUfXMzs7Cg2TnkgBgqBFZJVFgwqMui1wZIsVFQQVjICmACagpBRUdTU0hKUFQ2agpSTVNEREJWUDAwagxHRE5TU0hEUDMwMDJqDFNTSEdETkRQMzAwMnI0kQGbAZ0BjwEaABcHFQBcA1gFQI8DS82iAWEAXrBdUqYgUwBM16s4INWDmgkNAAIMYwECC8KJnGs/?operator=VITX&adults=2&children=2020-12-10&objectId=1456&durationFrom=7&durationTo=10&departureDate=2026-12-29&returnDate=2027-01-05&departureLocation=Gda%C5%84sk&catering=all_inclusive&transport=accommodation_flight&duration=7&nights=7"
-      }
+      "dupe_suggestion": null
+    },
+    "Amarina Queen Resort & Aqua Park": {
+      "verdict": "BUY_NOW",
+      "badge_text": "🟢 ПОКУПАТЬ",
+      "rationale": "Цена 11,339 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
+      "risk_assessment": "Номера в этом отеле популярны, к дате вылета мест может не остаться.",
+      "action_advice": "Если отель нравится — фиксируйте бронь прямо сегодня, дешевле уже вряд ли будет.",
+      "booking_window_badge": "",
+      "booking_window_class": "in_window",
+      "booking_window_tip": "Период D-30+ исторически благоприятен для покупки, но сейчас отель продаётся по обычной цене (11,339 zł при норме 5,452 zł).",
+      "fair_price_badge": "",
+      "fair_price_class": "",
+      "fair_price_tip": "",
+      "gem_badge": "",
+      "gem_tip": "",
+      "flash_drop_badge": "",
+      "flash_drop_tip": "",
+      "dupe_suggestion": null
     },
     "Amwaj Oyoun Resort & Casino": {
       "verdict": "OVERPRICED",
@@ -105,7 +116,7 @@
       "booking_window_tip": "Период D-30+ исторически благоприятен для покупки, но сейчас отель продаётся по обычной цене (11,042 zł при норме 8,322 zł).",
       "fair_price_badge": "⚠️ Дороже обычного",
       "fair_price_class": "fair-overpriced",
-      "fair_price_tip": "Цена на -5% отличается от сопоставимых отелей сегмента премиум 4★ (11,662 zł) или превышает историческую норму отеля (8,322 zł).",
+      "fair_price_tip": "Цена на -2% отличается от сопоставимых отелей сегмента премиум 4★ (11,247 zł) или превышает историческую норму отеля (8,322 zł).",
       "gem_badge": "",
       "gem_tip": "",
       "flash_drop_badge": "",
@@ -169,7 +180,25 @@
     "Coral Hills Resort Marsa Alam": {
       "verdict": "BUY_NOW",
       "badge_text": "🟢 ПОКУПАТЬ",
-      "rationale": "Цена 8,700 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
+      "rationale": "Цена 8,285 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
+      "risk_assessment": "Номера в этом отеле популярны, к дате вылета мест может не остаться.",
+      "action_advice": "Если отель нравится — фиксируйте бронь прямо сегодня, дешевле уже вряд ли будет.",
+      "booking_window_badge": "",
+      "booking_window_class": "early",
+      "booking_window_tip": "Историческое окно максимальной выгоды для этого типа отелей наступает за 14–21 день до вылета.",
+      "fair_price_badge": "",
+      "fair_price_class": "",
+      "fair_price_tip": "",
+      "gem_badge": "",
+      "gem_tip": "",
+      "flash_drop_badge": "",
+      "flash_drop_tip": "",
+      "dupe_suggestion": null
+    },
+    "Empire Hotel Aqua Park": {
+      "verdict": "BUY_NOW",
+      "badge_text": "🟢 ПОКУПАТЬ",
+      "rationale": "Цена 8,563 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
       "risk_assessment": "Номера в этом отеле популярны, к дате вылета мест может не остаться.",
       "action_advice": "Если отель нравится — фиксируйте бронь прямо сегодня, дешевле уже вряд ли будет.",
       "booking_window_badge": "",
@@ -205,7 +234,7 @@
     "Fantazia Marsa Alam": {
       "verdict": "BUY_NOW",
       "badge_text": "🟢 ПОКУПАТЬ",
-      "rationale": "Цена 11,681 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
+      "rationale": "Цена 11,266 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
       "risk_assessment": "Номера в этом отеле популярны, к дате вылета мест может не остаться.",
       "action_advice": "Если отель нравится — фиксируйте бронь прямо сегодня, дешевле уже вряд ли будет.",
       "booking_window_badge": "",
@@ -239,34 +268,27 @@
       "dupe_suggestion": null
     },
     "Novotel Marsa Alam": {
-      "verdict": "OVERPRICED",
-      "badge_text": "🔴 ДОРОГО",
-      "rationale": "Цена 11,662 zł на 35% выше обычной средней цены этого отеля (8,647 zł).",
-      "risk_assessment": "Высокий риск переплаты. Туроператор держит завышенную цену.",
-      "action_advice": "Покупать сейчас крайне невыгодно. Добавьте в Избранное (☆) и ждите снижения.",
+      "verdict": "BUY_NOW",
+      "badge_text": "🟢 ПОКУПАТЬ",
+      "rationale": "Цена 11,247 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
+      "risk_assessment": "Номера в этом отеле популярны, к дате вылета мест может не остаться.",
+      "action_advice": "Если отель нравится — фиксируйте бронь прямо сегодня, дешевле уже вряд ли будет.",
       "booking_window_badge": "",
       "booking_window_class": "early",
       "booking_window_tip": "Историческое дно цены наступает за D-1…D-3. Сейчас D-58 (рано).",
-      "fair_price_badge": "⚠️ Дороже обычного",
-      "fair_price_class": "fair-overpriced",
-      "fair_price_tip": "Цена на +0% отличается от сопоставимых отелей сегмента премиум 4★ (11,662 zł) или превышает историческую норму отеля (8,647 zł).",
+      "fair_price_badge": "",
+      "fair_price_class": "",
+      "fair_price_tip": "",
       "gem_badge": "",
       "gem_tip": "",
       "flash_drop_badge": "",
       "flash_drop_tip": "",
-      "dupe_suggestion": {
-        "hotel_name": "Retac Qunay Dahab Resort & Spa",
-        "price": 10417.0,
-        "savings": 1245.0,
-        "savings_pln": 1245.0,
-        "rating": 4.3,
-        "offer_url": "https://fly.pl/wycieczka/egipt,dahab,c/le-meridien-dahab-bay/p4-6wQHL2DERdYq8ghpbw8AAogC2GWWoGmQubsCdzu48v0WjwT7RlUfXMzs7Cg2TnkgBgqBFZJVFgwqMui1wZIsVFQQVjICmACagpBRUdTU0hKUFQ2agpSTVNEREJWUDAwagxHRE5TU0hEUDMwMDJqDFNTSEdETkRQMzAwMnI0kQGbAZ0BjwEaABcHFQBcA1gFQI8DS82iAWEAXrBdUqYgUwBM16s4INWDmgkNAAIMYwECC8KJnGs/?operator=VITX&adults=2&children=2020-12-10&objectId=1456&durationFrom=7&durationTo=10&departureDate=2026-12-29&returnDate=2027-01-05&departureLocation=Gda%C5%84sk&catering=all_inclusive&transport=accommodation_flight&duration=7&nights=7"
-      }
+      "dupe_suggestion": null
     },
     "ONATTI Beach Resort - Marsa Alam": {
       "verdict": "BUY_NOW",
       "badge_text": "🟢 ПОКУПАТЬ",
-      "rationale": "Цена 9,106 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
+      "rationale": "Цена 8,691 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
       "risk_assessment": "Номера в этом отеле популярны, к дате вылета мест может не остаться.",
       "action_advice": "Если отель нравится — фиксируйте бронь прямо сегодня, дешевле уже вряд ли будет.",
       "booking_window_badge": "",
@@ -282,17 +304,17 @@
       "dupe_suggestion": null
     },
     "Parrotel Lagoon Resort": {
-      "verdict": "OVERPRICED",
-      "badge_text": "🔴 ДОРОГО",
-      "rationale": "Цена 10,736 zł на 28% выше обычной средней цены этого отеля (8,366 zł).",
-      "risk_assessment": "Высокий риск переплаты. Туроператор держит завышенную цену.",
-      "action_advice": "Покупать сейчас крайне невыгодно. Добавьте в Избранное (☆) и ждите снижения.",
+      "verdict": "BUY_NOW",
+      "badge_text": "🟢 ПОКУПАТЬ",
+      "rationale": "Цена 10,736 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
+      "risk_assessment": "Номера в этом отеле популярны, к дате вылета мест может не остаться.",
+      "action_advice": "Если отель нравится — фиксируйте бронь прямо сегодня, дешевле уже вряд ли будет.",
       "booking_window_badge": "",
       "booking_window_class": "in_window",
       "booking_window_tip": "Период D-30+ исторически благоприятен для покупки, но сейчас отель продаётся по обычной цене (10,736 zł при норме 8,366 zł).",
-      "fair_price_badge": "⚠️ Дороже обычного",
-      "fair_price_class": "fair-overpriced",
-      "fair_price_tip": "Цена на +1% отличается от сопоставимых отелей сегмента комфорт 4★ (10,599 zł) или превышает историческую норму отеля (8,366 zł).",
+      "fair_price_badge": "",
+      "fair_price_class": "",
+      "fair_price_tip": "",
       "gem_badge": "",
       "gem_tip": "",
       "flash_drop_badge": "",
@@ -410,7 +432,7 @@
     "Shoni Bay Marsa Alam": {
       "verdict": "BUY_NOW",
       "badge_text": "🟢 ПОКУПАТЬ",
-      "rationale": "Цена 9,436 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
+      "rationale": "Цена 9,021 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
       "risk_assessment": "Номера в этом отеле популярны, к дате вылета мест может не остаться.",
       "action_advice": "Если отель нравится — фиксируйте бронь прямо сегодня, дешевле уже вряд ли будет.",
       "booking_window_badge": "",
@@ -428,7 +450,7 @@
     "Sirena Beach Resort Marsa Alam": {
       "verdict": "BUY_NOW",
       "badge_text": "🟢 ПОКУПАТЬ",
-      "rationale": "Цена 11,510 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
+      "rationale": "Цена 11,095 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
       "risk_assessment": "Номера в этом отеле популярны, к дате вылета мест может не остаться.",
       "action_advice": "Если отель нравится — фиксируйте бронь прямо сегодня, дешевле уже вряд ли будет.",
       "booking_window_badge": "",

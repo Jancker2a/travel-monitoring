@@ -78,10 +78,36 @@
       "created_at": "2026-11-02T15:04:48.901875+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Orange County Alanya_2026-11-02_15-03_zone_out_gone"
+    },
+    {
+      "hotel_name": "Limak Limra",
+      "duration_bucket": "",
+      "old_price": 6467.0,
+      "new_price": 5665.0,
+      "price_change": -802.0,
+      "price_change_pct": -12.40142260708211,
+      "timestamp": "2026-11-02 17:21:49.307164+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-02T17:23:15.821286+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Limak Limra_2026-11-02_17-21_-12.4"
+    },
+    {
+      "hotel_name": "Grand Okan",
+      "duration_bucket": "",
+      "old_price": 6989.0,
+      "new_price": 6989.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-02 17:21:49.307164+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-02T17:23:15.821326+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Grand Okan_2026-11-02_17-21_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-02T15:03:11.838273+00:00",
+    "last_processed_run": "2026-11-02T17:21:49.307164+00:00",
     "premium_state": {
       "Alba Queen": {
         "history_max": 7157.0,
@@ -96,7 +122,7 @@
         "premium_peak": null
       },
       "Seher Resort & Spa": {
-        "history_max": 5889.0,
+        "history_max": 5988.0,
         "premium_peak": null
       },
       "Orange County (Kemer)": {
@@ -217,6 +243,10 @@
       },
       "Ramada Resort Lara": {
         "history_max": 6753.0,
+        "premium_peak": null
+      },
+      "Seher Sun Palace Resort & Spa": {
+        "history_max": 6574.0,
         "premium_peak": null
       }
     }

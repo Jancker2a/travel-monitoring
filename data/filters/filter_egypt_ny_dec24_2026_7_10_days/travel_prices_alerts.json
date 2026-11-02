@@ -52,10 +52,49 @@
       "created_at": "2026-11-02T15:00:49.084862+00:00",
       "threshold_percent": 8.0,
       "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort)_2026-11-02_15-00_-8.7"
+    },
+    {
+      "hotel_name": "Rewaya Majestic Resort",
+      "duration_bucket": "",
+      "old_price": 8684.0,
+      "new_price": 10364.0,
+      "price_change": 1680.0,
+      "price_change_pct": 19.345923537540305,
+      "timestamp": "2026-11-02 17:18:44.926353+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-02T17:19:24.088587+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Majestic Resort_2026-11-02_17-18_+19.3"
+    },
+    {
+      "hotel_name": "AMC Royal Hotel & Spa (ex. AMC Azur Resort)",
+      "duration_bucket": "",
+      "old_price": 9681.0,
+      "new_price": 9681.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-02 17:18:44.926353+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-02T17:19:24.088626+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort)_2026-11-02_17-18_zone_out_gone"
+    },
+    {
+      "hotel_name": "V Grand Beach Resort Sahl Hasheesh",
+      "duration_bucket": "",
+      "old_price": 10714.0,
+      "new_price": 10714.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-02 17:18:44.926353+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-02T17:19:24.088659+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "V Grand Beach Resort Sahl Hasheesh_2026-11-02_17-18_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-02T15:00:07.976740+00:00",
+    "last_processed_run": "2026-11-02T17:18:44.926353+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 10599.0,
@@ -126,7 +165,11 @@
         "premium_peak": null
       },
       "Charmillion Garden Aqua Park": {
-        "history_max": 10265.0,
+        "history_max": 10596.0,
+        "premium_peak": null
+      },
+      "Naama Bay Promenade Mountain Resort": {
+        "history_max": 10690.0,
         "premium_peak": null
       }
     }
