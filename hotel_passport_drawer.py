@@ -156,18 +156,28 @@ def generate_hotel_ai_profile(
         food_concept = "Half Board (Завтрак + Ужин)"
 
     # 4. Rich Infrastructure Dictionary (6 categories)
+    # Rich specs extractions
+    beach_line_str = f"{beach_line}-я линия (собственный оборудованный пляж)" if beach_line == 1 else (f"{beach_line}-я линия (через променад/дорогу, 200–600м)" if beach_line == 2 else f"{beach_line}-я линия (в глубине курорта, шаттл на пляж)")
+    reef_desc = "Живой коралловый риф, удобный спуск с понтона для снорклинга" if ("риф" in beach_type.lower() or (specs and specs.get("reef_presence") == "live_house_reef")) else "Чистое пологое дно, подходит для купания без спецобуви"
+    if specs and specs.get("pontoon_length_m"):
+        reef_desc += f" (длина понтона: {specs['pontoon_length_m']} м)"
+
+    pools_count_str = f"{specs.get('pool_count')} открытых бассейна(ов) с пресной водой" if (specs and specs.get('pool_count')) else "3–5 открытых бассейнов с пресной водой, включая релакс-зону 16+"
+    heated_desc = specs.get("heated_pools_details") if (specs and specs.get("heated_pools_details")) else ("Бассейн с постоянным зимним подогревом (+28°C)" if has_heated_pools else "Несколько открытых бассейнов, терраса для загара (зимний подогрев отсутствует)")
+    aqua_desc = f"Собственный аквапарк ({specs.get('slides_total')} водных горок)" if (specs and specs.get("slides_total")) else ("Собственный аквапарк с водными горками для взрослых и детей" if has_aquapark else "Водные аттракционы и горки в детском бассейне")
+
     infra_rich = {
         "beach": {
-            "line": f"{beach_line}-я линия (собственный оборудованный пляж)",
+            "line": beach_line_str,
             "type": beach_type,
             "entry": sea_entry,
             "equipment": "Бесплатные шезлонги, солнцезащитные зонты, пляжные полотенца, бар на пляже",
-            "reef": "Живой коралловый риф, удобный спуск с понтона для снорклинга" if "риф" in beach_type.lower() else "Чистое пологое дно, подходит для купания без спецобуви",
+            "reef": reef_desc,
         },
         "pools": {
-            "pools_count": "3–5 открытых бассейнов с пресной водой, включая релакс-зону 16+",
-            "heated": "Бассейн с постоянным зимним подогревом (+28°C)" if has_heated_pools else "Несколько открытых бассейнов, терраса для загара",
-            "aquapark": "Собственный аквапарк с водными горками для взрослых и детей" if has_aquapark else "Водные аттракционы и горки в детском бассейне",
+            "pools_count": pools_count_str,
+            "heated": heated_desc,
+            "aquapark": aqua_desc,
             "indoor": "Крытый бассейн в спа-центре (с подогревом в прохладный сезон)",
         },
         "food": {
@@ -190,8 +200,8 @@ def generate_hotel_ai_profile(
         },
         "comfort": {
             "wifi": "Бесплатный Wi-Fi на территории и в лобби отеля",
-            "room_amenities": "Индивидуальный кондиционер, сейф, балкон/терраса, мини-бар, спутниковое ТВ",
-            "distance": f"Трансфер из аэропорта: ~20–35 минут (регион {destination or country})",
+            "room_amenities": f"Индивидуальный кондиционер, сейф, балкон/терраса, мини-бар. Реновация: {specs.get('last_renovation_year')} г." if (specs and specs.get('last_renovation_year')) else "Индивидуальный кондиционер, сейф, балкон/терраса, мини-бар, спутниковое ТВ",
+            "distance": f"Трансфер из аэропорта ({specs.get('nearest_airport') or 'а/п'}): ~{specs['transfer_minutes']} мин (регион {destination or country})" if (specs and specs.get('transfer_minutes')) else f"Трансфер из аэропорта: ~20–35 минут (регион {destination or country})",
             "service": "Круглосуточная стойка регистрации, консьерж-сервис, камера хранения багажа",
         },
     }
