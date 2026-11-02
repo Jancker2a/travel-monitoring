@@ -39,6 +39,15 @@ except ImportError:
     except ImportError:
         audit_and_cleanse_specs = None
 
+try:
+    from scripts.hotel_passport_compiler import build_hotel_infrastructure, compile_hotel_passport
+except ImportError:
+    try:
+        from hotel_passport_compiler import build_hotel_infrastructure, compile_hotel_passport
+    except ImportError:
+        build_hotel_infrastructure = None
+        compile_hotel_passport = None
+
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 logger = logging.getLogger("enrich_hotel_specs")
 
@@ -445,6 +454,10 @@ def enrich_specs_pipeline(
                         "caution_notes": raw_specs.get("caution_notes") or [],
                     }
                 }
+                if build_hotel_infrastructure:
+                    record["specs"]["infrastructure"] = build_hotel_infrastructure(h_name, record)
+                if compile_hotel_passport:
+                    record["specs"]["passport"] = compile_hotel_passport(h_name, record)
                 kb["hotels"][h_name] = record
                 enriched_count += 1
                 if enriched_count % 5 == 0 and not dry_run:
@@ -465,9 +478,16 @@ def enrich_specs_pipeline(
                         }
     finally:
         if not dry_run:
-            save_hotel_specs_kb(kb, specs_path)
             if audit_and_cleanse_specs:
                 audit_and_cleanse_specs(specs_path)
+            if build_hotel_infrastructure and compile_hotel_passport:
+                for h_name, h_record in kb.get("hotels", {}).items():
+                    if h_record.get("is_enriched") and h_record.get("specs"):
+                        if "infrastructure" not in h_record["specs"]:
+                            h_record["specs"]["infrastructure"] = build_hotel_infrastructure(h_name, h_record)
+                        if "passport" not in h_record["specs"]:
+                            h_record["specs"]["passport"] = compile_hotel_passport(h_name, h_record)
+            save_hotel_specs_kb(kb, specs_path)
 
     logger.info(f"Pipeline complete. Processed {processed}, Newly enriched: {enriched_count}")
     return kb
