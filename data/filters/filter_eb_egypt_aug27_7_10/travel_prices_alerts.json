@@ -13,10 +13,101 @@
       "created_at": "2026-11-03T05:37:47.619387+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Jaz Grand Marsa (ex Resta Grand Resort)_2026-11-03_05-36_+10.1"
+    },
+    {
+      "hotel_name": "Jaz Grand Marsa (ex Resta Grand Resort)",
+      "duration_bucket": "",
+      "old_price": 7347.0,
+      "new_price": 6672.0,
+      "price_change": -675.0,
+      "price_change_pct": -9.187423438138016,
+      "timestamp": "2026-11-03 18:40:11.092280+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-03T18:42:10.518419+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Grand Marsa (ex Resta Grand Resort)_2026-11-03_18-40_-9.2"
+    },
+    {
+      "hotel_name": "Jaz Lamaya Resort (ex Iberotel)",
+      "duration_bucket": "",
+      "old_price": 11912.0,
+      "new_price": 10688.0,
+      "price_change": -1224.0,
+      "price_change_pct": -10.275352585627937,
+      "timestamp": "2026-11-03 18:40:11.092280+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-03T18:42:10.518456+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Lamaya Resort (ex Iberotel)_2026-11-03_18-40_-10.3"
+    },
+    {
+      "hotel_name": "Seven Seas Jolie Bay",
+      "duration_bucket": "",
+      "old_price": 9683.0,
+      "new_price": 11202.0,
+      "price_change": 1519.0,
+      "price_change_pct": 15.68728699783125,
+      "timestamp": "2026-11-03 18:40:11.092280+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-03T18:42:10.518468+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Seven Seas Jolie Bay_2026-11-03_18-40_+15.7"
+    },
+    {
+      "hotel_name": "Sirena Beach Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 10363.0,
+      "new_price": 8456.0,
+      "price_change": -1907.0,
+      "price_change_pct": -18.402007140789348,
+      "timestamp": "2026-11-03 18:40:11.092280+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-03T18:42:10.518481+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sirena Beach Resort & Spa_2026-11-03_18-40_-18.4"
+    },
+    {
+      "hotel_name": "Borg El Arab Beach Resort",
+      "duration_bucket": "",
+      "old_price": 9550.0,
+      "new_price": 9550.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-03 18:40:11.092280+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-03T18:42:10.518517+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Borg El Arab Beach Resort_2026-11-03_18-40_zone_out_gone"
+    },
+    {
+      "hotel_name": "Time Marina",
+      "duration_bucket": "",
+      "old_price": 10311.0,
+      "new_price": 10311.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-03 18:40:11.092280+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-03T18:42:10.518527+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Time Marina_2026-11-03_18-40_zone_out_gone"
+    },
+    {
+      "hotel_name": "Jaz Elite Maraya",
+      "duration_bucket": "",
+      "old_price": 12812.0,
+      "new_price": 11665.0,
+      "price_change": -1147.0,
+      "price_change_pct": -8.952544489541054,
+      "timestamp": "2026-11-03 18:40:11.092280+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-11-03T18:42:10.518556+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Elite Maraya_2026-11-03_18-40_comeback_9.0"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-03T05:36:04.151113+00:00",
+    "last_processed_run": "2026-11-03T18:40:11.092280+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 7757.0,
@@ -159,8 +250,8 @@
         "premium_peak": 14034.0
       },
       "Rixos Premium Alamein (ex. Regal Heights)": {
-        "history_max": 13675.0,
-        "premium_peak": 13675.0
+        "history_max": 14757.0,
+        "premium_peak": 14757.0
       },
       "Rixos Premium Magawish Bay View": {
         "history_max": 16531.0,
@@ -439,7 +530,7 @@
         "premium_peak": 15138.0
       },
       "Seven Seas Jolie Bay": {
-        "history_max": 9683.0,
+        "history_max": 11202.0,
         "premium_peak": null
       },
       "Shams Lodge Resort": {
@@ -699,8 +790,8 @@
         "premium_peak": null
       },
       "Jaz Viva Villagio": {
-        "history_max": 13122.0,
-        "premium_peak": 13122.0
+        "history_max": 15230.0,
+        "premium_peak": 15230.0
       },
       "Jolie Ville Resort and Casino": {
         "history_max": 14653.0,
@@ -839,8 +930,8 @@
         "premium_peak": 12812.0
       },
       "Jaz Elite Negma": {
-        "history_max": 15070.0,
-        "premium_peak": 15070.0
+        "history_max": 15128.0,
+        "premium_peak": 15128.0
       },
       "Jaz Elite Palace (ex. Iberotel Palace)": {
         "history_max": 14367.0,

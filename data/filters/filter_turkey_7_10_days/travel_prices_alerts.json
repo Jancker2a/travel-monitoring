@@ -286,10 +286,62 @@
       "created_at": "2026-11-03T15:31:23.987132+00:00",
       "threshold_percent": 8.0,
       "unique_key": "The Sense Deluxe_2026-11-03_15-29_+13.3"
+    },
+    {
+      "hotel_name": "Dobedan World Palace (ex. Alva Donna World Palace)",
+      "duration_bucket": "",
+      "old_price": 8781.0,
+      "new_price": 9535.0,
+      "price_change": 754.0,
+      "price_change_pct": 8.58672133014463,
+      "timestamp": "2026-11-03 18:50:38.616007+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-03T18:52:51.460415+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Dobedan World Palace (ex. Alva Donna World Palace)_2026-11-03_18-50_+8.6"
+    },
+    {
+      "hotel_name": "The Sense Deluxe",
+      "duration_bucket": "",
+      "old_price": 9374.0,
+      "new_price": 8271.0,
+      "price_change": -1103.0,
+      "price_change_pct": -11.76658843609985,
+      "timestamp": "2026-11-03 18:50:38.616007+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-03T18:52:51.460446+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "The Sense Deluxe_2026-11-03_18-50_-11.8"
+    },
+    {
+      "hotel_name": "OZ Incekum Beach Resort",
+      "duration_bucket": "",
+      "old_price": 9271.0,
+      "new_price": 10018.0,
+      "price_change": 747.0,
+      "price_change_pct": 8.057383238054147,
+      "timestamp": "2026-11-03 18:50:38.616007+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-03T18:52:51.460475+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "OZ Incekum Beach Resort_2026-11-03_18-50_zone_out_+8.1"
+    },
+    {
+      "hotel_name": "Tui Blue Xanthe",
+      "duration_bucket": "",
+      "old_price": 11068.0,
+      "new_price": 8445.0,
+      "price_change": -2623.0,
+      "price_change_pct": -23.698951933501988,
+      "timestamp": "2026-11-03 18:50:38.616007+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-11-03T18:52:51.460499+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Tui Blue Xanthe_2026-11-03_18-50_comeback_23.7"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-03T15:29:28.112470+00:00",
+    "last_processed_run": "2026-11-03T18:50:38.616007+00:00",
     "premium_state": {
       "Alba Queen": {
         "history_max": 7157.0,
@@ -312,7 +364,7 @@
         "premium_peak": null
       },
       "Villa Side Residence": {
-        "history_max": 6411.0,
+        "history_max": 6432.0,
         "premium_peak": null
       },
       "Miarosa Beach (Kemer)": {
@@ -380,7 +432,7 @@
         "premium_peak": null
       },
       "Side Premium by OZ Hotels": {
-        "history_max": 6973.0,
+        "history_max": 7461.0,
         "premium_peak": null
       },
       "Bosphorus Sorgun": {
@@ -408,8 +460,8 @@
         "premium_peak": null
       },
       "OZ Incekum Beach Resort": {
-        "history_max": 9271.0,
-        "premium_peak": null
+        "history_max": 10018.0,
+        "premium_peak": 10018.0
       },
       "Sunis Evren Beach & Spa": {
         "history_max": 6694.0,
@@ -440,8 +492,8 @@
         "premium_peak": null
       },
       "Side Breeze": {
-        "history_max": 11932.0,
-        "premium_peak": 11932.0
+        "history_max": 12692.0,
+        "premium_peak": 12692.0
       },
       "Royal Wings": {
         "history_max": 9518.0,
@@ -536,7 +588,7 @@
         "premium_peak": 10775.0
       },
       "Trendy Aspendos Beach": {
-        "history_max": 7723.0,
+        "history_max": 7736.0,
         "premium_peak": null
       },
       "Sheraton Istanbul City Center": {
@@ -548,11 +600,11 @@
         "premium_peak": null
       },
       "Side Royal Palace": {
-        "history_max": 7313.0,
+        "history_max": 7429.0,
         "premium_peak": null
       },
       "Side Royal Style (ex. Side Royal Luxury)": {
-        "history_max": 7253.0,
+        "history_max": 7371.0,
         "premium_peak": null
       },
       "Side Star Elegance": {
@@ -616,7 +668,7 @@
         "premium_peak": null
       },
       "Trendy Lara": {
-        "history_max": 7763.0,
+        "history_max": 7781.0,
         "premium_peak": null
       },
       "Acanthus & Cennet Barut Collection": {
@@ -648,8 +700,8 @@
         "premium_peak": 17081.0
       },
       "Delphin Imperial Lara": {
-        "history_max": 11343.0,
-        "premium_peak": 11343.0
+        "history_max": 11410.0,
+        "premium_peak": 11410.0
       },
       "Diamond De Luxe ( Colakli)": {
         "history_max": 7932.0,
@@ -676,11 +728,11 @@
         "premium_peak": null
       },
       "Dobedan World Palace (ex. Alva Donna World Palace)": {
-        "history_max": 8781.0,
+        "history_max": 9535.0,
         "premium_peak": null
       },
       "DoubleTree by Hilton Antalya Kemer": {
-        "history_max": 7958.0,
+        "history_max": 8377.0,
         "premium_peak": null
       },
       "Drita Resort & Spa": {
@@ -688,15 +740,15 @@
         "premium_peak": null
       },
       "Ela Excellence Resort (ex. Ela Quality Resort)": {
-        "history_max": 12243.0,
-        "premium_peak": 12243.0
+        "history_max": 12371.0,
+        "premium_peak": 12371.0
       },
       "Fame Residence (Kemer)": {
         "history_max": 9147.0,
         "premium_peak": null
       },
       "Fame Residence Lara (Antalya)": {
-        "history_max": 8415.0,
+        "history_max": 8588.0,
         "premium_peak": null
       },
       "Gloria Serenity Resort": {
@@ -720,7 +772,7 @@
         "premium_peak": 11368.0
       },
       "Club Sera": {
-        "history_max": 8147.0,
+        "history_max": 8327.0,
         "premium_peak": null
       },
       "Adalya Art Side (Ex. Grand Art Side)": {
@@ -780,7 +832,7 @@
         "premium_peak": 10092.0
       },
       "Aydinbey Kings Palace": {
-        "history_max": 7183.0,
+        "history_max": 7358.0,
         "premium_peak": null
       },
       "Baia Lara": {
@@ -876,11 +928,11 @@
         "premium_peak": 12410.0
       },
       "Paloma Oceana Resort (ex Paloma Beach)": {
-        "history_max": 7405.0,
+        "history_max": 7452.0,
         "premium_peak": null
       },
       "Paloma Perissia": {
-        "history_max": 9109.0,
+        "history_max": 9229.0,
         "premium_peak": null
       },
       "Papillon Ayscha": {
@@ -908,7 +960,7 @@
         "premium_peak": null
       },
       "Melas Resort": {
-        "history_max": 8165.0,
+        "history_max": 8408.0,
         "premium_peak": null
       },
       "Melas Lara": {
@@ -1008,8 +1060,8 @@
         "premium_peak": null
       },
       "Hagia Sofia Mansions Curio by Hilton (ex. Yesil Ev)": {
-        "history_max": 13581.0,
-        "premium_peak": 13581.0
+        "history_max": 13781.0,
+        "premium_peak": 13781.0
       },
       "Yalihan Aspendos": {
         "history_max": 7744.0,
@@ -1018,6 +1070,10 @@
       "Sunprime C-Lounge": {
         "history_max": 8959.0,
         "premium_peak": null
+      },
+      "Sueno Golf Belek": {
+        "history_max": 12938.0,
+        "premium_peak": 12938.0
       }
     }
   }
