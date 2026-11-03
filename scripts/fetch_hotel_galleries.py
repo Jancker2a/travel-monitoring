@@ -85,24 +85,33 @@ def save_galleries_kb(data: Dict[str, Any], path: str = DEFAULT_GALLERIES_KB):
 
 def extract_photos_from_html(html_text: str, max_photos: int = 8) -> List[Dict[str, str]]:
     """Extracts high-resolution hotel photos from Fly.pl hotel page HTML."""
+    # 1. Standard img src
     matches = re.findall(r'<img[^>]+src=[\"\']([^\"\']+)[\"\'][^>]*>', html_text)
+    # 2. srcset / data-src
+    matches.extend(re.findall(r'(?:srcset|data-src|data-lazy)=[\"\']([^\"\']+)[\"\']', html_text, re.IGNORECASE))
+    # 3. Direct CDN image URLs in HTML or embedded JSON state
+    pattern_cdn = r'https?://[^\s"\'<>]*(?:/plain/|/img/)[^\s"\'<>]+'
+    matches.extend(re.findall(pattern_cdn, html_text, re.IGNORECASE))
+
     raw_urls = []
-    
-    # Priority 1: Images inside hotel gallery section or Fly.pl CDN image paths
     for src in matches:
-        if any(marker in src for marker in ("/plain/", "IMG/", "rs:fit:", "config_img")):
-            # Clean URL: strip trailing duplicate extensions or query fragments
-            clean = src.split("@")[0].strip()
-            # Upgrade resolution if rs:fit:800:0 or rs:fill:
+        # Split srcset comma-separated values
+        parts = [p.strip().split(" ")[0] for p in src.split(",")]
+        for p in parts:
+            if not p:
+                continue
+            clean = p.split("@")[0].split("&quot;")[0].split('"')[0].split("'")[0].strip()
+            clean = clean.replace(r"\/", "/")
+            # Upgrade resolution
             clean = re.sub(r'rs:fit:\d+:\d+', 'rs:fit:1280:720', clean)
             clean = re.sub(r'rs:fill:\d+:\d+', 'rs:fit:1280:720', clean)
             
-            # Filter out non-hotel assets
             low = clean.lower()
-            if any(bad in low for bad in ("logo", "tripadvisor", "flag", "icon", "svg", "user_upload", "be_users")):
+            if any(bad in low for bad in ("logo", "tripadvisor", "flag", "icon", "svg", "be_users", "user_upload", "przelewy", "visa", "adobestock", "kuba-last-minute")):
                 continue
-            if clean not in raw_urls:
-                raw_urls.append(clean)
+            if any(marker in low for marker in ("/plain/eccx/img/", "/plain/cms/fileadmin/config_img/objects/", "/plain/img/", "rs:fit:1280:720")):
+                if clean not in raw_urls:
+                    raw_urls.append(clean)
 
     labeled_photos: List[Dict[str, str]] = []
     for idx, u in enumerate(raw_urls[:max_photos]):
@@ -139,7 +148,7 @@ def fetch_hotel_gallery(
 
 
 def collect_hotel_offer_urls() -> Dict[str, str]:
-    """Scans all available CSVs and finds latest offer_url per hotel."""
+    """Scans all available CSVs (locally and from git) and finds latest offer_url per hotel."""
     urls: Dict[str, str] = {}
     csv_paths = glob.glob("data/filters/**/travel_prices.csv", recursive=True)
     csv_paths.extend(glob.glob("data_runs/*/*.csv"))
@@ -160,6 +169,28 @@ def collect_hotel_offer_urls() -> Dict[str, str]:
                             urls[hn] = ou
         except Exception as e:
             logger.debug(f"Error scanning {path}: {e}")
+
+    # Fallback/enhancement: scan git tracked files if in sparse checkout
+    try:
+        import subprocess, io
+        git_csvs = subprocess.check_output(
+            ["git", "ls-files", "data/filters/*/travel_prices.csv"], text=True
+        ).splitlines()
+        for gf in git_csvs:
+            try:
+                content = subprocess.check_output(["git", "show", f"origin/main:{gf}"], text=True)
+                reader = csv.DictReader(io.StringIO(content))
+                for row in reader:
+                    hn = (row.get("hotel_name") or "").strip()
+                    ou = (row.get("offer_url") or "").strip()
+                    if hn and ou and ou.startswith("http") and hn not in urls:
+                        if not any(excl in ou for excl in ("/wycieczka/polska", "/wycieczka/czechy")):
+                            urls[hn] = ou
+            except Exception:
+                pass
+    except Exception:
+        pass
+
     return urls
 
 
@@ -210,7 +241,8 @@ def main():
     parser.add_argument("--galleries-kb", default=DEFAULT_GALLERIES_KB, help="Path to hotel_galleries_kb.json")
     parser.add_argument("--specs-kb", default=DEFAULT_SPECS_KB, help="Path to hotel_specs_kb.json")
     parser.add_argument("--urls-file", type=str, default=None, help="Optional JSON file with {hotel_name: offer_url} or {hotel_name: {offer_url: ...}}")
-    parser.add_argument("--max-hotels", type=int, default=50, help="Max hotels to fetch in one run")
+    parser.add_argument("--destination", type=str, default="all", choices=["all", "egypt", "turkey", "greece", "cyprus"], help="Target destination filter")
+    parser.add_argument("--max-hotels", type=int, default=1000, help="Max hotels to fetch in one run")
     parser.add_argument("--hotel", type=str, default=None, help="Fetch a single specific hotel by name")
     parser.add_argument("--url", type=str, default=None, help="Explicit URL for the specific hotel")
     args = parser.parse_args()
@@ -234,7 +266,7 @@ def main():
         if not url:
             logger.error(f"No offer_url found for hotel '{h_name}'. Provide with --url.")
             sys.exit(1)
-        photos = fetch_hotel_gallery(session, url)
+        photos = fetch_hotel_gallery(session, url, timeout=(5, 9))
         if photos:
             galleries[h_name] = photos
             logger.info(f"✅ Successfully fetched {len(photos)} photos for '{h_name}'")
@@ -266,27 +298,42 @@ def main():
         discovered_urls = collect_hotel_offer_urls()
     logger.info(f"Found {len(discovered_urls)} hotels with offer URLs.")
 
+    # Filter by destination if requested
+    if args.destination != "all":
+        dest_term = "cypr" if args.destination == "cyprus" else ("turcj" if args.destination == "turkey" else ("grecj" if args.destination == "greece" else "egipt"))
+        discovered_urls = {
+            h: u for h, u in discovered_urls.items()
+            if dest_term in u.lower()
+        }
+        logger.info(f"Filtered for destination '{args.destination}': {len(discovered_urls)} hotels.")
+
+    # Filter targets that need galleries (< 3 photos)
+    to_fetch = [
+        (h_name, ou) for h_name, ou in discovered_urls.items()
+        if h_name not in galleries or len(galleries[h_name]) < 3
+    ][:args.max_hotels]
+
+    logger.info(f"Need to fetch galleries for {len(to_fetch)} hotels (out of {len(discovered_urls)} discovered).")
+
     count = 0
     try:
-        for h_name, ou in discovered_urls.items():
-            if count >= args.max_hotels:
-                break
-            # Skip if already has 3+ photos
-            if h_name in galleries and len(galleries[h_name]) >= 3:
-                continue
-
-            photos = fetch_hotel_gallery(session, ou)
-            if photos and len(photos) >= 2:
+        for idx, (h_name, ou) in enumerate(to_fetch, start=1):
+            photos = fetch_hotel_gallery(session, ou, timeout=(5, 9))
+            if photos:
                 galleries[h_name] = photos
                 count += 1
-                logger.info(f"[{count}/{args.max_hotels}] ✅ {h_name}: fetched {len(photos)} photos")
-                if count % 5 == 0:
+                logger.info(f"[{count}/{len(to_fetch)}] (idx {idx}) ✅ {h_name}: fetched {len(photos)} photos")
+                if count % 10 == 0:
                     save_galleries_kb(g_kb, args.galleries_kb)
-                time.sleep(0.2)  # Polite crawling delay
+                    logger.info(f"💾 Autosaved progress: {len(galleries)} total galleries in KB")
+            else:
+                logger.warning(f"[{idx}/{len(to_fetch)}] ⚠️ {h_name}: no photos extracted from {to_canonical_hotel_url(ou)}")
+            time.sleep(0.15)  # Polite crawling delay
     finally:
         if count > 0:
             save_galleries_kb(g_kb, args.galleries_kb)
             sync_galleries_into_specs_kb(args.galleries_kb, args.specs_kb)
+            logger.info(f"🎉 Completed! Harvested {count} new hotel galleries.")
         else:
             logger.info("All scanned hotels already have photo galleries cached.")
 
