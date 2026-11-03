@@ -143,10 +143,75 @@
       "created_at": "2026-11-03T05:46:34.528312+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Orange Palace_2026-11-03_05-44_-8.4"
+    },
+    {
+      "hotel_name": "Innvista Belek (ex. Vera Verde)",
+      "duration_bucket": "",
+      "old_price": 8452.0,
+      "new_price": 7172.0,
+      "price_change": -1280.0,
+      "price_change_pct": -15.144344533838144,
+      "timestamp": "2026-11-03 09:24:04.612739+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-03T09:26:03.811405+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Innvista Belek (ex. Vera Verde)_2026-11-03_09-24_-15.1"
+    },
+    {
+      "hotel_name": "Side Aluna",
+      "duration_bucket": "",
+      "old_price": 7900.0,
+      "new_price": 9394.0,
+      "price_change": 1494.0,
+      "price_change_pct": 18.91139240506329,
+      "timestamp": "2026-11-03 09:24:04.612739+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-03T09:26:03.811442+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Side Aluna_2026-11-03_09-24_+18.9"
+    },
+    {
+      "hotel_name": "Orange Palace",
+      "duration_bucket": "",
+      "old_price": 6212.0,
+      "new_price": 6779.0,
+      "price_change": 567.0,
+      "price_change_pct": 9.127495170637475,
+      "timestamp": "2026-11-03 09:24:04.612739+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-03T09:26:03.811455+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Orange Palace_2026-11-03_09-24_+9.1"
+    },
+    {
+      "hotel_name": "Side Kum",
+      "duration_bucket": "",
+      "old_price": 5481.0,
+      "new_price": 6634.0,
+      "price_change": 1153.0,
+      "price_change_pct": 21.036307243203794,
+      "timestamp": "2026-11-03 09:24:04.612739+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-03T09:26:03.811467+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Side Kum_2026-11-03_09-24_+21.0"
+    },
+    {
+      "hotel_name": "Kaya (Belek)",
+      "duration_bucket": "",
+      "old_price": 9893.0,
+      "new_price": 10293.0,
+      "price_change": 400.0,
+      "price_change_pct": 4.043262913170929,
+      "timestamp": "2026-11-03 09:24:04.612739+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-03T09:26:03.811492+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Kaya (Belek)_2026-11-03_09-24_zone_out_+4.0"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-03T05:44:48.052750+00:00",
+    "last_processed_run": "2026-11-03T09:24:04.612739+00:00",
     "premium_state": {
       "Alba Queen": {
         "history_max": 7157.0,
@@ -189,7 +254,7 @@
         "premium_peak": null
       },
       "Side Kum": {
-        "history_max": 6016.0,
+        "history_max": 6634.0,
         "premium_peak": null
       },
       "Limak Limra": {
@@ -217,7 +282,7 @@
         "premium_peak": null
       },
       "Sural Resort": {
-        "history_max": 5729.0,
+        "history_max": 5814.0,
         "premium_peak": null
       },
       "Aska Just in Beach": {
@@ -293,7 +358,7 @@
         "premium_peak": null
       },
       "Royal Dragon": {
-        "history_max": 7566.0,
+        "history_max": 7674.0,
         "premium_peak": null
       },
       "Side Breeze": {
@@ -305,7 +370,7 @@
         "premium_peak": null
       },
       "Side Aluna": {
-        "history_max": 7900.0,
+        "history_max": 9394.0,
         "premium_peak": null
       },
       "Saphir Resort": {
@@ -345,8 +410,8 @@
         "premium_peak": null
       },
       "Rixos Tersane Istanbul": {
-        "history_max": 15344.0,
-        "premium_peak": 15344.0
+        "history_max": 15526.0,
+        "premium_peak": 15526.0
       },
       "Rixos Premium (Belek)": {
         "history_max": 18774.0,
@@ -357,20 +422,20 @@
         "premium_peak": 13290.0
       },
       "Voyage Kundu": {
-        "history_max": 13551.0,
-        "premium_peak": 13551.0
+        "history_max": 13685.0,
+        "premium_peak": 13685.0
       },
       "Voyage Sorgun": {
         "history_max": 11674.0,
         "premium_peak": 11674.0
       },
       "Rixos Downtown (Antalya)": {
-        "history_max": 16989.0,
-        "premium_peak": 16989.0
+        "history_max": 17089.0,
+        "premium_peak": 17089.0
       },
       "Regnum Carya Golf & Spa Resort": {
-        "history_max": 19018.0,
-        "premium_peak": 19018.0
+        "history_max": 19530.0,
+        "premium_peak": 19530.0
       },
       "White City Resort": {
         "history_max": 7957.0,
@@ -413,11 +478,11 @@
         "premium_peak": null
       },
       "Side Star Elegance": {
-        "history_max": 9083.0,
+        "history_max": 9483.0,
         "premium_peak": null
       },
       "Side Star Park": {
-        "history_max": 8209.0,
+        "history_max": 8244.0,
         "premium_peak": null
       },
       "Side Star Resort": {
@@ -461,8 +526,8 @@
         "premium_peak": null
       },
       "The X Belek": {
-        "history_max": 10747.0,
-        "premium_peak": 10747.0
+        "history_max": 10881.0,
+        "premium_peak": 10881.0
       },
       "Titanic Deluxe Lara (ex. Titanic Beach Lara)": {
         "history_max": 9037.0,
@@ -537,7 +602,7 @@
         "premium_peak": null
       },
       "DoubleTree by Hilton Antalya Kemer": {
-        "history_max": 7506.0,
+        "history_max": 7958.0,
         "premium_peak": null
       },
       "Drita Resort & Spa": {
@@ -581,8 +646,8 @@
         "premium_peak": null
       },
       "Adalya Art Side (Ex. Grand Art Side)": {
-        "history_max": 10200.0,
-        "premium_peak": 10200.0
+        "history_max": 12314.0,
+        "premium_peak": 12314.0
       },
       "Adalya Elite Lara": {
         "history_max": 8271.0,
@@ -593,7 +658,7 @@
         "premium_peak": null
       },
       "Adora Hotel & Resort (ex. Adora Golf)": {
-        "history_max": 8152.0,
+        "history_max": 8180.0,
         "premium_peak": null
       },
       "Akka Alinda": {
@@ -625,8 +690,8 @@
         "premium_peak": null
       },
       "Arum Barut": {
-        "history_max": 11849.0,
-        "premium_peak": 11849.0
+        "history_max": 11983.0,
+        "premium_peak": 11983.0
       },
       "Arycanda Kirman Premium": {
         "history_max": 8986.0,
@@ -665,8 +730,8 @@
         "premium_peak": null
       },
       "Calista Luxury Resort": {
-        "history_max": 13274.0,
-        "premium_peak": 13274.0
+        "history_max": 13289.0,
+        "premium_peak": 13289.0
       },
       "Gypsophila Club Marine (ex. Amara Club Marine Nature)": {
         "history_max": 7892.0,
@@ -745,8 +810,8 @@
         "premium_peak": 10112.0
       },
       "Papillon Belvil Club": {
-        "history_max": 16176.0,
-        "premium_peak": 16176.0
+        "history_max": 16789.0,
+        "premium_peak": 16789.0
       },
       "Papillon Zeugma Reluxury": {
         "history_max": 10784.0,
@@ -797,8 +862,8 @@
         "premium_peak": null
       },
       "Kaya (Belek)": {
-        "history_max": 9893.0,
-        "premium_peak": null
+        "history_max": 10293.0,
+        "premium_peak": 10293.0
       },
       "Kempinski The Dome Belek": {
         "history_max": 13265.0,
@@ -825,7 +890,7 @@
         "premium_peak": null
       },
       "Luna Blanca Resort & Spa": {
-        "history_max": 8999.0,
+        "history_max": 9098.0,
         "premium_peak": null
       },
       "Lusso Sorgun": {
@@ -841,8 +906,8 @@
         "premium_peak": 10055.0
       },
       "Mardan Palace": {
-        "history_max": 12747.0,
-        "premium_peak": 12747.0
+        "history_max": 12880.0,
+        "premium_peak": 12880.0
       },
       "Marti Myra": {
         "history_max": 7861.0,
@@ -870,6 +935,10 @@
       },
       "Yalihan Aspendos": {
         "history_max": 7744.0,
+        "premium_peak": null
+      },
+      "Sunprime C-Lounge": {
+        "history_max": 8944.0,
         "premium_peak": null
       }
     }
