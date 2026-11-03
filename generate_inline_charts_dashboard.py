@@ -62,6 +62,16 @@ from filter_params import (
     render_global_duration_switch_html,
     resolve_config_path,
     _country_label,
+    _airports_parts,
+    _airport_compact_label,
+    _party_counts,
+    _duration_label,
+    _stars_min,
+    _format_pln,
+    _price_bounds,
+    fly_query_param,
+    COUNTRY_FLAGS,
+    CATERING_LABELS,
 )
 from filter_trip import (
     _duration_bucket_is_missing,
@@ -5598,6 +5608,114 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
     market_breadth_pct_str = f"{market_breadth*100:.0f}%"
     best_deal_score_val = max((v['score'] for v in deal_score_by_hotel.values()), default=0)
 
+    cfg_url = resolve_config_url(filter_config)
+    country_flag = COUNTRY_FLAGS.get(dest_display_name, "")
+    if not country_flag:
+        for c_name, flag in COUNTRY_FLAGS.items():
+            if c_name.lower() in title.lower() or c_name.lower() in dest_display_name.lower():
+                country_flag = flag
+                break
+    if not country_flag:
+        country_flag = "✈️"
+
+    if cfg_url:
+        fly_button_html = (
+            f'<a href="{html_lib.escape(cfg_url)}" target="_blank" rel="noopener noreferrer" class="btn-open-fly" title="Открыть этот поисковый запрос на Fly.pl">'
+            f'<span>Поиск на Fly.pl</span>'
+            f'<svg class="external-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">'
+            f'<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>'
+            f'<polyline points="15 3 21 3 21 9"></polyline>'
+            f'<line x1="10" y1="14" x2="21" y2="3"></line>'
+            f'</svg>'
+            f'</a>'
+        )
+    else:
+        fly_button_html = ""
+
+    airports_parts = _airports_parts(cfg_url) if cfg_url else []
+    if not airports_parts:
+        airports_val = "Польша (все)"
+    elif len(airports_parts) >= 10:
+        airports_val = "Польша (все аэропорты)"
+    else:
+        airports_val = _airport_compact_label(airports_parts)
+
+    dur_label = _duration_label(cfg_url) if cfg_url else "—"
+    wf = fly_query_param(cfg_url, "whenFrom") if cfg_url else ""
+    wt = fly_query_param(cfg_url, "whenTo") if cfg_url else ""
+    dates_val = ""
+    if wf and wt:
+        try:
+            d1 = datetime.strptime(wf, "%d-%m-%Y")
+            d2 = datetime.strptime(wt, "%d-%m-%Y")
+            if d1.year != d2.year:
+                dates_part = f"{d1.strftime('%d.%m.%y')} – {d2.strftime('%d.%m.%y')}"
+            else:
+                dates_part = f"{d1.strftime('%d.%m')} – {d2.strftime('%d.%m')}"
+            if dur_label and dur_label != "—":
+                dates_val = f"{dates_part} ({dur_label} дн.)"
+            else:
+                dates_val = dates_part
+        except Exception:
+            dates_val = f"{wf} – {wt}"
+    elif dur_label and dur_label != "—":
+        dates_val = f"{dur_label} дней"
+    else:
+        dates_val = "Любые даты"
+
+    if cfg_url:
+        adults_cnt, children_cnt, child_years = _party_counts(cfg_url)
+        if children_cnt > 0:
+            party_val = f"{adults_cnt} взр. + {children_cnt} реб."
+            if child_years is not None:
+                party_val += f" (~{child_years} л.)"
+        elif adults_cnt == 1:
+            party_val = "1 взрослый"
+        elif adults_cnt == 2:
+            party_val = "2 взрослых"
+        elif adults_cnt > 0:
+            party_val = f"{adults_cnt} взр."
+        else:
+            party_val = "2 взрослых"
+    else:
+        party_val = "2 взрослых"
+
+    stars_num = _stars_min(cfg_url) if cfg_url else 0
+    cat_raw = fly_query_param(cfg_url, "addCatering") if cfg_url else ""
+    if stars_num >= 5:
+        star_part = "5★"
+    elif stars_num > 0:
+        star_part = f"{stars_num}★+"
+    else:
+        star_part = ""
+
+    if cat_raw == "1":
+        meal_part = "All Inclusive"
+    elif cat_raw == "0":
+        meal_part = "Любое питание"
+    else:
+        meal_part = ""
+
+    if star_part and meal_part:
+        hotel_val = f"{star_part} · {meal_part}"
+    elif star_part:
+        hotel_val = star_part
+    elif meal_part:
+        hotel_val = meal_part
+    else:
+        hotel_val = "Все отели"
+
+    lo_p, hi_p = _price_bounds(filter_config or {}, cfg_url) if cfg_url else (None, None)
+    eff_hi = ceiling_val if ceiling_val is not None else hi_p
+    if lo_p is not None and eff_hi is not None:
+        budget_val = f"{_format_pln(lo_p, compact=True)} – {_format_pln(eff_hi, compact=True)} PLN"
+    elif eff_hi is not None:
+        budget_val = f"до {_format_pln(eff_hi, compact=True)} PLN"
+    elif lo_p is not None:
+        budget_val = f"от {_format_pln(lo_p, compact=True)} PLN"
+    else:
+        budget_val = "Любой бюджет"
+
     html_template = f"""<!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -6925,122 +7043,148 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             padding: 1.4rem 1.35rem;
         }}
 
-        /* Mockup Hero Banner Styling matching Image 2 */
-        .hero--mockup {{
+        /* Option 1: Fintech / Flight Terminal Header Banner */
+        .hero-terminal, .hero--mockup {{
             margin-bottom: 1.5rem;
-            padding: 1.75rem;
+            padding: 1.5rem 1.75rem;
             border-radius: 20px;
             background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 50%, #e0f2fe 100%);
             border: 1px solid #bae6fd;
             box-shadow: 0 10px 30px rgba(2, 132, 199, 0.08);
         }}
-        .dark-theme .hero--mockup {{
+        .dark-theme .hero-terminal, .dark-theme .hero--mockup {{
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             border-color: #334155;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }}
 
-        .hero-header-mockup {{
-            margin-bottom: 1.25rem;
-        }}
-        .hero-brand-tag {{
-            font-size: 0.95rem;
-            font-weight: 800;
-            color: #0284c7;
-            margin-bottom: 0.2rem;
+        .hero-terminal-top {{
             display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }}
+        .hero-terminal-title-area {{
+            flex: 1;
+            min-width: 260px;
+        }}
+        .hero-terminal-badge {{
+            display: inline-flex;
             align-items: center;
             gap: 6px;
+            padding: 3px 10px;
+            border-radius: 9999px;
+            background: rgba(2, 132, 199, 0.12);
+            color: #0369a1;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            margin-bottom: 6px;
         }}
-        .dark-theme .hero-brand-tag {{
+        .dark-theme .hero-terminal-badge {{
+            background: rgba(56, 189, 248, 0.15);
             color: #38bdf8;
         }}
-        .hero-subtitle-tag {{
-            font-size: 0.85rem;
-            color: #64748b;
-            margin-bottom: 0.4rem;
-        }}
-        .dark-theme .hero-subtitle-tag {{
-            color: #94a3b8;
-        }}
-        .hero-title-mockup {{
+        .hero-terminal-title {{
             margin: 0;
-            font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+            font-size: clamp(1.3rem, 2.2vw, 1.85rem);
             font-weight: 800;
             color: #0f172a;
+            line-height: 1.25;
+            letter-spacing: -0.02em;
         }}
-        .dark-theme .hero-title-mockup {{
+        .dark-theme .hero-terminal-title {{
             color: #f8fafc;
         }}
-
-        /* Floating White Search Control Bar */
-        .search-pill-bar {{
-            display: flex;
+        .btn-open-fly {{
+            display: inline-flex;
             align-items: center;
-            justify-content: space-between;
-            background: #ffffff;
-            border-radius: 16px;
-            padding: 10px 16px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(226, 232, 240, 0.8);
-            margin-bottom: 1rem;
-            gap: 8px;
-            overflow-x: auto;
-        }}
-        .dark-theme .search-pill-bar {{
-            background: #1e293b;
-            border-color: #334155;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-        }}
-
-        .search-pill-item {{
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 4px 8px;
-            flex: 1;
-            min-width: max-content;
-        }}
-        .search-pill-icon {{
-            font-size: 1.2rem;
-        }}
-        .search-pill-content {{
-            display: flex;
-            flex-direction: column;
-        }}
-        .search-pill-label {{
-            font-size: 0.72rem;
-            color: #64748b;
+            gap: 7px;
+            background: #0284c7;
+            color: #ffffff !important;
+            font-size: 0.84rem;
             font-weight: 600;
+            padding: 8px 15px;
+            border-radius: 10px;
+            text-decoration: none;
+            box-shadow: 0 2px 8px rgba(2, 132, 199, 0.25);
+            transition: all 0.2s ease;
+            white-space: nowrap;
+            align-self: center;
+        }}
+        .btn-open-fly:hover {{
+            background: #0369a1;
+            box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);
+            transform: translateY(-1px);
+            text-decoration: none;
+        }}
+        .dark-theme .btn-open-fly {{
+            background: #0284c7;
+            color: #ffffff !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+        }}
+        .dark-theme .btn-open-fly:hover {{
+            background: #38bdf8;
+            color: #0f172a !important;
+        }}
+
+        /* Dynamic Metadata Chips */
+        .hero-terminal-chips {{
             display: flex;
             align-items: center;
-            gap: 4px;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 1.15rem;
         }}
-        .dark-theme .search-pill-label {{
+        .terminal-chip {{
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(186, 230, 253, 0.7);
+            border-radius: 10px;
+            padding: 6px 12px;
+            font-size: 0.82rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+            transition: all 0.15s ease;
+        }}
+        .terminal-chip:hover {{
+            background: #ffffff;
+            border-color: #38bdf8;
+            box-shadow: 0 2px 6px rgba(2, 132, 199, 0.12);
+        }}
+        .dark-theme .terminal-chip {{
+            background: rgba(30, 41, 59, 0.85);
+            border-color: rgba(51, 65, 85, 0.9);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }}
+        .dark-theme .terminal-chip:hover {{
+            background: #1e293b;
+            border-color: #38bdf8;
+        }}
+        .chip-icon {{
+            font-size: 0.92rem;
+            line-height: 1;
+        }}
+        .chip-label {{
+            font-size: 0.76rem;
+            font-weight: 600;
+            color: #64748b;
+        }}
+        .dark-theme .chip-label {{
             color: #94a3b8;
         }}
-        .pill-arrow {{
-            font-size: 0.65rem;
-            opacity: 0.7;
-        }}
-        .search-pill-val {{
-            font-size: 0.88rem;
+        .chip-val {{
+            font-size: 0.82rem;
             font-weight: 700;
             color: #0f172a;
             white-space: nowrap;
         }}
-        .dark-theme .search-pill-val {{
+        .dark-theme .chip-val {{
             color: #f8fafc;
-        }}
-
-        .search-pill-divider {{
-            width: 1px;
-            height: 28px;
-            background: #cbd5e1;
-            flex-shrink: 0;
-        }}
-        .dark-theme .search-pill-divider {{
-            background: #334155;
         }}
 
         /* 4 White KPI Cards */
@@ -10774,60 +10918,45 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
     <!-- Main Content -->
     <div class="main-content" id="mainContent">
     <div class="container">
-        <div class="hero--mockup">
+        <div class="hero-terminal">
             {paused_banner_html}
-            <div class="hero-header-mockup">
-                <h1 class="hero-title-clean">{title}</h1>
+            <div class="hero-terminal-top">
+                <div class="hero-terminal-title-area">
+                    <div class="hero-terminal-badge">
+                        <span class="country-flag">{country_flag}</span>
+                        <span class="country-name">{dest_display_name}</span>
+                    </div>
+                    <h1 class="hero-terminal-title">{title}</h1>
+                </div>
+                {fly_button_html}
             </div>
 
-            <!-- Floating White Search Control Bar -->
-            <div class="search-pill-bar">
-                <div class="search-pill-item">
-                    <span class="search-pill-icon">🧭</span>
-                    <div class="search-pill-content">
-                        <div class="search-pill-label">Откуда <span class="pill-arrow">⌄</span></div>
-                        <div class="search-pill-val">RDO • WAW • WMI</div>
-                    </div>
+            <!-- Dynamic Metadata Chips Row -->
+            <div class="hero-terminal-chips">
+                <div class="terminal-chip" title="Аэропорты вылета">
+                    <span class="chip-icon">🛫</span>
+                    <span class="chip-label">Вылет:</span>
+                    <span class="chip-val">{airports_val}</span>
                 </div>
-                <div class="search-pill-divider"></div>
-                <div class="search-pill-item">
-                    <span class="search-pill-icon">📍</span>
-                    <div class="search-pill-content">
-                        <div class="search-pill-label">Куда <span class="pill-arrow">⌄</span></div>
-                        <div class="search-pill-val">{dest_display_name}</div>
-                    </div>
+                <div class="terminal-chip" title="Даты вылета и длительность">
+                    <span class="chip-icon">📅</span>
+                    <span class="chip-label">Даты:</span>
+                    <span class="chip-val">{dates_val}</span>
                 </div>
-                <div class="search-pill-divider"></div>
-                <div class="search-pill-item">
-                    <span class="search-pill-icon">📅</span>
-                    <div class="search-pill-content">
-                        <div class="search-pill-label">Даты <span class="pill-arrow">⌄</span></div>
-                        <div class="search-pill-val">7-10 дней</div>
-                    </div>
+                <div class="terminal-chip" title="Состав туристов">
+                    <span class="chip-icon">👤</span>
+                    <span class="chip-label">Состав:</span>
+                    <span class="chip-val">{party_val}</span>
                 </div>
-                <div class="search-pill-divider"></div>
-                <div class="search-pill-item">
-                    <span class="search-pill-icon">👥</span>
-                    <div class="search-pill-content">
-                        <div class="search-pill-label">Туристы <span class="pill-arrow">⌄</span></div>
-                        <div class="search-pill-val">2 взр. + 1 реб.</div>
-                    </div>
+                <div class="terminal-chip" title="Класс отеля и тип питания">
+                    <span class="chip-icon">⭐</span>
+                    <span class="chip-label">Отель:</span>
+                    <span class="chip-val">{hotel_val}</span>
                 </div>
-                <div class="search-pill-divider"></div>
-                <div class="search-pill-item">
-                    <span class="search-pill-icon">🏨</span>
-                    <div class="search-pill-content">
-                        <div class="search-pill-label">Отель <span class="pill-arrow">⌄</span></div>
-                        <div class="search-pill-val">5★ + с питанием</div>
-                    </div>
-                </div>
-                <div class="search-pill-divider"></div>
-                <div class="search-pill-item">
-                    <span class="search-pill-icon">👛</span>
-                    <div class="search-pill-content">
-                        <div class="search-pill-label">Бюджет <span class="pill-arrow">⌄</span></div>
-                        <div class="search-pill-val">0-11k PLN</div>
-                    </div>
+                <div class="terminal-chip" title="Бюджет фильтра">
+                    <span class="chip-icon">💰</span>
+                    <span class="chip-label">Бюджет:</span>
+                    <span class="chip-val">{budget_val}</span>
                 </div>
             </div>
 
