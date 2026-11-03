@@ -13516,7 +13516,7 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
               const actions = [];
               if (offer.slug || offer.chart_href) {
                 const s = offer.slug || '';
-                actions.push('<a class="departure-offers-link secondary" href="' + escapeHtml(offer.chart_href || '#') + '" onclick="if(window.openHotelPassport){window.openHotelPassport(\'' + escapeHtml(s) + '\'); return false;}">Паспорт</a>');
+                actions.push('<a class="departure-offers-link secondary" href="' + escapeHtml(offer.chart_href || '#') + '" data-hotel-slug="' + escapeHtml(s) + '" onclick="if(window.openHotelPassport){window.openHotelPassport(this.dataset.hotelSlug); return false;}">Паспорт</a>');
               }
               if (offer.offer_url) {
                 actions.push('<a class="departure-offers-link" href="' + escapeHtml(offer.offer_url) + '" target="_blank" rel="noopener">Оффер</a>');
