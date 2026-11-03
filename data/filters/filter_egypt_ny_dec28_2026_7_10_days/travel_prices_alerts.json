@@ -260,10 +260,23 @@
       "created_at": "2026-11-02T17:58:37.817987+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Shoni Bay Marsa Alam_2026-11-02_17-57_zone_out_gone"
+    },
+    {
+      "hotel_name": "AMC Royal Hotel & Spa (ex. AMC Azur Resort)",
+      "duration_bucket": "",
+      "old_price": 10599.0,
+      "new_price": 10599.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-03 00:01:32.893505+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-03T00:02:09.717097+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort)_2026-11-03_00-01_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-02T17:57:58.377266+00:00",
+    "last_processed_run": "2026-11-03T00:01:32.893505+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa": {
         "history_max": 11133.0,
@@ -306,7 +319,7 @@
         "premium_peak": null
       },
       "Royal Lagoons Resort and Aqua Park": {
-        "history_max": 9944.0,
+        "history_max": 10159.0,
         "premium_peak": null
       },
       "Royal Star Beach Resort": {
@@ -314,7 +327,7 @@
         "premium_peak": null
       },
       "Sea Star Beau Rivage": {
-        "history_max": 10405.0,
+        "history_max": 10663.0,
         "premium_peak": null
       },
       "Stella Beach Resort & Spa Makadi Bay": {
@@ -364,6 +377,18 @@
       "AMC Royal Hotel & Spa*****": {
         "history_max": 11004.0,
         "premium_peak": 11004.0
+      },
+      "DREAM LAGOON & AQUA PARK RESORT": {
+        "history_max": 12640.0,
+        "premium_peak": 12640.0
+      },
+      "Empire Beach Aqua Park (Ex. Triton Empir": {
+        "history_max": 10161.0,
+        "premium_peak": null
+      },
+      "Amc Royal Hotel & Spa": {
+        "history_max": 12249.0,
+        "premium_peak": 12249.0
       }
     }
   }

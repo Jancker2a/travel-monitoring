@@ -143,10 +143,49 @@
       "created_at": "2026-11-02T17:23:35.254778+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Limak Limra_2026-11-02_17-22_-9.7"
+    },
+    {
+      "hotel_name": "Seher Sun Palace Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 6574.0,
+      "new_price": 8100.0,
+      "price_change": 1526.0,
+      "price_change_pct": 23.212655917249773,
+      "timestamp": "2026-11-03 00:04:15.336627+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-03T00:05:36.796354+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Seher Sun Palace Resort & Spa_2026-11-03_00-04_+23.2"
+    },
+    {
+      "hotel_name": "Eftalia Ocean (Alanya)",
+      "duration_bucket": "",
+      "old_price": 6229.0,
+      "new_price": 5693.0,
+      "price_change": -536.0,
+      "price_change_pct": -8.604912506020227,
+      "timestamp": "2026-11-03 00:04:15.336627+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-03T00:05:36.796389+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Eftalia Ocean (Alanya)_2026-11-03_00-04_-8.6"
+    },
+    {
+      "hotel_name": "Avia Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 8558.0,
+      "new_price": 8558.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-03 00:04:15.336627+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-03T00:05:36.796414+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Avia Resort & Spa_2026-11-03_00-04_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-02T18:00:46.743266+00:00",
+    "last_processed_run": "2026-11-03T00:04:15.336627+00:00",
     "premium_state": {
       "Alba Queen": {
         "history_max": 8477.0,
@@ -201,7 +240,7 @@
         "premium_peak": null
       },
       "Seamelia Beach Resort & Spa": {
-        "history_max": 7634.0,
+        "history_max": 7921.0,
         "premium_peak": null
       },
       "Seher Resort & Spa": {

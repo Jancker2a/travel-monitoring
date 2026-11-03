@@ -26,10 +26,23 @@
       "created_at": "2026-11-02T15:03:43.288887+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Numa Bay Exclusive (ex Sentido Numa Bay)_2026-11-02_15-02_zone_out_+8.7"
+    },
+    {
+      "hotel_name": "Orange County Alanya",
+      "duration_bucket": "",
+      "old_price": 9761.0,
+      "new_price": 10292.0,
+      "price_change": 531.0,
+      "price_change_pct": 5.440016391763139,
+      "timestamp": "2026-11-03 00:03:21.064587+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-03T00:04:43.421308+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Orange County Alanya_2026-11-03_00-03_zone_out_+5.4"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-02T17:59:11.828776+00:00",
+    "last_processed_run": "2026-11-03T00:03:21.064587+00:00",
     "premium_state": {
       "Alba Queen": {
         "history_max": 10151.0,
@@ -48,8 +61,8 @@
         "premium_peak": null
       },
       "Orange County Alanya": {
-        "history_max": 9761.0,
-        "premium_peak": null
+        "history_max": 10292.0,
+        "premium_peak": 10292.0
       },
       "Orange County (Kemer)": {
         "history_max": 10181.0,
@@ -158,6 +171,10 @@
       "Seher Sun Palace Resort & Spa": {
         "history_max": 9922.0,
         "premium_peak": null
+      },
+      "Greenwood Suites Resort (ex. Sherwood Suites Resort)": {
+        "history_max": 10481.0,
+        "premium_peak": 10481.0
       }
     }
   }
