@@ -30,18 +30,29 @@ def _clamp(v: float, lo: float, hi: float) -> float:
         return lo
 
 
-def _typical_observation_gap_hours(times: list) -> float:
+def _typical_observation_gap_hours(times: list, default: float = 1.0) -> float:
+    """Median interval between consecutive observations (hours), ignoring long data gaps."""
     if len(times) < 2:
-        return 1.0
+        return max(default, 0.5)
     gaps = []
     for i in range(1, len(times)):
         gaps.append((times[i] - times[i - 1]).total_seconds() / 3600.0)
-    gaps.sort()
-    return max(0.5, float(gaps[len(gaps) // 2]))
+    if not gaps:
+        return max(default, 0.5)
+    sorted_gaps = sorted(gaps)
+    if len(sorted_gaps) >= 3:
+        core = sorted_gaps[: max(1, (len(sorted_gaps) * 2) // 3)]
+        typical = core[len(core) // 2]
+    elif len(sorted_gaps) == 2:
+        typical = sorted_gaps[0]
+    else:
+        typical = sorted_gaps[0]
+    return max(typical, 0.5)
 
 
 def _data_gap_threshold_hours(typical_gap: float) -> float:
-    return max(6.0, typical_gap * 4.0)
+    """Gap longer than this is treated as missing data, not price continuity."""
+    return max(6.0, float(typical_gap) * 3.0)
 
 
 def _iter_price_plateaus(times, prices):
@@ -138,6 +149,59 @@ def time_weighted_price_quantile(
     if segments is None:
         segments = _price_plateau_segments(grp, time_col, price_col)
     return time_weighted_price_quantile_from_segments(segments, quantile)
+
+
+def time_weighted_price_ecdf(segments, price: float) -> float:
+    """Return the fraction of time (0.0 to 1.0) the hotel price was <= given price."""
+    if not segments:
+        return 0.5
+    total_hours = sum(h for _, h in segments)
+    if total_hours <= 0:
+        return 0.5
+    ordered = sorted(segments, key=lambda x: x[0])
+    if price < ordered[0][0]:
+        return 0.0
+    if price >= ordered[-1][0]:
+        return 1.0
+    # Walk segments and linearly interpolate between discrete price levels
+    cum_hours = 0.0
+    for i in range(len(ordered)):
+        p, h = ordered[i]
+        if price < p:
+            # Interpolate between previous segment and current
+            prev_p = ordered[i - 1][0] if i > 0 else p
+            prev_fraction = (cum_hours - (ordered[i - 1][1] if i > 0 else 0)) / total_hours
+            cur_fraction = cum_hours / total_hours
+            if p == prev_p:
+                return cur_fraction
+            ratio = (price - prev_p) / (p - prev_p)
+            return _clamp(prev_fraction + ratio * (cur_fraction - prev_fraction), 0.0, 1.0)
+        cum_hours += h
+    return _clamp(cum_hours / total_hours, 0.0, 1.0)
+
+
+def compute_smooth_rarity_score(segments, latest: float) -> float:
+    """Smooth rarity score [10, 100] based on continuous ECDF quantile.
+    
+    Lowest historical price -> 100
+    p10 price               -> 90
+    p25 price               -> 75
+    median (p50)            -> 50
+    p75 price               -> 25
+    highest historical price-> 10
+    """
+    if not segments or len(segments) == 1:
+        return 50.0
+    min_p = min(p for p, _ in segments)
+    max_p = max(p for p, _ in segments)
+    if min_p >= max_p:
+        return 50.0
+
+    cdf = time_weighted_price_ecdf(segments, latest)
+    # cdf=0.0 (cheapest ever) -> 100.0, cdf=1.0 (most expensive ever) -> 10.0
+    # cdf=0.5 -> 50.0
+    rarity = 100.0 - cdf * 90.0
+    return _clamp(rarity, 10.0, 100.0)
 
 
 def robust_premium_peak(
@@ -533,17 +597,8 @@ def compute_hotel_deal_metrics(
     rel_discount = (median - latest) / median if median > 0 else 0.0
     score_discount = _clamp(50 + rel_discount * 200, 0, 100)
 
-    # Редкость: если разброса цен нет (все цены равны), редкость нейтральная 50
-    if min_p >= max_p or p10 >= median:
-        score_rarity = 50
-    elif latest <= p10:
-        score_rarity = 100
-    elif latest <= p25:
-        score_rarity = 80
-    elif latest <= median:
-        score_rarity = 50
-    else:
-        score_rarity = 35
+    # Редкость: непрерывная оценка [10, 100] на основе ECDF (без ступенчатых скачков)
+    score_rarity = compute_smooth_rarity_score(segments, latest)
 
     recent = prices[-3:] if len(prices) >= 3 else prices
     if len(recent) >= 3 and (recent[-1] < recent[-2] <= recent[-3] or recent[-1] <= recent[-2] < recent[-3]):
