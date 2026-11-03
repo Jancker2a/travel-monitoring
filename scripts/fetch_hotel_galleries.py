@@ -181,12 +181,21 @@ def sync_galleries_into_specs_kb(
 
     updated = 0
     for h_name, photos in galleries.items():
-        if h_name in hotels and isinstance(hotels[h_name], dict):
+        if h_name not in hotels:
+            hotels[h_name] = {
+                "destination": "Кипр" if any(marker in str(photos) for marker in ("cypr", "larnaka", "paphos", "limassol", "kyrenia", "ayia-napa", "protaras")) else "Египет",
+                "specs": {"gallery_photos": photos}
+            }
+            updated += 1
+        elif isinstance(hotels[h_name], dict):
             h_entry = hotels[h_name]
             if "specs" in h_entry and isinstance(h_entry["specs"], dict):
                 h_entry["specs"]["gallery_photos"] = photos
                 if "passport" in h_entry["specs"] and isinstance(h_entry["specs"]["passport"], dict):
                     h_entry["specs"]["passport"]["gallery_photos"] = photos
+                updated += 1
+            else:
+                h_entry["specs"] = {"gallery_photos": photos}
                 updated += 1
 
     if updated > 0:
@@ -200,6 +209,7 @@ def main():
     parser = argparse.ArgumentParser(description="Harvest multi-photo galleries for hotels")
     parser.add_argument("--galleries-kb", default=DEFAULT_GALLERIES_KB, help="Path to hotel_galleries_kb.json")
     parser.add_argument("--specs-kb", default=DEFAULT_SPECS_KB, help="Path to hotel_specs_kb.json")
+    parser.add_argument("--urls-file", type=str, default=None, help="Optional JSON file with {hotel_name: offer_url} or {hotel_name: {offer_url: ...}}")
     parser.add_argument("--max-hotels", type=int, default=50, help="Max hotels to fetch in one run")
     parser.add_argument("--hotel", type=str, default=None, help="Fetch a single specific hotel by name")
     parser.add_argument("--url", type=str, default=None, help="Explicit URL for the specific hotel")
@@ -234,8 +244,26 @@ def main():
             logger.warning(f"❌ Could not extract photos for '{h_name}' from {url}")
         return
 
-    # Batch mode: scan CSVs for hotels missing galleries
-    discovered_urls = collect_hotel_offer_urls()
+    # Batch mode: scan URLs file or CSVs for hotels missing galleries
+    discovered_urls = {}
+    if args.urls_file and os.path.exists(args.urls_file):
+        try:
+            with open(args.urls_file, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                if isinstance(data, dict):
+                    for k, v in data.items():
+                        if isinstance(v, dict):
+                            u = v.get("offer_url") or v.get("url") or ""
+                        elif isinstance(v, str):
+                            u = v
+                        else:
+                            u = ""
+                        if u and u.startswith("http"):
+                            discovered_urls[k] = u
+        except Exception as e:
+            logger.warning(f"Could not load urls-file {args.urls_file}: {e}")
+    if not discovered_urls:
+        discovered_urls = collect_hotel_offer_urls()
     logger.info(f"Found {len(discovered_urls)} hotels with offer URLs.")
 
     count = 0

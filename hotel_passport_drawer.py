@@ -777,6 +777,40 @@ def get_hotel_passport_css() -> str:
       transform: scale(1.04);
     }
 
+    .card-photo-placeholder {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+      color: #64748b;
+      gap: 6px;
+      z-index: 1;
+    }
+
+    .dark-theme .card-photo-placeholder {
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      color: #94a3b8;
+    }
+
+    .card-photo-placeholder-icon {
+      font-size: 2.2rem;
+      line-height: 1;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.06));
+    }
+
+    .card-photo-placeholder-text {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      opacity: 0.8;
+      text-transform: uppercase;
+    }
+
     .card-media-badges {
       position: relative;
       z-index: 2;
@@ -2298,11 +2332,23 @@ def render_hotel_card_horiz(c: Dict[str, Any], ai_profile: Dict[str, Any]) -> st
     stars_count = ai_profile.get("stars", 4)
     stars_html = "★" * stars_count
 
-    # Image block
+    # Image block with reliable graceful fallback
+    placeholder_text = "★" * stars_count if stars_count else "Отель"
+    placeholder_html = (
+        f'<div class="card-photo-placeholder" style="{"display:none;" if image_url else ""}">'
+        f'<span class="card-photo-placeholder-icon">🏨</span>'
+        f'<span class="card-photo-placeholder-text">{html.escape(placeholder_text)}</span>'
+        f'</div>'
+    )
     if image_url:
-        img_html = f'<img class="card-photo" src="{html.escape(image_url, quote=True)}" alt="{html.escape(hotel_name, quote=True)}" loading="lazy" onerror="this.style.display=\'none\';">'
+        img_html = (
+            f'<img class="card-photo" src="{html.escape(image_url, quote=True)}" '
+            f'alt="{html.escape(hotel_name, quote=True)}" loading="lazy" '
+            f'onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\';">'
+            f'{placeholder_html}'
+        )
     else:
-        img_html = '<div style="display:flex;align-items:center;justify-content:center;height:100%;color:#94a3b8;font-size:2rem;">🏨</div>'
+        img_html = placeholder_html
 
     # Tags
     heated_pill = '<span class="infra-pill warm">♨️ Подогрев зимой</span>' if ai_profile.get("has_heated_pools") else ''
