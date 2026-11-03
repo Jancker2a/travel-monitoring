@@ -4181,10 +4181,21 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         except Exception:
             pass
 
-    # Карта изображений: сначала общий fallback, затем региональный файл фильтра.
+    # Карта изображений: сначала общий fallback, затем региональный файл фильтра, затем галереи KB.
     images_map: dict = {}
     _ingest_images_source(images_map, os.path.join('data', 'hotel_images.json'))
     _ingest_images_source(images_map, os.path.join(_data_dir, 'hotel_images.json'))
+    try:
+        g_kb_path = "hotel_galleries_kb.json"
+        if os.path.exists(g_kb_path):
+            with open(g_kb_path, "r", encoding="utf-8") as _g_f:
+                _g_data = json.load(_g_f)
+                for _h_n, _p_list in _g_data.get("galleries", {}).items():
+                    if _p_list and isinstance(_p_list, list) and _p_list[0].get("url"):
+                        if _h_n not in images_map:
+                            images_map[_h_n] = _p_list[0]["url"]
+    except Exception:
+        pass
 
     def normalize_image_url(raw_url: str) -> str:
         if raw_url is None:
