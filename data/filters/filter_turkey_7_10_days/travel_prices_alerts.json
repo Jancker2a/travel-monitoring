@@ -208,10 +208,49 @@
       "created_at": "2026-11-03T09:26:03.811492+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Kaya (Belek)_2026-11-03_09-24_zone_out_+4.0"
+    },
+    {
+      "hotel_name": "OZ Incekum Beach Resort",
+      "duration_bucket": "",
+      "old_price": 7192.0,
+      "new_price": 9271.0,
+      "price_change": 2079.0,
+      "price_change_pct": 28.90711902113459,
+      "timestamp": "2026-11-03 12:23:30.679265+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-03T12:25:12.881078+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "OZ Incekum Beach Resort_2026-11-03_12-23_+28.9"
+    },
+    {
+      "hotel_name": "Side Aluna",
+      "duration_bucket": "",
+      "old_price": 9394.0,
+      "new_price": 10194.0,
+      "price_change": 800.0,
+      "price_change_pct": 8.516074089844581,
+      "timestamp": "2026-11-03 12:23:30.679265+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-03T12:25:12.881119+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Side Aluna_2026-11-03_12-23_zone_out_+8.5"
+    },
+    {
+      "hotel_name": "Side Breeze",
+      "duration_bucket": "",
+      "old_price": 9812.0,
+      "new_price": 11932.0,
+      "price_change": 2120.0,
+      "price_change_pct": 21.60619649408887,
+      "timestamp": "2026-11-03 12:23:30.679265+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-03T12:25:12.881127+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Side Breeze_2026-11-03_12-23_zone_out_+21.6"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-03T09:24:04.612739+00:00",
+    "last_processed_run": "2026-11-03T12:23:30.679265+00:00",
     "premium_state": {
       "Alba Queen": {
         "history_max": 7157.0,
@@ -330,7 +369,7 @@
         "premium_peak": null
       },
       "OZ Incekum Beach Resort": {
-        "history_max": 7192.0,
+        "history_max": 9271.0,
         "premium_peak": null
       },
       "Sunis Evren Beach & Spa": {
@@ -362,16 +401,16 @@
         "premium_peak": null
       },
       "Side Breeze": {
-        "history_max": 9812.0,
-        "premium_peak": null
+        "history_max": 11932.0,
+        "premium_peak": 11932.0
       },
       "Royal Wings": {
         "history_max": 9518.0,
         "premium_peak": null
       },
       "Side Aluna": {
-        "history_max": 9394.0,
-        "premium_peak": null
+        "history_max": 10194.0,
+        "premium_peak": 10194.0
       },
       "Saphir Resort": {
         "history_max": 8512.0,
@@ -418,8 +457,8 @@
         "premium_peak": 18774.0
       },
       "Voyage Belek Golf & Spa": {
-        "history_max": 13290.0,
-        "premium_peak": 13290.0
+        "history_max": 13424.0,
+        "premium_peak": 13424.0
       },
       "Voyage Kundu": {
         "history_max": 13685.0,
@@ -442,8 +481,8 @@
         "premium_peak": null
       },
       "Wind of Lara": {
-        "history_max": 12094.0,
-        "premium_peak": 12094.0
+        "history_max": 12394.0,
+        "premium_peak": 12394.0
       },
       "Utopia World": {
         "history_max": 9267.0,
@@ -490,7 +529,7 @@
         "premium_peak": null
       },
       "Sidemarin Kirman Premium": {
-        "history_max": 8789.0,
+        "history_max": 8800.0,
         "premium_peak": null
       },
       "Sirene Belek": {
@@ -534,7 +573,7 @@
         "premium_peak": null
       },
       "Seven Seas Life": {
-        "history_max": 7688.0,
+        "history_max": 7822.0,
         "premium_peak": null
       },
       "Trendy Lara": {
@@ -614,7 +653,7 @@
         "premium_peak": 12243.0
       },
       "Fame Residence (Kemer)": {
-        "history_max": 7967.0,
+        "history_max": 8507.0,
         "premium_peak": null
       },
       "Fame Residence Lara (Antalya)": {
@@ -646,8 +685,8 @@
         "premium_peak": null
       },
       "Adalya Art Side (Ex. Grand Art Side)": {
-        "history_max": 12314.0,
-        "premium_peak": 12314.0
+        "history_max": 14730.0,
+        "premium_peak": 14730.0
       },
       "Adalya Elite Lara": {
         "history_max": 8271.0,
@@ -730,8 +769,8 @@
         "premium_peak": null
       },
       "Calista Luxury Resort": {
-        "history_max": 13289.0,
-        "premium_peak": 13289.0
+        "history_max": 13300.0,
+        "premium_peak": 13300.0
       },
       "Gypsophila Club Marine (ex. Amara Club Marine Nature)": {
         "history_max": 7892.0,
@@ -810,8 +849,8 @@
         "premium_peak": 10112.0
       },
       "Papillon Belvil Club": {
-        "history_max": 16789.0,
-        "premium_peak": 16789.0
+        "history_max": 16814.0,
+        "premium_peak": 16814.0
       },
       "Papillon Zeugma Reluxury": {
         "history_max": 10784.0,
