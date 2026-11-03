@@ -38,6 +38,12 @@ from hotel_deal_score import (
     compute_hotel_deal_metrics,
     fetch_tripadvisor_from_listing_url,
     robust_premium_peak,
+    compute_smooth_rarity_score,
+    time_weighted_price_baseline_from_segments,
+    time_weighted_price_quantile_from_segments,
+    _price_plateau_segments,
+    _typical_observation_gap_hours,
+    _data_gap_threshold_hours,
 )
 from departure_identity import parse_offer_path
 from departure_airports import (
@@ -3603,18 +3609,16 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
                 deltas_map[row_id] = None
                 continue
             change = latest_price - baseline_price
-            if change == 0:
-                deltas_map[row_id] = None
-                continue
-            change_percent = (change / baseline_price) * 100.0
-            changes.append({
-                'hotel_name': hotel_name,
-                'old_price': baseline_price,
-                'new_price': latest_price,
-                'change': change,
-                'change_percent': change_percent,
-                'timestamp': str(latest_time)
-            })
+            change_percent = (change / baseline_price) * 100.0 if baseline_price > 0 else 0.0
+            if change != 0:
+                changes.append({
+                    'hotel_name': hotel_name,
+                    'old_price': baseline_price,
+                    'new_price': latest_price,
+                    'change': change,
+                    'change_percent': change_percent,
+                    'timestamp': str(latest_time)
+                })
             deltas_map[row_id] = (change, change_percent)
         decreases = sorted([h for h in changes if h['change'] < 0], key=lambda x: x['change'])[:5]
         increases = sorted([h for h in changes if h['change'] > 0], key=lambda x: x['change'], reverse=True)[:5]
@@ -3725,17 +3729,8 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             rel_discount = (median - latest) / median
         score_discount = _clamp(50 + rel_discount * 200, 0, 100)
 
-        # Редкость: чем ближе к историческим минимумам, тем выше балл
-        if min_p >= max_p or p10 >= median:
-            score_rarity = 50
-        elif latest <= p10:
-            score_rarity = 100
-        elif latest <= p25:
-            score_rarity = 80
-        elif latest <= median:
-            score_rarity = 50
-        else:
-            score_rarity = 35
+        # Редкость: непрерывная плавная оценка [10, 100] на основе ECDF (без ступенчатых скачков)
+        score_rarity = compute_smooth_rarity_score(plateau_segments, latest)
 
         # Моментум: короткий нисходящий тренд добавляет баллы
         recent = prices[-3:] if len(prices) >= 3 else prices
@@ -3868,13 +3863,20 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
                     all_hotels.at[idx, 'hopper_verdict'] = 'BUY_NOW'
                     all_hotels.at[idx, 'hopper_badge'] = '🟢 ПОКУПАТЬ'
                     all_hotels.at[idx, 'hopper_reasoning'] = (
-                        f"Отличный момент для покупки: Deal Score {ds}, цена на минимуме истории ({p_val} PLN)."
+                        f"Отличная цена: отель на историческом минимуме (Deal Score {ds}/100, {p_val} PLN). "
+                        f"Несмотря на раннее окно, цена исключительно выгодна."
                     )
                 elif (ds <= 35 or d_avg_v >= 8.0) and cur_verdict in ("BUY_NOW", "GOOD_PRICE"):
                     all_hotels.at[idx, 'hopper_verdict'] = 'OVERPRICED'
                     all_hotels.at[idx, 'hopper_badge'] = '🔴 ДОРОГО'
                     all_hotels.at[idx, 'hopper_reasoning'] = (
-                        f"Цена завышена (+{d_avg_v:.1f}% к средней, Deal Score {ds}). Лучше подождать снижения."
+                        f"Цена завышена (+{d_avg_v:.1f}% к типичной цене отеля, Deal Score {ds}/100). "
+                        f"Рекомендуется подождать снижения или рассмотреть альтернативы."
+                    )
+                elif ds >= 65 and cur_verdict == "WAIT":
+                    all_hotels.at[idx, 'hopper_badge'] = '🟢 ХОРОШАЯ ЦЕНА'
+                    all_hotels.at[idx, 'hopper_reasoning'] = (
+                        f"Цена привлекательна (Deal Score {ds}/100), но вероятность сезонных колебаний сохраняется."
                     )
 
     entry_candidates = sorted(
