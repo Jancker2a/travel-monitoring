@@ -19,9 +19,27 @@ def get_plural_pools(count: int) -> str:
     return "Открытый плавательный бассейн"
 
 
+def format_region_prepositional(dest: str) -> str:
+    """Returns correct Russian prepositional form for a destination country."""
+    d = (dest or "").strip()
+    if d == "Кипр":
+        return "на Кипре"
+    if d == "Греция":
+        return "в Греции"
+    if d == "Турция":
+        return "в Турции"
+    if d == "Египет":
+        return "в Египте"
+    if d == "Испания":
+        return "в Испании"
+    if d == "Болгария":
+        return "в Болгарии"
+    return f"в регионе {d}" if d else ""
+
+
 def build_hotel_infrastructure(name: str, hotel_data: Dict[str, Any]) -> Dict[str, Any]:
     specs = hotel_data.get("specs", {})
-    dest = hotel_data.get("destination", "Египет")
+    dest = hotel_data.get("destination") or hotel_data.get("country") or "Египет"
     stars = specs.get("stars") or hotel_data.get("stars") or 4
     line = specs.get("beach_line", 1)
     dist_m = specs.get("beach_distance_meters", 0)
@@ -195,7 +213,8 @@ def build_hotel_infrastructure(name: str, hotel_data: Dict[str, Any]) -> Dict[st
 
 def compile_hotel_passport(name: str, hdata: Dict[str, Any]) -> Dict[str, Any]:
     specs = hdata.get("specs", {})
-    dest = hdata.get("destination", "Египет")
+    dest = hdata.get("destination") or hdata.get("country") or "Египет"
+    reg_prep = format_region_prepositional(dest)
     stars = specs.get("stars") or hdata.get("stars") or 4
     line = specs.get("beach_line", 1)
     dist_m = specs.get("beach_distance_meters", 0)
@@ -266,7 +285,7 @@ def compile_hotel_passport(name: str, hdata: Dict[str, Any]) -> Dict[str, Any]:
     if stars >= 5:
         if dest == "Египет":
             ai_hotel_summary = (
-                f"{name} — высококлассный курортный комплекс категории 5★ в регионе {dest}. "
+                f"{name} — высококлассный курортный комплекс категории 5★ {reg_prep}. "
                 f"Расположен на {line}-й линии ({btype_str}). Ключевые преимущества: концепция «{fc_label}», "
                 f"{'собственный аквапарк (' + str(slides) + ' горок), ' if aquapark and slides > 0 else ('аквапарк на территории, ' if aquapark else '')}"
                 f"{'бассейны с зимним подогревом, ' if heated else 'несколько открытых бассейнов, '}"
@@ -274,7 +293,7 @@ def compile_hotel_passport(name: str, hdata: Dict[str, Any]) -> Dict[str, Any]:
             )
         else:
             ai_hotel_summary = (
-                f"{name} — премиальный пятизвездочный курортный отель в регионе {dest}. "
+                f"{name} — премиальный пятизвездочный курортный отель {reg_prep}. "
                 f"Расположен на {line}-й линии ({btype_str}). Предлагает развитую курортную инфраструктуру, "
                 f"концепцию «{fc_label}», просторные бассейны{' с аквапарком' if aquapark else ''} и высокий уровень комфорта."
             )
@@ -283,7 +302,7 @@ def compile_hotel_passport(name: str, hdata: Dict[str, Any]) -> Dict[str, Any]:
     elif stars == 4:
         if line >= 3:
             ai_hotel_summary = (
-                f"{name} — бюджетный отель категории 4★ в курортной зоне {dest}. "
+                f"{name} — отель категории 4★ {reg_prep}. "
                 f"Находится на 3-й линии (~{dist_m or 2000} м от берега, организован шаттл на пляж). "
                 f"Предлагает концепцию питания «{fc_label}», открытый плавательный бассейн{' с горками' if slides > 0 else ''} "
                 f"и доступные цены на отдых."
@@ -292,7 +311,7 @@ def compile_hotel_passport(name: str, hdata: Dict[str, Any]) -> Dict[str, Any]:
             suitable_for = "Экономный отдых и поездки"
         else:
             ai_hotel_summary = (
-                f"{name} — популярный курортный отель категории 4★ в регионе {dest}. "
+                f"{name} — популярный курортный отель категории 4★ {reg_prep}. "
                 f"Расположен на {line}-й линии ({btype_str}). "
                 f"Предлагает систему «{fc_label}», открытые бассейны{' с водными горками' if aquapark or slides > 0 else ''}"
                 f"{', зимний подогрев' if heated else ''} и удобный выход к морю."
@@ -301,7 +320,7 @@ def compile_hotel_passport(name: str, hdata: Dict[str, Any]) -> Dict[str, Any]:
             suitable_for = "Семьи с детьми и пары"
     else:
         ai_hotel_summary = (
-            f"{name} — экономичный отель категории 3★ в регионе {dest}. "
+            f"{name} — экономичный отель категории 3★ {reg_prep}. "
             f"Расположен на {line}-й линии ({dist_m or 2000} м от моря, шаттл-бас). "
             f"Обеспечивает базовый набор курортных удобств, питание «{fc_label}» и открытый бассейн. "
             f"Оптимален для непритязательных туристов, планирующих активные прогулки и экскурсии."
@@ -332,18 +351,21 @@ def compile_hotel_passport(name: str, hdata: Dict[str, Any]) -> Dict[str, Any]:
             cons.append(f"3-я линия: расстояние до моря около {dist_m or 2000} м (необходим шаттл)")
         elif line == 2:
             cons.append("2-я линия: дорога до пляжа занимает несколько минут пешком")
-        if not heated and dest == "Египет":
-            cons.append("В зимние месяцы открытые бассейны функционируют без подогрева")
+        if not heated:
+            if dest == "Египет":
+                cons.append("В зимние месяцы открытые бассейны функционируют без подогрева")
+            elif dest in ("Кипр", "Греция", "Турция"):
+                cons.append("Открытые бассейны без постоянного подогрева в межсезонье")
         elif stars <= 3:
             cons.append("Скромный номерной фонд и базовая концепция питания без a la carte ресторанов")
     cons = cons[:2]
 
     if stars >= 5:
-        verdict = f"Отличный пятизвездочный выбор в регионе {dest} для тех, кому важны комфорт, {btype_str} и концепция «{fc_label}»."
+        verdict = f"Отличный пятизвездочный выбор {reg_prep} для тех, кому важны комфорт, {btype_str} и концепция «{fc_label}»."
     elif stars == 4:
-        verdict = f"Сбалансированный отель категории 4★ с хорошим соотношением цены и качества для семейного и парного отдыха."
+        verdict = f"Сбалансированный отель категории 4★ {reg_prep} с хорошим соотношением цены и качества для семейного и парного отдыха."
     else:
-        verdict = f"Честный эконом-вариант 3★ для практичных путешественников без завышенных ожиданий к роскоши."
+        verdict = f"Честный эконом-вариант 3★ {reg_prep} для практичных путешественников без завышенных ожиданий к роскоши."
 
     if stars >= 5:
         review_snippet = "«Прекрасный отель с просторной зеленой территорией, внимательным персоналом и разнообразной кухней. Море и риф оставили самые приятные впечатления.»"

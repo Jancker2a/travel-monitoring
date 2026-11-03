@@ -195,6 +195,19 @@ def generate_hotel_ai_profile(
         ta_rating_final = ta_rating_override if (ta_rating_override is not None and ta_rating_override > 0) else p.get("ta_rating", 4.2)
         ta_reviews_final = ta_reviews_override if (ta_reviews_override is not None and ta_reviews_override > 0) else int(p.get("ta_reviews", 0))
 
+        ai_summary_safe = p.get("ai_hotel_summary", "")
+        verdict_safe = p.get("verdict", "")
+        cur_geo = destination or country
+        if cur_geo and any(dg in cur_geo for dg in ("Кипр", "Греция", "Турция", "Египет", "Испания")):
+            target_country = "Кипр" if "Кипр" in cur_geo else ("Греция" if "Греция" in cur_geo else ("Турция" if "Турция" in cur_geo else ("Египет" if "Египет" in cur_geo else "Испания")))
+            from scripts.hotel_passport_compiler import format_region_prepositional
+            expected_prep = format_region_prepositional(target_country)
+            for bad_prep in ("в регионе Египет", "в Египте", "в регионе Греция", "в Греции", "в регионе Турция", "в Турции", "в регионе Кипр", "на Кипре", "в регионе Испания", "в Испании"):
+                if bad_prep in ai_summary_safe and bad_prep != expected_prep:
+                    ai_summary_safe = ai_summary_safe.replace(bad_prep, expected_prep)
+                if bad_prep in verdict_safe and bad_prep != expected_prep:
+                    verdict_safe = verdict_safe.replace(bad_prep, expected_prep)
+
         return {
             "stars": p.get("stars", 4),
             "ta_rating": ta_rating_final,
@@ -206,8 +219,8 @@ def generate_hotel_ai_profile(
             "has_heated_pools": p.get("has_heated_pools", False),
             "food_concept": p.get("food_concept", "All Inclusive"),
             "suitable_for": p.get("suitable_for", "Отдых и релакс"),
-            "verdict": p.get("verdict", ""),
-            "ai_hotel_summary": p.get("ai_hotel_summary", ""),
+            "verdict": verdict_safe,
+            "ai_hotel_summary": ai_summary_safe,
             "ai_price_summary": ai_price_summary,
             "ai_audience": p.get("ai_audience", ""),
             "ai_action_signal": price_signal,
