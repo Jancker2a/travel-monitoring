@@ -209,6 +209,9 @@ def pack_duration_view_bundle(
     label: str = "",
     alerts_chips_html: str = "",
     alerts_content_html: str = "",
+    min_price: float = 0.0,
+    buy_recommended: int = 0,
+    drops_48h: int = 0,
 ) -> dict:
     return {
         'label': label,
@@ -216,6 +219,9 @@ def pack_duration_view_bundle(
             'entry_candidates': entry_candidates_count,
             'market_breadth_pct': round(market_breadth_pct, 1),
             'best_deal_score': best_deal_score,
+            'min_price': round(min_price) if min_price else (round(history_min_price) if history_min_price else None),
+            'buy_recommended': buy_recommended,
+            'drops_48h': drops_48h,
         },
         'stats': {
             'total_offers': total_offers,
@@ -920,6 +926,16 @@ def build_duration_view_bundle(
             scope_duration_bucket=duration_bucket,
         )
 
+    buy_recommended_count = 0
+    if not all_hotels.empty:
+        for _, row in all_hotels.iterrows():
+            rid = row.get('row_id') or row['hotel_name']
+            ds = deal_score_by_hotel.get(rid, {}).get('score', 0)
+            verdict = str(row.get('hopper_verdict') or '')
+            if verdict in ('BUY_NOW', 'GOOD_PRICE') or ds >= 70:
+                buy_recommended_count += 1
+    drops_48h_count = sum(1 for d in deltas_by_hotel.values() if d is not None and d[0] < 0)
+
     return pack_duration_view_bundle(
         entry_candidates_count=len(entry_candidates),
         market_breadth_pct=market_breadth * 100,
@@ -932,6 +948,9 @@ def build_duration_view_bundle(
         history_max_price=history_max_price,
         avg_deal_score=avg_deal_score,
         entry_hotspots=len(entry_candidates),
+        min_price=float(all_hotels['price'].min()) if not all_hotels.empty and 'price' in all_hotels.columns else history_min_price,
+        buy_recommended=buy_recommended_count,
+        drops_48h=drops_48h_count,
         top10_x=top10_x_values,
         top10_y=top10_y_values,
         top10_detailed=top10_detailed_data,

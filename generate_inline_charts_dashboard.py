@@ -5608,6 +5608,25 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
     market_breadth_pct_str = f"{market_breadth*100:.0f}%"
     best_deal_score_val = max((v['score'] for v in deal_score_by_hotel.values()), default=0)
 
+    # Option 2 Humanized KPI Metrics
+    if not all_hotels.empty and 'price' in all_hotels.columns:
+        _valid_prices = pd.to_numeric(all_hotels['price'], errors='coerce').dropna()
+        min_current_price = float(_valid_prices.min()) if not _valid_prices.empty else 0.0
+    else:
+        min_current_price = 0.0
+    min_price_str = f"от {_format_pln(min_current_price)} zł" if min_current_price > 0 else "—"
+
+    buy_recommended_count = 0
+    if not all_hotels.empty:
+        for idx, row in all_hotels.iterrows():
+            rid = row.get('row_id') or row['hotel_name']
+            ds = deal_score_by_hotel.get(rid, {}).get('score', 0)
+            verdict = str(row.get('hopper_verdict') or '')
+            if verdict in ('BUY_NOW', 'GOOD_PRICE') or ds >= 70:
+                buy_recommended_count += 1
+
+    drops_48h_count = sum(1 for d in deltas_by_hotel.values() if d is not None and d[0] < 0)
+
     cfg_url = resolve_config_url(filter_config)
     country_flag = COUNTRY_FLAGS.get(dest_display_name, "")
     if not country_flag:
@@ -7235,6 +7254,38 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             background: rgba(56, 189, 248, 0.15);
             color: #38bdf8;
         }}
+        .kpi-icon--price {{
+            background: #ecfdf5 !important;
+            color: #059669 !important;
+        }}
+        .dark-theme .kpi-icon--price {{
+            background: rgba(16, 185, 129, 0.15) !important;
+            color: #34d399 !important;
+        }}
+        .kpi-icon--buy {{
+            background: #f0fdf4 !important;
+            color: #16a34a !important;
+        }}
+        .dark-theme .kpi-icon--buy {{
+            background: rgba(22, 163, 74, 0.15) !important;
+            color: #4ade80 !important;
+        }}
+        .kpi-icon--drop {{
+            background: #eff6ff !important;
+            color: #2563eb !important;
+        }}
+        .dark-theme .kpi-icon--drop {{
+            background: rgba(37, 99, 235, 0.15) !important;
+            color: #60a5fa !important;
+        }}
+        .kpi-icon--time {{
+            background: #f1f5f9 !important;
+            color: #64748b !important;
+        }}
+        .dark-theme .kpi-icon--time {{
+            background: rgba(148, 163, 184, 0.15) !important;
+            color: #94a3b8 !important;
+        }}
 
         .kpi-svg {{
             width: 22px;
@@ -7247,10 +7298,11 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             min-width: 0;
         }}
         .kpi-card-number {{
-            font-size: 1.45rem;
+            font-size: clamp(1.2rem, 1.8vw, 1.45rem);
             font-weight: 800;
             color: #0f172a;
             line-height: 1.1;
+            white-space: nowrap;
         }}
         .dark-theme .kpi-card-number {{
             color: #f8fafc;
@@ -10960,33 +11012,42 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
                 </div>
             </div>
 
-            <!-- 4 White KPI Cards -->
+            <!-- 4 White KPI Cards (Option 2: Travel-Centric) -->
             <div class="kpi-cards-grid">
-                <div class="kpi-card-white">
-                    <div class="kpi-card-icon-box">
-                        <svg class="kpi-svg" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                <div class="kpi-card-white" title="Минимальная цена тура в актуальной выдаче">
+                    <div class="kpi-card-icon-box kpi-icon--price">
+                        <svg class="kpi-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="5" width="20" height="14" rx="2"></rect>
+                            <line x1="2" y1="10" x2="22" y2="10"></line>
+                        </svg>
                     </div>
                     <div class="kpi-card-info">
-                        <div class="kpi-card-number" id="heroKpiEntryCount">{entry_candidates_count}</div>
-                        <div class="kpi-card-title">Кандидаты входа</div>
+                        <div class="kpi-card-number" id="heroKpiMinPrice">{min_price_str}</div>
+                        <div class="kpi-card-title">Мин. цена сейчас</div>
                     </div>
                 </div>
-                <div class="kpi-card-white">
-                    <div class="kpi-card-icon-box">
-                        <svg class="kpi-svg" viewBox="0 0 24 24"><path d="M23 18l-9.5-9.5-5 5L1 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M17 6h6v6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                <div class="kpi-card-white" title="Отели с рекомендацией «Покупать» (Hopper AI или Deal Score ≥ 70)">
+                    <div class="kpi-card-icon-box kpi-icon--buy">
+                        <svg class="kpi-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
                     </div>
                     <div class="kpi-card-info">
-                        <div class="kpi-card-number" id="heroKpiBreadthPct">{market_breadth_pct_str}</div>
-                        <div class="kpi-card-title">Рынок дешевеет</div>
+                        <div class="kpi-card-number" id="heroKpiBuyNow">{buy_recommended_count}</div>
+                        <div class="kpi-card-title">К покупке сейчас</div>
                     </div>
                 </div>
-                <div class="kpi-card-white">
-                    <div class="kpi-card-icon-box">
-                        <svg class="kpi-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg>
+                <div class="kpi-card-white" title="Отели, цена которых снизилась за последние 48 часов">
+                    <div class="kpi-card-icon-box kpi-icon--drop">
+                        <svg class="kpi-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="23 18 13.5 8.5 8.5 13.5 1 6"></polyline>
+                            <polyline points="17 18 23 18 23 12"></polyline>
+                        </svg>
                     </div>
                     <div class="kpi-card-info">
-                        <div class="kpi-card-number" id="heroKpiBestDeal">{best_deal_score_val}</div>
-                        <div class="kpi-card-title">Лучший Deal Score</div>
+                        <div class="kpi-card-number" id="heroKpiDrops48h">{drops_48h_count}</div>
+                        <div class="kpi-card-title">Подешевели за 48ч</div>
                     </div>
                 </div>
                 <div class="kpi-card-white">
@@ -13957,6 +14018,19 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
           const hero = view.hero || {};
           const stats = view.stats || {};
           const html = view.html || {};
+          const minPriceEl = document.getElementById('heroKpiMinPrice');
+          const buyNowEl = document.getElementById('heroKpiBuyNow');
+          const dropsEl = document.getElementById('heroKpiDrops48h');
+          if (minPriceEl) {
+            const rawMin = hero.min_price != null ? hero.min_price : stats.history_min_price;
+            minPriceEl.textContent = (rawMin != null && rawMin > 0) ? ('от ' + Math.round(rawMin).toLocaleString('ru-RU') + ' zł') : '—';
+          }
+          if (buyNowEl) {
+            buyNowEl.textContent = String(hero.buy_recommended ?? (hero.entry_candidates ?? 0));
+          }
+          if (dropsEl) {
+            dropsEl.textContent = String(hero.drops_48h ?? 0);
+          }
           const entryEl = document.getElementById('heroKpiEntryCount');
           const breadthEl = document.getElementById('heroKpiBreadthPct');
           const bestDealEl = document.getElementById('heroKpiBestDeal');
