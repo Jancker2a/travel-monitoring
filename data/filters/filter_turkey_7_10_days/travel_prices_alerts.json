@@ -247,10 +247,36 @@
       "created_at": "2026-11-03T12:25:12.881127+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Side Breeze_2026-11-03_12-23_zone_out_+21.6"
+    },
+    {
+      "hotel_name": "Bosphorus Sorgun",
+      "duration_bucket": "",
+      "old_price": 6564.0,
+      "new_price": 7904.0,
+      "price_change": 1340.0,
+      "price_change_pct": 20.41438147471054,
+      "timestamp": "2026-11-03 14:09:00.717088+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-03T14:10:29.208532+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Bosphorus Sorgun_2026-11-03_14-09_+20.4"
+    },
+    {
+      "hotel_name": "Kaya (Belek)",
+      "duration_bucket": "",
+      "old_price": 9707.0,
+      "new_price": 10207.0,
+      "price_change": 500.0,
+      "price_change_pct": 5.150922015040693,
+      "timestamp": "2026-11-03 14:09:00.717088+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-03T14:10:29.208564+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Kaya (Belek)_2026-11-03_14-09_zone_out_+5.2"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-03T12:23:30.679265+00:00",
+    "last_processed_run": "2026-11-03T14:09:00.717088+00:00",
     "premium_state": {
       "Alba Queen": {
         "history_max": 7157.0,
@@ -345,7 +371,7 @@
         "premium_peak": null
       },
       "Bosphorus Sorgun": {
-        "history_max": 6848.0,
+        "history_max": 7904.0,
         "premium_peak": null
       },
       "Port Side Resort": {
@@ -757,7 +783,7 @@
         "premium_peak": 10600.0
       },
       "Beach Club Doganay": {
-        "history_max": 7041.0,
+        "history_max": 7175.0,
         "premium_peak": null
       },
       "Belconti Resort (Belek)": {
@@ -845,8 +871,8 @@
         "premium_peak": null
       },
       "Papillon Ayscha": {
-        "history_max": 10112.0,
-        "premium_peak": 10112.0
+        "history_max": 11027.0,
+        "premium_peak": 11027.0
       },
       "Papillon Belvil Club": {
         "history_max": 16814.0,
@@ -977,7 +1003,7 @@
         "premium_peak": null
       },
       "Sunprime C-Lounge": {
-        "history_max": 8944.0,
+        "history_max": 8959.0,
         "premium_peak": null
       }
     }
