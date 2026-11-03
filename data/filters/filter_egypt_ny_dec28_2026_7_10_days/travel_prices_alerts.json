@@ -429,10 +429,23 @@
       "created_at": "2026-11-03T14:07:45.209314+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Amwaj Oyoun Resort & Casino_2026-11-03_14-07_-9.7"
+    },
+    {
+      "hotel_name": "Empire Hotel Aqua Park (Ex. Triton Empir",
+      "duration_bucket": "",
+      "old_price": 9671.0,
+      "new_price": 9671.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-03 15:27:05.223419+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-03T15:27:42.161022+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Empire Hotel Aqua Park (Ex. Triton Empir_2026-11-03_15-27_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-03T14:07:09.960854+00:00",
+    "last_processed_run": "2026-11-03T15:27:05.223419+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa": {
         "history_max": 11748.0,
@@ -561,6 +574,18 @@
       "Swisstouch Oriental Resort Marsa Alam": {
         "history_max": 11479.0,
         "premium_peak": 11479.0
+      },
+      "PARROTEL LAGOON RESORT": {
+        "history_max": 12031.0,
+        "premium_peak": 12031.0
+      },
+      "MAZAR RESORT": {
+        "history_max": 9500.0,
+        "premium_peak": null
+      },
+      "Rewaya Luxury Resort": {
+        "history_max": 12067.0,
+        "premium_peak": 12067.0
       }
     }
   }
