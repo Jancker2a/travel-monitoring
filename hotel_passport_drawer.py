@@ -3207,7 +3207,13 @@ def get_hotel_passport_js() -> str:
       const fontColor = isDark ? '#cbd5e1' : '#334155';
       const gridColor = isDark ? 'rgba(51, 65, 85, 0.5)' : '#f1f5f9';
 
-      const xVals = pts.map(p => p.ts ? new Date(p.ts).toISOString() : (p.iso ? p.iso.replace(' ', 'T') : p.date));
+      const xVals = pts.map(p => {
+        if (p.ts) {
+          const d = new Date(p.ts);
+          return isNaN(d.getTime()) ? p.date : d.toISOString().replace('T', ' ').slice(0, 19);
+        }
+        return p.iso ? p.iso.slice(0, 19) : p.date;
+      });
       const yVals = pts.map(p => p.price);
       const hoverTexts = pts.map(p => `${p.date || p.iso}<br><b>${Math.round(p.price).toLocaleString('ru-RU')} zł</b>`);
 

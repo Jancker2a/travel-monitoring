@@ -3081,7 +3081,9 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
                 })
         
         if run_data:
-            top10_x_values = [pd.Timestamp(ts).isoformat() for ts, _ in run_data]
+            # Use clean standard datetime format without microseconds or raw timezone offsets
+            # to avoid recursive Plotly dateTime2ms stack overflow on 1000+ data points
+            top10_x_values = [pd.Timestamp(ts).strftime('%Y-%m-%d %H:%M:%S') for ts, _ in run_data]
             top10_y_values = [float(price) for _, price in run_data]
             top10_min_values = [float(d.get('min_price', y)) for d, y in zip(top10_detailed_data, top10_y_values)]
             top10_max_values = [float(d.get('max_price', y)) for d, y in zip(top10_detailed_data, top10_y_values)]
@@ -3215,8 +3217,8 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             if hotels_with_changes > 0:
                 avg_price_change = total_price_change / hotels_with_changes
                 
-                # Добавляем точку для каждого рана
-                trend_index_x_values.append(pd.Timestamp(run_time).isoformat())
+                # Добавляем точку для каждого рана (чистый формат без микросекунд для Plotly)
+                trend_index_x_values.append(pd.Timestamp(run_time).strftime('%Y-%m-%d %H:%M:%S'))
                 trend_index_y_values.append(avg_price_change)
                 trend_index_detailed_data.append({
                     'run_time': run_time.strftime('%Y-%m-%d %H:%M'),
@@ -4526,7 +4528,7 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         hotel_ts = history_by_hotel.get(str(hotel_name), pd.DataFrame())
         if not hotel_ts.empty:
             hotel_ts = hotel_ts.dropna(subset=['scraped_at_display']).sort_values('scraped_at_display')
-        x_values = [t.isoformat() for t in hotel_ts['scraped_at_display']]
+        x_values = [t.strftime('%Y-%m-%d %H:%M:%S') if hasattr(t, 'strftime') else str(t) for t in hotel_ts['scraped_at_display']]
         x_display = hotel_ts['scraped_at_display'].dt.strftime('%d.%m.%Y %H:%M').tolist()
         y_values = [float(p) for p in hotel_ts['price'].tolist()]
         dates_list = hotel_ts['dates'].fillna('Неизвестно').tolist()
