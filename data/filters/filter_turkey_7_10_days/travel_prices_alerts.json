@@ -793,10 +793,36 @@
       "created_at": "2026-11-04T02:36:17.951716+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sirene Belek_2026-11-04_02-34_zone_out_+6.8"
+    },
+    {
+      "hotel_name": "Mediterra Art",
+      "duration_bucket": "",
+      "old_price": 6189.0,
+      "new_price": 6189.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-04 06:22:18.452778+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-04T06:23:55.068871+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Mediterra Art_2026-11-04_06-22_zone_out_gone"
+    },
+    {
+      "hotel_name": "Utopia World",
+      "duration_bucket": "",
+      "old_price": 9267.0,
+      "new_price": 9267.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-04 06:22:18.452778+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-04T06:23:55.068893+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Utopia World_2026-11-04_06-22_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-04T02:34:19.272098+00:00",
+    "last_processed_run": "2026-11-04T06:22:18.452778+00:00",
     "premium_state": {
       "Alba Queen": {
         "history_max": 7157.0,
@@ -899,7 +925,7 @@
         "premium_peak": null
       },
       "Castival (ex. La Grande Resort & Spa)": {
-        "history_max": 6944.0,
+        "history_max": 6989.0,
         "premium_peak": null
       },
       "Side Prenses": {
@@ -1303,7 +1329,7 @@
         "premium_peak": 11269.0
       },
       "Beach Club Doganay": {
-        "history_max": 7251.0,
+        "history_max": 7309.0,
         "premium_peak": null
       },
       "Belconti Resort (Belek)": {
@@ -1519,7 +1545,7 @@
         "premium_peak": 13781.0
       },
       "Yalihan Aspendos": {
-        "history_max": 7744.0,
+        "history_max": 7789.0,
         "premium_peak": null
       },
       "Sunprime C-Lounge": {
@@ -1533,6 +1559,10 @@
       "Trendy Perge Resort & Suites": {
         "history_max": 11867.0,
         "premium_peak": 11867.0
+      },
+      "Swandor Kemer (ex. Pgs Kiris Resort)": {
+        "history_max": 9905.0,
+        "premium_peak": null
       }
     }
   }

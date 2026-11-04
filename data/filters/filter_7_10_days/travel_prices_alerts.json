@@ -637,10 +637,114 @@
       "created_at": "2026-11-04T02:31:17.462581+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sheraton Sharm Resort Villas & Spa_2026-11-04_02-29_comeback_10.6"
+    },
+    {
+      "hotel_name": "Concorde Moreen Beach Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 6979.0,
+      "new_price": 6248.0,
+      "price_change": -731.0,
+      "price_change_pct": -10.474279982805559,
+      "timestamp": "2026-11-04 06:18:05.025842+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-04T06:19:34.851864+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Concorde Moreen Beach Resort & Spa_2026-11-04_06-18_-10.5"
+    },
+    {
+      "hotel_name": "Parrotel Lagoon Resort",
+      "duration_bucket": "",
+      "old_price": 6569.0,
+      "new_price": 5907.0,
+      "price_change": -662.0,
+      "price_change_pct": -10.077637387730249,
+      "timestamp": "2026-11-04 06:18:05.025842+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-04T06:19:34.851891+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Parrotel Lagoon Resort_2026-11-04_06-18_-10.1"
+    },
+    {
+      "hotel_name": "Dreams Beach Sharm Resort (Sharm El Sheikh)",
+      "duration_bucket": "",
+      "old_price": 8432.0,
+      "new_price": 7111.0,
+      "price_change": -1321.0,
+      "price_change_pct": -15.666508538899432,
+      "timestamp": "2026-11-04 06:18:05.025842+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-04T06:19:34.851905+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Dreams Beach Sharm Resort (Sharm El Sheikh)_2026-11-04_06-18_-15.7"
+    },
+    {
+      "hotel_name": "Naama Bay Promenade Mountain Resort",
+      "duration_bucket": "",
+      "old_price": 7887.0,
+      "new_price": 7219.0,
+      "price_change": -668.0,
+      "price_change_pct": -8.469633574236084,
+      "timestamp": "2026-11-04 06:18:05.025842+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-04T06:19:34.851913+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Naama Bay Promenade Mountain Resort_2026-11-04_06-18_-8.5"
+    },
+    {
+      "hotel_name": "Amarina Queen Resort",
+      "duration_bucket": "",
+      "old_price": 6248.0,
+      "new_price": 5638.0,
+      "price_change": -610.0,
+      "price_change_pct": -9.763124199743919,
+      "timestamp": "2026-11-04 06:18:05.025842+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-04T06:19:34.851922+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amarina Queen Resort_2026-11-04_06-18_-9.8"
+    },
+    {
+      "hotel_name": "Xperience Kiroseiz Parkland",
+      "duration_bucket": "",
+      "old_price": 7995.0,
+      "new_price": 7111.0,
+      "price_change": -884.0,
+      "price_change_pct": -11.05691056910569,
+      "timestamp": "2026-11-04 06:18:05.025842+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-04T06:19:34.851935+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xperience Kiroseiz Parkland_2026-11-04_06-18_-11.1"
+    },
+    {
+      "hotel_name": "Golf Villas And Suites Sharm",
+      "duration_bucket": "",
+      "old_price": 9165.0,
+      "new_price": 8393.0,
+      "price_change": -772.0,
+      "price_change_pct": -8.423349699945444,
+      "timestamp": "2026-11-04 06:18:05.025842+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-04T06:19:34.851946+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Golf Villas And Suites Sharm_2026-11-04_06-18_-8.4"
+    },
+    {
+      "hotel_name": "Jaz Fanara Resort (ex Iberotel Club Fanara)",
+      "duration_bucket": "",
+      "old_price": 9390.0,
+      "new_price": 9390.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-04 06:18:05.025842+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-04T06:19:34.851967+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Fanara Resort (ex Iberotel Club Fanara)_2026-11-04_06-18_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-04T02:29:31.768020+00:00",
+    "last_processed_run": "2026-11-04T06:18:05.025842+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 6277.0,
@@ -711,7 +815,7 @@
         "premium_peak": null
       },
       "Charmillion Club Aqua Park": {
-        "history_max": 7245.0,
+        "history_max": 7351.0,
         "premium_peak": null
       },
       "Amarina Jannah Resort Aquapark": {
@@ -927,7 +1031,7 @@
         "premium_peak": null
       },
       "Sentido Akassia Beach (ex. LTI Akassia Beach)": {
-        "history_max": 8483.0,
+        "history_max": 8519.0,
         "premium_peak": null
       },
       "Sentido Mamlouk Palace Resort & Spa (ex Sunrise)": {
@@ -1139,8 +1243,8 @@
         "premium_peak": null
       },
       "Baron Palace Resort (Sahl Hasheesh)": {
-        "history_max": 10785.0,
-        "premium_peak": 10785.0
+        "history_max": 10831.0,
+        "premium_peak": 10831.0
       },
       "Baron Palms": {
         "history_max": 12092.0,
@@ -1163,7 +1267,7 @@
         "premium_peak": null
       },
       "Charmillion Club Resort": {
-        "history_max": 9710.0,
+        "history_max": 9711.0,
         "premium_peak": null
       },
       "Cleopatra Luxury Resort": {
@@ -1215,7 +1319,7 @@
         "premium_peak": 10657.0
       },
       "Pickalbatros Aqua Park Resort (Sharm El Sheikh)": {
-        "history_max": 9443.0,
+        "history_max": 9550.0,
         "premium_peak": null
       },
       "Pickalbatros Blu Spa Resort Hurghada": {
@@ -1243,8 +1347,8 @@
         "premium_peak": null
       },
       "Pickalbatros Oasis Port Ghalib (ex. Red Sea Port Ghalib Resort)": {
-        "history_max": 18502.0,
-        "premium_peak": 18502.0
+        "history_max": 18917.0,
+        "premium_peak": 18917.0
       },
       "Pickalbatros Palace Resort": {
         "history_max": 8497.0,
@@ -1359,7 +1463,7 @@
         "premium_peak": 11754.0
       },
       "Jaz Sharm Dreams Resort": {
-        "history_max": 8081.0,
+        "history_max": 8187.0,
         "premium_peak": null
       },
       "Jaz Solaya Resort (ex Sol Y Mar Solaya)": {
@@ -1423,8 +1527,8 @@
         "premium_peak": null
       },
       "Domina Coral Bay Prestige": {
-        "history_max": 19188.0,
-        "premium_peak": 19188.0
+        "history_max": 19488.0,
+        "premium_peak": 19488.0
       },
       "Pickalbatros Palace Port Ghalib (ex. Red Sea The Palace)": {
         "history_max": 18796.0,
