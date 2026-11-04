@@ -1,8 +1,22 @@
 {
   "version": 2,
-  "alerts": [],
+  "alerts": [
+    {
+      "hotel_name": "Akti Imperial Deluxe Resort (ex Capsis Rhodes)",
+      "duration_bucket": "",
+      "old_price": 11967.0,
+      "new_price": 11967.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-04 16:23:49.215595+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-04T16:24:42.252132+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Akti Imperial Deluxe Resort (ex Capsis Rhodes)_2026-11-04_16-23_zone_out_gone"
+    }
+  ],
   "meta": {
-    "last_processed_run": "2026-11-03T18:42:13.946845+00:00",
+    "last_processed_run": "2026-11-04T16:23:49.215595+00:00",
     "premium_state": {
       "Ramada by Wyndham Loutraki Poseidon Resort": {
         "history_max": 9092.0,

@@ -1,11 +1,350 @@
 {
   "version": 2,
-  "alerts": [],
+  "alerts": [
+    {
+      "hotel_name": "Alexander the Great Beach (Paphos)",
+      "duration_bucket": "",
+      "old_price": 5154.0,
+      "new_price": 5154.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-04 16:29:55.840823+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-04T16:30:49.040307+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Alexander the Great Beach (Paphos)_2026-11-04_16-29_zone_out_gone"
+    },
+    {
+      "hotel_name": "Arkin Palm Beach",
+      "duration_bucket": "",
+      "old_price": 5169.0,
+      "new_price": 5169.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-04 16:29:55.840823+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-04T16:30:49.040333+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Arkin Palm Beach_2026-11-04_16-29_zone_out_gone"
+    },
+    {
+      "hotel_name": "Atlantica Miramare Beach",
+      "duration_bucket": "",
+      "old_price": 4445.0,
+      "new_price": 4445.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-04 16:29:55.840823+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-04T16:30:49.040344+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Atlantica Miramare Beach_2026-11-04_16-29_zone_out_gone"
+    },
+    {
+      "hotel_name": "Capital Coast Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 5902.0,
+      "new_price": 5902.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-04 16:29:55.840823+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-04T16:30:49.040353+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Capital Coast Resort & Spa_2026-11-04_16-29_zone_out_gone"
+    },
+    {
+      "hotel_name": "Chrysomare",
+      "duration_bucket": "",
+      "old_price": 4583.0,
+      "new_price": 4583.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-04 16:29:55.840823+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-04T16:30:49.040362+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Chrysomare_2026-11-04_16-29_zone_out_gone"
+    },
+    {
+      "hotel_name": "Constantinou Bros Athena Beach (Paphos)",
+      "duration_bucket": "",
+      "old_price": 4519.0,
+      "new_price": 4519.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-04 16:29:55.840823+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-04T16:30:49.040371+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Constantinou Bros Athena Beach (Paphos)_2026-11-04_16-29_zone_out_gone"
+    },
+    {
+      "hotel_name": "Constantinou Bros Athena Royal Beach",
+      "duration_bucket": "",
+      "old_price": 4229.0,
+      "new_price": 4229.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-04 16:29:55.840823+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-04T16:30:49.040379+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Constantinou Bros Athena Royal Beach_2026-11-04_16-29_zone_out_gone"
+    },
+    {
+      "hotel_name": "Golden Bay Beach (Larnaka)",
+      "duration_bucket": "",
+      "old_price": 5139.0,
+      "new_price": 5139.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-04 16:29:55.840823+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-04T16:30:49.040388+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Golden Bay Beach (Larnaka)_2026-11-04_16-29_zone_out_gone"
+    },
+    {
+      "hotel_name": "Grand Pasha Casino",
+      "duration_bucket": "",
+      "old_price": 5139.0,
+      "new_price": 5139.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-04 16:29:55.840823+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-04T16:30:49.040397+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Grand Pasha Casino_2026-11-04_16-29_zone_out_gone"
+    },
+    {
+      "hotel_name": "Grand Sapphire City",
+      "duration_bucket": "",
+      "old_price": 5429.0,
+      "new_price": 5429.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-04 16:29:55.840823+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-04T16:30:49.040406+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Grand Sapphire City_2026-11-04_16-29_zone_out_gone"
+    },
+    {
+      "hotel_name": "Grand Sapphire Resort (Famagusta)",
+      "duration_bucket": "",
+      "old_price": 5109.0,
+      "new_price": 5109.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-04 16:29:55.840823+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-04T16:30:49.040415+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Grand Sapphire Resort (Famagusta)_2026-11-04_16-29_zone_out_gone"
+    },
+    {
+      "hotel_name": "Indigo Larnaca",
+      "duration_bucket": "",
+      "old_price": 5681.0,
+      "new_price": 5681.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-04 16:29:55.840823+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-04T16:30:49.040423+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Indigo Larnaca_2026-11-04_16-29_zone_out_gone"
+    },
+    {
+      "hotel_name": "King Evelthon Beach Hotel and Resort",
+      "duration_bucket": "",
+      "old_price": 5066.0,
+      "new_price": 5066.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-04 16:29:55.840823+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-04T16:30:49.040431+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "King Evelthon Beach Hotel and Resort_2026-11-04_16-29_zone_out_gone"
+    },
+    {
+      "hotel_name": "Leonardo Boutique Larnaca",
+      "duration_bucket": "",
+      "old_price": 4380.0,
+      "new_price": 4380.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-04 16:29:55.840823+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-04T16:30:49.040440+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Leonardo Boutique Larnaca_2026-11-04_16-29_zone_out_gone"
+    },
+    {
+      "hotel_name": "Leonardo Plaza Cypria Maris Beach & Spa (ex Cyprotel)",
+      "duration_bucket": "",
+      "old_price": 4362.0,
+      "new_price": 4362.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-04 16:29:55.840823+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-04T16:30:49.040448+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Leonardo Plaza Cypria Maris Beach & Spa (ex Cyprotel)_2026-11-04_16-29_zone_out_gone"
+    },
+    {
+      "hotel_name": "Louis Phaethon Beach",
+      "duration_bucket": "",
+      "old_price": 4754.0,
+      "new_price": 4754.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-04 16:29:55.840823+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-04T16:30:49.040456+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Louis Phaethon Beach_2026-11-04_16-29_zone_out_gone"
+    },
+    {
+      "hotel_name": "M Boutique Hotel (ex. Daphne)",
+      "duration_bucket": "",
+      "old_price": 4689.0,
+      "new_price": 4689.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-04 16:29:55.840823+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-04T16:30:49.040464+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "M Boutique Hotel (ex. Daphne)_2026-11-04_16-29_zone_out_gone"
+    },
+    {
+      "hotel_name": "Mayfair",
+      "duration_bucket": "",
+      "old_price": 4251.0,
+      "new_price": 4251.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-04 16:29:55.840823+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-04T16:30:49.040473+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Mayfair_2026-11-04_16-29_zone_out_gone"
+    },
+    {
+      "hotel_name": "Mayfair Gardens",
+      "duration_bucket": "",
+      "old_price": 4111.0,
+      "new_price": 4111.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-04 16:29:55.840823+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-04T16:30:49.040481+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Mayfair Gardens_2026-11-04_16-29_zone_out_gone"
+    },
+    {
+      "hotel_name": "NYX Limassol by Leonardo",
+      "duration_bucket": "",
+      "old_price": 5733.0,
+      "new_price": 5733.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-04 16:29:55.840823+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-04T16:30:49.040489+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "NYX Limassol by Leonardo_2026-11-04_16-29_zone_out_gone"
+    },
+    {
+      "hotel_name": "Polis 1907",
+      "duration_bucket": "",
+      "old_price": 4909.0,
+      "new_price": 4909.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-04 16:29:55.840823+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-04T16:30:49.040497+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Polis 1907_2026-11-04_16-29_zone_out_gone"
+    },
+    {
+      "hotel_name": "Poseidonia Beach",
+      "duration_bucket": "",
+      "old_price": 4148.0,
+      "new_price": 4148.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-04 16:29:55.840823+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-04T16:30:49.040520+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Poseidonia Beach_2026-11-04_16-29_zone_out_gone"
+    },
+    {
+      "hotel_name": "Radisson Beach Resort (ex. Princess Beach)",
+      "duration_bucket": "",
+      "old_price": 4345.0,
+      "new_price": 4345.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-04 16:29:55.840823+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-04T16:30:49.040529+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Radisson Beach Resort (ex. Princess Beach)_2026-11-04_16-29_zone_out_gone"
+    },
+    {
+      "hotel_name": "St. Raphael Resort",
+      "duration_bucket": "",
+      "old_price": 4939.0,
+      "new_price": 4939.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-04 16:29:55.840823+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-04T16:30:49.040537+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "St. Raphael Resort_2026-11-04_16-29_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sun Hall",
+      "duration_bucket": "",
+      "old_price": 4303.0,
+      "new_price": 4303.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-04 16:29:55.840823+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-04T16:30:49.040545+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sun Hall_2026-11-04_16-29_zone_out_gone"
+    },
+    {
+      "hotel_name": "Thalassa Boutique & SPA (ex. SENTIDO Thalassa Coral Bay)",
+      "duration_bucket": "",
+      "old_price": 4852.0,
+      "new_price": 4852.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-04 16:29:55.840823+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-04T16:30:49.040554+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Thalassa Boutique & SPA (ex. SENTIDO Thalassa Coral Bay)_2026-11-04_16-29_zone_out_gone"
+    }
+  ],
   "meta": {
-    "last_processed_run": "2026-11-04T06:22:50.456043+00:00",
+    "last_processed_run": "2026-11-04T16:29:55.840823+00:00",
     "premium_state": {
       "Acapulco Resort": {
-        "history_max": 3819.0,
+        "history_max": 3829.0,
         "premium_peak": null
       },
       "Radisson Beach Resort (ex. Princess Beach)": {
@@ -77,7 +416,7 @@
         "premium_peak": null
       },
       "Liquid Apartments": {
-        "history_max": 2754.0,
+        "history_max": 2766.0,
         "premium_peak": null
       },
       "Livadhiotis City": {
@@ -129,7 +468,7 @@
         "premium_peak": null
       },
       "Crystallo": {
-        "history_max": 2319.0,
+        "history_max": 2385.0,
         "premium_peak": null
       },
       "Alexander the Great Beach (Paphos)": {
@@ -141,11 +480,11 @@
         "premium_peak": null
       },
       "Altinkaya Resort": {
-        "history_max": 3019.0,
+        "history_max": 3029.0,
         "premium_peak": null
       },
       "Aphrodite Beach (Polis)": {
-        "history_max": 3117.0,
+        "history_max": 3183.0,
         "premium_peak": null
       },
       "Theo Sunset Bay Holiday Village (Pafos)": {
@@ -153,7 +492,7 @@
         "premium_peak": null
       },
       "Aquamare Beach & Spa": {
-        "history_max": 3570.0,
+        "history_max": 3571.0,
         "premium_peak": null
       },
       "Arkin Palm Beach": {
@@ -173,7 +512,7 @@
         "premium_peak": null
       },
       "Riverside Garden Resort": {
-        "history_max": 2179.0,
+        "history_max": 2189.0,
         "premium_peak": null
       },
       "Avlida": {
@@ -189,7 +528,7 @@
         "premium_peak": null
       },
       "Sveltos": {
-        "history_max": 2536.0,
+        "history_max": 2558.0,
         "premium_peak": null
       },
       "Mikes Kanarium City": {

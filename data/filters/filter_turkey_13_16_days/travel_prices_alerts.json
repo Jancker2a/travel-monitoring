@@ -208,10 +208,75 @@
       "created_at": "2026-11-04T02:34:41.178727+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Orange Palace_2026-11-04_02-33_comeback_10.1"
+    },
+    {
+      "hotel_name": "Villa Side Residence",
+      "duration_bucket": "",
+      "old_price": 9341.0,
+      "new_price": 8482.0,
+      "price_change": -859.0,
+      "price_change_pct": -9.196017557006744,
+      "timestamp": "2026-11-04 16:28:43.674391+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-04T16:29:48.763199+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Villa Side Residence_2026-11-04_16-28_-9.2"
+    },
+    {
+      "hotel_name": "Sural Resort",
+      "duration_bucket": "",
+      "old_price": 8543.0,
+      "new_price": 9639.0,
+      "price_change": 1096.0,
+      "price_change_pct": 12.829216902727378,
+      "timestamp": "2026-11-04 16:28:43.674391+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-04T16:29:48.763224+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sural Resort_2026-11-04_16-28_+12.8"
+    },
+    {
+      "hotel_name": "Ramada Resort Lara",
+      "duration_bucket": "",
+      "old_price": 9651.0,
+      "new_price": 10976.0,
+      "price_change": 1325.0,
+      "price_change_pct": 13.729147238628123,
+      "timestamp": "2026-11-04 16:28:43.674391+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-04T16:29:48.763238+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Ramada Resort Lara_2026-11-04_16-28_zone_out_+13.7"
+    },
+    {
+      "hotel_name": "Aydinbey Kings Palace",
+      "duration_bucket": "",
+      "old_price": 10902.0,
+      "new_price": 9738.0,
+      "price_change": -1164.0,
+      "price_change_pct": -10.676940011007154,
+      "timestamp": "2026-11-04 16:28:43.674391+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-11-04T16:29:48.763256+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Aydinbey Kings Palace_2026-11-04_16-28_comeback_10.7"
+    },
+    {
+      "hotel_name": "Side Royal Style (ex. Side Royal Luxury)",
+      "duration_bucket": "",
+      "old_price": 10847.0,
+      "new_price": 9886.0,
+      "price_change": -961.0,
+      "price_change_pct": -8.859592514059186,
+      "timestamp": "2026-11-04 16:28:43.674391+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-11-04T16:29:48.763266+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Side Royal Style (ex. Side Royal Luxury)_2026-11-04_16-28_comeback_8.9"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-04T06:21:24.952672+00:00",
+    "last_processed_run": "2026-11-04T16:28:43.674391+00:00",
     "premium_state": {
       "Alba Queen": {
         "history_max": 12036.0,
@@ -226,7 +291,7 @@
         "premium_peak": null
       },
       "Side Kum": {
-        "history_max": 8554.0,
+        "history_max": 9168.0,
         "premium_peak": null
       },
       "Orange County Alanya": {
@@ -234,8 +299,8 @@
         "premium_peak": 10292.0
       },
       "Orange County (Kemer)": {
-        "history_max": 10386.0,
-        "premium_peak": 10386.0
+        "history_max": 10520.0,
+        "premium_peak": 10520.0
       },
       "Villa Side Residence": {
         "history_max": 9341.0,
@@ -658,8 +723,8 @@
         "premium_peak": 16118.0
       },
       "Ramada Resort Lara": {
-        "history_max": 9651.0,
-        "premium_peak": null
+        "history_max": 10976.0,
+        "premium_peak": 10976.0
       },
       "Ramada Plaza Antalya": {
         "history_max": 17592.0,

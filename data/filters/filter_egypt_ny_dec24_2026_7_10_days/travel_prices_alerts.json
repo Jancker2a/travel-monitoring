@@ -299,10 +299,49 @@
       "created_at": "2026-11-04T06:20:16.767701+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sea Star Beau Rivage_2026-11-04_06-19_-11.1"
+    },
+    {
+      "hotel_name": "Sea Star Beau Rivage",
+      "duration_bucket": "",
+      "old_price": 8281.0,
+      "new_price": 9318.0,
+      "price_change": 1037.0,
+      "price_change_pct": 12.522642192971864,
+      "timestamp": "2026-11-04 16:26:43.441210+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-04T16:27:35.480539+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sea Star Beau Rivage_2026-11-04_16-26_+12.5"
+    },
+    {
+      "hotel_name": "Stella Beach Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 10952.0,
+      "new_price": 10952.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-04 16:26:43.441210+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-04T16:27:35.480565+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Stella Beach Resort & Spa_2026-11-04_16-26_zone_out_gone"
+    },
+    {
+      "hotel_name": "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort)",
+      "duration_bucket": "",
+      "old_price": 10695.0,
+      "new_price": 10695.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-04 16:26:43.441210+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-04T16:27:35.480573+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort)_2026-11-04_16-26_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-04T06:19:37.732708+00:00",
+    "last_processed_run": "2026-11-04T16:26:43.441210+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 10599.0,
@@ -345,7 +384,7 @@
         "premium_peak": null
       },
       "Xperience Kiroseiz Parkland": {
-        "history_max": 10424.0,
+        "history_max": 10722.0,
         "premium_peak": null
       },
       "Dreams Beach Sharm Resort (Sharm El Sheikh)": {
@@ -365,7 +404,7 @@
         "premium_peak": null
       },
       "V Grand Beach Resort Sahl Hasheesh": {
-        "history_max": 10714.0,
+        "history_max": 10987.0,
         "premium_peak": null
       },
       "Regency Plaza Aqua Park Spa": {
@@ -373,7 +412,7 @@
         "premium_peak": null
       },
       "Charmillion Garden Aqua Park": {
-        "history_max": 10596.0,
+        "history_max": 10795.0,
         "premium_peak": null
       },
       "Naama Bay Promenade Mountain Resort": {
@@ -385,7 +424,7 @@
         "premium_peak": null
       },
       "Imperial Shams Abu Soma Resort": {
-        "history_max": 10228.0,
+        "history_max": 10530.0,
         "premium_peak": null
       },
       "Xanadu Makadi Bay": {
@@ -394,6 +433,14 @@
       },
       "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort)": {
         "history_max": 10695.0,
+        "premium_peak": null
+      },
+      "Serenity Alma Heights (ex. Serenity Fun City)": {
+        "history_max": 10797.0,
+        "premium_peak": null
+      },
+      "Movenpick Waterpark Resort & Spa Soma Bay": {
+        "history_max": 10921.0,
         "premium_peak": null
       }
     }
