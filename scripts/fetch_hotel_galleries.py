@@ -194,9 +194,35 @@ def collect_hotel_offer_urls() -> Dict[str, str]:
     return urls
 
 
+def resolve_destination_from_url(url: str, default: str = "Египет") -> str:
+    """Accurately extracts destination country from Fly.pl canonical URL."""
+    if not url:
+        return default
+    m = re.search(r'fly\.pl/wycieczka/([^,/]+)', url)
+    if m:
+        c = m.group(1).lower()
+        if 'cypr' in c: return 'Кипр'
+        if 'turcj' in c or 'turkey' in c: return 'Турция'
+        if 'grecj' in c or 'greece' in c: return 'Греция'
+        if 'egipt' in c or 'egypt' in c: return 'Египет'
+        if 'hiszpan' in c or 'spain' in c: return 'Испания'
+        if 'bulgar' in c: return 'Болгария'
+    u_low = url.lower()
+    if any(k in u_low for k in ("cypr", "cyprus", "larnaka", "paphos", "limassol", "kyrenia", "alsancak", "protaras", "ayia-napa")):
+        return "Кипр"
+    if any(k in u_low for k in ("turcj", "turkey", "antalya", "alanya", "kemer", "side", "belek", "bodrum", "marmaris", "kusadasi")):
+        return "Турция"
+    if any(k in u_low for k in ("grecj", "greece", "kreta", "rhodes", "rodos", "corfu", "korfu", "zakynthos", "kos", "athens")):
+        return "Греция"
+    if any(k in u_low for k in ("hiszpan", "spain", "marbella", "mallorca", "tenerife")):
+        return "Испания"
+    return default
+
+
 def sync_galleries_into_specs_kb(
     galleries_kb_path: str = DEFAULT_GALLERIES_KB,
     specs_kb_path: str = DEFAULT_SPECS_KB,
+    urls_map: Optional[Dict[str, str]] = None,
 ) -> int:
     """Injects gallery_photos into hotel_specs_kb.json so Passports compile with galleries."""
     if not os.path.exists(galleries_kb_path) or not os.path.exists(specs_kb_path):
@@ -210,16 +236,29 @@ def sync_galleries_into_specs_kb(
         s_data = json.load(f)
     hotels = s_data.get("hotels", {})
 
+    if not urls_map:
+        try:
+            urls_map = collect_hotel_offer_urls()
+        except Exception:
+            urls_map = {}
+
     updated = 0
     for h_name, photos in galleries.items():
+        h_url = urls_map.get(h_name, "")
+        dest = resolve_destination_from_url(h_url, default="Египет")
+
         if h_name not in hotels:
             hotels[h_name] = {
-                "destination": "Кипр" if any(marker in str(photos) for marker in ("cypr", "larnaka", "paphos", "limassol", "kyrenia", "ayia-napa", "protaras")) else "Египет",
+                "destination": dest,
                 "specs": {"gallery_photos": photos}
             }
             updated += 1
         elif isinstance(hotels[h_name], dict):
             h_entry = hotels[h_name]
+            if h_url:
+                url_dest = resolve_destination_from_url(h_url)
+                if url_dest and h_entry.get("destination") != url_dest:
+                    h_entry["destination"] = url_dest
             if "specs" in h_entry and isinstance(h_entry["specs"], dict):
                 h_entry["specs"]["gallery_photos"] = photos
                 if "passport" in h_entry["specs"] and isinstance(h_entry["specs"]["passport"], dict):
@@ -332,7 +371,7 @@ def main():
     finally:
         if count > 0:
             save_galleries_kb(g_kb, args.galleries_kb)
-            sync_galleries_into_specs_kb(args.galleries_kb, args.specs_kb)
+            sync_galleries_into_specs_kb(args.galleries_kb, args.specs_kb, urls_map=discovered_urls)
             logger.info(f"🎉 Completed! Harvested {count} new hotel galleries.")
         else:
             logger.info("All scanned hotels already have photo galleries cached.")
