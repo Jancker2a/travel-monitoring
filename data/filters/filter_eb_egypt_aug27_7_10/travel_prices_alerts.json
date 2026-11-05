@@ -1742,10 +1742,75 @@
       "created_at": "2026-11-05T08:02:45.341095+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Xperience Sea Breeze Resort_2026-11-05_08-01_zone_out_gone"
+    },
+    {
+      "hotel_name": "Parrotel Lagoon Resort",
+      "duration_bucket": "",
+      "old_price": 6150.0,
+      "new_price": 6744.0,
+      "price_change": 594.0,
+      "price_change_pct": 9.658536585365853,
+      "timestamp": "2026-11-05 22:46:45.182958+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-05T22:47:41.625089+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Parrotel Lagoon Resort_2026-11-05_22-46_+9.7"
+    },
+    {
+      "hotel_name": "Concorde El Salam",
+      "duration_bucket": "",
+      "old_price": 8445.0,
+      "new_price": 8445.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-05 22:46:45.182958+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-05T22:47:41.625124+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Concorde El Salam_2026-11-05_22-46_zone_out_gone"
+    },
+    {
+      "hotel_name": "Concorde El Salam Sport",
+      "duration_bucket": "",
+      "old_price": 8264.0,
+      "new_price": 8264.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-05 22:46:45.182958+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-05T22:47:41.625134+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Concorde El Salam Sport_2026-11-05_22-46_zone_out_gone"
+    },
+    {
+      "hotel_name": "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort)",
+      "duration_bucket": "",
+      "old_price": 8442.0,
+      "new_price": 8442.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-05 22:46:45.182958+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-05T22:47:41.625142+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort)_2026-11-05_22-46_zone_out_gone"
+    },
+    {
+      "hotel_name": "Xperience Kiroseiz Parkland",
+      "duration_bucket": "",
+      "old_price": 8306.0,
+      "new_price": 8306.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-05 22:46:45.182958+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-05T22:47:41.625149+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xperience Kiroseiz Parkland_2026-11-05_22-46_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-05T08:01:51.334405+00:00",
+    "last_processed_run": "2026-11-05T22:46:45.182958+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 7757.0,
@@ -1760,11 +1825,11 @@
         "premium_peak": null
       },
       "Gemma Resort (ex. Labranda Gemma Premium Resort)": {
-        "history_max": 7280.0,
+        "history_max": 7333.0,
         "premium_peak": null
       },
       "Parrotel Lagoon Resort": {
-        "history_max": 6691.0,
+        "history_max": 6744.0,
         "premium_peak": null
       },
       "Hilton Marsa Alam Nubian Resort": {
@@ -1780,7 +1845,7 @@
         "premium_peak": null
       },
       "Sataya Resort (ex. Labranda Sataya Marsa Alam)": {
-        "history_max": 8474.0,
+        "history_max": 8549.0,
         "premium_peak": null
       },
       "Royal Lagoons Aqua (ex. Premium Blue)": {
@@ -1812,7 +1877,7 @@
         "premium_peak": null
       },
       "Movenpick Waterpark Resort & Spa Soma Bay": {
-        "history_max": 8481.0,
+        "history_max": 8628.0,
         "premium_peak": null
       },
       "Novotel Marsa Alam": {
@@ -1828,7 +1893,7 @@
         "premium_peak": null
       },
       "Three Corners Fayrouz Plaza Beach Resort": {
-        "history_max": 8323.0,
+        "history_max": 8365.0,
         "premium_peak": null
       },
       "Calimera Blend Paradise Resort": {
@@ -1844,7 +1909,7 @@
         "premium_peak": null
       },
       "Amarina Queen Resort": {
-        "history_max": 7190.0,
+        "history_max": 7259.0,
         "premium_peak": null
       },
       "Tropitel Sahl Hasheesh": {
@@ -1852,7 +1917,7 @@
         "premium_peak": null
       },
       "Amarina Jannah Heights Resort & Aqua Park": {
-        "history_max": 7730.0,
+        "history_max": 7799.0,
         "premium_peak": null
       },
       "Albatros Sea World Resort Marsa Alam": {
@@ -1860,7 +1925,7 @@
         "premium_peak": null
       },
       "Xperience Kiroseiz Premier": {
-        "history_max": 8363.0,
+        "history_max": 8410.0,
         "premium_peak": null
       },
       "V Grand Beach Resort Sahl Hasheesh": {

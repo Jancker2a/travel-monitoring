@@ -1430,10 +1430,23 @@
       "created_at": "2026-11-04T18:49:06.146192+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Gafy Resort_2026-11-04_18-48_zone_out_gone"
+    },
+    {
+      "hotel_name": "Amwaj Oyoun Resort & Casino",
+      "duration_bucket": "",
+      "old_price": 4659.0,
+      "new_price": 5170.0,
+      "price_change": 511.0,
+      "price_change_pct": 10.968018888173429,
+      "timestamp": "2026-11-05 22:51:56.171310+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-05T22:52:52.505175+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amwaj Oyoun Resort & Casino_2026-11-05_22-51_+11.0"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-05T16:38:04.281628+00:00",
+    "last_processed_run": "2026-11-05T22:51:56.171310+00:00",
     "premium_state": {
       "Amphoras Aqua": {
         "history_max": 5072.0,
@@ -1508,7 +1521,7 @@
         "premium_peak": null
       },
       "Amwaj Oyoun Resort & Casino": {
-        "history_max": 4659.0,
+        "history_max": 5170.0,
         "premium_peak": null
       },
       "Viva Sharm": {

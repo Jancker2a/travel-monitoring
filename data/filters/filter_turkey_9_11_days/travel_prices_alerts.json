@@ -1248,10 +1248,101 @@
       "created_at": "2026-11-05T16:41:47.813721+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Yalihan Aspendos_2026-11-05_16-40_zone_out_gone"
+    },
+    {
+      "hotel_name": "Limak Limra",
+      "duration_bucket": "",
+      "old_price": 8090.0,
+      "new_price": 6832.0,
+      "price_change": -1258.0,
+      "price_change_pct": -15.550061804697158,
+      "timestamp": "2026-11-05 22:54:14.060551+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-05T22:55:28.059428+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Limak Limra_2026-11-05_22-54_-15.6"
+    },
+    {
+      "hotel_name": "Aydinbey Kings Palace",
+      "duration_bucket": "",
+      "old_price": 8751.0,
+      "new_price": 7702.0,
+      "price_change": -1049.0,
+      "price_change_pct": -11.987201462689978,
+      "timestamp": "2026-11-05 22:54:14.060551+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-05T22:55:28.059457+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Aydinbey Kings Palace_2026-11-05_22-54_-12.0"
+    },
+    {
+      "hotel_name": "Adora Hotel & Resort (ex. Adora Golf)",
+      "duration_bucket": "",
+      "old_price": 8657.0,
+      "new_price": 8657.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-05 22:54:14.060551+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-05T22:55:28.059474+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Adora Hotel & Resort (ex. Adora Golf)_2026-11-05_22-54_zone_out_gone"
+    },
+    {
+      "hotel_name": "Corendon Playa Kemer",
+      "duration_bucket": "",
+      "old_price": 8738.0,
+      "new_price": 8738.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-05 22:54:14.060551+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-05T22:55:28.059483+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Corendon Playa Kemer_2026-11-05_22-54_zone_out_gone"
+    },
+    {
+      "hotel_name": "Numa Bay Exclusive (ex Sentido Numa Bay)",
+      "duration_bucket": "",
+      "old_price": 7668.0,
+      "new_price": 7668.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-05 22:54:14.060551+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-05T22:55:28.059490+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Numa Bay Exclusive (ex Sentido Numa Bay)_2026-11-05_22-54_zone_out_gone"
+    },
+    {
+      "hotel_name": "Side Royal Style (ex. Side Royal Luxury)",
+      "duration_bucket": "",
+      "old_price": 8851.0,
+      "new_price": 8851.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-05 22:54:14.060551+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-05T22:55:28.059497+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Side Royal Style (ex. Side Royal Luxury)_2026-11-05_22-54_zone_out_gone"
+    },
+    {
+      "hotel_name": "Terrace Beach Resort (Side)",
+      "duration_bucket": "",
+      "old_price": 8770.0,
+      "new_price": 8770.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-05 22:54:14.060551+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-05T22:55:28.059503+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Terrace Beach Resort (Side)_2026-11-05_22-54_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-05T16:40:30.025327+00:00",
+    "last_processed_run": "2026-11-05T22:54:14.060551+00:00",
     "premium_state": {
       "Alba Queen": {
         "history_max": 8477.0,
@@ -1306,7 +1397,7 @@
         "premium_peak": null
       },
       "Seamelia Beach Resort & Spa": {
-        "history_max": 7921.0,
+        "history_max": 8361.0,
         "premium_peak": null
       },
       "Seher Resort & Spa": {
