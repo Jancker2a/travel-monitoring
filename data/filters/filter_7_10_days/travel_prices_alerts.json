@@ -2197,10 +2197,75 @@
       "created_at": "2026-11-04T18:47:12.530338+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Parrotel Beach Resort (ex. Radisson Blu)_2026-11-04_18-46_zone_out_gone"
+    },
+    {
+      "hotel_name": "Novotel Marsa Alam",
+      "duration_bucket": "",
+      "old_price": 6081.0,
+      "new_price": 6675.0,
+      "price_change": 594.0,
+      "price_change_pct": 9.768130241736557,
+      "timestamp": "2026-11-05 00:29:38.447071+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-05T00:30:36.962965+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Novotel Marsa Alam_2026-11-05_00-29_+9.8"
+    },
+    {
+      "hotel_name": "Jaz Grand Marsa (ex Resta Grand Resort)",
+      "duration_bucket": "",
+      "old_price": 6483.0,
+      "new_price": 7173.0,
+      "price_change": 690.0,
+      "price_change_pct": 10.64322073114299,
+      "timestamp": "2026-11-05 00:29:38.447071+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-05T00:30:36.962986+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Grand Marsa (ex Resta Grand Resort)_2026-11-05_00-29_+10.6"
+    },
+    {
+      "hotel_name": "Gemma Resort (ex. Labranda Gemma Premium Resort)",
+      "duration_bucket": "",
+      "old_price": 6309.0,
+      "new_price": 6845.0,
+      "price_change": 536.0,
+      "price_change_pct": 8.495799651291804,
+      "timestamp": "2026-11-05 00:29:38.447071+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-05T00:30:36.963005+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Gemma Resort (ex. Labranda Gemma Premium Resort)_2026-11-05_00-29_+8.5"
+    },
+    {
+      "hotel_name": "Movenpick Waterpark Resort & Spa Soma Bay",
+      "duration_bucket": "",
+      "old_price": 7289.0,
+      "new_price": 7289.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-05 00:29:38.447071+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-05T00:30:36.963016+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Movenpick Waterpark Resort & Spa Soma Bay_2026-11-05_00-29_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sataya Resort (ex. Labranda Sataya Marsa Alam)",
+      "duration_bucket": "",
+      "old_price": 7157.0,
+      "new_price": 7157.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-05 00:29:38.447071+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-05T00:30:36.963021+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sataya Resort (ex. Labranda Sataya Marsa Alam)_2026-11-05_00-29_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-04T18:46:09.539483+00:00",
+    "last_processed_run": "2026-11-05T00:29:38.447071+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 6277.0,
@@ -2211,7 +2276,7 @@
         "premium_peak": null
       },
       "Regency Plaza Aqua Park Spa": {
-        "history_max": 7220.0,
+        "history_max": 7278.0,
         "premium_peak": null
       },
       "Pickalbatros Laguna Club Resort": {

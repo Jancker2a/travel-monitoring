@@ -338,10 +338,36 @@
       "created_at": "2026-11-04T16:30:49.040554+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Thalassa Boutique & SPA (ex. SENTIDO Thalassa Coral Bay)_2026-11-04_16-29_zone_out_gone"
+    },
+    {
+      "hotel_name": "Pyramos",
+      "duration_bucket": "",
+      "old_price": 2699.0,
+      "new_price": 3489.0,
+      "price_change": 790.0,
+      "price_change_pct": 29.27010003705076,
+      "timestamp": "2026-11-05 00:34:51.934470+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-05T00:35:43.713371+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pyramos_2026-11-05_00-34_+29.3"
+    },
+    {
+      "hotel_name": "Frangiorgio",
+      "duration_bucket": "",
+      "old_price": 4068.0,
+      "new_price": 4068.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-05 00:34:51.934470+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-05T00:35:43.713402+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Frangiorgio_2026-11-05_00-34_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-04T18:50:51.055998+00:00",
+    "last_processed_run": "2026-11-05T00:34:51.934470+00:00",
     "premium_state": {
       "Acapulco Resort": {
         "history_max": 3829.0,
@@ -356,7 +382,7 @@
         "premium_peak": null
       },
       "Pyramos": {
-        "history_max": 2699.0,
+        "history_max": 3489.0,
         "premium_peak": null
       },
       "Grand Sapphire City": {
@@ -368,7 +394,7 @@
         "premium_peak": null
       },
       "Protaras Plaza": {
-        "history_max": 2703.0,
+        "history_max": 2723.0,
         "premium_peak": null
       },
       "Indigo Larnaca": {
@@ -388,7 +414,7 @@
         "premium_peak": null
       },
       "Lebay Beach": {
-        "history_max": 3358.0,
+        "history_max": 3389.0,
         "premium_peak": null
       },
       "Polis 1907": {
@@ -420,7 +446,7 @@
         "premium_peak": null
       },
       "Livadhiotis City": {
-        "history_max": 2506.0,
+        "history_max": 2546.0,
         "premium_peak": null
       },
       "Paphos Gardens Holiday Resort (ex Leptos )": {
