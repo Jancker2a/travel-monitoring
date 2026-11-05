@@ -1131,10 +1131,88 @@
       "created_at": "2026-11-05T00:35:29.292380+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Side Prenses_2026-11-05_00-34_zone_out_gone"
+    },
+    {
+      "hotel_name": "Side Royal Style (ex. Side Royal Luxury)",
+      "duration_bucket": "",
+      "old_price": 7978.0,
+      "new_price": 8854.0,
+      "price_change": 876.0,
+      "price_change_pct": 10.980195537728754,
+      "timestamp": "2026-11-05 08:08:53.387401+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-05T08:10:02.293288+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Side Royal Style (ex. Side Royal Luxury)_2026-11-05_08-08_+11.0"
+    },
+    {
+      "hotel_name": "Aydinbey Kings Palace",
+      "duration_bucket": "",
+      "old_price": 7890.0,
+      "new_price": 8751.0,
+      "price_change": 861.0,
+      "price_change_pct": 10.912547528517111,
+      "timestamp": "2026-11-05 08:08:53.387401+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-05T08:10:02.293314+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Aydinbey Kings Palace_2026-11-05_08-08_+10.9"
+    },
+    {
+      "hotel_name": "Villa Side Residence",
+      "duration_bucket": "",
+      "old_price": 6840.0,
+      "new_price": 7647.0,
+      "price_change": 807.0,
+      "price_change_pct": 11.798245614035089,
+      "timestamp": "2026-11-05 08:08:53.387401+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-05T08:10:02.293323+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Villa Side Residence_2026-11-05_08-08_+11.8"
+    },
+    {
+      "hotel_name": "Limak Limra",
+      "duration_bucket": "",
+      "old_price": 7030.0,
+      "new_price": 8090.0,
+      "price_change": 1060.0,
+      "price_change_pct": 15.078236130867708,
+      "timestamp": "2026-11-05 08:08:53.387401+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-05T08:10:02.293330+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Limak Limra_2026-11-05_08-08_+15.1"
+    },
+    {
+      "hotel_name": "Side Royal Palace",
+      "duration_bucket": "",
+      "old_price": 8054.0,
+      "new_price": 8054.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-05 08:08:53.387401+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-05T08:10:02.293342+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Side Royal Palace_2026-11-05_08-08_zone_out_gone"
+    },
+    {
+      "hotel_name": "Trendy Aspendos Beach",
+      "duration_bucket": "",
+      "old_price": 8630.0,
+      "new_price": 8630.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-05 08:08:53.387401+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-05T08:10:02.293349+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Trendy Aspendos Beach_2026-11-05_08-08_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-05T00:34:29.612847+00:00",
+    "last_processed_run": "2026-11-05T08:08:53.387401+00:00",
     "premium_state": {
       "Alba Queen": {
         "history_max": 8477.0,
@@ -1229,7 +1307,7 @@
         "premium_peak": null
       },
       "Terrace Beach Resort (Side)": {
-        "history_max": 8636.0,
+        "history_max": 8770.0,
         "premium_peak": null
       },
       "Castival (ex. La Grande Resort & Spa)": {
@@ -1257,7 +1335,7 @@
         "premium_peak": null
       },
       "Sunis Evren Beach & Spa": {
-        "history_max": 8791.0,
+        "history_max": 8924.0,
         "premium_peak": null
       },
       "Side Royal Style (ex. Side Royal Luxury)": {

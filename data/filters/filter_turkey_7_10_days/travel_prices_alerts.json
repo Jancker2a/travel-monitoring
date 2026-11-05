@@ -2288,10 +2288,49 @@
       "created_at": "2026-11-05T00:34:54.879073+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Porto Bello_2026-11-05_00-33_comeback_37.1"
+    },
+    {
+      "hotel_name": "Seher Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 6200.0,
+      "new_price": 5700.0,
+      "price_change": -500.0,
+      "price_change_pct": -8.064516129032258,
+      "timestamp": "2026-11-05 08:08:45.938132+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-05T08:09:59.408792+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Seher Resort & Spa_2026-11-05_08-08_-8.1"
+    },
+    {
+      "hotel_name": "Sherwood Exclusive Lara (ex Sherwood Breezes)",
+      "duration_bucket": "",
+      "old_price": 6744.0,
+      "new_price": 6744.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-05 08:08:45.938132+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-05T08:09:59.408829+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sherwood Exclusive Lara (ex Sherwood Breezes)_2026-11-05_08-08_zone_out_gone"
+    },
+    {
+      "hotel_name": "Trendy Lara",
+      "duration_bucket": "",
+      "old_price": 6778.0,
+      "new_price": 6778.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-05 08:08:45.938132+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-05T08:09:59.408837+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Trendy Lara_2026-11-05_08-08_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-05T00:33:50.996431+00:00",
+    "last_processed_run": "2026-11-05T08:08:45.938132+00:00",
     "premium_state": {
       "Alba Queen": {
         "history_max": 7157.0,
@@ -2362,7 +2401,7 @@
         "premium_peak": null
       },
       "Sural Resort": {
-        "history_max": 5814.0,
+        "history_max": 5989.0,
         "premium_peak": null
       },
       "Aska Just in Beach": {
