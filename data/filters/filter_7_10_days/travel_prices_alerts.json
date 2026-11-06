@@ -2704,10 +2704,101 @@
       "created_at": "2026-11-06T03:34:12.424835+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Royal Regency Club_2026-11-06_03-33_zone_out_gone"
+    },
+    {
+      "hotel_name": "Novotel Marsa Alam",
+      "duration_bucket": "",
+      "old_price": 5811.0,
+      "new_price": 7007.0,
+      "price_change": 1196.0,
+      "price_change_pct": 20.581655480984338,
+      "timestamp": "2026-11-06 11:34:08.943451+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-06T11:35:05.313126+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Novotel Marsa Alam_2026-11-06_11-34_+20.6"
+    },
+    {
+      "hotel_name": "Swisstouch Oriental Resort (ex. Hotelux Oriental Coast)",
+      "duration_bucket": "",
+      "old_price": 5105.0,
+      "new_price": 6395.0,
+      "price_change": 1290.0,
+      "price_change_pct": 25.269343780607244,
+      "timestamp": "2026-11-06 11:34:08.943451+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-06T11:35:05.313151+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Swisstouch Oriental Resort (ex. Hotelux Oriental Coast)_2026-11-06_11-34_+25.3"
+    },
+    {
+      "hotel_name": "Jaz Grand Marsa (ex Resta Grand Resort)",
+      "duration_bucket": "",
+      "old_price": 6309.0,
+      "new_price": 7207.0,
+      "price_change": 898.0,
+      "price_change_pct": 14.233634490410523,
+      "timestamp": "2026-11-06 11:34:08.943451+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-06T11:35:05.313162+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Grand Marsa (ex Resta Grand Resort)_2026-11-06_11-34_+14.2"
+    },
+    {
+      "hotel_name": "Rewaya Majestic Resort",
+      "duration_bucket": "",
+      "old_price": 5918.0,
+      "new_price": 6437.0,
+      "price_change": 519.0,
+      "price_change_pct": 8.76985468063535,
+      "timestamp": "2026-11-06 11:34:08.943451+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-06T11:35:05.313169+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Majestic Resort_2026-11-06_11-34_+8.8"
+    },
+    {
+      "hotel_name": "Gemma Resort (ex. Labranda Gemma Premium Resort)",
+      "duration_bucket": "",
+      "old_price": 6595.0,
+      "new_price": 6595.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-06 11:34:08.943451+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-06T11:35:05.313182+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Gemma Resort (ex. Labranda Gemma Premium Resort)_2026-11-06_11-34_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sataya Resort (ex. Labranda Sataya Marsa Alam)",
+      "duration_bucket": "",
+      "old_price": 6997.0,
+      "new_price": 6997.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-06 11:34:08.943451+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-06T11:35:05.313189+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sataya Resort (ex. Labranda Sataya Marsa Alam)_2026-11-06_11-34_zone_out_gone"
+    },
+    {
+      "hotel_name": "Titanic Palace Resort",
+      "duration_bucket": "",
+      "old_price": 7316.0,
+      "new_price": 7316.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-06 11:34:08.943451+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-06T11:35:05.313195+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Titanic Palace Resort_2026-11-06_11-34_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-06T03:33:03.467061+00:00",
+    "last_processed_run": "2026-11-06T11:34:08.943451+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 6343.0,
@@ -2742,7 +2833,7 @@
         "premium_peak": null
       },
       "Novotel Marsa Alam": {
-        "history_max": 6971.0,
+        "history_max": 7007.0,
         "premium_peak": null
       },
       "Naama Bay Promenade Mountain Resort": {
