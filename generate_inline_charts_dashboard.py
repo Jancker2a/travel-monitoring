@@ -1494,6 +1494,10 @@ def determine_price_forecast(
         if delta48_pct_val <= 0.0:
             return {'text': 'Покупать', 'class': 'forecast-buy', 'icon': '🟢'}
         return {'text': 'Наблюдать', 'class': 'forecast-wait', 'icon': '🟡'}
+    if deal_score >= 85 and avg_pct_val <= 3.0 and delta48_pct_val <= 5.0:
+        return {'text': 'Покупать', 'class': 'forecast-buy', 'icon': '🟢'}
+    if deal_score >= 75 and avg_pct_val <= 3.0 and delta48_pct_val <= 5.0:
+        return {'text': 'Выгодно', 'class': 'forecast-buy', 'icon': '🟢'}
     if -5.0 <= avg_pct_val <= 5.0:
         return {'text': 'Наблюдать', 'class': 'forecast-wait', 'icon': '🟡'}
     if is_bad or deal_score < 80:
@@ -3875,10 +3879,17 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
                         f"Цена завышена (+{d_avg_v:.1f}% к типичной цене отеля, Deal Score {ds}/100). "
                         f"Рекомендуется подождать снижения или рассмотреть альтернативы."
                     )
-                elif ds >= 65 and cur_verdict == "WAIT":
-                    all_hotels.at[idx, 'hopper_badge'] = '🟢 ХОРОШАЯ ЦЕНА'
+                elif ds >= 85 and cur_verdict == "WAIT":
+                    all_hotels.at[idx, 'hopper_verdict'] = 'BUY_NOW'
+                    all_hotels.at[idx, 'hopper_badge'] = '🟢 ПОКУПАТЬ'
                     all_hotels.at[idx, 'hopper_reasoning'] = (
-                        f"Цена привлекательна (Deal Score {ds}/100), но вероятность сезонных колебаний сохраняется."
+                        f"Топ-предложение (Deal Score {ds}/100): исключительное соотношение цены и качества, откладывать покупку рискованно."
+                    )
+                elif ds >= 65 and cur_verdict == "WAIT":
+                    all_hotels.at[idx, 'hopper_verdict'] = 'GOOD_PRICE'
+                    all_hotels.at[idx, 'hopper_badge'] = '🟢 ВЫГОДНАЯ ЦЕНА'
+                    all_hotels.at[idx, 'hopper_reasoning'] = (
+                        f"Цена привлекательна (Deal Score {ds}/100): отличное качество для этой стоимости."
                     )
 
     entry_candidates = sorted(
@@ -4386,6 +4397,20 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             hopper_verdict = "OVERPRICED"
             hopper_badge = "🔴 ДОРОГО"
             hopper_reasoning = f"Цена завышена: {d_avg_card:+.1f}% к своей средней (Deal Score {deal_score}). Лучше подождать снижения."
+
+        # Positive guardrail: Eliminate contradictory 'WAIT' recommendation on high Deal Score, gems or underpriced hotels
+        is_gem_card = bool(h_dossier.get("gem_badge")) if (oracle_report and h_dossier) else False
+        is_underpriced_card = (h_dossier.get("fair_price_class") == "fair-underpriced") if (oracle_report and h_dossier) else False
+        if not is_overpriced_card and (deal_score >= 75 or is_gem_card or is_underpriced_card):
+            if hopper_verdict == "WAIT" or "ПОДОЖДАТЬ" in hopper_badge:
+                if deal_score >= 85:
+                    hopper_verdict = "BUY_NOW"
+                    hopper_badge = "🟢 ПОКУПАТЬ"
+                    hopper_reasoning = f"Топ-предложение (Deal Score {deal_score}/100): исключительно высокое соотношение цены и качества. Ждать снижения рискованно."
+                else:
+                    hopper_verdict = "GOOD_PRICE"
+                    hopper_badge = "🟢 ВЫГОДНАЯ ЦЕНА"
+                    hopper_reasoning = f"Выгодная сделка (Deal Score {deal_score}/100): отличное соотношение цены и уровня отеля."
 
         hopper_class = "buy-now" if hopper_verdict == "BUY_NOW" else ("wait" if hopper_verdict == "WAIT" else ("overpriced" if hopper_verdict == "OVERPRICED" else "neutral"))
 
@@ -11839,6 +11864,20 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             hopper_verdict_tbl = "OVERPRICED"
             hopper_badge_tbl = "🔴 ДОРОГО"
             hopper_reasoning_tbl = f"Цена завышена: {d_avg_tbl_val:+.1f}% к своей средней (Deal Score {deal_score}). Лучше подождать снижения."
+
+        # Positive guardrail: Eliminate contradictory 'WAIT' recommendation on high Deal Score, gems or underpriced hotels
+        is_gem_tbl = bool(h_d_tbl.get("gem_badge")) if (oracle_report and h_d_tbl) else False
+        is_underpriced_tbl = (h_d_tbl.get("fair_price_class") == "fair-underpriced") if (oracle_report and h_d_tbl) else False
+        if not is_overpriced_tbl and (deal_score >= 75 or is_gem_tbl or is_underpriced_tbl):
+            if hopper_verdict_tbl == "WAIT" or "ПОДОЖДАТЬ" in hopper_badge_tbl:
+                if deal_score >= 85:
+                    hopper_verdict_tbl = "BUY_NOW"
+                    hopper_badge_tbl = "🟢 ПОКУПАТЬ"
+                    hopper_reasoning_tbl = f"Топ-предложение (Deal Score {deal_score}/100): исключительно высокое соотношение цены и качества. Ждать снижения рискованно."
+                else:
+                    hopper_verdict_tbl = "GOOD_PRICE"
+                    hopper_badge_tbl = "🟢 ВЫГОДНАЯ ЦЕНА"
+                    hopper_reasoning_tbl = f"Выгодная сделка (Deal Score {deal_score}/100): отличное соотношение цены и уровня отеля."
 
         # 6. Hotel Reputation Knowledge Base Badges
         if reputation_kb_data and hotel_name in reputation_kb_data:
