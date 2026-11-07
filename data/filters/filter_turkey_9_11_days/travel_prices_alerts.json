@@ -1651,10 +1651,127 @@
       "created_at": "2026-11-07T10:28:41.106882+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Trendy Lara_2026-11-07_10-27_zone_out_gone"
+    },
+    {
+      "hotel_name": "Limak Atlantis",
+      "duration_bucket": "",
+      "old_price": 8219.0,
+      "new_price": 7317.0,
+      "price_change": -902.0,
+      "price_change_pct": -10.974571115707507,
+      "timestamp": "2026-11-07 12:09:14.596582+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-07T12:10:20.688408+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Limak Atlantis_2026-11-07_12-09_-11.0"
+    },
+    {
+      "hotel_name": "Side Royal Palace",
+      "duration_bucket": "",
+      "old_price": 8054.0,
+      "new_price": 7277.0,
+      "price_change": -777.0,
+      "price_change_pct": -9.647380183759623,
+      "timestamp": "2026-11-07 12:09:14.596582+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-07T12:10:20.688433+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Side Royal Palace_2026-11-07_12-09_-9.6"
+    },
+    {
+      "hotel_name": "Trendy Aspendos Beach",
+      "duration_bucket": "",
+      "old_price": 8155.0,
+      "new_price": 7253.0,
+      "price_change": -902.0,
+      "price_change_pct": -11.060698957694665,
+      "timestamp": "2026-11-07 12:09:14.596582+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-07T12:10:20.688442+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Trendy Aspendos Beach_2026-11-07_12-09_-11.1"
+    },
+    {
+      "hotel_name": "Aydinbey Kings Palace",
+      "duration_bucket": "",
+      "old_price": 7870.0,
+      "new_price": 7031.0,
+      "price_change": -839.0,
+      "price_change_pct": -10.660736975857688,
+      "timestamp": "2026-11-07 12:09:14.596582+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-07T12:10:20.688450+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Aydinbey Kings Palace_2026-11-07_12-09_-10.7"
+    },
+    {
+      "hotel_name": "Limak Limra",
+      "duration_bucket": "",
+      "old_price": 7219.0,
+      "new_price": 6385.0,
+      "price_change": -834.0,
+      "price_change_pct": -11.55284665466131,
+      "timestamp": "2026-11-07 12:09:14.596582+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-07T12:10:20.688457+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Limak Limra_2026-11-07_12-09_-11.6"
+    },
+    {
+      "hotel_name": "Beach Club Doganay",
+      "duration_bucket": "",
+      "old_price": 8332.0,
+      "new_price": 8332.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-07 12:09:14.596582+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-07T12:10:20.688468+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Beach Club Doganay_2026-11-07_12-09_zone_out_gone"
+    },
+    {
+      "hotel_name": "Orange Palace",
+      "duration_bucket": "",
+      "old_price": 8315.0,
+      "new_price": 8315.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-07 12:09:14.596582+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-07T12:10:20.688475+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Orange Palace_2026-11-07_12-09_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sensitive Premium Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 8434.0,
+      "new_price": 8434.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-07 12:09:14.596582+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-07T12:10:20.688480+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sensitive Premium Resort & Spa_2026-11-07_12-09_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sealife Family Resort",
+      "duration_bucket": "",
+      "old_price": 13627.0,
+      "new_price": 8017.0,
+      "price_change": -5610.0,
+      "price_change_pct": -41.168268877962866,
+      "timestamp": "2026-11-07 12:09:14.596582+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-11-07T12:10:20.688499+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sealife Family Resort_2026-11-07_12-09_comeback_41.2"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-07T10:27:28.931615+00:00",
+    "last_processed_run": "2026-11-07T12:09:14.596582+00:00",
     "premium_state": {
       "Alba Queen": {
         "history_max": 8477.0,
@@ -2210,6 +2327,10 @@
       },
       "Trendy Lara": {
         "history_max": 8535.0,
+        "premium_peak": null
+      },
+      "Limak Lara De Luxe": {
+        "history_max": 8171.0,
         "premium_peak": null
       }
     }
