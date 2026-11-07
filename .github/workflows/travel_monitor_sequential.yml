@@ -193,30 +193,6 @@ jobs:
           python scripts/run_dashboards_parallel.py -j "${DASHBOARD_PARALLEL_JOBS}" ${EXTRA_FLAGS}
           echo "✅ Dashboards + landing generated"
 
-      - name: Setup GitHub Pages
-        uses: actions/configure-pages@v4
-
-      - name: Prepare site directory (HTML + hotel_series only)
-        run: |
-          bash scripts/prepare_pages_site.sh
-
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: 'site'
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
-
-      - name: Send Telegram notifications
-        env:
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: |
-          echo "📱 Processing Telegram notifications..."
-          python telegram_notifier.py || echo "⚠️ Telegram notification step completed with warning (non-critical)"
-
       - name: Commit and push data updates
         run: |
           echo "📝 Committing data changes..."
@@ -270,6 +246,51 @@ jobs:
             git push origin HEAD
             echo "✅ Changes committed and pushed"
           fi
+
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v4
+
+      - name: Prepare site directory (HTML + hotel_series only)
+        run: |
+          bash scripts/prepare_pages_site.sh
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'site'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+        continue-on-error: true
+        with:
+          timeout: 900000
+          error_count: 15
+          reporting_interval: 10000
+
+      - name: Retry deploy (if transient Pages sync timeout)
+        if: steps.deployment.outcome == 'failure'
+        id: deployment-retry
+        uses: actions/deploy-pages@v4
+        continue-on-error: true
+        with:
+          timeout: 900000
+          error_count: 15
+          reporting_interval: 10000
+
+      - name: Verify Pages deployment
+        if: steps.deployment.outcome == 'failure' && steps.deployment-retry.outcome != 'success'
+        run: |
+          echo "::warning::GitHub Pages deployment timed out after retry. Edge sync is still processing on GitHub backend."
+
+      - name: Send Telegram notifications
+        if: always()
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          echo "📱 Processing Telegram notifications..."
+          python telegram_notifier.py || echo "⚠️ Telegram notification step completed with warning (non-critical)"
 
       - name: Create summary
         if: always()
