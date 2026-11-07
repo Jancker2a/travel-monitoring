@@ -416,6 +416,12 @@ def generate_rule_based_briefing(market_context: Dict[str, Any]) -> Dict[str, An
             rationale = f"Цена {cur_p:,.0f} zł на {abs(diff_from_med):.0f}% ниже обычной средней цены отеля ({hist_med:,.0f} zł)."
             risk = "Цена может слегка колебаться, но предложение уже достаточно выгодное."
             advice = "Хорошая цена со скидкой, можно бронировать."
+        elif (h.get("gem", {}).get("is_gem") or fp.get("class") == "fair-underpriced") and diff_from_med <= 3.0:
+            verdict = "GOOD_PRICE"
+            verdict_badge = "🟢 ВЫГОДНАЯ ЦЕНА"
+            rationale = f"Отель признан жемчужиной или существенно выгоднее аналогов ({cur_p:,.0f} zł)."
+            risk = "Качественные предложения в этом сегменте быстро раскупаются."
+            advice = "Отличное соотношение цены и уровня отеля. Рекомендуется к бронированию."
         else:
             verdict = "WAIT"
             verdict_badge = "🟡 ПОДОЖДАТЬ"
@@ -647,6 +653,11 @@ def enrich_oracle_report_with_smart_features(
                 b_text = "🔵 ХОРОШАЯ ЦЕНА"
                 rat = f"Цена {cur_p:,.0f} zł на {abs(diff_from_med):.0f}% ниже обычной средней цены отеля ({hist_med:,.0f} zł)."
                 adv = "Хорошая цена со скидкой, можно бронировать."
+            elif (h_info.get("gem", {}).get("is_gem") or fp.get("class") == "fair-underpriced") and diff_from_med <= 3.0:
+                v = "GOOD_PRICE"
+                b_text = "🟢 ВЫГОДНАЯ ЦЕНА"
+                rat = f"Отель признан жемчужиной или существенно выгоднее аналогов ({cur_p:,.0f} zł)."
+                adv = "Отличное соотношение цены и качества, можно бронировать."
             else:
                 v = "WAIT"
                 b_text = "🟡 ПОДОЖДАТЬ"

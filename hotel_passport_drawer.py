@@ -2868,6 +2868,17 @@ def get_hotel_passport_js() -> str:
       }
       const adviceEl = document.getElementById('drawerAiAdvice');
       if (adviceEl) adviceEl.textContent = h.recommendation || '';
+      const statusBadge = document.getElementById('drawerPriceStatusBadge');
+      if (statusBadge) {
+        statusBadge.textContent = h.deal_badge || '🟢 Выгодная цена';
+        if (h.deal_class === 'drop') {
+          statusBadge.className = 'stat-pill stat-drop';
+        } else if (h.deal_class === 'good') {
+          statusBadge.className = 'stat-pill stat-good';
+        } else {
+          statusBadge.className = 'stat-pill stat-fair';
+        }
+      }
 
       // 9. Rich 6-block Infrastructure
       const infraGrid = document.getElementById('drawerInfraGrid');
@@ -3217,6 +3228,18 @@ def get_hotel_passport_js() -> str:
       const yVals = pts.map(p => p.price);
       const hoverTexts = pts.map(p => `${p.date || p.iso}<br><b>${Math.round(p.price).toLocaleString('ru-RU')} zł</b>`);
 
+      const validY = yVals.filter(v => typeof v === 'number' && !isNaN(v) && v > 0);
+      let yRange = undefined;
+      if (validY.length > 0) {
+        const minY = Math.min(...validY);
+        const maxY = Math.max(...validY);
+        const span = maxY - minY;
+        const pad = span > 0 ? Math.max(30, span * 0.12) : Math.max(50, minY * 0.05);
+        const yMin = Math.max(0, Math.floor((minY - pad) / 20) * 20);
+        const yMax = Math.ceil((maxY + pad) / 20) * 20;
+        yRange = [yMin, yMax];
+      }
+
       const trace = {
         x: xVals,
         y: yVals,
@@ -3226,8 +3249,6 @@ def get_hotel_passport_js() -> str:
         type: 'scatter',
         line: { color: '#6366f1', width: 3, shape: pts.length > 2 ? 'spline' : 'linear' },
         marker: { color: '#4f46e5', size: 6 },
-        fill: 'tozeroy',
-        fillcolor: isDark ? 'rgba(99, 102, 241, 0.12)' : 'rgba(99, 102, 241, 0.08)',
       };
 
       const layout = {
@@ -3250,6 +3271,8 @@ def get_hotel_passport_js() -> str:
           tickfont: { color: fontColor },
           tickformat: ',.0f',
           ticksuffix: ' zł',
+          autorange: yRange ? false : true,
+          range: yRange,
         },
       };
 
