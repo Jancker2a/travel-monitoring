@@ -3226,7 +3226,21 @@ def get_hotel_passport_js() -> str:
         return p.iso ? p.iso.slice(0, 19) : p.date;
       });
       const yVals = pts.map(p => p.price);
-      const hoverTexts = pts.map(p => `${p.date || p.iso}<br><b>${Math.round(p.price).toLocaleString('ru-RU')} zł</b>`);
+      const defaultDates = (hotel.dates && hotel.dates !== '—' && hotel.dates !== 'Неизвестно')
+        ? hotel.dates
+        : (hotel.packages && hotel.packages[0] && hotel.packages[0].dates ? hotel.packages[0].dates : '');
+      const hoverTexts = pts.map(p => {
+        const timeStr = p.date || p.iso || '';
+        const priceStr = `${Math.round(p.price).toLocaleString('ru-RU')} zł`;
+        const rawDates = (p.dates && typeof p.dates === 'string') ? p.dates.trim() : '';
+        const tripDates = (rawDates && rawDates !== '—' && rawDates !== 'Неизвестно' && rawDates !== 'None' && rawDates !== 'nan')
+          ? rawDates
+          : defaultDates;
+        const datesPart = (tripDates && tripDates !== '—' && tripDates !== 'Неизвестно' && tripDates !== 'None' && tripDates !== 'nan')
+          ? `<br>Даты поездки: ${tripDates}`
+          : '';
+        return `${timeStr}<br><b>${priceStr}</b>${datesPart}`;
+      });
 
       const validY = yVals.filter(v => typeof v === 'number' && !isNaN(v) && v > 0);
       let yRange = undefined;

@@ -2361,13 +2361,18 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         h_grp = history_by_hotel.get(h_name)
         if h_grp is not None and not h_grp.empty:
             sorted_grp = h_grp.sort_values('scraped_at_display')
-            for t_val, p_val in zip(sorted_grp['scraped_at_display'], sorted_grp['price']):
+            dates_col = sorted_grp['dates'].fillna('') if 'dates' in sorted_grp.columns else [''] * len(sorted_grp)
+            for t_val, p_val, d_val in zip(sorted_grp['scraped_at_display'], sorted_grp['price'], dates_col):
                 if pd.notna(t_val) and pd.notna(p_val) and float(p_val) > 0:
+                    trip_d = str(d_val).strip() if pd.notna(d_val) else ""
+                    if trip_d.lower() in ("nan", "none", "—", "-", "неизвестно"):
+                        trip_d = ""
                     h_pts_data.append({
                         "date": t_val.strftime('%d.%m %H:%M'),
                         "iso": t_val.strftime('%Y-%m-%d %H:%M:%S'),
                         "ts": int(t_val.timestamp() * 1000),
-                        "price": float(p_val)
+                        "price": float(p_val),
+                        "dates": trip_d,
                     })
         min_p_card = min([pt['price'] for pt in h_pts_data]) if h_pts_data else float(c["price"])
         max_p_card = max([pt['price'] for pt in h_pts_data]) if h_pts_data else float(c["price"])
@@ -2519,6 +2524,8 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             "price": float(c["price"]),
             "min_price": min_p_card,
             "max_price": max_p_card,
+            "dates": str(c.get("dates") or "—"),
+            "duration": str(c.get("duration") or "—"),
             "deal_score": c.get("deal_score", 50),
             "deal_badge": prof["deal_badge"],
             "deal_sub": prof["deal_sub"],
