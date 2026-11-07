@@ -585,10 +585,36 @@
       "created_at": "2026-11-06T19:36:38.843247+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Xanadu Makadi Bay_2026-11-06_19-35_zone_out_gone"
+    },
+    {
+      "hotel_name": "AMC Royal Hotel & Spa (ex. AMC Azur Resort)",
+      "duration_bucket": "",
+      "old_price": 10327.0,
+      "new_price": 9085.0,
+      "price_change": -1242.0,
+      "price_change_pct": -12.026726057906458,
+      "timestamp": "2026-11-07 07:43:33.692647+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-07T07:44:30.341799+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort)_2026-11-07_07-43_-12.0"
+    },
+    {
+      "hotel_name": "Charmillion Garden Aqua Park",
+      "duration_bucket": "",
+      "old_price": 10795.0,
+      "new_price": 10795.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-07 07:43:33.692647+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-07T07:44:30.341845+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Charmillion Garden Aqua Park_2026-11-07_07-43_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-07T00:16:08.500205+00:00",
+    "last_processed_run": "2026-11-07T07:43:33.692647+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 10599.0,
@@ -671,7 +697,7 @@
         "premium_peak": null
       },
       "Imperial Shams Abu Soma Resort": {
-        "history_max": 10530.0,
+        "history_max": 10631.0,
         "premium_peak": null
       },
       "Xanadu Makadi Bay": {

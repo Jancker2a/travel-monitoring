@@ -10,7 +10,7 @@
       {
         "type": "floor",
         "title": "Ценовое дно: 3 отелей (42.9%)",
-        "text": "Зафиксирована самая низкая цена за весь сезон. Цены начинаются от 5,947 zł."
+        "text": "Зафиксирована самая низкая цена за весь сезон. Цены начинаются от 6,067 zł."
       },
       {
         "type": "gem",
@@ -21,6 +21,11 @@
         "type": "arbitrage",
         "title": "✈️ Разница вылетов: Katowice vs Warszawa - Modlin",
         "text": "Вылет из Katowice в среднем на 2,702 zł дешевле, чем из Warszawa - Modlin"
+      },
+      {
+        "type": "duration",
+        "title": "⏳ Выгодная длительность: 9 дн.",
+        "text": "Доплата за отдых 9 дн. вместо 8 дн. составляет -357 zł (-357 zł в день)"
       }
     ],
     "synthesized_by": "Rule-Based Deterministic Engine (Offline)",
@@ -36,7 +41,7 @@
           "score": 200,
           "badge": "💎 Жемчужина 4.5★",
           "why_buy": "Высокий рейтинг 4.5★ по цене эконом-сегмента, выгодный момент покупки (d-15…d-30), высокий рейтинг 4.5★ (7,887 zł).",
-          "offer_url": "https://fly.pl/wycieczka/grecja,attyka,vravrona/mare-nostrum-thalasso-vravrona/pDD36C-t4xwwATuZzvV_faAAogIWIYXDRv5twsy5pXu6yU_Ff7ToLLHrwtDWjye1ZMI80qBFZJVFgwjNy51wZIzz1QQVjfA2ACagxXTUlBVEhEUDYwMTBqDEFUSFdNSURQNjAxMHI4nQGPARoAFwcVAFgIXABAjwNSp2pTAFuAHF7WeUuPR2EATPCjFA3t470JIABR7-KF1FcCDGMBAgsItBIL/?operator=VITX&adults=2&children=2020-12-10&objectId=5568&durationFrom=7&durationTo=10&departureDate=2026-11-27&returnDate=2026-12-04&departureLocation=Warszawa+-+Modlin&catering=breakfast&transport=accommodation_flight&duration=7&nights=7"
+          "offer_url": "https://fly.pl/wycieczka/grecja,attyka,vravrona/mare-nostrum-thalasso-vravrona/pIYXEqutv4VLTGImFEt_pKAAogCVFRPeeN9sZUsvuhN5kdI1f7ToLLHrwtDWjye1ZMI80qBFZJVFgwn6671wZIzz1QQVjYA2ACagxXTUlBVEhEUDYwMTBqDEFUSFdNSURQNjAxMHI4nQGPARoAFwcVAFgIXABAjwNSp2pTAFuAHF7WeUuPR2EATJSkFA3J470JIABR7-KF1FcCDGMBAgv8U64E/?operator=VITX&adults=2&children=2020-12-10&objectId=5568&durationFrom=7&durationTo=10&departureDate=2026-11-27&returnDate=2026-12-04&departureLocation=Warszawa+-+Modlin&catering=breakfast&transport=accommodation_flight&duration=7&nights=7"
         },
         {
           "hotel_name": "Zeus Essence Wyndham Athens Residence",
@@ -53,12 +58,12 @@
     "Life Gallery Athens Hotel": {
       "verdict": "BUY_NOW",
       "badge_text": "🟢 ПОКУПАТЬ",
-      "rationale": "Цена 10,957 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
+      "rationale": "Цена 11,047 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
       "risk_assessment": "Номера в этом отеле популярны, к дате вылета мест может не остаться.",
       "action_advice": "Если отель нравится — фиксируйте бронь прямо сегодня, дешевле уже вряд ли будет.",
       "booking_window_badge": "🎯 Окно покупки: D-15…D-30 (сейчас!)",
       "booking_window_class": "in_window",
-      "booking_window_tip": "Текущий момент (D-23) совпадает со скидочным окном (D-15…D-30), и цена снижена относительно нормы (10,957 zł при медиане 11,637 zł).",
+      "booking_window_tip": "Текущий момент (D-20) совпадает со скидочным окном (D-15…D-30), и цена снижена относительно нормы (11,047 zł при медиане 11,637 zł).",
       "fair_price_badge": "",
       "fair_price_class": "",
       "fair_price_tip": "",
@@ -87,17 +92,17 @@
       "dupe_suggestion": null
     },
     "NLH Fix": {
-      "verdict": "BUY_NOW",
-      "badge_text": "🟢 ПОКУПАТЬ",
-      "rationale": "Цена 5,947 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
-      "risk_assessment": "Номера в этом отеле популярны, к дате вылета мест может не остаться.",
-      "action_advice": "Если отель нравится — фиксируйте бронь прямо сегодня, дешевле уже вряд ли будет.",
+      "verdict": "GOOD_PRICE",
+      "badge_text": "🟢 ВЫГОДНАЯ ЦЕНА",
+      "rationale": "Отель признан жемчужиной или существенно выгоднее аналогов (6,067 zł).",
+      "risk_assessment": "Качественные предложения в этом сегменте быстро раскупаются.",
+      "action_advice": "Отличное соотношение цены и уровня отеля. Рекомендуется к бронированию.",
       "booking_window_badge": "🎯 Окно покупки: D-15…D-30 (сейчас!)",
       "booking_window_class": "in_window",
-      "booking_window_tip": "Текущий момент (D-23) совпадает со скидочным окном (D-15…D-30), и цена снижена относительно нормы (5,947 zł при медиане 6,677 zł).",
-      "fair_price_badge": "🔥 −13% к равным эконом 4★",
+      "booking_window_tip": "Текущий момент (D-20) совпадает со скидочным окном (D-15…D-30), и цена снижена относительно нормы (6,067 zł при медиане 6,677 zł).",
+      "fair_price_badge": "🔥 −12% к равным эконом 4★",
       "fair_price_class": "fair-underpriced",
-      "fair_price_tip": "Цена на 13% ниже медианы равных отелей сегмента эконом 4★ (6,848 zł) и не превышает обычную цену отеля (6,087 zł).",
+      "fair_price_tip": "Цена на 12% ниже медианы равных отелей сегмента эконом 4★ (6,908 zł) и не превышает обычную цену отеля (6,087 zł).",
       "gem_badge": "",
       "gem_tip": "",
       "flash_drop_badge": "",
@@ -107,20 +112,27 @@
     "Royal Olympic": {
       "verdict": "OVERPRICED",
       "badge_text": "🔴 ДОРОГО",
-      "rationale": "Цена 10,017 zł на 6% выше обычной средней цены этого отеля (10,707 zł).",
+      "rationale": "Цена 10,227 zł на 4% выше обычной средней цены этого отеля (10,707 zł).",
       "risk_assessment": "Высокий риск переплаты. Туроператор держит завышенную цену.",
       "action_advice": "Покупать сейчас крайне невыгодно. Добавьте в Избранное (☆) и ждите снижения.",
       "booking_window_badge": "",
       "booking_window_class": "early",
       "booking_window_tip": "Историческое дно цены наступает за D-8…D-14. Сейчас D-23 (рано).",
-      "fair_price_badge": "",
-      "fair_price_class": "",
-      "fair_price_tip": "",
+      "fair_price_badge": "⚠️ +22% к комфорт 4★",
+      "fair_price_class": "fair-overpriced",
+      "fair_price_tip": "Цена на +22% отличается от сопоставимых отелей сегмента комфорт 4★ (8,360 zł) или превышает историческую норму отеля (10,707 zł).",
       "gem_badge": "",
       "gem_tip": "",
       "flash_drop_badge": "",
       "flash_drop_tip": "",
-      "dupe_suggestion": null
+      "dupe_suggestion": {
+        "hotel_name": "Zeus Dolce Athens (ex. Hotel Dolce Attica Riviera Resort)",
+        "price": 7887.0,
+        "savings": 2340.0,
+        "savings_pln": 2340.0,
+        "rating": 4.5,
+        "offer_url": "https://fly.pl/wycieczka/grecja,attyka,vravrona/mare-nostrum-thalasso-vravrona/pIYXEqutv4VLTGImFEt_pKAAogCVFRPeeN9sZUsvuhN5kdI1f7ToLLHrwtDWjye1ZMI80qBFZJVFgwn6671wZIzz1QQVjYA2ACagxXTUlBVEhEUDYwMTBqDEFUSFdNSURQNjAxMHI4nQGPARoAFwcVAFgIXABAjwNSp2pTAFuAHF7WeUuPR2EATJSkFA3J470JIABR7-KF1FcCDGMBAgv8U64E/?operator=VITX&adults=2&children=2020-12-10&objectId=5568&durationFrom=7&durationTo=10&departureDate=2026-11-27&returnDate=2026-12-04&departureLocation=Warszawa+-+Modlin&catering=breakfast&transport=accommodation_flight&duration=7&nights=7"
+      }
     },
     "Zeus Dolce Athens (ex. Hotel Dolce Attica Riviera Resort)": {
       "verdict": "BUY_NOW",

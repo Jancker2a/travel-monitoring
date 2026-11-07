@@ -2990,10 +2990,49 @@
       "created_at": "2026-11-07T00:17:07.624590+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Xperience Kiroseiz Premier_2026-11-07_00-16_zone_out_gone"
+    },
+    {
+      "hotel_name": "AMC Royal Hotel & Spa (ex. AMC Azur Resort)",
+      "duration_bucket": "",
+      "old_price": 6373.0,
+      "new_price": 5796.0,
+      "price_change": -577.0,
+      "price_change_pct": -9.053820806527538,
+      "timestamp": "2026-11-07 07:43:33.794357+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-07T07:44:45.305099+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort)_2026-11-07_07-43_-9.1"
+    },
+    {
+      "hotel_name": "Concorde Moreen Beach Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 6563.0,
+      "new_price": 5965.0,
+      "price_change": -598.0,
+      "price_change_pct": -9.1116867286302,
+      "timestamp": "2026-11-07 07:43:33.794357+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-07T07:44:45.305126+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Concorde Moreen Beach Resort & Spa_2026-11-07_07-43_-9.1"
+    },
+    {
+      "hotel_name": "Rewaya Inn Resort (ex. Hawaii Paradise Aqua Park Resort)",
+      "duration_bucket": "",
+      "old_price": 6787.0,
+      "new_price": 6787.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-07 07:43:33.794357+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-07T07:44:45.305145+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Inn Resort (ex. Hawaii Paradise Aqua Park Resort)_2026-11-07_07-43_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-07T00:16:02.945496+00:00",
+    "last_processed_run": "2026-11-07T07:43:33.794357+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 6373.0,
