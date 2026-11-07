@@ -34,6 +34,13 @@ from hotel_name_normalizer import (
     normalize_for_matching,
     slugify_hotel_name,
 )
+
+try:
+    from storage.database import TravelDatabase
+    from storage.repository import PriceRepository
+except ImportError:
+    TravelDatabase = None  # type: ignore
+    PriceRepository = None  # type: ignore
 from hotel_repository import HotelRepository
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
@@ -652,64 +659,89 @@ def collect_hotel_data() -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
                     "dates": pt.get("dates", ""),
                 })
 
-    # 2. Parse CSV files for packages
-    csv_files = glob.glob("data/filters/**/travel_prices.csv", recursive=True) + \
-                glob.glob("data_runs/**/*.csv", recursive=True)
-    logger.info(f"Scanning {len(csv_files)} CSV files for package tours...")
-
-    for cf in csv_files:
-        filter_id = ""
-        parts = os.path.normpath(cf).split(os.sep)
-        if len(parts) >= 2:
-            filter_id = parts[-2]
+    def _ingest_offer(r_dict: Dict[str, Any], filter_id: str):
+        raw_hotel = r_dict.get("hotel_name") or r_dict.get("hotel")
+        if not raw_hotel:
+            return
 
         f_meta = filters_meta.get(filter_id, {})
         dest_hint = f_meta.get("group_label") or ("Турция" if "turkey" in filter_id else "Египет" if "egypt" in filter_id else "Кипр" if "cyprus" in filter_id else "")
         filter_title = resolve_friendly_filter_name(filter_id, filters_meta)
 
+        entry = get_or_create_entry(raw_hotel, dest_hint)
+        price_val = 0.0
+        raw_p = r_dict.get("price") or r_dict.get("current_price") or 0
+        if isinstance(raw_p, (int, float)):
+            price_val = float(raw_p)
+        else:
+            try:
+                price_val = float(re.sub(r"[^\d.]", "", str(raw_p)))
+            except ValueError:
+                price_val = 0.0
+
+        if price_val <= 0:
+            return
+
+        dates = r_dict.get("dates") or r_dict.get("term") or ""
+        duration = int(r_dict.get("duration_days") or parse_duration_days(r_dict.get("duration") or f_meta.get("duration", "7")))
+        comp_label, comp_short = extract_package_composition(filter_id, r_dict.get("composition", ""))
+        offer_url = r_dict.get("offer_url") or r_dict.get("url") or ""
+        img_url = r_dict.get("image_url") or r_dict.get("image") or r_dict.get("img") or ""
+
+        if img_url:
+            entry["images"].add(img_url)
+        if offer_url and not entry["latest_offer_url"]:
+            entry["latest_offer_url"] = offer_url
+
+        entry["packages"].append({
+            "filter_id": filter_id,
+            "filter_title": filter_title,
+            "price": price_val,
+            "duration_days": duration,
+            "composition_label": comp_label,
+            "composition_short": comp_short,
+            "dates": dates,
+            "offer_url": offer_url,
+            "operator": r_dict.get("operator", "Fly.pl"),
+            "scraped_at": r_dict.get("scraped_at") or r_dict.get("timestamp", datetime.now().isoformat()),
+        })
+
+    # 2. Parse packages from SQLite repository if available, falling back to CSV
+    used_sqlite = False
+    if TravelDatabase is not None and PriceRepository is not None:
         try:
-            with open(cf, "r", encoding="utf-8") as f:
-                reader = csv.DictReader(f)
-                for r_dict in reader:
-                    raw_hotel = r_dict.get("hotel_name") or r_dict.get("hotel")
-                    if not raw_hotel:
-                        continue
-
-                    entry = get_or_create_entry(raw_hotel, dest_hint)
-                    price_str = r_dict.get("price") or r_dict.get("current_price") or "0"
-                    try:
-                        price_val = float(re.sub(r"[^\d.]", "", price_str))
-                    except ValueError:
-                        price_val = 0.0
-
-                    if price_val <= 0:
-                        continue
-
-                    dates = r_dict.get("dates") or r_dict.get("term") or ""
-                    duration = parse_duration_days(r_dict.get("duration") or f_meta.get("duration", "7"))
-                    comp_label, comp_short = extract_package_composition(filter_id, r_dict.get("composition", ""))
-                    offer_url = r_dict.get("offer_url") or r_dict.get("url") or ""
-                    img_url = r_dict.get("image_url") or r_dict.get("image") or r_dict.get("img") or ""
-
-                    if img_url:
-                        entry["images"].add(img_url)
-                    if offer_url and not entry["latest_offer_url"]:
-                        entry["latest_offer_url"] = offer_url
-
-                    entry["packages"].append({
-                        "filter_id": filter_id,
-                        "filter_title": filter_title,
-                        "price": price_val,
-                        "duration_days": duration,
-                        "composition_label": comp_label,
-                        "composition_short": comp_short,
-                        "dates": dates,
-                        "offer_url": offer_url,
-                        "operator": r_dict.get("operator", "Fly.pl"),
-                        "scraped_at": r_dict.get("scraped_at") or r_dict.get("timestamp", datetime.now().isoformat()),
-                    })
+            db_path = os.environ.get("TRAVEL_DATABASE_PATH", "data/travel_monitor.db")
+            if os.path.exists(db_path):
+                db = TravelDatabase(db_path)
+                repo = PriceRepository(db)
+                if repo.count_offers() > 0:
+                    offers_df = repo.get_all_offers_df(min_price=1000.0)
+                    logger.info(f"⚡ Fast-loading {len(offers_df)} package offers from SQLite ({db_path})...")
+                    for r_dict in offers_df.to_dict("records"):
+                        _ingest_offer(r_dict, str(r_dict.get("filter_id") or ""))
+                    used_sqlite = True
         except Exception as e:
-            continue
+            logger.debug(f"SQLite fallback to CSV in hotel catalog: {e}")
+            used_sqlite = False
+
+    if not used_sqlite:
+        csv_files = glob.glob("data/filters/**/travel_prices.csv", recursive=True) + \
+                    glob.glob("data_runs/**/*.csv", recursive=True)
+        logger.info(f"Scanning {len(csv_files)} CSV files for package tours...")
+
+        for cf in csv_files:
+            filter_id = ""
+            parts = os.path.normpath(cf).split(os.sep)
+            if len(parts) >= 2:
+                filter_id = parts[-2]
+
+            try:
+                with open(cf, "r", encoding="utf-8") as f:
+                    reader = csv.DictReader(f)
+                    for r_dict in reader:
+                        _ingest_offer(r_dict, filter_id)
+            except Exception:
+                continue
 
     registry.save_review_manifest()
 

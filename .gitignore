@@ -35,6 +35,13 @@ ENV/
 .DS_Store
 Thumbs.db
 
+# Databases & local caches
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+
 # Runtime logs
 *.log
 monitor.log

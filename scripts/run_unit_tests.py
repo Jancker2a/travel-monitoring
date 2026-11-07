@@ -22,6 +22,7 @@ TEST_MODULES = [
     "test_hotel_name_normalizer",
     "test_hotel_repository",
     "test_scraper_healthcheck",
+    "test_storage",
     "test_metrics_simulation",
     "test_tripadvisor_extractor",
 ]
