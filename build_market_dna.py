@@ -30,6 +30,13 @@ from typing import Any, Dict, List, Optional, Set, Tuple
 import numpy as np
 import pandas as pd
 
+try:
+    from storage.database import TravelDatabase
+    from storage.repository import PriceRepository
+except ImportError:
+    TravelDatabase = None  # type: ignore
+    PriceRepository = None  # type: ignore
+
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 logger = logging.getLogger("market_dna")
 
@@ -226,44 +233,61 @@ def analyze_hotel_group(name: str, group: pd.DataFrame) -> Optional[HotelDNA]:
 
 def build_market_dna(data_dirs: Optional[List[str]] = None) -> Dict[str, Any]:
     """Scans historical CSV files and compiles Market DNA."""
-    if not data_dirs:
-        # Prioritize cumulative filter files (data/filters) to avoid scanning hundreds of raw run snapshots in data_runs
-        if os.path.exists("data/filters") and glob.glob("data/filters/**/*.csv", recursive=True):
-            data_dirs = ["data/filters"]
-        else:
-            data_dirs = ["data_runs", "data/filters"]
+    combined: Optional[pd.DataFrame] = None
 
-    csv_files: List[str] = []
-    for d in data_dirs:
-        if os.path.exists(d):
-            csv_files.extend(glob.glob(f"{d}/**/*.csv", recursive=True))
-
-    # Exclude cohorts or metadata csvs, only keep raw price files
-    valid_csvs = [
-        f for f in csv_files
-        if not f.endswith("_cohorts.csv")
-        and not f.endswith("departure_cohorts.csv")
-        and not "check24" in f.lower()
-        and not "germany" in f.lower()
-    ]
-
-    logger.info(f"Found {len(valid_csvs)} raw price CSV files across historical runs.")
-
-    all_dfs: List[pd.DataFrame] = []
-    for f in valid_csvs:
+    # Fast-path via SQLite if available and no custom data_dirs specified
+    if not data_dirs and TravelDatabase is not None and PriceRepository is not None:
         try:
-            df = pd.read_csv(f)
-            if "hotel_name" in df.columns and "price" in df.columns:
-                all_dfs.append(df)
+            db_path = os.environ.get("TRAVEL_DATABASE_PATH", "data/travel_monitor.db")
+            if os.path.exists(db_path):
+                db = TravelDatabase(db_path)
+                repo = PriceRepository(db)
+                if repo.count_offers() > 0:
+                    combined = repo.get_all_offers_df(min_price=1000.0)
+                    logger.info(f"⚡ Loaded {len(combined)} records from SQLite database ({db_path}) for Market DNA.")
         except Exception as e:
-            logger.warning(f"Error reading {f}: {e}")
+            logger.debug(f"SQLite fallback to CSV in Market DNA: {e}")
+            combined = None
 
-    if not all_dfs:
-        logger.error("No valid hotel price data found to build Market DNA.")
-        return {}
+    if combined is None or combined.empty:
+        if not data_dirs:
+            # Prioritize cumulative filter files (data/filters) to avoid scanning hundreds of raw run snapshots in data_runs
+            if os.path.exists("data/filters") and glob.glob("data/filters/**/*.csv", recursive=True):
+                data_dirs = ["data/filters"]
+            else:
+                data_dirs = ["data_runs", "data/filters"]
 
-    combined = pd.concat(all_dfs, ignore_index=True).drop_duplicates()
-    logger.info(f"Combined historical database has {len(combined)} records.")
+        csv_files: List[str] = []
+        for d in data_dirs:
+            if os.path.exists(d):
+                csv_files.extend(glob.glob(f"{d}/**/*.csv", recursive=True))
+
+        # Exclude cohorts or metadata csvs, only keep raw price files
+        valid_csvs = [
+            f for f in csv_files
+            if not f.endswith("_cohorts.csv")
+            and not f.endswith("departure_cohorts.csv")
+            and not "check24" in f.lower()
+            and not "germany" in f.lower()
+        ]
+
+        logger.info(f"Found {len(valid_csvs)} raw price CSV files across historical runs.")
+
+        all_dfs: List[pd.DataFrame] = []
+        for f in valid_csvs:
+            try:
+                df = pd.read_csv(f)
+                if "hotel_name" in df.columns and "price" in df.columns:
+                    all_dfs.append(df)
+            except Exception as e:
+                logger.warning(f"Error reading {f}: {e}")
+
+        if not all_dfs:
+            logger.error("No valid hotel price data found to build Market DNA.")
+            return {}
+
+        combined = pd.concat(all_dfs, ignore_index=True).drop_duplicates()
+        logger.info(f"Combined historical database has {len(combined)} records.")
 
     # Clean prices
     combined["price"] = pd.to_numeric(combined["price"], errors="coerce")

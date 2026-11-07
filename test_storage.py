@@ -78,6 +78,13 @@ class TestStoragePackage(unittest.TestCase):
         self.assertEqual(min_p, 1800.0)
         self.assertEqual(max_p, 4500.0)
 
+        # 5. Filter dataframe & All offers dataframe
+        filter_df = self.repo.get_filter_dataframe("test_filter")
+        self.assertEqual(len(filter_df), 4)
+
+        all_df = self.repo.get_all_offers_df(min_price=2000.0)
+        self.assertEqual(len(all_df), 2)
+
     def test_csv_import_and_export_roundtrip(self):
         sample_csv = os.path.join(self.temp_dir.name, "sample.csv")
         sample_data = pd.DataFrame([

@@ -210,6 +210,23 @@ class PriceRepository:
         finally:
             conn.close()
 
+    def get_all_offers_df(self, min_price: float = 1000.0) -> pd.DataFrame:
+        """Returns all valid historical offers across all filters as a DataFrame."""
+        conn = self.db.get_connection()
+        try:
+            query = """
+                SELECT DISTINCT hotel_name, canonical_hotel_name, price, dates,
+                                duration, duration_days, duration_bucket, departure_airport,
+                                rating, ta_rating, ta_review_count, ta_source,
+                                scraped_at, url, image_url, offer_url, filter_id
+                FROM offers
+                WHERE price >= ?
+                ORDER BY scraped_at ASC;
+            """
+            return pd.read_sql_query(query, conn, params=(min_price,))
+        finally:
+            conn.close()
+
     def count_offers(self, filter_id: Optional[str] = None) -> int:
         """Returns the total number of offers stored."""
         conn = self.db.get_connection()
