@@ -46,6 +46,12 @@ from hotel_deal_score import (
     _data_gap_threshold_hours,
 )
 from departure_identity import parse_offer_path
+try:
+    from storage.database import TravelDatabase
+    from storage.repository import PriceRepository
+except ImportError:
+    TravelDatabase = None  # type: ignore
+    PriceRepository = None  # type: ignore
 from departure_airports import (
     aggregate_cohorts_by_arrival_airport,
     arrival_hub_label,
@@ -188,29 +194,47 @@ from hotel_repository import HotelRepository
 def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', output_file: str = 'index.html', title: str = 'Travel Price Monitor • Расширенный дашборд', charts_subdir: str = 'hotel-charts', tz: str = 'Europe/Warsaw', alerts_file: str = None, all_airports_data_file: str = None, disappeared_after_runs: int = 2, display_price_ceiling: float = None, history_price_ceiling: float = None, write_legacy_hotel_html: bool = False, config_file: str = None, enable_ta_live_backfill: bool = False, force_ai: bool = False):
     """Генерирует дашборд с встроенными графиками"""
     
-    # Загружаем данные (текущий месяц + архивные месяцы для полной истории сезона)
+    # Загружаем данные (сначала пробуем быстрое чтение из SQLite, при отсутствии — CSV + архивные месяцы)
     try:
         frames = []
         data_file_abs = os.path.abspath(data_file)
         data_dir = os.path.dirname(data_file_abs)
+        filter_id = os.path.basename(data_dir)
         base_name = os.path.splitext(os.path.basename(data_file_abs))[0]  # e.g. 'travel_prices'
         archive_dir = os.path.join(data_dir, 'archive')
-        # Читаем архивные файлы прошлых месяцев (отсортированы хронологически)
-        if os.path.isdir(archive_dir):
-            archive_files = sorted(
-                f for f in os.listdir(archive_dir)
-                if f.startswith(f"{base_name}_") and f.endswith('.csv')
-            )
-            for af in archive_files:
-                try:
-                    frames.append(pd.read_csv(os.path.join(archive_dir, af), quoting=csv.QUOTE_ALL, on_bad_lines='skip'))
-                except Exception as ae:
-                    print(f"⚠️ Ошибка чтения архива {af}: {ae}")
-        # Текущий месяц
-        frames.append(pd.read_csv(data_file, quoting=csv.QUOTE_ALL, on_bad_lines='skip'))
-        df = pd.concat(frames, ignore_index=True, sort=False) if len(frames) > 1 else frames[0]
-        if archive_files if os.path.isdir(archive_dir) else []:
-            print(f"📦 Загружено архивных файлов: {len(archive_files)}, итого строк: {len(df)}")
+
+        df = None
+        # Быстрый путь через SQLite-репозиторий
+        if TravelDatabase is not None and PriceRepository is not None:
+            try:
+                db_path = os.environ.get("TRAVEL_DATABASE_PATH") or "data/travel_monitor.db"
+                if os.path.exists(db_path):
+                    db = TravelDatabase(db_path)
+                    repo = PriceRepository(db)
+                    if repo.count_offers(filter_id) > 0:
+                        df = repo.get_filter_dataframe(filter_id)
+                        print(f"⚡ Загружено {len(df)} записей для '{filter_id}' из SQLite ({db_path})")
+            except Exception as dbe:
+                df = None
+
+        if df is None or df.empty:
+            # Читаем архивные файлы прошлых месяцев (отсортированы хронологически)
+            archive_files = []
+            if os.path.isdir(archive_dir):
+                archive_files = sorted(
+                    f for f in os.listdir(archive_dir)
+                    if f.startswith(f"{base_name}_") and f.endswith('.csv')
+                )
+                for af in archive_files:
+                    try:
+                        frames.append(pd.read_csv(os.path.join(archive_dir, af), quoting=csv.QUOTE_ALL, on_bad_lines='skip'))
+                    except Exception as ae:
+                        print(f"⚠️ Ошибка чтения архива {af}: {ae}")
+            # Текущий месяц
+            frames.append(pd.read_csv(data_file, quoting=csv.QUOTE_ALL, on_bad_lines='skip'))
+            df = pd.concat(frames, ignore_index=True, sort=False) if len(frames) > 1 else frames[0]
+            if archive_files:
+                print(f"📦 Загружено архивных файлов: {len(archive_files)}, итого строк: {len(df)}")
         # Нормализуем время: аккуратно обрабатываем смешанные строки (с/без таймзоны)
         raw = df['scraped_at'].astype(str)
         mask_tz = raw.str.contains(r"Z$|[+-]\d{2}:\d{2}$", regex=True)

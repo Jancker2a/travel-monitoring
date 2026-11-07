@@ -197,6 +197,19 @@ class PriceRepository:
         finally:
             conn.close()
 
+    def get_filter_dataframe(self, filter_id: str) -> pd.DataFrame:
+        """Returns all historical offers for a filter as a DataFrame, sorted chronologically."""
+        conn = self.db.get_connection()
+        try:
+            query = """
+                SELECT * FROM offers
+                WHERE filter_id = ?
+                ORDER BY scraped_at ASC;
+            """
+            return pd.read_sql_query(query, conn, params=(filter_id,))
+        finally:
+            conn.close()
+
     def count_offers(self, filter_id: Optional[str] = None) -> int:
         """Returns the total number of offers stored."""
         conn = self.db.get_connection()

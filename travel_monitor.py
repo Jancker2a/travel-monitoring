@@ -37,6 +37,12 @@ from filter_trip import (
     trip_scrape_passes,
 )
 from hotel_deal_score import extract_tripadvisor_from_card_html
+try:
+    from storage.database import TravelDatabase
+    from storage.repository import PriceRepository
+except ImportError:
+    TravelDatabase = None  # type: ignore
+    PriceRepository = None  # type: ignore
 
 # Настройка логирования
 logging.basicConfig(
@@ -2158,6 +2164,9 @@ class TravelPriceMonitor:
         
         logger.info(f"Добавлено {len(new_offers)} записей (включая возможные повторы для истории) в {filepath}")
 
+        # Dual-Write: сохраняем срез цен в SQLite-репозиторий
+        self._save_to_sqlite(new_offers)
+
         # Обновляем карту изображений по отелям в отдельном JSON
         try:
             images_path = os.path.join(self.config['data_dir'], 'hotel_images.json')
@@ -2188,6 +2197,50 @@ class TravelPriceMonitor:
                 logger.info(f"Обновлена карта изображений для отелей: +{updated}")
         except Exception as e:
             logger.warning(f"Не удалось обновить карту изображений: {e}")
+
+    def _get_repository(self) -> Optional[Any]:
+        """Возвращает экземпляр PriceRepository с безопасной ленивой инициализацией."""
+        if getattr(self, "_repository", None) is not None:
+            return self._repository
+        if TravelDatabase is None or PriceRepository is None:
+            return None
+        try:
+            db_path = (
+                self.config.get("database_path")
+                or os.environ.get("TRAVEL_DATABASE_PATH")
+                or "data/travel_monitor.db"
+            )
+            db = TravelDatabase(db_path)
+            self._repository = PriceRepository(db)
+            return self._repository
+        except Exception as e:
+            logger.warning(f"⚠️ Ошибка инициализации хранилища SQLite: {e}")
+            return None
+
+    def _save_to_sqlite(self, offers: List[Dict[str, Any]]):
+        """Dual-Write: сохраняет срез цен в локальный SQLite."""
+        if not offers or TravelDatabase is None or PriceRepository is None:
+            return
+        try:
+            repo = self._get_repository()
+            if not repo:
+                return
+
+            filter_id = (
+                self.config.get("filter_id")
+                or os.path.basename(self.config.get("data_dir", ""))
+                or "default"
+            )
+            scraped_at = self._scrape_timestamp()
+            repo.save_scrape_run(
+                filter_id=filter_id,
+                offers=offers,
+                scraped_at=scraped_at,
+                status="ok",
+            )
+            logger.info(f"💾 Dual-write: {len(offers)} офферов сохранено в SQLite (filter='{filter_id}')")
+        except Exception as e:
+            logger.warning(f"⚠️ Dual-write в SQLite пропущен (не критично, CSV сохранен): {e}")
 
     def save_departure_offers_append(self, offers: List[Dict[str, Any]]):
         """Сохраняет все raw-офферы до дедупликации для аналитики вылетов."""

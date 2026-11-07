@@ -133,6 +133,68 @@ class TestStoragePackage(unittest.TestCase):
         self.assertEqual(reloaded_df.iloc[1]["price"], 2400.0)
         self.assertEqual(reloaded_df.iloc[0]["hotel_name"], "Albatros Aqua Park")
 
+    def test_travel_monitor_dual_write(self):
+        """Verifies that TravelPriceMonitor saves to both CSV and SQLite concurrently."""
+        from travel_monitor import TravelPriceMonitor
+
+        config = {
+            "url": "https://example.com/search",
+            "filter_mode": "fixed_trip",
+            "dynamic_search_dates": False,
+            "data_dir": self.temp_dir.name,
+            "output_data_file": "dual_test_prices.csv",
+            "database_path": self.db_path,
+            "filter_id": "filter_dual_test",
+        }
+        monitor = TravelPriceMonitor(config)
+
+        sample_offers = [
+            {
+                "hotel_name": "Sunrise Resort",
+                "price": 3100.0,
+                "dates": "01.12 - 08.12",
+                "duration": "8 dni",
+                "duration_bucket": "7_10",
+                "departure_airport": "WAW",
+                "url": "https://example.com/sunrise",
+                "offer_url": "https://example.com/sunrise/offer",
+                "scraped_at": "2026-11-07T10:00:00Z",
+            },
+            {
+                "hotel_name": "Baron Palms",
+                "price": 4200.0,
+                "dates": "01.12 - 08.12",
+                "duration": "8 dni",
+                "duration_bucket": "7_10",
+                "departure_airport": "WAW",
+                "url": "https://example.com/baron",
+                "offer_url": "https://example.com/baron/offer",
+                "scraped_at": "2026-11-07T10:00:00Z",
+            },
+        ]
+
+        # 1. Trigger save_data_append
+        monitor.save_data_append(sample_offers)
+
+        # 2. Verify CSV was written
+        csv_file = os.path.join(self.temp_dir.name, "dual_test_prices.csv")
+        self.assertTrue(os.path.exists(csv_file))
+        df_csv = pd.read_csv(csv_file)
+        self.assertEqual(len(df_csv), 2)
+        self.assertEqual(list(df_csv["hotel_name"]), ["Sunrise Resort", "Baron Palms"])
+
+        # 3. Verify SQLite received the exact same data
+        db_count = self.repo.count_offers("filter_dual_test")
+        self.assertEqual(db_count, 2)
+
+        latest_slice = self.repo.get_latest_slice("filter_dual_test")
+        self.assertEqual(len(latest_slice), 2)
+        hotel_names = set(latest_slice["hotel_name"])
+        self.assertEqual(hotel_names, {"Sunrise Resort", "Baron Palms"})
+        prices = dict(zip(latest_slice["hotel_name"], latest_slice["price"]))
+        self.assertEqual(prices["Sunrise Resort"], 3100.0)
+        self.assertEqual(prices["Baron Palms"], 4200.0)
+
 
 if __name__ == "__main__":
     unittest.main()
