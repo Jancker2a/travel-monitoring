@@ -1768,10 +1768,36 @@
       "created_at": "2026-11-07T12:10:20.688499+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sealife Family Resort_2026-11-07_12-09_comeback_41.2"
+    },
+    {
+      "hotel_name": "Side Prenses",
+      "duration_bucket": "",
+      "old_price": 7008.0,
+      "new_price": 7008.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-07 13:25:23.108304+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-07T13:26:28.351185+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Side Prenses_2026-11-07_13-25_zone_out_gone"
+    },
+    {
+      "hotel_name": "Porto Bello",
+      "duration_bucket": "",
+      "old_price": 13905.0,
+      "new_price": 8249.0,
+      "price_change": -5656.0,
+      "price_change_pct": -40.676015821646885,
+      "timestamp": "2026-11-07 13:25:23.108304+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-11-07T13:26:28.351221+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Porto Bello_2026-11-07_13-25_comeback_40.7"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-07T12:09:14.596582+00:00",
+    "last_processed_run": "2026-11-07T13:25:23.108304+00:00",
     "premium_state": {
       "Alba Queen": {
         "history_max": 8477.0,
