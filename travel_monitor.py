@@ -2551,9 +2551,25 @@ class TravelPriceMonitor:
                     f"Дедупликация: {raw_count} офферов → {len(offers)} отелей (мин. цена на отель)"
                 )
             
-            t0 = time.monotonic()
-            self.detect_missing_hotels_and_alert(offers)
-            _log_timing("detect_missing_hotels_and_alert", t0)
+            # Healthcheck & Circuit Breaker (P3)
+            try:
+                from scraper_healthcheck import ScraperHealthChecker
+                health_checker = ScraperHealthChecker()
+                health_result = health_checker.evaluate(self.config, offers, self.config.get("data_dir"))
+                health_checker.record_health(health_result)
+                if health_result.circuit_breaker_tripped:
+                    logger.warning(f"🚨 CIRCUIT BREAKER TRIPPED: {health_result.message}")
+                    health_checker.notify_telegram_circuit_breaker(health_result)
+                    logger.info("ℹ️ Пропуск detect_missing_hotels_and_alert: заблокирован Circuit Breaker")
+                else:
+                    t0 = time.monotonic()
+                    self.detect_missing_hotels_and_alert(offers)
+                    _log_timing("detect_missing_hotels_and_alert", t0)
+            except Exception as e:
+                logger.warning(f"Ошибка в scraper_healthcheck: {e}")
+                t0 = time.monotonic()
+                self.detect_missing_hotels_and_alert(offers)
+                _log_timing("detect_missing_hotels_and_alert", t0)
             
             t0 = time.monotonic()
             self.save_data_append(offers)

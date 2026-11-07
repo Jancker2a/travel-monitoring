@@ -4,11 +4,22 @@
 from __future__ import annotations
 
 import json
+import os
 from typing import Any, Dict, List, Optional
 
 
-def get_dashboard_css(passport_css: str = "") -> str:
-    """Returns the complete responsive CSS stylesheet for the dashboard."""
+def get_dashboard_css(passport_css: str = "", inline: Optional[bool] = None) -> str:
+    """Returns the responsive CSS stylesheet for the dashboard.
+    
+    If inline is False (or None when assets/css/dashboard.css exists),
+    links to external assets/css/dashboard.css to enable browser caching
+    and reduce HTML payload by ~162 KB. Dynamic passport_css is retained
+    in a compact inline <style> block.
+    """
+    if inline is False or (inline is None and os.path.exists("assets/css/dashboard.css")):
+        passport_tag = f"\n    <style>\n{passport_css}\n    </style>" if passport_css.strip() else ""
+        return f'    <link rel="stylesheet" href="assets/css/dashboard.css">{passport_tag}'
+
     css_content = """        :root {
             --primary-color: #4f46e5;
             --primary-dark: #3730a3;

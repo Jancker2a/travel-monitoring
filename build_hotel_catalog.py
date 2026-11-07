@@ -34,6 +34,7 @@ from hotel_name_normalizer import (
     normalize_for_matching,
     slugify_hotel_name,
 )
+from hotel_repository import HotelRepository
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 logger = logging.getLogger("build_hotel_catalog")
@@ -299,6 +300,8 @@ def load_filters_meta(manifest_path: str = MANIFEST_FILE) -> Dict[str, Any]:
 
 def load_hotel_specs(specs_path: str = SPECS_KB_FILE) -> Dict[str, Any]:
     """Loads verified hotel specifications."""
+    if specs_path == SPECS_KB_FILE:
+        return HotelRepository.get_instance().specs_kb.get("hotels", {})
     if os.path.exists(specs_path):
         try:
             with open(specs_path, "r", encoding="utf-8") as f:
@@ -310,6 +313,8 @@ def load_hotel_specs(specs_path: str = SPECS_KB_FILE) -> Dict[str, Any]:
 
 def load_reputation_kb(rep_path: str = REPUTATION_KB_FILE) -> Dict[str, Any]:
     """Loads reputation KB."""
+    if rep_path == REPUTATION_KB_FILE:
+        return HotelRepository.get_instance().reputation_kb.get("hotels", {})
     if os.path.exists(rep_path):
         try:
             with open(rep_path, "r", encoding="utf-8") as f:
@@ -321,6 +326,8 @@ def load_reputation_kb(rep_path: str = REPUTATION_KB_FILE) -> Dict[str, Any]:
 
 def load_market_dna(dna_path: str = DNA_PROFILE_FILE) -> Dict[str, Any]:
     """Loads market DNA profiles."""
+    if dna_path == DNA_PROFILE_FILE:
+        return HotelRepository.get_instance().dna_profiles.get("hotel_profiles", {})
     if os.path.exists(dna_path):
         try:
             with open(dna_path, "r", encoding="utf-8") as f:

@@ -183,6 +183,7 @@ from dashboard_card_renderer import (
 from dashboard_styles import (
     get_dashboard_css,
 )
+from hotel_repository import HotelRepository
 
 def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', output_file: str = 'index.html', title: str = 'Travel Price Monitor • Расширенный дашборд', charts_subdir: str = 'hotel-charts', tz: str = 'Europe/Warsaw', alerts_file: str = None, all_airports_data_file: str = None, disappeared_after_runs: int = 2, display_price_ceiling: float = None, history_price_ceiling: float = None, write_legacy_hotel_html: bool = False, config_file: str = None, enable_ta_live_backfill: bool = False, force_ai: bool = False):
     """Генерирует дашборд с встроенными графиками"""
@@ -816,14 +817,8 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
     full_latest_run_slice = _last_run_slice(df)
 
     df_sorted_all = latest_run_slice.sort_values(group_cols + ['scraped_at_display'])
-    reputation_kb_data = {}
-    kb_path = "hotel_reputation_kb.json"
-    if os.path.exists(kb_path):
-        try:
-            with open(kb_path, "r", encoding="utf-8") as f:
-                reputation_kb_data = json.load(f).get("hotels", {})
-        except Exception:
-            reputation_kb_data = {}
+    hotel_repo = HotelRepository.get_instance()
+    reputation_kb_data = hotel_repo.reputation_kb.get("hotels", {})
 
     hotel_ta_cache = _build_hotel_ta_cache(df, reputation_kb_data=reputation_kb_data)
     latest_rows = []
@@ -975,23 +970,8 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         print("⏭️ Cross-Border Arbitrage: отключен для раннего бронирования")
 
     if not reputation_kb_data:
-        reputation_kb_data = {}
-    kb_path = "hotel_reputation_kb.json"
-    if os.path.exists(kb_path):
-        try:
-            with open(kb_path, "r", encoding="utf-8") as f:
-                reputation_kb_data = json.load(f).get("hotels", {})
-        except Exception:
-            pass
-
-    specs_kb = {}
-    specs_path = "hotel_specs_kb.json"
-    if os.path.exists(specs_path):
-        try:
-            with open(specs_path, "r", encoding="utf-8") as f:
-                specs_kb = json.load(f).get("hotels", {})
-        except Exception:
-            pass
+        reputation_kb_data = hotel_repo.reputation_kb.get("hotels", {})
+    specs_kb = hotel_repo.specs_kb.get("hotels", {})
 
     oracle_report = None
     run_oracle = (not _is_early_booking) and bool(_cfg_modules.get('ai_market_oracle', True))
@@ -1765,14 +1745,10 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
     _ingest_images_source(images_map, os.path.join('data', 'hotel_images.json'))
     _ingest_images_source(images_map, os.path.join(_data_dir, 'hotel_images.json'))
     try:
-        g_kb_path = "hotel_galleries_kb.json"
-        if os.path.exists(g_kb_path):
-            with open(g_kb_path, "r", encoding="utf-8") as _g_f:
-                _g_data = json.load(_g_f)
-                for _h_n, _p_list in _g_data.get("galleries", {}).items():
-                    if _p_list and isinstance(_p_list, list) and _p_list[0].get("url"):
-                        if _h_n not in images_map:
-                            images_map[_h_n] = _p_list[0]["url"]
+        for _h_n, _p_list in hotel_repo.galleries_kb.get("galleries", {}).items():
+            if _p_list and isinstance(_p_list, list) and _p_list[0].get("url"):
+                if _h_n not in images_map:
+                    images_map[_h_n] = _p_list[0]["url"]
     except Exception:
         pass
 

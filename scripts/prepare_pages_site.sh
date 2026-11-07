@@ -39,6 +39,10 @@ done < <(python3 -c 'import json,sys; print("\n".join(json.loads(sys.argv[1])["d
 rm -rf site
 mkdir -p site/data/filters
 
+if [ -d "${ROOT}/assets" ]; then
+  cp -R "${ROOT}/assets" site/
+fi
+
 cp -f favicon.svg site/favicon.svg
 cp -f hotel-chart.html site/hotel-chart.html
 cp -f index.html site/index.html

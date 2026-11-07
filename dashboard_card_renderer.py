@@ -70,3 +70,4 @@ def _render_top_movers_html(decreases_48h: list, increases_48h: list, slugify_fn
             </div>
         </div>
     """
+
