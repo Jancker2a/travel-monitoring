@@ -211,9 +211,21 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
                 if os.path.exists(db_path):
                     db = TravelDatabase(db_path)
                     repo = PriceRepository(db)
-                    if repo.count_offers(filter_id) > 0:
+                    db_count = repo.count_offers(filter_id)
+                    # Проверяем количество строк в CSV, чтобы не загрузить неполную БД (например, если базу не прогрели)
+                    csv_min_expected = 0
+                    if os.path.exists(data_file):
+                        try:
+                            with open(data_file, 'r', encoding='utf-8', errors='ignore') as f:
+                                csv_min_expected = max(0, sum(1 for _ in f) - 1)
+                        except Exception:
+                            csv_min_expected = 0
+
+                    if db_count > 0 and db_count >= csv_min_expected:
                         df = repo.get_filter_dataframe(filter_id)
                         print(f"⚡ Загружено {len(df)} записей для '{filter_id}' из SQLite ({db_path})")
+                    elif db_count > 0 and db_count < csv_min_expected:
+                        print(f"ℹ️ SQLite содержит {db_count} записей, а CSV {csv_min_expected}. Читаем CSV для полноты истории.")
             except Exception as dbe:
                 df = None
 
