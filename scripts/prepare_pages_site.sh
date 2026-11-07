@@ -88,5 +88,9 @@ if [ -f "${ROOT}/data/hotel_images.json" ]; then
   cp "${ROOT}/data/hotel_images.json" site/data/
 fi
 
+if [ -f "${ROOT}/data/hopper_accuracy_report.json" ]; then
+  cp "${ROOT}/data/hopper_accuracy_report.json" site/data/
+fi
+
 echo "site/ готов ($(du -sh site | awk '{print $1}')) — фильтров: ${#FILTER_IDS[@]}"
 echo "HTML: ${ACTIVE_HREFS[*]}"

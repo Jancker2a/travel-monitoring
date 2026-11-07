@@ -545,6 +545,7 @@ def batch_predict_offers(
     df: pd.DataFrame,
     reference_date: Optional[date] = None,
     history_df: Optional[pd.DataFrame] = None,
+    record_ledger: bool = True,
 ) -> pd.DataFrame:
     """
     Enriches a DataFrame of offers with Hopper prediction columns:
@@ -698,5 +699,21 @@ def batch_predict_offers(
     result_df["hopper_expected_savings"] = expected_savings_list
     result_df["hopper_recommended_date"] = recommended_dates
     result_df["hopper_reasoning"] = reasonings
+
+    if record_ledger and not result_df.empty:
+        try:
+            from hopper_learner import HopperLearner
+            learner = HopperLearner()
+            for _, r_row in result_df.iterrows():
+                v_str = str(r_row.get("hopper_verdict") or "")
+                if v_str in ("WAIT", "BUY_NOW", "OVERPRICED"):
+                    p_drop = float(r_row.get("hopper_drop_prob_pct") or 50.0) / 100.0
+                    p_target = float(r_row.get("hopper_target_price") or r_row.get("price") or 0.0)
+                    d_dep = int(r_row.get("hopper_days_to_dep") or 0)
+                    q_val = float(r_row.get("price_quantile") if "price_quantile" in r_row else 0.5)
+                    learner.record_prediction(r_row.to_dict(), v_str, p_drop, p_target, d_dep, q_val)
+            learner.save_ledger()
+        except Exception as le:
+            logger.debug(f"HopperLearner record_prediction skipped: {le}")
 
     return result_df

@@ -152,6 +152,8 @@ class PriceRepository:
         hotel_name: str,
         filter_id: Optional[str] = None,
         lookback_days: Optional[int] = None,
+        dates: Optional[str] = None,
+        since_scraped_at: Optional[str] = None,
     ) -> pd.DataFrame:
         """Returns historical price points for a hotel, using canonical matching."""
         canonical = self.registry.get_canonical(hotel_name) or hotel_name
@@ -162,6 +164,16 @@ class PriceRepository:
             if filter_id:
                 filter_clause = "AND filter_id = ?"
                 params.append(filter_id)
+
+            dates_clause = ""
+            if dates:
+                dates_clause = "AND dates = ?"
+                params.append(dates)
+
+            since_clause = ""
+            if since_scraped_at:
+                since_clause = "AND scraped_at >= ?"
+                params.append(since_scraped_at)
 
             date_clause = ""
             if lookback_days:
@@ -174,6 +186,8 @@ class PriceRepository:
                 FROM offers
                 WHERE (hotel_name = ? OR canonical_hotel_name = ?)
                   {filter_clause}
+                  {dates_clause}
+                  {since_clause}
                   {date_clause}
                 ORDER BY scraped_at ASC;
             """
