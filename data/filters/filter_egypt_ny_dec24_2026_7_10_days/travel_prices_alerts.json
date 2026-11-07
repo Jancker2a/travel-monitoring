@@ -702,10 +702,75 @@
       "created_at": "2026-11-07T18:10:55.985229+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sea Star Beau Rivage_2026-11-07_18-10_+12.6"
+    },
+    {
+      "hotel_name": "Rewaya Majestic Resort",
+      "duration_bucket": "",
+      "old_price": 7958.0,
+      "new_price": 9358.0,
+      "price_change": 1400.0,
+      "price_change_pct": 17.592359889419452,
+      "timestamp": "2026-11-07 22:02:52.444898+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-07T22:03:46.927928+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Majestic Resort_2026-11-07_22-02_+17.6"
+    },
+    {
+      "hotel_name": "Sea Star Beau Rivage",
+      "duration_bucket": "",
+      "old_price": 9568.0,
+      "new_price": 8499.0,
+      "price_change": -1069.0,
+      "price_change_pct": -11.172658862876254,
+      "timestamp": "2026-11-07 22:02:52.444898+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-07T22:03:46.927962+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sea Star Beau Rivage_2026-11-07_22-02_-11.2"
+    },
+    {
+      "hotel_name": "Old Palace Resort",
+      "duration_bucket": "",
+      "old_price": 10644.0,
+      "new_price": 10644.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-07 22:02:52.444898+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-07T22:03:46.927984+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Old Palace Resort_2026-11-07_22-02_zone_out_gone"
+    },
+    {
+      "hotel_name": "Swisstouch Oriental Resort (ex. Hotelux Oriental Coast)",
+      "duration_bucket": "",
+      "old_price": 10890.0,
+      "new_price": 10890.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-07 22:02:52.444898+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-07T22:03:46.927995+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Swisstouch Oriental Resort (ex. Hotelux Oriental Coast)_2026-11-07_22-02_zone_out_gone"
+    },
+    {
+      "hotel_name": "Xanadu Makadi Bay",
+      "duration_bucket": "",
+      "old_price": 10568.0,
+      "new_price": 10568.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-07 22:02:52.444898+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-07T22:03:46.928005+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xanadu Makadi Bay_2026-11-07_22-02_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-07T18:10:01.994565+00:00",
+    "last_processed_run": "2026-11-07T22:02:52.444898+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 10599.0,
