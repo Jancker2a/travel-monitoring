@@ -23,6 +23,7 @@ TEST_MODULES = [
     "test_hotel_repository",
     "test_scraper_healthcheck",
     "test_storage",
+    "test_telegram_notifier",
     "test_metrics_simulation",
     "test_tripadvisor_extractor",
 ]

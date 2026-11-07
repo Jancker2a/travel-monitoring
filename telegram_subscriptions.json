@@ -30,7 +30,14 @@
         "timezone": "Europe/Warsaw",
         "daily_digest_hour": 9,
         "max_messages_per_hour": 15
-      }
+      },
+      "watchlist": [
+        {
+          "hotel_name": "Pickalbatros",
+          "target_price": 3800,
+          "notify_on_any_drop": true
+        }
+      ]
     }
   ]
 }

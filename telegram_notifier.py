@@ -213,9 +213,9 @@ class FilterDataSummary:
         data_id: str,
         filter_title: str,
         filter_href: str,
-        data_dir: str,
-        csv_path: str,
-        df: pd.DataFrame,
+        data_dir: str = "",
+        csv_path: str = "",
+        df: Any = None,
         display_price_ceiling: int = 10000,
         config_url: str = "",
     ):
@@ -531,19 +531,71 @@ def _clean_telegram_href(url: str, config_url: str = "") -> str:
     return html.escape(str(normalized).strip(), quote=True)
 
 
+def match_watchlist_entry(
+    hotel_name: str,
+    watchlist: List[Any],
+    filter_id: str = "",
+) -> Optional[Dict[str, Any]]:
+    """
+    Matches a hotel name against the subscriber's watchlist.
+    Supports substring match, case-insensitive match, and optional filter_id restriction.
+    """
+    if not watchlist or not hotel_name:
+        return None
+
+    h_lower = hotel_name.strip().lower()
+
+    for item in watchlist:
+        if isinstance(item, str):
+            w_name = item.strip().lower()
+            target_price = None
+            w_filter = None
+            notify_drop = True
+        elif isinstance(item, dict):
+            w_name = str(item.get("hotel_name") or "").strip().lower()
+            target_price = float(item["target_price"]) if item.get("target_price") is not None else None
+            w_filter = str(item.get("filter_id") or "").strip()
+            notify_drop = bool(item.get("notify_on_any_drop", True))
+        else:
+            continue
+
+        if not w_name:
+            continue
+
+        if w_filter and filter_id and w_filter != filter_id:
+            continue
+
+        if w_name in h_lower or h_lower in w_name:
+            return {
+                "matched_pattern": w_name,
+                "target_price": target_price,
+                "notify_on_any_drop": notify_drop,
+                "filter_id": w_filter,
+            }
+
+    return None
+
+
 def format_hotel_alert_message(
     flt_summary: FilterDataSummary,
     item: Dict[str, Any],
-    alert_type: str,  # "hot_deal" | "price_drop" | "historic_low"
+    alert_type: str,  # "target_reached" | "watchlist_drop" | "flash_drop" | "hot_deal" | "historic_low" | "price_drop"
+    extra_meta: Optional[Dict[str, Any]] = None,
 ) -> str:
     hotel_name = html.escape(item["hotel_name"])
     title = html.escape(flt_summary.filter_title)
     current_p = f"{item['current_price']:,.0f}".replace(",", " ")
     base_p = f"{item['baseline_48h_price']:,.0f}".replace(",", " ")
     delta_pct = item["delta_48h_pct"]
+    extra = extra_meta or {}
+    target_val = extra.get("target_price")
 
     # Header emoji & title
-    if alert_type == "flash_drop":
+    if alert_type == "target_reached":
+        header = f"🎯 <b>ЦЕЛЕВАЯ ЦЕНА ДОСТИГНУТА • {title}</b>"
+    elif alert_type == "watchlist_drop":
+        header = f"⭐ <b>ОТЕЛЬ ИЗ ИЗБРАННОГО ПОДЕШЕВЕЛ {delta_pct:+.1f}% • {title}</b>"
+    elif alert_type == "flash_drop":
         header = f"⚡ <b>РЕЗКИЙ ОБВАЛ ЦЕНЫ {delta_pct:+.1f}% • {title}</b>"
     elif alert_type == "hot_deal":
         header = f"🔥 <b>SUPER HOT DEAL • {title}</b>"
@@ -554,24 +606,28 @@ def format_hotel_alert_message(
 
     # Rating badge
     rating_str = ""
-    if item["ta_rating"] is not None:
+    if item.get("ta_rating") is not None:
         rating_str = f" ⭐ <b>{item['ta_rating']:.1f}</b>"
-        if item["ta_reviews"] > 0:
+        if item.get("ta_reviews", 0) > 0:
             rating_str += f" <i>({item['ta_reviews']} отзывов)</i>"
 
     # Deal pill
-    score = item["deal_score"]
-    score_pill = f"🎯 Deal Score: <b>{score} / 100</b> ({item['confidence']})"
+    score = item.get("deal_score", 0)
+    conf = item.get("confidence", "Medium")
+    score_pill = f"🎯 Deal Score: <b>{score} / 100</b> ({conf})"
 
     # Details
-    dates_str = html.escape(item["dates"]) if item["dates"] else "По запросу"
-    dur_str = html.escape(item["duration"]) if item["duration"] else ""
+    dates_val = str(item.get("dates") or item.get("departure_dates") or "")
+    dates_str = html.escape(dates_val) if dates_val else "По запросу"
+    dur_val = str(item.get("duration") or "")
+    dur_str = html.escape(dur_val) if dur_val else ""
     dur_part = f" • {dur_str}" if dur_str else ""
-    airport_str = html.escape(item["airport"]) if item["airport"] else "Любой аэропорт"
+    airport_val = str(item.get("airport") or item.get("airports") or "")
+    airport_str = html.escape(airport_val) if airport_val else "Любой аэропорт"
 
     # Links
     links = []
-    if item["offer_url"]:
+    if item.get("offer_url"):
         clean_url = _clean_telegram_href(item["offer_url"], flt_summary.config_url)
         links.append(f'<a href="{clean_url}">🔗 Открыть на Fly.pl</a>')
     
@@ -585,8 +641,14 @@ def format_hotel_alert_message(
     links.append(f'<a href="{dashboard_url}">📊 Дашборд</a>')
 
     price_info = f"💰 <b>{current_p} PLN</b>"
-    if float(item.get("baseline_48h_price") or 0) > 0 and base_p != current_p and delta_pct < 0:
+    if alert_type == "target_reached" and target_val:
+        t_str = f"{target_val:,.0f}".replace(",", " ")
+        price_info += f" (целевая цена: <b>≤ {t_str} PLN</b>)"
+    elif float(item.get("baseline_48h_price") or 0) > 0 and base_p != current_p and delta_pct < 0:
         price_info += f" (было {base_p} PLN → <b>{delta_pct:+.1f}%</b>)"
+        if target_val:
+            t_str = f"{target_val:,.0f}".replace(",", " ")
+            price_info += f" | цель: <b>≤ {t_str} PLN</b>"
 
     lines = [
         header,
@@ -598,7 +660,11 @@ def format_hotel_alert_message(
         f"✈️ {airport_str}",
     ]
 
-    if item["is_historic_low"]:
+    if alert_type == "target_reached":
+        lines.append("🎯 <i>Цена опустилась до желаемого целевого уровня!</i>")
+    elif alert_type == "watchlist_drop":
+        lines.append("⭐ <i>Отель находится в вашем списке наблюдения (Watchlist).</i>")
+    elif item["is_historic_low"]:
         lines.append("📉 <i>Это новый исторический минимум цены за всё время наблюдений!</i>")
 
     lines.append("")
@@ -745,9 +811,10 @@ def process_notifications(
             logger.info(f"  ⏭ Instant alerts skipped for {sub_name} (quiet hours or digest mode).")
             continue
 
-        # C. Instant Alerts (Hot Deals, Big Drops, Historic Lows)
-        candidate_alerts: List[Tuple[int, FilterDataSummary, Dict[str, Any], str]] = []
+        # C. Instant Alerts (Hot Deals, Big Drops, Historic Lows, Watchlist)
+        candidate_alerts: List[Tuple[int, FilterDataSummary, Dict[str, Any], str, Dict[str, Any]]] = []
         
+        watchlist = sub.get("watchlist", [])
         deal_score_min = int(rules.get("deal_score_min", 90))
         price_drop_pct_min = float(rules.get("price_drop_pct_min", 15.0))
         single_run_drop_pct_min = float(rules.get("single_run_drop_pct_min", 12.0))
@@ -771,6 +838,35 @@ def process_notifications(
                 delta_run = item.get("delta_run_pct", 0.0)
                 ta_rating = item["ta_rating"]
 
+                # Check subscriber watchlist match
+                w_match = match_watchlist_entry(item["hotel_name"], watchlist, summary.filter_id)
+                if w_match:
+                    target_val = w_match.get("target_price")
+                    # 1. Target price reached
+                    if target_val is not None and cur_price <= target_val:
+                        candidate_alerts.append((
+                            250,
+                            summary,
+                            item,
+                            "target_reached",
+                            {"target_price": target_val, "watchlist_pattern": w_match.get("matched_pattern")},
+                        ))
+                        continue
+
+                    # 2. Watchlist drop (any drop for watched hotels)
+                    if w_match.get("notify_on_any_drop", True):
+                        is_fresh_drop = (delta_run <= -2.0)
+                        is_brand_new_offer = (prev_price is None or prev_price <= 0)
+                        if (is_fresh_drop or delta_48h <= -3.0 or is_brand_new_offer) and cur_price > 0:
+                            candidate_alerts.append((
+                                200 + int(abs(delta_48h)),
+                                summary,
+                                item,
+                                "watchlist_drop",
+                                {"target_price": target_val, "watchlist_pattern": w_match.get("matched_pattern")},
+                            ))
+                            continue
+
                 # Price ceiling filter (must be within filter's ceiling + 1000 PLN)
                 if cur_price > max_ceiling_price:
                     continue
@@ -793,12 +889,12 @@ def process_notifications(
                     ((delta_run <= -single_run_drop_pct_min and delta_48h < 0) or (delta_48h <= -price_drop_pct_min and is_fresh_drop))
                     and cur_price > 0
                 ):
-                    candidate_alerts.append((150 + int(abs(delta_48h)), summary, item, "flash_drop"))
+                    candidate_alerts.append((150 + int(abs(delta_48h)), summary, item, "flash_drop", {}))
                     continue
 
                 # Check 2: Super Hot Deal (Deal Score >= 90, e.g. 90-100, and price dropped >= 3% in 48h)
                 if notify_hot_deals and deal_score >= deal_score_min and delta_48h <= -3.0 and item["confidence"] != "Low":
-                    candidate_alerts.append((deal_score, summary, item, "hot_deal"))
+                    candidate_alerts.append((deal_score, summary, item, "hot_deal", {}))
                     continue
 
                 # Check 3: True Historic Low (All-time low + drop >= 5% in 48h + Deal Score >= 80 + high confidence)
@@ -809,7 +905,7 @@ def process_notifications(
                     and deal_score >= 80
                     and item["confidence"] != "Low"
                 ):
-                    candidate_alerts.append((deal_score, summary, item, "historic_low"))
+                    candidate_alerts.append((deal_score, summary, item, "historic_low", {}))
                     continue
 
         # Sort candidate alerts by highest priority
@@ -818,14 +914,20 @@ def process_notifications(
         sent_count_sub = 0
         history_cache = sent_cache.setdefault("history", {})
 
-        for _, flt_summary, item, alert_type in candidate_alerts:
+        for _, flt_summary, item, alert_type, extra_meta in candidate_alerts:
             if sent_count_sub >= max_msgs:
                 logger.info(f"  Reached max message limit ({max_msgs}) for {sub_name}.")
                 break
 
             hotel_name = item["hotel_name"]
             cur_price = item["current_price"]
-            hotel_key = f"{chat_id}:{flt_summary.filter_id}:{hotel_name}"
+            
+            if alert_type == "target_reached":
+                hotel_key = f"{chat_id}:target:{flt_summary.filter_id}:{hotel_name}"
+            elif alert_type == "watchlist_drop":
+                hotel_key = f"{chat_id}:watch:{flt_summary.filter_id}:{hotel_name}"
+            else:
+                hotel_key = f"{chat_id}:{flt_summary.filter_id}:{hotel_name}"
 
             # Check if this hotel was already sent to this subscriber
             prev_info = history_cache.get(hotel_key)
@@ -835,7 +937,7 @@ def process_notifications(
                 if last_sent_price > 0 and cur_price >= last_sent_price * 0.95:
                     continue
 
-            msg_text = format_hotel_alert_message(flt_summary, item, alert_type)
+            msg_text = format_hotel_alert_message(flt_summary, item, alert_type, extra_meta)
             logger.info(f"  📨 Sending {alert_type} alert for '{hotel_name}' ({cur_price:.0f} PLN) to {sub_name}...")
 
             if dry_run:
@@ -847,6 +949,7 @@ def process_notifications(
                     "last_sent_deal_score": item["deal_score"],
                     "last_sent_at": now_utc_iso,
                     "alert_type": alert_type,
+                    "target_price": extra_meta.get("target_price"),
                 }
                 sent_count_sub += 1
                 total_messages_sent += 1
@@ -858,6 +961,7 @@ def process_notifications(
                         "last_sent_deal_score": item["deal_score"],
                         "last_sent_at": now_utc_iso,
                         "alert_type": alert_type,
+                        "target_price": extra_meta.get("target_price"),
                     }
                     sent_count_sub += 1
                     total_messages_sent += 1
@@ -873,6 +977,145 @@ def process_notifications(
 
 
 # ============================================================================
+# Watchlist Management Functions
+# ============================================================================
+
+def add_to_watchlist(
+    config_path: str = DEFAULT_CONFIG_PATH,
+    hotel_name: str = "",
+    target_price: Optional[float] = None,
+    filter_id: Optional[str] = None,
+    notify_drop: bool = True,
+    chat_id: Optional[str] = None,
+) -> bool:
+    """Add or update a hotel entry in the subscriber's watchlist."""
+    if not hotel_name:
+        logger.error("Hotel name cannot be empty.")
+        return False
+
+    if not os.path.isfile(config_path):
+        logger.error(f"Config file '{config_path}' not found.")
+        return False
+
+    with open(config_path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    subscribers = data.get("subscribers", [])
+    if not subscribers:
+        logger.error(f"No subscribers found in '{config_path}'.")
+        return False
+
+    target_sub = None
+    if chat_id:
+        for s in subscribers:
+            if str(s.get("chat_id") or "").strip() == str(chat_id).strip():
+                target_sub = s
+                break
+    if not target_sub:
+        target_sub = subscribers[0]
+
+    watchlist = target_sub.setdefault("watchlist", [])
+    norm_hotel = hotel_name.strip()
+
+    new_entry: Dict[str, Any] = {"hotel_name": norm_hotel}
+    if target_price is not None:
+        new_entry["target_price"] = float(target_price)
+    if filter_id:
+        new_entry["filter_id"] = filter_id.strip()
+    new_entry["notify_on_any_drop"] = bool(notify_drop)
+
+    updated = False
+    for idx, item in enumerate(watchlist):
+        existing_name = item if isinstance(item, str) else item.get("hotel_name", "")
+        if str(existing_name).strip().lower() == norm_hotel.lower():
+            watchlist[idx] = new_entry
+            updated = True
+            break
+
+    if not updated:
+        watchlist.append(new_entry)
+
+    with open(config_path, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+
+    logger.info(f"Watchlist entry saved for '{target_sub.get('name')}': {new_entry}")
+    return True
+
+
+def remove_from_watchlist(
+    config_path: str = DEFAULT_CONFIG_PATH,
+    hotel_name: str = "",
+    chat_id: Optional[str] = None,
+) -> bool:
+    """Remove a hotel from subscriber's watchlist."""
+    if not hotel_name or not os.path.isfile(config_path):
+        return False
+
+    with open(config_path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    subscribers = data.get("subscribers", [])
+    if not subscribers:
+        return False
+
+    target_sub = None
+    if chat_id:
+        for s in subscribers:
+            if str(s.get("chat_id") or "").strip() == str(chat_id).strip():
+                target_sub = s
+                break
+    if not target_sub:
+        target_sub = subscribers[0]
+
+    watchlist = target_sub.get("watchlist", [])
+    initial_len = len(watchlist)
+    norm_hotel = hotel_name.strip().lower()
+
+    new_wl = [
+        item for item in watchlist
+        if (item if isinstance(item, str) else item.get("hotel_name", "")).strip().lower() != norm_hotel
+    ]
+    target_sub["watchlist"] = new_wl
+
+    with open(config_path, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+
+    removed = len(new_wl) < initial_len
+    if removed:
+        logger.info(f"Removed '{hotel_name}' from watchlist.")
+    else:
+        logger.warning(f"Hotel '{hotel_name}' not found in watchlist.")
+    return removed
+
+
+def list_watchlist(
+    config_path: str = DEFAULT_CONFIG_PATH,
+    chat_id: Optional[str] = None,
+) -> List[Dict[str, Any]]:
+    """List watchlist entries for subscriber."""
+    if not os.path.isfile(config_path):
+        return []
+
+    with open(config_path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    subscribers = data.get("subscribers", [])
+    if not subscribers:
+        return []
+
+    target_sub = None
+    if chat_id:
+        for s in subscribers:
+            if str(s.get("chat_id") or "").strip() == str(chat_id).strip():
+                target_sub = s
+                break
+    if not target_sub:
+        target_sub = subscribers[0]
+
+    return target_sub.get("watchlist", [])
+
+
+# ============================================================================
 # CLI Entrypoint
 # ============================================================================
 
@@ -884,8 +1127,58 @@ def main():
     parser.add_argument("--force-digest", action="store_true", help="Force send daily digest regardless of current hour")
     parser.add_argument("--force-instant", action="store_true", help="Ignore quiet hours and force check instant alerts")
     parser.add_argument("--filter", dest="filter_id", default=None, help="Process only a specific filter ID")
+    parser.add_argument("--chat-id", dest="chat_id", default=None, help="Target subscriber chat_id for watchlist management")
+
+    # Watchlist CLI management
+    parser.add_argument("--add-watch", dest="add_watch", default=None, help="Add hotel name to watchlist")
+    parser.add_argument("--target-price", dest="target_price", type=float, default=None, help="Target price (PLN) for watchlist")
+    parser.add_argument("--watch-filter", dest="watch_filter", default=None, help="Optional filter ID scope for watchlist item")
+    parser.add_argument("--remove-watch", dest="remove_watch", default=None, help="Remove hotel name from watchlist")
+    parser.add_argument("--list-watch", action="store_true", help="List all watchlist entries and exit")
 
     args = parser.parse_args()
+
+    # Handle Watchlist CLI commands
+    if args.list_watch:
+        entries = list_watchlist(args.config, args.chat_id)
+        print(f"\n📋 Telegram Watchlist ({len(entries)} items):")
+        if not entries:
+            print("  (Watchlist is empty)")
+        for idx, item in enumerate(entries, 1):
+            if isinstance(item, str):
+                print(f"  {idx}. {item} (any drop)")
+            else:
+                h_name = item.get("hotel_name", "Unknown")
+                tp = item.get("target_price")
+                tp_str = f"target: ≤ {tp:,.0f} PLN".replace(",", " ") if tp else "no target price"
+                fid = item.get("filter_id")
+                fid_str = f" [filter: {fid}]" if fid else ""
+                print(f"  {idx}. {h_name} ({tp_str}){fid_str}")
+        print()
+        return
+
+    if args.add_watch:
+        ok = add_to_watchlist(
+            config_path=args.config,
+            hotel_name=args.add_watch,
+            target_price=args.target_price,
+            filter_id=args.watch_filter,
+            chat_id=args.chat_id,
+        )
+        if ok:
+            print(f"✅ Added '{args.add_watch}' to watchlist (target price: {args.target_price} PLN)")
+        return
+
+    if args.remove_watch:
+        ok = remove_from_watchlist(
+            config_path=args.config,
+            hotel_name=args.remove_watch,
+            chat_id=args.chat_id,
+        )
+        if ok:
+            print(f"✅ Removed '{args.remove_watch}' from watchlist")
+        return
+
     process_notifications(
         config_path=args.config,
         cache_path=args.cache,
