@@ -31,6 +31,9 @@ from dashboard_data_pipeline import (
     _time_weighted_price_quantile,
     slugify,
 )
+from filter_registry import active_filter_id
+from filter_trip import _duration_bucket_is_missing
+from hotel_deal_score import comeback_from_premium
 
 def render_ai_market_briefing_html(
     oracle_report: Optional[Dict[str, Any]],

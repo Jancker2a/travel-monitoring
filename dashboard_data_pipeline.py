@@ -46,6 +46,7 @@ from filter_trip import (
     should_skip_monitor_config,
     skip_monitor_reason,
     trip_duration_bucket_id,
+    trip_row_key,
 )
 from hotel_deal_score import (
     _price_plateau_segments,

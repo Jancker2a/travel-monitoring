@@ -206,3 +206,4 @@ class ScraperHealthChecker:
         except Exception as e:
             logger.warning(f"Could not dispatch telegram breaker alert: {e}")
             return False
+
