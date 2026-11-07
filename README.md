@@ -57,26 +57,20 @@ python analyze_data.py --charts
 python scheduler.py
 ```
 
-### 🛫 Сравнение аэропортов
+### Параллельный мониторинг всех фильтров
 
-#### Мониторинг всех стран с сравнением аэропортов:
 ```bash
-python run_all_countries_with_airport_comparison.py
+python scripts/run_monitors_parallel.py -j 3
 ```
 
-#### Мониторинг одной страны:
-```bash
-python travel_monitor_with_airport_comparison.py --base-config config.json --any-airports-config config_any_airports.json
-```
+### Генерация интерактивных дашбордов и каталога
 
-#### Генерация дашбордов с поддержкой сравнения:
 ```bash
-python generate_all_dashboards_with_airport_comparison.py
-```
+# Все дашборды, лэндинг и каталог отелей:
+python scripts/run_dashboards_parallel.py -j 3
 
-#### Тестирование функциональности:
-```bash
-python test_airport_comparison.py
+# Или генерация одного конкретного фильтра:
+python generate_inline_charts_dashboard.py --data-file data/filters/filter_turkey_7_10_days/travel_prices.csv --output index_filter_turkey_7_10_days.html
 ```
 
 ## 📊 Результаты

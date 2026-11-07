@@ -149,7 +149,7 @@ def run_test():
             assert "Кипр • Демо" in title_text
 
             # Check hero header
-            hero_title = page.inner_text(".hero-title-clean")
+            hero_title = page.inner_text(".hero-terminal-title, .hero-title-clean, .header h1")
             print(f"  Hero title: {hero_title}")
 
             # Check Plotly container
