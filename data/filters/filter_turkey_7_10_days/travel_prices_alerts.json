@@ -2990,10 +2990,88 @@
       "created_at": "2026-11-07T07:48:19.151172+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Port Side Resort_2026-11-07_07-46_zone_out_gone"
+    },
+    {
+      "hotel_name": "Orange Palace",
+      "duration_bucket": "",
+      "old_price": 7044.0,
+      "new_price": 6467.0,
+      "price_change": -577.0,
+      "price_change_pct": -8.19136854060193,
+      "timestamp": "2026-11-07 10:27:29.431845+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-07T10:28:46.065339+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Orange Palace_2026-11-07_10-27_-8.2"
+    },
+    {
+      "hotel_name": "Villa Side Residence",
+      "duration_bucket": "",
+      "old_price": 6566.0,
+      "new_price": 5915.0,
+      "price_change": -651.0,
+      "price_change_pct": -9.914712153518124,
+      "timestamp": "2026-11-07 10:27:29.431845+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-07T10:28:46.065369+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Villa Side Residence_2026-11-07_10-27_-9.9"
+    },
+    {
+      "hotel_name": "Limak Limra",
+      "duration_bucket": "",
+      "old_price": 6268.0,
+      "new_price": 5647.0,
+      "price_change": -621.0,
+      "price_change_pct": -9.907466496490109,
+      "timestamp": "2026-11-07 10:27:29.431845+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-07T10:28:46.065378+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Limak Limra_2026-11-07_10-27_-9.9"
+    },
+    {
+      "hotel_name": "Baia Lara",
+      "duration_bucket": "",
+      "old_price": 7004.0,
+      "new_price": 7004.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-07 10:27:29.431845+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-07T10:28:46.065394+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Baia Lara_2026-11-07_10-27_zone_out_gone"
+    },
+    {
+      "hotel_name": "Ramada Plaza Antalya",
+      "duration_bucket": "",
+      "old_price": 6594.0,
+      "new_price": 6594.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-07 10:27:29.431845+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-07T10:28:46.065401+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Ramada Plaza Antalya_2026-11-07_10-27_zone_out_gone"
+    },
+    {
+      "hotel_name": "Ramada Resort Lara",
+      "duration_bucket": "",
+      "old_price": 7109.0,
+      "new_price": 7109.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-07 10:27:29.431845+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-07T10:28:46.065407+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Ramada Resort Lara_2026-11-07_10-27_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-07T07:46:51.641414+00:00",
+    "last_processed_run": "2026-11-07T10:27:29.431845+00:00",
     "premium_state": {
       "Alba Queen": {
         "history_max": 7157.0,
@@ -3060,7 +3138,7 @@
         "premium_peak": null
       },
       "Grand Seker": {
-        "history_max": 6086.0,
+        "history_max": 6388.0,
         "premium_peak": null
       },
       "Sural Resort": {
