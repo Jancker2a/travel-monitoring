@@ -32,7 +32,7 @@ from dashboard_data_pipeline import (
     slugify,
 )
 from filter_registry import active_filter_id
-from filter_trip import _duration_bucket_is_missing
+from filter_trip import _duration_bucket_is_missing, trip_row_key
 from hotel_deal_score import comeback_from_premium
 
 def render_ai_market_briefing_html(
