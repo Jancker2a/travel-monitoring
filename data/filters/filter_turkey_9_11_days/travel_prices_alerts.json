@@ -1495,10 +1495,114 @@
       "created_at": "2026-11-06T19:39:57.109209+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Side Royal Style (ex. Side Royal Luxury)_2026-11-06_19-38_zone_out_gone"
+    },
+    {
+      "hotel_name": "Castival (ex. La Grande Resort & Spa)",
+      "duration_bucket": "",
+      "old_price": 8144.0,
+      "new_price": 7329.0,
+      "price_change": -815.0,
+      "price_change_pct": -10.0073673870334,
+      "timestamp": "2026-11-07 00:19:15.763989+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-07T00:20:25.840344+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Castival (ex. La Grande Resort & Spa)_2026-11-07_00-19_-10.0"
+    },
+    {
+      "hotel_name": "Alba Queen",
+      "duration_bucket": "",
+      "old_price": 7914.0,
+      "new_price": 7247.0,
+      "price_change": -667.0,
+      "price_change_pct": -8.428102097548647,
+      "timestamp": "2026-11-07 00:19:15.763989+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-07T00:20:25.840371+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Alba Queen_2026-11-07_00-19_-8.4"
+    },
+    {
+      "hotel_name": "Aydinbey Kings Palace",
+      "duration_bucket": "",
+      "old_price": 8841.0,
+      "new_price": 7933.0,
+      "price_change": -908.0,
+      "price_change_pct": -10.270331410473927,
+      "timestamp": "2026-11-07 00:19:15.763989+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-07T00:20:25.840384+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Aydinbey Kings Palace_2026-11-07_00-19_-10.3"
+    },
+    {
+      "hotel_name": "Barut Goia (ex. Barut Sunwing Side Beach)",
+      "duration_bucket": "",
+      "old_price": 8639.0,
+      "new_price": 8639.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-07 00:19:15.763989+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-07T00:20:25.840399+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Barut Goia (ex. Barut Sunwing Side Beach)_2026-11-07_00-19_zone_out_gone"
+    },
+    {
+      "hotel_name": "Orange County (Kemer)",
+      "duration_bucket": "",
+      "old_price": 6953.0,
+      "new_price": 6953.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-07 00:19:15.763989+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-07T00:20:25.840407+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Orange County (Kemer)_2026-11-07_00-19_zone_out_gone"
+    },
+    {
+      "hotel_name": "Port Side Resort",
+      "duration_bucket": "",
+      "old_price": 8621.0,
+      "new_price": 8621.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-07 00:19:15.763989+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-07T00:20:25.840415+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Port Side Resort_2026-11-07_00-19_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sunis Evren Beach & Spa",
+      "duration_bucket": "",
+      "old_price": 8791.0,
+      "new_price": 8791.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-07 00:19:15.763989+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-07T00:20:25.840422+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sunis Evren Beach & Spa_2026-11-07_00-19_zone_out_gone"
+    },
+    {
+      "hotel_name": "Terrace Beach Resort (Side)",
+      "duration_bucket": "",
+      "old_price": 8502.0,
+      "new_price": 8502.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-07 00:19:15.763989+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-07T00:20:25.840429+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Terrace Beach Resort (Side)_2026-11-07_00-19_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-06T19:38:49.908890+00:00",
+    "last_processed_run": "2026-11-07T00:19:15.763989+00:00",
     "premium_state": {
       "Alba Queen": {
         "history_max": 8477.0,
@@ -2043,6 +2147,18 @@
       "Aska Lara Resort & Spa": {
         "history_max": 12442.0,
         "premium_peak": 12442.0
+      },
+      "Innvista Belek (ex. Vera Verde)": {
+        "history_max": 8189.0,
+        "premium_peak": null
+      },
+      "Limak Atlantis": {
+        "history_max": 8219.0,
+        "premium_peak": null
+      },
+      "Trendy Lara": {
+        "history_max": 8535.0,
+        "premium_peak": null
       }
     }
   }

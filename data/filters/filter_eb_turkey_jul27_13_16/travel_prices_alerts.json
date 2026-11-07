@@ -1443,10 +1443,23 @@
       "created_at": "2026-11-06T11:34:06.688377+00:00",
       "threshold_percent": 8.0,
       "unique_key": "M. C. Beach Resort (ex. Otium MC Beach Resort)_2026-11-06_11-33_comeback_32.8"
+    },
+    {
+      "hotel_name": "M. C. Beach Resort (ex. Otium MC Beach Resort)",
+      "duration_bucket": "",
+      "old_price": 12807.0,
+      "new_price": 12807.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-07 00:15:06.128102+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-07T00:16:00.521340+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "M. C. Beach Resort (ex. Otium MC Beach Resort)_2026-11-07_00-15_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-06T11:33:15.010379+00:00",
+    "last_processed_run": "2026-11-07T00:15:06.128102+00:00",
     "premium_state": {
       "Drita Resort & Spa": {
         "history_max": 11828.0,
@@ -2659,6 +2672,10 @@
       "Long Beach (Avsallar)": {
         "history_max": 19672.0,
         "premium_peak": 19672.0
+      },
+      "Klas More Beach": {
+        "history_max": 11421.0,
+        "premium_peak": null
       }
     }
   }

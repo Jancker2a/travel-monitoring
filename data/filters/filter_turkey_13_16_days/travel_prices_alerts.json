@@ -390,10 +390,36 @@
       "created_at": "2026-11-06T19:38:48.020321+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Karmir Resort (Kemer)_2026-11-06_19-37_comeback_8.7"
+    },
+    {
+      "hotel_name": "Villa Side Residence",
+      "duration_bucket": "",
+      "old_price": 8508.0,
+      "new_price": 9498.0,
+      "price_change": 990.0,
+      "price_change_pct": 11.6361071932299,
+      "timestamp": "2026-11-07 00:18:27.314315+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-07T00:19:39.698818+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Villa Side Residence_2026-11-07_00-18_+11.6"
+    },
+    {
+      "hotel_name": "Orange Palace",
+      "duration_bucket": "",
+      "old_price": 10707.0,
+      "new_price": 9623.0,
+      "price_change": -1084.0,
+      "price_change_pct": -10.124217801438311,
+      "timestamp": "2026-11-07 00:18:27.314315+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-11-07T00:19:39.698858+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Orange Palace_2026-11-07_00-18_comeback_10.1"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-06T19:37:42.793772+00:00",
+    "last_processed_run": "2026-11-07T00:18:27.314315+00:00",
     "premium_state": {
       "Alba Queen": {
         "history_max": 12036.0,
@@ -420,7 +446,7 @@
         "premium_peak": 10520.0
       },
       "Villa Side Residence": {
-        "history_max": 9341.0,
+        "history_max": 9498.0,
         "premium_peak": null
       },
       "Numa Bay Exclusive (ex Sentido Numa Bay)": {

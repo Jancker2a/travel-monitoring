@@ -3276,10 +3276,23 @@
       "created_at": "2026-11-06T11:34:06.912147+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Grand Belish_2026-11-06_11-33_zone_out_gone"
+    },
+    {
+      "hotel_name": "M. C. Beach Resort (ex. Otium MC Beach Resort)",
+      "duration_bucket": "",
+      "old_price": 8289.0,
+      "new_price": 8289.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-07 00:15:09.084176+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-07T00:16:04.652151+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "M. C. Beach Resort (ex. Otium MC Beach Resort)_2026-11-07_00-15_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-06T11:33:15.287132+00:00",
+    "last_processed_run": "2026-11-07T00:15:09.084176+00:00",
     "premium_state": {
       "Mandarin Resort (Bodrum)": {
         "history_max": 7461.0,
@@ -4479,6 +4492,10 @@
       },
       "Mary Side (ex. Mary Palace)": {
         "history_max": 11099.0,
+        "premium_peak": null
+      },
+      "Klas More Beach": {
+        "history_max": 8150.0,
         "premium_peak": null
       }
     }
