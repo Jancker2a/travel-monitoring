@@ -242,7 +242,7 @@ def build_market_dna(data_dirs: Optional[List[str]] = None) -> Dict[str, Any]:
             if os.path.exists(db_path):
                 db = TravelDatabase(db_path)
                 repo = PriceRepository(db)
-                if repo.count_offers() > 0:
+                if repo.count_offers() > 1000:
                     combined = repo.get_all_offers_df(min_price=1000.0)
                     logger.info(f"⚡ Loaded {len(combined)} records from SQLite database ({db_path}) for Market DNA.")
         except Exception as e:

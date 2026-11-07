@@ -714,7 +714,7 @@ def collect_hotel_data() -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
             if os.path.exists(db_path):
                 db = TravelDatabase(db_path)
                 repo = PriceRepository(db)
-                if repo.count_offers() > 0:
+                if repo.count_offers() > 1000:
                     offers_df = repo.get_all_offers_df(min_price=1000.0)
                     logger.info(f"⚡ Fast-loading {len(offers_df)} package offers from SQLite ({db_path})...")
                     for r_dict in offers_df.to_dict("records"):
