@@ -3146,10 +3146,114 @@
       "created_at": "2026-11-07T22:07:21.004707+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Side Prenses_2026-11-07_22-06_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sealife Family Resort",
+      "duration_bucket": "",
+      "old_price": 6595.0,
+      "new_price": 5995.0,
+      "price_change": -600.0,
+      "price_change_pct": -9.097801364670206,
+      "timestamp": "2026-11-08 01:40:14.491530+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-08T01:41:42.444100+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sealife Family Resort_2026-11-08_01-40_-9.1"
+    },
+    {
+      "hotel_name": "Grand Seker",
+      "duration_bucket": "",
+      "old_price": 6388.0,
+      "new_price": 5846.0,
+      "price_change": -542.0,
+      "price_change_pct": -8.484658735128365,
+      "timestamp": "2026-11-08 01:40:14.491530+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-08T01:41:42.444129+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Grand Seker_2026-11-08_01-40_-8.5"
+    },
+    {
+      "hotel_name": "Limak Lara De Luxe",
+      "duration_bucket": "",
+      "old_price": 6788.0,
+      "new_price": 6188.0,
+      "price_change": -600.0,
+      "price_change_pct": -8.839127872716558,
+      "timestamp": "2026-11-08 01:40:14.491530+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-08T01:41:42.444141+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Limak Lara De Luxe_2026-11-08_01-40_-8.8"
+    },
+    {
+      "hotel_name": "Porto Bello",
+      "duration_bucket": "",
+      "old_price": 6792.0,
+      "new_price": 6192.0,
+      "price_change": -600.0,
+      "price_change_pct": -8.8339222614841,
+      "timestamp": "2026-11-08 01:40:14.491530+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-08T01:41:42.444152+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Porto Bello_2026-11-08_01-40_-8.8"
+    },
+    {
+      "hotel_name": "Limak Arcadia Sport Resort",
+      "duration_bucket": "",
+      "old_price": 6410.0,
+      "new_price": 5810.0,
+      "price_change": -600.0,
+      "price_change_pct": -9.360374414976599,
+      "timestamp": "2026-11-08 01:40:14.491530+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-08T01:41:42.444161+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Limak Arcadia Sport Resort_2026-11-08_01-40_-9.4"
+    },
+    {
+      "hotel_name": "Castival (ex. La Grande Resort & Spa)",
+      "duration_bucket": "",
+      "old_price": 6774.0,
+      "new_price": 5814.0,
+      "price_change": -960.0,
+      "price_change_pct": -14.1718334809566,
+      "timestamp": "2026-11-08 01:40:14.491530+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-08T01:41:42.444170+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Castival (ex. La Grande Resort & Spa)_2026-11-08_01-40_-14.2"
+    },
+    {
+      "hotel_name": "Grand Okan",
+      "duration_bucket": "",
+      "old_price": 6829.0,
+      "new_price": 5859.0,
+      "price_change": -970.0,
+      "price_change_pct": -14.204129447942599,
+      "timestamp": "2026-11-08 01:40:14.491530+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-08T01:41:42.444180+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Grand Okan_2026-11-08_01-40_-14.2"
+    },
+    {
+      "hotel_name": "Ramada Plaza Antalya",
+      "duration_bucket": "",
+      "old_price": 6389.0,
+      "new_price": 6389.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-08 01:40:14.491530+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-08T01:41:42.444196+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Ramada Plaza Antalya_2026-11-08_01-40_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-07T22:06:02.031875+00:00",
+    "last_processed_run": "2026-11-08T01:40:14.491530+00:00",
     "premium_state": {
       "Alba Queen": {
         "history_max": 7157.0,
@@ -3889,6 +3993,10 @@
       },
       "Swandor Kemer (ex. Pgs Kiris Resort)": {
         "history_max": 9905.0,
+        "premium_peak": null
+      },
+      "Side Crown Palace (Side)": {
+        "history_max": 6129.0,
         "premium_peak": null
       }
     }
