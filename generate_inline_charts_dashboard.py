@@ -212,20 +212,29 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
                     db = TravelDatabase(db_path)
                     repo = PriceRepository(db)
                     db_count = repo.count_offers(filter_id)
-                    # Проверяем количество строк в CSV, чтобы не загрузить неполную БД (например, если базу не прогрели)
+                    # Проверяем количество строк во всех CSV (включая архивы прошлых месяцев),
+                    # чтобы не переключиться на частично заполненную SQLite БД
                     csv_min_expected = 0
                     if os.path.exists(data_file):
                         try:
                             with open(data_file, 'r', encoding='utf-8', errors='ignore') as f:
-                                csv_min_expected = max(0, sum(1 for _ in f) - 1)
+                                csv_min_expected += max(0, sum(1 for _ in f) - 1)
                         except Exception:
-                            csv_min_expected = 0
+                            pass
+                    if os.path.isdir(archive_dir):
+                        try:
+                            for af in os.listdir(archive_dir):
+                                if af.startswith(f"{base_name}_") and af.endswith('.csv'):
+                                    with open(os.path.join(archive_dir, af), 'r', encoding='utf-8', errors='ignore') as f:
+                                        csv_min_expected += max(0, sum(1 for _ in f) - 1)
+                        except Exception:
+                            pass
 
                     if db_count > 0 and db_count >= csv_min_expected:
                         df = repo.get_filter_dataframe(filter_id)
                         print(f"⚡ Загружено {len(df)} записей для '{filter_id}' из SQLite ({db_path})")
                     elif db_count > 0 and db_count < csv_min_expected:
-                        print(f"ℹ️ SQLite содержит {db_count} записей, а CSV {csv_min_expected}. Читаем CSV для полноты истории.")
+                        print(f"ℹ️ SQLite содержит {db_count} записей, а CSV + архивы {csv_min_expected}. Читаем CSV для полноты истории.")
             except Exception as dbe:
                 df = None
 
