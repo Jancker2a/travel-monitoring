@@ -3328,10 +3328,49 @@
       "created_at": "2026-11-08T09:17:46.068356+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Seashell Resort & Spa_2026-11-08_09-16_zone_out_gone"
+    },
+    {
+      "hotel_name": "Limak Limra",
+      "duration_bucket": "",
+      "old_price": 5725.0,
+      "new_price": 5230.0,
+      "price_change": -495.0,
+      "price_change_pct": -8.646288209606986,
+      "timestamp": "2026-11-08 12:37:11.131503+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-08T12:38:39.081441+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Limak Limra_2026-11-08_12-37_-8.6"
+    },
+    {
+      "hotel_name": "Orange Palace",
+      "duration_bucket": "",
+      "old_price": 6362.0,
+      "new_price": 5562.0,
+      "price_change": -800.0,
+      "price_change_pct": -12.574662055957248,
+      "timestamp": "2026-11-08 12:37:11.131503+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-08T12:38:39.081471+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Orange Palace_2026-11-08_12-37_-12.6"
+    },
+    {
+      "hotel_name": "Port Side Resort",
+      "duration_bucket": "",
+      "old_price": 6672.0,
+      "new_price": 6672.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-08 12:37:11.131503+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-08T12:38:39.081493+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Port Side Resort_2026-11-08_12-37_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-08T09:16:16.305775+00:00",
+    "last_processed_run": "2026-11-08T12:37:11.131503+00:00",
     "premium_state": {
       "Alba Queen": {
         "history_max": 7157.0,

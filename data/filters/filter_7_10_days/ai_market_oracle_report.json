@@ -10,7 +10,7 @@
       {
         "type": "floor",
         "title": "Ценовое дно: 79 отелей (39.5%)",
-        "text": "Зафиксирована самая низкая цена за весь сезон. Цены начинаются от 5,516 zł."
+        "text": "Зафиксирована самая низкая цена за весь сезон. Цены начинаются от 5,895 zł."
       },
       {
         "type": "gem",
@@ -20,17 +20,17 @@
       {
         "type": "arbitrage",
         "title": "✈️ Разница вылетов: Warszawa - Modlin vs Warszawa - Okęcie",
-        "text": "Вылет из Warszawa - Modlin в среднем на 1,288 zł дешевле, чем из Warszawa - Okęcie"
+        "text": "Вылет из Warszawa - Modlin в среднем на 1,307 zł дешевле, чем из Warszawa - Okęcie"
       },
       {
         "type": "duration",
         "title": "⏳ Выгодная длительность: 10 дн.",
-        "text": "Доплата за отдых 10 дн. вместо 8 дн. составляет -1,215 zł (-608 zł в день)"
+        "text": "Доплата за отдых 10 дн. вместо 8 дн. составляет -1,205 zł (-602 zł в день)"
       },
       {
         "type": "trend",
-        "title": "📉 Недельный спад рынка: -5.5%",
-        "text": "За последние 7 дней средняя цена на направлении снизилась на 5.5% (384 zł)."
+        "title": "📉 Недельный спад рынка: -6.5%",
+        "text": "За последние 7 дней средняя цена на направлении снизилась на 6.5% (453 zł)."
       }
     ],
     "synthesized_by": "Rule-Based Deterministic Engine (Offline)",
@@ -61,17 +61,17 @@
   },
   "hotel_dossiers": {
     "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
-      "verdict": "GOOD_PRICE",
-      "badge_text": "🟢 ВЫГОДНАЯ ЦЕНА",
-      "rationale": "Отель признан жемчужиной или существенно выгоднее аналогов (5,769 zł).",
-      "risk_assessment": "Качественные предложения в этом сегменте быстро раскупаются.",
-      "action_advice": "Отличное соотношение цены и уровня отеля. Рекомендуется к бронированию.",
+      "verdict": "WAIT",
+      "badge_text": "🟡 ПОДОЖДАТЬ",
+      "rationale": "Отель сейчас стоит 6,281 zł — это обычная базовая цена за сезон (медиана 5,919 zł).",
+      "risk_assessment": "Цена не снижена, туроператор пока не давал скидок на эти даты.",
+      "action_advice": "Спешить не нужно: добавьте в Избранное (☆) и подождите приближения вылета.",
       "booking_window_badge": "",
       "booking_window_class": "early",
       "booking_window_tip": "Историческое дно цены наступает за D-4…D-7. Сейчас D-23 (рано).",
-      "fair_price_badge": "🔥 −14% к равным эконом 4★",
-      "fair_price_class": "fair-underpriced",
-      "fair_price_tip": "Цена на 14% ниже медианы равных отелей сегмента эконом 4★ (6,710 zł) и не превышает обычную цену отеля (5,872 zł).",
+      "fair_price_badge": "",
+      "fair_price_class": "",
+      "fair_price_tip": "",
       "gem_badge": "",
       "gem_tip": "",
       "flash_drop_badge": "",
@@ -162,8 +162,8 @@
       "fair_price_badge": "",
       "fair_price_class": "",
       "fair_price_tip": "",
-      "gem_badge": "",
-      "gem_tip": "",
+      "gem_badge": "💎 Скрытая жемчужина",
+      "gem_tip": "Высокий рейтинг (4.7★, 20400 отз.) при цене в бюджетном сегменте 4★ (7,557 zł).",
       "flash_drop_badge": "",
       "flash_drop_tip": "",
       "dupe_suggestion": null
@@ -239,12 +239,12 @@
       "flash_drop_badge": "",
       "flash_drop_tip": "",
       "dupe_suggestion": {
-        "hotel_name": "Sunrise Royal Makadi Aqua Resort",
-        "price": 8647.0,
-        "savings": 10580.0,
-        "savings_pln": 10580.0,
-        "rating": 4.8,
-        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/sunrise-select-royal-makadi/pq-fBtS2dQCqcvU0LKkoKfAAogJer4c-0jNN5_3Fy-g8Os9WmebUOg90vJbrzINmbOYhcqBEVYSU0wy5yr1wZIx0NQAVjZA2ACagJBSXIhHBG-_warBIepS7kERRuHpUAYt-NHAZ2i56sNAhJjAQILA3gbMw/?operator=EXIM&adults=2&children=2020-12-10&objectId=564&durationFrom=7&durationTo=10&departureDate=2026-11-24&returnDate=2026-12-01&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=7&nights=7"
+        "hotel_name": "Sunrise Anjum Resort",
+        "price": 10863.0,
+        "savings": 8364.0,
+        "savings_pln": 8364.0,
+        "rating": 4.9,
+        "offer_url": "https://fly.pl/wycieczka/egipt,marsa-alam,c/sunrise-anjum-resort-12/phy1Hgi69TTgZNeH-PP2avAAogYfZkvLIhjR67tDvzYJSj5z6jQ-cXzxhKQwSlu0DkT1sqBFNGUEww2Zyr1wZI71RQQVixAmACciILAhUFIgQSKVzGAkAuW9eRUg3-vIIJUYbs5JIGAhJjAQQLk6aUNA/?operator=SFPL&adults=2&children=2020-12-10&objectId=227505&durationFrom=7&durationTo=10&departureDate=2026-11-17&returnDate=2026-11-24&departureLocation=Warszawa&catering=all_inclusive&transport=accommodation_flight&duration=7&nights=7"
       }
     },
     "Amphoras Beach": {
@@ -266,17 +266,17 @@
       "dupe_suggestion": null
     },
     "Amwaj Oyoun Resort & Casino": {
-      "verdict": "BUY_NOW",
-      "badge_text": "🟢 ПОКУПАТЬ",
-      "rationale": "Цена 5,516 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
-      "risk_assessment": "Номера в этом отеле популярны, к дате вылета мест может не остаться.",
-      "action_advice": "Если отель нравится — фиксируйте бронь прямо сегодня, дешевле уже вряд ли будет.",
+      "verdict": "GOOD_PRICE",
+      "badge_text": "🔵 ХОРОШАЯ ЦЕНА",
+      "rationale": "Цена 5,984 zł на 14% ниже обычной средней цены отеля (6,972 zł).",
+      "risk_assessment": "Цена может слегка колебаться, но предложение уже достаточно выгодное.",
+      "action_advice": "Хорошая цена со скидкой, можно бронировать.",
       "booking_window_badge": "",
       "booking_window_class": "late",
       "booking_window_tip": "Окно максимальных скидок (D-30+) уже прошло. Текущий день: D-23.",
-      "fair_price_badge": "🔥 −18% к равным эконом 4★",
+      "fair_price_badge": "🔥 −10% к равным эконом 4★",
       "fair_price_class": "fair-underpriced",
-      "fair_price_tip": "Цена на 18% ниже медианы равных отелей сегмента эконом 4★ (6,710 zł) и не превышает обычную цену отеля (6,972 zł).",
+      "fair_price_tip": "Цена на 10% ниже медианы равных отелей сегмента эконом 4★ (6,682 zł) и не превышает обычную цену отеля (6,972 zł).",
       "gem_badge": "",
       "gem_tip": "",
       "flash_drop_badge": "",
@@ -374,11 +374,11 @@
       "dupe_suggestion": null
     },
     "Calimera Blend Paradise Resort": {
-      "verdict": "WAIT",
-      "badge_text": "🟡 ПОДОЖДАТЬ",
-      "rationale": "Отель сейчас стоит 7,708 zł — это обычная базовая цена за сезон (медиана 7,708 zł).",
-      "risk_assessment": "Цена не снижена, туроператор пока не давал скидок на эти даты.",
-      "action_advice": "Спешить не нужно: добавьте в Избранное (☆) и подождите приближения вылета.",
+      "verdict": "OVERPRICED",
+      "badge_text": "🔴 ДОРОГО",
+      "rationale": "Цена 7,708 zł на 1% выше обычной средней цены этого отеля (7,708 zł).",
+      "risk_assessment": "Высокий риск переплаты. Туроператор держит завышенную цену.",
+      "action_advice": "Покупать сейчас крайне невыгодно. Добавьте в Избранное (☆) и ждите снижения.",
       "booking_window_badge": "",
       "booking_window_class": "late",
       "booking_window_tip": "Окно максимальных скидок (D-30+) уже прошло. Текущий день: D-16.",
@@ -403,8 +403,8 @@
       "fair_price_badge": "",
       "fair_price_class": "",
       "fair_price_tip": "",
-      "gem_badge": "",
-      "gem_tip": "",
+      "gem_badge": "💎 Скрытая жемчужина",
+      "gem_tip": "Высокий рейтинг (4.4★, 43450 отз.) при цене в бюджетном сегменте 4★ (7,737 zł).",
       "flash_drop_badge": "",
       "flash_drop_tip": "",
       "dupe_suggestion": null
@@ -718,7 +718,7 @@
     "Creek Hotel and Residences": {
       "verdict": "BUY_NOW",
       "badge_text": "🟢 ПОКУПАТЬ",
-      "rationale": "Цена 6,616 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
+      "rationale": "Цена 6,625 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
       "risk_assessment": "Номера в этом отеле популярны, к дате вылета мест может не остаться.",
       "action_advice": "Если отель нравится — фиксируйте бронь прямо сегодня, дешевле уже вряд ли будет.",
       "booking_window_badge": "",
@@ -798,7 +798,7 @@
       "booking_window_tip": "Историческое дно цены наступает за D-1…D-3. Сейчас D-20 (рано).",
       "fair_price_badge": "🔥 −12% к равным эконом 4★",
       "fair_price_class": "fair-underpriced",
-      "fair_price_tip": "Цена на 12% ниже медианы равных отелей сегмента эконом 4★ (6,710 zł) и не превышает обычную цену отеля (6,381 zł).",
+      "fair_price_tip": "Цена на 12% ниже медианы равных отелей сегмента эконом 4★ (6,682 zł) и не превышает обычную цену отеля (6,381 zł).",
       "gem_badge": "",
       "gem_tip": "",
       "flash_drop_badge": "",
@@ -1060,7 +1060,7 @@
     "IL Mercato Splash Aqua Park": {
       "verdict": "WAIT",
       "badge_text": "🟡 ПОДОЖДАТЬ",
-      "rationale": "Отель сейчас стоит 6,787 zł — это обычная базовая цена за сезон (медиана 7,004 zł).",
+      "rationale": "Отель сейчас стоит 6,687 zł — это обычная базовая цена за сезон (медиана 7,003 zł).",
       "risk_assessment": "Цена не снижена, туроператор пока не давал скидок на эти даты.",
       "action_advice": "Спешить не нужно: добавьте в Избранное (☆) и подождите приближения вылета.",
       "booking_window_badge": "",
@@ -1096,12 +1096,12 @@
     "Imperial Shams Abu Soma Resort": {
       "verdict": "BUY_NOW",
       "badge_text": "🟢 ПОКУПАТЬ",
-      "rationale": "Цена 6,881 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
+      "rationale": "Цена 6,837 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
       "risk_assessment": "Номера в этом отеле популярны, к дате вылета мест может не остаться.",
       "action_advice": "Если отель нравится — фиксируйте бронь прямо сегодня, дешевле уже вряд ли будет.",
       "booking_window_badge": "",
       "booking_window_class": "late",
-      "booking_window_tip": "Окно максимальных скидок (D-30+) уже прошло. Текущий день: D-21.",
+      "booking_window_tip": "Окно максимальных скидок (D-30+) уже прошло. Текущий день: D-23.",
       "fair_price_badge": "",
       "fair_price_class": "",
       "fair_price_tip": "",
@@ -1140,7 +1140,7 @@
       "booking_window_tip": "Окно максимальных скидок (D-30+) уже прошло. Текущий день: D-23.",
       "fair_price_badge": "🔥 −10% к равным эконом 5★",
       "fair_price_class": "fair-underpriced",
-      "fair_price_tip": "Цена на 10% ниже медианы равных отелей сегмента эконом 5★ (7,492 zł) и не превышает обычную цену отеля (7,128 zł).",
+      "fair_price_tip": "Цена на 10% ниже медианы равных отелей сегмента эконом 5★ (7,492 zł) и не превышает обычную цену отеля (7,122 zł).",
       "gem_badge": "💎 Скрытая жемчужина",
       "gem_tip": "Высокий рейтинг (4.7★) при цене в бюджетном сегменте 5★ (6,733 zł).",
       "flash_drop_badge": "",
@@ -1542,12 +1542,12 @@
       "flash_drop_badge": "",
       "flash_drop_tip": "",
       "dupe_suggestion": {
-        "hotel_name": "Sunrise Royal Makadi Aqua Resort",
-        "price": 8647.0,
-        "savings": 6100.0,
-        "savings_pln": 6100.0,
-        "rating": 4.8,
-        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/sunrise-select-royal-makadi/pq-fBtS2dQCqcvU0LKkoKfAAogJer4c-0jNN5_3Fy-g8Os9WmebUOg90vJbrzINmbOYhcqBEVYSU0wy5yr1wZIx0NQAVjZA2ACagJBSXIhHBG-_warBIepS7kERRuHpUAYt-NHAZ2i56sNAhJjAQILA3gbMw/?operator=EXIM&adults=2&children=2020-12-10&objectId=564&durationFrom=7&durationTo=10&departureDate=2026-11-24&returnDate=2026-12-01&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=7&nights=7"
+        "hotel_name": "Sunrise Anjum Resort",
+        "price": 10863.0,
+        "savings": 3884.0,
+        "savings_pln": 3884.0,
+        "rating": 4.9,
+        "offer_url": "https://fly.pl/wycieczka/egipt,marsa-alam,c/sunrise-anjum-resort-12/phy1Hgi69TTgZNeH-PP2avAAogYfZkvLIhjR67tDvzYJSj5z6jQ-cXzxhKQwSlu0DkT1sqBFNGUEww2Zyr1wZI71RQQVixAmACciILAhUFIgQSKVzGAkAuW9eRUg3-vIIJUYbs5JIGAhJjAQQLk6aUNA/?operator=SFPL&adults=2&children=2020-12-10&objectId=227505&durationFrom=7&durationTo=10&departureDate=2026-11-17&returnDate=2026-11-24&departureLocation=Warszawa&catering=all_inclusive&transport=accommodation_flight&duration=7&nights=7"
       }
     },
     "Lazuli (Marsa Alam)": {
@@ -1634,8 +1634,8 @@
       "fair_price_badge": "",
       "fair_price_class": "",
       "fair_price_tip": "",
-      "gem_badge": "",
-      "gem_tip": "",
+      "gem_badge": "💎 Скрытая жемчужина",
+      "gem_tip": "Высокий рейтинг (4.5★, 62410 отз.) при цене в бюджетном сегменте 5★ (7,492 zł).",
       "flash_drop_badge": "",
       "flash_drop_tip": "",
       "dupe_suggestion": null
@@ -1893,17 +1893,17 @@
       "dupe_suggestion": null
     },
     "Parrotel Lagoon Resort": {
-      "verdict": "WAIT",
-      "badge_text": "🟡 ПОДОЖДАТЬ",
-      "rationale": "Отель сейчас стоит 6,070 zł — это обычная базовая цена за сезон (медиана 6,220 zł).",
-      "risk_assessment": "Цена не снижена, туроператор пока не давал скидок на эти даты.",
-      "action_advice": "Спешить не нужно: добавьте в Избранное (☆) и подождите приближения вылета.",
+      "verdict": "BUY_NOW",
+      "badge_text": "🟢 ПОКУПАТЬ",
+      "rationale": "Цена 5,970 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
+      "risk_assessment": "Номера в этом отеле популярны, к дате вылета мест может не остаться.",
+      "action_advice": "Если отель нравится — фиксируйте бронь прямо сегодня, дешевле уже вряд ли будет.",
       "booking_window_badge": "",
       "booking_window_class": "late",
       "booking_window_tip": "Окно максимальных скидок (D-30+) уже прошло. Текущий день: D-23.",
-      "fair_price_badge": "",
-      "fair_price_class": "",
-      "fair_price_tip": "",
+      "fair_price_badge": "🔥 −11% к равным эконом 4★",
+      "fair_price_class": "fair-underpriced",
+      "fair_price_tip": "Цена на 11% ниже медианы равных отелей сегмента эконом 4★ (6,682 zł) и не превышает обычную цену отеля (6,219 zł).",
       "gem_badge": "",
       "gem_tip": "",
       "flash_drop_badge": "",
@@ -1981,12 +1981,12 @@
       "flash_drop_badge": "",
       "flash_drop_tip": "",
       "dupe_suggestion": {
-        "hotel_name": "Rixos Radamis Sharm El Sheikh",
-        "price": 12487.0,
-        "savings": 2420.0,
-        "savings_pln": 2420.0,
-        "rating": 4.9,
-        "offer_url": "https://fly.pl/wycieczka/egipt,sharm-el-sheikh,szarm-el-szejk/rixos-radamis-sharm-13/pZ-vh9QrDl1hZxx0RyQzttAAoge9GZsyx-6_UVz_DJl9m0ZDNiiioEZFxK1N2T_nekMuIqBEVYSU0w4Jyr1wZIx2FQAVjZA2ACagNVQUlyIRwRtNkGuQS01kurBEYbnts1GMaDQwG95PXvDAIAYwECC29GhSM/?operator=EXIM&adults=2&children=2020-12-10&objectId=229548&durationFrom=7&durationTo=10&departureDate=2026-11-24&returnDate=2026-12-01&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=7&nights=7"
+        "hotel_name": "Baron Palace Resort (Sahl Hasheesh)",
+        "price": 10831.0,
+        "savings": 4076.0,
+        "savings_pln": 4076.0,
+        "rating": 5.0,
+        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,sahl-hasheesh/baron-palace-resort-hurghada/p77zdYhThYAWMmJ0U67SptAAogj78aZjw-DDvSDw3Zj4wFb93EYqX_Mi9zT6pzDdwEcWcqBE9BU0kw2Zyr1wZIz1RQAVjZA2ACagNVQUlyIRwRkqgBuQTh9g-rBAEbifQPGMSDFAGRjtesAgIAYwECDEoKkyA/?operator=OASI&adults=2&children=2020-12-10&objectId=38404&durationFrom=7&durationTo=10&departureDate=2026-11-24&returnDate=2026-12-01&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=7&nights=7"
       }
     },
     "Pickalbatros Citadel Sahl Hasheesh (ex. Citadel Azur Resort)": {
@@ -2114,12 +2114,12 @@
       "flash_drop_badge": "",
       "flash_drop_tip": "",
       "dupe_suggestion": {
-        "hotel_name": "Rixos Radamis Sharm El Sheikh",
-        "price": 12487.0,
-        "savings": 6430.0,
-        "savings_pln": 6430.0,
-        "rating": 4.9,
-        "offer_url": "https://fly.pl/wycieczka/egipt,sharm-el-sheikh,szarm-el-szejk/rixos-radamis-sharm-13/pZ-vh9QrDl1hZxx0RyQzttAAoge9GZsyx-6_UVz_DJl9m0ZDNiiioEZFxK1N2T_nekMuIqBEVYSU0w4Jyr1wZIx2FQAVjZA2ACagNVQUlyIRwRtNkGuQS01kurBEYbnts1GMaDQwG95PXvDAIAYwECC29GhSM/?operator=EXIM&adults=2&children=2020-12-10&objectId=229548&durationFrom=7&durationTo=10&departureDate=2026-11-24&returnDate=2026-12-01&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=7&nights=7"
+        "hotel_name": "Baron Palace Resort (Sahl Hasheesh)",
+        "price": 10831.0,
+        "savings": 8086.0,
+        "savings_pln": 8086.0,
+        "rating": 5.0,
+        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,sahl-hasheesh/baron-palace-resort-hurghada/p77zdYhThYAWMmJ0U67SptAAogj78aZjw-DDvSDw3Zj4wFb93EYqX_Mi9zT6pzDdwEcWcqBE9BU0kw2Zyr1wZIz1RQAVjZA2ACagNVQUlyIRwRkqgBuQTh9g-rBAEbifQPGMSDFAGRjtesAgIAYwECDEoKkyA/?operator=OASI&adults=2&children=2020-12-10&objectId=38404&durationFrom=7&durationTo=10&departureDate=2026-11-24&returnDate=2026-12-01&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=7&nights=7"
       }
     },
     "Pickalbatros Palace Port Ghalib (ex. Red Sea The Palace)": {
@@ -2403,7 +2403,7 @@
       "booking_window_tip": "Историческое дно цены наступает за D-1…D-3. Сейчас D-23 (рано).",
       "fair_price_badge": "🔥 −12% к равным эконом 4★",
       "fair_price_class": "fair-underpriced",
-      "fair_price_tip": "Цена на 12% ниже медианы равных отелей сегмента эконом 4★ (6,710 zł) и не превышает обычную цену отеля (7,015 zł).",
+      "fair_price_tip": "Цена на 12% ниже медианы равных отелей сегмента эконом 4★ (6,682 zł) и не превышает обычную цену отеля (6,941 zł).",
       "gem_badge": "",
       "gem_tip": "",
       "flash_drop_badge": "",
@@ -2472,7 +2472,7 @@
       "action_advice": "Спешить не нужно: добавьте в Избранное (☆) и подождите приближения вылета.",
       "booking_window_badge": "",
       "booking_window_class": "late",
-      "booking_window_tip": "Окно максимальных скидок (D-30+) уже прошло. Текущий день: D-21.",
+      "booking_window_tip": "Окно максимальных скидок (D-30+) уже прошло. Текущий день: D-23.",
       "fair_price_badge": "",
       "fair_price_class": "",
       "fair_price_tip": "",
@@ -2517,12 +2517,12 @@
       "flash_drop_badge": "",
       "flash_drop_tip": "",
       "dupe_suggestion": {
-        "hotel_name": "Rixos Radamis Sharm El Sheikh",
-        "price": 12487.0,
-        "savings": 3317.0,
-        "savings_pln": 3317.0,
-        "rating": 4.9,
-        "offer_url": "https://fly.pl/wycieczka/egipt,sharm-el-sheikh,szarm-el-szejk/rixos-radamis-sharm-13/pZ-vh9QrDl1hZxx0RyQzttAAoge9GZsyx-6_UVz_DJl9m0ZDNiiioEZFxK1N2T_nekMuIqBEVYSU0w4Jyr1wZIx2FQAVjZA2ACagNVQUlyIRwRtNkGuQS01kurBEYbnts1GMaDQwG95PXvDAIAYwECC29GhSM/?operator=EXIM&adults=2&children=2020-12-10&objectId=229548&durationFrom=7&durationTo=10&departureDate=2026-11-24&returnDate=2026-12-01&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=7&nights=7"
+        "hotel_name": "Baron Palace Resort (Sahl Hasheesh)",
+        "price": 10831.0,
+        "savings": 4973.0,
+        "savings_pln": 4973.0,
+        "rating": 5.0,
+        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,sahl-hasheesh/baron-palace-resort-hurghada/p77zdYhThYAWMmJ0U67SptAAogj78aZjw-DDvSDw3Zj4wFb93EYqX_Mi9zT6pzDdwEcWcqBE9BU0kw2Zyr1wZIz1RQAVjZA2ACagNVQUlyIRwRkqgBuQTh9g-rBAEbifQPGMSDFAGRjtesAgIAYwECDEoKkyA/?operator=OASI&adults=2&children=2020-12-10&objectId=38404&durationFrom=7&durationTo=10&departureDate=2026-11-24&returnDate=2026-12-01&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=7&nights=7"
       }
     },
     "Rixos Premium Magawish Suites & Villas": {
@@ -2560,12 +2560,12 @@
       "flash_drop_badge": "",
       "flash_drop_tip": "",
       "dupe_suggestion": {
-        "hotel_name": "Rixos Radamis Sharm El Sheikh",
-        "price": 12487.0,
-        "savings": 2215.0,
-        "savings_pln": 2215.0,
-        "rating": 4.9,
-        "offer_url": "https://fly.pl/wycieczka/egipt,sharm-el-sheikh,szarm-el-szejk/rixos-radamis-sharm-13/pZ-vh9QrDl1hZxx0RyQzttAAoge9GZsyx-6_UVz_DJl9m0ZDNiiioEZFxK1N2T_nekMuIqBEVYSU0w4Jyr1wZIx2FQAVjZA2ACagNVQUlyIRwRtNkGuQS01kurBEYbnts1GMaDQwG95PXvDAIAYwECC29GhSM/?operator=EXIM&adults=2&children=2020-12-10&objectId=229548&durationFrom=7&durationTo=10&departureDate=2026-11-24&returnDate=2026-12-01&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=7&nights=7"
+        "hotel_name": "Baron Palace Resort (Sahl Hasheesh)",
+        "price": 10831.0,
+        "savings": 3871.0,
+        "savings_pln": 3871.0,
+        "rating": 5.0,
+        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,sahl-hasheesh/baron-palace-resort-hurghada/p77zdYhThYAWMmJ0U67SptAAogj78aZjw-DDvSDw3Zj4wFb93EYqX_Mi9zT6pzDdwEcWcqBE9BU0kw2Zyr1wZIz1RQAVjZA2ACagNVQUlyIRwRkqgBuQTh9g-rBAEbifQPGMSDFAGRjtesAgIAYwECDEoKkyA/?operator=OASI&adults=2&children=2020-12-10&objectId=38404&durationFrom=7&durationTo=10&departureDate=2026-11-24&returnDate=2026-12-01&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=7&nights=7"
       }
     },
     "Rixos Radamis Beach": {
@@ -2999,12 +2999,12 @@
       "flash_drop_badge": "",
       "flash_drop_tip": "",
       "dupe_suggestion": {
-        "hotel_name": "Rixos Radamis Sharm El Sheikh",
-        "price": 12487.0,
-        "savings": 3112.0,
-        "savings_pln": 3112.0,
-        "rating": 4.9,
-        "offer_url": "https://fly.pl/wycieczka/egipt,sharm-el-sheikh,szarm-el-szejk/rixos-radamis-sharm-13/pZ-vh9QrDl1hZxx0RyQzttAAoge9GZsyx-6_UVz_DJl9m0ZDNiiioEZFxK1N2T_nekMuIqBEVYSU0w4Jyr1wZIx2FQAVjZA2ACagNVQUlyIRwRtNkGuQS01kurBEYbnts1GMaDQwG95PXvDAIAYwECC29GhSM/?operator=EXIM&adults=2&children=2020-12-10&objectId=229548&durationFrom=7&durationTo=10&departureDate=2026-11-24&returnDate=2026-12-01&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=7&nights=7"
+        "hotel_name": "Baron Palace Resort (Sahl Hasheesh)",
+        "price": 10831.0,
+        "savings": 4768.0,
+        "savings_pln": 4768.0,
+        "rating": 5.0,
+        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,sahl-hasheesh/baron-palace-resort-hurghada/p77zdYhThYAWMmJ0U67SptAAogj78aZjw-DDvSDw3Zj4wFb93EYqX_Mi9zT6pzDdwEcWcqBE9BU0kw2Zyr1wZIz1RQAVjZA2ACagNVQUlyIRwRkqgBuQTh9g-rBAEbifQPGMSDFAGRjtesAgIAYwECDEoKkyA/?operator=OASI&adults=2&children=2020-12-10&objectId=38404&durationFrom=7&durationTo=10&departureDate=2026-11-24&returnDate=2026-12-01&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=7&nights=7"
       }
     },
     "Steigenberger Al Dau Club": {
@@ -3240,12 +3240,12 @@
       "flash_drop_badge": "",
       "flash_drop_tip": "",
       "dupe_suggestion": {
-        "hotel_name": "Sunrise Royal Makadi Aqua Resort",
-        "price": 8647.0,
-        "savings": 6190.0,
-        "savings_pln": 6190.0,
-        "rating": 4.8,
-        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/sunrise-select-royal-makadi/pq-fBtS2dQCqcvU0LKkoKfAAogJer4c-0jNN5_3Fy-g8Os9WmebUOg90vJbrzINmbOYhcqBEVYSU0wy5yr1wZIx0NQAVjZA2ACagJBSXIhHBG-_warBIepS7kERRuHpUAYt-NHAZ2i56sNAhJjAQILA3gbMw/?operator=EXIM&adults=2&children=2020-12-10&objectId=564&durationFrom=7&durationTo=10&departureDate=2026-11-24&returnDate=2026-12-01&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=7&nights=7"
+        "hotel_name": "Sunrise Anjum Resort",
+        "price": 10863.0,
+        "savings": 3974.0,
+        "savings_pln": 3974.0,
+        "rating": 4.9,
+        "offer_url": "https://fly.pl/wycieczka/egipt,marsa-alam,c/sunrise-anjum-resort-12/phy1Hgi69TTgZNeH-PP2avAAogYfZkvLIhjR67tDvzYJSj5z6jQ-cXzxhKQwSlu0DkT1sqBFNGUEww2Zyr1wZI71RQQVixAmACciILAhUFIgQSKVzGAkAuW9eRUg3-vIIJUYbs5JIGAhJjAQQLk6aUNA/?operator=SFPL&adults=2&children=2020-12-10&objectId=227505&durationFrom=7&durationTo=10&departureDate=2026-11-17&returnDate=2026-11-24&departureLocation=Warszawa&catering=all_inclusive&transport=accommodation_flight&duration=7&nights=7"
       }
     },
     "Sunrise Remal Resort (ex. Tiran Island)": {
@@ -3319,12 +3319,12 @@
       "flash_drop_badge": "",
       "flash_drop_tip": "",
       "dupe_suggestion": {
-        "hotel_name": "Sunrise Royal Makadi Aqua Resort",
-        "price": 8647.0,
-        "savings": 6795.0,
-        "savings_pln": 6795.0,
-        "rating": 4.8,
-        "offer_url": "https://fly.pl/wycieczka/egipt,hurghada,makadi-bay/sunrise-select-royal-makadi/pq-fBtS2dQCqcvU0LKkoKfAAogJer4c-0jNN5_3Fy-g8Os9WmebUOg90vJbrzINmbOYhcqBEVYSU0wy5yr1wZIx0NQAVjZA2ACagJBSXIhHBG-_warBIepS7kERRuHpUAYt-NHAZ2i56sNAhJjAQILA3gbMw/?operator=EXIM&adults=2&children=2020-12-10&objectId=564&durationFrom=7&durationTo=10&departureDate=2026-11-24&returnDate=2026-12-01&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=7&nights=7"
+        "hotel_name": "Sunrise Anjum Resort",
+        "price": 10863.0,
+        "savings": 4579.0,
+        "savings_pln": 4579.0,
+        "rating": 4.9,
+        "offer_url": "https://fly.pl/wycieczka/egipt,marsa-alam,c/sunrise-anjum-resort-12/phy1Hgi69TTgZNeH-PP2avAAogYfZkvLIhjR67tDvzYJSj5z6jQ-cXzxhKQwSlu0DkT1sqBFNGUEww2Zyr1wZI71RQQVixAmACciILAhUFIgQSKVzGAkAuW9eRUg3-vIIJUYbs5JIGAhJjAQQLk6aUNA/?operator=SFPL&adults=2&children=2020-12-10&objectId=227505&durationFrom=7&durationTo=10&departureDate=2026-11-17&returnDate=2026-11-24&departureLocation=Warszawa&catering=all_inclusive&transport=accommodation_flight&duration=7&nights=7"
       }
     },
     "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort)": {
@@ -3384,7 +3384,7 @@
     "Swisstouch Oriental Resort (ex. Hotelux Oriental Coast)": {
       "verdict": "WAIT",
       "badge_text": "🟡 ПОДОЖДАТЬ",
-      "rationale": "Отель сейчас стоит 6,227 zł — это обычная базовая цена за сезон (медиана 6,075 zł).",
+      "rationale": "Отель сейчас стоит 6,227 zł — это обычная базовая цена за сезон (медиана 6,115 zł).",
       "risk_assessment": "Цена не снижена, туроператор пока не давал скидок на эти даты.",
       "action_advice": "Спешить не нужно: добавьте в Избранное (☆) и подождите приближения вылета.",
       "booking_window_badge": "",
@@ -3429,8 +3429,8 @@
       "fair_price_badge": "",
       "fair_price_class": "",
       "fair_price_tip": "",
-      "gem_badge": "",
-      "gem_tip": "",
+      "gem_badge": "💎 Скрытая жемчужина",
+      "gem_tip": "Высокий рейтинг (4.4★, 10540 отз.) при цене в бюджетном сегменте 4★ (7,794 zł).",
       "flash_drop_badge": "",
       "flash_drop_tip": "",
       "dupe_suggestion": null
@@ -3652,11 +3652,11 @@
       "dupe_suggestion": null
     },
     "Xperience Kiroseiz Parkland": {
-      "verdict": "BUY_NOW",
-      "badge_text": "🟢 ПОКУПАТЬ",
-      "rationale": "Цена 6,189 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
-      "risk_assessment": "Номера в этом отеле популярны, к дате вылета мест может не остаться.",
-      "action_advice": "Если отель нравится — фиксируйте бронь прямо сегодня, дешевле уже вряд ли будет.",
+      "verdict": "GOOD_PRICE",
+      "badge_text": "🔵 ХОРОШАЯ ЦЕНА",
+      "rationale": "Цена 6,463 zł на 10% ниже обычной средней цены отеля (7,184 zł).",
+      "risk_assessment": "Цена может слегка колебаться, но предложение уже достаточно выгодное.",
+      "action_advice": "Хорошая цена со скидкой, можно бронировать.",
       "booking_window_badge": "",
       "booking_window_class": "early",
       "booking_window_tip": "Историческое дно цены наступает за D-1…D-3. Сейчас D-23 (рано).",
@@ -3672,7 +3672,7 @@
     "Xperience Kiroseiz Premier": {
       "verdict": "BUY_NOW",
       "badge_text": "🟢 ПОКУПАТЬ",
-      "rationale": "Цена 6,329 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
+      "rationale": "Цена 6,229 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
       "risk_assessment": "Номера в этом отеле популярны, к дате вылета мест может не остаться.",
       "action_advice": "Если отель нравится — фиксируйте бронь прямо сегодня, дешевле уже вряд ли будет.",
       "booking_window_badge": "",
