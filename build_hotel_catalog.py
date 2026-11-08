@@ -631,11 +631,22 @@ def collect_hotel_data() -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
             x_arr = s_data.get("x") or []
             y_arr = s_data.get("y") or []
             hover_arr = s_data.get("hover") or []
+            # Downsample evenly to keep catalog performant and under GitHub limits (<50 MB)
+            step = max(1, len(x_arr) // 90)
             series_points = [
-                {"x": x, "y": float(y), "dates": h if isinstance(h, str) else ""}
-                for x, y, h in zip(x_arr, y_arr, hover_arr if len(hover_arr) == len(x_arr) else [""] * len(x_arr))
-                if y is not None and float(y) > 0
+                {"x": x_arr[i], "y": float(y_arr[i]), "dates": hover_arr[i] if i < len(hover_arr) and isinstance(hover_arr[i], str) else ""}
+                for i in range(0, len(x_arr), step)
+                if y_arr[i] is not None and float(y_arr[i]) > 0
             ]
+            # Ensure the latest point is always included
+            if x_arr and len(x_arr) > 1 and (len(x_arr) - 1) % step != 0:
+                last_i = len(x_arr) - 1
+                if y_arr[last_i] is not None and float(y_arr[last_i]) > 0:
+                    series_points.append({
+                        "x": x_arr[last_i],
+                        "y": float(y_arr[last_i]),
+                        "dates": hover_arr[last_i] if last_i < len(hover_arr) and isinstance(hover_arr[last_i], str) else ""
+                    })
         if not series_points:
             series_points = []
         if filter_id and series_points:
