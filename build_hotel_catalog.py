@@ -385,7 +385,7 @@ def generate_hotel_ai_profile(
         ta_reviews = rep_data.get("ta_review_count") or 1450
     elif rep_data and rep_data.get("sentiment_scores"):
         scores = rep_data["sentiment_scores"]
-        valid = [v for v in scores.values() if v > 0]
+        valid = [v for v in scores.values() if v is not None and v > 0]
         if valid:
             ta_rating = round(sum(valid) / len(valid) / 2, 1)
 
@@ -626,7 +626,18 @@ def collect_hotel_data() -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
             entry["latest_offer_url"] = s_data["latest_offer_url"]
 
         # Tracked filters series
-        series_points = s_data.get("series", [])
+        series_points = s_data.get("series")
+        if not series_points and "x" in s_data and "y" in s_data:
+            x_arr = s_data.get("x") or []
+            y_arr = s_data.get("y") or []
+            hover_arr = s_data.get("hover") or []
+            series_points = [
+                {"x": x, "y": float(y), "dates": h if isinstance(h, str) else ""}
+                for x, y, h in zip(x_arr, y_arr, hover_arr if len(hover_arr) == len(x_arr) else [""] * len(x_arr))
+                if y is not None and float(y) > 0
+            ]
+        if not series_points:
+            series_points = []
         if filter_id and series_points:
             comp_label, comp_short = extract_package_composition(filter_id)
             duration_days = parse_duration_days(f_meta.get("duration", "7"))
