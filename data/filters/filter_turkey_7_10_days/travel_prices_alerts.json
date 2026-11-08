@@ -3302,10 +3302,36 @@
       "created_at": "2026-11-08T08:02:22.783114+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Ramada Plaza Antalya_2026-11-08_08-01_comeback_55.2"
+    },
+    {
+      "hotel_name": "Orange Palace",
+      "duration_bucket": "",
+      "old_price": 5642.0,
+      "new_price": 6362.0,
+      "price_change": 720.0,
+      "price_change_pct": 12.761432116270827,
+      "timestamp": "2026-11-08 09:16:16.305775+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-08T09:17:46.068317+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Orange Palace_2026-11-08_09-16_+12.8"
+    },
+    {
+      "hotel_name": "Seashell Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 6534.0,
+      "new_price": 6534.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-08 09:16:16.305775+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-08T09:17:46.068356+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Seashell Resort & Spa_2026-11-08_09-16_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-08T08:01:19.242254+00:00",
+    "last_processed_run": "2026-11-08T09:16:16.305775+00:00",
     "premium_state": {
       "Alba Queen": {
         "history_max": 7157.0,
