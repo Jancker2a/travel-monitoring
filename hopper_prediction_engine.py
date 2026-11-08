@@ -177,6 +177,16 @@ def calculate_days_to_departure(
         ref_date = scrape_timestamp.date()
     elif isinstance(scrape_timestamp, date):
         ref_date = scrape_timestamp
+    elif isinstance(scrape_timestamp, str):
+        try:
+            s = scrape_timestamp.strip()
+            if len(s) >= 10 and s[4] == '-' and s[7] == '-':
+                ref_date = date(int(s[:4]), int(s[5:7]), int(s[8:10]))
+            else:
+                parsed = pd.to_datetime(s, errors="coerce")
+                ref_date = date.today() if pd.isna(parsed) else parsed.date()
+        except Exception:
+            ref_date = date.today()
     else:
         try:
             parsed = pd.to_datetime(str(scrape_timestamp), errors="coerce")
@@ -582,6 +592,10 @@ def batch_predict_offers(
         if (history_df is not None and not history_df.empty and "price" in history_df.columns)
         else result_df
     )
+    if hist_source_df is not result_df and "hotel_name" in hist_source_df.columns and "hotel_name" in result_df.columns:
+        res_hotels = set(result_df["hotel_name"].dropna().astype(str))
+        if res_hotels:
+            hist_source_df = hist_source_df[hist_source_df["hotel_name"].astype(str).isin(res_hotels)]
 
     h_prices_s = pd.to_numeric(hist_source_df["price"], errors="coerce").fillna(0.0)
     cohort_prices_all = [p for p in h_prices_s.tolist() if p > 0]
