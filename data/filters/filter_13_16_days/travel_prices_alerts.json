@@ -1,8 +1,22 @@
 {
   "version": 2,
-  "alerts": [],
+  "alerts": [
+    {
+      "hotel_name": "Creek Hotel and Residences",
+      "duration_bucket": "",
+      "old_price": 9779.0,
+      "new_price": 10784.0,
+      "price_change": 1005.0,
+      "price_change_pct": 10.277124450352797,
+      "timestamp": "2026-11-09 18:59:21.976821+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-09T19:00:22.898236+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Creek Hotel and Residences_2026-11-09_18-59_zone_out_+10.3"
+    }
+  ],
   "meta": {
-    "last_processed_run": "2026-11-09T16:57:47.353900+00:00",
+    "last_processed_run": "2026-11-09T18:59:21.976821+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 9473.0,
@@ -61,7 +75,7 @@
         "premium_peak": 10299.0
       },
       "Rewaya Luxury Resort": {
-        "history_max": 9334.0,
+        "history_max": 9454.0,
         "premium_peak": null
       },
       "Fantazia Resort": {
@@ -113,8 +127,8 @@
         "premium_peak": null
       },
       "Creek Hotel and Residences": {
-        "history_max": 10306.0,
-        "premium_peak": 10306.0
+        "history_max": 10784.0,
+        "premium_peak": 10784.0
       },
       "Sirena Beach Resort & Spa": {
         "history_max": 9487.0,
@@ -127,6 +141,10 @@
       "Pickalbatros Villaggio Resort Portofino": {
         "history_max": 10637.0,
         "premium_peak": 10637.0
+      },
+      "Xperience Kiroseiz Premier": {
+        "history_max": 10817.0,
+        "premium_peak": 10817.0
       }
     }
   }
