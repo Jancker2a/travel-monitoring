@@ -1,8 +1,48 @@
 {
   "version": 2,
-  "alerts": [],
+  "alerts": [
+    {
+      "hotel_name": "Dreams Beach Sharm Resort (Sharm El Sheikh)",
+      "duration_bucket": "",
+      "old_price": 5215.0,
+      "new_price": 5215.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-09 16:58:46.614885+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-09T16:59:39.773954+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Dreams Beach Sharm Resort (Sharm El Sheikh)_2026-11-09_16-58_zone_out_gone"
+    },
+    {
+      "hotel_name": "Regency Plaza Aqua Park Spa",
+      "duration_bucket": "",
+      "old_price": 5244.0,
+      "new_price": 5244.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-09 16:58:46.614885+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-09T16:59:39.773986+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Regency Plaza Aqua Park Spa_2026-11-09_16-58_zone_out_gone"
+    },
+    {
+      "hotel_name": "Rehana Royal Beach Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 5103.0,
+      "new_price": 5103.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-09 16:58:46.614885+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-09T16:59:39.773999+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rehana Royal Beach Resort & Spa_2026-11-09_16-58_zone_out_gone"
+    }
+  ],
   "meta": {
-    "last_processed_run": "2026-11-09T08:14:36.731578+00:00",
+    "last_processed_run": "2026-11-09T16:58:46.614885+00:00",
     "premium_state": {
       "Amphoras Aqua": {
         "history_max": 4974.0,
@@ -41,7 +81,7 @@
         "premium_peak": null
       },
       "Old Vic Sharm Resort": {
-        "history_max": 3388.0,
+        "history_max": 3389.0,
         "premium_peak": null
       },
       "Megan Halomy": {
@@ -122,6 +162,18 @@
       },
       "Eden Rock (Sharm El Sheikh)": {
         "history_max": 3619.0,
+        "premium_peak": null
+      },
+      "Naama Bay Promenade Mountain Resort": {
+        "history_max": 4682.0,
+        "premium_peak": null
+      },
+      "El Faraana Reef Resort": {
+        "history_max": 4961.0,
+        "premium_peak": null
+      },
+      "Sharm Reef": {
+        "history_max": 4538.0,
         "premium_peak": null
       }
     }
