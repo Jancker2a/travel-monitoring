@@ -1,5 +1,173 @@
 {
   "version": 2,
-  "alerts": [],
-  "meta": {}
+  "alerts": [
+    {
+      "hotel_name": "Concorde Moreen Beach Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 6484.0,
+      "new_price": 5631.0,
+      "price_change": -853.0,
+      "price_change_pct": -13.155459592843924,
+      "timestamp": "2026-11-09 08:13:41.148022+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-09T08:14:48.651810+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Concorde Moreen Beach Resort & Spa_2026-11-09_08-13_-13.2"
+    },
+    {
+      "hotel_name": "Amwaj Oyoun Resort & Casino",
+      "duration_bucket": "",
+      "old_price": 5584.0,
+      "new_price": 6084.0,
+      "price_change": 500.0,
+      "price_change_pct": 8.954154727793696,
+      "timestamp": "2026-11-09 08:13:41.148022+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-09T08:14:48.651848+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amwaj Oyoun Resort & Casino_2026-11-09_08-13_+9.0"
+    },
+    {
+      "hotel_name": "V Grand Beach Resort Sahl Hasheesh",
+      "duration_bucket": "",
+      "old_price": 6837.0,
+      "new_price": 6837.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-09 08:13:41.148022+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-09T08:14:48.651882+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "V Grand Beach Resort Sahl Hasheesh_2026-11-09_08-13_zone_out_gone"
+    }
+  ],
+  "meta": {
+    "last_processed_run": "2026-11-09T08:13:41.148022+00:00",
+    "premium_state": {
+      "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
+        "history_max": 6276.0,
+        "premium_peak": null
+      },
+      "Gemma Resort (ex. Labranda Gemma Premium Resort)": {
+        "history_max": 6459.0,
+        "premium_peak": null
+      },
+      "Serenity Alma Heights (ex. Serenity Fun City)": {
+        "history_max": 6597.0,
+        "premium_peak": null
+      },
+      "IL Mercato Splash Aqua Park": {
+        "history_max": 6787.0,
+        "premium_peak": null
+      },
+      "Jaz Aquamarine Resort": {
+        "history_max": 6733.0,
+        "premium_peak": null
+      },
+      "Sea Star Beau Rivage": {
+        "history_max": 6190.0,
+        "premium_peak": null
+      },
+      "Jaz Grand Marsa (ex Resta Grand Resort)": {
+        "history_max": 6677.0,
+        "premium_peak": null
+      },
+      "Fantazia Resort": {
+        "history_max": 6357.0,
+        "premium_peak": null
+      },
+      "Novotel Marsa Alam": {
+        "history_max": 6251.0,
+        "premium_peak": null
+      },
+      "Old Palace Resort": {
+        "history_max": 6590.0,
+        "premium_peak": null
+      },
+      "Royal Regency Club": {
+        "history_max": 6822.0,
+        "premium_peak": null
+      },
+      "Parrotel Lagoon Resort": {
+        "history_max": 6121.0,
+        "premium_peak": null
+      },
+      "Regency Plaza Aqua Park Spa": {
+        "history_max": 6115.0,
+        "premium_peak": null
+      },
+      "Rewaya Majestic Resort": {
+        "history_max": 6357.0,
+        "premium_peak": null
+      },
+      "Retac Qunay Dahab Resort & Spa": {
+        "history_max": 6257.0,
+        "premium_peak": null
+      },
+      "Xperience Kiroseiz Premier": {
+        "history_max": 6409.0,
+        "premium_peak": null
+      },
+      "Shams Safaga": {
+        "history_max": 6312.0,
+        "premium_peak": null
+      },
+      "Rewaya Luxury Resort": {
+        "history_max": 6237.0,
+        "premium_peak": null
+      },
+      "Amwaj Oyoun Resort & Casino": {
+        "history_max": 6084.0,
+        "premium_peak": null
+      },
+      "Creek Hotel and Residences": {
+        "history_max": 6625.0,
+        "premium_peak": null
+      },
+      "Sirena Beach Resort & Spa": {
+        "history_max": 6557.0,
+        "premium_peak": null
+      },
+      "Concorde Moreen Beach Resort & Spa": {
+        "history_max": 6484.0,
+        "premium_peak": null
+      },
+      "Amarina Jannah Heights Resort & Aqua Park": {
+        "history_max": 6836.0,
+        "premium_peak": null
+      },
+      "Xperience Kiroseiz Parkland": {
+        "history_max": 6543.0,
+        "premium_peak": null
+      },
+      "Charmillion Club Aqua Park": {
+        "history_max": 6769.0,
+        "premium_peak": null
+      },
+      "Swisstouch Oriental Resort (ex. Hotelux Oriental Coast)": {
+        "history_max": 5613.0,
+        "premium_peak": null
+      },
+      "Dream Lagoon & Aqua Park Resort (ex. Floriana Dream Lagoon)": {
+        "history_max": 5909.0,
+        "premium_peak": null
+      },
+      "Amarina Jannah Resort Aquapark": {
+        "history_max": 6203.0,
+        "premium_peak": null
+      },
+      "Amarina Queen Resort": {
+        "history_max": 5803.0,
+        "premium_peak": null
+      },
+      "V Grand Beach Resort Sahl Hasheesh": {
+        "history_max": 6837.0,
+        "premium_peak": null
+      },
+      "Rewaya Inn Resort (ex. Hawaii Paradise Aqua Park Resort)": {
+        "history_max": 6789.0,
+        "premium_peak": null
+      }
+    }
+  }
 }

@@ -1,5 +1,139 @@
 {
   "version": 2,
-  "alerts": [],
-  "meta": {}
+  "alerts": [
+    {
+      "hotel_name": "Paphos Gardens Holiday Resort (ex Leptos )",
+      "duration_bucket": "",
+      "old_price": 2901.0,
+      "new_price": 2626.0,
+      "price_change": -275.0,
+      "price_change_pct": -9.479489831092728,
+      "timestamp": "2026-11-09 08:16:54.824386+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-09T08:17:48.677019+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Paphos Gardens Holiday Resort (ex Leptos )_2026-11-09_08-16_-9.5"
+    }
+  ],
+  "meta": {
+    "last_processed_run": "2026-11-09T08:16:54.824386+00:00",
+    "premium_state": {
+      "Altinkaya Resort": {
+        "history_max": 3189.0,
+        "premium_peak": null
+      },
+      "Lebay Beach": {
+        "history_max": 3438.0,
+        "premium_peak": null
+      },
+      "Limanaki Beach": {
+        "history_max": 3315.0,
+        "premium_peak": null
+      },
+      "Veronica (Paphos)": {
+        "history_max": 2687.0,
+        "premium_peak": null
+      },
+      "Livadhiotis City": {
+        "history_max": 2588.0,
+        "premium_peak": null
+      },
+      "Mayfair Gardens": {
+        "history_max": 4077.0,
+        "premium_peak": null
+      },
+      "Mikes Kanarium City": {
+        "history_max": 2737.0,
+        "premium_peak": null
+      },
+      "Navarria": {
+        "history_max": 2328.0,
+        "premium_peak": null
+      },
+      "Kapetanios Limassol": {
+        "history_max": 3293.0,
+        "premium_peak": null
+      },
+      "Paphos Gardens Holiday Resort (ex Leptos )": {
+        "history_max": 2901.0,
+        "premium_peak": null
+      },
+      "Poseidonia Beach": {
+        "history_max": 4152.0,
+        "premium_peak": null
+      },
+      "Protaras Plaza": {
+        "history_max": 2783.0,
+        "premium_peak": null
+      },
+      "Riverside Garden Resort": {
+        "history_max": 2349.0,
+        "premium_peak": null
+      },
+      "San Remo (Larnaka)": {
+        "history_max": 2280.0,
+        "premium_peak": null
+      },
+      "Sveltos": {
+        "history_max": 2644.0,
+        "premium_peak": null
+      },
+      "Theo Sunset Bay Holiday Village (Pafos)": {
+        "history_max": 3300.0,
+        "premium_peak": null
+      },
+      "Topset": {
+        "history_max": 3119.0,
+        "premium_peak": null
+      },
+      "Park Beach": {
+        "history_max": 3067.0,
+        "premium_peak": null
+      },
+      "Frangiorgio": {
+        "history_max": 4179.0,
+        "premium_peak": null
+      },
+      "Liquid Apartments": {
+        "history_max": 2840.0,
+        "premium_peak": null
+      },
+      "Eleni Resort (ex. Eleni Holiday Village)": {
+        "history_max": 4191.0,
+        "premium_peak": null
+      },
+      "Avlida": {
+        "history_max": 3008.0,
+        "premium_peak": null
+      },
+      "Atlantica Miramare Beach": {
+        "history_max": 3733.0,
+        "premium_peak": null
+      },
+      "Best Western Plus Larco": {
+        "history_max": 3414.0,
+        "premium_peak": null
+      },
+      "Constantinos The Great Beach": {
+        "history_max": 4038.0,
+        "premium_peak": null
+      },
+      "Aquamare Beach & Spa": {
+        "history_max": 3579.0,
+        "premium_peak": null
+      },
+      "Crystallo": {
+        "history_max": 2333.0,
+        "premium_peak": null
+      },
+      "Aphrodite Beach (Polis)": {
+        "history_max": 3128.0,
+        "premium_peak": null
+      },
+      "Atlantica Oasis": {
+        "history_max": 3303.0,
+        "premium_peak": null
+      }
+    }
+  }
 }
