@@ -117,10 +117,88 @@
       "created_at": "2026-11-10T18:06:41.320303+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Limak Atlantis_2026-11-10_18-05_comeback_8.5"
+    },
+    {
+      "hotel_name": "Limak Limra",
+      "duration_bucket": "",
+      "old_price": 8132.0,
+      "new_price": 9146.0,
+      "price_change": 1014.0,
+      "price_change_pct": 12.469257255287753,
+      "timestamp": "2026-11-10 23:36:06.403536+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-10T23:37:20.212137+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Limak Limra_2026-11-10_23-36_+12.5"
+    },
+    {
+      "hotel_name": "Villa Side Residence",
+      "duration_bucket": "",
+      "old_price": 8570.0,
+      "new_price": 9584.0,
+      "price_change": 1014.0,
+      "price_change_pct": 11.831971995332555,
+      "timestamp": "2026-11-10 23:36:06.403536+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-10T23:37:20.212173+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Villa Side Residence_2026-11-10_23-36_+11.8"
+    },
+    {
+      "hotel_name": "Aydinbey Kings Palace",
+      "duration_bucket": "",
+      "old_price": 9076.0,
+      "new_price": 9912.0,
+      "price_change": 836.0,
+      "price_change_pct": 9.211106214191274,
+      "timestamp": "2026-11-10 23:36:06.403536+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-10T23:37:20.212189+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Aydinbey Kings Palace_2026-11-10_23-36_+9.2"
+    },
+    {
+      "hotel_name": "Side Royal Palace",
+      "duration_bucket": "",
+      "old_price": 9400.0,
+      "new_price": 10414.0,
+      "price_change": 1014.0,
+      "price_change_pct": 10.787234042553191,
+      "timestamp": "2026-11-10 23:36:06.403536+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-10T23:37:20.212214+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Side Royal Palace_2026-11-10_23-36_zone_out_+10.8"
+    },
+    {
+      "hotel_name": "Trendy Aspendos Beach",
+      "duration_bucket": "",
+      "old_price": 9590.0,
+      "new_price": 10604.0,
+      "price_change": 1014.0,
+      "price_change_pct": 10.573514077163711,
+      "timestamp": "2026-11-10 23:36:06.403536+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-10T23:37:20.212225+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Trendy Aspendos Beach_2026-11-10_23-36_zone_out_+10.6"
+    },
+    {
+      "hotel_name": "Innvista Belek (ex. Vera Verde)",
+      "duration_bucket": "",
+      "old_price": 10434.0,
+      "new_price": 9361.0,
+      "price_change": -1073.0,
+      "price_change_pct": -10.28368794326241,
+      "timestamp": "2026-11-10 23:36:06.403536+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-11-10T23:37:20.212248+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Innvista Belek (ex. Vera Verde)_2026-11-10_23-36_comeback_10.3"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-10T18:05:41.292666+00:00",
+    "last_processed_run": "2026-11-10T23:36:06.403536+00:00",
     "premium_state": {
       "Akka Alinda": {
         "history_max": 10650.0,
@@ -147,7 +225,7 @@
         "premium_peak": null
       },
       "Villa Side Residence": {
-        "history_max": 9529.0,
+        "history_max": 9584.0,
         "premium_peak": null
       },
       "Orange Palace": {
@@ -227,7 +305,7 @@
         "premium_peak": null
       },
       "Eftalia Ocean (Alanya)": {
-        "history_max": 7663.0,
+        "history_max": 7904.0,
         "premium_peak": null
       },
       "Grand Seker": {

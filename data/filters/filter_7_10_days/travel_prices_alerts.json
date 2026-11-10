@@ -195,10 +195,114 @@
       "created_at": "2026-11-10T18:04:47.131946+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Stella Beach Resort & Spa_2026-11-10_18-03_zone_out_gone"
+    },
+    {
+      "hotel_name": "Regency Plaza Aqua Park Spa",
+      "duration_bucket": "",
+      "old_price": 5976.0,
+      "new_price": 5496.0,
+      "price_change": -480.0,
+      "price_change_pct": -8.032128514056225,
+      "timestamp": "2026-11-10 23:34:03.559320+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-10T23:35:11.388553+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Regency Plaza Aqua Park Spa_2026-11-10_23-34_-8.0"
+    },
+    {
+      "hotel_name": "Old Palace Resort",
+      "duration_bucket": "",
+      "old_price": 6670.0,
+      "new_price": 6110.0,
+      "price_change": -560.0,
+      "price_change_pct": -8.395802098950526,
+      "timestamp": "2026-11-10 23:34:03.559320+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-10T23:35:11.388593+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Old Palace Resort_2026-11-10_23-34_-8.4"
+    },
+    {
+      "hotel_name": "Rewaya Luxury Resort",
+      "duration_bucket": "",
+      "old_price": 6297.0,
+      "new_price": 5786.0,
+      "price_change": -511.0,
+      "price_change_pct": -8.114975385104017,
+      "timestamp": "2026-11-10 23:34:03.559320+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-10T23:35:11.388611+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Luxury Resort_2026-11-10_23-34_-8.1"
+    },
+    {
+      "hotel_name": "Rewaya Majestic Resort",
+      "duration_bucket": "",
+      "old_price": 6437.0,
+      "new_price": 5918.0,
+      "price_change": -519.0,
+      "price_change_pct": -8.062762156283982,
+      "timestamp": "2026-11-10 23:34:03.559320+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-10T23:35:11.388627+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Majestic Resort_2026-11-10_23-34_-8.1"
+    },
+    {
+      "hotel_name": "Charmillion Club Aqua Park",
+      "duration_bucket": "",
+      "old_price": 6504.0,
+      "new_price": 6504.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-10 23:34:03.559320+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-10T23:35:11.388648+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Charmillion Club Aqua Park_2026-11-10_23-34_zone_out_gone"
+    },
+    {
+      "hotel_name": "IL Mercato Splash Aqua Park",
+      "duration_bucket": "",
+      "old_price": 6593.0,
+      "new_price": 6593.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-10 23:34:03.559320+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-10T23:35:11.388661+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "IL Mercato Splash Aqua Park_2026-11-10_23-34_zone_out_gone"
+    },
+    {
+      "hotel_name": "Imperial Shams Abu Soma Resort",
+      "duration_bucket": "",
+      "old_price": 6837.0,
+      "new_price": 6837.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-10 23:34:03.559320+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-10T23:35:11.388673+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Imperial Shams Abu Soma Resort_2026-11-10_23-34_zone_out_gone"
+    },
+    {
+      "hotel_name": "Titanic Beach Spa & Aqua Park",
+      "duration_bucket": "",
+      "old_price": 6817.0,
+      "new_price": 6817.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-10 23:34:03.559320+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-10T23:35:11.388685+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Titanic Beach Spa & Aqua Park_2026-11-10_23-34_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-10T18:03:50.784650+00:00",
+    "last_processed_run": "2026-11-10T23:34:03.559320+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 6356.0,
@@ -277,7 +381,7 @@
         "premium_peak": null
       },
       "Creek Hotel and Residences": {
-        "history_max": 6625.0,
+        "history_max": 6656.0,
         "premium_peak": null
       },
       "Sirena Beach Resort & Spa": {
@@ -346,6 +450,14 @@
       },
       "Dreams Beach Sharm Resort (Sharm El Sheikh)": {
         "history_max": 6598.0,
+        "premium_peak": null
+      },
+      "Beach Safari Nubian Resort": {
+        "history_max": 5882.0,
+        "premium_peak": null
+      },
+      "Xperience Sea Breeze Resort": {
+        "history_max": 6561.0,
         "premium_peak": null
       }
     }
