@@ -1,5 +1,181 @@
 {
   "version": 2,
-  "alerts": [],
-  "meta": {}
+  "alerts": [
+    {
+      "hotel_name": "Armas Bella Sun (ex.Club Bella Sun)",
+      "duration_bucket": "",
+      "old_price": 13886.0,
+      "new_price": 13886.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-10 02:21:51.214540+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-10T02:22:46.265100+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Armas Bella Sun (ex.Club Bella Sun)_2026-11-10_02-21_zone_out_gone"
+    },
+    {
+      "hotel_name": "Armas Green Fugla",
+      "duration_bucket": "",
+      "old_price": 13743.0,
+      "new_price": 13743.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-10 02:21:51.214540+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-10T02:22:46.265142+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Armas Green Fugla_2026-11-10_02-21_zone_out_gone"
+    },
+    {
+      "hotel_name": "The Marilis Hill Resort and Spa (Alanya)",
+      "duration_bucket": "",
+      "old_price": 13878.0,
+      "new_price": 13878.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-10 02:21:51.214540+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-10T02:22:46.265166+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "The Marilis Hill Resort and Spa (Alanya)_2026-11-10_02-21_zone_out_gone"
+    }
+  ],
+  "meta": {
+    "last_processed_run": "2026-11-10T02:21:51.214540+00:00",
+    "premium_state": {
+      "Armas Bella Sun (ex.Club Bella Sun)": {
+        "history_max": 13886.0,
+        "premium_peak": null
+      },
+      "Presa Di Finica (Finike)": {
+        "history_max": 13457.0,
+        "premium_peak": null
+      },
+      "Perre Delta": {
+        "history_max": 12245.0,
+        "premium_peak": null
+      },
+      "SUI Resort by Oz": {
+        "history_max": 13302.0,
+        "premium_peak": null
+      },
+      "Oz Sui Resort": {
+        "history_max": 13482.0,
+        "premium_peak": null
+      },
+      "Misal (ex. Nox Inn Club)": {
+        "history_max": 11717.0,
+        "premium_peak": null
+      },
+      "Xoria Deluxe": {
+        "history_max": 13779.0,
+        "premium_peak": null
+      },
+      "Mira Meridia Beach Resort": {
+        "history_max": 13819.0,
+        "premium_peak": null
+      },
+      "Miarosa Incekum Beach (ex Alara Kum)": {
+        "history_max": 12596.0,
+        "premium_peak": null
+      },
+      "Senza Grand Santana (Alanya)": {
+        "history_max": 12842.0,
+        "premium_peak": null
+      },
+      "M. C. Beach Resort (ex. Otium MC Beach Resort)": {
+        "history_max": 13010.0,
+        "premium_peak": null
+      },
+      "Sun Star Resort": {
+        "history_max": 12372.0,
+        "premium_peak": null
+      },
+      "Klas More Beach": {
+        "history_max": 11421.0,
+        "premium_peak": null
+      },
+      "PrimaSol Telatiye Resort": {
+        "history_max": 13857.0,
+        "premium_peak": null
+      },
+      "The Marilis Hill Resort and Spa (Alanya)": {
+        "history_max": 13878.0,
+        "premium_peak": null
+      },
+      "Green Nature Resort & Spa": {
+        "history_max": 13917.0,
+        "premium_peak": null
+      },
+      "Kirbiyik Resort (ex. Dinler)": {
+        "history_max": 13147.0,
+        "premium_peak": null
+      },
+      "First Class": {
+        "history_max": 11880.0,
+        "premium_peak": null
+      },
+      "Armas Green Fugla": {
+        "history_max": 13743.0,
+        "premium_peak": null
+      },
+      "Asteria Ephesus Kusadasi": {
+        "history_max": 13523.0,
+        "premium_peak": null
+      },
+      "Aventura Park": {
+        "history_max": 12337.0,
+        "premium_peak": null
+      },
+      "World Star Beach Resort & Spa": {
+        "history_max": 13437.0,
+        "premium_peak": null
+      },
+      "Casa Fora Beach Resort": {
+        "history_max": 13577.0,
+        "premium_peak": null
+      },
+      "The Nora Hotels Family Club (Kargicak)": {
+        "history_max": 10130.0,
+        "premium_peak": null
+      },
+      "Viking Star": {
+        "history_max": 11759.0,
+        "premium_peak": null
+      },
+      "Prestige Alanya": {
+        "history_max": 12213.0,
+        "premium_peak": null
+      },
+      "Club Side Coast": {
+        "history_max": 13108.0,
+        "premium_peak": null
+      },
+      "Unique Residence Golf Spa": {
+        "history_max": 13239.0,
+        "premium_peak": null
+      },
+      "Drita Resort & Spa": {
+        "history_max": 11462.0,
+        "premium_peak": null
+      },
+      "Cenger Beach Resort (Side)": {
+        "history_max": 12295.0,
+        "premium_peak": null
+      },
+      "Seher Sun Palace Resort & Spa": {
+        "history_max": 13990.0,
+        "premium_peak": null
+      },
+      "Calido Sol (Alanya)": {
+        "history_max": 14002.0,
+        "premium_peak": null
+      },
+      "Mandarin Resort (Bodrum)": {
+        "history_max": 14038.0,
+        "premium_peak": null
+      }
+    }
+  }
 }

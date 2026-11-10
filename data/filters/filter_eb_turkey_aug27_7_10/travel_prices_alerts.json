@@ -1,5 +1,164 @@
 {
   "version": 2,
-  "alerts": [],
-  "meta": {}
+  "alerts": [
+    {
+      "hotel_name": "Eftalia Village",
+      "duration_bucket": "",
+      "old_price": 7704.0,
+      "new_price": 7704.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-10 02:20:53.503664+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-10T02:21:49.268046+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Eftalia Village_2026-11-10_02-20_zone_out_gone"
+    },
+    {
+      "hotel_name": "Mira Meridia Beach Resort",
+      "duration_bucket": "",
+      "old_price": 7862.0,
+      "new_price": 7862.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-10 02:20:53.503664+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-10T02:21:49.268091+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Mira Meridia Beach Resort_2026-11-10_02-20_zone_out_gone"
+    }
+  ],
+  "meta": {
+    "last_processed_run": "2026-11-10T02:20:53.503664+00:00",
+    "premium_state": {
+      "Armas Bella Sun (ex.Club Bella Sun)": {
+        "history_max": 7893.0,
+        "premium_peak": null
+      },
+      "Mira Meridia Beach Resort": {
+        "history_max": 7862.0,
+        "premium_peak": null
+      },
+      "Eftalia Village": {
+        "history_max": 7704.0,
+        "premium_peak": null
+      },
+      "First Class": {
+        "history_max": 6818.0,
+        "premium_peak": null
+      },
+      "Senza Grand Santana (Alanya)": {
+        "history_max": 7923.0,
+        "premium_peak": null
+      },
+      "Fun & Sun Smart Hane Sun": {
+        "history_max": 7439.0,
+        "premium_peak": null
+      },
+      "Gold City": {
+        "history_max": 7344.0,
+        "premium_peak": null
+      },
+      "Senza The Inn Resort & Spa": {
+        "history_max": 7923.0,
+        "premium_peak": null
+      },
+      "Prestige Alanya": {
+        "history_max": 6845.0,
+        "premium_peak": null
+      },
+      "Xoria Deluxe": {
+        "history_max": 7448.0,
+        "premium_peak": null
+      },
+      "M. C. Beach Resort (ex. Otium MC Beach Resort)": {
+        "history_max": 6899.0,
+        "premium_peak": null
+      },
+      "Perre La Mer Resort & Spa (ex. La Mer)": {
+        "history_max": 7848.0,
+        "premium_peak": null
+      },
+      "Mandarin Resort (Bodrum)": {
+        "history_max": 7346.0,
+        "premium_peak": null
+      },
+      "Miarosa Incekum Beach (ex Alara Kum)": {
+        "history_max": 7146.0,
+        "premium_peak": null
+      },
+      "Perre Delta": {
+        "history_max": 6656.0,
+        "premium_peak": null
+      },
+      "Hane Sun Elite (ex Noble Palace Side)": {
+        "history_max": 7493.0,
+        "premium_peak": null
+      },
+      "Daima Biz (Kemer)": {
+        "history_max": 7799.0,
+        "premium_peak": null
+      },
+      "Drita Resort & Spa": {
+        "history_max": 6795.0,
+        "premium_peak": null
+      },
+      "Club Side Coast": {
+        "history_max": 7694.0,
+        "premium_peak": null
+      },
+      "Armas Green Fugla": {
+        "history_max": 7799.0,
+        "premium_peak": null
+      },
+      "World Star Beach Resort & Spa": {
+        "history_max": 7488.0,
+        "premium_peak": null
+      },
+      "Armas Pemar Beach Resort": {
+        "history_max": 7772.0,
+        "premium_peak": null
+      },
+      "The Nora Hotels Family Club (Kargicak)": {
+        "history_max": 5715.0,
+        "premium_peak": null
+      },
+      "Calimera Hane Garden (ex. PrimaSol Hane Garden)": {
+        "history_max": 7808.0,
+        "premium_peak": null
+      },
+      "Bodrum Holiday Resort": {
+        "history_max": 7884.0,
+        "premium_peak": null
+      },
+      "Cenger Beach Resort (Side)": {
+        "history_max": 7607.0,
+        "premium_peak": null
+      },
+      "Club Paradiso": {
+        "history_max": 7902.0,
+        "premium_peak": null
+      },
+      "Solivia (Ex. Titan Select)": {
+        "history_max": 7537.0,
+        "premium_peak": null
+      },
+      "Sun Star Resort": {
+        "history_max": 7659.0,
+        "premium_peak": null
+      },
+      "Misal (ex. Nox Inn Club)": {
+        "history_max": 7797.0,
+        "premium_peak": null
+      },
+      "Asteria Collection Side": {
+        "history_max": 7929.0,
+        "premium_peak": null
+      },
+      "Kirbiyik Resort (ex. Dinler)": {
+        "history_max": 7925.0,
+        "premium_peak": null
+      }
+    }
+  }
 }

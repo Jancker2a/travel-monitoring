@@ -1,5 +1,143 @@
 {
   "version": 2,
-  "alerts": [],
-  "meta": {}
+  "alerts": [
+    {
+      "hotel_name": "Bella Beach",
+      "duration_bucket": "",
+      "old_price": 11702.0,
+      "new_price": 12051.0,
+      "price_change": 349.0,
+      "price_change_pct": 2.9823961715945995,
+      "timestamp": "2026-11-10 02:20:52.574859+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-10T02:21:48.255650+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Bella Beach_2026-11-10_02-20_zone_out_+3.0"
+    }
+  ],
+  "meta": {
+    "last_processed_run": "2026-11-10T02:20:52.574859+00:00",
+    "premium_state": {
+      "Akti Imperial Deluxe Resort (ex Capsis Rhodes)": {
+        "history_max": 12117.0,
+        "premium_peak": 12117.0
+      },
+      "Natura Park Village": {
+        "history_max": 13469.0,
+        "premium_peak": 13469.0
+      },
+      "Magique Bleu": {
+        "history_max": 12565.0,
+        "premium_peak": 12565.0
+      },
+      "Sandy Beach Resort": {
+        "history_max": 13159.0,
+        "premium_peak": 13159.0
+      },
+      "Lydia Maris Resort & Spa": {
+        "history_max": 9398.0,
+        "premium_peak": null
+      },
+      "Kipriotis Maris Suites (ex Iberostar)": {
+        "history_max": 11353.0,
+        "premium_peak": null
+      },
+      "Zeus Eretria Resort": {
+        "history_max": 11422.0,
+        "premium_peak": null
+      },
+      "Kiani Beach": {
+        "history_max": 12244.0,
+        "premium_peak": 12244.0
+      },
+      "Santa Marina Pearl": {
+        "history_max": 12297.0,
+        "premium_peak": 12297.0
+      },
+      "Ibiscus Corfu": {
+        "history_max": 12957.0,
+        "premium_peak": 12957.0
+      },
+      "Hersonissos Palace": {
+        "history_max": 10225.0,
+        "premium_peak": null
+      },
+      "Serita Beach": {
+        "history_max": 13342.0,
+        "premium_peak": 13342.0
+      },
+      "Giannoulis Cavo Spada Luxury Sports & Leisure Resort": {
+        "history_max": 13177.0,
+        "premium_peak": 13177.0
+      },
+      "Galini Palace": {
+        "history_max": 12695.0,
+        "premium_peak": 12695.0
+      },
+      "Ramada by Wyndham Loutraki Poseidon Resort": {
+        "history_max": 10637.0,
+        "premium_peak": null
+      },
+      "Filion Suites Resort": {
+        "history_max": 11833.0,
+        "premium_peak": null
+      },
+      "Solimar Aquamarine": {
+        "history_max": 12397.0,
+        "premium_peak": 12397.0
+      },
+      "Azure Resort & Spa (ex. Mediterranee)": {
+        "history_max": 11197.0,
+        "premium_peak": null
+      },
+      "Aldemar Olympian Village": {
+        "history_max": 12268.0,
+        "premium_peak": 12268.0
+      },
+      "Zante Park Resort & SPA - BW Premier Collection": {
+        "history_max": 11677.0,
+        "premium_peak": null
+      },
+      "All Senses Nautica Blue Exclusive Resort & Spa (ex Aegean Breeze)": {
+        "history_max": 9877.0,
+        "premium_peak": null
+      },
+      "Almyra Village": {
+        "history_max": 11277.0,
+        "premium_peak": null
+      },
+      "Xenios Anastasia Resort & Spa (ex. Anastasia Resort & Spa)": {
+        "history_max": 9168.0,
+        "premium_peak": null
+      },
+      "Cabana Rossa Boutique Hotel & Suites": {
+        "history_max": 11926.0,
+        "premium_peak": null
+      },
+      "Pegasos Beach (Faliraki)": {
+        "history_max": 13217.0,
+        "premium_peak": 13217.0
+      },
+      "White Olive Elite Rethymno": {
+        "history_max": 11250.0,
+        "premium_peak": null
+      },
+      "Blue Marine Resort & SPA": {
+        "history_max": 11631.0,
+        "premium_peak": null
+      },
+      "Cabana Blu Hotel & Suites": {
+        "history_max": 12976.0,
+        "premium_peak": 12976.0
+      },
+      "White Olive Elite": {
+        "history_max": 11737.0,
+        "premium_peak": null
+      },
+      "Bella Beach": {
+        "history_max": 12051.0,
+        "premium_peak": 12051.0
+      }
+    }
+  }
 }
