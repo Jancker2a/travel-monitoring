@@ -182,10 +182,114 @@
       "created_at": "2026-11-10T02:27:18.404477+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Villa Side Residence_2026-11-10_02-26_zone_out_gone"
+    },
+    {
+      "hotel_name": "Limak Atlantis",
+      "duration_bucket": "",
+      "old_price": 8249.0,
+      "new_price": 7338.0,
+      "price_change": -911.0,
+      "price_change_pct": -11.043762880349133,
+      "timestamp": "2026-11-10 18:06:44.249700+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-10T18:07:43.324567+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Limak Atlantis_2026-11-10_18-06_-11.0"
+    },
+    {
+      "hotel_name": "Sealife Family Resort",
+      "duration_bucket": "",
+      "old_price": 8949.0,
+      "new_price": 8038.0,
+      "price_change": -911.0,
+      "price_change_pct": -10.17990836965024,
+      "timestamp": "2026-11-10 18:06:44.249700+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-10T18:07:43.324589+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sealife Family Resort_2026-11-10_18-06_-10.2"
+    },
+    {
+      "hotel_name": "Trendy Lara",
+      "duration_bucket": "",
+      "old_price": 8565.0,
+      "new_price": 7654.0,
+      "price_change": -911.0,
+      "price_change_pct": -10.636310566258027,
+      "timestamp": "2026-11-10 18:06:44.249700+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-10T18:07:43.324598+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Trendy Lara_2026-11-10_18-06_-10.6"
+    },
+    {
+      "hotel_name": "Grand Seker",
+      "duration_bucket": "",
+      "old_price": 7021.0,
+      "new_price": 7021.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-10 18:06:44.249700+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-10T18:07:43.324609+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Grand Seker_2026-11-10_18-06_zone_out_gone"
+    },
+    {
+      "hotel_name": "Karmir Resort (Kemer)",
+      "duration_bucket": "",
+      "old_price": 8824.0,
+      "new_price": 8824.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-10 18:06:44.249700+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-10T18:07:43.324616+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Karmir Resort (Kemer)_2026-11-10_18-06_zone_out_gone"
+    },
+    {
+      "hotel_name": "Seamelia Beach Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 8941.0,
+      "new_price": 8941.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-10 18:06:44.249700+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-10T18:07:43.324622+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Seamelia Beach Resort & Spa_2026-11-10_18-06_zone_out_gone"
+    },
+    {
+      "hotel_name": "Side Royal Style (ex. Side Royal Luxury)",
+      "duration_bucket": "",
+      "old_price": 8917.0,
+      "new_price": 8917.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-10 18:06:44.249700+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-10T18:07:43.324628+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Side Royal Style (ex. Side Royal Luxury)_2026-11-10_18-06_zone_out_gone"
+    },
+    {
+      "hotel_name": "Terrace Beach Resort (Side)",
+      "duration_bucket": "",
+      "old_price": 8904.0,
+      "new_price": 8904.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-10 18:06:44.249700+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-10T18:07:43.324634+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Terrace Beach Resort (Side)_2026-11-10_18-06_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-10T10:09:56.445820+00:00",
+    "last_processed_run": "2026-11-10T18:06:44.249700+00:00",
     "premium_state": {
       "Alba Queen": {
         "history_max": 7247.0,
@@ -309,6 +413,18 @@
       },
       "Aska Lara Resort & Spa": {
         "history_max": 8516.0,
+        "premium_peak": null
+      },
+      "Royal Taj Mahal": {
+        "history_max": 8488.0,
+        "premium_peak": null
+      },
+      "Porto Bello": {
+        "history_max": 8270.0,
+        "premium_peak": null
+      },
+      "Club Sera": {
+        "history_max": 8276.0,
         "premium_peak": null
       }
     }

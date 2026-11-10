@@ -143,10 +143,62 @@
       "created_at": "2026-11-10T10:07:47.732006+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sentido Akassia Beach (ex. LTI Akassia Beach)_2026-11-10_10-06_zone_out_gone"
+    },
+    {
+      "hotel_name": "AMC Royal Hotel & Spa (ex. AMC Azur Resort)",
+      "duration_bucket": "",
+      "old_price": 6356.0,
+      "new_price": 5415.0,
+      "price_change": -941.0,
+      "price_change_pct": -14.804908747640026,
+      "timestamp": "2026-11-10 18:03:50.784650+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-10T18:04:47.131913+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort)_2026-11-10_18-03_-14.8"
+    },
+    {
+      "hotel_name": "Amwaj Oyoun Resort & Casino",
+      "duration_bucket": "",
+      "old_price": 6300.0,
+      "new_price": 6300.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-10 18:03:50.784650+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-10T18:04:47.131936+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amwaj Oyoun Resort & Casino_2026-11-10_18-03_zone_out_gone"
+    },
+    {
+      "hotel_name": "Dreams Beach Sharm Resort (Sharm El Sheikh)",
+      "duration_bucket": "",
+      "old_price": 6598.0,
+      "new_price": 6598.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-10 18:03:50.784650+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-10T18:04:47.131942+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Dreams Beach Sharm Resort (Sharm El Sheikh)_2026-11-10_18-03_zone_out_gone"
+    },
+    {
+      "hotel_name": "Stella Beach Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 6668.0,
+      "new_price": 6668.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-10 18:03:50.784650+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-10T18:04:47.131946+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Stella Beach Resort & Spa_2026-11-10_18-03_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-10T10:06:39.256506+00:00",
+    "last_processed_run": "2026-11-10T18:03:50.784650+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 6356.0,
@@ -277,7 +329,7 @@
         "premium_peak": null
       },
       "Domina Coral Bay Harem": {
-        "history_max": 6799.0,
+        "history_max": 6839.0,
         "premium_peak": null
       },
       "Imperial Shams Abu Soma Resort": {

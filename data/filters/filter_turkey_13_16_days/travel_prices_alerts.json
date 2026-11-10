@@ -39,10 +39,88 @@
       "created_at": "2026-11-10T10:10:02.395686+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sensitive Premium Resort & Spa_2026-11-10_10-08_+24.3"
+    },
+    {
+      "hotel_name": "Villa Side Residence",
+      "duration_bucket": "",
+      "old_price": 9529.0,
+      "new_price": 8570.0,
+      "price_change": -959.0,
+      "price_change_pct": -10.064015111764087,
+      "timestamp": "2026-11-10 18:05:41.292666+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-10T18:06:41.320226+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Villa Side Residence_2026-11-10_18-05_-10.1"
+    },
+    {
+      "hotel_name": "Limak Limra",
+      "duration_bucket": "",
+      "old_price": 9146.0,
+      "new_price": 8132.0,
+      "price_change": -1014.0,
+      "price_change_pct": -11.086813907719222,
+      "timestamp": "2026-11-10 18:05:41.292666+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-10T18:06:41.320251+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Limak Limra_2026-11-10_18-05_-11.1"
+    },
+    {
+      "hotel_name": "Trendy Aspendos Beach",
+      "duration_bucket": "",
+      "old_price": 10604.0,
+      "new_price": 9590.0,
+      "price_change": -1014.0,
+      "price_change_pct": -9.56242927197284,
+      "timestamp": "2026-11-10 18:05:41.292666+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-11-10T18:06:41.320277+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Trendy Aspendos Beach_2026-11-10_18-05_comeback_9.6"
+    },
+    {
+      "hotel_name": "Side Royal Palace",
+      "duration_bucket": "",
+      "old_price": 10414.0,
+      "new_price": 9400.0,
+      "price_change": -1014.0,
+      "price_change_pct": -9.736892644516997,
+      "timestamp": "2026-11-10 18:05:41.292666+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-11-10T18:06:41.320287+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Side Royal Palace_2026-11-10_18-05_comeback_9.7"
+    },
+    {
+      "hotel_name": "Aydinbey Kings Palace",
+      "duration_bucket": "",
+      "old_price": 10059.0,
+      "new_price": 9076.0,
+      "price_change": -983.0,
+      "price_change_pct": -9.77234317526593,
+      "timestamp": "2026-11-10 18:05:41.292666+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-11-10T18:06:41.320295+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Aydinbey Kings Palace_2026-11-10_18-05_comeback_9.8"
+    },
+    {
+      "hotel_name": "Limak Atlantis",
+      "duration_bucket": "",
+      "old_price": 10315.0,
+      "new_price": 9438.0,
+      "price_change": -877.0,
+      "price_change_pct": -8.502181289384392,
+      "timestamp": "2026-11-10 18:05:41.292666+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-11-10T18:06:41.320303+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Limak Atlantis_2026-11-10_18-05_comeback_8.5"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-10T10:08:44.175232+00:00",
+    "last_processed_run": "2026-11-10T18:05:41.292666+00:00",
     "premium_state": {
       "Akka Alinda": {
         "history_max": 10650.0,
@@ -171,6 +249,10 @@
       "Castival (ex. La Grande Resort & Spa)": {
         "history_max": 8714.0,
         "premium_peak": null
+      },
+      "Limak Lara De Luxe": {
+        "history_max": 10634.0,
+        "premium_peak": 10634.0
       }
     }
   }

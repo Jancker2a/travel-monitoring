@@ -130,10 +130,49 @@
       "created_at": "2026-11-10T10:11:14.380888+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Pine Beach Belek (ex. Maritim Pine Beach Resort)_2026-11-10_10-09_zone_out_gone"
+    },
+    {
+      "hotel_name": "Eftalia Ocean (Alanya)",
+      "duration_bucket": "",
+      "old_price": 5788.0,
+      "new_price": 5144.0,
+      "price_change": -644.0,
+      "price_change_pct": -11.126468555632343,
+      "timestamp": "2026-11-10 18:05:58.912182+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-10T18:07:02.498497+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Eftalia Ocean (Alanya)_2026-11-10_18-05_-11.1"
+    },
+    {
+      "hotel_name": "Side Moon Palace",
+      "duration_bucket": "",
+      "old_price": 5545.0,
+      "new_price": 6452.0,
+      "price_change": 907.0,
+      "price_change_pct": 16.3570784490532,
+      "timestamp": "2026-11-10 18:05:58.912182+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-10T18:07:02.498516+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Side Moon Palace_2026-11-10_18-05_+16.4"
+    },
+    {
+      "hotel_name": "Sealife Family Resort",
+      "duration_bucket": "",
+      "old_price": 6860.0,
+      "new_price": 6860.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-10 18:05:58.912182+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-10T18:07:02.498529+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sealife Family Resort_2026-11-10_18-05_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-10T10:09:50.230497+00:00",
+    "last_processed_run": "2026-11-10T18:05:58.912182+00:00",
     "premium_state": {
       "Alba Queen": {
         "history_max": 5997.0,
@@ -152,7 +191,7 @@
         "premium_peak": null
       },
       "Villa Side Residence": {
-        "history_max": 6012.0,
+        "history_max": 6039.0,
         "premium_peak": null
       },
       "Porto Bello": {
@@ -172,7 +211,7 @@
         "premium_peak": null
       },
       "Seher Resort & Spa": {
-        "history_max": 6159.0,
+        "history_max": 6174.0,
         "premium_peak": null
       },
       "Seher Sun Palace Resort & Spa": {
@@ -208,7 +247,7 @@
         "premium_peak": null
       },
       "Limak Limra": {
-        "history_max": 5842.0,
+        "history_max": 5869.0,
         "premium_peak": null
       },
       "Limak Lara De Luxe": {
@@ -232,7 +271,7 @@
         "premium_peak": null
       },
       "Grand Seker": {
-        "history_max": 5846.0,
+        "history_max": 5886.0,
         "premium_peak": null
       },
       "Innvista Belek (ex. Vera Verde)": {
@@ -277,6 +316,10 @@
       },
       "Pine Beach Belek (ex. Maritim Pine Beach Resort)": {
         "history_max": 6412.0,
+        "premium_peak": null
+      },
+      "Crystal De Luxe Comfort Collection": {
+        "history_max": 6797.0,
         "premium_peak": null
       }
     }
