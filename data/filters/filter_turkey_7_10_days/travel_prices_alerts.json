@@ -91,10 +91,49 @@
       "created_at": "2026-11-10T02:26:50.421587+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Seher Resort & Spa_2026-11-10_02-25_zone_out_gone"
+    },
+    {
+      "hotel_name": "Side Moon Palace",
+      "duration_bucket": "",
+      "old_price": 6452.0,
+      "new_price": 5545.0,
+      "price_change": -907.0,
+      "price_change_pct": -14.057656540607564,
+      "timestamp": "2026-11-10 10:09:50.230497+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-10T10:11:14.380841+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Side Moon Palace_2026-11-10_10-09_-14.1"
+    },
+    {
+      "hotel_name": "Sensitive Premium Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 6150.0,
+      "new_price": 6900.0,
+      "price_change": 750.0,
+      "price_change_pct": 12.195121951219512,
+      "timestamp": "2026-11-10 10:09:50.230497+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-10T10:11:14.380866+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sensitive Premium Resort & Spa_2026-11-10_10-09_+12.2"
+    },
+    {
+      "hotel_name": "Pine Beach Belek (ex. Maritim Pine Beach Resort)",
+      "duration_bucket": "",
+      "old_price": 6412.0,
+      "new_price": 6412.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-10 10:09:50.230497+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-10T10:11:14.380888+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pine Beach Belek (ex. Maritim Pine Beach Resort)_2026-11-10_10-09_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-10T02:25:23.296976+00:00",
+    "last_processed_run": "2026-11-10T10:09:50.230497+00:00",
     "premium_state": {
       "Alba Queen": {
         "history_max": 5997.0,
@@ -133,7 +172,7 @@
         "premium_peak": null
       },
       "Seher Resort & Spa": {
-        "history_max": 5900.0,
+        "history_max": 6159.0,
         "premium_peak": null
       },
       "Seher Sun Palace Resort & Spa": {
@@ -141,7 +180,7 @@
         "premium_peak": null
       },
       "Sensitive Premium Resort & Spa": {
-        "history_max": 6150.0,
+        "history_max": 6900.0,
         "premium_peak": null
       },
       "Side Crown Palace (Side)": {
@@ -153,7 +192,7 @@
         "premium_peak": null
       },
       "Side Royal Palace": {
-        "history_max": 6450.0,
+        "history_max": 6477.0,
         "premium_peak": null
       },
       "Sural Resort": {
@@ -161,7 +200,7 @@
         "premium_peak": null
       },
       "Trendy Aspendos Beach": {
-        "history_max": 6266.0,
+        "history_max": 6293.0,
         "premium_peak": null
       },
       "Trendy Lara": {
@@ -181,7 +220,7 @@
         "premium_peak": null
       },
       "Limak Atlantis": {
-        "history_max": 6494.0,
+        "history_max": 6521.0,
         "premium_peak": null
       },
       "Grand Okan": {
@@ -201,7 +240,7 @@
         "premium_peak": null
       },
       "Aydinbey Kings Palace": {
-        "history_max": 6264.0,
+        "history_max": 6291.0,
         "premium_peak": null
       },
       "Limak Arcadia Sport Resort": {
@@ -229,7 +268,7 @@
         "premium_peak": null
       },
       "Paloma Oceana Resort (ex Paloma Beach)": {
-        "history_max": 6900.0,
+        "history_max": 6927.0,
         "premium_peak": null
       },
       "Aska Lara Resort & Spa": {

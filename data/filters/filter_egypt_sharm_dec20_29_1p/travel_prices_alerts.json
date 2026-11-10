@@ -143,10 +143,88 @@
       "created_at": "2026-11-10T02:24:43.602524+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Amwaj Oyoun Resort & Casino_2026-11-10_02-23_zone_out_gone"
+    },
+    {
+      "hotel_name": "Uni Sharm (ex. Karma)",
+      "duration_bucket": "",
+      "old_price": 3097.0,
+      "new_price": 2535.0,
+      "price_change": -562.0,
+      "price_change_pct": -18.146593477558927,
+      "timestamp": "2026-11-10 10:07:45.142404+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-10T10:08:40.343034+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Uni Sharm (ex. Karma)_2026-11-10_10-07_-18.1"
+    },
+    {
+      "hotel_name": "Mazar Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 3345.0,
+      "new_price": 3018.0,
+      "price_change": -327.0,
+      "price_change_pct": -9.77578475336323,
+      "timestamp": "2026-11-10 10:07:45.142404+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-10T10:08:40.343060+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Mazar Resort & Spa_2026-11-10_10-07_-9.8"
+    },
+    {
+      "hotel_name": "Marina Sharm (ex. Helnan Marina)",
+      "duration_bucket": "",
+      "old_price": 5101.0,
+      "new_price": 5101.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-10 10:07:45.142404+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-10T10:08:40.343080+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Marina Sharm (ex. Helnan Marina)_2026-11-10_10-07_zone_out_gone"
+    },
+    {
+      "hotel_name": "Regency Plaza Aqua Park Spa",
+      "duration_bucket": "",
+      "old_price": 5048.0,
+      "new_price": 5048.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-10 10:07:45.142404+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-10T10:08:40.343090+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Regency Plaza Aqua Park Spa_2026-11-10_10-07_zone_out_gone"
+    },
+    {
+      "hotel_name": "Romance Regency Club",
+      "duration_bucket": "",
+      "old_price": 5093.0,
+      "new_price": 5093.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-10 10:07:45.142404+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-10T10:08:40.343098+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Romance Regency Club_2026-11-10_10-07_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sharm Reef",
+      "duration_bucket": "",
+      "old_price": 4866.0,
+      "new_price": 4866.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-10 10:07:45.142404+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-10T10:08:40.343106+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sharm Reef_2026-11-10_10-07_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-10T02:23:47.983202+00:00",
+    "last_processed_run": "2026-11-10T10:07:45.142404+00:00",
     "premium_state": {
       "Amphoras Aqua": {
         "history_max": 4974.0,
@@ -157,7 +235,7 @@
         "premium_peak": null
       },
       "Parrotel Lagoon Resort": {
-        "history_max": 4703.0,
+        "history_max": 4770.0,
         "premium_peak": null
       },
       "Sharm Bride Resort Aqua & Spa (ex. Aqua Resort & Spa)": {
@@ -290,6 +368,10 @@
       },
       "Ivy Cyrene Island Resort": {
         "history_max": 5070.0,
+        "premium_peak": null
+      },
+      "Ivy Cyrene Sharm": {
+        "history_max": 4890.0,
         "premium_peak": null
       }
     }

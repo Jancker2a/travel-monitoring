@@ -26,10 +26,23 @@
       "created_at": "2026-11-10T02:26:04.642468+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sural Resort_2026-11-10_02-24_-9.4"
+    },
+    {
+      "hotel_name": "Sensitive Premium Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 7745.0,
+      "new_price": 9628.0,
+      "price_change": 1883.0,
+      "price_change_pct": 24.31245965138799,
+      "timestamp": "2026-11-10 10:08:44.175232+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-10T10:10:02.395686+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sensitive Premium Resort & Spa_2026-11-10_10-08_+24.3"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-10T02:24:47.294911+00:00",
+    "last_processed_run": "2026-11-10T10:08:44.175232+00:00",
     "premium_state": {
       "Akka Alinda": {
         "history_max": 10650.0,
@@ -76,8 +89,8 @@
         "premium_peak": null
       },
       "Side Royal Palace": {
-        "history_max": 10383.0,
-        "premium_peak": 10383.0
+        "history_max": 10414.0,
+        "premium_peak": 10414.0
       },
       "Limak Atlantis": {
         "history_max": 10315.0,
@@ -88,7 +101,7 @@
         "premium_peak": null
       },
       "Sensitive Premium Resort & Spa": {
-        "history_max": 8013.0,
+        "history_max": 9628.0,
         "premium_peak": null
       },
       "Karmir Resort (Kemer)": {
@@ -108,8 +121,8 @@
         "premium_peak": null
       },
       "Trendy Aspendos Beach": {
-        "history_max": 10573.0,
-        "premium_peak": 10573.0
+        "history_max": 10604.0,
+        "premium_peak": 10604.0
       },
       "Aska Just in Beach": {
         "history_max": 7826.0,
@@ -152,11 +165,11 @@
         "premium_peak": 10023.0
       },
       "Grand Okan": {
-        "history_max": 8789.0,
+        "history_max": 8814.0,
         "premium_peak": null
       },
       "Castival (ex. La Grande Resort & Spa)": {
-        "history_max": 8700.0,
+        "history_max": 8714.0,
         "premium_peak": null
       }
     }
