@@ -141,6 +141,10 @@ jobs:
             python travel_monitor.py --config config_ci_filter_greece_7_10.json
             python travel_monitor.py --config config_ci_filter_greece_13_16.json
             python travel_monitor.py --config configs/filters/config_ci_cyprus_7_10.json
+            python travel_monitor.py --config config_ci_benchmark_turkey_1p_7_8.json
+            python travel_monitor.py --config config_ci_benchmark_egypt_1p_7_8.json
+            python travel_monitor.py --config config_ci_benchmark_greece_1p_7_8.json
+            python travel_monitor.py --config config_ci_benchmark_cyprus_1p_7_8.json
           fi
           echo "✅ Monitoring completed"
 

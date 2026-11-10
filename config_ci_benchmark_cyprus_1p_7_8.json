@@ -1,0 +1,27 @@
+{
+  "allow_empty_offers": true,
+  "dynamic_search_dates": true,
+  "rolling_offset_days": 21,
+  "rolling_window_days": 7,
+  "url": "https://fly.pl/szukaj-wycieczek/?destinationLocation=6:&departureLocation=Warszawa,Katowice,Kraków,Gdańsk,Wrocław,Poznań&startDateMin=01-12-2026&startDateMax=08-12-2026&returnDate=16-12-2026&adults=1&catering=all_inclusive&categoryRating=40&offerTypes=accommodation_flight&durationFrom=7&durationTo=8&priceFrom=1000&priceTo=15000&order=price",
+  "max_price_threshold": 15000,
+  "min_price_threshold": 1000,
+  "display_price_ceiling": 8000,
+  "required_offer_url_contains": [
+    "/wycieczka/cypr",
+    "transport=accommodation_flight"
+  ],
+  "excluded_offer_url_contains": [
+    "/wycieczka/polska",
+    "/wycieczka/czechy",
+    "transport=accommodation&"
+  ],
+  "wait_timeout": 30000,
+  "max_retries": 3,
+  "max_offers": 0,
+  "max_pages": 10,
+  "retry_delay": 5,
+  "data_dir": "data/filters/filter_benchmark_cyprus_1p_7_8",
+  "output_data_file": "travel_prices.csv",
+  "description": "Эталон • Кипр • 1 взр • 7-8 дн (вылет сегодня + 3 недели) • All Inclusive 4-5★"
+}
