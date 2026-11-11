@@ -104,10 +104,62 @@
       "created_at": "2026-11-10T23:34:57.021856+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Concorde Moreen Beach Resort & Spa_2026-11-10_23-34_zone_out_gone"
+    },
+    {
+      "hotel_name": "Rewaya Majestic Resort",
+      "duration_bucket": "",
+      "old_price": 10277.0,
+      "new_price": 8939.0,
+      "price_change": -1338.0,
+      "price_change_pct": -13.019363627517757,
+      "timestamp": "2026-11-11 06:49:08.917376+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-11T06:50:00.258552+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Majestic Resort_2026-11-11_06-49_-13.0"
+    },
+    {
+      "hotel_name": "Regency Plaza Aqua Park Spa",
+      "duration_bucket": "",
+      "old_price": 10117.0,
+      "new_price": 10954.0,
+      "price_change": 837.0,
+      "price_change_pct": 8.273203518829693,
+      "timestamp": "2026-11-11 06:49:08.917376+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-11T06:50:00.258573+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Regency Plaza Aqua Park Spa_2026-11-11_06-49_+8.3"
+    },
+    {
+      "hotel_name": "Royal Regency Club",
+      "duration_bucket": "",
+      "old_price": 10941.0,
+      "new_price": 10941.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-11 06:49:08.917376+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-11T06:50:00.258586+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Royal Regency Club_2026-11-11_06-49_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sea Star Beau Rivage",
+      "duration_bucket": "",
+      "old_price": 10895.0,
+      "new_price": 10895.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-11 06:49:08.917376+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-11T06:50:00.258592+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sea Star Beau Rivage_2026-11-11_06-49_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-10T23:34:02.786739+00:00",
+    "last_processed_run": "2026-11-11T06:49:08.917376+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 10327.0,
@@ -174,7 +226,7 @@
         "premium_peak": null
       },
       "Concorde Moreen Beach Resort & Spa": {
-        "history_max": 10910.0,
+        "history_max": 10920.0,
         "premium_peak": null
       },
       "Sea Star Beau Rivage": {
