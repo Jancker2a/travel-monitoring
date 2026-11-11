@@ -5793,14 +5793,14 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
 
         window.syncWatchlistUI = function() {
           const list = getWatchlist();
-          document.querySelectorAll('.watchlist-star-btn').forEach(btn => {
+          document.querySelectorAll('.watchlist-star-btn, .btn-drawer-header-fav').forEach(btn => {
             const hotel = btn.getAttribute('data-hotel-name');
-            if (list.includes(hotel)) {
-              btn.classList.add('starred');
-              btn.textContent = '★';
+            const isStarred = list.includes(hotel);
+            btn.classList.toggle('starred', isStarred);
+            if (btn.id === 'drawerWatchlistBtn' || btn.classList.contains('btn-drawer-header-fav')) {
+              btn.textContent = isStarred ? '★ В избранном' : '☆ В избранное';
             } else {
-              btn.classList.remove('starred');
-              btn.textContent = '☆';
+              btn.textContent = isStarred ? '★' : '☆';
             }
           });
         };

@@ -1383,6 +1383,33 @@ def get_hotel_passport_css() -> str:
       gap: 8px;
     }
 
+    .btn-drawer-header-fav {
+      background: #ffffff;
+      color: #334155;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      border: 1px solid #cbd5e1;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.15s ease;
+    }
+
+    .btn-drawer-header-fav:hover {
+      background: #fef3c7;
+      border-color: #f59e0b;
+      color: #b45309;
+    }
+
+    .btn-drawer-header-fav.starred {
+      background: #f59e0b;
+      border-color: #d97706;
+      color: #ffffff;
+    }
+
     .btn-drawer-header-ta {
       background: #059669;
       color: #ffffff !important;
@@ -2413,6 +2440,7 @@ def render_hotel_card_horiz(c: Dict[str, Any], ai_profile: Dict[str, Any]) -> st
       <!-- Col 1: Media -->
       <div class="card-media-col">
         {img_html}
+        <button class="watchlist-star-btn card-star" data-hotel-name="{html.escape(hotel_name, quote=True)}" title="Добавить в избранное" onclick="event.stopPropagation(); if (window.toggleWatchlist) window.toggleWatchlist('{html.escape(hotel_name, quote=True)}');">☆</button>
         <div class="card-media-badges">
           <span class="badge-country">{html.escape(c.get('region', 'Курорт'))}</span>
           {drop_badge_html}
@@ -2515,6 +2543,7 @@ def render_hotel_passport_drawer_html() -> str:
           <p id="drawerHotelSubtitle">Страна • Курорт</p>
         </div>
         <div class="drawer-header-actions">
+          <button type="button" class="btn-drawer-header-fav" id="drawerWatchlistBtn" onclick="toggleDrawerWatchlist()" title="Добавить в избранное">☆ В избранное</button>
           <a id="drawerHeaderTaLink" href="#" target="_blank" rel="noopener" class="btn-drawer-header-ta" title="Открыть отзывы на TripAdvisor">🦉 TripAdvisor ↗</a>
           <a id="drawerHeaderYtLink" href="#" target="_blank" rel="noopener" class="btn-drawer-header-yt" title="Смотреть обзоры на YouTube">▶ YouTube ↗</a>
           <button type="button" class="drawer-close-btn" id="drawerCloseBtn" onclick="closeHotelPassport()" title="Закрыть">✕</button>
@@ -2740,6 +2769,14 @@ def get_hotel_passport_js() -> str:
 
       const taHeaderBtn = document.getElementById('drawerHeaderTaLink');
       if (taHeaderBtn) taHeaderBtn.href = h.tripadvisor_url || '#';
+
+      const drawerStar = document.getElementById('drawerWatchlistBtn');
+      if (drawerStar) {
+        drawerStar.setAttribute('data-hotel-name', h.hotel_name);
+        const isStarred = window.getWatchlist && window.getWatchlist().includes(h.hotel_name);
+        drawerStar.classList.toggle('starred', !!isStarred);
+        drawerStar.textContent = isStarred ? '★ В избранном' : '☆ В избранное';
+      }
 
       const ytHeaderBtn = document.getElementById('drawerHeaderYtLink');
       if (ytHeaderBtn) ytHeaderBtn.href = h.youtube_search_url || '#';
@@ -3158,6 +3195,18 @@ def get_hotel_passport_js() -> str:
       if (drawer) {
         drawer.classList.remove('open');
         drawer.setAttribute('aria-hidden', 'true');
+      }
+    };
+
+    window.toggleDrawerWatchlist = function() {
+      const btn = document.getElementById('drawerWatchlistBtn');
+      if (!btn) return;
+      const hotelName = btn.getAttribute('data-hotel-name') || (activePassportHotel && activePassportHotel.hotel_name);
+      if (hotelName && window.toggleWatchlist) {
+        window.toggleWatchlist(hotelName);
+        const isStarred = window.getWatchlist && window.getWatchlist().includes(hotelName);
+        btn.classList.toggle('starred', !!isStarred);
+        btn.textContent = isStarred ? '★ В избранном' : '☆ В избранное';
       }
     };
 
