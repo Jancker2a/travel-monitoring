@@ -273,10 +273,49 @@
       "created_at": "2026-11-11T06:52:46.589796+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Side Prenses_2026-11-11_06-51_zone_out_gone"
+    },
+    {
+      "hotel_name": "Limak Arcadia Sport Resort",
+      "duration_bucket": "",
+      "old_price": 5625.0,
+      "new_price": 6244.0,
+      "price_change": 619.0,
+      "price_change_pct": 11.004444444444445,
+      "timestamp": "2026-11-11 15:30:52.181636+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-11T15:32:17.141133+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Limak Arcadia Sport Resort_2026-11-11_15-30_+11.0"
+    },
+    {
+      "hotel_name": "Barut Goia (ex. Barut Sunwing Side Beach)",
+      "duration_bucket": "",
+      "old_price": 6588.0,
+      "new_price": 6588.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-11 15:30:52.181636+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-11T15:32:17.141165+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Barut Goia (ex. Barut Sunwing Side Beach)_2026-11-11_15-30_zone_out_gone"
+    },
+    {
+      "hotel_name": "Beach Club Doganay",
+      "duration_bucket": "",
+      "old_price": 6581.0,
+      "new_price": 6581.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-11 15:30:52.181636+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-11T15:32:17.141178+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Beach Club Doganay_2026-11-11_15-30_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-11T06:51:42.986278+00:00",
+    "last_processed_run": "2026-11-11T15:30:52.181636+00:00",
     "premium_state": {
       "Alba Queen": {
         "history_max": 5997.0,
@@ -415,7 +454,7 @@
         "premium_peak": null
       },
       "Aska Lara Resort & Spa": {
-        "history_max": 6383.0,
+        "history_max": 6711.0,
         "premium_peak": null
       },
       "Pine Beach Belek (ex. Maritim Pine Beach Resort)": {

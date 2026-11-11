@@ -403,10 +403,49 @@
       "created_at": "2026-11-11T06:49:46.579653+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Xperience Sea Breeze Resort_2026-11-11_06-48_zone_out_gone"
+    },
+    {
+      "hotel_name": "Beach Safari Nubian Resort",
+      "duration_bucket": "",
+      "old_price": 5882.0,
+      "new_price": 5410.0,
+      "price_change": -472.0,
+      "price_change_pct": -8.024481468888133,
+      "timestamp": "2026-11-11 15:27:40.958701+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-11T15:28:49.254913+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Beach Safari Nubian Resort_2026-11-11_15-27_-8.0"
+    },
+    {
+      "hotel_name": "Royal Regency Club",
+      "duration_bucket": "",
+      "old_price": 6742.0,
+      "new_price": 6742.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-11 15:27:40.958701+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-11T15:28:49.254956+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Royal Regency Club_2026-11-11_15-27_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sataya Resort (ex. Labranda Sataya Marsa Alam)",
+      "duration_bucket": "",
+      "old_price": 6635.0,
+      "new_price": 6635.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-11 15:27:40.958701+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-11T15:28:49.254975+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sataya Resort (ex. Labranda Sataya Marsa Alam)_2026-11-11_15-27_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-11T06:48:50.448741+00:00",
+    "last_processed_run": "2026-11-11T15:27:40.958701+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 6369.0,
@@ -469,7 +508,7 @@
         "premium_peak": null
       },
       "Xperience Kiroseiz Premier": {
-        "history_max": 6449.0,
+        "history_max": 6457.0,
         "premium_peak": null
       },
       "Shams Safaga": {
@@ -513,7 +552,7 @@
         "premium_peak": null
       },
       "Dream Lagoon & Aqua Park Resort (ex. Floriana Dream Lagoon)": {
-        "history_max": 5909.0,
+        "history_max": 5945.0,
         "premium_peak": null
       },
       "Amarina Jannah Resort Aquapark": {

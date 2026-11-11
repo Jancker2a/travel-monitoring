@@ -455,10 +455,49 @@
       "created_at": "2026-11-11T06:52:47.456009+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sunis Evren Beach & Spa_2026-11-11_06-51_zone_out_gone"
+    },
+    {
+      "hotel_name": "Limak Arcadia Sport Resort",
+      "duration_bucket": "",
+      "old_price": 7170.0,
+      "new_price": 8130.0,
+      "price_change": 960.0,
+      "price_change_pct": 13.389121338912133,
+      "timestamp": "2026-11-11 15:30:59.720943+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-11T15:34:43.289635+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Limak Arcadia Sport Resort_2026-11-11_15-30_+13.4"
+    },
+    {
+      "hotel_name": "Aska Lara Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 8268.0,
+      "new_price": 8268.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-11 15:30:59.720943+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-11T15:34:43.289669+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Aska Lara Resort & Spa_2026-11-11_15-30_zone_out_gone"
+    },
+    {
+      "hotel_name": "Side Kum",
+      "duration_bucket": "",
+      "old_price": 8512.0,
+      "new_price": 8512.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-11 15:30:59.720943+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-11T15:34:43.289681+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Side Kum_2026-11-11_15-30_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-11T06:51:47.125557+00:00",
+    "last_processed_run": "2026-11-11T15:30:59.720943+00:00",
     "premium_state": {
       "Alba Queen": {
         "history_max": 7247.0,
@@ -481,7 +520,7 @@
         "premium_peak": null
       },
       "Limak Limra": {
-        "history_max": 7287.0,
+        "history_max": 7317.0,
         "premium_peak": null
       },
       "Linda Resort (Side)": {
@@ -493,7 +532,7 @@
         "premium_peak": null
       },
       "Side Royal Palace": {
-        "history_max": 8179.0,
+        "history_max": 8209.0,
         "premium_peak": null
       },
       "Villa Side Residence": {
@@ -545,7 +584,7 @@
         "premium_peak": null
       },
       "Aydinbey Kings Palace": {
-        "history_max": 7933.0,
+        "history_max": 7963.0,
         "premium_peak": null
       },
       "Trendy Aspendos Beach": {
@@ -606,6 +645,10 @@
       },
       "The Sense Deluxe": {
         "history_max": 8189.0,
+        "premium_peak": null
+      },
+      "Ramada Resort Lara": {
+        "history_max": 8636.0,
         "premium_peak": null
       }
     }

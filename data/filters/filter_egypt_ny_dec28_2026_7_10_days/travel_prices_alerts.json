@@ -39,10 +39,23 @@
       "created_at": "2026-11-11T06:50:38.111786+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sea Star Beau Rivage_2026-11-11_06-49_zone_out_gone"
+    },
+    {
+      "hotel_name": "Amwaj Oyoun Resort & Casino",
+      "duration_bucket": "",
+      "old_price": 10649.0,
+      "new_price": 10649.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-11 15:28:38.086355+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-11T15:29:30.942936+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amwaj Oyoun Resort & Casino_2026-11-11_15-28_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-11T06:49:47.375173+00:00",
+    "last_processed_run": "2026-11-11T15:28:38.086355+00:00",
     "premium_state": {
       "Amwaj Oyoun Resort & Casino": {
         "history_max": 10790.0,
@@ -62,6 +75,18 @@
       },
       "Retac Qunay Dahab Resort & Spa": {
         "history_max": 10597.0,
+        "premium_peak": null
+      },
+      "Amarina Queen Resort": {
+        "history_max": 10619.0,
+        "premium_peak": null
+      },
+      "Novotel Marsa Alam": {
+        "history_max": 10560.0,
+        "premium_peak": null
+      },
+      "Swisstouch Oriental Resort (ex. Hotelux Oriental Coast)": {
+        "history_max": 10220.0,
         "premium_peak": null
       }
     }
