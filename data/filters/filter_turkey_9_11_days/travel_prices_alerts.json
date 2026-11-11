@@ -494,10 +494,88 @@
       "created_at": "2026-11-11T15:34:43.289681+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Side Kum_2026-11-11_15-30_zone_out_gone"
+    },
+    {
+      "hotel_name": "The Sense Deluxe",
+      "duration_bucket": "",
+      "old_price": 8113.0,
+      "new_price": 6963.0,
+      "price_change": -1150.0,
+      "price_change_pct": -14.174781215333415,
+      "timestamp": "2026-11-11 22:56:26.382214+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-11T22:57:37.554865+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "The Sense Deluxe_2026-11-11_22-56_-14.2"
+    },
+    {
+      "hotel_name": "Limak Arcadia Sport Resort",
+      "duration_bucket": "",
+      "old_price": 8130.0,
+      "new_price": 6980.0,
+      "price_change": -1150.0,
+      "price_change_pct": -14.145141451414514,
+      "timestamp": "2026-11-11 22:56:26.382214+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-11T22:57:37.554890+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Limak Arcadia Sport Resort_2026-11-11_22-56_-14.1"
+    },
+    {
+      "hotel_name": "Limak Atlantis",
+      "duration_bucket": "",
+      "old_price": 8249.0,
+      "new_price": 8249.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-11 22:56:26.382214+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-11T22:57:37.554908+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Limak Atlantis_2026-11-11_22-56_zone_out_gone"
+    },
+    {
+      "hotel_name": "Limak Limra",
+      "duration_bucket": "",
+      "old_price": 7317.0,
+      "new_price": 7317.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-11 22:56:26.382214+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-11T22:57:37.554916+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Limak Limra_2026-11-11_22-56_zone_out_gone"
+    },
+    {
+      "hotel_name": "Ramada Resort Lara",
+      "duration_bucket": "",
+      "old_price": 8636.0,
+      "new_price": 8636.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-11 22:56:26.382214+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-11T22:57:37.554923+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Ramada Resort Lara_2026-11-11_22-56_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sunis Evren Beach & Spa",
+      "duration_bucket": "",
+      "old_price": 8791.0,
+      "new_price": 8791.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-11 22:56:26.382214+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-11T22:57:37.554930+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sunis Evren Beach & Spa_2026-11-11_22-56_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-11T15:30:59.720943+00:00",
+    "last_processed_run": "2026-11-11T22:56:26.382214+00:00",
     "premium_state": {
       "Alba Queen": {
         "history_max": 7247.0,

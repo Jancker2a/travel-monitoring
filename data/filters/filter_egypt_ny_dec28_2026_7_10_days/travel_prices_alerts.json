@@ -52,10 +52,49 @@
       "created_at": "2026-11-11T15:29:30.942936+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Amwaj Oyoun Resort & Casino_2026-11-11_15-28_zone_out_gone"
+    },
+    {
+      "hotel_name": "Amarina Queen Resort",
+      "duration_bucket": "",
+      "old_price": 10619.0,
+      "new_price": 10619.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-11 22:53:27.153635+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-11T22:54:20.108059+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amarina Queen Resort_2026-11-11_22-53_zone_out_gone"
+    },
+    {
+      "hotel_name": "Novotel Marsa Alam",
+      "duration_bucket": "",
+      "old_price": 10560.0,
+      "new_price": 10560.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-11 22:53:27.153635+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-11T22:54:20.108091+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Novotel Marsa Alam_2026-11-11_22-53_zone_out_gone"
+    },
+    {
+      "hotel_name": "Swisstouch Oriental Resort (ex. Hotelux Oriental Coast)",
+      "duration_bucket": "",
+      "old_price": 10220.0,
+      "new_price": 10220.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-11 22:53:27.153635+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-11T22:54:20.108106+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Swisstouch Oriental Resort (ex. Hotelux Oriental Coast)_2026-11-11_22-53_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-11T15:28:38.086355+00:00",
+    "last_processed_run": "2026-11-11T22:53:27.153635+00:00",
     "premium_state": {
       "Amwaj Oyoun Resort & Casino": {
         "history_max": 10790.0,
@@ -87,6 +126,10 @@
       },
       "Swisstouch Oriental Resort (ex. Hotelux Oriental Coast)": {
         "history_max": 10220.0,
+        "premium_peak": null
+      },
+      "Parrotel Lagoon Resort": {
+        "history_max": 10575.0,
         "premium_peak": null
       }
     }
