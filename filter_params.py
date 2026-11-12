@@ -24,6 +24,10 @@ DATA_DIR_CONFIG_FILES: Dict[str, str] = {
     "filter_greece_7_10_days": "config_ci_filter_greece_7_10.json",
     "filter_greece_13_16_days": "config_ci_filter_greece_13_16.json",
     "filter_cyprus_7_10": "configs/filters/config_ci_cyprus_7_10.json",
+    "filter_benchmark_turkey_1p_7_8": "config_ci_benchmark_turkey_1p_7_8.json",
+    "filter_benchmark_egypt_1p_7_8": "config_ci_benchmark_egypt_1p_7_8.json",
+    "filter_benchmark_greece_1p_7_8": "config_ci_benchmark_greece_1p_7_8.json",
+    "filter_benchmark_cyprus_1p_7_8": "config_ci_benchmark_cyprus_1p_7_8.json",
 }
 
 COUNTRY_FROM_URL_FRAGMENT = {
