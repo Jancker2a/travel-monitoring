@@ -130,10 +130,62 @@
       "created_at": "2026-11-12T03:58:26.353718+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Xperience Kiroseiz Parkland_2026-11-12_03-57_comeback_8.9"
+    },
+    {
+      "hotel_name": "Amwaj Oyoun Resort & Casino",
+      "duration_bucket": "",
+      "old_price": 9334.0,
+      "new_price": 9334.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-12 13:00:14.918571+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-12T13:01:21.569564+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amwaj Oyoun Resort & Casino_2026-11-12_13-00_zone_out_gone"
+    },
+    {
+      "hotel_name": "Royal Regency Club",
+      "duration_bucket": "",
+      "old_price": 9936.0,
+      "new_price": 9936.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-12 13:00:14.918571+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-12T13:01:21.569599+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Royal Regency Club_2026-11-12_13-00_zone_out_gone"
+    },
+    {
+      "hotel_name": "Xperience Kiroseiz Parkland",
+      "duration_bucket": "",
+      "old_price": 9871.0,
+      "new_price": 10067.0,
+      "price_change": 196.0,
+      "price_change_pct": 1.9856144260966466,
+      "timestamp": "2026-11-12 13:00:14.918571+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-12T13:01:21.569622+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xperience Kiroseiz Parkland_2026-11-12_13-00_zone_out_+2.0"
+    },
+    {
+      "hotel_name": "Xperience Kiroseiz Premier",
+      "duration_bucket": "",
+      "old_price": 9601.0,
+      "new_price": 10091.0,
+      "price_change": 490.0,
+      "price_change_pct": 5.103635038016873,
+      "timestamp": "2026-11-12 13:00:14.918571+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-12T13:01:21.569639+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xperience Kiroseiz Premier_2026-11-12_13-00_zone_out_+5.1"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-12T03:57:22.938479+00:00",
+    "last_processed_run": "2026-11-12T13:00:14.918571+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 9475.0,
@@ -288,8 +340,8 @@
         "premium_peak": 10161.0
       },
       "Titanic Beach Spa & Aqua Park": {
-        "history_max": 10072.0,
-        "premium_peak": 10072.0
+        "history_max": 10372.0,
+        "premium_peak": 10372.0
       }
     }
   }

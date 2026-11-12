@@ -663,10 +663,62 @@
       "created_at": "2026-11-12T03:58:34.290429+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Xperience Sea Breeze Resort_2026-11-12_03-57_zone_out_gone"
+    },
+    {
+      "hotel_name": "Rewaya Inn Resort (ex. Hawaii Paradise Aqua Park Resort)",
+      "duration_bucket": "",
+      "old_price": 5770.0,
+      "new_price": 6413.0,
+      "price_change": 643.0,
+      "price_change_pct": 11.143847487001732,
+      "timestamp": "2026-11-12 13:01:06.819041+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-12T13:02:14.244525+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Inn Resort (ex. Hawaii Paradise Aqua Park Resort)_2026-11-12_13-01_+11.1"
+    },
+    {
+      "hotel_name": "Dreams Beach (Marsa Alam)",
+      "duration_bucket": "",
+      "old_price": 6656.0,
+      "new_price": 6656.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-12 13:01:06.819041+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-12T13:02:14.244564+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Dreams Beach (Marsa Alam)_2026-11-12_13-01_zone_out_gone"
+    },
+    {
+      "hotel_name": "Jaz Aquamarine Resort",
+      "duration_bucket": "",
+      "old_price": 6561.0,
+      "new_price": 6561.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-12 13:01:06.819041+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-12T13:02:14.244576+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Aquamarine Resort_2026-11-12_13-01_zone_out_gone"
+    },
+    {
+      "hotel_name": "Titanic Beach Spa & Aqua Park",
+      "duration_bucket": "",
+      "old_price": 6567.0,
+      "new_price": 6567.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-12 13:01:06.819041+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-12T13:02:14.244585+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Titanic Beach Spa & Aqua Park_2026-11-12_13-01_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-12T03:57:24.716234+00:00",
+    "last_processed_run": "2026-11-12T13:01:06.819041+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 6369.0,
