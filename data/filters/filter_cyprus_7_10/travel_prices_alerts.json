@@ -143,10 +143,23 @@
       "created_at": "2026-11-11T22:57:28.250366+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Mountain View_2026-11-11_22-56_zone_out_gone"
+    },
+    {
+      "hotel_name": "Mayfair Gardens",
+      "duration_bucket": "",
+      "old_price": 4054.0,
+      "new_price": 4054.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-12 04:00:50.496567+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-12T04:01:47.561333+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Mayfair Gardens_2026-11-12_04-00_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-11T22:56:34.347264+00:00",
+    "last_processed_run": "2026-11-12T04:00:50.496567+00:00",
     "premium_state": {
       "Altinkaya Resort": {
         "history_max": 3189.0,
@@ -286,6 +299,10 @@
       },
       "Mountain View": {
         "history_max": 2719.0,
+        "premium_peak": null
+      },
+      "Grand Sapphire City": {
+        "history_max": 1889.0,
         "premium_peak": null
       }
     }

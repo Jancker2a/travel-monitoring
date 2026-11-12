@@ -572,10 +572,62 @@
       "created_at": "2026-11-11T22:57:37.554930+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sunis Evren Beach & Spa_2026-11-11_22-56_zone_out_gone"
+    },
+    {
+      "hotel_name": "Aska Lara Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 7662.0,
+      "new_price": 8812.0,
+      "price_change": 1150.0,
+      "price_change_pct": 15.009135995823545,
+      "timestamp": "2026-11-12 04:00:44.107669+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-12T04:02:00.739726+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Aska Lara Resort & Spa_2026-11-12_04-00_+15.0"
+    },
+    {
+      "hotel_name": "Limak Arcadia Sport Resort",
+      "duration_bucket": "",
+      "old_price": 6980.0,
+      "new_price": 8130.0,
+      "price_change": 1150.0,
+      "price_change_pct": 16.475644699140403,
+      "timestamp": "2026-11-12 04:00:44.107669+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-12T04:02:00.739763+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Limak Arcadia Sport Resort_2026-11-12_04-00_+16.5"
+    },
+    {
+      "hotel_name": "The Sense Deluxe",
+      "duration_bucket": "",
+      "old_price": 6963.0,
+      "new_price": 8113.0,
+      "price_change": 1150.0,
+      "price_change_pct": 16.515869596438318,
+      "timestamp": "2026-11-12 04:00:44.107669+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-12T04:02:00.739777+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "The Sense Deluxe_2026-11-12_04-00_+16.5"
+    },
+    {
+      "hotel_name": "Trendy Lara",
+      "duration_bucket": "",
+      "old_price": 8565.0,
+      "new_price": 8565.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-12 04:00:44.107669+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-12T04:02:00.739794+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Trendy Lara_2026-11-12_04-00_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-11T22:56:26.382214+00:00",
+    "last_processed_run": "2026-11-12T04:00:44.107669+00:00",
     "premium_state": {
       "Alba Queen": {
         "history_max": 7247.0,
@@ -698,7 +750,7 @@
         "premium_peak": null
       },
       "Aska Lara Resort & Spa": {
-        "history_max": 8516.0,
+        "history_max": 8812.0,
         "premium_peak": null
       },
       "Royal Taj Mahal": {
@@ -727,6 +779,10 @@
       },
       "Ramada Resort Lara": {
         "history_max": 8636.0,
+        "premium_peak": null
+      },
+      "Greenwood Suites Resort (ex. Sherwood Suites Resort)": {
+        "history_max": 8846.0,
         "premium_peak": null
       }
     }

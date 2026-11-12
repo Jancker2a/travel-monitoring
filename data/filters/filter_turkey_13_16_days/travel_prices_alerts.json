@@ -286,10 +286,36 @@
       "created_at": "2026-11-11T22:56:32.190217+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sural Resort_2026-11-11_22-55_-9.7"
+    },
+    {
+      "hotel_name": "Aska Lara Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 9691.0,
+      "new_price": 10080.0,
+      "price_change": 389.0,
+      "price_change_pct": 4.014033639459292,
+      "timestamp": "2026-11-12 03:59:28.510605+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-12T04:00:47.265264+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Aska Lara Resort & Spa_2026-11-12_03-59_zone_out_+4.0"
+    },
+    {
+      "hotel_name": "Side Royal Palace",
+      "duration_bucket": "",
+      "old_price": 9746.0,
+      "new_price": 10039.0,
+      "price_change": 293.0,
+      "price_change_pct": 3.006361584239688,
+      "timestamp": "2026-11-12 03:59:28.510605+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-12T04:00:47.265302+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Side Royal Palace_2026-11-12_03-59_zone_out_+3.0"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-11T22:55:18.168954+00:00",
+    "last_processed_run": "2026-11-12T03:59:28.510605+00:00",
     "premium_state": {
       "Akka Alinda": {
         "history_max": 10650.0,
@@ -432,8 +458,8 @@
         "premium_peak": 10170.0
       },
       "Aska Lara Resort & Spa": {
-        "history_max": 9940.0,
-        "premium_peak": null
+        "history_max": 10080.0,
+        "premium_peak": 10080.0
       }
     }
   }
