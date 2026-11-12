@@ -182,10 +182,49 @@
       "created_at": "2026-11-12T13:01:21.569639+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Xperience Kiroseiz Premier_2026-11-12_13-00_zone_out_+5.1"
+    },
+    {
+      "hotel_name": "Creek Hotel and Residences",
+      "duration_bucket": "",
+      "old_price": 9779.0,
+      "new_price": 9779.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-12 20:58:44.148789+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-12T20:59:46.866425+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Creek Hotel and Residences_2026-11-12_20-58_zone_out_gone"
+    },
+    {
+      "hotel_name": "Utopia Blue Resort",
+      "duration_bucket": "",
+      "old_price": 9911.0,
+      "new_price": 10291.0,
+      "price_change": 380.0,
+      "price_change_pct": 3.8341237009383513,
+      "timestamp": "2026-11-12 20:58:44.148789+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-12T20:59:46.866455+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Utopia Blue Resort_2026-11-12_20-58_zone_out_+3.8"
+    },
+    {
+      "hotel_name": "Amarina Abu Soma Resort",
+      "duration_bucket": "",
+      "old_price": 10811.0,
+      "new_price": 9631.0,
+      "price_change": -1180.0,
+      "price_change_pct": -10.91480899084266,
+      "timestamp": "2026-11-12 20:58:44.148789+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-11-12T20:59:46.866478+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amarina Abu Soma Resort_2026-11-12_20-58_comeback_10.9"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-12T13:00:14.918571+00:00",
+    "last_processed_run": "2026-11-12T20:58:44.148789+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 9475.0,
@@ -200,7 +239,7 @@
         "premium_peak": null
       },
       "Rewaya Majestic Resort": {
-        "history_max": 9716.0,
+        "history_max": 9747.0,
         "premium_peak": null
       },
       "Movenpick Waterpark Resort & Spa Soma Bay": {
@@ -244,7 +283,7 @@
         "premium_peak": 10299.0
       },
       "Rewaya Luxury Resort": {
-        "history_max": 9454.0,
+        "history_max": 9467.0,
         "premium_peak": null
       },
       "Fantazia Resort": {
@@ -288,7 +327,7 @@
         "premium_peak": 10838.0
       },
       "Swisstouch Oriental Resort (ex. Hotelux Oriental Coast)": {
-        "history_max": 8233.0,
+        "history_max": 8417.0,
         "premium_peak": null
       },
       "Concorde Moreen Beach Resort & Spa": {
@@ -342,6 +381,18 @@
       "Titanic Beach Spa & Aqua Park": {
         "history_max": 10372.0,
         "premium_peak": 10372.0
+      },
+      "Stella Beach Resort & Spa": {
+        "history_max": 10272.0,
+        "premium_peak": 10272.0
+      },
+      "Titanic Pearl": {
+        "history_max": 10188.0,
+        "premium_peak": 10188.0
+      },
+      "Titanic Royal": {
+        "history_max": 10313.0,
+        "premium_peak": 10313.0
       }
     }
   }

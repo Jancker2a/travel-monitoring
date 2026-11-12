@@ -715,10 +715,62 @@
       "created_at": "2026-11-12T13:02:14.244585+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Titanic Beach Spa & Aqua Park_2026-11-12_13-01_zone_out_gone"
+    },
+    {
+      "hotel_name": "Concorde Moreen Beach Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 5726.0,
+      "new_price": 6297.0,
+      "price_change": 571.0,
+      "price_change_pct": 9.97205728257073,
+      "timestamp": "2026-11-12 20:58:46.559931+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-12T20:59:54.403840+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Concorde Moreen Beach Resort & Spa_2026-11-12_20-58_+10.0"
+    },
+    {
+      "hotel_name": "Amwaj Oyoun Resort & Casino",
+      "duration_bucket": "",
+      "old_price": 6000.0,
+      "new_price": 6000.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-12 20:58:46.559931+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-12T20:59:54.403891+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amwaj Oyoun Resort & Casino_2026-11-12_20-58_zone_out_gone"
+    },
+    {
+      "hotel_name": "Creek Hotel and Residences",
+      "duration_bucket": "",
+      "old_price": 6438.0,
+      "new_price": 6438.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-12 20:58:46.559931+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-12T20:59:54.403907+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Creek Hotel and Residences_2026-11-12_20-58_zone_out_gone"
+    },
+    {
+      "hotel_name": "Dreams Beach Sharm Resort (Sharm El Sheikh)",
+      "duration_bucket": "",
+      "old_price": 6598.0,
+      "new_price": 6598.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-12 20:58:46.559931+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-12T20:59:54.403921+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Dreams Beach Sharm Resort (Sharm El Sheikh)_2026-11-12_20-58_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-12T13:01:06.819041+00:00",
+    "last_processed_run": "2026-11-12T20:58:46.559931+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 6369.0,
@@ -890,6 +942,10 @@
       },
       "Dreams Beach (Marsa Alam)": {
         "history_max": 6656.0,
+        "premium_peak": null
+      },
+      "Caribbean World Soma Bay": {
+        "history_max": 6617.0,
         "premium_peak": null
       }
     }

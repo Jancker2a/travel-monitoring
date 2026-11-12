@@ -3,13 +3,13 @@
     "headline": "До вылета 47 дн.: цены стабильные, можно спокойно выбирать отель",
     "market_phase": "Ранний выбор (вылет через 47 дн.)",
     "filter_title": "Египет • НГ 28.12–06.01 • 7–10 дн.",
-    "charter_dynamics": "До вылета 47 дн. (29.12). Рынок спокойный, средняя цена держится на уровне 10,594 zł. Резких сбросов цен пока нет. Погода (Египет): Теплое море (+23..+26°C), воздух днем +24..+28°C. Ключевой фактор комфорта — закрытая от зимних ветров бухта (Наама Бэй, Рас Ум Сид) и подогреваемый бассейн.",
-    "floor_status": "1 отелей (10.0%) сейчас отдают по минимальной цене за сезон.",
+    "charter_dynamics": "До вылета 47 дн. (29.12). Рынок спокойный, средняя цена держится на уровне 10,619 zł. Резких сбросов цен пока нет. Погода (Египет): Теплое море (+23..+26°C), воздух днем +24..+28°C. Ключевой фактор комфорта — закрытая от зимних ветров бухта (Наама Бэй, Рас Ум Сид) и подогреваемый бассейн.",
+    "floor_status": "1 отелей (9.1%) сейчас отдают по минимальной цене за сезон.",
     "strategic_directive": "Спешить не нужно. Сохраняйте понравившиеся отели в Избранное (☆) и ждите: за 10–14 дней до вылета часто начинаются первые скидки.",
     "key_anomalies": [
       {
         "type": "floor",
-        "title": "Ценовое дно: 1 отелей (10.0%)",
+        "title": "Ценовое дно: 1 отелей (9.1%)",
         "text": "Зафиксирована самая низкая цена за весь сезон. Цены начинаются от 9,567 zł."
       },
       {
@@ -18,9 +18,14 @@
         "text": "Высокий рейтинг 4.6★ в категории 5★ всего за 10,786 zł (намного дешевле похожих отелей)."
       },
       {
+        "type": "arbitrage",
+        "title": "✈️ Разница вылетов: Warszawa - Modlin vs Warszawa - Okęcie",
+        "text": "Вылет из Warszawa - Modlin в среднем на 338 zł дешевле, чем из Warszawa - Okęcie"
+      },
+      {
         "type": "duration",
         "title": "⏳ Выгодная длительность: 10 дн.",
-        "text": "Доплата за отдых 10 дн. вместо 8 дн. составляет -424 zł (-212 zł в день)"
+        "text": "Доплата за отдых 10 дн. вместо 8 дн. составляет -377 zł (-188 zł в день)"
       }
     ],
     "synthesized_by": "Rule-Based Deterministic Engine (Offline)",
@@ -42,6 +47,31 @@
     }
   },
   "hotel_dossiers": {
+    "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
+      "verdict": "OVERPRICED",
+      "badge_text": "🔴 ДОРОГО",
+      "rationale": "Цена 10,935 zł на 15% выше обычной средней цены этого отеля (9,491 zł).",
+      "risk_assessment": "Высокий риск переплаты. Туроператор держит завышенную цену.",
+      "action_advice": "Покупать сейчас крайне невыгодно. Добавьте в Избранное (☆) и ждите снижения.",
+      "booking_window_badge": "",
+      "booking_window_class": "early",
+      "booking_window_tip": "Историческое дно цены наступает за D-4…D-7. Сейчас D-48 (рано).",
+      "fair_price_badge": "⚠️ Дороже обычного",
+      "fair_price_class": "fair-overpriced",
+      "fair_price_tip": "Цена на +0% отличается от сопоставимых отелей сегмента премиум 4★ (10,895 zł) или превышает историческую норму отеля (9,491 zł).",
+      "gem_badge": "",
+      "gem_tip": "",
+      "flash_drop_badge": "",
+      "flash_drop_tip": "",
+      "dupe_suggestion": {
+        "hotel_name": "Retac Qunay Dahab Resort & Spa",
+        "price": 9567.0,
+        "savings": 1368.0,
+        "savings_pln": 1368.0,
+        "rating": 4.3,
+        "offer_url": "https://fly.pl/wycieczka/egipt,dahab,c/le-meridien-dahab-bay/pIKXSvqJeW_IzCGc7EeiWsAAogC2GWWoGmQubsCdzu48v0WuIbYlrNTs3RwUwKKcJM8ZQqBFZJVFgww9HY1wZI30pQQVjTCGACagpBRUdTU0hKUFQ2agpSTVNEREJWUDAwagxXTUlTU0hEUDMwMDJqDFNTSFdNSURQMzAwMnI0kQGbAZ0BjwEaABcHFQBcA1gFQI8DXv3_AVOmIFIAS-kmYQBM7oQ4INWDmgkNAAIMYwECC_zrh18/?operator=VITX&adults=2&children=2020-12-10&objectId=1456&durationFrom=7&durationTo=10&departureDate=2026-12-29&returnDate=2027-01-05&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=7&nights=7"
+      }
+    },
     "Amarina Queen Resort": {
       "verdict": "OVERPRICED",
       "badge_text": "🔴 ДОРОГО",
@@ -53,7 +83,7 @@
       "booking_window_tip": "Период D-30+ исторически благоприятен для покупки, но сейчас отель продаётся по обычной цене (10,619 zł при норме 8,973 zł).",
       "fair_price_badge": "⚠️ Дороже обычного",
       "fair_price_class": "fair-overpriced",
-      "fair_price_tip": "Цена на +0% отличается от сопоставимых отелей сегмента комфорт 4★ (10,594 zł) или превышает историческую норму отеля (8,973 zł).",
+      "fair_price_tip": "Цена на +0% отличается от сопоставимых отелей сегмента комфорт 4★ (10,619 zł) или превышает историческую норму отеля (8,973 zł).",
       "gem_badge": "",
       "gem_tip": "",
       "flash_drop_badge": "",
@@ -64,7 +94,7 @@
         "savings": 1052.0,
         "savings_pln": 1052.0,
         "rating": 4.3,
-        "offer_url": "https://fly.pl/wycieczka/egipt,dahab,c/le-meridien-dahab-bay/pIKXSvqJeW_IzCGc7EeiWsAAogC2GWWoGmQubsCdzu48v0WuIbYlrNTs3RwUwKKcJM8ZQqBFZJVFgwqvHW1wZI30pQQVjaCGACagpBRUdTU0hKUFQ2agpSTVNEREJWUDAwagxXTUlTU0hEUDMwMDJqDFNTSFdNSURQMzAwMnI0kQGbAZ0BjwEaABcHFQBcA1gFQI8DXv3_AVOmIFIAS-kmYQBM7oQ4INWDmgkNAAIMYwECCzK5dIA/?operator=VITX&adults=2&children=2020-12-10&objectId=1456&durationFrom=7&durationTo=10&departureDate=2026-12-29&returnDate=2027-01-05&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=7&nights=7"
+        "offer_url": "https://fly.pl/wycieczka/egipt,dahab,c/le-meridien-dahab-bay/pIKXSvqJeW_IzCGc7EeiWsAAogC2GWWoGmQubsCdzu48v0WuIbYlrNTs3RwUwKKcJM8ZQqBFZJVFgww9HY1wZI30pQQVjTCGACagpBRUdTU0hKUFQ2agpSTVNEREJWUDAwagxXTUlTU0hEUDMwMDJqDFNTSFdNSURQMzAwMnI0kQGbAZ0BjwEaABcHFQBcA1gFQI8DXv3_AVOmIFIAS-kmYQBM7oQ4INWDmgkNAAIMYwECC_zrh18/?operator=VITX&adults=2&children=2020-12-10&objectId=1456&durationFrom=7&durationTo=10&departureDate=2026-12-29&returnDate=2027-01-05&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=7&nights=7"
       }
     },
     "Amwaj Oyoun Resort & Casino": {
@@ -88,7 +118,7 @@
     "Beach Safari Nubian Resort": {
       "verdict": "WAIT",
       "badge_text": "🟡 ПОДОЖДАТЬ",
-      "rationale": "Отель сейчас стоит 9,843 zł — это обычная базовая цена за сезон (медиана 9,918 zł).",
+      "rationale": "Отель сейчас стоит 9,843 zł — это обычная базовая цена за сезон (медиана 9,843 zł).",
       "risk_assessment": "Цена не снижена, туроператор пока не давал скидок на эти даты.",
       "action_advice": "Спешить не нужно: добавьте в Избранное (☆) и подождите приближения вылета.",
       "booking_window_badge": "",
@@ -132,7 +162,7 @@
       "booking_window_tip": "Историческое дно цены наступает за D-1…D-3. Сейчас D-48 (рано).",
       "fair_price_badge": "⚠️ Дороже обычного",
       "fair_price_class": "fair-overpriced",
-      "fair_price_tip": "Цена на -0% отличается от сопоставимых отелей сегмента комфорт 4★ (10,594 zł) или превышает историческую норму отеля (8,647 zł).",
+      "fair_price_tip": "Цена на +5% отличается от сопоставимых отелей сегмента эконом 4★ (10,032 zł) или превышает историческую норму отеля (8,647 zł).",
       "gem_badge": "",
       "gem_tip": "",
       "flash_drop_badge": "",
@@ -204,7 +234,7 @@
       "booking_window_tip": "Период D-30+ исторически благоприятен для покупки, но сейчас отель продаётся по обычной цене (10,895 zł при норме 9,104 zł).",
       "fair_price_badge": "⚠️ Дороже обычного",
       "fair_price_class": "fair-overpriced",
-      "fair_price_tip": "Цена на +1% отличается от сопоставимых отелей сегмента премиум 4★ (10,772 zł) или превышает историческую норму отеля (9,104 zł).",
+      "fair_price_tip": "Цена на +0% отличается от сопоставимых отелей сегмента премиум 4★ (10,895 zł) или превышает историческую норму отеля (9,104 zł).",
       "gem_badge": "",
       "gem_tip": "",
       "flash_drop_badge": "",
@@ -215,7 +245,7 @@
         "savings": 1328.0,
         "savings_pln": 1328.0,
         "rating": 4.3,
-        "offer_url": "https://fly.pl/wycieczka/egipt,dahab,c/le-meridien-dahab-bay/pIKXSvqJeW_IzCGc7EeiWsAAogC2GWWoGmQubsCdzu48v0WuIbYlrNTs3RwUwKKcJM8ZQqBFZJVFgwqvHW1wZI30pQQVjaCGACagpBRUdTU0hKUFQ2agpSTVNEREJWUDAwagxXTUlTU0hEUDMwMDJqDFNTSFdNSURQMzAwMnI0kQGbAZ0BjwEaABcHFQBcA1gFQI8DXv3_AVOmIFIAS-kmYQBM7oQ4INWDmgkNAAIMYwECCzK5dIA/?operator=VITX&adults=2&children=2020-12-10&objectId=1456&durationFrom=7&durationTo=10&departureDate=2026-12-29&returnDate=2027-01-05&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=7&nights=7"
+        "offer_url": "https://fly.pl/wycieczka/egipt,dahab,c/le-meridien-dahab-bay/pIKXSvqJeW_IzCGc7EeiWsAAogC2GWWoGmQubsCdzu48v0WuIbYlrNTs3RwUwKKcJM8ZQqBFZJVFgww9HY1wZI30pQQVjTCGACagpBRUdTU0hKUFQ2agpSTVNEREJWUDAwagxXTUlTU0hEUDMwMDJqDFNTSFdNSURQMzAwMnI0kQGbAZ0BjwEaABcHFQBcA1gFQI8DXv3_AVOmIFIAS-kmYQBM7oQ4INWDmgkNAAIMYwECC_zrh18/?operator=VITX&adults=2&children=2020-12-10&objectId=1456&durationFrom=7&durationTo=10&departureDate=2026-12-29&returnDate=2027-01-05&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=7&nights=7"
       }
     },
     "Swisstouch Oriental Resort (ex. Hotelux Oriental Coast)": {
@@ -229,7 +259,7 @@
       "booking_window_tip": "Историческое дно цены наступает за D-8…D-14. Сейчас D-48 (рано).",
       "fair_price_badge": "⚠️ Дороже обычного",
       "fair_price_class": "fair-overpriced",
-      "fair_price_tip": "Цена на +4% отличается от сопоставимых отелей сегмента эконом 4★ (9,843 zł) или превышает историческую норму отеля (8,606 zł).",
+      "fair_price_tip": "Цена на +2% отличается от сопоставимых отелей сегмента эконом 4★ (10,032 zł) или превышает историческую норму отеля (8,606 zł).",
       "gem_badge": "",
       "gem_tip": "",
       "flash_drop_badge": "",
