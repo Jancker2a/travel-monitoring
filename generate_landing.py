@@ -169,6 +169,20 @@ def generate_landing(tiles=None, output_file='index.html'):
     active_cards_count = sum(len(g['filters']) for g in active_tiles)
     archived_cards_count = len(arch_group['filters']) if arch_group else 0
     sections_html = []
+
+    hopper_badge_html = ""
+    try:
+        import json, os
+        report_path = "data/hopper_accuracy_report.json"
+        if os.path.exists(report_path):
+            with open(report_path, "r", encoding="utf-8") as rf:
+                h_data = json.load(rf)
+                h_acc = h_data.get("overall_accuracy_pct", 0)
+                if h_acc > 0:
+                    h_title = f"Калибровка Hopper: {h_data.get('evaluated_predictions', 0)} ретроспективных оценок, Brier: {h_data.get('average_brier_score', 0)}"
+                    hopper_badge_html = f'<span>•</span><span title="{h_title}">{h_data.get("badge_display", "")}</span>'
+    except Exception:
+        pass
     
     # Готовим вкладки категорий (Все, Поездки, Египет, Турция, Греция, Архив)
     categories = [('all', '🌟 Все направления')]
@@ -631,6 +645,7 @@ def generate_landing(tiles=None, output_file='index.html'):
         {f'<span>•</span><span>📦 В архиве: {archived_cards_count}</span>' if archived_cards_count else ''}
         <span>•</span>
         <span>🟢 Обновляется каждый час</span>
+        {hopper_badge_html}
         <span>•</span>
         <span>Обновлено: {now}</span>
       </div>

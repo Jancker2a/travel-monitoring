@@ -20,9 +20,11 @@ TEST_MODULES = [
     "test_hopper_prediction",
     "test_hotel_catalog",
     "test_hotel_name_normalizer",
+    "test_hotel_passport_drawer",
     "test_hotel_repository",
     "test_scraper_healthcheck",
     "test_storage",
+    "test_telegram_notifier",
     "test_metrics_simulation",
     "test_tripadvisor_extractor",
 ]

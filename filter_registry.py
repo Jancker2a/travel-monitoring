@@ -143,6 +143,45 @@ FILTER_GROUPS = [
             },
         ],
     },
+    {
+        'id': 'benchmarks',
+        'label': 'Эталоны (1 взр • вылеты на 3 нед)',
+        'icon': '📏',
+        'filters': [
+            {
+                'id': 'benchmark_turkey_1p_7_8',
+                'title': '🇹🇷 Турция • Эталон (1 взр • 7–8 дн)',
+                'subtitle': 'Все аэр. • 1 взр • вылет в теч. 3 нед (Т+3) • All Inclusive',
+                'href': 'index_filter_benchmark_turkey_1p_7_8.html',
+                'charts_subdir': 'hotel-charts/filter_benchmark_turkey_1p_7_8',
+                'config': 'config_ci_benchmark_turkey_1p_7_8.json',
+            },
+            {
+                'id': 'benchmark_egypt_1p_7_8',
+                'title': '🇪🇬 Египет • Эталон (1 взр • 7–8 дн)',
+                'subtitle': 'Все аэр. • 1 взр • вылет в теч. 3 нед (Т+3) • All Inclusive',
+                'href': 'index_filter_benchmark_egypt_1p_7_8.html',
+                'charts_subdir': 'hotel-charts/filter_benchmark_egypt_1p_7_8',
+                'config': 'config_ci_benchmark_egypt_1p_7_8.json',
+            },
+            {
+                'id': 'benchmark_greece_1p_7_8',
+                'title': '🇬🇷 Греция • Эталон (1 взр • 7–8 дн)',
+                'subtitle': 'Все аэр. • 1 взр • вылет в теч. 3 нед (Т+3) • All Inclusive',
+                'href': 'index_filter_benchmark_greece_1p_7_8.html',
+                'charts_subdir': 'hotel-charts/filter_benchmark_greece_1p_7_8',
+                'config': 'config_ci_benchmark_greece_1p_7_8.json',
+            },
+            {
+                'id': 'benchmark_cyprus_1p_7_8',
+                'title': '🇨🇾 Кипр • Эталон (1 взр • 7–8 дн)',
+                'subtitle': 'Все аэр. • 1 взр • вылет в теч. 3 нед (Т+3) • All Inclusive',
+                'href': 'index_filter_benchmark_cyprus_1p_7_8.html',
+                'charts_subdir': 'hotel-charts/filter_benchmark_cyprus_1p_7_8',
+                'config': 'config_ci_benchmark_cyprus_1p_7_8.json',
+            },
+        ],
+    },
 ]
 
 ARCHIVED_GROUP_ID = 'archived'
@@ -163,6 +202,7 @@ KNOWN_GROUPS = {
     'uae': {'id': 'uae', 'label': 'ОАЭ', 'icon': '🇦🇪'},
     'malta': {'id': 'malta', 'label': 'Мальта', 'icon': '🇲🇹'},
     'early_booking': {'id': 'early_booking', 'label': 'Раннее бронирование', 'icon': '🏷️'},
+    'benchmarks': {'id': 'benchmarks', 'label': 'Эталоны цен', 'icon': '📏'},
     'custom': {'id': 'custom', 'label': 'Мои поездки', 'icon': '✨'},
 }
 

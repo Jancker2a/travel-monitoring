@@ -114,6 +114,106 @@ class TestHopperLearner(unittest.TestCase):
         self.assertLess(new_prior, base_prior)
         self.assertEqual(metrics["evaluated_total"], 5)
 
+    def test_generate_accuracy_report(self):
+        # 1. Add evaluated predictions
+        rec_wait = PredictionRecord(
+            prediction_id="rec_w",
+            hotel_name="Hotel W",
+            dates="10.06.2026 - 17.06.2026",
+            departure_date="2026-06-10",
+            days_to_departure=10,
+            price_at_prediction=5000.0,
+            predicted_verdict="WAIT",
+            predicted_drop_prob=0.80,
+            predicted_target_price=4500.0,
+            created_at=datetime.now().isoformat(),
+            d_bucket="panic_dump",
+            price_tier="mid",
+            evaluated=True,
+            actual_min_price=4300.0,
+            actual_drop_occurred=True,
+            outcome_label="SUCCESS_WAIT",
+            brier_score=0.04,
+        )
+        rec_buy = PredictionRecord(
+            prediction_id="rec_b",
+            hotel_name="Hotel B",
+            dates="10.06.2026 - 17.06.2026",
+            departure_date="2026-06-10",
+            days_to_departure=10,
+            price_at_prediction=4000.0,
+            predicted_verdict="BUY_NOW",
+            predicted_drop_prob=0.10,
+            predicted_target_price=4000.0,
+            created_at=datetime.now().isoformat(),
+            d_bucket="panic_dump",
+            price_tier="low",
+            evaluated=True,
+            actual_min_price=4000.0,
+            actual_drop_occurred=False,
+            outcome_label="OPTIMAL_BUY",
+            brier_score=0.01,
+        )
+        self.learner.ledger["rec_w"] = rec_wait
+        self.learner.ledger["rec_b"] = rec_buy
+
+        report = self.learner.generate_accuracy_report(output_file=None)
+        self.assertEqual(report["total_predictions"], 2)
+        self.assertEqual(report["evaluated_predictions"], 2)
+        self.assertEqual(report["overall_accuracy_pct"], 100.0)
+        self.assertEqual(report["wait_accuracy_pct"], 100.0)
+        self.assertEqual(report["buy_now_accuracy_pct"], 100.0)
+        self.assertIn("Точность Hopper", report["badge_display"])
+
+    def test_evaluate_from_mock_repository(self):
+        class MockRepo:
+            def get_hotel_price_history(self, hotel_name, dates=None, since_scraped_at=None):
+                return pd.DataFrame([
+                    {"hotel_name": hotel_name, "dates": dates, "price": 4200.0, "scraped_at": "2026-06-02T10:00:00"}
+                ])
+
+        offer = {
+            "hotel_name": "Test Mock Hotel",
+            "dates": "10.06.2026 - 17.06.2026",
+            "price": 5000.0,
+        }
+        pred_id = self.learner.record_prediction(
+            offer=offer,
+            verdict="WAIT",
+            drop_prob=0.75,
+            target_price=4300.0,
+            days_to_dep=8,
+            quantile=0.50,
+        )
+        total, newly = self.learner.evaluate_outcomes_from_repository(MockRepo())
+        self.assertEqual(newly, 1)
+        rec = self.learner.ledger[pred_id]
+        self.assertTrue(rec.evaluated)
+        self.assertEqual(rec.outcome_label, "SUCCESS_WAIT")
+        self.assertEqual(rec.actual_min_price, 4200.0)
+
+    def test_seed_from_historical_offers(self):
+        offers = pd.DataFrame([
+            {
+                "hotel_name": "Historical Hotel 1",
+                "dates": "20.12.2026 - 27.12.2026",
+                "price": 4500.0,
+                "scraped_at": "2026-11-01T12:00:00",
+                "duration": "7 dni",
+                "offer_url": "https://fly.pl/wycieczka/hotel1",
+            },
+            {
+                "hotel_name": "Historical Hotel 2",
+                "dates": "22.12.2026 - 29.12.2026",
+                "price": 6500.0,
+                "scraped_at": "2026-11-01T12:00:00",
+                "duration": "7 dni",
+                "offer_url": "https://fly.pl/wycieczka/hotel2",
+            },
+        ])
+        added = self.learner.seed_from_historical_offers(offers, sample_limit=10)
+        self.assertGreaterEqual(added, 1)
+
 
 if __name__ == "__main__":
     unittest.main()

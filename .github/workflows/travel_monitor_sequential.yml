@@ -141,6 +141,10 @@ jobs:
             python travel_monitor.py --config config_ci_filter_greece_7_10.json
             python travel_monitor.py --config config_ci_filter_greece_13_16.json
             python travel_monitor.py --config configs/filters/config_ci_cyprus_7_10.json
+            python travel_monitor.py --config config_ci_benchmark_turkey_1p_7_8.json
+            python travel_monitor.py --config config_ci_benchmark_egypt_1p_7_8.json
+            python travel_monitor.py --config config_ci_benchmark_greece_1p_7_8.json
+            python travel_monitor.py --config config_ci_benchmark_cyprus_1p_7_8.json
           fi
           echo "✅ Monitoring completed"
 
@@ -173,6 +177,10 @@ jobs:
         run: |
           echo "🔍 Checking for unindexed hotels in scrape data..."
           python scripts/auto_enrich_delta.py || echo "⚠️ Auto-enrichment finished with warnings (non-fatal)"
+
+      - name: Calibrate Hopper predictions and update accuracy
+        run: |
+          python hopper_learner.py --report data/hopper_accuracy_report.json || echo "⚠️ Hopper calibration completed with warning"
 
       - name: Generate dashboards (only new filters) + landing
         env:
@@ -215,7 +223,7 @@ jobs:
           
           # Добавляем файлы данных фильтров, данные Германии и калибровку Hopper
           git add data/filters/ data/germany/ || true
-          git add hopper_prediction_ledger.json hopper_calibration.json hotel_crossborder_mapping.json hotel_specs_kb.json || true
+          git add data/hopper_accuracy_report.json hopper_prediction_ledger.json hopper_calibration.json hotel_crossborder_mapping.json hotel_specs_kb.json || true
           git reset HEAD -- data/price_alerts_history.json "data/filters/*/price_alerts_history.json" "data/filters/*/hotel_series" "data/filters/*/hotel_series/*" 2>/dev/null || true
           # Проверяем размер файлов перед коммитом чтобы поймать проблему заранее
           echo "📏 Файлы >40MB в staging:" && git diff --cached --name-only | xargs -I{} sh -c 'sz=$(git cat-file -s ":{}") 2>/dev/null; [ "$sz" -gt 41943040 ] 2>/dev/null && echo "  $sz bytes: {}" || true' || true

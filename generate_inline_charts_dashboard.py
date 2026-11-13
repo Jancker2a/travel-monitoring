@@ -212,20 +212,29 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
                     db = TravelDatabase(db_path)
                     repo = PriceRepository(db)
                     db_count = repo.count_offers(filter_id)
-                    # Проверяем количество строк в CSV, чтобы не загрузить неполную БД (например, если базу не прогрели)
+                    # Проверяем количество строк во всех CSV (включая архивы прошлых месяцев),
+                    # чтобы не переключиться на частично заполненную SQLite БД
                     csv_min_expected = 0
                     if os.path.exists(data_file):
                         try:
                             with open(data_file, 'r', encoding='utf-8', errors='ignore') as f:
-                                csv_min_expected = max(0, sum(1 for _ in f) - 1)
+                                csv_min_expected += max(0, sum(1 for _ in f) - 1)
                         except Exception:
-                            csv_min_expected = 0
+                            pass
+                    if os.path.isdir(archive_dir):
+                        try:
+                            for af in os.listdir(archive_dir):
+                                if af.startswith(f"{base_name}_") and af.endswith('.csv'):
+                                    with open(os.path.join(archive_dir, af), 'r', encoding='utf-8', errors='ignore') as f:
+                                        csv_min_expected += max(0, sum(1 for _ in f) - 1)
+                        except Exception:
+                            pass
 
                     if db_count > 0 and db_count >= csv_min_expected:
                         df = repo.get_filter_dataframe(filter_id)
                         print(f"⚡ Загружено {len(df)} записей для '{filter_id}' из SQLite ({db_path})")
                     elif db_count > 0 and db_count < csv_min_expected:
-                        print(f"ℹ️ SQLite содержит {db_count} записей, а CSV {csv_min_expected}. Читаем CSV для полноты истории.")
+                        print(f"ℹ️ SQLite содержит {db_count} записей, а CSV + архивы {csv_min_expected}. Читаем CSV для полноты истории.")
             except Exception as dbe:
                 df = None
 
@@ -2361,13 +2370,18 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
         h_grp = history_by_hotel.get(h_name)
         if h_grp is not None and not h_grp.empty:
             sorted_grp = h_grp.sort_values('scraped_at_display')
-            for t_val, p_val in zip(sorted_grp['scraped_at_display'], sorted_grp['price']):
+            dates_col = sorted_grp['dates'].fillna('') if 'dates' in sorted_grp.columns else [''] * len(sorted_grp)
+            for t_val, p_val, d_val in zip(sorted_grp['scraped_at_display'], sorted_grp['price'], dates_col):
                 if pd.notna(t_val) and pd.notna(p_val) and float(p_val) > 0:
+                    trip_d = str(d_val).strip() if pd.notna(d_val) else ""
+                    if trip_d.lower() in ("nan", "none", "—", "-", "неизвестно"):
+                        trip_d = ""
                     h_pts_data.append({
                         "date": t_val.strftime('%d.%m %H:%M'),
                         "iso": t_val.strftime('%Y-%m-%d %H:%M:%S'),
                         "ts": int(t_val.timestamp() * 1000),
-                        "price": float(p_val)
+                        "price": float(p_val),
+                        "dates": trip_d,
                     })
         min_p_card = min([pt['price'] for pt in h_pts_data]) if h_pts_data else float(c["price"])
         max_p_card = max([pt['price'] for pt in h_pts_data]) if h_pts_data else float(c["price"])
@@ -2519,6 +2533,8 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
             "price": float(c["price"]),
             "min_price": min_p_card,
             "max_price": max_p_card,
+            "dates": str(c.get("dates") or "—"),
+            "duration": str(c.get("duration") or "—"),
             "deal_score": c.get("deal_score", 50),
             "deal_badge": prof["deal_badge"],
             "deal_sub": prof["deal_sub"],
@@ -5777,14 +5793,14 @@ def generate_inline_charts_dashboard(data_file: str = 'data/travel_prices.csv', 
 
         window.syncWatchlistUI = function() {
           const list = getWatchlist();
-          document.querySelectorAll('.watchlist-star-btn').forEach(btn => {
+          document.querySelectorAll('.watchlist-star-btn, .btn-drawer-header-fav').forEach(btn => {
             const hotel = btn.getAttribute('data-hotel-name');
-            if (list.includes(hotel)) {
-              btn.classList.add('starred');
-              btn.textContent = '★';
+            const isStarred = list.includes(hotel);
+            btn.classList.toggle('starred', isStarred);
+            if (btn.id === 'drawerWatchlistBtn' || btn.classList.contains('btn-drawer-header-fav')) {
+              btn.textContent = isStarred ? '★ В избранном' : '☆ В избранное';
             } else {
-              btn.classList.remove('starred');
-              btn.textContent = '☆';
+              btn.textContent = isStarred ? '★' : '☆';
             }
           });
         };

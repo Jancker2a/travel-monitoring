@@ -24,6 +24,10 @@ DATA_DIR_CONFIG_FILES: Dict[str, str] = {
     "filter_greece_7_10_days": "config_ci_filter_greece_7_10.json",
     "filter_greece_13_16_days": "config_ci_filter_greece_13_16.json",
     "filter_cyprus_7_10": "configs/filters/config_ci_cyprus_7_10.json",
+    "filter_benchmark_turkey_1p_7_8": "config_ci_benchmark_turkey_1p_7_8.json",
+    "filter_benchmark_egypt_1p_7_8": "config_ci_benchmark_egypt_1p_7_8.json",
+    "filter_benchmark_greece_1p_7_8": "config_ci_benchmark_greece_1p_7_8.json",
+    "filter_benchmark_cyprus_1p_7_8": "config_ci_benchmark_cyprus_1p_7_8.json",
 }
 
 COUNTRY_FROM_URL_FRAGMENT = {
@@ -76,14 +80,36 @@ def _query_keys(name: str) -> List[str]:
     return [f"filter[{name}]", enc, name]
 
 
-def make_fly_search_url_dynamic(url: str, *, window_days: int = 30) -> str:
-    """Подставляет актуальные даты вылета/возврата (как в travel_monitor)."""
+def make_fly_search_url_dynamic(
+    url: str,
+    *,
+    offset_days: int = 0,
+    window_days: int = 30,
+) -> str:
+    """Подставляет актуальные даты вылета/возврата (как в travel_monitor).
+    Поддерживает rolling_offset_days (например, сегодня + 21 день для эталонного поиска)
+    и rolling_window_days (гибкое окно вылета).
+    """
     if not url:
         return url
     now = datetime.now()
-    from_date_str = now.strftime("%d-%m-%Y")
-    to_date = now + timedelta(days=window_days)
-    to_date_str = to_date.strftime("%d-%m-%Y")
+    start_min = now + timedelta(days=offset_days)
+    from_date_str = start_min.strftime("%d-%m-%Y")
+
+    m_dur_hi = re.search(r"durationTo=(\d+)", url)
+    dur_hi = int(m_dur_hi.group(1)) if m_dur_hi else 8
+
+    if offset_days > 0:
+        start_max = start_min + timedelta(days=window_days)
+        start_max_str = start_max.strftime("%d-%m-%Y")
+        return_date = start_max + timedelta(days=dur_hi)
+        to_date_str = return_date.strftime("%d-%m-%Y")
+    else:
+        to_date = now + timedelta(days=window_days)
+        to_date_str = to_date.strftime("%d-%m-%Y")
+        m_dur_lo = re.search(r"durationFrom=(\d+)", url)
+        dur_lo = int(m_dur_lo.group(1)) if m_dur_lo else 7
+        start_max_str = (to_date - timedelta(days=dur_lo)).strftime("%d-%m-%Y")
 
     # Old fly.pl query syntax
     url = re.sub(
@@ -103,10 +129,7 @@ def make_fly_search_url_dynamic(url: str, *, window_days: int = 30) -> str:
     if "returnDate=" in url:
         url = re.sub(r"(returnDate=)([^&]*)", rf"\g<1>{to_date_str}", url)
     if "startDateMax=" in url:
-        m_dur = re.search(r"durationFrom=(\d+)", url)
-        dur_lo = int(m_dur.group(1)) if m_dur else 7
-        start_max = (to_date - timedelta(days=dur_lo)).strftime("%d-%m-%Y")
-        url = re.sub(r"(startDateMax=)([^&]*)", rf"\g<1>{start_max}", url)
+        url = re.sub(r"(startDateMax=)([^&]*)", rf"\g<1>{start_max_str}", url)
 
     return url
 
@@ -125,7 +148,10 @@ def resolve_config_url(config: Optional[Dict[str, Any]]) -> str:
     if not url:
         return url
     if should_use_dynamic_search_dates(config):
-        return make_fly_search_url_dynamic(url)
+        cfg = config or {}
+        offset_days = int(cfg.get("rolling_offset_days") or 0)
+        window_days = int(cfg.get("rolling_window_days") or (7 if offset_days > 0 else 30))
+        return make_fly_search_url_dynamic(url, offset_days=offset_days, window_days=window_days)
     return url
 
 

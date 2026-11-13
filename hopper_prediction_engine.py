@@ -177,6 +177,16 @@ def calculate_days_to_departure(
         ref_date = scrape_timestamp.date()
     elif isinstance(scrape_timestamp, date):
         ref_date = scrape_timestamp
+    elif isinstance(scrape_timestamp, str):
+        try:
+            s = scrape_timestamp.strip()
+            if len(s) >= 10 and s[4] == '-' and s[7] == '-':
+                ref_date = date(int(s[:4]), int(s[5:7]), int(s[8:10]))
+            else:
+                parsed = pd.to_datetime(s, errors="coerce")
+                ref_date = date.today() if pd.isna(parsed) else parsed.date()
+        except Exception:
+            ref_date = date.today()
     else:
         try:
             parsed = pd.to_datetime(str(scrape_timestamp), errors="coerce")
@@ -545,6 +555,7 @@ def batch_predict_offers(
     df: pd.DataFrame,
     reference_date: Optional[date] = None,
     history_df: Optional[pd.DataFrame] = None,
+    record_ledger: bool = True,
 ) -> pd.DataFrame:
     """
     Enriches a DataFrame of offers with Hopper prediction columns:
@@ -581,6 +592,10 @@ def batch_predict_offers(
         if (history_df is not None and not history_df.empty and "price" in history_df.columns)
         else result_df
     )
+    if hist_source_df is not result_df and "hotel_name" in hist_source_df.columns and "hotel_name" in result_df.columns:
+        res_hotels = set(result_df["hotel_name"].dropna().astype(str))
+        if res_hotels:
+            hist_source_df = hist_source_df[hist_source_df["hotel_name"].astype(str).isin(res_hotels)]
 
     h_prices_s = pd.to_numeric(hist_source_df["price"], errors="coerce").fillna(0.0)
     cohort_prices_all = [p for p in h_prices_s.tolist() if p > 0]
@@ -698,5 +713,21 @@ def batch_predict_offers(
     result_df["hopper_expected_savings"] = expected_savings_list
     result_df["hopper_recommended_date"] = recommended_dates
     result_df["hopper_reasoning"] = reasonings
+
+    if record_ledger and not result_df.empty:
+        try:
+            from hopper_learner import HopperLearner
+            learner = HopperLearner()
+            for _, r_row in result_df.iterrows():
+                v_str = str(r_row.get("hopper_verdict") or "")
+                if v_str in ("WAIT", "BUY_NOW", "OVERPRICED"):
+                    p_drop = float(r_row.get("hopper_drop_prob_pct") or 50.0) / 100.0
+                    p_target = float(r_row.get("hopper_target_price") or r_row.get("price") or 0.0)
+                    d_dep = int(r_row.get("hopper_days_to_dep") or 0)
+                    q_val = float(r_row.get("price_quantile") if "price_quantile" in r_row else 0.5)
+                    learner.record_prediction(r_row.to_dict(), v_str, p_drop, p_target, d_dep, q_val)
+            learner.save_ledger()
+        except Exception as le:
+            logger.debug(f"HopperLearner record_prediction skipped: {le}")
 
     return result_df

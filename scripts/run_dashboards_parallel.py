@@ -21,10 +21,10 @@ from filter_registry import get_all_dashboard_configs
 DEFAULT_DASHBOARDS = get_all_dashboard_configs()
 
 
-def _run_one(spec: dict, log_dir: Path, force_ai: bool = False) -> tuple[str, int, float, str]:
+def _run_one(spec: dict, log_dir: Path, force_ai: bool = False, force_rebuild_archived: bool = False) -> tuple[str, int, float, str]:
     output = spec["output"]
     config_path = str(spec.get("config") or "").strip()
-    if config_path:
+    if config_path and not force_rebuild_archived:
         full_cfg = ROOT / config_path
         if full_cfg.is_file():
             try:
@@ -123,16 +123,22 @@ def main() -> int:
         default=os.getenv("FORCE_AI_ANALYSIS", "").lower() in ("true", "1", "yes"),
         help="Force regeneration of AI Market Oracle reports (bypass disk cache)",
     )
+    parser.add_argument(
+        "--force-rebuild-archived",
+        action="store_true",
+        help="Rebuild archived dashboards even if output html exists",
+    )
     args = parser.parse_args()
     jobs = max(1, args.jobs)
     log_dir = Path(args.log_dir)
     force_ai = bool(args.force_ai or os.getenv("FORCE_AI_ANALYSIS", "").lower() in ("true", "1", "yes"))
+    force_rebuild_archived = bool(args.force_rebuild_archived)
 
     active_specs = []
     for spec in DEFAULT_DASHBOARDS:
         config_path = str(spec.get("config") or "").strip()
         output_file = ROOT / spec["output"]
-        if config_path:
+        if config_path and not force_rebuild_archived:
             full_cfg = ROOT / config_path
             if full_cfg.is_file():
                 try:
@@ -182,7 +188,7 @@ def main() -> int:
             if i > 0 and i < jobs:
                 # Staggered delay (2.5s) between initial concurrent starts to prevent HTTP 429 rate limit bursts
                 time.sleep(2.5)
-            futures[pool.submit(_run_one, spec, log_dir, force_ai)] = spec["output"]
+            futures[pool.submit(_run_one, spec, log_dir, force_ai, force_rebuild_archived)] = spec["output"]
         for fut in as_completed(futures):
             output, code, elapsed, note = fut.result()
             if code == 0:
