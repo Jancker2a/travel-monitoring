@@ -221,10 +221,49 @@
       "created_at": "2026-11-12T20:59:46.866478+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Amarina Abu Soma Resort_2026-11-12_20-58_comeback_10.9"
+    },
+    {
+      "hotel_name": "Swisstouch Oriental Resort (ex. Hotelux Oriental Coast)",
+      "duration_bucket": "",
+      "old_price": 8417.0,
+      "new_price": 7589.0,
+      "price_change": -828.0,
+      "price_change_pct": -9.837234168943803,
+      "timestamp": "2026-11-13 02:01:31.381960+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-13T02:02:33.012409+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Swisstouch Oriental Resort (ex. Hotelux Oriental Coast)_2026-11-13_02-01_-9.8"
+    },
+    {
+      "hotel_name": "Charmillion Club Aqua Park",
+      "duration_bucket": "",
+      "old_price": 10740.0,
+      "new_price": 9467.0,
+      "price_change": -1273.0,
+      "price_change_pct": -11.852886405959032,
+      "timestamp": "2026-11-13 02:01:31.381960+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-11-13T02:02:33.012452+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Charmillion Club Aqua Park_2026-11-13_02-01_comeback_11.9"
+    },
+    {
+      "hotel_name": "Gemma Resort (ex. Labranda Gemma Premium Resort)",
+      "duration_bucket": "",
+      "old_price": 10299.0,
+      "new_price": 9113.0,
+      "price_change": -1186.0,
+      "price_change_pct": -11.515681134090688,
+      "timestamp": "2026-11-13 02:01:31.381960+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-11-13T02:02:33.012465+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Gemma Resort (ex. Labranda Gemma Premium Resort)_2026-11-13_02-01_comeback_11.5"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-12T20:58:44.148789+00:00",
+    "last_processed_run": "2026-11-13T02:01:31.381960+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 9475.0,
@@ -283,7 +322,7 @@
         "premium_peak": 10299.0
       },
       "Rewaya Luxury Resort": {
-        "history_max": 9467.0,
+        "history_max": 9487.0,
         "premium_peak": null
       },
       "Fantazia Resort": {

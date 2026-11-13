@@ -13,10 +13,23 @@
       "created_at": "2026-11-10T02:21:48.255650+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Bella Beach_2026-11-10_02-20_zone_out_+3.0"
+    },
+    {
+      "hotel_name": "Blue Marine Resort & SPA",
+      "duration_bucket": "",
+      "old_price": 11631.0,
+      "new_price": 12177.0,
+      "price_change": 546.0,
+      "price_change_pct": 4.69435130255352,
+      "timestamp": "2026-11-13 02:00:33.891014+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-13T02:01:27.610784+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Blue Marine Resort & SPA_2026-11-13_02-00_zone_out_+4.7"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-12T12:59:15.005157+00:00",
+    "last_processed_run": "2026-11-13T02:00:33.891014+00:00",
     "premium_state": {
       "Akti Imperial Deluxe Resort (ex Capsis Rhodes)": {
         "history_max": 12617.0,
@@ -123,8 +136,8 @@
         "premium_peak": null
       },
       "Blue Marine Resort & SPA": {
-        "history_max": 11631.0,
-        "premium_peak": null
+        "history_max": 12177.0,
+        "premium_peak": 12177.0
       },
       "Cabana Blu Hotel & Suites": {
         "history_max": 12976.0,
