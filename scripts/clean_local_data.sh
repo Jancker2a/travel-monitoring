@@ -24,3 +24,4 @@ find . -type f -name "*.pyc" -delete 2>/dev/null || true
 
 echo "✅ Cleaned! Only source code remains."
 du -sh "$REPO_DIR"
+

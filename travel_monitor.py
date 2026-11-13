@@ -702,9 +702,9 @@ class TravelPriceMonitor:
                 await page.wait_for_timeout(2500)
                 try:
                     cb_btn = await page.query_selector(
-                        'button:has-text("Akceptuję"), #CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll, button#CybotCookiebotDialogBodyButtonAccept, button:has-text("Zezwól")'
+                        '#CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll, button#CybotCookiebotDialogBodyButtonAccept, button:has-text("Akceptuję"), button:has-text("Zezwól")'
                     )
-                    if cb_btn:
+                    if cb_btn and await cb_btn.is_visible():
                         await cb_btn.click()
                         await page.wait_for_timeout(500)
                 except Exception:
@@ -786,20 +786,35 @@ class TravelPriceMonitor:
                         logger.info(f"На странице {page_number} не найдено подходящих предложений{scope_info}")
                         break
                     
-                    load_more_btn = await page.query_selector('button.listing-load-more-btn, button:has-text("Doładuj więcej ofert"), button:has-text("Pokaż więcej")')
+                    # Кнопка подгрузки следующей порции офферов (fly.pl infinite-listing)
+                    load_more_btn = await page.query_selector(
+                        'button.listing-load-more-btn, button:has-text("Doładuj więcej ofert")'
+                    )
+                    if not load_more_btn:
+                        # Fallback: проверяем кнопки строго вне Cookiebot диалога
+                        extra_btns = await page.query_selector_all('button')
+                        for eb in extra_btns:
+                            try:
+                                is_cb = await eb.evaluate('el => !!el.closest("#CybotCookiebotDialog")')
+                                if is_cb:
+                                    continue
+                                txt = (await eb.inner_text()).strip()
+                                if "doładuj" in txt.lower() or "więcej ofert" in txt.lower():
+                                    load_more_btn = eb
+                                    break
+                            except Exception:
+                                pass
+
                     if load_more_btn and page_number < max_pages:
                         logger.info(f"Найдена кнопка 'Doładuj więcej ofert', подгружаем порцию {page_number + 1}...")
                         try:
                             try:
-                                await load_more_btn.scroll_into_view_if_needed(timeout=3000)
+                                await load_more_btn.scroll_into_view_if_needed(timeout=2000)
                             except Exception:
                                 pass
                             await page.wait_for_timeout(300)
-                            try:
-                                await load_more_btn.click(timeout=3000)
-                            except Exception:
-                                # Fallback на прямой DOM-клик в обход оверлеев/шторки cookie
-                                await page.evaluate('(b) => b.click()', load_more_btn)
+                            # Прямой DOM-клик надёжно срабатывает без блокировки actionability
+                            await page.evaluate('(b) => b.click()', load_more_btn)
 
                             # Динамическое ожидание появления новых карточек в выдаче
                             prev_cards_cnt = len(all_found_cards)
