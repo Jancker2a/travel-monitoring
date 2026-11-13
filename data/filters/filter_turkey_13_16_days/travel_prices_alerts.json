@@ -338,10 +338,49 @@
       "created_at": "2026-11-12T21:02:02.636954+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Orange Palace_2026-11-12_21-00_zone_out_gone"
+    },
+    {
+      "hotel_name": "Avia Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 9919.0,
+      "new_price": 10053.0,
+      "price_change": 134.0,
+      "price_change_pct": 1.350942635346305,
+      "timestamp": "2026-11-13 18:00:35.634427+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-13T18:01:19.436540+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Avia Resort & Spa_2026-11-13_18-00_zone_out_+1.4"
+    },
+    {
+      "hotel_name": "Orange Palace",
+      "duration_bucket": "",
+      "old_price": 9883.0,
+      "new_price": 10083.0,
+      "price_change": 200.0,
+      "price_change_pct": 2.023677021147425,
+      "timestamp": "2026-11-13 18:00:35.634427+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-13T18:01:19.436576+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Orange Palace_2026-11-13_18-00_zone_out_+2.0"
+    },
+    {
+      "hotel_name": "The Sense Deluxe",
+      "duration_bucket": "",
+      "old_price": 9047.0,
+      "new_price": 10344.0,
+      "price_change": 1297.0,
+      "price_change_pct": 14.336244058804024,
+      "timestamp": "2026-11-13 18:00:35.634427+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-13T18:01:19.436592+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "The Sense Deluxe_2026-11-13_18-00_zone_out_+14.3"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-13T08:17:45.999202+00:00",
+    "last_processed_run": "2026-11-13T18:00:35.634427+00:00",
     "premium_state": {
       "Akka Alinda": {
         "history_max": 10650.0,
@@ -352,8 +391,8 @@
         "premium_peak": null
       },
       "Seamelia Beach Resort & Spa": {
-        "history_max": 11906.0,
-        "premium_peak": 11906.0
+        "history_max": 12576.0,
+        "premium_peak": 12576.0
       },
       "Side Moon Palace": {
         "history_max": 10206.0,
@@ -476,8 +515,8 @@
         "premium_peak": 10634.0
       },
       "The Sense Deluxe": {
-        "history_max": 10314.0,
-        "premium_peak": 10314.0
+        "history_max": 10344.0,
+        "premium_peak": 10344.0
       },
       "Ramada Plaza Antalya": {
         "history_max": 10170.0,
@@ -492,8 +531,8 @@
         "premium_peak": 16071.0
       },
       "Titanic Deluxe Lara (ex. Titanic Beach Lara)": {
-        "history_max": 12421.0,
-        "premium_peak": 12421.0
+        "history_max": 12600.0,
+        "premium_peak": 12600.0
       },
       "Sunis Kumkoy Beach Resort & Spa": {
         "history_max": 12915.0,
@@ -504,8 +543,8 @@
         "premium_peak": 17620.0
       },
       "The Land Of Legends Nickelodeon": {
-        "history_max": 17563.0,
-        "premium_peak": 17563.0
+        "history_max": 17697.0,
+        "premium_peak": 17697.0
       },
       "Susesi Luxury Resort": {
         "history_max": 15117.0,
@@ -556,8 +595,8 @@
         "premium_peak": 11950.0
       },
       "IC Santai Family Resort (Belek)": {
-        "history_max": 10473.0,
-        "premium_peak": 10473.0
+        "history_max": 10607.0,
+        "premium_peak": 10607.0
       },
       "Kamelya Selin": {
         "history_max": 10390.0,
@@ -604,8 +643,8 @@
         "premium_peak": 12360.0
       },
       "Liberty Lara (Ex Lara Beach)": {
-        "history_max": 10785.0,
-        "premium_peak": 10785.0
+        "history_max": 10984.0,
+        "premium_peak": 10984.0
       },
       "Baia Lara": {
         "history_max": 11243.0,
@@ -620,8 +659,8 @@
         "premium_peak": 12742.0
       },
       "Bellis Deluxe": {
-        "history_max": 12639.0,
-        "premium_peak": 12639.0
+        "history_max": 12773.0,
+        "premium_peak": 12773.0
       },
       "Club Sera": {
         "history_max": 10442.0,
@@ -684,12 +723,12 @@
         "premium_peak": 12624.0
       },
       "Royal Dragon": {
-        "history_max": 12025.0,
-        "premium_peak": 12025.0
+        "history_max": 12092.0,
+        "premium_peak": 12092.0
       },
       "Voyage Kundu": {
-        "history_max": 14882.0,
-        "premium_peak": 14882.0
+        "history_max": 15016.0,
+        "premium_peak": 15016.0
       },
       "Lykia World & Links Golf Antalya": {
         "history_max": 17081.0,
@@ -700,12 +739,12 @@
         "premium_peak": 16311.0
       },
       "MegaSaray Club Belek": {
-        "history_max": 11882.0,
-        "premium_peak": 11882.0
+        "history_max": 12016.0,
+        "premium_peak": 12016.0
       },
       "Megasaray WestBeach Antalya (ex. Harrington Park Resort)": {
-        "history_max": 11634.0,
-        "premium_peak": 11634.0
+        "history_max": 11768.0,
+        "premium_peak": 11768.0
       },
       "Melas Lara": {
         "history_max": 12172.0,
@@ -744,8 +783,8 @@
         "premium_peak": 13254.0
       },
       "Xanadu Resort": {
-        "history_max": 16737.0,
-        "premium_peak": 16737.0
+        "history_max": 16871.0,
+        "premium_peak": 16871.0
       }
     }
   }
