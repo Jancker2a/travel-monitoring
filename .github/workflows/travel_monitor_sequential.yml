@@ -28,8 +28,9 @@ on:
         required: false
         type: boolean
         default: false
-  push:
-    branches: [ main ]
+  # Paused push triggers to conserve GitHub Actions minutes quota (runs exclusively via workflow_dispatch)
+  # push:
+  #   branches: [ main ]
 
 permissions:
   contents: write
