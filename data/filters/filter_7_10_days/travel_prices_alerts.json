@@ -1053,10 +1053,36 @@
       "created_at": "2026-11-14T06:51:06.831479+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Movenpick Resort El Quseir_2026-11-14_06-49_comeback_15.8"
+    },
+    {
+      "hotel_name": "Swisstouch Oriental Resort (ex. Hotelux Oriental Coast)",
+      "duration_bucket": "",
+      "old_price": 4397.0,
+      "new_price": 4767.0,
+      "price_change": 370.0,
+      "price_change_pct": 8.414828292017285,
+      "timestamp": "2026-11-14 09:50:00.524654+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-14T09:51:51.366508+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Swisstouch Oriental Resort (ex. Hotelux Oriental Coast)_2026-11-14_09-50_+8.4"
+    },
+    {
+      "hotel_name": "Invidia Coral Beach Tiran",
+      "duration_bucket": "",
+      "old_price": 9620.0,
+      "new_price": 15398.0,
+      "price_change": 5778.0,
+      "price_change_pct": 60.062370062370064,
+      "timestamp": "2026-11-14 09:50:00.524654+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-14T09:51:51.366580+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Invidia Coral Beach Tiran_2026-11-14_09-50_zone_out_+60.1"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-14T06:49:50.877647+00:00",
+    "last_processed_run": "2026-11-14T09:50:00.524654+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 6369.0,
@@ -1135,7 +1161,7 @@
         "premium_peak": null
       },
       "Creek Hotel and Residences": {
-        "history_max": 7157.0,
+        "history_max": 7166.0,
         "premium_peak": null
       },
       "Sirena Beach Resort & Spa": {
@@ -1179,7 +1205,7 @@
         "premium_peak": null
       },
       "Rewaya Inn Resort (ex. Hawaii Paradise Aqua Park Resort)": {
-        "history_max": 6789.0,
+        "history_max": 6805.0,
         "premium_peak": null
       },
       "Titanic Beach Spa & Aqua Park": {
@@ -1199,7 +1225,7 @@
         "premium_peak": null
       },
       "Sentido Akassia Beach (ex. LTI Akassia Beach)": {
-        "history_max": 7340.0,
+        "history_max": 7376.0,
         "premium_peak": null
       },
       "Dreams Beach Sharm Resort (Sharm El Sheikh)": {
@@ -1211,7 +1237,7 @@
         "premium_peak": null
       },
       "Xperience Sea Breeze Resort": {
-        "history_max": 6967.0,
+        "history_max": 7057.0,
         "premium_peak": null
       },
       "Rehana Royal Beach Resort & Spa": {
@@ -1259,7 +1285,7 @@
         "premium_peak": null
       },
       "The V Luxury Resort": {
-        "history_max": 7363.0,
+        "history_max": 7546.0,
         "premium_peak": null
       },
       "Titanic Royal": {
@@ -1379,7 +1405,7 @@
         "premium_peak": null
       },
       "Park Regency Resort (ex. Hyatt)": {
-        "history_max": 8917.0,
+        "history_max": 9005.0,
         "premium_peak": null
       },
       "Parrotel Beach Resort (ex. Radisson Blu)": {
@@ -1395,7 +1421,7 @@
         "premium_peak": null
       },
       "Pickalbatros Aqua Park Resort (Sharm El Sheikh)": {
-        "history_max": 8927.0,
+        "history_max": 8947.0,
         "premium_peak": null
       },
       "Pickalbatros Citadel Sahl Hasheesh (ex. Citadel Azur Resort)": {
@@ -1403,7 +1429,7 @@
         "premium_peak": null
       },
       "Pickalbatros Dana Beach Resort": {
-        "history_max": 7865.0,
+        "history_max": 8037.0,
         "premium_peak": null
       },
       "Nubian Village": {
@@ -1443,7 +1469,7 @@
         "premium_peak": null
       },
       "Jaz Elite Asteria (Hurghada)": {
-        "history_max": 9229.0,
+        "history_max": 9357.0,
         "premium_peak": null
       },
       "Jaz Sharm Dreams Resort": {
@@ -1495,7 +1521,7 @@
         "premium_peak": null
       },
       "Pickalbatros Laguna Club Resort": {
-        "history_max": 6907.0,
+        "history_max": 7007.0,
         "premium_peak": null
       },
       "Pickalbatros Luxury Suites": {
@@ -1755,16 +1781,16 @@
         "premium_peak": null
       },
       "Invidia Coral Beach Tiran": {
-        "history_max": 9620.0,
-        "premium_peak": null
+        "history_max": 15398.0,
+        "premium_peak": 15398.0
       },
       "The Cascades Golf Resort Spa & Thalasso (ex Westin Soma Bay)": {
         "history_max": 8368.0,
         "premium_peak": null
       },
       "Jaz Makadina": {
-        "history_max": 10025.0,
-        "premium_peak": 10025.0
+        "history_max": 10435.0,
+        "premium_peak": 10435.0
       },
       "Jaz Makadi Star & Spa": {
         "history_max": 9867.0,
