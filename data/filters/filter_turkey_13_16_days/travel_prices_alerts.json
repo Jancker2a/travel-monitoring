@@ -377,10 +377,62 @@
       "created_at": "2026-11-13T18:01:19.436592+00:00",
       "threshold_percent": 8.0,
       "unique_key": "The Sense Deluxe_2026-11-13_18-00_zone_out_+14.3"
+    },
+    {
+      "hotel_name": "Trendy Aspendos Beach",
+      "duration_bucket": "",
+      "old_price": 9811.0,
+      "new_price": 8986.0,
+      "price_change": -825.0,
+      "price_change_pct": -8.408928753440016,
+      "timestamp": "2026-11-14 06:51:21.050147+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-14T06:52:21.892650+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Trendy Aspendos Beach_2026-11-14_06-51_-8.4"
+    },
+    {
+      "hotel_name": "Seher Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 8900.0,
+      "new_price": 8900.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-14 06:51:21.050147+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-14T06:52:21.892685+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Seher Resort & Spa_2026-11-14_06-51_zone_out_gone"
+    },
+    {
+      "hotel_name": "Side Royal Palace",
+      "duration_bucket": "",
+      "old_price": 10414.0,
+      "new_price": 9530.0,
+      "price_change": -884.0,
+      "price_change_pct": -8.488573074707125,
+      "timestamp": "2026-11-14 06:51:21.050147+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-11-14T06:52:21.892712+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Side Royal Palace_2026-11-14_06-51_comeback_8.5"
+    },
+    {
+      "hotel_name": "The Sense Deluxe",
+      "duration_bucket": "",
+      "old_price": 10344.0,
+      "new_price": 9171.0,
+      "price_change": -1173.0,
+      "price_change_pct": -11.339907192575406,
+      "timestamp": "2026-11-14 06:51:21.050147+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-11-14T06:52:21.892726+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "The Sense Deluxe_2026-11-14_06-51_comeback_11.3"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-13T18:00:35.634427+00:00",
+    "last_processed_run": "2026-11-14T06:51:21.050147+00:00",
     "premium_state": {
       "Akka Alinda": {
         "history_max": 10650.0,
@@ -503,11 +555,11 @@
         "premium_peak": 10023.0
       },
       "Grand Okan": {
-        "history_max": 8814.0,
+        "history_max": 8829.0,
         "premium_peak": null
       },
       "Castival (ex. La Grande Resort & Spa)": {
-        "history_max": 8729.0,
+        "history_max": 9144.0,
         "premium_peak": null
       },
       "Limak Lara De Luxe": {
@@ -527,12 +579,12 @@
         "premium_peak": 10080.0
       },
       "Voyage Belek Golf & Spa": {
-        "history_max": 16071.0,
-        "premium_peak": 16071.0
+        "history_max": 16205.0,
+        "premium_peak": 16205.0
       },
       "Titanic Deluxe Lara (ex. Titanic Beach Lara)": {
-        "history_max": 12600.0,
-        "premium_peak": 12600.0
+        "history_max": 12733.0,
+        "premium_peak": 12733.0
       },
       "Sunis Kumkoy Beach Resort & Spa": {
         "history_max": 12915.0,
@@ -547,8 +599,8 @@
         "premium_peak": 17697.0
       },
       "Susesi Luxury Resort": {
-        "history_max": 15117.0,
-        "premium_peak": 15117.0
+        "history_max": 15163.0,
+        "premium_peak": 15163.0
       },
       "Trendy Lara": {
         "history_max": 10991.0,
@@ -607,8 +659,8 @@
         "premium_peak": 17213.0
       },
       "Kempinski The Dome Belek": {
-        "history_max": 19957.0,
-        "premium_peak": 19957.0
+        "history_max": 19998.0,
+        "premium_peak": 19998.0
       },
       "Lara Barut Collection": {
         "history_max": 19515.0,
@@ -623,8 +675,8 @@
         "premium_peak": 17364.0
       },
       "Crystal De Luxe Comfort Collection": {
-        "history_max": 10345.0,
-        "premium_peak": 10345.0
+        "history_max": 10479.0,
+        "premium_peak": 10479.0
       },
       "Adalya Elite Lara": {
         "history_max": 12211.0,
@@ -651,8 +703,8 @@
         "premium_peak": 11243.0
       },
       "Barut Hemera": {
-        "history_max": 14415.0,
-        "premium_peak": 14415.0
+        "history_max": 14549.0,
+        "premium_peak": 14549.0
       },
       "Belconti Resort (Belek)": {
         "history_max": 12742.0,
@@ -663,8 +715,8 @@
         "premium_peak": 12773.0
       },
       "Club Sera": {
-        "history_max": 10442.0,
-        "premium_peak": 10442.0
+        "history_max": 10576.0,
+        "premium_peak": 10576.0
       },
       "Concorde Deluxe Resort": {
         "history_max": 19144.0,
@@ -675,8 +727,8 @@
         "premium_peak": 11234.0
       },
       "Sueno Deluxe Belek": {
-        "history_max": 16941.0,
-        "premium_peak": 16941.0
+        "history_max": 17075.0,
+        "premium_peak": 17075.0
       },
       "Royal Wings": {
         "history_max": 12823.0,
@@ -727,8 +779,8 @@
         "premium_peak": 12092.0
       },
       "Voyage Kundu": {
-        "history_max": 15016.0,
-        "premium_peak": 15016.0
+        "history_max": 15150.0,
+        "premium_peak": 15150.0
       },
       "Lykia World & Links Golf Antalya": {
         "history_max": 17081.0,
@@ -767,8 +819,8 @@
         "premium_peak": 10742.0
       },
       "Papillon Zeugma Reluxury": {
-        "history_max": 15773.0,
-        "premium_peak": 15773.0
+        "history_max": 15907.0,
+        "premium_peak": 15907.0
       },
       "Pine Beach Belek (ex. Maritim Pine Beach Resort)": {
         "history_max": 13294.0,
@@ -785,6 +837,14 @@
       "Xanadu Resort": {
         "history_max": 16871.0,
         "premium_peak": 16871.0
+      },
+      "Ducale Lara": {
+        "history_max": 11860.0,
+        "premium_peak": 11860.0
+      },
+      "Aydinbey Queens Palace & Spa": {
+        "history_max": 9582.0,
+        "premium_peak": null
       }
     }
   }

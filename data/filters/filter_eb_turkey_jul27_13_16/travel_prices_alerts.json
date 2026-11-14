@@ -117,10 +117,36 @@
       "created_at": "2026-11-13T02:02:21.221221+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Unique Residence Golf Spa_2026-11-13_02-01_-12.2"
+    },
+    {
+      "hotel_name": "Dizalya Palm Garden",
+      "duration_bucket": "",
+      "old_price": 15700.0,
+      "new_price": 16014.0,
+      "price_change": 314.0,
+      "price_change_pct": 2.0,
+      "timestamp": "2026-11-14 06:48:08.041434+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-14T06:49:46.631976+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Dizalya Palm Garden_2026-11-14_06-48_zone_out_+2.0"
+    },
+    {
+      "hotel_name": "Palemon Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 15492.0,
+      "new_price": 16009.0,
+      "price_change": 517.0,
+      "price_change_pct": 3.33720630002582,
+      "timestamp": "2026-11-14 06:48:08.041434+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-14T06:49:46.632018+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Palemon Resort & Spa_2026-11-14_06-48_zone_out_+3.3"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-13T17:58:00.273115+00:00",
+    "last_processed_run": "2026-11-14T06:48:08.041434+00:00",
     "premium_state": {
       "Armas Bella Sun (ex.Club Bella Sun)": {
         "history_max": 14062.0,
@@ -147,7 +173,7 @@
         "premium_peak": null
       },
       "Xoria Deluxe": {
-        "history_max": 13779.0,
+        "history_max": 13968.0,
         "premium_peak": null
       },
       "Mira Meridia Beach Resort": {
@@ -295,8 +321,8 @@
         "premium_peak": 18192.0
       },
       "Sural Resort": {
-        "history_max": 18600.0,
-        "premium_peak": 18600.0
+        "history_max": 19059.0,
+        "premium_peak": 19059.0
       },
       "Sural": {
         "history_max": 16511.0,
@@ -507,8 +533,8 @@
         "premium_peak": 19107.0
       },
       "Saphir Resort": {
-        "history_max": 18294.0,
-        "premium_peak": 18294.0
+        "history_max": 18372.0,
+        "premium_peak": 18372.0
       },
       "Prime Beach": {
         "history_max": 19429.0,
@@ -603,8 +629,8 @@
         "premium_peak": null
       },
       "Side Premium by OZ Hotels": {
-        "history_max": 16843.0,
-        "premium_peak": 16843.0
+        "history_max": 17111.0,
+        "premium_peak": 17111.0
       },
       "Side Moon Palace": {
         "history_max": 16672.0,
@@ -691,8 +717,8 @@
         "premium_peak": null
       },
       "Club Nena (Side)": {
-        "history_max": 17174.0,
-        "premium_peak": 17174.0
+        "history_max": 17489.0,
+        "premium_peak": 17489.0
       },
       "Club Kastalia": {
         "history_max": 15717.0,
@@ -795,8 +821,8 @@
         "premium_peak": 18557.0
       },
       "Dizalya Palm Garden": {
-        "history_max": 15700.0,
-        "premium_peak": null
+        "history_max": 16014.0,
+        "premium_peak": 16014.0
       },
       "Eftalia Aqua": {
         "history_max": 15938.0,
@@ -891,8 +917,8 @@
         "premium_peak": 17502.0
       },
       "Aska Bayview (ex. Aska Buse)": {
-        "history_max": 18834.0,
-        "premium_peak": 18834.0
+        "history_max": 19174.0,
+        "premium_peak": 19174.0
       },
       "Aska Just in Beach": {
         "history_max": 15473.0,
@@ -1039,8 +1065,8 @@
         "premium_peak": 16007.0
       },
       "Lonicera Resort & Spa": {
-        "history_max": 17309.0,
-        "premium_peak": 17309.0
+        "history_max": 18165.0,
+        "premium_peak": 18165.0
       },
       "Lonicera Premium": {
         "history_max": 16713.0,
@@ -1055,8 +1081,8 @@
         "premium_peak": 19297.0
       },
       "Palemon Resort & Spa": {
-        "history_max": 15492.0,
-        "premium_peak": null
+        "history_max": 16009.0,
+        "premium_peak": 16009.0
       },
       "Ozkaymak Select Resort (ex. Otium Ozkaymak Select)": {
         "history_max": 15010.0,
@@ -1107,7 +1133,7 @@
         "premium_peak": 16957.0
       },
       "Nova Life": {
-        "history_max": 14490.0,
+        "history_max": 15246.0,
         "premium_peak": null
       },
       "Narcia Resort Side": {
@@ -1313,6 +1339,10 @@
       "Zena Resort": {
         "history_max": 18172.0,
         "premium_peak": 18172.0
+      },
+      "Crystal Sunset Pearl Collection (ex Crystal Sunset Luxury Resort)": {
+        "history_max": 19098.0,
+        "premium_peak": 19098.0
       }
     }
   }
