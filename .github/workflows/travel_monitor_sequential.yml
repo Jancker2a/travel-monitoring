@@ -1,9 +1,10 @@
 name: Travel Price Monitor
 
 on:
-  # Paused automatic hourly schedule to conserve GitHub Actions minutes quota (available via workflow_dispatch)
-  # schedule:
-  #   - cron: "17 * * * *"
+  schedule:
+    # Ежедневный утренний запуск в 07:17 UTC (08:17 Warsaw) для свежего дайджеста и обновления цен
+    # Расходует всего ~30 запусков в месяц (~450 мин/мес из 2000 бесплатных минут GitHub Actions)
+    - cron: "17 7 * * *"
   workflow_dispatch:
     inputs:
       ai_mode:
@@ -23,6 +24,11 @@ on:
           - gpt-5.4-mini
           - gpt-4o
         default: gpt-4o-mini
+      send_digest:
+        description: "Принудительно отправить Telegram дайджест (--force-digest)"
+        required: false
+        type: boolean
+        default: false
       force_refresh_ai:
         description: "Принудительно сбросить AI-кэш и пересчитать всё заново"
         required: false
@@ -299,7 +305,11 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
           echo "📱 Processing Telegram notifications..."
-          python telegram_notifier.py || echo "⚠️ Telegram notification step completed with warning (non-critical)"
+          EXTRA_ARGS=""
+          if [ "${{ github.event.inputs.send_digest }}" = "true" ]; then
+            EXTRA_ARGS="--force-digest"
+          fi
+          python telegram_notifier.py $EXTRA_ARGS || echo "⚠️ Telegram notification step completed with warning (non-critical)"
 
       - name: Create summary
         if: always()

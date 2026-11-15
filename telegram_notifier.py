@@ -777,15 +777,16 @@ def process_notifications(
         max_msgs = int(schedule.get("max_messages_per_hour", 5))
 
         is_quiet = (current_hour in quiet_hours) and not force_instant
-        is_digest_time = (current_hour == daily_digest_hour) or force_digest
+        digest_cache_key = f"{chat_id}:daily_digest:{now_sub_time.strftime('%Y-%m-%d')}"
+        digests_cache = sent_cache.setdefault("digests", {})
+        has_sent_today = digest_cache_key in digests_cache
+        is_digest_time = force_digest or (not has_sent_today and current_hour >= daily_digest_hour and not is_quiet)
 
-        logger.info(f"Processing subscriber '{sub_name}' (Chat: {chat_id}, Local time: {now_sub_time.strftime('%H:%M %Z')}, Quiet: {is_quiet}, Digest: {is_digest_time})")
+        logger.info(f"Processing subscriber '{sub_name}' (Chat: {chat_id}, Local time: {now_sub_time.strftime('%H:%M %Z')}, Quiet: {is_quiet}, Digest: {is_digest_time}, AlreadySentToday: {has_sent_today})")
 
         # A. Send Daily Digest if scheduled
         if is_digest_time and rules.get("notify_market_summary", True):
-            digest_cache_key = f"{chat_id}:daily_digest:{now_sub_time.strftime('%Y-%m-%d')}"
-            digests_cache = sent_cache.setdefault("digests", {})
-            if digest_cache_key not in digests_cache or force_digest:
+            if not has_sent_today or force_digest:
                 applicable_summaries = [
                     s for fid, s in filter_summaries.items()
                     if not sub_filters or fid in sub_filters
