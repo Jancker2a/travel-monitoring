@@ -687,7 +687,8 @@ def format_daily_digest_message(summaries: List[FilterDataSummary], subscriber_n
         if not s.hotel_metrics:
             continue
         title = html.escape(s.filter_title)
-        lines.append(f"🎯 <b>{title}</b> (активно {s.total_active_hotels} отелей):")
+        filter_page_url = f"https://jancker2a.github.io/travel-monitoring/index_filter_{s.filter_id}.html"
+        lines.append(f'🎯 <a href="{filter_page_url}"><b>{title}</b></a> (активно {s.total_active_hotels} отелей):')
         
         # Stats
         if s.hotels_down_count > 0 or s.hotels_up_count > 0:
@@ -697,7 +698,17 @@ def format_daily_digest_message(summaries: List[FilterDataSummary], subscriber_n
             bd = s.best_deal
             bd_name = html.escape(bd["hotel_name"])
             bd_price = f"{bd['current_price']:,.0f}".replace(",", " ")
-            lines.append(f"  🔥 Топ-дил: <b>{bd_name}</b> — <b>{bd_price} PLN</b> (Deal Score {bd['deal_score']}, {bd['delta_48h_pct']:+.1f}%)")
+            bd_url = bd.get("offer_url") or ""
+            hotel_link = f'<a href="{bd_url}"><b>{bd_name}</b></a>' if bd_url else f"<b>{bd_name}</b>"
+            details = []
+            if bd.get("dates"):
+                details.append(str(bd["dates"]))
+            if bd.get("duration"):
+                details.append(str(bd["duration"]))
+            if bd.get("airport"):
+                details.append(f"из {bd['airport']}")
+            det_str = f" ({' • '.join(details)})" if details else ""
+            lines.append(f"  🔥 Топ-дил: {hotel_link}{det_str} — <b>{bd_price} PLN</b> (Deal Score {bd['deal_score']}, {bd['delta_48h_pct']:+.1f}%)")
         lines.append("")
 
     lines.append("━━━━━━━━━━━━━━━━━━")
