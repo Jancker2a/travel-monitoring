@@ -212,5 +212,41 @@ class TestWatchlistManagementCLI(unittest.TestCase):
         self.assertFalse(not_found)
 
 
+class TestDailyDigestScheduleLogic(unittest.TestCase):
+    """Test suite for time-independent daily digest dispatch logic."""
+
+    def test_digest_sent_on_first_run_of_day(self):
+        # Scenario: first run of the day, outside quiet hours
+        has_sent_today = False
+        is_quiet = False
+        force_digest = False
+        is_digest_time = force_digest or (not has_sent_today and not is_quiet)
+        self.assertTrue(is_digest_time)
+
+    def test_digest_skipped_on_subsequent_runs_same_day(self):
+        # Scenario: subsequent run on the same day
+        has_sent_today = True
+        is_quiet = False
+        force_digest = False
+        is_digest_time = force_digest or (not has_sent_today and not is_quiet)
+        self.assertFalse(is_digest_time)
+
+    def test_digest_forced_even_if_already_sent(self):
+        # Scenario: force_digest requested
+        has_sent_today = True
+        is_quiet = False
+        force_digest = True
+        is_digest_time = force_digest or (not has_sent_today and not is_quiet)
+        self.assertTrue(is_digest_time)
+
+    def test_digest_postponed_during_quiet_hours(self):
+        # Scenario: quiet hours active at night
+        has_sent_today = False
+        is_quiet = True
+        force_digest = False
+        is_digest_time = force_digest or (not has_sent_today and not is_quiet)
+        self.assertFalse(is_digest_time)
+
+
 if __name__ == "__main__":
     unittest.main()

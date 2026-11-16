@@ -780,7 +780,8 @@ def process_notifications(
         digest_cache_key = f"{chat_id}:daily_digest:{now_sub_time.strftime('%Y-%m-%d')}"
         digests_cache = sent_cache.setdefault("digests", {})
         has_sent_today = digest_cache_key in digests_cache
-        is_digest_time = force_digest or (not has_sent_today and current_hour >= daily_digest_hour and not is_quiet)
+        # Send digest on the first non-quiet run of the calendar day, regardless of exact hour
+        is_digest_time = force_digest or (not has_sent_today and not is_quiet)
 
         logger.info(f"Processing subscriber '{sub_name}' (Chat: {chat_id}, Local time: {now_sub_time.strftime('%H:%M %Z')}, Quiet: {is_quiet}, Digest: {is_digest_time}, AlreadySentToday: {has_sent_today})")
 
