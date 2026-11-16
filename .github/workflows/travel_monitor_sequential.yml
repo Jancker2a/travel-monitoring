@@ -306,7 +306,7 @@ jobs:
         run: |
           echo "📱 Processing Telegram notifications..."
           EXTRA_ARGS=""
-          if [ "${{ github.event.inputs.send_digest }}" = "true" ]; then
+          if [ "${{ github.event_name }}" = "schedule" ] || [ "${{ github.event.inputs.send_digest }}" = "true" ]; then
             EXTRA_ARGS="--force-digest"
           fi
           python telegram_notifier.py $EXTRA_ARGS || echo "⚠️ Telegram notification step completed with warning (non-critical)"
