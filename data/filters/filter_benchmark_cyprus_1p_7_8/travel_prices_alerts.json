@@ -1,5 +1,183 @@
 {
   "version": 2,
-  "alerts": [],
-  "meta": {}
+  "alerts": [
+    {
+      "hotel_name": "Nissi Blu Beach Resort",
+      "duration_bucket": "",
+      "old_price": 7977.0,
+      "new_price": 8027.0,
+      "price_change": 50.0,
+      "price_change_pct": 0.6268020559107434,
+      "timestamp": "2026-11-18 21:28:19.998212+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-18T21:28:43.391094+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Nissi Blu Beach Resort_2026-11-18_21-28_zone_out_+0.6"
+    }
+  ],
+  "meta": {
+    "last_processed_run": "2026-11-18T21:28:19.998212+00:00",
+    "premium_state": {
+      "Acapulco Resort": {
+        "history_max": 4149.0,
+        "premium_peak": null
+      },
+      "Eleni Resort (ex. Eleni Holiday Village)": {
+        "history_max": 3487.0,
+        "premium_peak": null
+      },
+      "Grand Resort (Limassol)": {
+        "history_max": 8403.0,
+        "premium_peak": 8403.0
+      },
+      "Grand Sapphire Resort (Famagusta)": {
+        "history_max": 5079.0,
+        "premium_peak": null
+      },
+      "Kapetanios Aqua Resort (ex. Aqua Sol Holiday Village)": {
+        "history_max": 4827.0,
+        "premium_peak": null
+      },
+      "King Evelthon Beach Hotel and Resort": {
+        "history_max": 3880.0,
+        "premium_peak": null
+      },
+      "King Jason Paphos": {
+        "history_max": 5199.0,
+        "premium_peak": null
+      },
+      "Leonardo Cypria Maris (ex. RIU)": {
+        "history_max": 6444.0,
+        "premium_peak": null
+      },
+      "Leonardo Plaza Cypria Maris Beach & Spa (ex Cyprotel)": {
+        "history_max": 3700.0,
+        "premium_peak": null
+      },
+      "Limak Cyprus Deluxe": {
+        "history_max": 7234.0,
+        "premium_peak": null
+      },
+      "Constantinou Bros Athena Beach (Paphos)": {
+        "history_max": 4462.0,
+        "premium_peak": null
+      },
+      "Lord's Palace": {
+        "history_max": 6069.0,
+        "premium_peak": null
+      },
+      "Mayfair Gardens": {
+        "history_max": 3319.0,
+        "premium_peak": null
+      },
+      "Merit Royal Gardens Hotel and Casino": {
+        "history_max": 12269.0,
+        "premium_peak": 12269.0
+      },
+      "Nissi Blu Beach Resort": {
+        "history_max": 8027.0,
+        "premium_peak": 8027.0
+      },
+      "Olympic Lagoon Resort Paphos": {
+        "history_max": 6231.0,
+        "premium_peak": null
+      },
+      "Salamis Bay Conti": {
+        "history_max": 5306.0,
+        "premium_peak": null
+      },
+      "Sofianna": {
+        "history_max": 4549.0,
+        "premium_peak": null
+      },
+      "St. George Beach Hotel & Spa Resort": {
+        "history_max": 3883.0,
+        "premium_peak": null
+      },
+      "St. Raphael Resort": {
+        "history_max": 6875.0,
+        "premium_peak": null
+      },
+      "Thalassa Boutique & SPA (ex. SENTIDO Thalassa Coral Bay)": {
+        "history_max": 5666.0,
+        "premium_peak": null
+      },
+      "Mayfair": {
+        "history_max": 3262.0,
+        "premium_peak": null
+      },
+      "Constantinos The Great Beach": {
+        "history_max": 3909.0,
+        "premium_peak": null
+      },
+      "Kaya Artemis": {
+        "history_max": 6857.0,
+        "premium_peak": null
+      },
+      "Bohemian Gardens (Protaras)": {
+        "history_max": 4215.0,
+        "premium_peak": null
+      },
+      "Concorde Luxury Resort (Vokolida)": {
+        "history_max": 10351.0,
+        "premium_peak": 10351.0
+      },
+      "Concorde Aria": {
+        "history_max": 9429.0,
+        "premium_peak": 9429.0
+      },
+      "Akamanthea Holiday": {
+        "history_max": 4543.0,
+        "premium_peak": null
+      },
+      "Chrysomare": {
+        "history_max": 4433.0,
+        "premium_peak": null
+      },
+      "Cali Resort & Spa": {
+        "history_max": 6272.0,
+        "premium_peak": null
+      },
+      "Aktea Beach Village": {
+        "history_max": 4602.0,
+        "premium_peak": null
+      },
+      "Asterias Beach (Ayia Napa)": {
+        "history_max": 5137.0,
+        "premium_peak": null
+      },
+      "Chamada Prestige (ex. Malpas Hotel & Casino)": {
+        "history_max": 8129.0,
+        "premium_peak": 8129.0
+      },
+      "Cavo Zoe Seaside (ex. Iris Splash Beach)": {
+        "history_max": 12168.0,
+        "premium_peak": 12168.0
+      },
+      "Aquamare Beach & Spa": {
+        "history_max": 5105.0,
+        "premium_peak": null
+      },
+      "Paphos Gardens Holiday Resort (ex Leptos )": {
+        "history_max": 3771.0,
+        "premium_peak": null
+      },
+      "Avlida": {
+        "history_max": 3187.0,
+        "premium_peak": null
+      },
+      "Louis Phaethon Beach": {
+        "history_max": 3760.0,
+        "premium_peak": null
+      },
+      "Louis Ivi Mare": {
+        "history_max": 6793.0,
+        "premium_peak": null
+      },
+      "Theo Sunset Bay Holiday Village (Pafos)": {
+        "history_max": 3418.0,
+        "premium_peak": null
+      }
+    }
+  }
 }

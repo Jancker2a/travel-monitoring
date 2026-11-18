@@ -4,14 +4,9 @@
     "market_phase": "Спокойные цены (30.11–10.12)",
     "filter_title": "Греция • 7–10 дней",
     "charter_dynamics": "Ближайшие вылеты стартуют через 12 дн. (30.11), а дальний край охватывает даты до 10.12 (22 дн.). Вся подборка находится на стабильном уровне без резких скачков, средняя цена около 8,818 zł. Подборка живая и регулярно обновляется. Погода (Греция): Мягкая приятная зима (+15..+18°C днем), море прохладное (+17..+18°C). Идеальное время для неспешных прогулок по Афинам, музеям и античным памятникам без толп и летней жары.",
-    "floor_status": "5 отелей (83.3%) сейчас отдают по минимальной цене за сезон.",
+    "floor_status": "0 отелей (0.0%) сейчас отдают по минимальной цене за сезон.",
     "strategic_directive": "Спешить некуда, времени достаточно. За 10–14 дней до вылета на 30.11 начнут появляться первые скидки. Для дальних дат (10.12) сейчас имеет смысл бронировать только самые популярные отели, где быстро кончаются номера.",
     "key_anomalies": [
-      {
-        "type": "floor",
-        "title": "Ценовое дно: 5 отелей (83.3%)",
-        "text": "Зафиксирована самая низкая цена за весь сезон. Цены начинаются от 5,937 zł."
-      },
       {
         "type": "gem",
         "title": "💎 Скрытая жемчужина: Zeus Wyndham Grand Athens",
@@ -20,7 +15,12 @@
       {
         "type": "arbitrage",
         "title": "✈️ Разница вылетов: Gdańsk vs Warszawa - Okęcie",
-        "text": "Вылет из Gdańsk в среднем на 7,953 zł дешевле, чем из Warszawa - Okęcie"
+        "text": "Вылет из Gdańsk в среднем на 8,073 zł дешевле, чем из Warszawa - Okęcie"
+      },
+      {
+        "type": "duration",
+        "title": "⏳ Выгодная длительность: 9 дн.",
+        "text": "Доплата за отдых 9 дн. вместо 8 дн. составляет -3,850 zł (-3,850 zł в день)"
       }
     ],
     "synthesized_by": "Rule-Based Deterministic Engine (Offline)",
@@ -33,18 +33,18 @@
         {
           "hotel_name": "Zeus Wyndham Grand Athens",
           "price": 7263.0,
-          "score": 230,
+          "score": 180,
           "badge": "💎 Жемчужина 4.5★",
-          "why_buy": "Высокий рейтинг 4.5★ по цене эконом-сегмента, выгодный момент покупки (d-15…d-30), цена на дне сезона (−9% от пика), хороший рейтинг 4.4★ (7,263 zł).",
+          "why_buy": "Высокий рейтинг 4.5★ по цене эконом-сегмента, выгодный момент покупки (d-15…d-30), хороший рейтинг 4.4★ (7,263 zł).",
           "offer_url": "https://fly.pl/wycieczka/grecja,ateny,c/wyndham-grand-athens-ex-classical-athen-imperial/XTOP0e89dbX_wYAAHNOYVBwWQGuAQDuB_ITCpABCgYI4IkGEAESBgjCxAcQARp-TVBVVzJHRjIzTjFWNkpNVzVLSUdTOUdCMVBESFJTTEM5QUVXWjgyN1gwWTlOVENTRlpDUzVDNEE0TDUzNDVQM1pKR08zQ1FEOEtZRVVBQVFKQ0dPRElGTFhNNVpMSzMwUVFVVUQwTkxKQ1lESk83OEhVTzlRR0E1UUg2WkE2Cn8KBgid2QYQAhIGCO7YIxABGm1PNTQ1NDRkNTMyZjQxNDc1MjQxNTQ0ODM4NDU0MzU5MmY1MjRkNTM0NDQ0NDIzMDMwMzAzMDJmNDI0MjJmMzcyZjMyMzAzMjM2MzEzMjMwMzUyZjMwMzEzMjMzMzQzNTM2MzczODM5MzAzMTMyCh0KAhABEgIQARoTRFNSVC0xMTAtTk9UUkFOU0ZFUgogCgUIzDoQARIFCPNGEAEaEERTUk0tMTEwLTJyMjI2MDcKIQoFCMYKEAESBQjiDBABGhFEU1JNLTExMC0zNXIyMjYwOAoiCgUI8C4QARIFCJg5EAEaEkRTUlUtMTEwLVViZXpiYXNpYxhuKFQyBgidqiwQATgD/?operator=XTOP&adults=2&children=2020-12-10&objectId=80874&durationFrom=7&durationTo=10&departureDate=2026-12-05&returnDate=2026-12-12&departureLocation=Modlin&catering=breakfast&transport=accommodation_flight&duration=7&nights=7"
         },
         {
           "hotel_name": "Life Gallery Athens Hotel",
           "price": 10717.0,
-          "score": 162.25,
-          "badge": "🔥 -13% в премиум 4★",
-          "why_buy": "На 13% дешевле равных отелей сегмента премиум, выгодный момент покупки (d-15…d-30), цена на дне сезона (−8% от пика), хороший рейтинг 4.2★ (10,717 zł).",
-          "offer_url": "https://fly.pl/wycieczka/grecja,ateny,c/life-gallery-athens-12/pWne6iTa2S6zIg5V5IBwh2AAogAJj6lkZwSpBz0IfhFb5y6nR3da6GGK6dBcInEI3HBOMqBFZJVFgwyMn21wZI3VNQQVjyAmACagpBR1JBVEhLUjJBagpTVDAwMDAwMDAwagxXTUlBVEhEUDYwMTBqDEFUSFdNSURQNjAxMHI0kQGbAZ0BjwEaABcHFQBcCFgAQI8DU6dqUgBe1pUBS49HYQBM7oQ4ILyDmgkNAAIMYwECC4xMuaM/?operator=VITX&adults=2&children=2020-12-10&objectId=238602&durationFrom=7&durationTo=10&departureDate=2026-12-04&returnDate=2026-12-11&departureLocation=Warszawa+-+Modlin&catering=breakfast&transport=accommodation_flight&duration=7&nights=7"
+          "score": 80,
+          "badge": "🎯 Окно покупки: D-15…D-30 (сейчас!)",
+          "why_buy": "Выгодный момент покупки (d-15…d-30), хороший рейтинг 4.2★ (10,717 zł).",
+          "offer_url": "https://fly.pl/wycieczka/grecja,ateny,c/life-gallery-athens-12/pWne6iTa2S6zIg5V5IBwh2AAogAJj6lkZwSpBz0IfhFb5y6nR3da6GGK6dBcInEI3HBOMqBFZJVFgwqrL41wZI3VNQQVjqAmACagpBR1JBVEhLUjJBagpTVDAwMDAwMDAwagxXTUlBVEhEUDYwMTBqDEFUSFdNSURQNjAxMHI0kQGbAZ0BjwEaABcHFQBcCFgAQI8DU6dqUgBe1pUBS49HYQBM7oQ4ILyDmgkNAAIMYwECC9dx55g/?operator=VITX&adults=2&children=2020-12-10&objectId=238602&durationFrom=7&durationTo=10&departureDate=2026-12-04&returnDate=2026-12-11&departureLocation=Warszawa+-+Modlin&catering=breakfast&transport=accommodation_flight&duration=7&nights=7"
         }
       ]
     }
@@ -53,7 +53,7 @@
     "Electra Palace Athens": {
       "verdict": "BUY_NOW",
       "badge_text": "🟢 ПОКУПАТЬ",
-      "rationale": "Цена 13,890 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
+      "rationale": "Цена 14,131 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
       "risk_assessment": "Номера в этом отеле популярны, к дате вылета мест может не остаться.",
       "action_advice": "Если отель нравится — фиксируйте бронь прямо сегодня, дешевле уже вряд ли будет.",
       "booking_window_badge": "",
@@ -77,9 +77,9 @@
       "booking_window_badge": "🎯 Окно покупки: D-15…D-30 (сейчас!)",
       "booking_window_class": "in_window",
       "booking_window_tip": "Текущий момент (D-16) совпадает со скидочным окном (D-15…D-30), и цена снижена относительно нормы (10,717 zł при медиане 11,637 zł).",
-      "fair_price_badge": "🔥 −13% к равным премиум 4★",
+      "fair_price_badge": "🔥 −14% к равным премиум 4★",
       "fair_price_class": "fair-underpriced",
-      "fair_price_tip": "Цена на 13% ниже медианы равных отелей сегмента премиум 4★ (12,304 zł) и не превышает обычную цену отеля (11,637 zł).",
+      "fair_price_tip": "Цена на 14% ниже медианы равных отелей сегмента премиум 4★ (12,424 zł) и не превышает обычную цену отеля (10,717 zł).",
       "gem_badge": "",
       "gem_tip": "",
       "flash_drop_badge": "",
@@ -97,7 +97,7 @@
       "booking_window_tip": "Окно максимальных скидок (D-15…D-30) уже прошло. Текущий день: D-12.",
       "fair_price_badge": "🔥 −10% к равным эконом 4★",
       "fair_price_class": "fair-underpriced",
-      "fair_price_tip": "Цена на 10% ниже медианы равных отелей сегмента эконом 4★ (6,600 zł) и не превышает обычную цену отеля (6,677 zł).",
+      "fair_price_tip": "Цена на 10% ниже медианы равных отелей сегмента эконом 4★ (6,600 zł) и не превышает обычную цену отеля (5,937 zł).",
       "gem_badge": "",
       "gem_tip": "",
       "flash_drop_badge": "",
@@ -133,7 +133,7 @@
       "booking_window_tip": "Текущий момент (D-17) совпадает со скидочным окном (D-15…D-30), и цена снижена относительно нормы (7,848 zł при медиане 8,605 zł).",
       "fair_price_badge": "🔥 −11% к равным комфорт 4★",
       "fair_price_class": "fair-underpriced",
-      "fair_price_tip": "Цена на 11% ниже медианы равных отелей сегмента комфорт 4★ (8,818 zł) и не превышает обычную цену отеля (8,605 zł).",
+      "fair_price_tip": "Цена на 11% ниже медианы равных отелей сегмента комфорт 4★ (8,818 zł) и не превышает обычную цену отеля (7,848 zł).",
       "gem_badge": "",
       "gem_tip": "",
       "flash_drop_badge": "",
