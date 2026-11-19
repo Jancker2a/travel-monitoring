@@ -13,10 +13,23 @@
       "created_at": "2026-11-18T21:32:47.342159+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Leonardo Boutique Larnaca_2026-11-18_21-31_+10.1"
+    },
+    {
+      "hotel_name": "Capital Coast Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 5649.0,
+      "new_price": 3599.0,
+      "price_change": -2050.0,
+      "price_change_pct": -36.2896087803151,
+      "timestamp": "2026-11-19 03:32:26.200038+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-19T03:33:03.114716+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Capital Coast Resort & Spa_2026-11-19_03-32_-36.3"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-18T21:31:41.416406+00:00",
+    "last_processed_run": "2026-11-19T03:32:26.200038+00:00",
     "premium_state": {
       "Acapulco Resort": {
         "history_max": 3629.0,
@@ -135,7 +148,7 @@
         "premium_peak": null
       },
       "Leonardo Boutique Larnaca": {
-        "history_max": 5399.0,
+        "history_max": 5479.0,
         "premium_peak": null
       },
       "Constantinou Bros Athena Royal Beach": {
@@ -240,6 +253,10 @@
       },
       "Chrysomare": {
         "history_max": 4592.0,
+        "premium_peak": null
+      },
+      "NYX Limassol by Leonardo": {
+        "history_max": 5793.0,
         "premium_peak": null
       }
     }

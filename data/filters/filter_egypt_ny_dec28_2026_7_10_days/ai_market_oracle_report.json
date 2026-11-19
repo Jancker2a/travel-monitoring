@@ -1,26 +1,16 @@
 {
   "macro_briefing": {
-    "headline": "До вылета 41 дн.: цены стабильные, можно спокойно выбирать отель",
-    "market_phase": "Ранний выбор (вылет через 41 дн.)",
+    "headline": "До вылета 40 дн.: цены стабильные, можно спокойно выбирать отель",
+    "market_phase": "Ранний выбор (вылет через 40 дн.)",
     "filter_title": "Египет • НГ 28.12–06.01 • 7–10 дн.",
-    "charter_dynamics": "До вылета 41 дн. (29.12). Рынок спокойный, средняя цена держится на уровне 10,467 zł. Резких сбросов цен пока нет. Погода (Египет): Теплое море (+23..+26°C), воздух днем +24..+28°C. Ключевой фактор комфорта — закрытая от зимних ветров бухта (Наама Бэй, Рас Ум Сид) и подогреваемый бассейн.",
-    "floor_status": "1 отелей (9.1%) сейчас отдают по минимальной цене за сезон.",
+    "charter_dynamics": "До вылета 40 дн. (29.12). Рынок спокойный, средняя цена держится на уровне 10,664 zł. Резких сбросов цен пока нет. Погода (Египет): Теплое море (+23..+26°C), воздух днем +24..+28°C. Ключевой фактор комфорта — закрытая от зимних ветров бухта (Наама Бэй, Рас Ум Сид) и подогреваемый бассейн.",
+    "floor_status": "0 отелей (0.0%) сейчас отдают по минимальной цене за сезон.",
     "strategic_directive": "Спешить не нужно. Сохраняйте понравившиеся отели в Избранное (☆) и ждите: за 10–14 дней до вылета часто начинаются первые скидки.",
     "key_anomalies": [
       {
-        "type": "floor",
-        "title": "Ценовое дно: 1 отелей (9.1%)",
-        "text": "Зафиксирована самая низкая цена за весь сезон. Цены начинаются от 8,967 zł."
-      },
-      {
-        "type": "arbitrage",
-        "title": "✈️ Разница вылетов: Warszawa - Modlin vs Warszawa - Okęcie",
-        "text": "Вылет из Warszawa - Modlin в среднем на 375 zł дешевле, чем из Warszawa - Okęcie"
-      },
-      {
         "type": "duration",
-        "title": "⏳ Выгодная длительность: 9 дн.",
-        "text": "Доплата за отдых 9 дн. вместо 8 дн. составляет -276 zł (-276 zł в день)"
+        "title": "⏳ Выгодная длительность: 10 дн.",
+        "text": "Доплата за отдых 10 дн. вместо 8 дн. составляет 63 zł (32 zł в день)"
       }
     ],
     "synthesized_by": "Rule-Based Deterministic Engine (Offline)",
@@ -34,11 +24,11 @@
   },
   "hotel_dossiers": {
     "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
-      "verdict": "BUY_NOW",
-      "badge_text": "🟢 ПОКУПАТЬ",
-      "rationale": "Цена 9,969 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
-      "risk_assessment": "Номера в этом отеле популярны, к дате вылета мест может не остаться.",
-      "action_advice": "Если отель нравится — фиксируйте бронь прямо сегодня, дешевле уже вряд ли будет.",
+      "verdict": "WAIT",
+      "badge_text": "🟡 ПОДОЖДАТЬ",
+      "rationale": "Отель сейчас стоит 10,935 zł — это обычная базовая цена за сезон (медиана 10,935 zł).",
+      "risk_assessment": "Цена не снижена, туроператор пока не давал скидок на эти даты.",
+      "action_advice": "Спешить не нужно: добавьте в Избранное (☆) и подождите приближения вылета.",
       "booking_window_badge": "",
       "booking_window_class": "early",
       "booking_window_tip": "Историческое дно цены наступает за D-4…D-7. Сейчас D-41 (рано).",
@@ -72,7 +62,7 @@
     "Dreams Beach (Marsa Alam)": {
       "verdict": "WAIT",
       "badge_text": "🟡 ПОДОЖДАТЬ",
-      "rationale": "Отель сейчас стоит 10,912 zł — это обычная базовая цена за сезон (медиана 10,800 zł).",
+      "rationale": "Отель сейчас стоит 10,912 zł — это обычная базовая цена за сезон (медиана 10,912 zł).",
       "risk_assessment": "Цена не снижена, туроператор пока не давал скидок на эти даты.",
       "action_advice": "Спешить не нужно: добавьте в Избранное (☆) и подождите приближения вылета.",
       "booking_window_badge": "",
@@ -86,6 +76,31 @@
       "flash_drop_badge": "",
       "flash_drop_tip": "",
       "dupe_suggestion": null
+    },
+    "Novotel Marsa Alam": {
+      "verdict": "OVERPRICED",
+      "badge_text": "🔴 ДОРОГО",
+      "rationale": "Цена 10,997 zł на 27% выше обычной средней цены этого отеля (8,647 zł).",
+      "risk_assessment": "Высокий риск переплаты. Туроператор держит завышенную цену.",
+      "action_advice": "Покупать сейчас крайне невыгодно. Добавьте в Избранное (☆) и ждите снижения.",
+      "booking_window_badge": "",
+      "booking_window_class": "early",
+      "booking_window_tip": "Историческое дно цены наступает за D-1…D-3. Сейчас D-41 (рано).",
+      "fair_price_badge": "⚠️ Дороже обычного",
+      "fair_price_class": "fair-overpriced",
+      "fair_price_tip": "Цена на +1% отличается от сопоставимых отелей сегмента премиум 4★ (10,924 zł) или превышает историческую норму отеля (8,647 zł).",
+      "gem_badge": "",
+      "gem_tip": "",
+      "flash_drop_badge": "",
+      "flash_drop_tip": "",
+      "dupe_suggestion": {
+        "hotel_name": "Retac Qunay Dahab Resort & Spa",
+        "price": 8967.0,
+        "savings": 2030.0,
+        "savings_pln": 2030.0,
+        "rating": 4.3,
+        "offer_url": "https://fly.pl/wycieczka/egipt,dahab,c/le-meridien-dahab-bay/pIKXSvqJeW_IzCGc7EeiWsAAogC2GWWoGmQubsCdzu48v0WuIbYlrNTs3RwUwKKcJM8ZQqBFZJVFgw7Nr51wZIh0ZQQVi8B2ACagpBRUdTU0hKUFQ2agpSTVNEREJWUDAwagxXTUlTU0hEUDMwMDJqDFNTSFdNSURQMzAwMnI0kQGbAZ0BjwEaABcHFQBcA1gFQI8DXv3_AVOmIFIAS-kmYQBM7oQ4INWDmgkNAAIMYwECC-92N7o/?operator=VITX&adults=2&children=2020-12-10&objectId=1456&durationFrom=7&durationTo=10&departureDate=2026-12-29&returnDate=2027-01-05&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=7&nights=7"
+      }
     },
     "Parrotel Lagoon Resort": {
       "verdict": "BUY_NOW",
@@ -178,29 +193,22 @@
       "dupe_suggestion": null
     },
     "Swisstouch Oriental Resort (ex. Hotelux Oriental Coast)": {
-      "verdict": "OVERPRICED",
-      "badge_text": "🔴 ДОРОГО",
-      "rationale": "Цена 10,738 zł на 25% выше обычной средней цены этого отеля (8,606 zł).",
-      "risk_assessment": "Высокий риск переплаты. Туроператор держит завышенную цену.",
-      "action_advice": "Покупать сейчас крайне невыгодно. Добавьте в Избранное (☆) и ждите снижения.",
+      "verdict": "BUY_NOW",
+      "badge_text": "🟢 ПОКУПАТЬ",
+      "rationale": "Цена 10,738 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
+      "risk_assessment": "Номера в этом отеле популярны, к дате вылета мест может не остаться.",
+      "action_advice": "Если отель нравится — фиксируйте бронь прямо сегодня, дешевле уже вряд ли будет.",
       "booking_window_badge": "",
       "booking_window_class": "early",
-      "booking_window_tip": "Историческое дно цены наступает за D-8…D-14. Сейчас D-42 (рано).",
-      "fair_price_badge": "⚠️ Дороже обычного",
-      "fair_price_class": "fair-overpriced",
-      "fair_price_tip": "Цена на +0% отличается от сопоставимых отелей сегмента премиум 4★ (10,710 zł) или превышает историческую норму отеля (8,606 zł).",
+      "booking_window_tip": "Историческое дно цены наступает за D-8…D-14. Сейчас D-41 (рано).",
+      "fair_price_badge": "",
+      "fair_price_class": "",
+      "fair_price_tip": "",
       "gem_badge": "",
       "gem_tip": "",
       "flash_drop_badge": "",
       "flash_drop_tip": "",
-      "dupe_suggestion": {
-        "hotel_name": "Retac Qunay Dahab Resort & Spa",
-        "price": 8967.0,
-        "savings": 1771.0,
-        "savings_pln": 1771.0,
-        "rating": 4.3,
-        "offer_url": "https://fly.pl/wycieczka/egipt,dahab,c/le-meridien-dahab-bay/pIKXSvqJeW_IzCGc7EeiWsAAogC2GWWoGmQubsCdzu48v0WuIbYlrNTs3RwUwKKcJM8ZQqBFZJVFgw0bH41wZIh0ZQQVjCB2ACagpBRUdTU0hKUFQ2agpSTVNEREJWUDAwagxXTUlTU0hEUDMwMDJqDFNTSFdNSURQMzAwMnI0kQGbAZ0BjwEaABcHFQBcA1gFQI8DXv3_AVOmIFIAS-kmYQBM7oQ4INWDmgkNAAIMYwECC4jv38k/?operator=VITX&adults=2&children=2020-12-10&objectId=1456&durationFrom=7&durationTo=10&departureDate=2026-12-29&returnDate=2027-01-05&departureLocation=Warszawa+-+Modlin&catering=all_inclusive&transport=accommodation_flight&duration=7&nights=7"
-      }
+      "dupe_suggestion": null
     },
     "V Grand Beach Resort Sahl Hasheesh": {
       "verdict": "OVERPRICED",
@@ -228,7 +236,7 @@
       "action_advice": "Если отель нравится — фиксируйте бронь прямо сегодня, дешевле уже вряд ли будет.",
       "booking_window_badge": "",
       "booking_window_class": "early",
-      "booking_window_tip": "Историческое дно цены наступает за D-1…D-3. Сейчас D-41 (рано).",
+      "booking_window_tip": "Историческое дно цены наступает за D-1…D-3. Сейчас D-40 (рано).",
       "fair_price_badge": "",
       "fair_price_class": "",
       "fair_price_tip": "",

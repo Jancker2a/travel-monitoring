@@ -13,10 +13,36 @@
       "created_at": "2026-11-18T21:31:14.440316+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Ramada Plaza Antalya_2026-11-18_21-30_+10.6"
+    },
+    {
+      "hotel_name": "Villa Side Residence",
+      "duration_bucket": "",
+      "old_price": 8827.0,
+      "new_price": 8076.0,
+      "price_change": -751.0,
+      "price_change_pct": -8.507986858502322,
+      "timestamp": "2026-11-19 03:31:31.466740+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-19T03:32:24.496133+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Villa Side Residence_2026-11-19_03-31_-8.5"
+    },
+    {
+      "hotel_name": "Aska Lara Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 9620.0,
+      "new_price": 8338.0,
+      "price_change": -1282.0,
+      "price_change_pct": -13.326403326403327,
+      "timestamp": "2026-11-19 03:31:31.466740+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-19T03:32:24.496169+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Aska Lara Resort & Spa_2026-11-19_03-31_-13.3"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-18T21:30:35.492490+00:00",
+    "last_processed_run": "2026-11-19T03:31:31.466740+00:00",
     "premium_state": {
       "Acanthus & Cennet Barut Collection": {
         "history_max": 14850.0,
@@ -381,6 +407,10 @@
       "IC Santai Family Resort (Belek)": {
         "history_max": 10339.0,
         "premium_peak": 10339.0
+      },
+      "Port River & Spa": {
+        "history_max": 6922.0,
+        "premium_peak": null
       }
     }
   }

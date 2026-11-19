@@ -26,10 +26,62 @@
       "created_at": "2026-11-18T21:30:02.580024+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sea Star Beau Rivage_2026-11-18_21-29_zone_out_gone"
+    },
+    {
+      "hotel_name": "AMC Royal Hotel & Spa (ex. AMC Azur Resort)",
+      "duration_bucket": "",
+      "old_price": 9969.0,
+      "new_price": 10935.0,
+      "price_change": 966.0,
+      "price_change_pct": 9.690039121275955,
+      "timestamp": "2026-11-19 03:30:47.758151+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-19T03:31:01.921359+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort)_2026-11-19_03-30_+9.7"
+    },
+    {
+      "hotel_name": "Rewaya Luxury Resort",
+      "duration_bucket": "",
+      "old_price": 10331.0,
+      "new_price": 10331.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-19 03:30:47.758151+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-19T03:31:01.921407+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Luxury Resort_2026-11-19_03-30_zone_out_gone"
+    },
+    {
+      "hotel_name": "Rewaya Majestic Resort",
+      "duration_bucket": "",
+      "old_price": 10467.0,
+      "new_price": 10467.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-19 03:30:47.758151+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-19T03:31:01.921426+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Majestic Resort_2026-11-19_03-30_zone_out_gone"
+    },
+    {
+      "hotel_name": "V Grand Beach Resort Sahl Hasheesh",
+      "duration_bucket": "",
+      "old_price": 10652.0,
+      "new_price": 10652.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-19 03:30:47.758151+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-19T03:31:01.921440+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "V Grand Beach Resort Sahl Hasheesh_2026-11-19_03-30_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-18T21:29:47.752901+00:00",
+    "last_processed_run": "2026-11-19T03:30:47.758151+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 10935.0,
@@ -73,6 +125,10 @@
       },
       "V Grand Beach Resort Sahl Hasheesh": {
         "history_max": 10652.0,
+        "premium_peak": null
+      },
+      "Novotel Marsa Alam": {
+        "history_max": 10997.0,
         "premium_peak": null
       }
     }

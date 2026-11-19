@@ -52,10 +52,88 @@
       "created_at": "2026-11-18T21:30:31.237120+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Jolie Ville Resort and Casino_2026-11-18_21-29_zone_out_+4.0"
+    },
+    {
+      "hotel_name": "Domina Coral Bay Resort",
+      "duration_bucket": "",
+      "old_price": 9174.0,
+      "new_price": 8309.0,
+      "price_change": -865.0,
+      "price_change_pct": -9.428820579899716,
+      "timestamp": "2026-11-19 03:30:12.582110+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-19T03:31:24.729989+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Domina Coral Bay Resort_2026-11-19_03-30_-9.4"
+    },
+    {
+      "hotel_name": "Titanic Royal",
+      "duration_bucket": "",
+      "old_price": 6834.0,
+      "new_price": 7573.0,
+      "price_change": 739.0,
+      "price_change_pct": 10.813579163008487,
+      "timestamp": "2026-11-19 03:30:12.582110+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-19T03:31:24.730041+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Titanic Royal_2026-11-19_03-30_+10.8"
+    },
+    {
+      "hotel_name": "Invidia Coral Beach Tiran",
+      "duration_bucket": "",
+      "old_price": 9199.0,
+      "new_price": 8030.0,
+      "price_change": -1169.0,
+      "price_change_pct": -12.707903032938365,
+      "timestamp": "2026-11-19 03:30:12.582110+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-19T03:31:24.730061+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Invidia Coral Beach Tiran_2026-11-19_03-30_-12.7"
+    },
+    {
+      "hotel_name": "Gorgonia Beach",
+      "duration_bucket": "",
+      "old_price": 8120.0,
+      "new_price": 7412.0,
+      "price_change": -708.0,
+      "price_change_pct": -8.719211822660098,
+      "timestamp": "2026-11-19 03:30:12.582110+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-19T03:31:24.730081+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Gorgonia Beach_2026-11-19_03-30_-8.7"
+    },
+    {
+      "hotel_name": "Sea Star Beau Rivage",
+      "duration_bucket": "",
+      "old_price": 5490.0,
+      "new_price": 6082.0,
+      "price_change": 592.0,
+      "price_change_pct": 10.783242258652095,
+      "timestamp": "2026-11-19 03:30:12.582110+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-19T03:31:24.730121+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sea Star Beau Rivage_2026-11-19_03-30_+10.8"
+    },
+    {
+      "hotel_name": "Reef Oasis Blue Bay Resort",
+      "duration_bucket": "",
+      "old_price": 14767.0,
+      "new_price": 9342.0,
+      "price_change": -5425.0,
+      "price_change_pct": -36.73731969932958,
+      "timestamp": "2026-11-19 03:30:12.582110+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-11-19T03:31:24.730204+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Reef Oasis Blue Bay Resort_2026-11-19_03-30_comeback_36.7"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-18T21:29:30.546917+00:00",
+    "last_processed_run": "2026-11-19T03:30:12.582110+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 5306.0,
@@ -214,8 +292,8 @@
         "premium_peak": null
       },
       "Stella Di Mare Beach & Spa": {
-        "history_max": 10053.0,
-        "premium_peak": 10053.0
+        "history_max": 10262.0,
+        "premium_peak": 10262.0
       },
       "Jaz Belvedere": {
         "history_max": 7519.0,
@@ -230,7 +308,7 @@
         "premium_peak": 10447.0
       },
       "Jaz Elite Asteria (Hurghada)": {
-        "history_max": 9119.0,
+        "history_max": 9138.0,
         "premium_peak": null
       },
       "Rewaya Inn Resort (ex. Hawaii Paradise Aqua Park Resort)": {
@@ -282,7 +360,7 @@
         "premium_peak": null
       },
       "Steigenberger Al Dau Club": {
-        "history_max": 8235.0,
+        "history_max": 8255.0,
         "premium_peak": null
       },
       "Jaz Makadi Saraya (ex Iberotel)": {
@@ -466,11 +544,11 @@
         "premium_peak": null
       },
       "Palm Royale Soma Bay": {
-        "history_max": 8916.0,
+        "history_max": 8919.0,
         "premium_peak": null
       },
       "Sentido Naga Bay": {
-        "history_max": 8717.0,
+        "history_max": 8797.0,
         "premium_peak": null
       },
       "Park Regency Resort (ex. Hyatt)": {
@@ -506,7 +584,7 @@
         "premium_peak": null
       },
       "Sea Star Beau Rivage": {
-        "history_max": 6071.0,
+        "history_max": 6082.0,
         "premium_peak": null
       },
       "Pickalbatros Blu Spa Resort Hurghada": {
@@ -606,7 +684,7 @@
         "premium_peak": null
       },
       "Concorde El Salam Front Area": {
-        "history_max": 8210.0,
+        "history_max": 8339.0,
         "premium_peak": null
       },
       "Charmillion Club Aqua Park": {
@@ -862,8 +940,8 @@
         "premium_peak": null
       },
       "Sunrise Diamond Beach Resort Grand Select": {
-        "history_max": 11897.0,
-        "premium_peak": 11897.0
+        "history_max": 11957.0,
+        "premium_peak": 11957.0
       },
       "Grand Rotana Resort & Spa": {
         "history_max": 9191.0,
@@ -944,6 +1022,14 @@
       "Jaz Costa Mares": {
         "history_max": 19677.0,
         "premium_peak": 19677.0
+      },
+      "Steigenberger Resort Alaya": {
+        "history_max": 14607.0,
+        "premium_peak": 14607.0
+      },
+      "Jaz Elite Palace (ex. Iberotel Palace)": {
+        "history_max": 13647.0,
+        "premium_peak": 13647.0
       }
     }
   }
