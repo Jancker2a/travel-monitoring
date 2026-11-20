@@ -1423,16 +1423,46 @@ CURATED_EGYPT_SPECS: Dict[str, Dict[str, Any]] = {
         "pool_count": 5,
         "food_concept": "AI",
         "last_renovation_year": 2021,
-        "tripadvisor_rating": 4.3,
-        "tripadvisor_reviews": 1800,
+        "tripadvisor_rating": 4.1,
+        "tripadvisor_reviews": 2037,
         "transfer_minutes": 15,
         "highlights": [
             "Современный отель с искусственной лагуной и стильными номерами",
-            "Аквапарк с 11 водными горками и подогревом зимой",
+            "Большой аквапарк с 11 водными горками и подогревом зимой",
             "Регулярный бесплатный трансфер на пляж"
         ],
         "caution_notes": [
-            "2-я линия: удаленность от моря 1.5 км (только на автобусе)"
+            "2-я линия: удаленность от моря 1.5 км (только на автобусе)",
+            "Бухта Набк: вход в море по понтону, частые волны и ветра зимой"
+        ]
+    },
+    "Parrotel Lagoon Waterpark Resort": {
+        "destination": "Египет",
+        "stars": 5,
+        "beach_type": "coral_rocky",
+        "beach_line": 2,
+        "beach_distance_meters": 1500,
+        "shuttle_bus": "free",
+        "sea_entry": "pontoon_to_reef",
+        "bay": "nabq",
+        "wind_shelter": "windy_exposed",
+        "heated_pools_winter": True,
+        "aquapark": True,
+        "slides_total": 11,
+        "pool_count": 5,
+        "food_concept": "AI",
+        "last_renovation_year": 2021,
+        "tripadvisor_rating": 4.1,
+        "tripadvisor_reviews": 2037,
+        "transfer_minutes": 15,
+        "highlights": [
+            "Современный отель с искусственной лагуной и стильными номерами",
+            "Большой аквапарк с 11 водными горками и подогревом зимой",
+            "Регулярный бесплатный трансфер на пляж"
+        ],
+        "caution_notes": [
+            "2-я линия: удаленность от моря 1.5 км (только на автобусе)",
+            "Бухта Набк: вход в море по понтону, частые волны и ветра зимой"
         ]
     },
     "Coral Sea Aqua Club": {
