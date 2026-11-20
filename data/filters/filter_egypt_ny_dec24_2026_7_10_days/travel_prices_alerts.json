@@ -286,13 +286,39 @@
       "created_at": "2026-11-19T21:35:28.569882+00:00",
       "threshold_percent": 8.0,
       "unique_key": "V Grand Beach Resort Sahl Hasheesh_2026-11-19_21-35_zone_out_gone"
+    },
+    {
+      "hotel_name": "AMC Royal Hotel & Spa (ex. AMC Azur Resort)",
+      "duration_bucket": "",
+      "old_price": 9345.0,
+      "new_price": 10719.0,
+      "price_change": 1374.0,
+      "price_change_pct": 14.703049759229533,
+      "timestamp": "2026-11-20 11:35:51.988099+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-20T11:36:03.245469+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort)_2026-11-20_11-35_+14.7"
+    },
+    {
+      "hotel_name": "Xperience Kiroseiz Premier",
+      "duration_bucket": "",
+      "old_price": 9809.0,
+      "new_price": 9809.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-20 11:35:51.988099+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-20T11:36:03.245503+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xperience Kiroseiz Premier_2026-11-20_11-35_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-19T21:35:16.412153+00:00",
+    "last_processed_run": "2026-11-20T11:35:51.988099+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
-        "history_max": 9969.0,
+        "history_max": 10719.0,
         "premium_peak": null
       },
       "Xperience Kiroseiz Parkland": {
@@ -312,7 +338,7 @@
         "premium_peak": null
       },
       "Rewaya Luxury Resort": {
-        "history_max": 9647.0,
+        "history_max": 9670.0,
         "premium_peak": null
       },
       "Retac Qunay Dahab Resort & Spa": {
@@ -328,7 +354,7 @@
         "premium_peak": null
       },
       "Parrotel Lagoon Resort": {
-        "history_max": 9773.0,
+        "history_max": 10378.0,
         "premium_peak": null
       },
       "Regency Plaza Aqua Park Spa": {

@@ -325,10 +325,23 @@
       "created_at": "2026-11-19T21:33:34.623911+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Zeus Eretria Resort_2026-11-19_21-33_zone_out_gone"
+    },
+    {
+      "hotel_name": "White Olive Elite Rethymno",
+      "duration_bucket": "",
+      "old_price": 9613.0,
+      "new_price": 9613.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-20 11:34:13.441951+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-20T11:34:37.048405+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "White Olive Elite Rethymno_2026-11-20_11-34_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-19T21:33:08.392425+00:00",
+    "last_processed_run": "2026-11-20T11:34:13.441951+00:00",
     "premium_state": {
       "Kiani Beach": {
         "history_max": 10809.0,
@@ -499,8 +512,8 @@
         "premium_peak": 12948.0
       },
       "Minos Mare Royal": {
-        "history_max": 14005.0,
-        "premium_peak": 14005.0
+        "history_max": 14317.0,
+        "premium_peak": 14317.0
       },
       "Minos Imperial": {
         "history_max": 14120.0,
@@ -837,6 +850,10 @@
       "Georgioupolis Suites": {
         "history_max": 18675.0,
         "premium_peak": 18675.0
+      },
+      "Panorama Leptos (Kato Galatas)": {
+        "history_max": 14632.0,
+        "premium_peak": 14632.0
       }
     }
   }

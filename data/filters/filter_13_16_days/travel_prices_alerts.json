@@ -273,10 +273,114 @@
       "created_at": "2026-11-19T21:35:29.306909+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Xperience Kiroseiz Premier_2026-11-19_21-34_zone_out_gone"
+    },
+    {
+      "hotel_name": "Swisstouch Oriental Resort (ex. Hotelux Oriental Coast)",
+      "duration_bucket": "",
+      "old_price": 6785.0,
+      "new_price": 7345.0,
+      "price_change": 560.0,
+      "price_change_pct": 8.253500368459838,
+      "timestamp": "2026-11-20 11:35:05.714391+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-20T11:35:39.722145+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Swisstouch Oriental Resort (ex. Hotelux Oriental Coast)_2026-11-20_11-35_+8.3"
+    },
+    {
+      "hotel_name": "Amarina Jannah Resort Aquapark",
+      "duration_bucket": "",
+      "old_price": 7901.0,
+      "new_price": 7901.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-20 11:35:05.714391+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-20T11:35:39.722179+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amarina Jannah Resort Aquapark_2026-11-20_11-35_zone_out_gone"
+    },
+    {
+      "hotel_name": "Charmillion Club Aqua Park",
+      "duration_bucket": "",
+      "old_price": 9855.0,
+      "new_price": 9855.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-20 11:35:05.714391+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-20T11:35:39.722187+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Charmillion Club Aqua Park_2026-11-20_11-35_zone_out_gone"
+    },
+    {
+      "hotel_name": "Jaz Aquamarine Resort",
+      "duration_bucket": "",
+      "old_price": 9921.0,
+      "new_price": 10207.0,
+      "price_change": 286.0,
+      "price_change_pct": 2.882773913919968,
+      "timestamp": "2026-11-20 11:35:05.714391+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-20T11:35:39.722199+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Aquamarine Resort_2026-11-20_11-35_zone_out_+2.9"
+    },
+    {
+      "hotel_name": "Pickalbatros Vita Resort Portofino",
+      "duration_bucket": "",
+      "old_price": 9917.0,
+      "new_price": 9917.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-20 11:35:05.714391+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-20T11:35:39.722205+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Vita Resort Portofino_2026-11-20_11-35_zone_out_gone"
+    },
+    {
+      "hotel_name": "Regency Plaza Aqua Park Spa",
+      "duration_bucket": "",
+      "old_price": 8314.0,
+      "new_price": 8314.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-20 11:35:05.714391+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-20T11:35:39.722211+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Regency Plaza Aqua Park Spa_2026-11-20_11-35_zone_out_gone"
+    },
+    {
+      "hotel_name": "Royal Brayka Beach Resort (ex Zee Brayka)",
+      "duration_bucket": "",
+      "old_price": 9857.0,
+      "new_price": 9857.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-20 11:35:05.714391+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-20T11:35:39.722216+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Royal Brayka Beach Resort (ex Zee Brayka)_2026-11-20_11-35_zone_out_gone"
+    },
+    {
+      "hotel_name": "Royal Regency Club",
+      "duration_bucket": "",
+      "old_price": 9952.0,
+      "new_price": 9952.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-20 11:35:05.714391+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-20T11:35:39.722225+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Royal Regency Club_2026-11-20_11-35_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-19T21:34:45.286075+00:00",
+    "last_processed_run": "2026-11-20T11:35:05.714391+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 8779.0,
@@ -315,7 +419,7 @@
         "premium_peak": 10713.0
       },
       "Parrotel Lagoon Resort": {
-        "history_max": 8266.0,
+        "history_max": 8402.0,
         "premium_peak": null
       },
       "Pharaoh Azur Resort (ex Sonesta Pharaoh Beach Resort)": {
@@ -435,8 +539,8 @@
         "premium_peak": 12034.0
       },
       "Jaz Makadina": {
-        "history_max": 15744.0,
-        "premium_peak": 15744.0
+        "history_max": 15772.0,
+        "premium_peak": 15772.0
       },
       "Jaz Mirabel Beach Resort": {
         "history_max": 12787.0,
@@ -495,8 +599,8 @@
         "premium_peak": 17917.0
       },
       "Movenpick Resort Sharm el Sheikh": {
-        "history_max": 15841.0,
-        "premium_peak": 15841.0
+        "history_max": 15941.0,
+        "premium_peak": 15941.0
       },
       "Naama Bay Hotel & Resort": {
         "history_max": 12907.0,
@@ -551,7 +655,7 @@
         "premium_peak": 18861.0
       },
       "Swisstouch Oriental Resort (ex. Hotelux Oriental Coast)": {
-        "history_max": 7323.0,
+        "history_max": 7345.0,
         "premium_peak": null
       },
       "The Cascades Golf Resort Spa & Thalasso (ex Westin Soma Bay)": {
@@ -755,7 +859,7 @@
         "premium_peak": 15152.0
       },
       "Amarina Queen Resort": {
-        "history_max": 7469.0,
+        "history_max": 7655.0,
         "premium_peak": null
       },
       "Charmillion Club Resort": {
@@ -867,8 +971,8 @@
         "premium_peak": null
       },
       "Domina Coral Bay Aquamarine": {
-        "history_max": 13204.0,
-        "premium_peak": 13204.0
+        "history_max": 13304.0,
+        "premium_peak": 13304.0
       },
       "Coral Sea Water World Resort": {
         "history_max": 16938.0,
@@ -903,8 +1007,8 @@
         "premium_peak": 10115.0
       },
       "Concorde El Salam Front Area": {
-        "history_max": 13310.0,
-        "premium_peak": 13310.0
+        "history_max": 13410.0,
+        "premium_peak": 13410.0
       },
       "Invidia Coral Beach Tiran": {
         "history_max": 14246.0,
@@ -935,8 +1039,8 @@
         "premium_peak": null
       },
       "Cleopatra Luxury Resort": {
-        "history_max": 12229.0,
-        "premium_peak": 12229.0
+        "history_max": 12361.0,
+        "premium_peak": 12361.0
       },
       "Hilton Plaza (Hurghada)": {
         "history_max": 14202.0,

@@ -3562,10 +3562,387 @@
       "created_at": "2026-11-19T21:33:00.803642+00:00",
       "threshold_percent": 8.0,
       "unique_key": "ananea Hurghada_2026-11-19_21-32_zone_out_gone"
+    },
+    {
+      "hotel_name": "Mirage Bay Resort & Aqua Park (ex Blue Lake Resort & Aquapark)",
+      "duration_bucket": "",
+      "old_price": 1935.0,
+      "new_price": 2093.0,
+      "price_change": 158.0,
+      "price_change_pct": 8.165374677002584,
+      "timestamp": "2026-11-20 11:33:13.545235+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-20T11:34:09.751629+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Mirage Bay Resort & Aqua Park (ex Blue Lake Resort & Aquapark)_2026-11-20_11-33_+8.2"
+    },
+    {
+      "hotel_name": "Blend Club Aqua Resort (ex. Golden Five Club)",
+      "duration_bucket": "",
+      "old_price": 3203.0,
+      "new_price": 2470.0,
+      "price_change": -733.0,
+      "price_change_pct": -22.8847955042148,
+      "timestamp": "2026-11-20 11:33:13.545235+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-20T11:34:09.751674+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Blend Club Aqua Resort (ex. Golden Five Club)_2026-11-20_11-33_-22.9"
+    },
+    {
+      "hotel_name": "Empire Hotel Aqua Park (ex. Triton Empire Hotel Hurghada)",
+      "duration_bucket": "",
+      "old_price": 1680.0,
+      "new_price": 1981.0,
+      "price_change": 301.0,
+      "price_change_pct": 17.916666666666668,
+      "timestamp": "2026-11-20 11:33:13.545235+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-20T11:34:09.751687+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Empire Hotel Aqua Park (ex. Triton Empire Hotel Hurghada)_2026-11-20_11-33_+17.9"
+    },
+    {
+      "hotel_name": "Akassia Swiss Resort (ex. Calimera Club Akassia Swiss Resort)",
+      "duration_bucket": "",
+      "old_price": 3271.0,
+      "new_price": 3271.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-20 11:33:13.545235+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-20T11:34:09.751711+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Akassia Swiss Resort (ex. Calimera Club Akassia Swiss Resort)_2026-11-20_11-33_zone_out_gone"
+    },
+    {
+      "hotel_name": "Amarina Jannah Resort Aquapark",
+      "duration_bucket": "",
+      "old_price": 3699.0,
+      "new_price": 3699.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-20 11:33:13.545235+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-20T11:34:09.751718+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amarina Jannah Resort Aquapark_2026-11-20_11-33_zone_out_gone"
+    },
+    {
+      "hotel_name": "Cataract Resort",
+      "duration_bucket": "",
+      "old_price": 2770.0,
+      "new_price": 2770.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-20 11:33:13.545235+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-20T11:34:09.751728+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Cataract Resort_2026-11-20_11-33_zone_out_gone"
+    },
+    {
+      "hotel_name": "Desert Rose Resort",
+      "duration_bucket": "",
+      "old_price": 4681.0,
+      "new_price": 4681.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-20 11:33:13.545235+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-20T11:34:09.751735+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Desert Rose Resort_2026-11-20_11-33_zone_out_gone"
+    },
+    {
+      "hotel_name": "Diamond Beach by Pearl Resort",
+      "duration_bucket": "",
+      "old_price": 3002.0,
+      "new_price": 3002.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-20 11:33:13.545235+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-20T11:34:09.751745+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Diamond Beach by Pearl Resort_2026-11-20_11-33_zone_out_gone"
+    },
+    {
+      "hotel_name": "Eagles Down Town Zahabia Resort",
+      "duration_bucket": "",
+      "old_price": 3263.0,
+      "new_price": 3263.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-20 11:33:13.545235+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-20T11:34:09.751753+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Eagles Down Town Zahabia Resort_2026-11-20_11-33_zone_out_gone"
+    },
+    {
+      "hotel_name": "Ecotel Dahab Bay View Resort",
+      "duration_bucket": "",
+      "old_price": 3062.0,
+      "new_price": 3062.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-20 11:33:13.545235+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-20T11:34:09.751760+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Ecotel Dahab Bay View Resort_2026-11-20_11-33_zone_out_gone"
+    },
+    {
+      "hotel_name": "Edge By Rotana Sea Beach",
+      "duration_bucket": "",
+      "old_price": 3650.0,
+      "new_price": 3650.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-20 11:33:13.545235+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-20T11:34:09.751766+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Edge By Rotana Sea Beach_2026-11-20_11-33_zone_out_gone"
+    },
+    {
+      "hotel_name": "IL Mercato Splash Aqua Park",
+      "duration_bucket": "",
+      "old_price": 3246.0,
+      "new_price": 3246.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-20 11:33:13.545235+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-20T11:34:09.751772+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "IL Mercato Splash Aqua Park_2026-11-20_11-33_zone_out_gone"
+    },
+    {
+      "hotel_name": "Jaz Casa Del Mar Resort",
+      "duration_bucket": "",
+      "old_price": 3920.0,
+      "new_price": 3920.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-20 11:33:13.545235+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-20T11:34:09.751778+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Casa Del Mar Resort_2026-11-20_11-33_zone_out_gone"
+    },
+    {
+      "hotel_name": "Jaz Palmariva Beach",
+      "duration_bucket": "",
+      "old_price": 4008.0,
+      "new_price": 4008.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-20 11:33:13.545235+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-20T11:34:09.751784+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Palmariva Beach_2026-11-20_11-33_zone_out_gone"
+    },
+    {
+      "hotel_name": "Lemon & Soul Makadi Garden (ex Labranda Garden Makadi)",
+      "duration_bucket": "",
+      "old_price": 2027.0,
+      "new_price": 2027.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-20 11:33:13.545235+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-20T11:34:09.751790+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Lemon & Soul Makadi Garden (ex Labranda Garden Makadi)_2026-11-20_11-33_zone_out_gone"
+    },
+    {
+      "hotel_name": "Magic Beach",
+      "duration_bucket": "",
+      "old_price": 2501.0,
+      "new_price": 2501.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-20 11:33:13.545235+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-20T11:34:09.751798+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Magic Beach_2026-11-20_11-33_zone_out_gone"
+    },
+    {
+      "hotel_name": "Marina Lodge (Port Ghalib)",
+      "duration_bucket": "",
+      "old_price": 3279.0,
+      "new_price": 3279.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-20 11:33:13.545235+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-20T11:34:09.751805+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Marina Lodge (Port Ghalib)_2026-11-20_11-33_zone_out_gone"
+    },
+    {
+      "hotel_name": "Meraki Resort Hurghada",
+      "duration_bucket": "",
+      "old_price": 4190.0,
+      "new_price": 4190.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-20 11:33:13.545235+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-20T11:34:09.751811+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Meraki Resort Hurghada_2026-11-20_11-33_zone_out_gone"
+    },
+    {
+      "hotel_name": "New Eagles Aqua Park Resort",
+      "duration_bucket": "",
+      "old_price": 2426.0,
+      "new_price": 2426.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-20 11:33:13.545235+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-20T11:34:09.751818+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "New Eagles Aqua Park Resort_2026-11-20_11-33_zone_out_gone"
+    },
+    {
+      "hotel_name": "Nuweiba Club Resort (ex. Helnan Nuweiba Bay Resort)",
+      "duration_bucket": "",
+      "old_price": 3482.0,
+      "new_price": 3482.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-20 11:33:13.545235+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-20T11:34:09.751824+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Nuweiba Club Resort (ex. Helnan Nuweiba Bay Resort)_2026-11-20_11-33_zone_out_gone"
+    },
+    {
+      "hotel_name": "Old Palace Resort",
+      "duration_bucket": "",
+      "old_price": 3474.0,
+      "new_price": 3474.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-20 11:33:13.545235+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-20T11:34:09.751830+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Old Palace Resort_2026-11-20_11-33_zone_out_gone"
+    },
+    {
+      "hotel_name": "Palm Royale Soma Bay",
+      "duration_bucket": "",
+      "old_price": 5728.0,
+      "new_price": 5728.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-20 11:33:13.545235+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-20T11:34:09.751837+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Palm Royale Soma Bay_2026-11-20_11-33_zone_out_gone"
+    },
+    {
+      "hotel_name": "Pickalbatros Vita Resort Portofino",
+      "duration_bucket": "",
+      "old_price": 3451.0,
+      "new_price": 3451.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-20 11:33:13.545235+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-20T11:34:09.751843+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Vita Resort Portofino_2026-11-20_11-33_zone_out_gone"
+    },
+    {
+      "hotel_name": "Regency Plaza Aqua Park Spa",
+      "duration_bucket": "",
+      "old_price": 3281.0,
+      "new_price": 3281.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-20 11:33:13.545235+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-20T11:34:09.751850+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Regency Plaza Aqua Park Spa_2026-11-20_11-33_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sentido Naga Bay",
+      "duration_bucket": "",
+      "old_price": 4839.0,
+      "new_price": 4839.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-20 11:33:13.545235+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-20T11:34:09.751856+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sentido Naga Bay_2026-11-20_11-33_zone_out_gone"
+    },
+    {
+      "hotel_name": "Seven Seas Jolie Bay",
+      "duration_bucket": "",
+      "old_price": 3915.0,
+      "new_price": 3915.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-20 11:33:13.545235+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-20T11:34:09.751864+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Seven Seas Jolie Bay_2026-11-20_11-33_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sindbad Club",
+      "duration_bucket": "",
+      "old_price": 3866.0,
+      "new_price": 3866.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-20 11:33:13.545235+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-20T11:34:09.751870+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sindbad Club_2026-11-20_11-33_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sunrise Juman Beach Resort (ex. Coral Beach Resort)",
+      "duration_bucket": "",
+      "old_price": 2741.0,
+      "new_price": 2741.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-20 11:33:13.545235+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-20T11:34:09.751876+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sunrise Juman Beach Resort (ex. Coral Beach Resort)_2026-11-20_11-33_zone_out_gone"
+    },
+    {
+      "hotel_name": "Time Coral Nuweiba Resort (ex. Hilton Nuweiba Coral Resort)",
+      "duration_bucket": "",
+      "old_price": 2745.0,
+      "new_price": 2745.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-20 11:33:13.545235+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-20T11:34:09.751912+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Time Coral Nuweiba Resort (ex. Hilton Nuweiba Coral Resort)_2026-11-20_11-33_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-19T21:32:07.952489+00:00",
+    "last_processed_run": "2026-11-20T11:33:13.545235+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 2718.0,
@@ -3672,7 +4049,7 @@
         "premium_peak": null
       },
       "Sharm Club Beach Resort (ex. Labranda Sharm Club)": {
-        "history_max": 4544.0,
+        "history_max": 4635.0,
         "premium_peak": null
       },
       "Menaville Resort Safaga": {
@@ -3752,7 +4129,7 @@
         "premium_peak": null
       },
       "Sunrise Alma Bay Resort (ex. Grand Seas by Sunrise)": {
-        "history_max": 3060.0,
+        "history_max": 3071.0,
         "premium_peak": null
       },
       "Golden Beach Resort (ex Movie Gate)": {
@@ -3768,7 +4145,7 @@
         "premium_peak": null
       },
       "Sunrise Alora Aqua Park Resort": {
-        "history_max": 3245.0,
+        "history_max": 3254.0,
         "premium_peak": null
       },
       "Gafy Resort": {
@@ -4300,7 +4677,7 @@
         "premium_peak": null
       },
       "Continental (ex Movenpick Resort)": {
-        "history_max": 4235.0,
+        "history_max": 4259.0,
         "premium_peak": null
       },
       "The Three Corners Ocean View": {
@@ -4392,7 +4769,7 @@
         "premium_peak": null
       },
       "Ali Baba Palace": {
-        "history_max": 2965.0,
+        "history_max": 3049.0,
         "premium_peak": null
       },
       "Viva Blue Resort & Diving Sports": {
