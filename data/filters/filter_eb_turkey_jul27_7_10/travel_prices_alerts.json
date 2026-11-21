@@ -2925,10 +2925,62 @@
       "created_at": "2026-11-21T01:35:52.280066+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Castival (ex. La Grande Resort & Spa)_2026-11-21_01-34_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sensitive Premium Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 10222.0,
+      "new_price": 11201.0,
+      "price_change": 979.0,
+      "price_change_pct": 9.577382117002543,
+      "timestamp": "2026-11-21 23:17:49.561836+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-21T23:19:11.621257+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sensitive Premium Resort & Spa_2026-11-21_23-17_+9.6"
+    },
+    {
+      "hotel_name": "Avia Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 9083.0,
+      "new_price": 10713.0,
+      "price_change": 1630.0,
+      "price_change_pct": 17.94561268303424,
+      "timestamp": "2026-11-21 23:17:49.561836+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-21T23:19:11.621305+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Avia Resort & Spa_2026-11-21_23-17_+17.9"
+    },
+    {
+      "hotel_name": "Senza Grand Santana (Alanya)",
+      "duration_bucket": "",
+      "old_price": 7476.0,
+      "new_price": 8603.0,
+      "price_change": 1127.0,
+      "price_change_pct": 15.0749063670412,
+      "timestamp": "2026-11-21 23:17:49.561836+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-21T23:19:11.621330+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Senza Grand Santana (Alanya)_2026-11-21_23-17_+15.1"
+    },
+    {
+      "hotel_name": "Starlight Resort & Convention Center (Side)",
+      "duration_bucket": "",
+      "old_price": 10985.0,
+      "new_price": 11878.0,
+      "price_change": 893.0,
+      "price_change_pct": 8.12926718252162,
+      "timestamp": "2026-11-21 23:17:49.561836+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-21T23:19:11.621359+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Starlight Resort & Convention Center (Side)_2026-11-21_23-17_+8.1"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-21T01:34:41.936894+00:00",
+    "last_processed_run": "2026-11-21T23:17:49.561836+00:00",
     "premium_state": {
       "Dizalya Palm Garden": {
         "history_max": 8540.0,
@@ -2959,7 +3011,7 @@
         "premium_peak": null
       },
       "Senza Grand Santana (Alanya)": {
-        "history_max": 7667.0,
+        "history_max": 8603.0,
         "premium_peak": null
       },
       "Dedeman Kemer Resort": {
@@ -3327,7 +3379,7 @@
         "premium_peak": null
       },
       "Sural Resort": {
-        "history_max": 10244.0,
+        "history_max": 10274.0,
         "premium_peak": null
       },
       "Sultan of Side": {
@@ -3335,7 +3387,7 @@
         "premium_peak": null
       },
       "Starlight Resort & Convention Center (Side)": {
-        "history_max": 11138.0,
+        "history_max": 11878.0,
         "premium_peak": null
       },
       "Side Star Resort": {
@@ -3427,7 +3479,7 @@
         "premium_peak": null
       },
       "Sensitive Premium Resort & Spa": {
-        "history_max": 10222.0,
+        "history_max": 11201.0,
         "premium_peak": null
       },
       "Selectum Noa": {
@@ -3507,11 +3559,11 @@
         "premium_peak": null
       },
       "Side Crown Palace (Side)": {
-        "history_max": 10429.0,
+        "history_max": 10474.0,
         "premium_peak": null
       },
       "Side Breeze": {
-        "history_max": 10328.0,
+        "history_max": 10517.0,
         "premium_peak": null
       },
       "Side Aluna": {
@@ -3591,7 +3643,7 @@
         "premium_peak": null
       },
       "Can Garden Resort (Side)": {
-        "history_max": 11844.0,
+        "history_max": 11889.0,
         "premium_peak": null
       },
       "Calimera Hane Garden (ex. PrimaSol Hane Garden)": {
@@ -3639,7 +3691,7 @@
         "premium_peak": null
       },
       "Club Nena (Side)": {
-        "history_max": 10789.0,
+        "history_max": 10829.0,
         "premium_peak": null
       },
       "Diamond Excellence Resort & Spa": {
@@ -3787,7 +3839,7 @@
         "premium_peak": null
       },
       "Avia Resort & Spa": {
-        "history_max": 9256.0,
+        "history_max": 10713.0,
         "premium_peak": null
       },
       "Asteria Family Resort Side": {
@@ -3799,7 +3851,7 @@
         "premium_peak": null
       },
       "Azura World (ex. Wyndham Alanya)": {
-        "history_max": 10504.0,
+        "history_max": 10616.0,
         "premium_peak": null
       },
       "Aska Just in Beach": {
@@ -4083,7 +4135,7 @@
         "premium_peak": null
       },
       "Grand Kaptan": {
-        "history_max": 9025.0,
+        "history_max": 9102.0,
         "premium_peak": null
       },
       "Grand Ideal Premium": {
@@ -4129,6 +4181,14 @@
       "Crystal Family Comfort Collection": {
         "history_max": 11959.0,
         "premium_peak": null
+      },
+      "Diamond De Luxe ( Colakli)": {
+        "history_max": 12114.0,
+        "premium_peak": 12114.0
+      },
+      "Sailors Beach Club": {
+        "history_max": 12137.0,
+        "premium_peak": 12137.0
       }
     }
   }

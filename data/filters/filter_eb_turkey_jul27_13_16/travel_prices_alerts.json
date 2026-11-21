@@ -1378,10 +1378,36 @@
       "created_at": "2026-11-21T01:35:45.614058+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Mary Alanya (ex. Sirius Deluxe)_2026-11-21_01-34_comeback_14.3"
+    },
+    {
+      "hotel_name": "Senza Grand Santana (Alanya)",
+      "duration_bucket": "",
+      "old_price": 12750.0,
+      "new_price": 14430.0,
+      "price_change": 1680.0,
+      "price_change_pct": 13.176470588235295,
+      "timestamp": "2026-11-21 23:17:22.426828+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-21T23:18:47.844907+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Senza Grand Santana (Alanya)_2026-11-21_23-17_+13.2"
+    },
+    {
+      "hotel_name": "Sensitive Premium Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 14860.0,
+      "new_price": 16778.0,
+      "price_change": 1918.0,
+      "price_change_pct": 12.907133243607,
+      "timestamp": "2026-11-21 23:17:22.426828+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-21T23:18:47.845011+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sensitive Premium Resort & Spa_2026-11-21_23-17_zone_out_+12.9"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-21T01:34:31.389915+00:00",
+    "last_processed_run": "2026-11-21T23:17:22.426828+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 16810.0,
@@ -1464,7 +1490,7 @@
         "premium_peak": 18355.0
       },
       "Senza Grand Santana (Alanya)": {
-        "history_max": 12884.0,
+        "history_max": 14430.0,
         "premium_peak": null
       },
       "Jadore Deluxe": {
@@ -1500,8 +1526,8 @@
         "premium_peak": 18644.0
       },
       "Sensitive Premium Resort & Spa": {
-        "history_max": 14960.0,
-        "premium_peak": null
+        "history_max": 16778.0,
+        "premium_peak": 16778.0
       },
       "Karmir Resort (Kemer)": {
         "history_max": 14620.0,
@@ -1656,8 +1682,8 @@
         "premium_peak": null
       },
       "Side Breeze": {
-        "history_max": 16637.0,
-        "premium_peak": 16637.0
+        "history_max": 16812.0,
+        "premium_peak": 16812.0
       },
       "Grand Kaptan": {
         "history_max": 16439.0,
@@ -2248,7 +2274,7 @@
         "premium_peak": 19029.0
       },
       "Avia Resort & Spa": {
-        "history_max": 15052.0,
+        "history_max": 15581.0,
         "premium_peak": null
       },
       "VONResort Golden Beach": {

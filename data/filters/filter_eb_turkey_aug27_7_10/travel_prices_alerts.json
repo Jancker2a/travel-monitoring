@@ -3718,10 +3718,62 @@
       "created_at": "2026-11-20T11:35:01.507070+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Yasmin Resort_2026-11-20_11-34_zone_out_gone"
+    },
+    {
+      "hotel_name": "Avia Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 7902.0,
+      "new_price": 8797.0,
+      "price_change": 895.0,
+      "price_change_pct": 11.326246519868388,
+      "timestamp": "2026-11-21 23:17:16.435429+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-21T23:18:42.243682+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Avia Resort & Spa_2026-11-21_23-17_+11.3"
+    },
+    {
+      "hotel_name": "Sensitive Premium Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 8184.0,
+      "new_price": 9023.0,
+      "price_change": 839.0,
+      "price_change_pct": 10.251710654936462,
+      "timestamp": "2026-11-21 23:17:16.435429+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-21T23:18:42.243754+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sensitive Premium Resort & Spa_2026-11-21_23-17_+10.3"
+    },
+    {
+      "hotel_name": "Dobedan Beach Resort Comfort (ex. Alva Donna Beach Resort)",
+      "duration_bucket": "",
+      "old_price": 11111.0,
+      "new_price": 11111.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-21 23:17:16.435429+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-21T23:18:42.243808+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Dobedan Beach Resort Comfort (ex. Alva Donna Beach Resort)_2026-11-21_23-17_zone_out_gone"
+    },
+    {
+      "hotel_name": "Elegance (Marmaris)",
+      "duration_bucket": "",
+      "old_price": 11097.0,
+      "new_price": 11097.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-21 23:17:16.435429+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-21T23:18:42.243823+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Elegance (Marmaris)_2026-11-21_23-17_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-21T01:34:17.250197+00:00",
+    "last_processed_run": "2026-11-21T23:17:16.435429+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 10723.0,
@@ -3804,7 +3856,7 @@
         "premium_peak": null
       },
       "Sensitive Premium Resort & Spa": {
-        "history_max": 8184.0,
+        "history_max": 9023.0,
         "premium_peak": null
       },
       "Hane Sun Elite (ex Noble Palace Side)": {
@@ -3828,7 +3880,7 @@
         "premium_peak": null
       },
       "Seher Resort & Spa": {
-        "history_max": 8629.0,
+        "history_max": 8644.0,
         "premium_peak": null
       },
       "Justiniano Deluxe Resort": {
@@ -3972,7 +4024,7 @@
         "premium_peak": null
       },
       "Side Crown Palace (Side)": {
-        "history_max": 9259.0,
+        "history_max": 9289.0,
         "premium_peak": null
       },
       "First Class": {
@@ -4448,7 +4500,7 @@
         "premium_peak": null
       },
       "Avia Resort & Spa": {
-        "history_max": 8088.0,
+        "history_max": 8797.0,
         "premium_peak": null
       },
       "Aventura Park": {
@@ -4548,7 +4600,7 @@
         "premium_peak": null
       },
       "Can Garden Resort (Side)": {
-        "history_max": 10729.0,
+        "history_max": 10759.0,
         "premium_peak": null
       },
       "Asteria Ephesus Kusadasi": {
@@ -4676,7 +4728,7 @@
         "premium_peak": null
       },
       "Vikingen Infinity Resort & Spa": {
-        "history_max": 8814.0,
+        "history_max": 8844.0,
         "premium_peak": null
       },
       "Armas Life Belek": {
@@ -4724,7 +4776,7 @@
         "premium_peak": null
       },
       "Palm Wings Ephesus": {
-        "history_max": 10576.0,
+        "history_max": 10829.0,
         "premium_peak": null
       },
       "Sy Belek Boutique Luxury": {
@@ -4736,7 +4788,7 @@
         "premium_peak": null
       },
       "Dizalya Palm Garden": {
-        "history_max": 8389.0,
+        "history_max": 8414.0,
         "premium_peak": null
       },
       "Sultan of Side": {
@@ -4756,7 +4808,7 @@
         "premium_peak": null
       },
       "Sural Resort": {
-        "history_max": 9529.0,
+        "history_max": 9559.0,
         "premium_peak": null
       },
       "Crystal Family Comfort Collection": {
@@ -4856,7 +4908,7 @@
         "premium_peak": null
       },
       "Club Nena (Side)": {
-        "history_max": 9914.0,
+        "history_max": 9959.0,
         "premium_peak": null
       },
       "Club Atlantis Resort": {
@@ -4925,6 +4977,14 @@
       },
       "Seamelia Beach Resort & Spa": {
         "history_max": 11065.0,
+        "premium_peak": null
+      },
+      "Raxeria (Side)": {
+        "history_max": 10953.0,
+        "premium_peak": null
+      },
+      "Kremlin Palace": {
+        "history_max": 11003.0,
         "premium_peak": null
       }
     }

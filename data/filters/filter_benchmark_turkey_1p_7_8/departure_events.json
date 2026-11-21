@@ -1,3 +1,24 @@
 {
-  "events": []
+  "events": [
+    {
+      "event_time": "2026-11-21T23:15:38+0000",
+      "departure_key": "turcja|side|2026-12-12|2026-12-19|7|Katowice|",
+      "event_type": "mass_price_drop",
+      "severity": "medium",
+      "country": "turcja",
+      "region": "side",
+      "departure_date": "2026-12-12",
+      "return_date": "2026-12-19",
+      "nights": 7,
+      "days_to_departure": 21,
+      "old_min_price": "",
+      "new_min_price": 2455.0,
+      "min_drop_pct": -1.8,
+      "p10_drop_pct": -1.62,
+      "median_drop_pct": -5.56,
+      "hotel_count": 8,
+      "hotel_delta": -10,
+      "hot_score": 0
+    }
+  ]
 }

@@ -1898,10 +1898,62 @@
       "created_at": "2026-11-21T09:48:53.582048+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sentido Trendy Verbena Beach (ex. Trendy Verbena Beach)_2026-11-21_09-48_zone_out_gone"
+    },
+    {
+      "hotel_name": "Port Side Resort",
+      "duration_bucket": "",
+      "old_price": 3573.0,
+      "new_price": 3215.0,
+      "price_change": -358.0,
+      "price_change_pct": -10.019591379792892,
+      "timestamp": "2026-11-21 23:15:38.097098+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-21T23:16:15.919201+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Port Side Resort_2026-11-21_23-15_-10.0"
+    },
+    {
+      "hotel_name": "Limak Limra",
+      "duration_bucket": "",
+      "old_price": 2632.0,
+      "new_price": 2334.0,
+      "price_change": -298.0,
+      "price_change_pct": -11.322188449848024,
+      "timestamp": "2026-11-21 23:15:38.097098+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-21T23:16:15.919238+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Limak Limra_2026-11-21_23-15_-11.3"
+    },
+    {
+      "hotel_name": "Baia Lara",
+      "duration_bucket": "",
+      "old_price": 3215.0,
+      "new_price": 3766.0,
+      "price_change": 551.0,
+      "price_change_pct": 17.13841368584759,
+      "timestamp": "2026-11-21 23:15:38.097098+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-21T23:16:15.919260+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Baia Lara_2026-11-21_23-15_+17.1"
+    },
+    {
+      "hotel_name": "Side Royal Palace",
+      "duration_bucket": "",
+      "old_price": 3314.0,
+      "new_price": 3732.0,
+      "price_change": 418.0,
+      "price_change_pct": 12.613156306578151,
+      "timestamp": "2026-11-21 23:15:38.097098+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-21T23:16:15.919277+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Side Royal Palace_2026-11-21_23-15_+12.6"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-21T09:48:13.469041+00:00",
+    "last_processed_run": "2026-11-21T23:15:38.097098+00:00",
     "premium_state": {
       "Acanthus & Cennet Barut Collection": {
         "history_max": 5232.0,
@@ -2252,11 +2304,11 @@
         "premium_peak": null
       },
       "Side Royal Palace": {
-        "history_max": 3314.0,
+        "history_max": 3732.0,
         "premium_peak": null
       },
       "Side Royal Style (ex. Side Royal Luxury)": {
-        "history_max": 3274.0,
+        "history_max": 3309.0,
         "premium_peak": null
       },
       "Side Star Elegance": {
@@ -2380,7 +2432,7 @@
         "premium_peak": null
       },
       "Baia Lara": {
-        "history_max": 3598.0,
+        "history_max": 3766.0,
         "premium_peak": null
       },
       "Cleopatra Golden Beach (Alanya)": {
