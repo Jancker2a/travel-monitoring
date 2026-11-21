@@ -1833,10 +1833,75 @@
       "created_at": "2026-11-21T01:33:18.664128+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Relax Beach (Alanya)_2026-11-21_01-32_-9.9"
+    },
+    {
+      "hotel_name": "Alba Queen",
+      "duration_bucket": "",
+      "old_price": 2701.0,
+      "new_price": 2420.0,
+      "price_change": -281.0,
+      "price_change_pct": -10.403554239170678,
+      "timestamp": "2026-11-21 09:48:13.469041+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-21T09:48:53.581927+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Alba Queen_2026-11-21_09-48_-10.4"
+    },
+    {
+      "hotel_name": "Seher Sun Palace Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 2882.0,
+      "new_price": 2601.0,
+      "price_change": -281.0,
+      "price_change_pct": -9.750173490631505,
+      "timestamp": "2026-11-21 09:48:13.469041+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-21T09:48:53.581971+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Seher Sun Palace Resort & Spa_2026-11-21_09-48_-9.8"
+    },
+    {
+      "hotel_name": "Sural Resort",
+      "duration_bucket": "",
+      "old_price": 2659.0,
+      "new_price": 2437.0,
+      "price_change": -222.0,
+      "price_change_pct": -8.349003384731102,
+      "timestamp": "2026-11-21 09:48:13.469041+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-21T09:48:53.581991+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sural Resort_2026-11-21_09-48_-8.3"
+    },
+    {
+      "hotel_name": "Arsi Blue Beach",
+      "duration_bucket": "",
+      "old_price": 2368.0,
+      "new_price": 2087.0,
+      "price_change": -281.0,
+      "price_change_pct": -11.866554054054054,
+      "timestamp": "2026-11-21 09:48:13.469041+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-21T09:48:53.582017+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Arsi Blue Beach_2026-11-21_09-48_-11.9"
+    },
+    {
+      "hotel_name": "Sentido Trendy Verbena Beach (ex. Trendy Verbena Beach)",
+      "duration_bucket": "",
+      "old_price": 5159.0,
+      "new_price": 5159.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-21 09:48:13.469041+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-21T09:48:53.582048+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sentido Trendy Verbena Beach (ex. Trendy Verbena Beach)_2026-11-21_09-48_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-21T01:32:47.490242+00:00",
+    "last_processed_run": "2026-11-21T09:48:13.469041+00:00",
     "premium_state": {
       "Acanthus & Cennet Barut Collection": {
         "history_max": 5232.0,
@@ -2331,7 +2396,7 @@
         "premium_peak": null
       },
       "Calista Luxury Resort": {
-        "history_max": 7702.0,
+        "history_max": 7752.0,
         "premium_peak": null
       },
       "Barut Hemera": {

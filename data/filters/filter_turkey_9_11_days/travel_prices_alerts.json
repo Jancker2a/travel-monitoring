@@ -819,10 +819,49 @@
       "created_at": "2026-11-21T01:37:52.328670+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Crystal De Luxe Comfort Collection_2026-11-21_01-37_comeback_22.5"
+    },
+    {
+      "hotel_name": "Innvista Belek (ex. Vera Verde)",
+      "duration_bucket": "",
+      "old_price": 8097.0,
+      "new_price": 7391.0,
+      "price_change": -706.0,
+      "price_change_pct": -8.719278745214277,
+      "timestamp": "2026-11-21 09:51:13.104709+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-21T09:51:55.675012+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Innvista Belek (ex. Vera Verde)_2026-11-21_09-51_-8.7"
+    },
+    {
+      "hotel_name": "Royal Wings",
+      "duration_bucket": "",
+      "old_price": 9862.0,
+      "new_price": 10019.0,
+      "price_change": 157.0,
+      "price_change_pct": 1.5919691746096125,
+      "timestamp": "2026-11-21 09:51:13.104709+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-21T09:51:55.675047+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Royal Wings_2026-11-21_09-51_zone_out_+1.6"
+    },
+    {
+      "hotel_name": "Seher Sun Palace Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 7300.0,
+      "new_price": 7300.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-21 09:51:13.104709+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-21T09:51:55.675058+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Seher Sun Palace Resort & Spa_2026-11-21_09-51_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-21T01:37:14.583120+00:00",
+    "last_processed_run": "2026-11-21T09:51:13.104709+00:00",
     "premium_state": {
       "Acanthus & Cennet Barut Collection": {
         "history_max": 14257.0,
@@ -869,8 +908,8 @@
         "premium_peak": 12141.0
       },
       "Megasaray WestBeach Antalya (ex. Harrington Park Resort)": {
-        "history_max": 11989.0,
-        "premium_peak": 11989.0
+        "history_max": 12000.0,
+        "premium_peak": 12000.0
       },
       "Linda Resort (Side)": {
         "history_max": 7189.0,
@@ -929,7 +968,7 @@
         "premium_peak": 10711.0
       },
       "The Sense Deluxe": {
-        "history_max": 7774.0,
+        "history_max": 7789.0,
         "premium_peak": null
       },
       "Susesi Luxury Resort": {
@@ -1025,7 +1064,7 @@
         "premium_peak": null
       },
       "Aska Just in Beach": {
-        "history_max": 6700.0,
+        "history_max": 6714.0,
         "premium_peak": null
       },
       "Ducale Lara": {
@@ -1041,7 +1080,7 @@
         "premium_peak": null
       },
       "Eftalia Ocean (Alanya)": {
-        "history_max": 6059.0,
+        "history_max": 6244.0,
         "premium_peak": null
       },
       "Alba Queen": {
@@ -1073,8 +1112,8 @@
         "premium_peak": null
       },
       "Ela Excellence Resort (ex. Ela Quality Resort)": {
-        "history_max": 14614.0,
-        "premium_peak": 14614.0
+        "history_max": 14974.0,
+        "premium_peak": 14974.0
       },
       "Akra Kemer (ex. Kemer Barut Collection)": {
         "history_max": 10523.0,
@@ -1099,6 +1138,10 @@
       "Xanadu Resort": {
         "history_max": 10339.0,
         "premium_peak": 10339.0
+      },
+      "Cornelia Diamond Golf Resort & SPA": {
+        "history_max": 17449.0,
+        "premium_peak": 17449.0
       }
     }
   }

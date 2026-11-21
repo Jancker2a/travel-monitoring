@@ -4,12 +4,12 @@
     "market_phase": "Ближайшие вылеты через 1 дн.",
     "filter_title": "🇨🇾 Кипр • Эталон (1 взр • 7–8 дн)",
     "charter_dynamics": "На рейсы в ближайшие дни (22.11, через 1 дн.) туроператоры уже распродают последние места со скидками. На более дальние даты (до 14.12) цены пока держатся на среднем уровне (~5,137 zł). По мере приближения вылетов окно скидок будет постепенно смещаться и на следующие недели. Погода (Кипр): Самый теплый климат в Европе: днем +19..+23°C, солнце, море остывает медленно (+20..+21°C в ноябре). Отлично для прогулок, хайкинга и отдыха в качественных отелях.",
-    "floor_status": "1 отелей (2.3%) сейчас отдают по минимальной цене за сезон.",
+    "floor_status": "2 отелей (4.7%) сейчас отдают по минимальной цене за сезон.",
     "strategic_directive": "Если планируете лететь на днях (22.11) — лучше брать сейчас, билетов на рейсы осталось мало. Если поездка планируется позже (14.12) — можно не спешить, добавьте отели в «Избранное» (☆) и следите за ценой: ближе к вылету она часто снижается.",
     "key_anomalies": [
       {
         "type": "floor",
-        "title": "Ценовое дно: 1 отелей (2.3%)",
+        "title": "Ценовое дно: 2 отелей (4.7%)",
         "text": "Зафиксирована самая низкая цена за весь сезон. Цены начинаются от 3,162 zł."
       },
       {
@@ -20,7 +20,7 @@
       {
         "type": "arbitrage",
         "title": "✈️ Разница вылетов: Poznań vs Wrocław",
-        "text": "Вылет из Poznań в среднем на 5,486 zł дешевле, чем из Wrocław"
+        "text": "Вылет из Poznań в среднем на 5,516 zł дешевле, чем из Wrocław"
       }
     ],
     "synthesized_by": "Rule-Based Deterministic Engine (Offline)",
@@ -36,7 +36,7 @@
           "score": 120,
           "badge": "💎 Жемчужина 4.5★",
           "why_buy": "Высокий рейтинг 4.5★ по цене эконом-сегмента, хороший рейтинг 4.4★ (3,909 zł).",
-          "offer_url": "https://fly.pl/wycieczka/cypr,ayia-napa,protaras/constantinos-the-great/pR42L40ysKzvy4hTbf07vCAAogKxLStjnBqoJ58kxKH9351eom8FD9iHp4tlmkOyacrKEqBEVDQ1gwsumD2AZIxR5QAViuA2ABagJBSXIdHBGtPKsEmpwYuQQBGP29LBuCtD8B99mk_gEBEmOn4kjP/?operator=ECCX&adults=1&objectId=5323&durationFrom=7&durationTo=8&departureDate=2026-12-09&returnDate=2026-12-16&departureLocation=Gda%C5%84sk&catering=all_inclusive&transport=accommodation_flight&duration=7&nights=7"
+          "offer_url": "https://fly.pl/wycieczka/cypr,ayia-napa,protaras/constantinos-the-great/pR42L40ysKzvy4hTbf07vCAAogKxLStjnBqoJ58kxKH9351eom8FD9iHp4tlmkOyacrKEqBEVDQ1gwzdGF2AZIxR5QAVimA2ABagJBSXIdHBGtPKsEmpwYuQQBGP29LBuCtD8B99mk_gEBEmNG9ifc/?operator=ECCX&adults=1&objectId=5323&durationFrom=7&durationTo=8&departureDate=2026-12-09&returnDate=2026-12-16&departureLocation=Gda%C5%84sk&catering=all_inclusive&transport=accommodation_flight&duration=7&nights=7"
         }
       ]
     }
@@ -79,17 +79,17 @@
       "dupe_suggestion": null
     },
     "Aktea Beach Village": {
-      "verdict": "BUY_NOW",
-      "badge_text": "🟢 ПОКУПАТЬ",
-      "rationale": "Цена 4,602 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
-      "risk_assessment": "Номера в этом отеле популярны, к дате вылета мест может не остаться.",
-      "action_advice": "Если отель нравится — фиксируйте бронь прямо сегодня, дешевле уже вряд ли будет.",
+      "verdict": "WAIT",
+      "badge_text": "🟡 ПОДОЖДАТЬ",
+      "rationale": "Отель сейчас стоит 4,694 zł — это обычная базовая цена за сезон (медиана 4,602 zł).",
+      "risk_assessment": "Цена не снижена, туроператор пока не давал скидок на эти даты.",
+      "action_advice": "Спешить не нужно: добавьте в Избранное (☆) и подождите приближения вылета.",
       "booking_window_badge": "🔥 Горящий тур: вылет через 3 дн.!",
       "booking_window_class": "panic",
       "booking_window_tip": "Срочный вылет (3 дн.), туроператор сбрасывает оставшиеся места на рейсе.",
-      "fair_price_badge": "🔥 −10% к равным комфорт 4★",
-      "fair_price_class": "fair-underpriced",
-      "fair_price_tip": "Цена на 10% ниже медианы равных отелей сегмента комфорт 4★ (5,118 zł) и не превышает обычную цену отеля (4,602 zł).",
+      "fair_price_badge": "",
+      "fair_price_class": "",
+      "fair_price_tip": "",
       "gem_badge": "",
       "gem_tip": "",
       "flash_drop_badge": "",
@@ -143,7 +143,7 @@
       "booking_window_tip": "Окно максимальных скидок (D-30+) уже прошло. Текущий день: D-23.",
       "fair_price_badge": "🔥 −16% к равным эконом 4★",
       "fair_price_class": "fair-underpriced",
-      "fair_price_tip": "Цена на 16% ниже медианы равных отелей сегмента эконом 4★ (3,746 zł) и не превышает обычную цену отеля (3,197 zł).",
+      "fair_price_tip": "Цена на 16% ниже медианы равных отелей сегмента эконом 4★ (3,746 zł) и не превышает обычную цену отеля (3,187 zł).",
       "gem_badge": "",
       "gem_tip": "",
       "flash_drop_badge": "",
@@ -190,7 +190,7 @@
         "savings": 2403.0,
         "savings_pln": 2403.0,
         "rating": 4.4,
-        "offer_url": "https://fly.pl/wycieczka/cypr,ayia-napa,protaras/constantinos-the-great/pR42L40ysKzvy4hTbf07vCAAogKxLStjnBqoJ58kxKH9351eom8FD9iHp4tlmkOyacrKEqBEVDQ1gwsumD2AZIxR5QAViuA2ABagJBSXIdHBGtPKsEmpwYuQQBGP29LBuCtD8B99mk_gEBEmOn4kjP/?operator=ECCX&adults=1&objectId=5323&durationFrom=7&durationTo=8&departureDate=2026-12-09&returnDate=2026-12-16&departureLocation=Gda%C5%84sk&catering=all_inclusive&transport=accommodation_flight&duration=7&nights=7"
+        "offer_url": "https://fly.pl/wycieczka/cypr,ayia-napa,protaras/constantinos-the-great/pR42L40ysKzvy4hTbf07vCAAogKxLStjnBqoJ58kxKH9351eom8FD9iHp4tlmkOyacrKEqBEVDQ1gwzdGF2AZIxR5QAVimA2ABagJBSXIdHBGtPKsEmpwYuQQBGP29LBuCtD8B99mk_gEBEmNG9ifc/?operator=ECCX&adults=1&objectId=5323&durationFrom=7&durationTo=8&departureDate=2026-12-09&returnDate=2026-12-16&departureLocation=Gda%C5%84sk&catering=all_inclusive&transport=accommodation_flight&duration=7&nights=7"
       }
     },
     "Cavo Zoe Seaside (ex. Iris Splash Beach)": {
@@ -215,13 +215,13 @@
         "savings": 5970.0,
         "savings_pln": 5970.0,
         "rating": 4.8,
-        "offer_url": "https://fly.pl/wycieczka/cypr,pafos,paphos/olympic-lagoon-resort-paphos/psyAOkik4FjS3JWqCb1DN-AAogwGHKEdTgx3pU8XjWtL9CMG_Xro5Rg_UlBCSgywx7JbsqBEVDQ1gwsumD2AZI1zBQAVj2A2ABagJVQXIdHBH9PLkEvpIYqwQBGOrDLBv4uz8B5aXk_QEBEmM89cV1/?operator=ECCX&adults=1&objectId=168884&durationFrom=7&durationTo=8&departureDate=2026-12-12&returnDate=2026-12-19&departureLocation=Katowice&catering=all_inclusive&transport=accommodation_flight&duration=7&nights=7"
+        "offer_url": "https://fly.pl/wycieczka/cypr,pafos,paphos/olympic-lagoon-resort-paphos/pAe0aDUI86oN75GC3-TfZEAAogwGHKEdTgx3pU8XjWtL9CMDmavGy1ENl7Ytm33daA0PAqBEVDQ1gwzdGF2AZI1zBQAVieBGABagJVQXIdHBH9PLkEwJIYqwQBGOjDLBv4uz8B5abk_QEBEmPHYvwh/?operator=ECCX&adults=1&objectId=168884&durationFrom=7&durationTo=8&departureDate=2026-12-14&returnDate=2026-12-21&departureLocation=Katowice&catering=all_inclusive&transport=accommodation_flight&duration=7&nights=7"
       }
     },
     "Chamada Prestige (ex. Malpas Hotel & Casino)": {
       "verdict": "OVERPRICED",
       "badge_text": "🔴 ДОРОГО",
-      "rationale": "Цена 8,119 zł на 1% выше обычной средней цены этого отеля (8,129 zł).",
+      "rationale": "Цена 8,129 zł на 1% выше обычной средней цены этого отеля (8,129 zł).",
       "risk_assessment": "Высокий риск переплаты. Туроператор держит завышенную цену.",
       "action_advice": "Покупать сейчас крайне невыгодно. Добавьте в Избранное (☆) и ждите снижения.",
       "booking_window_badge": "",
@@ -239,7 +239,7 @@
     "Chrysomare": {
       "verdict": "OVERPRICED",
       "badge_text": "🔴 ДОРОГО",
-      "rationale": "Цена 4,433 zł на 1% выше обычной средней цены этого отеля (4,433 zł).",
+      "rationale": "Цена 4,392 zł на 1% выше обычной средней цены этого отеля (4,433 zł).",
       "risk_assessment": "Высокий риск переплаты. Туроператор держит завышенную цену.",
       "action_advice": "Покупать сейчас крайне невыгодно. Добавьте в Избранное (☆) и ждите снижения.",
       "booking_window_badge": "",
@@ -352,7 +352,7 @@
       "action_advice": "Если отель нравится — фиксируйте бронь прямо сегодня, дешевле уже вряд ли будет.",
       "booking_window_badge": "",
       "booking_window_class": "late",
-      "booking_window_tip": "Окно максимальных скидок (D-30+) уже прошло. Текущий день: D-21.",
+      "booking_window_tip": "Окно максимальных скидок (D-30+) уже прошло. Текущий день: D-14.",
       "fair_price_badge": "",
       "fair_price_class": "",
       "fair_price_tip": "",
@@ -383,7 +383,7 @@
     "Grand Sapphire Resort (Famagusta)": {
       "verdict": "BUY_NOW",
       "badge_text": "🟢 ПОКУПАТЬ",
-      "rationale": "Цена 4,849 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
+      "rationale": "Цена 4,859 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
       "risk_assessment": "Номера в этом отеле популярны, к дате вылета мест может не остаться.",
       "action_advice": "Если отель нравится — фиксируйте бронь прямо сегодня, дешевле уже вряд ли будет.",
       "booking_window_badge": "",
@@ -401,7 +401,7 @@
     "Kapetanios Aqua Resort (ex. Aqua Sol Holiday Village)": {
       "verdict": "WAIT",
       "badge_text": "🟡 ПОДОЖДАТЬ",
-      "rationale": "Отель сейчас стоит 4,958 zł — это обычная базовая цена за сезон (медиана 4,812 zł).",
+      "rationale": "Отель сейчас стоит 4,958 zł — это обычная базовая цена за сезон (медиана 4,820 zł).",
       "risk_assessment": "Цена не снижена, туроператор пока не давал скидок на эти даты.",
       "action_advice": "Спешить не нужно: добавьте в Избранное (☆) и подождите приближения вылета.",
       "booking_window_badge": "🔥 Горящий тур: вылет через 3 дн.!",
@@ -527,7 +527,7 @@
     "Lord's Palace": {
       "verdict": "OVERPRICED",
       "badge_text": "🔴 ДОРОГО",
-      "rationale": "Цена 6,059 zł на 1% выше обычной средней цены этого отеля (6,069 zł).",
+      "rationale": "Цена 6,069 zł на 1% выше обычной средней цены этого отеля (6,069 zł).",
       "risk_assessment": "Высокий риск переплаты. Туроператор держит завышенную цену.",
       "action_advice": "Покупать сейчас крайне невыгодно. Добавьте в Избранное (☆) и ждите снижения.",
       "booking_window_badge": "",
@@ -589,7 +589,7 @@
       "booking_window_tip": "Историческое окно максимальной выгоды для этого типа отелей наступает за 14–21 день до вылета.",
       "fair_price_badge": "🔥 −13% к равным эконом 4★",
       "fair_price_class": "fair-underpriced",
-      "fair_price_tip": "Цена на 13% ниже медианы равных отелей сегмента эконом 4★ (3,746 zł) и не превышает обычную цену отеля (3,262 zł).",
+      "fair_price_tip": "Цена на 13% ниже медианы равных отелей сегмента эконом 4★ (3,746 zł) и не превышает обычную цену отеля (3,266 zł).",
       "gem_badge": "",
       "gem_tip": "",
       "flash_drop_badge": "",
@@ -607,7 +607,7 @@
       "booking_window_tip": "Окно максимальных скидок (D-30+) уже прошло. Текущий день: D-23.",
       "fair_price_badge": "🔥 −13% к равным эконом 4★",
       "fair_price_class": "fair-underpriced",
-      "fair_price_tip": "Цена на 13% ниже медианы равных отелей сегмента эконом 4★ (3,746 zł) и не превышает обычную цену отеля (3,319 zł).",
+      "fair_price_tip": "Цена на 13% ниже медианы равных отелей сегмента эконом 4★ (3,746 zł) и не превышает обычную цену отеля (3,314 zł).",
       "gem_badge": "",
       "gem_tip": "",
       "flash_drop_badge": "",
@@ -617,7 +617,7 @@
     "Merit Royal Gardens Hotel and Casino": {
       "verdict": "OVERPRICED",
       "badge_text": "🔴 ДОРОГО",
-      "rationale": "Цена 12,249 zł на 1% выше обычной средней цены этого отеля (12,269 zł).",
+      "rationale": "Цена 12,269 zł на 1% выше обычной средней цены этого отеля (12,269 zł).",
       "risk_assessment": "Высокий риск переплаты. Туроператор держит завышенную цену.",
       "action_advice": "Покупать сейчас крайне невыгодно. Добавьте в Избранное (☆) и ждите снижения.",
       "booking_window_badge": "",
@@ -633,18 +633,18 @@
       "dupe_suggestion": {
         "hotel_name": "Olympic Lagoon Resort Paphos",
         "price": 6231.0,
-        "savings": 6018.0,
-        "savings_pln": 6018.0,
+        "savings": 6038.0,
+        "savings_pln": 6038.0,
         "rating": 4.8,
-        "offer_url": "https://fly.pl/wycieczka/cypr,pafos,paphos/olympic-lagoon-resort-paphos/psyAOkik4FjS3JWqCb1DN-AAogwGHKEdTgx3pU8XjWtL9CMG_Xro5Rg_UlBCSgywx7JbsqBEVDQ1gwsumD2AZI1zBQAVj2A2ABagJVQXIdHBH9PLkEvpIYqwQBGOrDLBv4uz8B5aXk_QEBEmM89cV1/?operator=ECCX&adults=1&objectId=168884&durationFrom=7&durationTo=8&departureDate=2026-12-12&returnDate=2026-12-19&departureLocation=Katowice&catering=all_inclusive&transport=accommodation_flight&duration=7&nights=7"
+        "offer_url": "https://fly.pl/wycieczka/cypr,pafos,paphos/olympic-lagoon-resort-paphos/pAe0aDUI86oN75GC3-TfZEAAogwGHKEdTgx3pU8XjWtL9CMDmavGy1ENl7Ytm33daA0PAqBEVDQ1gwzdGF2AZI1zBQAVieBGABagJVQXIdHBH9PLkEwJIYqwQBGOjDLBv4uz8B5abk_QEBEmPHYvwh/?operator=ECCX&adults=1&objectId=168884&durationFrom=7&durationTo=8&departureDate=2026-12-14&returnDate=2026-12-21&departureLocation=Katowice&catering=all_inclusive&transport=accommodation_flight&duration=7&nights=7"
       }
     },
     "Nissi Blu Beach Resort": {
-      "verdict": "BUY_NOW",
-      "badge_text": "🟢 ПОКУПАТЬ",
-      "rationale": "Цена 8,027 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
-      "risk_assessment": "Номера в этом отеле популярны, к дате вылета мест может не остаться.",
-      "action_advice": "Если отель нравится — фиксируйте бронь прямо сегодня, дешевле уже вряд ли будет.",
+      "verdict": "OVERPRICED",
+      "badge_text": "🔴 ДОРОГО",
+      "rationale": "Цена 8,127 zł на 1% выше обычной средней цены этого отеля (8,027 zł).",
+      "risk_assessment": "Высокий риск переплаты. Туроператор держит завышенную цену.",
+      "action_advice": "Покупать сейчас крайне невыгодно. Добавьте в Избранное (☆) и ждите снижения.",
       "booking_window_badge": "🔥 Горящий тур: вылет через 3 дн.!",
       "booking_window_class": "panic",
       "booking_window_tip": "Срочный вылет (3 дн.), туроператор сбрасывает оставшиеся места на рейсе.",
@@ -732,7 +732,7 @@
     "St. George Beach Hotel & Spa Resort": {
       "verdict": "BUY_NOW",
       "badge_text": "🟢 ПОКУПАТЬ",
-      "rationale": "Цена 3,883 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
+      "rationale": "Цена 3,933 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
       "risk_assessment": "Номера в этом отеле популярны, к дате вылета мест может не остаться.",
       "action_advice": "Если отель нравится — фиксируйте бронь прямо сегодня, дешевле уже вряд ли будет.",
       "booking_window_badge": "",
@@ -786,7 +786,7 @@
     "Tasia Maris Sands": {
       "verdict": "BUY_NOW",
       "badge_text": "🟢 ПОКУПАТЬ",
-      "rationale": "Цена 6,799 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
+      "rationale": "Цена 6,389 zł — на самом дне за всё время наблюдений (обычно этот отель дороже). Самый удачный момент для покупки.",
       "risk_assessment": "Номера в этом отеле популярны, к дате вылета мест может не остаться.",
       "action_advice": "Если отель нравится — фиксируйте бронь прямо сегодня, дешевле уже вряд ли будет.",
       "booking_window_badge": "",
