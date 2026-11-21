@@ -793,10 +793,36 @@
       "created_at": "2026-11-20T11:37:11.338333+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Villa Side Residence_2026-11-20_11-36_zone_out_gone"
+    },
+    {
+      "hotel_name": "Trendy Perge Resort & Suites",
+      "duration_bucket": "",
+      "old_price": 11657.0,
+      "new_price": 9427.0,
+      "price_change": -2230.0,
+      "price_change_pct": -19.130136398730375,
+      "timestamp": "2026-11-21 01:37:14.583120+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-11-21T01:37:52.328642+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Trendy Perge Resort & Suites_2026-11-21_01-37_comeback_19.1"
+    },
+    {
+      "hotel_name": "Crystal De Luxe Comfort Collection",
+      "duration_bucket": "",
+      "old_price": 10537.0,
+      "new_price": 8167.0,
+      "price_change": -2370.0,
+      "price_change_pct": -22.492170446996298,
+      "timestamp": "2026-11-21 01:37:14.583120+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-11-21T01:37:52.328670+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Crystal De Luxe Comfort Collection_2026-11-21_01-37_comeback_22.5"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-20T11:36:42.512527+00:00",
+    "last_processed_run": "2026-11-21T01:37:14.583120+00:00",
     "premium_state": {
       "Acanthus & Cennet Barut Collection": {
         "history_max": 14257.0,
@@ -879,8 +905,8 @@
         "premium_peak": 13911.0
       },
       "Royal Seginus": {
-        "history_max": 10429.0,
-        "premium_peak": 10429.0
+        "history_max": 11010.0,
+        "premium_peak": 11010.0
       },
       "Royal Wings": {
         "history_max": 10019.0,
@@ -1065,6 +1091,14 @@
       "Bayou Lara": {
         "history_max": 13911.0,
         "premium_peak": 13911.0
+      },
+      "Innvista Belek (ex. Vera Verde)": {
+        "history_max": 8097.0,
+        "premium_peak": null
+      },
+      "Xanadu Resort": {
+        "history_max": 10339.0,
+        "premium_peak": 10339.0
       }
     }
   }

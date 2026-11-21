@@ -1378,10 +1378,114 @@
       "created_at": "2026-11-20T11:36:24.725556+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Pickalbatros Palace Resort_2026-11-20_11-36_zone_out_gone"
+    },
+    {
+      "hotel_name": "Grand Oasis Resort",
+      "duration_bucket": "",
+      "old_price": 6100.0,
+      "new_price": 5452.0,
+      "price_change": -648.0,
+      "price_change_pct": -10.62295081967213,
+      "timestamp": "2026-11-21 01:36:23.656498+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-21T01:36:43.826995+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Grand Oasis Resort_2026-11-21_01-36_-10.6"
+    },
+    {
+      "hotel_name": "Coral Sea Sensatori (ex Coral Sea Imperial)",
+      "duration_bucket": "",
+      "old_price": 10640.0,
+      "new_price": 10640.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-21 01:36:23.656498+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-21T01:36:43.827050+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Coral Sea Sensatori (ex Coral Sea Imperial)_2026-11-21_01-36_zone_out_gone"
+    },
+    {
+      "hotel_name": "Rixos Premium Seagate",
+      "duration_bucket": "",
+      "old_price": 12880.0,
+      "new_price": 12880.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-21 01:36:23.656498+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-21T01:36:43.827066+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rixos Premium Seagate_2026-11-21_01-36_zone_out_gone"
+    },
+    {
+      "hotel_name": "Rixos Sharm el Sheikh",
+      "duration_bucket": "",
+      "old_price": 11628.0,
+      "new_price": 11628.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-21 01:36:23.656498+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-21T01:36:43.827077+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rixos Sharm el Sheikh_2026-11-21_01-36_zone_out_gone"
+    },
+    {
+      "hotel_name": "Savoy (Sharm El Sheikh)",
+      "duration_bucket": "",
+      "old_price": 19966.0,
+      "new_price": 19966.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-21 01:36:23.656498+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-21T01:36:43.827088+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Savoy (Sharm El Sheikh)_2026-11-21_01-36_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sultan Gardens Resort",
+      "duration_bucket": "",
+      "old_price": 10161.0,
+      "new_price": 10161.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-21 01:36:23.656498+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-21T01:36:43.827098+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sultan Gardens Resort_2026-11-21_01-36_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sunrise Montemare Resort",
+      "duration_bucket": "",
+      "old_price": 10559.0,
+      "new_price": 10559.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-21 01:36:23.656498+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-21T01:36:43.827107+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sunrise Montemare Resort_2026-11-21_01-36_zone_out_gone"
+    },
+    {
+      "hotel_name": "White Hills Resort",
+      "duration_bucket": "",
+      "old_price": 12105.0,
+      "new_price": 12105.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-21 01:36:23.656498+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-21T01:36:43.827119+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "White Hills Resort_2026-11-21_01-36_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-20T11:36:05.090157+00:00",
+    "last_processed_run": "2026-11-21T01:36:23.656498+00:00",
     "premium_state": {
       "Albatros Sharm Resort (ex. Beach Albatros)": {
         "history_max": 6749.0,
@@ -1396,7 +1500,7 @@
         "premium_peak": null
       },
       "Safir Sharm Waterfalls Resort (ex Hilton Waterfalls Resort)": {
-        "history_max": 6000.0,
+        "history_max": 6137.0,
         "premium_peak": null
       },
       "Jaz Mirabel Park": {
@@ -1412,7 +1516,7 @@
         "premium_peak": null
       },
       "Seti Sharm Palm Beach Resort": {
-        "history_max": 6114.0,
+        "history_max": 6167.0,
         "premium_peak": null
       },
       "Jaz Neo Sharks Bay": {
@@ -1420,11 +1524,11 @@
         "premium_peak": null
       },
       "Royal Monte Carlo Resort & Spa": {
-        "history_max": 9651.0,
+        "history_max": 9834.0,
         "premium_peak": null
       },
       "Jolie Ville Resort and Casino": {
-        "history_max": 8001.0,
+        "history_max": 8087.0,
         "premium_peak": null
       },
       "Lido Sharm": {
@@ -1432,11 +1536,11 @@
         "premium_peak": null
       },
       "Rosetta & Spa": {
-        "history_max": 5405.0,
+        "history_max": 5542.0,
         "premium_peak": null
       },
       "Marina Sharm (ex. Helnan Marina)": {
-        "history_max": 5667.0,
+        "history_max": 5849.0,
         "premium_peak": null
       },
       "Mazar Resort & Spa": {
@@ -1460,7 +1564,7 @@
         "premium_peak": null
       },
       "El Faraana Reef Resort": {
-        "history_max": 5555.0,
+        "history_max": 5706.0,
         "premium_peak": null
       },
       "El Khan Sharm": {
@@ -1468,7 +1572,7 @@
         "premium_peak": null
       },
       "Sharm Holiday": {
-        "history_max": 4282.0,
+        "history_max": 4329.0,
         "premium_peak": null
       },
       "Gafy Resort": {
@@ -1484,7 +1588,7 @@
         "premium_peak": null
       },
       "Jaz Belvedere": {
-        "history_max": 7345.0,
+        "history_max": 8829.0,
         "premium_peak": null
       },
       "Grand Oasis Resort": {
@@ -1492,7 +1596,7 @@
         "premium_peak": null
       },
       "Sharm Dreams Vacation Club": {
-        "history_max": 5014.0,
+        "history_max": 5151.0,
         "premium_peak": null
       },
       "IL Mercato Splash Aqua Park": {
@@ -1504,15 +1608,15 @@
         "premium_peak": null
       },
       "Sharm Club Beach Resort (ex. Labranda Sharm Club)": {
-        "history_max": 6847.0,
+        "history_max": 7030.0,
         "premium_peak": null
       },
       "Ivy Cyrene Island Resort": {
-        "history_max": 5598.0,
+        "history_max": 5735.0,
         "premium_peak": null
       },
       "Ivy Cyrene Sharm": {
-        "history_max": 5529.0,
+        "history_max": 5666.0,
         "premium_peak": null
       },
       "Grand Rotana Resort & Spa": {
@@ -1520,7 +1624,7 @@
         "premium_peak": null
       },
       "Megan Halomy": {
-        "history_max": 3266.0,
+        "history_max": 3312.0,
         "premium_peak": null
       },
       "Meraki Sharm Resort": {
@@ -1548,15 +1652,15 @@
         "premium_peak": null
       },
       "Parrotel Beach Resort (ex. Radisson Blu)": {
-        "history_max": 5689.0,
+        "history_max": 5838.0,
         "premium_peak": null
       },
       "Parrotel Lagoon Resort": {
-        "history_max": 4460.0,
+        "history_max": 4523.0,
         "premium_peak": null
       },
       "Panorama Naama Heights": {
-        "history_max": 3632.0,
+        "history_max": 3678.0,
         "premium_peak": null
       },
       "Pickalbatros Royal Moderna": {
@@ -1600,7 +1704,7 @@
         "premium_peak": null
       },
       "Old Vic Sharm Resort": {
-        "history_max": 3731.0,
+        "history_max": 3777.0,
         "premium_peak": null
       },
       "Monte Carlo Resort Spa": {
@@ -1608,7 +1712,7 @@
         "premium_peak": null
       },
       "Movenpick Resort Sharm el Sheikh": {
-        "history_max": 8668.0,
+        "history_max": 8850.0,
         "premium_peak": null
       },
       "Xperience Sea Breeze Resort": {
@@ -1616,7 +1720,7 @@
         "premium_peak": null
       },
       "Naama Bay Hotel & Resort": {
-        "history_max": 6404.0,
+        "history_max": 6582.0,
         "premium_peak": null
       },
       "Rixos Radamis Sharm El Sheikh": {
@@ -1640,7 +1744,7 @@
         "premium_peak": null
       },
       "Novotel Sharm Beach": {
-        "history_max": 7536.0,
+        "history_max": 7614.0,
         "premium_peak": null
       },
       "Rixos Premium Seagate": {
@@ -1648,7 +1752,7 @@
         "premium_peak": null
       },
       "Novotel Sharm Palm": {
-        "history_max": 7050.0,
+        "history_max": 7092.0,
         "premium_peak": null
       },
       "Nubian Island": {
@@ -1656,7 +1760,7 @@
         "premium_peak": null
       },
       "Renaissance Golden View Beach Resort by Marriott": {
-        "history_max": 5689.0,
+        "history_max": 5985.0,
         "premium_peak": null
       },
       "Nubian Village": {
@@ -1668,7 +1772,7 @@
         "premium_peak": null
       },
       "El Faraana Heights": {
-        "history_max": 4529.0,
+        "history_max": 4581.0,
         "premium_peak": null
       },
       "Pickalbatros Luxury Suites": {
@@ -1676,7 +1780,7 @@
         "premium_peak": null
       },
       "Edge By Rotana Sea Beach": {
-        "history_max": 6121.0,
+        "history_max": 6212.0,
         "premium_peak": null
       },
       "Tamra Beach Sharm": {
@@ -1684,7 +1788,7 @@
         "premium_peak": null
       },
       "Coral Sea Holiday Resort": {
-        "history_max": 7353.0,
+        "history_max": 7535.0,
         "premium_peak": null
       },
       "Aurora Oriental Resort": {
@@ -1692,7 +1796,7 @@
         "premium_peak": null
       },
       "Coral Sea Aqua Club": {
-        "history_max": 6429.0,
+        "history_max": 6605.0,
         "premium_peak": null
       },
       "Sunrise Montemare Resort": {
@@ -1716,7 +1820,7 @@
         "premium_peak": null
       },
       "Viva Sharm": {
-        "history_max": 3385.0,
+        "history_max": 3431.0,
         "premium_peak": null
       },
       "Concorde El Salam Sport": {
@@ -1760,7 +1864,7 @@
         "premium_peak": null
       },
       "V Hotel Sharm": {
-        "history_max": 7918.0,
+        "history_max": 8109.0,
         "premium_peak": null
       },
       "Swissotel Sharm El Sheikh": {
@@ -1792,11 +1896,11 @@
         "premium_peak": null
       },
       "Coral Sea Water World Resort": {
-        "history_max": 7353.0,
+        "history_max": 7535.0,
         "premium_peak": null
       },
       "Star Resort & Aqua Park Sharm El Sheikh": {
-        "history_max": 4758.0,
+        "history_max": 4860.0,
         "premium_peak": null
       },
       "Eden Rock (Sharm El Sheikh)": {
@@ -1820,7 +1924,7 @@
         "premium_peak": null
       },
       "Dreams Beach Sharm Resort (Sharm El Sheikh)": {
-        "history_max": 5566.0,
+        "history_max": 5616.0,
         "premium_peak": null
       },
       "Amphoras Beach": {
@@ -1832,11 +1936,11 @@
         "premium_peak": null
       },
       "Stella Di Mare Beach & Spa": {
-        "history_max": 6763.0,
+        "history_max": 6946.0,
         "premium_peak": null
       },
       "Aurora Cyrene Resort": {
-        "history_max": 9359.0,
+        "history_max": 9942.0,
         "premium_peak": null
       },
       "Amphoras Blu": {
@@ -1856,7 +1960,7 @@
         "premium_peak": null
       },
       "Sun Resort & Aqua Park Sharm El Sheikh": {
-        "history_max": 4492.0,
+        "history_max": 4556.0,
         "premium_peak": null
       },
       "Domina Coral Bay Oasis": {
@@ -1893,6 +1997,10 @@
       },
       "Savoy (Sharm El Sheikh)": {
         "history_max": 19966.0,
+        "premium_peak": null
+      },
+      "Sierra": {
+        "history_max": 9469.0,
         "premium_peak": null
       }
     }

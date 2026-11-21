@@ -234,10 +234,62 @@
       "created_at": "2026-11-19T21:34:09.830771+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Zeus Eretria Resort_2026-11-19_21-33_zone_out_gone"
+    },
+    {
+      "hotel_name": "Natura Park Village",
+      "duration_bucket": "",
+      "old_price": 12660.0,
+      "new_price": 11510.0,
+      "price_change": -1150.0,
+      "price_change_pct": -9.083728278041074,
+      "timestamp": "2026-11-21 01:34:10.560025+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-11-21T01:34:39.408144+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Natura Park Village_2026-11-21_01-34_comeback_9.1"
+    },
+    {
+      "hotel_name": "Grand Blue Beach",
+      "duration_bucket": "",
+      "old_price": 12810.0,
+      "new_price": 11460.0,
+      "price_change": -1350.0,
+      "price_change_pct": -10.53864168618267,
+      "timestamp": "2026-11-21 01:34:10.560025+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-11-21T01:34:39.408177+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Grand Blue Beach_2026-11-21_01-34_comeback_10.5"
+    },
+    {
+      "hotel_name": "Aldemar Olympian Village",
+      "duration_bucket": "",
+      "old_price": 12320.0,
+      "new_price": 11320.0,
+      "price_change": -1000.0,
+      "price_change_pct": -8.116883116883116,
+      "timestamp": "2026-11-21 01:34:10.560025+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-11-21T01:34:39.408195+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Aldemar Olympian Village_2026-11-21_01-34_comeback_8.1"
+    },
+    {
+      "hotel_name": "Sandy Beach Resort",
+      "duration_bucket": "",
+      "old_price": 12833.0,
+      "new_price": 11438.0,
+      "price_change": -1395.0,
+      "price_change_pct": -10.870412218499181,
+      "timestamp": "2026-11-21 01:34:10.560025+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-11-21T01:34:39.408205+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sandy Beach Resort_2026-11-21_01-34_comeback_10.9"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-20T11:34:26.938159+00:00",
+    "last_processed_run": "2026-11-21T01:34:10.560025+00:00",
     "premium_state": {
       "Aeolian Village Beach Resort": {
         "history_max": 13770.0,
@@ -404,8 +456,8 @@
         "premium_peak": 17753.0
       },
       "Mitsis Faliraki": {
-        "history_max": 18437.0,
-        "premium_peak": 18437.0
+        "history_max": 18647.0,
+        "premium_peak": 18647.0
       },
       "Mitsis Summer Palace": {
         "history_max": 17502.0,
@@ -452,8 +504,8 @@
         "premium_peak": 12458.0
       },
       "Portes Lithos Luxury Resort": {
-        "history_max": 16647.0,
-        "premium_peak": 16647.0
+        "history_max": 17097.0,
+        "premium_peak": 17097.0
       },
       "King Minos Retreat (ex. King Minos Palace)": {
         "history_max": 18358.0,
@@ -512,7 +564,7 @@
         "premium_peak": 18028.0
       },
       "Filion Suites Resort": {
-        "history_max": 11768.0,
+        "history_max": 11847.0,
         "premium_peak": null
       },
       "Aquila Porto Rethymno": {
@@ -712,8 +764,8 @@
         "premium_peak": 17651.0
       },
       "Sea Coast Halkidiki": {
-        "history_max": 16321.0,
-        "premium_peak": 16321.0
+        "history_max": 16325.0,
+        "premium_peak": 16325.0
       },
       "Atlantica Caldera Palace Resort & Spa (ex Atlantica Sensatori)": {
         "history_max": 17471.0,
@@ -734,6 +786,10 @@
       "Kerkyra Blue N' Spa by Louis (Corfu)": {
         "history_max": 19998.0,
         "premium_peak": 19998.0
+      },
+      "Panorama Leptos (Kato Galatas)": {
+        "history_max": 16511.0,
+        "premium_peak": 16511.0
       }
     }
   }

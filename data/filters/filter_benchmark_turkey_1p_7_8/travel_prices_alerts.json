@@ -1781,10 +1781,62 @@
       "created_at": "2026-11-20T11:33:48.562711+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Villa Side Residence_2026-11-20_11-33_zone_out_gone"
+    },
+    {
+      "hotel_name": "Limak Atlantis",
+      "duration_bucket": "",
+      "old_price": 2972.0,
+      "new_price": 2624.0,
+      "price_change": -348.0,
+      "price_change_pct": -11.709286675639301,
+      "timestamp": "2026-11-21 01:32:47.490242+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-21T01:33:18.664072+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Limak Atlantis_2026-11-21_01-32_-11.7"
+    },
+    {
+      "hotel_name": "Gardenia (Alanya)",
+      "duration_bucket": "",
+      "old_price": 2376.0,
+      "new_price": 2119.0,
+      "price_change": -257.0,
+      "price_change_pct": -10.816498316498317,
+      "timestamp": "2026-11-21 01:32:47.490242+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-21T01:33:18.664104+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Gardenia (Alanya)_2026-11-21_01-32_-10.8"
+    },
+    {
+      "hotel_name": "Sealife Family Resort",
+      "duration_bucket": "",
+      "old_price": 3026.0,
+      "new_price": 2646.0,
+      "price_change": -380.0,
+      "price_change_pct": -12.55783212161269,
+      "timestamp": "2026-11-21 01:32:47.490242+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-21T01:33:18.664117+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sealife Family Resort_2026-11-21_01-32_-12.6"
+    },
+    {
+      "hotel_name": "Relax Beach (Alanya)",
+      "duration_bucket": "",
+      "old_price": 1978.0,
+      "new_price": 1783.0,
+      "price_change": -195.0,
+      "price_change_pct": -9.858442871587462,
+      "timestamp": "2026-11-21 01:32:47.490242+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-21T01:33:18.664128+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Relax Beach (Alanya)_2026-11-21_01-32_-9.9"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-20T11:33:25.101525+00:00",
+    "last_processed_run": "2026-11-21T01:32:47.490242+00:00",
     "premium_state": {
       "Acanthus & Cennet Barut Collection": {
         "history_max": 5232.0,
@@ -2163,7 +2215,7 @@
         "premium_peak": null
       },
       "Grand Park Lara": {
-        "history_max": 2729.0,
+        "history_max": 2789.0,
         "premium_peak": null
       },
       "MegaSaray Club Belek": {
@@ -2364,6 +2416,10 @@
       },
       "Port River & Spa": {
         "history_max": 2464.0,
+        "premium_peak": null
+      },
+      "Bayou Lara": {
+        "history_max": 6513.0,
         "premium_peak": null
       }
     }
