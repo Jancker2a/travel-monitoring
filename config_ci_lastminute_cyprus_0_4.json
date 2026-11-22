@@ -1,0 +1,27 @@
+{
+  "allow_empty_offers": true,
+  "dynamic_search_dates": true,
+  "rolling_offset_days": 0,
+  "rolling_window_days": 4,
+  "url": "https://fly.pl/szukaj-wycieczek/?destinationLocation=6:&departureLocation=Warszawa,Katowice,Kraków,Gdańsk,Wrocław,Poznań&adults=2&catering=all_inclusive&offerTypes=accommodation_flight&durationFrom=6&durationTo=10&priceFrom=1000&priceTo=15000&order=price",
+  "max_price_threshold": 15000,
+  "min_price_threshold": 1000,
+  "display_price_ceiling": 8000,
+  "required_offer_url_contains": [
+    "/wycieczka/cypr",
+    "transport=accommodation_flight"
+  ],
+  "excluded_offer_url_contains": [
+    "/wycieczka/polska",
+    "/wycieczka/czechy",
+    "transport=accommodation&"
+  ],
+  "wait_timeout": 30000,
+  "max_retries": 3,
+  "max_offers": 0,
+  "max_pages": 10,
+  "retry_delay": 5,
+  "data_dir": "data/filters/filter_lastminute_cyprus_0_4",
+  "output_data_file": "travel_prices.csv",
+  "description": "⚡ Горящие вылеты • Кипр • 2 взр • вылет в теч. 0–4 дн • All Inclusive"
+}
