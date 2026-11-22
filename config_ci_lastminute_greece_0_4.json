@@ -3,10 +3,10 @@
   "dynamic_search_dates": true,
   "rolling_offset_days": 0,
   "rolling_window_days": 4,
-  "url": "https://fly.pl/szukaj-wycieczek/?destinationLocation=14:&departureLocation=Warszawa,Katowice,Kraków,Gdańsk,Wrocław,Poznań&adults=2&catering=all_inclusive&offerTypes=accommodation_flight&durationFrom=6&durationTo=10&priceFrom=1000&priceTo=15000&order=price",
-  "max_price_threshold": 15000,
+  "url": "https://fly.pl/szukaj-wycieczek/?destinationLocation=14:&departureLocation=Warszawa,Katowice,Kraków,Gdańsk,Wrocław,Poznań&adults=2&children=12-08-2020&catering=all_inclusive&offerTypes=accommodation_flight&durationFrom=6&durationTo=10&priceFrom=1000&priceTo=18000&order=price",
+  "max_price_threshold": 18000,
   "min_price_threshold": 1000,
-  "display_price_ceiling": 8000,
+  "display_price_ceiling": 10000,
   "required_offer_url_contains": [
     "/wycieczka/grecja",
     "transport=accommodation_flight"
@@ -23,5 +23,5 @@
   "retry_delay": 5,
   "data_dir": "data/filters/filter_lastminute_greece_0_4",
   "output_data_file": "travel_prices.csv",
-  "description": "⚡ Горящие вылеты • Греция • 2 взр • вылет в теч. 0–4 дн • All Inclusive"
+  "description": "⚡ Горящие вылеты • Греция • 2 взр + 1 реб • вылет в теч. 0–4 дн • All Inclusive"
 }

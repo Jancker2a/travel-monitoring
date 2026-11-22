@@ -151,7 +151,7 @@ FILTER_GROUPS = [
             {
                 'id': 'lastminute_turkey_0_4',
                 'title': '🇹🇷 Турция • Горящие вылеты (0–4 дня)',
-                'subtitle': 'Все аэр. • 2 взр • вылет в теч. 0–4 дн • All Inclusive',
+                'subtitle': 'Все аэр. • 2 взр + 1 реб • вылет в теч. 0–4 дн • All Inclusive',
                 'href': 'index_filter_lastminute_turkey_0_4.html',
                 'charts_subdir': 'hotel-charts/filter_lastminute_turkey_0_4',
                 'config': 'config_ci_lastminute_turkey_0_4.json',
@@ -159,7 +159,7 @@ FILTER_GROUPS = [
             {
                 'id': 'lastminute_egypt_0_4',
                 'title': '🇪🇬 Египет • Горящие вылеты (0–4 дня)',
-                'subtitle': 'Все аэр. • 2 взр • вылет в теч. 0–4 дн • All Inclusive',
+                'subtitle': 'Все аэр. • 2 взр + 1 реб • вылет в теч. 0–4 дн • All Inclusive',
                 'href': 'index_filter_lastminute_egypt_0_4.html',
                 'charts_subdir': 'hotel-charts/filter_lastminute_egypt_0_4',
                 'config': 'config_ci_lastminute_egypt_0_4.json',
@@ -167,7 +167,7 @@ FILTER_GROUPS = [
             {
                 'id': 'lastminute_greece_0_4',
                 'title': '🇬🇷 Греция • Горящие вылеты (0–4 дня)',
-                'subtitle': 'Все аэр. • 2 взр • вылет в теч. 0–4 дн • All Inclusive',
+                'subtitle': 'Все аэр. • 2 взр + 1 реб • вылет в теч. 0–4 дн • All Inclusive',
                 'href': 'index_filter_lastminute_greece_0_4.html',
                 'charts_subdir': 'hotel-charts/filter_lastminute_greece_0_4',
                 'config': 'config_ci_lastminute_greece_0_4.json',
@@ -175,7 +175,7 @@ FILTER_GROUPS = [
             {
                 'id': 'lastminute_cyprus_0_4',
                 'title': '🇨🇾 Кипр • Горящие вылеты (0–4 дня)',
-                'subtitle': 'Все аэр. • 2 взр • вылет в теч. 0–4 дн • All Inclusive',
+                'subtitle': 'Все аэр. • 2 взр + 1 реб • вылет в теч. 0–4 дн • All Inclusive',
                 'href': 'index_filter_lastminute_cyprus_0_4.html',
                 'charts_subdir': 'hotel-charts/filter_lastminute_cyprus_0_4',
                 'config': 'config_ci_lastminute_cyprus_0_4.json',
