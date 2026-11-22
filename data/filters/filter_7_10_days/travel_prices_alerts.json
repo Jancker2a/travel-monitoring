@@ -2834,10 +2834,114 @@
       "created_at": "2026-11-22T03:14:34.077705+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Stella Di Mare Beach & Spa_2026-11-22_03-13_comeback_18.9"
+    },
+    {
+      "hotel_name": "Titanic Royal",
+      "duration_bucket": "",
+      "old_price": 6831.0,
+      "new_price": 7566.0,
+      "price_change": 735.0,
+      "price_change_pct": 10.759771629336846,
+      "timestamp": "2026-11-22 18:39:34.505559+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-22T18:40:44.261285+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Titanic Royal_2026-11-22_18-39_+10.8"
+    },
+    {
+      "hotel_name": "Pickalbatros Water Valley Resort Neverland",
+      "duration_bucket": "",
+      "old_price": 8213.0,
+      "new_price": 7547.0,
+      "price_change": -666.0,
+      "price_change_pct": -8.10909533666139,
+      "timestamp": "2026-11-22 18:39:34.505559+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-22T18:40:44.261315+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Water Valley Resort Neverland_2026-11-22_18-39_-8.1"
+    },
+    {
+      "hotel_name": "Jaz Mirabel Beach Resort",
+      "duration_bucket": "",
+      "old_price": 7817.0,
+      "new_price": 6737.0,
+      "price_change": -1080.0,
+      "price_change_pct": -13.816041959831137,
+      "timestamp": "2026-11-22 18:39:34.505559+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-22T18:40:44.261331+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Mirabel Beach Resort_2026-11-22_18-39_-13.8"
+    },
+    {
+      "hotel_name": "Cooee Prima Life Makadi Bay",
+      "duration_bucket": "",
+      "old_price": 7337.0,
+      "new_price": 6737.0,
+      "price_change": -600.0,
+      "price_change_pct": -8.177729317159601,
+      "timestamp": "2026-11-22 18:39:34.505559+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-22T18:40:44.261350+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Cooee Prima Life Makadi Bay_2026-11-22_18-39_-8.2"
+    },
+    {
+      "hotel_name": "Regency Plaza Aqua Park Spa",
+      "duration_bucket": "",
+      "old_price": 5882.0,
+      "new_price": 5382.0,
+      "price_change": -500.0,
+      "price_change_pct": -8.500510030601836,
+      "timestamp": "2026-11-22 18:39:34.505559+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-22T18:40:44.261363+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Regency Plaza Aqua Park Spa_2026-11-22_18-39_-8.5"
+    },
+    {
+      "hotel_name": "Novotel Sharm Beach",
+      "duration_bucket": "",
+      "old_price": 9904.0,
+      "new_price": 9904.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-22 18:39:34.505559+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-22T18:40:44.261398+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Novotel Sharm Beach_2026-11-22_18-39_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sheraton Miramar Resort (El Gouna)",
+      "duration_bucket": "",
+      "old_price": 9862.0,
+      "new_price": 10217.0,
+      "price_change": 355.0,
+      "price_change_pct": 3.599675522206449,
+      "timestamp": "2026-11-22 18:39:34.505559+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-22T18:40:44.261408+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sheraton Miramar Resort (El Gouna)_2026-11-22_18-39_zone_out_+3.6"
+    },
+    {
+      "hotel_name": "Utopia Blue Resort",
+      "duration_bucket": "",
+      "old_price": 6797.0,
+      "new_price": 6797.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-22 18:39:34.505559+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-22T18:40:44.261419+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Utopia Blue Resort_2026-11-22_18-39_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-22T03:13:33.710002+00:00",
+    "last_processed_run": "2026-11-22T18:39:34.505559+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 5589.0,
@@ -2936,7 +3040,7 @@
         "premium_peak": null
       },
       "Seven Seas Jolie Bay": {
-        "history_max": 7638.0,
+        "history_max": 7756.0,
         "premium_peak": null
       },
       "Naama Bay Hotel & Resort": {
@@ -3048,7 +3152,7 @@
         "premium_peak": null
       },
       "Jaz Grand Marsa (ex Resta Grand Resort)": {
-        "history_max": 6104.0,
+        "history_max": 6127.0,
         "premium_peak": null
       },
       "Steigenberger Alcazar": {
@@ -3112,7 +3216,7 @@
         "premium_peak": null
       },
       "Pickalbatros Sands Port Ghalib (ex. Red Sea Siva Sands)": {
-        "history_max": 8441.0,
+        "history_max": 8638.0,
         "premium_peak": null
       },
       "Pickalbatros Villaggio Resort Portofino": {
@@ -3188,7 +3292,7 @@
         "premium_peak": null
       },
       "Renaissance Golden View Beach Resort by Marriott": {
-        "history_max": 8424.0,
+        "history_max": 8600.0,
         "premium_peak": null
       },
       "Rewaya Majestic Resort": {
@@ -3312,7 +3416,7 @@
         "premium_peak": null
       },
       "Sataya Resort (ex. Labranda Sataya Marsa Alam)": {
-        "history_max": 6753.0,
+        "history_max": 6885.0,
         "premium_peak": null
       },
       "Pickalbatros Laguna Club Resort": {
@@ -3328,7 +3432,7 @@
         "premium_peak": null
       },
       "Pharaoh Azur Resort (ex Sonesta Pharaoh Beach Resort)": {
-        "history_max": 6777.0,
+        "history_max": 6933.0,
         "premium_peak": null
       },
       "IL Mercato Splash Aqua Park": {
@@ -3440,7 +3544,7 @@
         "premium_peak": 11346.0
       },
       "Desert Rose Resort": {
-        "history_max": 8465.0,
+        "history_max": 8498.0,
         "premium_peak": null
       },
       "Domina Coral Bay Aquamarine": {
@@ -3596,7 +3700,7 @@
         "premium_peak": null
       },
       "Dreams Beach Sharm Resort (Sharm El Sheikh)": {
-        "history_max": 7622.0,
+        "history_max": 7629.0,
         "premium_peak": null
       },
       "Sunrise Remal Resort (ex. Tiran Island)": {
@@ -3604,7 +3708,7 @@
         "premium_peak": 12127.0
       },
       "Ecotel Dahab Bay View Resort": {
-        "history_max": 6838.0,
+        "history_max": 6844.0,
         "premium_peak": null
       },
       "El Kasr Red Sea": {

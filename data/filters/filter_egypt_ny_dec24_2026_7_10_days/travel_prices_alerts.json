@@ -390,10 +390,62 @@
       "created_at": "2026-11-21T23:19:26.663830+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Stella Beach Resort & Spa_2026-11-21_23-19_zone_out_gone"
+    },
+    {
+      "hotel_name": "Xperience Kiroseiz Premier",
+      "duration_bucket": "",
+      "old_price": 10421.0,
+      "new_price": 9101.0,
+      "price_change": -1320.0,
+      "price_change_pct": -12.66673064005374,
+      "timestamp": "2026-11-22 18:39:36.809081+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-22T18:39:58.064786+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xperience Kiroseiz Premier_2026-11-22_18-39_-12.7"
+    },
+    {
+      "hotel_name": "Regency Plaza Aqua Park Spa",
+      "duration_bucket": "",
+      "old_price": 10799.0,
+      "new_price": 9722.0,
+      "price_change": -1077.0,
+      "price_change_pct": -9.973145661635337,
+      "timestamp": "2026-11-22 18:39:36.809081+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-22T18:39:58.064823+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Regency Plaza Aqua Park Spa_2026-11-22_18-39_-10.0"
+    },
+    {
+      "hotel_name": "Xperience Kiroseiz Parkland",
+      "duration_bucket": "",
+      "old_price": 10761.0,
+      "new_price": 9441.0,
+      "price_change": -1320.0,
+      "price_change_pct": -12.266517981600224,
+      "timestamp": "2026-11-22 18:39:36.809081+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-22T18:39:58.064849+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xperience Kiroseiz Parkland_2026-11-22_18-39_-12.3"
+    },
+    {
+      "hotel_name": "Stella Beach Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 10952.0,
+      "new_price": 10952.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-22 18:39:36.809081+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-22T18:39:58.064874+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Stella Beach Resort & Spa_2026-11-22_18-39_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-22T03:14:01.757196+00:00",
+    "last_processed_run": "2026-11-22T18:39:36.809081+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 10719.0,
@@ -497,6 +549,14 @@
       },
       "Amarina Queen Resort": {
         "history_max": 10541.0,
+        "premium_peak": null
+      },
+      "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort)": {
+        "history_max": 10869.0,
+        "premium_peak": null
+      },
+      "Serenity Sky Arc": {
+        "history_max": 10987.0,
         "premium_peak": null
       }
     }

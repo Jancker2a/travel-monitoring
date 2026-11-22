@@ -1677,10 +1677,49 @@
       "created_at": "2026-11-21T23:20:15.099761+00:00",
       "threshold_percent": 8.0,
       "unique_key": "White Hills Resort_2026-11-21_23-19_zone_out_gone"
+    },
+    {
+      "hotel_name": "Pickalbatros Royal Moderna",
+      "duration_bucket": "",
+      "old_price": 5959.0,
+      "new_price": 6696.0,
+      "price_change": 737.0,
+      "price_change_pct": 12.367846954186943,
+      "timestamp": "2026-11-22 18:40:21.729312+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-22T18:40:45.995405+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Royal Moderna_2026-11-22_18-40_+12.4"
+    },
+    {
+      "hotel_name": "Invidia Coral Beach Tiran",
+      "duration_bucket": "",
+      "old_price": 6402.0,
+      "new_price": 4949.0,
+      "price_change": -1453.0,
+      "price_change_pct": -22.696032489846925,
+      "timestamp": "2026-11-22 18:40:21.729312+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-22T18:40:45.995434+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Invidia Coral Beach Tiran_2026-11-22_18-40_-22.7"
+    },
+    {
+      "hotel_name": "Nubian Island",
+      "duration_bucket": "",
+      "old_price": 7019.0,
+      "new_price": 7019.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-22 18:40:21.729312+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-22T18:40:45.995476+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Nubian Island_2026-11-22_18-40_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-22T03:14:22.067902+00:00",
+    "last_processed_run": "2026-11-22T18:40:21.729312+00:00",
     "premium_state": {
       "Albatros Sharm Resort (ex. Beach Albatros)": {
         "history_max": 6749.0,
@@ -1931,7 +1970,7 @@
         "premium_peak": null
       },
       "Rixos Radamis Beach": {
-        "history_max": 10119.0,
+        "history_max": 10181.0,
         "premium_peak": null
       },
       "Naama Waves": {

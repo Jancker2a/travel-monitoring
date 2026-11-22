@@ -1976,10 +1976,101 @@
       "created_at": "2026-11-22T03:13:30.718598+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Seamelia Beach Resort & Spa_2026-11-22_03-12_zone_out_gone"
+    },
+    {
+      "hotel_name": "Nerton",
+      "duration_bucket": "",
+      "old_price": 2407.0,
+      "new_price": 2157.0,
+      "price_change": -250.0,
+      "price_change_pct": -10.38637307852098,
+      "timestamp": "2026-11-22 18:36:04.776024+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-22T18:36:42.603991+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Nerton_2026-11-22_18-36_-10.4"
+    },
+    {
+      "hotel_name": "Sunprime C-Lounge",
+      "duration_bucket": "",
+      "old_price": 2758.0,
+      "new_price": 2508.0,
+      "price_change": -250.0,
+      "price_change_pct": -9.064539521392314,
+      "timestamp": "2026-11-22 18:36:04.776024+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-22T18:36:42.604050+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sunprime C-Lounge_2026-11-22_18-36_-9.1"
+    },
+    {
+      "hotel_name": "Side Star Resort",
+      "duration_bucket": "",
+      "old_price": 3074.0,
+      "new_price": 2824.0,
+      "price_change": -250.0,
+      "price_change_pct": -8.132726089785296,
+      "timestamp": "2026-11-22 18:36:04.776024+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-22T18:36:42.604076+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Side Star Resort_2026-11-22_18-36_-8.1"
+    },
+    {
+      "hotel_name": "Sealife Family Resort",
+      "duration_bucket": "",
+      "old_price": 2646.0,
+      "new_price": 2396.0,
+      "price_change": -250.0,
+      "price_change_pct": -9.44822373393802,
+      "timestamp": "2026-11-22 18:36:04.776024+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-22T18:36:42.604103+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sealife Family Resort_2026-11-22_18-36_-9.4"
+    },
+    {
+      "hotel_name": "Riviera SPA (Alanya)",
+      "duration_bucket": "",
+      "old_price": 2228.0,
+      "new_price": 1978.0,
+      "price_change": -250.0,
+      "price_change_pct": -11.220825852782765,
+      "timestamp": "2026-11-22 18:36:04.776024+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-22T18:36:42.604122+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Riviera SPA (Alanya)_2026-11-22_18-36_-11.2"
+    },
+    {
+      "hotel_name": "Alaiye Kleopatra",
+      "duration_bucket": "",
+      "old_price": 2065.0,
+      "new_price": 1613.0,
+      "price_change": -452.0,
+      "price_change_pct": -21.88861985472155,
+      "timestamp": "2026-11-22 18:36:04.776024+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-22T18:36:42.604137+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Alaiye Kleopatra_2026-11-22_18-36_-21.9"
+    },
+    {
+      "hotel_name": "Cornelia Diamond Golf Resort & SPA",
+      "duration_bucket": "",
+      "old_price": 7958.0,
+      "new_price": 8013.0,
+      "price_change": 55.0,
+      "price_change_pct": 0.6911284242271928,
+      "timestamp": "2026-11-22 18:36:04.776024+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-22T18:36:42.604173+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Cornelia Diamond Golf Resort & SPA_2026-11-22_18-36_zone_out_+0.7"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-22T03:12:49.222566+00:00",
+    "last_processed_run": "2026-11-22T18:36:04.776024+00:00",
     "premium_state": {
       "Acanthus & Cennet Barut Collection": {
         "history_max": 5232.0,
@@ -2426,8 +2517,8 @@
         "premium_peak": null
       },
       "Cornelia Diamond Golf Resort & SPA": {
-        "history_max": 8003.0,
-        "premium_peak": 8003.0
+        "history_max": 8013.0,
+        "premium_peak": 8013.0
       },
       "Avia Resort & Spa": {
         "history_max": 3373.0,
@@ -2562,7 +2653,7 @@
         "premium_peak": null
       },
       "Bayou Lara": {
-        "history_max": 6513.0,
+        "history_max": 6526.0,
         "premium_peak": null
       }
     }
