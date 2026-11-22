@@ -2782,10 +2782,62 @@
       "created_at": "2026-11-21T23:19:56.406699+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Stella Gardens Resort & Spa (ex Stella Di Mare Gardens)_2026-11-21_23-18_zone_out_gone"
+    },
+    {
+      "hotel_name": "Amarina Queen Resort",
+      "duration_bucket": "",
+      "old_price": 4977.0,
+      "new_price": 5537.0,
+      "price_change": 560.0,
+      "price_change_pct": 11.251758087201125,
+      "timestamp": "2026-11-22 03:13:33.710002+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-22T03:14:34.077566+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amarina Queen Resort_2026-11-22_03-13_+11.3"
+    },
+    {
+      "hotel_name": "Swisstouch Oriental Resort (ex. Hotelux Oriental Coast)",
+      "duration_bucket": "",
+      "old_price": 4777.0,
+      "new_price": 5337.0,
+      "price_change": 560.0,
+      "price_change_pct": 11.722838601632823,
+      "timestamp": "2026-11-22 03:13:33.710002+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-22T03:14:34.077614+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Swisstouch Oriental Resort (ex. Hotelux Oriental Coast)_2026-11-22_03-13_+11.7"
+    },
+    {
+      "hotel_name": "Sunrise Tucana Resort",
+      "duration_bucket": "",
+      "old_price": 9774.0,
+      "new_price": 10274.0,
+      "price_change": 500.0,
+      "price_change_pct": 5.11561285041948,
+      "timestamp": "2026-11-22 03:13:33.710002+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-22T03:14:34.077674+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sunrise Tucana Resort_2026-11-22_03-13_zone_out_+5.1"
+    },
+    {
+      "hotel_name": "Stella Di Mare Beach & Spa",
+      "duration_bucket": "",
+      "old_price": 10262.0,
+      "new_price": 8327.0,
+      "price_change": -1935.0,
+      "price_change_pct": -18.85597349444553,
+      "timestamp": "2026-11-22 03:13:33.710002+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-11-22T03:14:34.077705+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Stella Di Mare Beach & Spa_2026-11-22_03-13_comeback_18.9"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-21T23:18:50.261623+00:00",
+    "last_processed_run": "2026-11-22T03:13:33.710002+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 5589.0,
@@ -2800,7 +2852,7 @@
         "premium_peak": null
       },
       "Sierra": {
-        "history_max": 9703.0,
+        "history_max": 9735.0,
         "premium_peak": null
       },
       "Jaz Neo Saraya Palms": {
@@ -2856,7 +2908,7 @@
         "premium_peak": null
       },
       "Monte Carlo Resort Spa": {
-        "history_max": 8523.0,
+        "history_max": 8943.0,
         "premium_peak": null
       },
       "Shams Lodge Resort": {
@@ -2960,7 +3012,7 @@
         "premium_peak": 10597.0
       },
       "Jaz Elite Asteria (Hurghada)": {
-        "history_max": 9138.0,
+        "history_max": 9143.0,
         "premium_peak": null
       },
       "Rewaya Inn Resort (ex. Hawaii Paradise Aqua Park Resort)": {
@@ -3028,7 +3080,7 @@
         "premium_peak": null
       },
       "Naama Waves": {
-        "history_max": 7713.0,
+        "history_max": 7785.0,
         "premium_peak": null
       },
       "Serenity Sky Arc": {
@@ -3036,7 +3088,7 @@
         "premium_peak": null
       },
       "Novotel Marsa Alam": {
-        "history_max": 5747.0,
+        "history_max": 5867.0,
         "premium_peak": null
       },
       "Pickalbatros Palace Resort": {
@@ -3044,7 +3096,7 @@
         "premium_peak": null
       },
       "Royal Regency Club": {
-        "history_max": 6648.0,
+        "history_max": 6702.0,
         "premium_peak": null
       },
       "Pickalbatros Royal Grand Resort Sharm": {
@@ -3124,7 +3176,7 @@
         "premium_peak": null
       },
       "Regency Plaza Aqua Park Spa": {
-        "history_max": 5842.0,
+        "history_max": 5882.0,
         "premium_peak": null
       },
       "Rixos Premium Magawish Bay View": {
@@ -3208,7 +3260,7 @@
         "premium_peak": null
       },
       "Parrotel Beach Resort (ex. Radisson Blu)": {
-        "history_max": 6827.0,
+        "history_max": 7143.0,
         "premium_peak": null
       },
       "Sentido Mamlouk Palace Resort & Spa (ex Sunrise)": {
@@ -3340,7 +3392,7 @@
         "premium_peak": null
       },
       "Charmillion Club Aqua Park": {
-        "history_max": 6408.0,
+        "history_max": 6521.0,
         "premium_peak": null
       },
       "Three Corners Fayrouz Plaza Beach Resort": {
@@ -3368,7 +3420,7 @@
         "premium_peak": null
       },
       "Coral Sea Sensatori (ex Coral Sea Imperial)": {
-        "history_max": 8792.0,
+        "history_max": 8874.0,
         "premium_peak": null
       },
       "Swisstouch Oriental Resort (ex. Hotelux Oriental Coast)": {
@@ -3416,7 +3468,7 @@
         "premium_peak": null
       },
       "Xperience Kiroseiz Premier": {
-        "history_max": 6237.0,
+        "history_max": 6283.0,
         "premium_peak": null
       },
       "Albatros Makadi Resort (ex Royal Pharaohs Makadi)": {
@@ -3428,7 +3480,7 @@
         "premium_peak": null
       },
       "Xperience Kiroseiz Parkland": {
-        "history_max": 6170.0,
+        "history_max": 6419.0,
         "premium_peak": null
       },
       "Aldiana Club Naga Bay": {
@@ -3456,7 +3508,7 @@
         "premium_peak": null
       },
       "Amarina Queen Resort": {
-        "history_max": 5352.0,
+        "history_max": 5537.0,
         "premium_peak": null
       },
       "Amarina Sapphire Resort": {
@@ -3580,7 +3632,7 @@
         "premium_peak": null
       },
       "Sunrise Holidays Resort": {
-        "history_max": 8413.0,
+        "history_max": 8451.0,
         "premium_peak": null
       },
       "Golf Villas And Suites Sharm": {
@@ -3616,7 +3668,7 @@
         "premium_peak": 19250.0
       },
       "Hilton Marsa Alam Nubian Resort": {
-        "history_max": 7387.0,
+        "history_max": 7487.0,
         "premium_peak": null
       },
       "Dream Lagoon & Aqua Park Resort (ex. Floriana Dream Lagoon)": {
@@ -3664,7 +3716,7 @@
         "premium_peak": null
       },
       "Stella Gardens Resort & Spa (ex Stella Di Mare Gardens)": {
-        "history_max": 6731.0,
+        "history_max": 6797.0,
         "premium_peak": null
       },
       "Cooee Prima Life Makadi Bay": {

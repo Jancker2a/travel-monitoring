@@ -4823,10 +4823,114 @@
       "created_at": "2026-11-21T23:16:42.186049+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sunrise Serano Club Resort_2026-11-21_23-15_zone_out_gone"
+    },
+    {
+      "hotel_name": "MG Alexander The Great (ex. Dessole Alexander the Great)",
+      "duration_bucket": "",
+      "old_price": 2218.0,
+      "new_price": 2469.0,
+      "price_change": 251.0,
+      "price_change_pct": 11.316501352569883,
+      "timestamp": "2026-11-22 03:12:29.455125+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-22T03:14:16.209430+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "MG Alexander The Great (ex. Dessole Alexander the Great)_2026-11-22_03-12_+11.3"
+    },
+    {
+      "hotel_name": "Protels Crystal Beach Resort",
+      "duration_bucket": "",
+      "old_price": 2062.0,
+      "new_price": 2312.0,
+      "price_change": 250.0,
+      "price_change_pct": 12.124151309408342,
+      "timestamp": "2026-11-22 03:12:29.455125+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-22T03:14:16.209470+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Protels Crystal Beach Resort_2026-11-22_03-12_+12.1"
+    },
+    {
+      "hotel_name": "El Karma Aqua Beach Resort (ex. Nubia Aqua Beach Resort)",
+      "duration_bucket": "",
+      "old_price": 2324.0,
+      "new_price": 3042.0,
+      "price_change": 718.0,
+      "price_change_pct": 30.89500860585198,
+      "timestamp": "2026-11-22 03:12:29.455125+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-22T03:14:16.209515+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "El Karma Aqua Beach Resort (ex. Nubia Aqua Beach Resort)_2026-11-22_03-12_+30.9"
+    },
+    {
+      "hotel_name": "Utopia Blue Resort",
+      "duration_bucket": "",
+      "old_price": 4549.0,
+      "new_price": 3339.0,
+      "price_change": -1210.0,
+      "price_change_pct": -26.599252582985272,
+      "timestamp": "2026-11-22 03:12:29.455125+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-22T03:14:16.209527+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Utopia Blue Resort_2026-11-22_03-12_-26.6"
+    },
+    {
+      "hotel_name": "Arabella Azur",
+      "duration_bucket": "",
+      "old_price": 3638.0,
+      "new_price": 3638.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-22 03:12:29.455125+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-22T03:14:16.209573+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Arabella Azur_2026-11-22_03-12_zone_out_gone"
+    },
+    {
+      "hotel_name": "Caribbean World Soma Bay",
+      "duration_bucket": "",
+      "old_price": 2499.0,
+      "new_price": 2499.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-22 03:12:29.455125+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-22T03:14:16.209584+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Caribbean World Soma Bay_2026-11-22_03-12_zone_out_gone"
+    },
+    {
+      "hotel_name": "Jaz Makadi Saraya (ex Iberotel)",
+      "duration_bucket": "",
+      "old_price": 4310.0,
+      "new_price": 4310.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-22 03:12:29.455125+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-22T03:14:16.209594+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Makadi Saraya (ex Iberotel)_2026-11-22_03-12_zone_out_gone"
+    },
+    {
+      "hotel_name": "Pickalbatros Laguna Vista Beach",
+      "duration_bucket": "",
+      "old_price": 4689.0,
+      "new_price": 4689.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-22 03:12:29.455125+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-22T03:14:16.209607+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Laguna Vista Beach_2026-11-22_03-12_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-21T23:15:17.714094+00:00",
+    "last_processed_run": "2026-11-22T03:12:29.455125+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 2718.0,
@@ -4837,7 +4941,7 @@
         "premium_peak": null
       },
       "Shoni Bay Resort": {
-        "history_max": 2375.0,
+        "history_max": 2383.0,
         "premium_peak": null
       },
       "Jaz Soma Beach": {
@@ -5085,7 +5189,7 @@
         "premium_peak": null
       },
       "Star Resort & Aqua Park Sharm El Sheikh": {
-        "history_max": 3241.0,
+        "history_max": 3403.0,
         "premium_peak": null
       },
       "Jaz Aquaviva": {
@@ -5241,7 +5345,7 @@
         "premium_peak": null
       },
       "Rehana Sharm Resort & Spa": {
-        "history_max": 2529.0,
+        "history_max": 2552.0,
         "premium_peak": null
       },
       "Regency Plaza Aqua Park Spa": {
@@ -5265,7 +5369,7 @@
         "premium_peak": null
       },
       "Protels Beach Club & SPA": {
-        "history_max": 2428.0,
+        "history_max": 2461.0,
         "premium_peak": null
       },
       "Retac Qunay Dahab Resort & Spa": {
@@ -6009,7 +6113,7 @@
         "premium_peak": null
       },
       "Serenity Sky Arc": {
-        "history_max": 4489.0,
+        "history_max": 4509.0,
         "premium_peak": null
       },
       "Pharaoh Azur Resort (ex Sonesta Pharaoh Beach Resort)": {

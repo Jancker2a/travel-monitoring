@@ -611,10 +611,75 @@
       "created_at": "2026-11-21T23:21:05.063992+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Porto Bello_2026-11-21_23-20_zone_out_+1.4"
+    },
+    {
+      "hotel_name": "Aydinbey Queens Palace & Spa",
+      "duration_bucket": "",
+      "old_price": 8176.0,
+      "new_price": 9297.0,
+      "price_change": 1121.0,
+      "price_change_pct": 13.710861056751467,
+      "timestamp": "2026-11-22 03:14:51.036686+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-22T03:15:27.443495+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Aydinbey Queens Palace & Spa_2026-11-22_03-14_+13.7"
+    },
+    {
+      "hotel_name": "Trendy Aspendos Beach",
+      "duration_bucket": "",
+      "old_price": 8320.0,
+      "new_price": 9453.0,
+      "price_change": 1133.0,
+      "price_change_pct": 13.61778846153846,
+      "timestamp": "2026-11-22 03:14:51.036686+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-22T03:15:27.443526+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Trendy Aspendos Beach_2026-11-22_03-14_+13.6"
+    },
+    {
+      "hotel_name": "Seashell Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 9973.0,
+      "new_price": 10473.0,
+      "price_change": 500.0,
+      "price_change_pct": 5.013536548681439,
+      "timestamp": "2026-11-22 03:14:51.036686+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-22T03:15:27.443546+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Seashell Resort & Spa_2026-11-22_03-14_zone_out_+5.0"
+    },
+    {
+      "hotel_name": "Side Royal Palace",
+      "duration_bucket": "",
+      "old_price": 9881.0,
+      "new_price": 11049.0,
+      "price_change": 1168.0,
+      "price_change_pct": 11.820665924501569,
+      "timestamp": "2026-11-22 03:14:51.036686+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-22T03:15:27.443554+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Side Royal Palace_2026-11-22_03-14_zone_out_+11.8"
+    },
+    {
+      "hotel_name": "Side Royal Style (ex. Side Royal Luxury)",
+      "duration_bucket": "",
+      "old_price": 9761.0,
+      "new_price": 10903.0,
+      "price_change": 1142.0,
+      "price_change_pct": 11.699620940477411,
+      "timestamp": "2026-11-22 03:14:51.036686+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-22T03:15:27.443560+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Side Royal Style (ex. Side Royal Luxury)_2026-11-22_03-14_zone_out_+11.7"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-21T23:20:24.752122+00:00",
+    "last_processed_run": "2026-11-22T03:14:51.036686+00:00",
     "premium_state": {
       "Acanthus & Cennet Barut Collection": {
         "history_max": 14850.0,
@@ -701,7 +766,7 @@
         "premium_peak": null
       },
       "Limak Atlantis": {
-        "history_max": 8521.0,
+        "history_max": 8542.0,
         "premium_peak": null
       },
       "Limak Arcadia Sport Resort": {
@@ -809,12 +874,12 @@
         "premium_peak": 12383.0
       },
       "Side Royal Style (ex. Side Royal Luxury)": {
-        "history_max": 9761.0,
-        "premium_peak": null
+        "history_max": 10903.0,
+        "premium_peak": 10903.0
       },
       "Side Royal Palace": {
-        "history_max": 9881.0,
-        "premium_peak": null
+        "history_max": 11049.0,
+        "premium_peak": 11049.0
       },
       "Side Prenses": {
         "history_max": 8377.0,
@@ -853,7 +918,7 @@
         "premium_peak": null
       },
       "Innvista Belek (ex. Vera Verde)": {
-        "history_max": 9093.0,
+        "history_max": 9227.0,
         "premium_peak": null
       },
       "Megasaray WestBeach Antalya (ex. Harrington Park Resort)": {
