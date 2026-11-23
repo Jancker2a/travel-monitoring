@@ -1,5 +1,167 @@
 {
   "version": 2,
-  "alerts": [],
-  "meta": {}
+  "alerts": [
+    {
+      "hotel_name": "AMC Royal Hotel & Spa (ex. AMC Azur Resort)",
+      "duration_bucket": "",
+      "old_price": 10165.0,
+      "new_price": 9025.0,
+      "price_change": -1140.0,
+      "price_change_pct": -11.214953271028037,
+      "timestamp": "2026-11-23 07:54:24.026986+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-23T07:54:44.275553+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort)_2026-11-23_07-54_-11.2"
+    },
+    {
+      "hotel_name": "Rewaya Luxury Resort",
+      "duration_bucket": "",
+      "old_price": 9160.0,
+      "new_price": 7840.0,
+      "price_change": -1320.0,
+      "price_change_pct": -14.41048034934498,
+      "timestamp": "2026-11-23 07:54:24.026986+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-23T07:54:44.275597+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Luxury Resort_2026-11-23_07-54_-14.4"
+    },
+    {
+      "hotel_name": "Regency Plaza Aqua Park Spa",
+      "duration_bucket": "",
+      "old_price": 10799.0,
+      "new_price": 9722.0,
+      "price_change": -1077.0,
+      "price_change_pct": -9.973145661635337,
+      "timestamp": "2026-11-23 07:54:24.026986+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-23T07:54:44.275613+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Regency Plaza Aqua Park Spa_2026-11-23_07-54_-10.0"
+    },
+    {
+      "hotel_name": "Xperience Kiroseiz Premier",
+      "duration_bucket": "",
+      "old_price": 10421.0,
+      "new_price": 9101.0,
+      "price_change": -1320.0,
+      "price_change_pct": -12.66673064005374,
+      "timestamp": "2026-11-23 07:54:24.026986+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-23T07:54:44.275631+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xperience Kiroseiz Premier_2026-11-23_07-54_-12.7"
+    },
+    {
+      "hotel_name": "Pickalbatros Laguna Club Resort",
+      "duration_bucket": "",
+      "old_price": 10947.0,
+      "new_price": 10947.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-23 07:54:24.026986+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-23T07:54:44.275662+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Laguna Club Resort_2026-11-23_07-54_zone_out_gone"
+    }
+  ],
+  "meta": {
+    "last_processed_run": "2026-11-23T07:54:24.026986+00:00",
+    "premium_state": {
+      "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
+        "history_max": 10165.0,
+        "premium_peak": null
+      },
+      "Rewaya Luxury Resort": {
+        "history_max": 9160.0,
+        "premium_peak": null
+      },
+      "Retac Qunay Dahab Resort & Spa": {
+        "history_max": 8427.0,
+        "premium_peak": null
+      },
+      "Xperience Kiroseiz Premier": {
+        "history_max": 10421.0,
+        "premium_peak": null
+      },
+      "Regency Plaza Aqua Park Spa": {
+        "history_max": 10799.0,
+        "premium_peak": null
+      },
+      "Red Sea Grand Waterworld Makadi (ex. Sunwing Waterworld Makadi)": {
+        "history_max": 10750.0,
+        "premium_peak": null
+      },
+      "Pickalbatros Laguna Club Resort": {
+        "history_max": 10947.0,
+        "premium_peak": null
+      },
+      "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort)": {
+        "history_max": 10869.0,
+        "premium_peak": null
+      },
+      "Parrotel Lagoon Resort": {
+        "history_max": 10442.0,
+        "premium_peak": null
+      },
+      "Swisstouch Oriental Resort (ex. Hotelux Oriental Coast)": {
+        "history_max": 10140.0,
+        "premium_peak": null
+      },
+      "Rewaya Majestic Resort": {
+        "history_max": 10867.0,
+        "premium_peak": null
+      },
+      "IL Mercato Splash Aqua Park": {
+        "history_max": 10384.0,
+        "premium_peak": null
+      },
+      "Dreams Beach (Marsa Alam)": {
+        "history_max": 10834.0,
+        "premium_peak": null
+      },
+      "Concorde Moreen Beach Resort & Spa": {
+        "history_max": 10605.0,
+        "premium_peak": null
+      },
+      "Xperience Kiroseiz Parkland": {
+        "history_max": 10196.0,
+        "premium_peak": null
+      },
+      "Amarina Queen Resort": {
+        "history_max": 10412.0,
+        "premium_peak": null
+      },
+      "Novotel Marsa Alam": {
+        "history_max": 10237.0,
+        "premium_peak": null
+      },
+      "Royal Regency Club": {
+        "history_max": 10560.0,
+        "premium_peak": null
+      },
+      "Titanic Pearl": {
+        "history_max": 10517.0,
+        "premium_peak": null
+      },
+      "V Grand Beach Resort Sahl Hasheesh": {
+        "history_max": 9991.0,
+        "premium_peak": null
+      },
+      "Stella Beach Resort & Spa": {
+        "history_max": 10552.0,
+        "premium_peak": null
+      },
+      "Serenity Sky Arc": {
+        "history_max": 10987.0,
+        "premium_peak": null
+      },
+      "Old Palace Resort": {
+        "history_max": 10627.0,
+        "premium_peak": null
+      }
+    }
+  }
 }
