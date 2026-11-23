@@ -1,11 +1,38 @@
 {
   "version": 2,
-  "alerts": [],
+  "alerts": [
+    {
+      "hotel_name": "Eleni Resort (ex. Eleni Holiday Village)",
+      "duration_bucket": "",
+      "old_price": 3413.0,
+      "new_price": 3413.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-23 20:13:27.058473+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-23T20:13:53.727700+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Eleni Resort (ex. Eleni Holiday Village)_2026-11-23_20-13_zone_out_gone"
+    },
+    {
+      "hotel_name": "Leonardo Plaza Cypria Maris Beach & Spa (ex Cyprotel)",
+      "duration_bucket": "",
+      "old_price": 3613.0,
+      "new_price": 3613.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-23 20:13:27.058473+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-23T20:13:53.727727+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Leonardo Plaza Cypria Maris Beach & Spa (ex Cyprotel)_2026-11-23_20-13_zone_out_gone"
+    }
+  ],
   "meta": {
-    "last_processed_run": "2026-11-23T07:48:39.187611+00:00",
+    "last_processed_run": "2026-11-23T20:13:27.058473+00:00",
     "premium_state": {
       "Acapulco Resort": {
-        "history_max": 4149.0,
+        "history_max": 4189.0,
         "premium_peak": null
       },
       "Paphos Gardens Holiday Resort (ex Leptos )": {
@@ -13,7 +40,7 @@
         "premium_peak": null
       },
       "Grand Sapphire Resort (Famagusta)": {
-        "history_max": 4949.0,
+        "history_max": 4999.0,
         "premium_peak": null
       },
       "Kaya Artemis": {
@@ -21,11 +48,11 @@
         "premium_peak": null
       },
       "Olympic Lagoon Resort Paphos": {
-        "history_max": 6231.0,
+        "history_max": 6324.0,
         "premium_peak": null
       },
       "King Evelthon Beach Hotel and Resort": {
-        "history_max": 3830.0,
+        "history_max": 3885.0,
         "premium_peak": null
       },
       "King Jason Paphos": {
@@ -37,8 +64,8 @@
         "premium_peak": null
       },
       "Merit Royal Gardens Hotel and Casino": {
-        "history_max": 12269.0,
-        "premium_peak": 12269.0
+        "history_max": 12399.0,
+        "premium_peak": 12399.0
       },
       "Theo Sunset Bay Holiday Village (Pafos)": {
         "history_max": 3398.0,
@@ -53,11 +80,11 @@
         "premium_peak": null
       },
       "Mayfair Gardens": {
-        "history_max": 3269.0,
+        "history_max": 3289.0,
         "premium_peak": null
       },
       "Lord's Palace": {
-        "history_max": 6069.0,
+        "history_max": 6139.0,
         "premium_peak": null
       },
       "Louis Ivi Mare": {
@@ -77,15 +104,15 @@
         "premium_peak": 8353.0
       },
       "Constantinou Bros Athena Beach (Paphos)": {
-        "history_max": 4462.0,
+        "history_max": 4527.0,
         "premium_peak": null
       },
       "Aquamare Beach & Spa": {
-        "history_max": 5089.0,
+        "history_max": 5139.0,
         "premium_peak": null
       },
       "Thalassa Boutique & SPA (ex. SENTIDO Thalassa Coral Bay)": {
-        "history_max": 5511.0,
+        "history_max": 5593.0,
         "premium_peak": null
       },
       "Avlida": {
@@ -93,23 +120,23 @@
         "premium_peak": null
       },
       "Chamada Prestige (ex. Malpas Hotel & Casino)": {
-        "history_max": 8129.0,
-        "premium_peak": 8129.0
+        "history_max": 8219.0,
+        "premium_peak": 8219.0
       },
       "Salamis Bay Conti": {
         "history_max": 5306.0,
         "premium_peak": null
       },
       "St. Raphael Resort": {
-        "history_max": 6875.0,
+        "history_max": 6978.0,
         "premium_peak": null
       },
       "Concorde Aria": {
-        "history_max": 9429.0,
-        "premium_peak": 9429.0
+        "history_max": 9549.0,
+        "premium_peak": 9549.0
       },
       "Chrysomare": {
-        "history_max": 4392.0,
+        "history_max": 4453.0,
         "premium_peak": null
       },
       "Concorde Luxury Resort (Vokolida)": {
@@ -117,11 +144,11 @@
         "premium_peak": 10351.0
       },
       "St. George Beach Hotel & Spa Resort": {
-        "history_max": 3933.0,
+        "history_max": 3941.0,
         "premium_peak": null
       },
       "Constantinos The Great Beach": {
-        "history_max": 3909.0,
+        "history_max": 3963.0,
         "premium_peak": null
       },
       "Louis Phaethon Beach": {

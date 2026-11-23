@@ -1,5 +1,1387 @@
 {
   "version": 2,
-  "alerts": [],
-  "meta": {}
+  "alerts": [
+    {
+      "hotel_name": "SUI Resort by Oz",
+      "duration_bucket": "",
+      "old_price": 9421.0,
+      "new_price": 8644.0,
+      "price_change": -777.0,
+      "price_change_pct": -8.247532109117927,
+      "timestamp": "2026-11-23 20:16:22.313812+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-23T20:17:32.504057+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "SUI Resort by Oz_2026-11-23_20-16_-8.2"
+    },
+    {
+      "hotel_name": "Sentido Palmeras Lumare",
+      "duration_bucket": "",
+      "old_price": 11272.0,
+      "new_price": 10322.0,
+      "price_change": -950.0,
+      "price_change_pct": -8.427963094393187,
+      "timestamp": "2026-11-23 20:16:22.313812+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-23T20:17:32.504110+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sentido Palmeras Lumare_2026-11-23_20-16_-8.4"
+    },
+    {
+      "hotel_name": "Champion Holiday Village (Kemer)",
+      "duration_bucket": "",
+      "old_price": 10149.0,
+      "new_price": 9250.0,
+      "price_change": -899.0,
+      "price_change_pct": -8.85801556803626,
+      "timestamp": "2026-11-23 20:16:22.313812+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-23T20:17:32.504130+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Champion Holiday Village (Kemer)_2026-11-23_20-16_-8.9"
+    },
+    {
+      "hotel_name": "Sultan of Dreams",
+      "duration_bucket": "",
+      "old_price": 9913.0,
+      "new_price": 8460.0,
+      "price_change": -1453.0,
+      "price_change_pct": -14.657520427721174,
+      "timestamp": "2026-11-23 20:16:22.313812+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-23T20:17:32.504141+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sultan of Dreams_2026-11-23_20-16_-14.7"
+    },
+    {
+      "hotel_name": "Sentido Lycus Beach (ex. Lti)",
+      "duration_bucket": "",
+      "old_price": 10103.0,
+      "new_price": 8843.0,
+      "price_change": -1260.0,
+      "price_change_pct": -12.471543106008117,
+      "timestamp": "2026-11-23 20:16:22.313812+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-23T20:17:32.504159+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sentido Lycus Beach (ex. Lti)_2026-11-23_20-16_-12.5"
+    },
+    {
+      "hotel_name": "Villa Side Residence",
+      "duration_bucket": "",
+      "old_price": 11281.0,
+      "new_price": 10280.0,
+      "price_change": -1001.0,
+      "price_change_pct": -8.873326832727594,
+      "timestamp": "2026-11-23 20:16:22.313812+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-23T20:17:32.504194+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Villa Side Residence_2026-11-23_20-16_-8.9"
+    },
+    {
+      "hotel_name": "Seher Sun Palace Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 10153.0,
+      "new_price": 9042.0,
+      "price_change": -1111.0,
+      "price_change_pct": -10.942578548212351,
+      "timestamp": "2026-11-23 20:16:22.313812+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-23T20:17:32.504211+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Seher Sun Palace Resort & Spa_2026-11-23_20-16_-10.9"
+    },
+    {
+      "hotel_name": "Sultan of Side",
+      "duration_bucket": "",
+      "old_price": 9241.0,
+      "new_price": 7782.0,
+      "price_change": -1459.0,
+      "price_change_pct": -15.788334595822962,
+      "timestamp": "2026-11-23 20:16:22.313812+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-23T20:17:32.504226+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sultan of Side_2026-11-23_20-16_-15.8"
+    },
+    {
+      "hotel_name": "Terrace Elite Resort",
+      "duration_bucket": "",
+      "old_price": 10246.0,
+      "new_price": 9401.0,
+      "price_change": -845.0,
+      "price_change_pct": -8.247120827640055,
+      "timestamp": "2026-11-23 20:16:22.313812+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-23T20:17:32.504247+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Terrace Elite Resort_2026-11-23_20-16_-8.2"
+    },
+    {
+      "hotel_name": "Cenger Beach Resort (Side)",
+      "duration_bucket": "",
+      "old_price": 9059.0,
+      "new_price": 8204.0,
+      "price_change": -855.0,
+      "price_change_pct": -9.438127828678661,
+      "timestamp": "2026-11-23 20:16:22.313812+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-23T20:17:32.504259+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Cenger Beach Resort (Side)_2026-11-23_20-16_-9.4"
+    },
+    {
+      "hotel_name": "VONResort Golden Coast",
+      "duration_bucket": "",
+      "old_price": 11760.0,
+      "new_price": 11760.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-23 20:16:22.313812+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-23T20:17:32.504298+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "VONResort Golden Coast_2026-11-23_20-16_zone_out_gone"
+    },
+    {
+      "hotel_name": "Zena Resort",
+      "duration_bucket": "",
+      "old_price": 11887.0,
+      "new_price": 12059.0,
+      "price_change": 172.0,
+      "price_change_pct": 1.4469588626230334,
+      "timestamp": "2026-11-23 20:16:22.313812+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-23T20:17:32.504310+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Zena Resort_2026-11-23_20-16_zone_out_+1.4"
+    },
+    {
+      "hotel_name": "Royal Atlantis Resort",
+      "duration_bucket": "",
+      "old_price": 12038.0,
+      "new_price": 10976.0,
+      "price_change": -1062.0,
+      "price_change_pct": -8.822063465691976,
+      "timestamp": "2026-11-23 20:16:22.313812+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-11-23T20:17:32.504770+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Royal Atlantis Resort_2026-11-23_20-16_comeback_8.8"
+    }
+  ],
+  "meta": {
+    "last_processed_run": "2026-11-23T20:16:22.313812+00:00",
+    "premium_state": {
+      "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
+        "history_max": 11433.0,
+        "premium_peak": null
+      },
+      "My Home Resort": {
+        "history_max": 11437.0,
+        "premium_peak": null
+      },
+      "Misal (ex. Nox Inn Club)": {
+        "history_max": 8597.0,
+        "premium_peak": null
+      },
+      "Miramare Queen": {
+        "history_max": 11737.0,
+        "premium_peak": null
+      },
+      "Mirage World": {
+        "history_max": 8982.0,
+        "premium_peak": null
+      },
+      "Mira Meridia Beach Resort": {
+        "history_max": 9692.0,
+        "premium_peak": null
+      },
+      "Miarosa Incekum Beach (ex Alara Kum)": {
+        "history_max": 7661.0,
+        "premium_peak": null
+      },
+      "Miarosa Beach (Kemer)": {
+        "history_max": 9350.0,
+        "premium_peak": null
+      },
+      "Megasaray Resort Side (ex. Aska Side Grand Prestige)": {
+        "history_max": 10982.0,
+        "premium_peak": null
+      },
+      "Meder Resort": {
+        "history_max": 10190.0,
+        "premium_peak": null
+      },
+      "Narcia Resort Side": {
+        "history_max": 9504.0,
+        "premium_peak": null
+      },
+      "Master Family Club": {
+        "history_max": 11328.0,
+        "premium_peak": null
+      },
+      "Mary Alanya (ex. Sirius Deluxe)": {
+        "history_max": 8552.0,
+        "premium_peak": null
+      },
+      "Marvida Family Eco": {
+        "history_max": 11037.0,
+        "premium_peak": null
+      },
+      "Marine Family Club Beach (ex. Otium Family Club Marine Beach)": {
+        "history_max": 9689.0,
+        "premium_peak": null
+      },
+      "Maril Resort Beach & Spa": {
+        "history_max": 10957.0,
+        "premium_peak": null
+      },
+      "Mandarin Resort (Bodrum)": {
+        "history_max": 7461.0,
+        "premium_peak": null
+      },
+      "Ma Biche Kemer by Werde Hotels": {
+        "history_max": 10017.0,
+        "premium_peak": null
+      },
+      "M. C. Beach Resort (ex. Otium MC Beach Resort)": {
+        "history_max": 8235.0,
+        "premium_peak": null
+      },
+      "M. C. Arancia Resort": {
+        "history_max": 10111.0,
+        "premium_peak": null
+      },
+      "Lykia World & Links Golf Antalya": {
+        "history_max": 12038.0,
+        "premium_peak": 12038.0
+      },
+      "Mary Side (ex. Mary Palace)": {
+        "history_max": 11366.0,
+        "premium_peak": null
+      },
+      "Nova Life": {
+        "history_max": 10017.0,
+        "premium_peak": null
+      },
+      "Novum Garden Side (ex. Allsun Novum Garden)": {
+        "history_max": 11357.0,
+        "premium_peak": null
+      },
+      "Nox Inn Deluxe (ex NOX Inn Beach Resort & Spa)": {
+        "history_max": 10237.0,
+        "premium_peak": null
+      },
+      "Prestige Alanya": {
+        "history_max": 7965.0,
+        "premium_peak": null
+      },
+      "Presa Di Finica (Finike)": {
+        "history_max": 9537.0,
+        "premium_peak": null
+      },
+      "Porto Bello": {
+        "history_max": 10949.0,
+        "premium_peak": null
+      },
+      "Port River & Spa": {
+        "history_max": 10497.0,
+        "premium_peak": null
+      },
+      "Perre La Mer Resort & Spa (ex. La Mer)": {
+        "history_max": 8883.0,
+        "premium_peak": null
+      },
+      "Perre Delta": {
+        "history_max": 7835.0,
+        "premium_peak": null
+      },
+      "Palm Wings Ephesus": {
+        "history_max": 11963.0,
+        "premium_peak": null
+      },
+      "Palm Wings Beach Resort & SPA (Kusadasi)": {
+        "history_max": 10733.0,
+        "premium_peak": null
+      },
+      "Palemon Resort & Spa": {
+        "history_max": 10617.0,
+        "premium_peak": null
+      },
+      "Ozkaymak Select Resort (ex. Otium Ozkaymak Select)": {
+        "history_max": 11594.0,
+        "premium_peak": null
+      },
+      "Ozkaymak Marina (Kemer)": {
+        "history_max": 10897.0,
+        "premium_peak": null
+      },
+      "Ozkaymak Incekum": {
+        "history_max": 11174.0,
+        "premium_peak": null
+      },
+      "Ozkaymak Falez": {
+        "history_max": 10251.0,
+        "premium_peak": null
+      },
+      "Oz Sui Resort": {
+        "history_max": 9594.0,
+        "premium_peak": null
+      },
+      "Orka Lotus Beach": {
+        "history_max": 11796.0,
+        "premium_peak": null
+      },
+      "Orange County Belek": {
+        "history_max": 11799.0,
+        "premium_peak": null
+      },
+      "Orange County Alanya": {
+        "history_max": 10517.0,
+        "premium_peak": null
+      },
+      "Orange County (Kemer)": {
+        "history_max": 11826.0,
+        "premium_peak": null
+      },
+      "Omer Prime Holiday Resort": {
+        "history_max": 10241.0,
+        "premium_peak": null
+      },
+      "OZ Incekum Beach Resort": {
+        "history_max": 10477.0,
+        "premium_peak": null
+      },
+      "Numa Club (Side)": {
+        "history_max": 12052.0,
+        "premium_peak": 12052.0
+      },
+      "Luvimaris Managed by Palmeras Beach": {
+        "history_max": 9838.0,
+        "premium_peak": null
+      },
+      "Luna Blanca Resort & Spa": {
+        "history_max": 11628.0,
+        "premium_peak": null
+      },
+      "Lucida Beach (ex.Novia Lucida)": {
+        "history_max": 9221.0,
+        "premium_peak": null
+      },
+      "Zena Resort": {
+        "history_max": 12059.0,
+        "premium_peak": 12059.0
+      },
+      "Gypsophila Holiday Village": {
+        "history_max": 10368.0,
+        "premium_peak": null
+      },
+      "Gypsophila Club Marine (ex. Amara Club Marine Nature)": {
+        "history_max": 10989.0,
+        "premium_peak": null
+      },
+      "Greenwood Suites Resort (ex. Sherwood Suites Resort)": {
+        "history_max": 10683.0,
+        "premium_peak": null
+      },
+      "Greenwood Kemer Resort (ex. Sherwood Greenwood Resort)": {
+        "history_max": 10716.0,
+        "premium_peak": null
+      },
+      "Green Nature Resort & Spa": {
+        "history_max": 10037.0,
+        "premium_peak": null
+      },
+      "Green Max (ex Chervo Club Sirena)": {
+        "history_max": 9601.0,
+        "premium_peak": null
+      },
+      "Green Garden Resort": {
+        "history_max": 11704.0,
+        "premium_peak": null
+      },
+      "Green Bay Resort": {
+        "history_max": 11156.0,
+        "premium_peak": null
+      },
+      "Gravel Select": {
+        "history_max": 10197.0,
+        "premium_peak": null
+      },
+      "Grand Seker": {
+        "history_max": 10802.0,
+        "premium_peak": null
+      },
+      "Grand Ring": {
+        "history_max": 10243.0,
+        "premium_peak": null
+      },
+      "Grand Pasa": {
+        "history_max": 9762.0,
+        "premium_peak": null
+      },
+      "Grand Park Lara": {
+        "history_max": 10269.0,
+        "premium_peak": null
+      },
+      "Grand Kolibri Prestige & Spa": {
+        "history_max": 8062.0,
+        "premium_peak": null
+      },
+      "Grand Kaptan": {
+        "history_max": 9102.0,
+        "premium_peak": null
+      },
+      "Grand Ideal Premium": {
+        "history_max": 10494.0,
+        "premium_peak": null
+      },
+      "Grand Cettia": {
+        "history_max": 9755.0,
+        "premium_peak": null
+      },
+      "Grand Belish": {
+        "history_max": 9541.0,
+        "premium_peak": null
+      },
+      "Golden Rock Beach": {
+        "history_max": 10742.0,
+        "premium_peak": null
+      },
+      "Gold City": {
+        "history_max": 8474.0,
+        "premium_peak": null
+      },
+      "Garden of Sun Spa & Wellness": {
+        "history_max": 10664.0,
+        "premium_peak": null
+      },
+      "Hane Sun Elite (ex Noble Palace Side)": {
+        "history_max": 9167.0,
+        "premium_peak": null
+      },
+      "PrimaSol Telatiye Resort": {
+        "history_max": 9677.0,
+        "premium_peak": null
+      },
+      "Holiday Garden Resort (Okurcalar)": {
+        "history_max": 9339.0,
+        "premium_peak": null
+      },
+      "Holiday Park Resort (Okurcalar)": {
+        "history_max": 9339.0,
+        "premium_peak": null
+      },
+      "Lonicera Resort & Spa": {
+        "history_max": 11606.0,
+        "premium_peak": null
+      },
+      "Lonicera Premium": {
+        "history_max": 10436.0,
+        "premium_peak": null
+      },
+      "Linda Sunny Beach": {
+        "history_max": 10137.0,
+        "premium_peak": null
+      },
+      "Linda Resort (Side)": {
+        "history_max": 9898.0,
+        "premium_peak": null
+      },
+      "Lalila Blue Suites": {
+        "history_max": 10600.0,
+        "premium_peak": null
+      },
+      "Lake River Side Spa": {
+        "history_max": 10217.0,
+        "premium_peak": null
+      },
+      "Laguna Beach Alya": {
+        "history_max": 10437.0,
+        "premium_peak": null
+      },
+      "L' Oceanica Beach Resort (Kemer)": {
+        "history_max": 10107.0,
+        "premium_peak": null
+      },
+      "Kustur Club Holiday Village": {
+        "history_max": 10211.0,
+        "premium_peak": null
+      },
+      "Korumar Deluxe": {
+        "history_max": 11237.0,
+        "premium_peak": null
+      },
+      "Klas More Beach": {
+        "history_max": 7988.0,
+        "premium_peak": null
+      },
+      "Kirbiyik Resort (ex. Dinler)": {
+        "history_max": 9000.0,
+        "premium_peak": null
+      },
+      "Kaya Side (ex. Club Calimera Kaya Side)": {
+        "history_max": 11430.0,
+        "premium_peak": null
+      },
+      "Karmir Resort (Kemer)": {
+        "history_max": 10195.0,
+        "premium_peak": null
+      },
+      "Kaila Beach (ex Katya)": {
+        "history_max": 9881.0,
+        "premium_peak": null
+      },
+      "Kahya Resort Aqua & Spa": {
+        "history_max": 10797.0,
+        "premium_peak": null
+      },
+      "Kadikale Resort Spa & Wellness": {
+        "history_max": 11497.0,
+        "premium_peak": null
+      },
+      "Justiniano Deluxe Resort": {
+        "history_max": 11646.0,
+        "premium_peak": null
+      },
+      "Jadore Deluxe": {
+        "history_max": 10617.0,
+        "premium_peak": null
+      },
+      "Innvista Belek (ex. Vera Verde)": {
+        "history_max": 10215.0,
+        "premium_peak": null
+      },
+      "Horus Paradise Luxury Resort": {
+        "history_max": 11076.0,
+        "premium_peak": null
+      },
+      "Holiday Inn Resort West Beach Bodrum": {
+        "history_max": 10988.0,
+        "premium_peak": null
+      },
+      "Primasol Hane Family Resort": {
+        "history_max": 10292.0,
+        "premium_peak": null
+      },
+      "Q Premium Resort": {
+        "history_max": 10497.0,
+        "premium_peak": null
+      },
+      "Quattro Family Club Dem": {
+        "history_max": 11848.0,
+        "premium_peak": null
+      },
+      "The Sense Deluxe": {
+        "history_max": 12113.0,
+        "premium_peak": 12113.0
+      },
+      "The Norm Oriental (ex. Asteria Kemer Resort)": {
+        "history_max": 11331.0,
+        "premium_peak": null
+      },
+      "The Nora Hotels Family Club (Kargicak)": {
+        "history_max": 6209.0,
+        "premium_peak": null
+      },
+      "The Marilis Hill Resort and Spa (Alanya)": {
+        "history_max": 9796.0,
+        "premium_peak": null
+      },
+      "The Lumos Deluxe Resort & Spa": {
+        "history_max": 9455.0,
+        "premium_peak": null
+      },
+      "Terrace Elite Resort": {
+        "history_max": 10246.0,
+        "premium_peak": null
+      },
+      "Terrace Beach Resort (Side)": {
+        "history_max": 11481.0,
+        "premium_peak": null
+      },
+      "Sy Belek Boutique Luxury": {
+        "history_max": 10197.0,
+        "premium_peak": null
+      },
+      "Sural Resort": {
+        "history_max": 10274.0,
+        "premium_peak": null
+      },
+      "Sural": {
+        "history_max": 10251.0,
+        "premium_peak": null
+      },
+      "Sunrise Resort & SPA": {
+        "history_max": 11878.0,
+        "premium_peak": null
+      },
+      "Sunmelia Beach Resort & Spa": {
+        "history_max": 9909.0,
+        "premium_peak": null
+      },
+      "Sunland Resort (ex. Imperial Sunland Resort & Spa)": {
+        "history_max": 10055.0,
+        "premium_peak": null
+      },
+      "Sunis Elita Beach Resort (ex Asteria Elita)": {
+        "history_max": 11538.0,
+        "premium_peak": null
+      },
+      "Sun Star Resort": {
+        "history_max": 8907.0,
+        "premium_peak": null
+      },
+      "Sultan of Side": {
+        "history_max": 9241.0,
+        "premium_peak": null
+      },
+      "Sultan of Dreams": {
+        "history_max": 9913.0,
+        "premium_peak": null
+      },
+      "Starlight Resort & Convention Center (Side)": {
+        "history_max": 11878.0,
+        "premium_peak": null
+      },
+      "Solivia (Ex. Titan Select)": {
+        "history_max": 8629.0,
+        "premium_peak": null
+      },
+      "Signature Blue Resort (ex. Grand Ozcelik)": {
+        "history_max": 7542.0,
+        "premium_peak": null
+      },
+      "Side Star Resort": {
+        "history_max": 11642.0,
+        "premium_peak": null
+      },
+      "Timo Deluxe Resort": {
+        "history_max": 8846.0,
+        "premium_peak": null
+      },
+      "Side Star Park": {
+        "history_max": 10836.0,
+        "premium_peak": null
+      },
+      "Transatlantik (Kemer)": {
+        "history_max": 11052.0,
+        "premium_peak": null
+      },
+      "Turunc Premium": {
+        "history_max": 10454.0,
+        "premium_peak": null
+      },
+      "Yasmin Resort": {
+        "history_max": 11395.0,
+        "premium_peak": null
+      },
+      "Yalihan Aspendos": {
+        "history_max": 12044.0,
+        "premium_peak": 12044.0
+      },
+      "Xoria Deluxe": {
+        "history_max": 8615.0,
+        "premium_peak": null
+      },
+      "Xafira Deluxe Resort & Spa": {
+        "history_max": 11552.0,
+        "premium_peak": null
+      },
+      "World Star Beach Resort & Spa": {
+        "history_max": 8285.0,
+        "premium_peak": null
+      },
+      "White City Resort": {
+        "history_max": 11348.0,
+        "premium_peak": null
+      },
+      "White City Palmare Resort": {
+        "history_max": 9916.0,
+        "premium_peak": null
+      },
+      "Water Side Resort & Spa": {
+        "history_max": 10310.0,
+        "premium_peak": null
+      },
+      "Washington Resort": {
+        "history_max": 10557.0,
+        "premium_peak": null
+      },
+      "Vita Silva": {
+        "history_max": 9018.0,
+        "premium_peak": null
+      },
+      "Villa Side Residence": {
+        "history_max": 11281.0,
+        "premium_peak": null
+      },
+      "Vikingen Infinity Resort & Spa": {
+        "history_max": 9374.0,
+        "premium_peak": null
+      },
+      "Viking Star": {
+        "history_max": 7583.0,
+        "premium_peak": null
+      },
+      "Victory Resort": {
+        "history_max": 11887.0,
+        "premium_peak": null
+      },
+      "VONResort Golden Coast": {
+        "history_max": 11760.0,
+        "premium_peak": null
+      },
+      "VONResort Golden Beach": {
+        "history_max": 11887.0,
+        "premium_peak": null
+      },
+      "VONResort Elite": {
+        "history_max": 11682.0,
+        "premium_peak": null
+      },
+      "Utopia World": {
+        "history_max": 11885.0,
+        "premium_peak": null
+      },
+      "Utopia Resort & Residence (ex Alara Park)": {
+        "history_max": 10121.0,
+        "premium_peak": null
+      },
+      "Unique Residence Golf Spa": {
+        "history_max": 6962.0,
+        "premium_peak": null
+      },
+      "Tusan Beach Resort": {
+        "history_max": 11671.0,
+        "premium_peak": null
+      },
+      "Turunc": {
+        "history_max": 11004.0,
+        "premium_peak": null
+      },
+      "Garcia Resort & Spa": {
+        "history_max": 11387.0,
+        "premium_peak": null
+      },
+      "Side Star Beach": {
+        "history_max": 11453.0,
+        "premium_peak": null
+      },
+      "Side Premium by OZ Hotels": {
+        "history_max": 11214.0,
+        "premium_peak": null
+      },
+      "Seamelia Beach Resort & Spa": {
+        "history_max": 11062.0,
+        "premium_peak": null
+      },
+      "Sealight Resort (ex Otium Sealight Beach Resort)": {
+        "history_max": 10626.0,
+        "premium_peak": null
+      },
+      "Sealife Family Resort": {
+        "history_max": 10652.0,
+        "premium_peak": null
+      },
+      "Sealife Buket Resort & Beach": {
+        "history_max": 10517.0,
+        "premium_peak": null
+      },
+      "Seaden Sea World Resort & Spa": {
+        "history_max": 11489.0,
+        "premium_peak": null
+      },
+      "Seaden Sea Planet Resort & Spa": {
+        "history_max": 11354.0,
+        "premium_peak": null
+      },
+      "SeaLife Kemer Resort (ex. PGS Rose Residence Beach)": {
+        "history_max": 11177.0,
+        "premium_peak": null
+      },
+      "Saphir Resort": {
+        "history_max": 11253.0,
+        "premium_peak": null
+      },
+      "Saphir Hotel & Villas": {
+        "history_max": 10742.0,
+        "premium_peak": null
+      },
+      "Sailors Beach Club": {
+        "history_max": 12137.0,
+        "premium_peak": 12137.0
+      },
+      "SUI Resort by Oz": {
+        "history_max": 9421.0,
+        "premium_peak": null
+      },
+      "Royal Garden Beach (ex Royal Garden Select & Suite)": {
+        "history_max": 10463.0,
+        "premium_peak": null
+      },
+      "Royal Atlantis Resort": {
+        "history_max": 12038.0,
+        "premium_peak": 12038.0
+      },
+      "Royal Asarlik Beach": {
+        "history_max": 9819.0,
+        "premium_peak": null
+      },
+      "Rox Royal (ex. Grand Haber)": {
+        "history_max": 9729.0,
+        "premium_peak": null
+      },
+      "Ring Beach (Kemer)": {
+        "history_max": 8933.0,
+        "premium_peak": null
+      },
+      "Richmond Ephesus": {
+        "history_max": 10773.0,
+        "premium_peak": null
+      },
+      "Ramada Resort Lara": {
+        "history_max": 11070.0,
+        "premium_peak": null
+      },
+      "Ramada Plaza Antalya": {
+        "history_max": 11618.0,
+        "premium_peak": null
+      },
+      "Rai Foresta Tekirova": {
+        "history_max": 11444.0,
+        "premium_peak": null
+      },
+      "Queens Park Goynuk (Kemer)": {
+        "history_max": 11524.0,
+        "premium_peak": null
+      },
+      "Seashell Resort & Spa": {
+        "history_max": 11924.0,
+        "premium_peak": null
+      },
+      "Side Prenses": {
+        "history_max": 11006.0,
+        "premium_peak": null
+      },
+      "Seashell Vega (ex. Side Crown Sunshine)": {
+        "history_max": 11897.0,
+        "premium_peak": null
+      },
+      "Seher Sun Palace Resort & Spa": {
+        "history_max": 10153.0,
+        "premium_peak": null
+      },
+      "Side Moon Palace": {
+        "history_max": 10161.0,
+        "premium_peak": null
+      },
+      "Side Kum": {
+        "history_max": 10318.0,
+        "premium_peak": null
+      },
+      "Side Crown Serenity": {
+        "history_max": 9957.0,
+        "premium_peak": null
+      },
+      "Side Crown Palace (Side)": {
+        "history_max": 10259.0,
+        "premium_peak": null
+      },
+      "Side Breeze": {
+        "history_max": 10517.0,
+        "premium_peak": null
+      },
+      "Side Aluna": {
+        "history_max": 8861.0,
+        "premium_peak": null
+      },
+      "Siam Elegance": {
+        "history_max": 10850.0,
+        "premium_peak": null
+      },
+      "Sherwood Dreams Resort": {
+        "history_max": 11651.0,
+        "premium_peak": null
+      },
+      "Seven Seas Kaila Bay (ex. Seven Seas Palmeras Bay)": {
+        "history_max": 11922.0,
+        "premium_peak": null
+      },
+      "Seven For Life Thermal": {
+        "history_max": 9261.0,
+        "premium_peak": null
+      },
+      "Serenity Queen": {
+        "history_max": 11575.0,
+        "premium_peak": null
+      },
+      "Serenis (ex. Aqua Beach)": {
+        "history_max": 9595.0,
+        "premium_peak": null
+      },
+      "Senza The Inn Resort & Spa": {
+        "history_max": 8381.0,
+        "premium_peak": null
+      },
+      "Sentido Palmeras Lumare": {
+        "history_max": 11272.0,
+        "premium_peak": null
+      },
+      "Sentido Lycus Beach (ex. Lti)": {
+        "history_max": 10103.0,
+        "premium_peak": null
+      },
+      "Sentido Luna Vista Belek": {
+        "history_max": 11741.0,
+        "premium_peak": null
+      },
+      "Sensitive Premium Resort & Spa": {
+        "history_max": 10386.0,
+        "premium_peak": null
+      },
+      "Selectum Noa": {
+        "history_max": 11678.0,
+        "premium_peak": null
+      },
+      "Selectum Family Resort Side (ex. Silence Beach Resort)": {
+        "history_max": 11255.0,
+        "premium_peak": null
+      },
+      "Selectum Family Comfort Side (ex. Lyra Resort)": {
+        "history_max": 11430.0,
+        "premium_peak": null
+      },
+      "Selectum Collection Bodrum": {
+        "history_max": 12078.0,
+        "premium_peak": 12078.0
+      },
+      "Seher Resort & Spa": {
+        "history_max": 9149.0,
+        "premium_peak": null
+      },
+      "Galeri Resort": {
+        "history_max": 10433.0,
+        "premium_peak": null
+      },
+      "Lonicera West (ex. Gold Island)": {
+        "history_max": 10978.0,
+        "premium_peak": null
+      },
+      "Castival (ex. La Grande Resort & Spa)": {
+        "history_max": 10217.0,
+        "premium_peak": null
+      },
+      "Crystal Aura Aqua Collection": {
+        "history_max": 10377.0,
+        "premium_peak": null
+      },
+      "Crystal De Luxe Comfort Collection": {
+        "history_max": 11115.0,
+        "premium_peak": null
+      },
+      "Asteria Collection Side": {
+        "history_max": 8955.0,
+        "premium_peak": null
+      },
+      "Crystal Family Comfort Collection": {
+        "history_max": 11959.0,
+        "premium_peak": null
+      },
+      "Aska Just in Beach": {
+        "history_max": 8879.0,
+        "premium_peak": null
+      },
+      "Crystal Paraiso Aqua Collection": {
+        "history_max": 10557.0,
+        "premium_peak": null
+      },
+      "Crystal Prestige Pearl Collection": {
+        "history_max": 11837.0,
+        "premium_peak": null
+      },
+      "Asia Beach Resort and Spa": {
+        "history_max": 9016.0,
+        "premium_peak": null
+      },
+      "Crystal Sunset Pearl Collection (ex Crystal Sunset Luxury Resort)": {
+        "history_max": 11655.0,
+        "premium_peak": null
+      },
+      "Arnor De Luxe & SPA": {
+        "history_max": 10933.0,
+        "premium_peak": null
+      },
+      "Crystal Waterworld Aqua Collection": {
+        "history_max": 11707.0,
+        "premium_peak": null
+      },
+      "Crystal World of Colours Comfort Collection": {
+        "history_max": 9495.0,
+        "premium_peak": null
+      },
+      "Armonia Holiday Village": {
+        "history_max": 10158.0,
+        "premium_peak": null
+      },
+      "Daima Biz (Kemer)": {
+        "history_max": 8834.0,
+        "premium_peak": null
+      },
+      "Asteria Ephesus Kusadasi": {
+        "history_max": 8141.0,
+        "premium_peak": null
+      },
+      "Armella Hill": {
+        "history_max": 9707.0,
+        "premium_peak": null
+      },
+      "Armas Pemar Beach Resort": {
+        "history_max": 8919.0,
+        "premium_peak": null
+      },
+      "Delta by Marriott Bodrum": {
+        "history_max": 10977.0,
+        "premium_peak": null
+      },
+      "Diamond De Luxe ( Colakli)": {
+        "history_max": 12114.0,
+        "premium_peak": 12114.0
+      },
+      "Armas Life Belek": {
+        "history_max": 9797.0,
+        "premium_peak": null
+      },
+      "Diamond Excellence Resort & Spa": {
+        "history_max": 11304.0,
+        "premium_peak": null
+      },
+      "Armas Labada": {
+        "history_max": 10026.0,
+        "premium_peak": null
+      },
+      "Diamond Hill Resort": {
+        "history_max": 9678.0,
+        "premium_peak": null
+      },
+      "Armas Kaplan Paradise": {
+        "history_max": 8640.0,
+        "premium_peak": null
+      },
+      "Diamond Premium": {
+        "history_max": 10179.0,
+        "premium_peak": null
+      },
+      "Dizalya Palm Garden": {
+        "history_max": 8540.0,
+        "premium_peak": null
+      },
+      "Armas Gul Beach": {
+        "history_max": 8316.0,
+        "premium_peak": null
+      },
+      "Dosinia Luxury Resort": {
+        "history_max": 12146.0,
+        "premium_peak": 12146.0
+      },
+      "Dream Qum Family": {
+        "history_max": 11777.0,
+        "premium_peak": null
+      },
+      "Armas Green Fugla": {
+        "history_max": 8154.0,
+        "premium_peak": null
+      },
+      "Dedeman Kemer Resort": {
+        "history_max": 8464.0,
+        "premium_peak": null
+      },
+      "Crystal Admiral Aqua Collection": {
+        "history_max": 11456.0,
+        "premium_peak": null
+      },
+      "Asteria Family Belek": {
+        "history_max": 10751.0,
+        "premium_peak": null
+      },
+      "Concordia Celes Beach": {
+        "history_max": 9939.0,
+        "premium_peak": null
+      },
+      "Bodrum Holiday Resort": {
+        "history_max": 11246.0,
+        "premium_peak": null
+      },
+      "Berry Blue": {
+        "history_max": 10436.0,
+        "premium_peak": null
+      },
+      "Calido Maris": {
+        "history_max": 9825.0,
+        "premium_peak": null
+      },
+      "Bella Resort": {
+        "history_max": 11793.0,
+        "premium_peak": null
+      },
+      "Calido Sol (Alanya)": {
+        "history_max": 9483.0,
+        "premium_peak": null
+      },
+      "Beach Club Doganay": {
+        "history_max": 10206.0,
+        "premium_peak": null
+      },
+      "Calimera Hane Garden (ex. PrimaSol Hane Garden)": {
+        "history_max": 9563.0,
+        "premium_peak": null
+      },
+      "Can Garden Resort (Side)": {
+        "history_max": 11874.0,
+        "premium_peak": null
+      },
+      "Batihan Beach Resort": {
+        "history_max": 9567.0,
+        "premium_peak": null
+      },
+      "Casa Fora Beach Resort": {
+        "history_max": 9477.0,
+        "premium_peak": null
+      },
+      "Fun & Sun Smart Hane Sun": {
+        "history_max": 9117.0,
+        "premium_peak": null
+      },
+      "Baia Salima Kemer (ex Club Salima)": {
+        "history_max": 11583.0,
+        "premium_peak": null
+      },
+      "Catamaran Quality Times (ex. Catamaran Resort)": {
+        "history_max": 9563.0,
+        "premium_peak": null
+      },
+      "Azura World (ex. Wyndham Alanya)": {
+        "history_max": 10616.0,
+        "premium_peak": null
+      },
+      "Cenger Beach Resort (Side)": {
+        "history_max": 9059.0,
+        "premium_peak": null
+      },
+      "Azura Deluxe Resort & Spa": {
+        "history_max": 10890.0,
+        "premium_peak": null
+      },
+      "Cenger Blue Collection": {
+        "history_max": 9991.0,
+        "premium_peak": null
+      },
+      "Asteria Family Resort Side": {
+        "history_max": 10184.0,
+        "premium_peak": null
+      },
+      "Club Yali Hotels & Resort": {
+        "history_max": 10870.0,
+        "premium_peak": null
+      },
+      "Club Side Coast": {
+        "history_max": 9166.0,
+        "premium_peak": null
+      },
+      "Aventura Park": {
+        "history_max": 8877.0,
+        "premium_peak": null
+      },
+      "Club Paradiso": {
+        "history_max": 9126.0,
+        "premium_peak": null
+      },
+      "Avia Resort & Spa": {
+        "history_max": 8900.0,
+        "premium_peak": null
+      },
+      "Dream World Aqua": {
+        "history_max": 11557.0,
+        "premium_peak": null
+      },
+      "Club Nena (Side)": {
+        "history_max": 10614.0,
+        "premium_peak": null
+      },
+      "Aydinbey Famous": {
+        "history_max": 9898.0,
+        "premium_peak": null
+      },
+      "Club Atlantis Resort": {
+        "history_max": 10984.0,
+        "premium_peak": null
+      },
+      "Aydinbey Gold Dreams": {
+        "history_max": 8283.0,
+        "premium_peak": null
+      },
+      "Champion Holiday Village (Kemer)": {
+        "history_max": 10149.0,
+        "premium_peak": null
+      },
+      "Aydinbey Queens Palace & Spa": {
+        "history_max": 10454.0,
+        "premium_peak": null
+      },
+      "Cesars Resort (Side)": {
+        "history_max": 11357.0,
+        "premium_peak": null
+      },
+      "Club Kastalia": {
+        "history_max": 10717.0,
+        "premium_peak": null
+      },
+      "Armas Bella Sun (ex.Club Bella Sun)": {
+        "history_max": 8235.0,
+        "premium_peak": null
+      },
+      "Blue Dreams Resort (ex. Kairaba)": {
+        "history_max": 11709.0,
+        "premium_peak": null
+      },
+      "Alba Queen": {
+        "history_max": 10737.0,
+        "premium_peak": null
+      },
+      "Arcanus Hotels Sorgun (ex. Asteria Sorgun)": {
+        "history_max": 11957.0,
+        "premium_peak": null
+      },
+      "Elegance (Marmaris)": {
+        "history_max": 10445.0,
+        "premium_peak": null
+      },
+      "Agaya Didim Resort (ex. Prive Didim)": {
+        "history_max": 12137.0,
+        "premium_peak": 12137.0
+      },
+      "Drita Resort & Spa": {
+        "history_max": 7515.0,
+        "premium_peak": null
+      },
+      "Aria Claros Beach and Spa Resort": {
+        "history_max": 11640.0,
+        "premium_peak": null
+      },
+      "Eftalia Ocean (Alanya)": {
+        "history_max": 10854.0,
+        "premium_peak": null
+      },
+      "Fantasia De Luxe Kusadasi": {
+        "history_max": 8712.0,
+        "premium_peak": null
+      },
+      "Eftalia Aqua": {
+        "history_max": 10071.0,
+        "premium_peak": null
+      },
+      "Alaiye Resort & Spa": {
+        "history_max": 10847.0,
+        "premium_peak": null
+      },
+      "Arcanus Trendline Resort": {
+        "history_max": 10265.0,
+        "premium_peak": null
+      },
+      "Eftalia Splash": {
+        "history_max": 10615.0,
+        "premium_peak": null
+      },
+      "Fame Residence (Kemer)": {
+        "history_max": 10868.0,
+        "premium_peak": null
+      },
+      "Eftalia Blue": {
+        "history_max": 10094.0,
+        "premium_peak": null
+      },
+      "Eftalia Marin": {
+        "history_max": 10514.0,
+        "premium_peak": null
+      },
+      "Ephesia Holiday Beach": {
+        "history_max": 10517.0,
+        "premium_peak": null
+      },
+      "Anadolu Hotels Didim Club (ex. Palm Wings Didim)": {
+        "history_max": 11797.0,
+        "premium_peak": null
+      },
+      "First Class": {
+        "history_max": 7614.0,
+        "premium_peak": null
+      },
+      "Alarcha": {
+        "history_max": 10797.0,
+        "premium_peak": null
+      },
+      "Aria Resort & SPA": {
+        "history_max": 11746.0,
+        "premium_peak": null
+      },
+      "Dream World Resort & Spa (Side)": {
+        "history_max": 9997.0,
+        "premium_peak": null
+      },
+      "Dream World Palace": {
+        "history_max": 11557.0,
+        "premium_peak": null
+      },
+      "Armas Beach": {
+        "history_max": 8883.0,
+        "premium_peak": null
+      },
+      "Eftalia Village": {
+        "history_max": 9491.0,
+        "premium_peak": null
+      },
+      "Amara Comfort Resort Kemer (ex. Loxia Comfort Resort Kemer)": {
+        "history_max": 10310.0,
+        "premium_peak": null
+      },
+      "Adalya Art Side (Ex. Grand Art Side)": {
+        "history_max": 11233.0,
+        "premium_peak": null
+      },
+      "Flora Garden Ephesus": {
+        "history_max": 10854.0,
+        "premium_peak": null
+      },
+      "Eftalia Sol": {
+        "history_max": 11769.0,
+        "premium_peak": null
+      },
+      "Alba Resort": {
+        "history_max": 10692.0,
+        "premium_peak": null
+      },
+      "Dream World Hill": {
+        "history_max": 10717.0,
+        "premium_peak": null
+      },
+      "Senza Grand Santana (Alanya)": {
+        "history_max": 7723.0,
+        "premium_peak": null
+      },
+      "Barut Goia (ex. Barut Sunwing Side Beach)": {
+        "history_max": 12068.0,
+        "premium_peak": 12068.0
+      },
+      "Aska Bayview (ex. Aska Buse)": {
+        "history_max": 11740.0,
+        "premium_peak": null
+      },
+      "Kamelya Aishen Club (ex. Kamelya Aishen K Club)": {
+        "history_max": 11978.0,
+        "premium_peak": null
+      }
+    }
+  }
 }

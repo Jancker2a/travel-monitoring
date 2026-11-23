@@ -1,8 +1,87 @@
 {
   "version": 2,
-  "alerts": [],
+  "alerts": [
+    {
+      "hotel_name": "Sealife Family Resort",
+      "duration_bucket": "",
+      "old_price": 5462.0,
+      "new_price": 5006.0,
+      "price_change": -456.0,
+      "price_change_pct": -8.34859025997803,
+      "timestamp": "2026-11-23 20:14:23.760006+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-23T20:14:49.818788+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sealife Family Resort_2026-11-23_20-14_-8.3"
+    },
+    {
+      "hotel_name": "Aska Lara Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 5176.0,
+      "new_price": 4688.0,
+      "price_change": -488.0,
+      "price_change_pct": -9.428129829984544,
+      "timestamp": "2026-11-23 20:14:23.760006+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-23T20:14:49.818822+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Aska Lara Resort & Spa_2026-11-23_20-14_-9.4"
+    },
+    {
+      "hotel_name": "Aska Just in Beach",
+      "duration_bucket": "",
+      "old_price": 3757.0,
+      "new_price": 3131.0,
+      "price_change": -626.0,
+      "price_change_pct": -16.662230503060954,
+      "timestamp": "2026-11-23 20:14:23.760006+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-23T20:14:49.818837+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Aska Just in Beach_2026-11-23_20-14_-16.7"
+    },
+    {
+      "hotel_name": "Xperia Saray Beach",
+      "duration_bucket": "",
+      "old_price": 5532.0,
+      "new_price": 4847.0,
+      "price_change": -685.0,
+      "price_change_pct": -12.382501807664498,
+      "timestamp": "2026-11-23 20:14:23.760006+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-23T20:14:49.818852+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xperia Saray Beach_2026-11-23_20-14_-12.4"
+    },
+    {
+      "hotel_name": "Side Royal Style (ex. Side Royal Luxury)",
+      "duration_bucket": "",
+      "old_price": 6260.0,
+      "new_price": 5129.0,
+      "price_change": -1131.0,
+      "price_change_pct": -18.06709265175719,
+      "timestamp": "2026-11-23 20:14:23.760006+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-23T20:14:49.818866+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Side Royal Style (ex. Side Royal Luxury)_2026-11-23_20-14_-18.1"
+    },
+    {
+      "hotel_name": "Side Royal Palace",
+      "duration_bucket": "",
+      "old_price": 6358.0,
+      "new_price": 5206.0,
+      "price_change": -1152.0,
+      "price_change_pct": -18.11890531613715,
+      "timestamp": "2026-11-23 20:14:23.760006+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-23T20:14:49.818877+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Side Royal Palace_2026-11-23_20-14_-18.1"
+    }
+  ],
   "meta": {
-    "last_processed_run": "2026-11-23T07:50:06.278139+00:00",
+    "last_processed_run": "2026-11-23T20:14:23.760006+00:00",
     "premium_state": {
       "Acanthus & Cennet Barut Collection": {
         "history_max": 9011.0,
@@ -25,7 +104,7 @@
         "premium_peak": null
       },
       "Liberty Lara (Ex Lara Beach)": {
-        "history_max": 6402.0,
+        "history_max": 6492.0,
         "premium_peak": null
       },
       "Side Crown Palace (Side)": {
@@ -101,11 +180,11 @@
         "premium_peak": null
       },
       "Side Star Park": {
-        "history_max": 11093.0,
+        "history_max": 11141.0,
         "premium_peak": null
       },
       "Fame Residence Lara (Antalya)": {
-        "history_max": 7593.0,
+        "history_max": 7702.0,
         "premium_peak": null
       },
       "Side Star Resort": {
@@ -125,7 +204,7 @@
         "premium_peak": null
       },
       "Ela Excellence Resort (ex. Ela Quality Resort)": {
-        "history_max": 12486.0,
+        "history_max": 12892.0,
         "premium_peak": null
       },
       "Innvista Belek (ex. Vera Verde)": {
@@ -133,7 +212,7 @@
         "premium_peak": null
       },
       "Eftalia Ocean (Alanya)": {
-        "history_max": 4114.0,
+        "history_max": 4168.0,
         "premium_peak": null
       },
       "Limak Limra": {
@@ -141,7 +220,7 @@
         "premium_peak": null
       },
       "Seher Sun Palace Resort & Spa": {
-        "history_max": 4421.0,
+        "history_max": 4480.0,
         "premium_peak": null
       },
       "Ramada Resort Lara": {
@@ -257,7 +336,7 @@
         "premium_peak": 18996.0
       },
       "ananea Kleopatra Beach (ex. Cooks Club Alanya)": {
-        "history_max": 6897.0,
+        "history_max": 6995.0,
         "premium_peak": null
       },
       "Mardan Palace": {
@@ -277,15 +356,15 @@
         "premium_peak": null
       },
       "Relax Beach (Alanya)": {
-        "history_max": 2944.0,
+        "history_max": 2980.0,
         "premium_peak": null
       },
       "Villa Side Residence": {
-        "history_max": 4991.0,
+        "history_max": 5035.0,
         "premium_peak": null
       },
       "The Sense Deluxe": {
-        "history_max": 5095.0,
+        "history_max": 5165.0,
         "premium_peak": null
       },
       "Castival (ex. La Grande Resort & Spa)": {
@@ -337,7 +416,7 @@
         "premium_peak": 18311.0
       },
       "Trendy Aspendos Beach": {
-        "history_max": 5626.0,
+        "history_max": 5678.0,
         "premium_peak": null
       },
       "Baia Lara": {
@@ -349,7 +428,7 @@
         "premium_peak": null
       },
       "Aydinbey Queens Palace & Spa": {
-        "history_max": 5517.0,
+        "history_max": 5567.0,
         "premium_peak": null
       },
       "Trendy Lara": {
@@ -361,7 +440,7 @@
         "premium_peak": null
       },
       "Arsi Blue Beach": {
-        "history_max": 3334.0,
+        "history_max": 3377.0,
         "premium_peak": null
       },
       "Avena Resort & Spa": {
@@ -377,7 +456,7 @@
         "premium_peak": null
       },
       "Ducale Lara": {
-        "history_max": 7702.0,
+        "history_max": 7777.0,
         "premium_peak": null
       },
       "Akra Kemer (ex. Kemer Barut Collection)": {
@@ -465,7 +544,7 @@
         "premium_peak": null
       },
       "Sural Resort": {
-        "history_max": 4072.0,
+        "history_max": 4125.0,
         "premium_peak": null
       },
       "Akka Antedon": {

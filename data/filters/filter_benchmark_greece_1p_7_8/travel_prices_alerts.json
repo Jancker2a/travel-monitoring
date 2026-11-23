@@ -13,10 +13,49 @@
       "created_at": "2026-11-23T07:50:12.138167+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Adia Aluma Athens, Curio Collection by Hilton_2026-11-23_07-49_zone_out_gone"
+    },
+    {
+      "hotel_name": "Marina Athens Hotel",
+      "duration_bucket": "",
+      "old_price": 2110.0,
+      "new_price": 2421.0,
+      "price_change": 311.0,
+      "price_change_pct": 14.739336492890995,
+      "timestamp": "2026-11-23 20:13:57.426509+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-23T20:14:19.966106+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Marina Athens Hotel_2026-11-23_20-13_+14.7"
+    },
+    {
+      "hotel_name": "Achillion",
+      "duration_bucket": "",
+      "old_price": 2248.0,
+      "new_price": 2248.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-23 20:13:57.426509+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-23T20:14:19.966141+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Achillion_2026-11-23_20-13_zone_out_gone"
+    },
+    {
+      "hotel_name": "Candia Hotel",
+      "duration_bucket": "",
+      "old_price": 2522.0,
+      "new_price": 2522.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-23 20:13:57.426509+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-23T20:14:19.966151+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Candia Hotel_2026-11-23_20-13_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-23T07:49:13.439334+00:00",
+    "last_processed_run": "2026-11-23T20:13:57.426509+00:00",
     "premium_state": {
       "Adia Aluma Athens, Curio Collection by Hilton": {
         "history_max": 5664.0,
@@ -35,7 +74,7 @@
         "premium_peak": null
       },
       "Marina Athens Hotel": {
-        "history_max": 2110.0,
+        "history_max": 2421.0,
         "premium_peak": null
       }
     }

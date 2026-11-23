@@ -13,14 +13,79 @@
       "created_at": "2026-11-23T07:56:00.190390+00:00",
       "threshold_percent": 8.0,
       "unique_key": "NLH Fix_2026-11-23_07-55_zone_out_gone"
+    },
+    {
+      "hotel_name": "Jason Inn",
+      "duration_bucket": "",
+      "old_price": 4500.0,
+      "new_price": 4992.0,
+      "price_change": 492.0,
+      "price_change_pct": 10.933333333333334,
+      "timestamp": "2026-11-23 20:18:27.500460+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-23T20:18:54.827477+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jason Inn_2026-11-23_20-18_+10.9"
+    },
+    {
+      "hotel_name": "Candia Hotel",
+      "duration_bucket": "",
+      "old_price": 4001.0,
+      "new_price": 4001.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-23 20:18:27.500460+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-23T20:18:54.827504+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Candia Hotel_2026-11-23_20-18_zone_out_gone"
+    },
+    {
+      "hotel_name": "Evita Asty Hotel",
+      "duration_bucket": "",
+      "old_price": 4443.0,
+      "new_price": 4443.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-23 20:18:27.500460+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-23T20:18:54.827514+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Evita Asty Hotel_2026-11-23_20-18_zone_out_gone"
+    },
+    {
+      "hotel_name": "Zeus Essence Wyndham Athens Residence",
+      "duration_bucket": "",
+      "old_price": 7875.0,
+      "new_price": 7875.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-23 20:18:27.500460+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-23T20:18:54.827523+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Zeus Essence Wyndham Athens Residence_2026-11-23_20-18_zone_out_gone"
+    },
+    {
+      "hotel_name": "Zeus Wyndham Grand Athens",
+      "duration_bucket": "",
+      "old_price": 7283.0,
+      "new_price": 7283.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-23 20:18:27.500460+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-23T20:18:54.827530+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Zeus Wyndham Grand Athens_2026-11-23_20-18_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-23T07:55:16.785267+00:00",
+    "last_processed_run": "2026-11-23T20:18:27.500460+00:00",
     "premium_state": {
       "Electra Palace Athens": {
-        "history_max": 12827.0,
-        "premium_peak": 12827.0
+        "history_max": 12987.0,
+        "premium_peak": 12987.0
       },
       "Life Gallery Athens Hotel": {
         "history_max": 10457.0,
@@ -43,7 +108,7 @@
         "premium_peak": null
       },
       "Ambrosia Suites": {
-        "history_max": 4049.0,
+        "history_max": 4061.0,
         "premium_peak": null
       },
       "Candia Hotel": {
@@ -55,7 +120,23 @@
         "premium_peak": null
       },
       "Jason Inn": {
-        "history_max": 4500.0,
+        "history_max": 4992.0,
+        "premium_peak": null
+      },
+      "Marina Athens Hotel": {
+        "history_max": 4797.0,
+        "premium_peak": null
+      },
+      "Stalis Hotel Athens": {
+        "history_max": 4787.0,
+        "premium_peak": null
+      },
+      "ZEUS ESSENCE WYNDHAM ATHENS RESIDENCE": {
+        "history_max": 8987.0,
+        "premium_peak": null
+      },
+      "ZEUS WYNDHAM GRAND ATHENS": {
+        "history_max": 8427.0,
         "premium_peak": null
       }
     }
