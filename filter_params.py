@@ -99,7 +99,7 @@ def make_fly_search_url_dynamic(
     m_dur_hi = re.search(r"durationTo=(\d+)", url)
     dur_hi = int(m_dur_hi.group(1)) if m_dur_hi else 8
 
-    if offset_days > 0:
+    if offset_days > 0 or window_days <= 14:
         start_max = start_min + timedelta(days=window_days)
         start_max_str = start_max.strftime("%d-%m-%Y")
         return_date = start_max + timedelta(days=dur_hi)
@@ -126,10 +126,19 @@ def make_fly_search_url_dynamic(
     # New fly.pl SPA query syntax: startDateMin, returnDate, startDateMax
     if "startDateMin=" in url:
         url = re.sub(r"(startDateMin=)([^&]*)", rf"\g<1>{from_date_str}", url)
-    if "returnDate=" in url:
-        url = re.sub(r"(returnDate=)([^&]*)", rf"\g<1>{to_date_str}", url)
+    elif "filter" not in url:
+        sep = "&" if "?" in url else "?"
+        url += f"{sep}startDateMin={from_date_str}"
+
     if "startDateMax=" in url:
         url = re.sub(r"(startDateMax=)([^&]*)", rf"\g<1>{start_max_str}", url)
+    elif "filter" not in url:
+        url += f"&startDateMax={start_max_str}"
+
+    if "returnDate=" in url:
+        url = re.sub(r"(returnDate=)([^&]*)", rf"\g<1>{to_date_str}", url)
+    elif "filter" not in url:
+        url += f"&returnDate={to_date_str}"
 
     return url
 
