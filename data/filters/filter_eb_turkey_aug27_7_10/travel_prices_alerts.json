@@ -65,10 +65,75 @@
       "created_at": "2026-11-23T20:17:22.141291+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sentido Lycus Beach (ex. Lti)_2026-11-23_20-16_zone_out_gone"
+    },
+    {
+      "hotel_name": "Lucida Beach (ex.Novia Lucida)",
+      "duration_bucket": "",
+      "old_price": 8388.0,
+      "new_price": 9131.0,
+      "price_change": 743.0,
+      "price_change_pct": 8.85789222699094,
+      "timestamp": "2026-11-24 15:59:09.816757+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-24T16:01:20.549735+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Lucida Beach (ex.Novia Lucida)_2026-11-24_15-59_+8.9"
+    },
+    {
+      "hotel_name": "Sultan of Side",
+      "duration_bucket": "",
+      "old_price": 7782.0,
+      "new_price": 8406.0,
+      "price_change": 624.0,
+      "price_change_pct": 8.018504240555128,
+      "timestamp": "2026-11-24 15:59:09.816757+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-24T16:01:20.549792+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sultan of Side_2026-11-24_15-59_+8.0"
+    },
+    {
+      "hotel_name": "Karmir Resort (Kemer)",
+      "duration_bucket": "",
+      "old_price": 10825.0,
+      "new_price": 10825.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-24 15:59:09.816757+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-24T16:01:20.549843+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Karmir Resort (Kemer)_2026-11-24_15-59_zone_out_gone"
+    },
+    {
+      "hotel_name": "OZ Incekum Beach Resort",
+      "duration_bucket": "",
+      "old_price": 10994.0,
+      "new_price": 10994.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-24 15:59:09.816757+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-24T16:01:20.549854+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "OZ Incekum Beach Resort_2026-11-24_15-59_zone_out_gone"
+    },
+    {
+      "hotel_name": "Terrace Beach Resort (Side)",
+      "duration_bucket": "",
+      "old_price": 10600.0,
+      "new_price": 10600.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-24 15:59:09.816757+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-24T16:01:20.549862+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Terrace Beach Resort (Side)_2026-11-24_15-59_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-23T20:16:04.687012+00:00",
+    "last_processed_run": "2026-11-24T15:59:09.816757+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 10723.0,
@@ -119,7 +184,7 @@
         "premium_peak": null
       },
       "Lucida Beach (ex.Novia Lucida)": {
-        "history_max": 8388.0,
+        "history_max": 9131.0,
         "premium_peak": null
       },
       "Lonicera West (ex. Gold Island)": {
@@ -343,7 +408,7 @@
         "premium_peak": null
       },
       "Garcia Resort & Spa": {
-        "history_max": 10331.0,
+        "history_max": 10473.0,
         "premium_peak": null
       },
       "Galeri Resort": {
@@ -495,7 +560,7 @@
         "premium_peak": null
       },
       "Sural Resort": {
-        "history_max": 9559.0,
+        "history_max": 9629.0,
         "premium_peak": null
       },
       "Sural": {
@@ -507,7 +572,7 @@
         "premium_peak": null
       },
       "Sunland Resort (ex. Imperial Sunland Resort & Spa)": {
-        "history_max": 10055.0,
+        "history_max": 10204.0,
         "premium_peak": null
       },
       "Sunis Evren Beach & Spa": {
@@ -523,11 +588,11 @@
         "premium_peak": null
       },
       "Sultan of Side": {
-        "history_max": 8314.0,
+        "history_max": 8406.0,
         "premium_peak": null
       },
       "Sultan of Dreams": {
-        "history_max": 8872.0,
+        "history_max": 8972.0,
         "premium_peak": null
       },
       "Solivia (Ex. Titan Select)": {
@@ -603,11 +668,11 @@
         "premium_peak": null
       },
       "Villa Side Residence": {
-        "history_max": 10508.0,
+        "history_max": 10626.0,
         "premium_peak": null
       },
       "Vikingen Infinity Resort & Spa": {
-        "history_max": 8844.0,
+        "history_max": 8914.0,
         "premium_peak": null
       },
       "Viking Star": {
@@ -679,7 +744,7 @@
         "premium_peak": null
       },
       "SUI Resort by Oz": {
-        "history_max": 10033.0,
+        "history_max": 10145.0,
         "premium_peak": null
       },
       "Royal Garden Beach (ex Royal Garden Select & Suite)": {
@@ -759,7 +824,7 @@
         "premium_peak": null
       },
       "Side Crown Palace (Side)": {
-        "history_max": 9289.0,
+        "history_max": 9359.0,
         "premium_peak": null
       },
       "Seaden Sea World Resort & Spa": {
@@ -811,7 +876,7 @@
         "premium_peak": null
       },
       "Sentido Lycus Beach (ex. Lti)": {
-        "history_max": 9364.0,
+        "history_max": 9467.0,
         "premium_peak": null
       },
       "Sentido Luna Vista Belek": {
@@ -835,11 +900,11 @@
         "premium_peak": null
       },
       "Seher Sun Palace Resort & Spa": {
-        "history_max": 9917.0,
+        "history_max": 10027.0,
         "premium_peak": null
       },
       "Seher Resort & Spa": {
-        "history_max": 8644.0,
+        "history_max": 8714.0,
         "premium_peak": null
       },
       "Seashell Vega (ex. Side Crown Sunshine)": {
@@ -927,7 +992,7 @@
         "premium_peak": null
       },
       "Dizalya Palm Garden": {
-        "history_max": 8414.0,
+        "history_max": 8489.0,
         "premium_peak": null
       },
       "Cesars Resort (Side)": {
@@ -983,7 +1048,7 @@
         "premium_peak": null
       },
       "Club Nena (Side)": {
-        "history_max": 9959.0,
+        "history_max": 10029.0,
         "premium_peak": null
       },
       "Crystal Admiral Aqua Collection": {
@@ -1091,7 +1156,7 @@
         "premium_peak": null
       },
       "Armonia Holiday Village": {
-        "history_max": 8752.0,
+        "history_max": 8870.0,
         "premium_peak": null
       },
       "Dream World Aqua": {
@@ -1103,7 +1168,7 @@
         "premium_peak": null
       },
       "Asteria Collection Side": {
-        "history_max": 7794.0,
+        "history_max": 7844.0,
         "premium_peak": null
       },
       "Alaiye Resort & Spa": {
@@ -1139,7 +1204,7 @@
         "premium_peak": null
       },
       "Eftalia Marin": {
-        "history_max": 9006.0,
+        "history_max": 9107.0,
         "premium_peak": null
       },
       "Casa Fora Beach Resort": {
@@ -1155,7 +1220,7 @@
         "premium_peak": null
       },
       "Calido Sol (Alanya)": {
-        "history_max": 8708.0,
+        "history_max": 8804.0,
         "premium_peak": null
       },
       "Eftalia Ocean (Alanya)": {
@@ -1276,6 +1341,14 @@
       },
       "OZ Incekum Beach Resort": {
         "history_max": 10994.0,
+        "premium_peak": null
+      },
+      "Arin Resort Bodrum": {
+        "history_max": 10296.0,
+        "premium_peak": null
+      },
+      "Labranda Alantur Resort": {
+        "history_max": 9371.0,
         "premium_peak": null
       }
     }
