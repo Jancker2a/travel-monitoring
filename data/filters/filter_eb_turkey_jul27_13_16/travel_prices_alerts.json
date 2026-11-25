@@ -182,10 +182,36 @@
       "created_at": "2026-11-24T16:02:26.539998+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Bodrum Holiday Resort_2026-11-24_16-00_comeback_8.2"
+    },
+    {
+      "hotel_name": "Green Max (ex Chervo Club Sirena)",
+      "duration_bucket": "",
+      "old_price": 15814.0,
+      "new_price": 16249.0,
+      "price_change": 435.0,
+      "price_change_pct": 2.7507272037435184,
+      "timestamp": "2026-11-25 09:55:46.684824+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-25T09:56:55.928758+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Green Max (ex Chervo Club Sirena)_2026-11-25_09-55_zone_out_+2.8"
+    },
+    {
+      "hotel_name": "Sensitive Premium Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 15042.0,
+      "new_price": 17359.0,
+      "price_change": 2317.0,
+      "price_change_pct": 15.403536763728228,
+      "timestamp": "2026-11-25 09:55:46.684824+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-25T09:56:55.928802+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sensitive Premium Resort & Spa_2026-11-25_09-55_zone_out_+15.4"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-24T16:00:07.617515+00:00",
+    "last_processed_run": "2026-11-25T09:55:46.684824+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 16810.0,
@@ -416,12 +442,12 @@
         "premium_peak": 18377.0
       },
       "Green Max (ex Chervo Club Sirena)": {
-        "history_max": 15829.0,
-        "premium_peak": null
+        "history_max": 16249.0,
+        "premium_peak": 16249.0
       },
       "Green Garden Resort": {
-        "history_max": 18561.0,
-        "premium_peak": 18561.0
+        "history_max": 18589.0,
+        "premium_peak": 18589.0
       },
       "Gravel Select": {
         "history_max": 14757.0,
@@ -744,16 +770,16 @@
         "premium_peak": 19239.0
       },
       "VONResort Golden Coast": {
-        "history_max": 18274.0,
-        "premium_peak": 18274.0
+        "history_max": 18835.0,
+        "premium_peak": 18835.0
       },
       "VONResort Golden Beach": {
-        "history_max": 17817.0,
-        "premium_peak": 17817.0
+        "history_max": 18358.0,
+        "premium_peak": 18358.0
       },
       "VONResort Elite": {
-        "history_max": 18932.0,
-        "premium_peak": 18932.0
+        "history_max": 19512.0,
+        "premium_peak": 19512.0
       },
       "Utopia World": {
         "history_max": 19611.0,
@@ -956,8 +982,8 @@
         "premium_peak": 18637.0
       },
       "Sensitive Premium Resort & Spa": {
-        "history_max": 15057.0,
-        "premium_peak": null
+        "history_max": 17359.0,
+        "premium_peak": 17359.0
       },
       "Selectum Noa": {
         "history_max": 18972.0,
@@ -1400,12 +1426,16 @@
         "premium_peak": 19551.0
       },
       "Can Garden Resort (Side)": {
-        "history_max": 18247.0,
-        "premium_peak": 18247.0
+        "history_max": 19359.0,
+        "premium_peak": 19359.0
       },
       "Labranda Alantur Resort": {
         "history_max": 15970.0,
         "premium_peak": null
+      },
+      "Yalihan Aspendos": {
+        "history_max": 19344.0,
+        "premium_peak": 19344.0
       }
     }
   }

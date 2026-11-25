@@ -1,6 +1,26 @@
 {
   "events": [
     {
+      "event_time": "2026-11-25T09:52:58+0000",
+      "departure_key": "egipt|hurghada|2026-11-29|2026-12-06|7|Katowice|",
+      "event_type": "late_price_dump",
+      "severity": "high",
+      "country": "egipt",
+      "region": "hurghada",
+      "departure_date": "2026-11-29",
+      "return_date": "2026-12-06",
+      "nights": 7,
+      "days_to_departure": 4,
+      "old_min_price": "",
+      "new_min_price": 1075.0,
+      "min_drop_pct": -36.01,
+      "p10_drop_pct": -10.69,
+      "median_drop_pct": 0.0,
+      "hotel_count": 19,
+      "hotel_delta": 6,
+      "hot_score": 84
+    },
+    {
       "event_time": "2026-11-21T23:15:17+0000",
       "departure_key": "egipt|sharm-el-sheikh|2026-12-11|2026-12-18|7|Katowice|",
       "event_type": "mass_price_drop",

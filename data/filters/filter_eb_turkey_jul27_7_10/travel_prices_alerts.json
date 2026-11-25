@@ -442,10 +442,49 @@
       "created_at": "2026-11-24T16:02:43.531537+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Victory Resort_2026-11-24_16-00_zone_out_+1.4"
+    },
+    {
+      "hotel_name": "Sensitive Premium Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 10371.0,
+      "new_price": 11553.0,
+      "price_change": 1182.0,
+      "price_change_pct": 11.39716517211455,
+      "timestamp": "2026-11-25 09:55:58.945656+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-25T09:57:06.278968+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sensitive Premium Resort & Spa_2026-11-25_09-55_+11.4"
+    },
+    {
+      "hotel_name": "Arcanus Hotels Sorgun (ex. Asteria Sorgun)",
+      "duration_bucket": "",
+      "old_price": 11957.0,
+      "new_price": 12042.0,
+      "price_change": 85.0,
+      "price_change_pct": 0.7108806556828636,
+      "timestamp": "2026-11-25 09:55:58.945656+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-25T09:57:06.279030+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Arcanus Hotels Sorgun (ex. Asteria Sorgun)_2026-11-25_09-55_zone_out_+0.7"
+    },
+    {
+      "hotel_name": "VONResort Golden Beach",
+      "duration_bucket": "",
+      "old_price": 11876.0,
+      "new_price": 11876.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-25 09:55:58.945656+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-25T09:57:06.279039+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "VONResort Golden Beach_2026-11-25_09-55_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-24T16:00:22.249733+00:00",
+    "last_processed_run": "2026-11-25T09:55:58.945656+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 11433.0,
@@ -940,7 +979,7 @@
         "premium_peak": null
       },
       "Transatlantik (Kemer)": {
-        "history_max": 11057.0,
+        "history_max": 11084.0,
         "premium_peak": null
       },
       "Turunc Premium": {
@@ -952,8 +991,8 @@
         "premium_peak": null
       },
       "Yalihan Aspendos": {
-        "history_max": 12044.0,
-        "premium_peak": 12044.0
+        "history_max": 12144.0,
+        "premium_peak": 12144.0
       },
       "Xoria Deluxe": {
         "history_max": 8615.0,
@@ -992,7 +1031,7 @@
         "premium_peak": null
       },
       "Vikingen Infinity Resort & Spa": {
-        "history_max": 9374.0,
+        "history_max": 9429.0,
         "premium_peak": null
       },
       "Viking Star": {
@@ -1012,7 +1051,7 @@
         "premium_peak": null
       },
       "VONResort Elite": {
-        "history_max": 11682.0,
+        "history_max": 11831.0,
         "premium_peak": null
       },
       "Utopia World": {
@@ -1108,7 +1147,7 @@
         "premium_peak": null
       },
       "Ring Beach (Kemer)": {
-        "history_max": 8933.0,
+        "history_max": 9032.0,
         "premium_peak": null
       },
       "Richmond Ephesus": {
@@ -1212,7 +1251,7 @@
         "premium_peak": null
       },
       "Sensitive Premium Resort & Spa": {
-        "history_max": 10386.0,
+        "history_max": 11553.0,
         "premium_peak": null
       },
       "Selectum Noa": {
@@ -1256,7 +1295,7 @@
         "premium_peak": null
       },
       "Asteria Collection Side": {
-        "history_max": 8955.0,
+        "history_max": 9009.0,
         "premium_peak": null
       },
       "Crystal Family Comfort Collection": {
@@ -1500,7 +1539,7 @@
         "premium_peak": null
       },
       "Aydinbey Queens Palace & Spa": {
-        "history_max": 10454.0,
+        "history_max": 10557.0,
         "premium_peak": null
       },
       "Cesars Resort (Side)": {
@@ -1524,8 +1563,8 @@
         "premium_peak": null
       },
       "Arcanus Hotels Sorgun (ex. Asteria Sorgun)": {
-        "history_max": 11957.0,
-        "premium_peak": null
+        "history_max": 12042.0,
+        "premium_peak": 12042.0
       },
       "Elegance (Marmaris)": {
         "history_max": 10445.0,
@@ -1560,7 +1599,7 @@
         "premium_peak": null
       },
       "Arcanus Trendline Resort": {
-        "history_max": 10265.0,
+        "history_max": 10323.0,
         "premium_peak": null
       },
       "Eftalia Splash": {

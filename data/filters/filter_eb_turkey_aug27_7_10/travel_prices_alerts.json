@@ -130,10 +130,36 @@
       "created_at": "2026-11-24T16:01:20.549862+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Terrace Beach Resort (Side)_2026-11-24_15-59_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sensitive Premium Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 8294.0,
+      "new_price": 9307.0,
+      "price_change": 1013.0,
+      "price_change_pct": 12.213648420544972,
+      "timestamp": "2026-11-25 09:55:25.820143+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-25T09:56:40.329745+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sensitive Premium Resort & Spa_2026-11-25_09-55_+12.2"
+    },
+    {
+      "hotel_name": "Golden Rock Beach",
+      "duration_bucket": "",
+      "old_price": 11025.0,
+      "new_price": 11025.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-25 09:55:25.820143+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-25T09:56:40.329835+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Golden Rock Beach_2026-11-25_09-55_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-24T15:59:09.816757+00:00",
+    "last_processed_run": "2026-11-25T09:55:25.820143+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 10723.0,
@@ -308,7 +334,7 @@
         "premium_peak": null
       },
       "Mirage World": {
-        "history_max": 9410.0,
+        "history_max": 9491.0,
         "premium_peak": null
       },
       "Mira Meridia Beach Resort": {
@@ -344,7 +370,7 @@
         "premium_peak": null
       },
       "Green Garden Resort": {
-        "history_max": 9894.0,
+        "history_max": 10006.0,
         "premium_peak": null
       },
       "Gravel Select": {
@@ -360,7 +386,7 @@
         "premium_peak": null
       },
       "Grand Pasa": {
-        "history_max": 10319.0,
+        "history_max": 10400.0,
         "premium_peak": null
       },
       "Grand Park Lara": {
@@ -688,11 +714,11 @@
         "premium_peak": null
       },
       "VONResort Golden Coast": {
-        "history_max": 10670.0,
+        "history_max": 10962.0,
         "premium_peak": null
       },
       "VONResort Golden Beach": {
-        "history_max": 10424.0,
+        "history_max": 10705.0,
         "premium_peak": null
       },
       "Utopia World": {
@@ -756,7 +782,7 @@
         "premium_peak": null
       },
       "Royal Asarlik Beach": {
-        "history_max": 9909.0,
+        "history_max": 9990.0,
         "premium_peak": null
       },
       "Rox Royal (ex. Grand Haber)": {
@@ -884,7 +910,7 @@
         "premium_peak": null
       },
       "Sensitive Premium Resort & Spa": {
-        "history_max": 8309.0,
+        "history_max": 9307.0,
         "premium_peak": null
       },
       "Selectum Noa": {
@@ -904,7 +930,7 @@
         "premium_peak": null
       },
       "Seher Resort & Spa": {
-        "history_max": 8714.0,
+        "history_max": 8861.0,
         "premium_peak": null
       },
       "Seashell Vega (ex. Side Crown Sunshine)": {

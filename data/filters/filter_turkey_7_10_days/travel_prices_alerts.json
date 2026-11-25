@@ -1001,10 +1001,36 @@
       "created_at": "2026-11-25T00:48:35.045864+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Port River & Spa_2026-11-25_00-47_zone_out_gone"
+    },
+    {
+      "hotel_name": "Alba Queen",
+      "duration_bucket": "",
+      "old_price": 5812.0,
+      "new_price": 4241.0,
+      "price_change": -1571.0,
+      "price_change_pct": -27.030282174810736,
+      "timestamp": "2026-11-25 09:58:20.152977+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-25T09:58:51.728802+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Alba Queen_2026-11-25_09-58_-27.0"
+    },
+    {
+      "hotel_name": "Ducale Lara",
+      "duration_bucket": "",
+      "old_price": 8270.0,
+      "new_price": 8270.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-25 09:58:20.152977+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-25T09:58:51.728855+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Ducale Lara_2026-11-25_09-58_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-25T00:47:42.485204+00:00",
+    "last_processed_run": "2026-11-25T09:58:20.152977+00:00",
     "premium_state": {
       "Acanthus & Cennet Barut Collection": {
         "history_max": 9021.0,
@@ -1015,7 +1041,7 @@
         "premium_peak": null
       },
       "Mercure Istanbul Bomonti": {
-        "history_max": 9287.0,
+        "history_max": 9297.0,
         "premium_peak": null
       },
       "Miracle Resort": {
@@ -1155,7 +1181,7 @@
         "premium_peak": 15716.0
       },
       "Mediterra Art": {
-        "history_max": 5400.0,
+        "history_max": 5459.0,
         "premium_peak": null
       },
       "Ramada Resort Lara": {
@@ -1171,7 +1197,7 @@
         "premium_peak": 19916.0
       },
       "Rixos Downtown (Antalya)": {
-        "history_max": 9514.0,
+        "history_max": 9659.0,
         "premium_peak": null
       },
       "Spice": {
@@ -1259,12 +1285,12 @@
         "premium_peak": null
       },
       "Rixos Premium (Belek)": {
-        "history_max": 16629.0,
-        "premium_peak": 16629.0
+        "history_max": 16959.0,
+        "premium_peak": 16959.0
       },
       "Rixos Tersane Istanbul": {
-        "history_max": 15426.0,
-        "premium_peak": 15426.0
+        "history_max": 15445.0,
+        "premium_peak": 15445.0
       },
       "Royal Dragon": {
         "history_max": 7065.0,
@@ -1303,15 +1329,15 @@
         "premium_peak": null
       },
       "Sheraton Istanbul City Center": {
-        "history_max": 10937.0,
-        "premium_peak": 10937.0
+        "history_max": 10977.0,
+        "premium_peak": 10977.0
       },
       "Sherwood Exclusive Lara (ex Sherwood Breezes)": {
         "history_max": 6639.0,
         "premium_peak": null
       },
       "Side Crown Palace (Side)": {
-        "history_max": 5844.0,
+        "history_max": 5989.0,
         "premium_peak": null
       },
       "Side Moon Palace": {
@@ -1407,8 +1433,8 @@
         "premium_peak": null
       },
       "Barcelo Istanbul": {
-        "history_max": 10907.0,
-        "premium_peak": 10907.0
+        "history_max": 10977.0,
+        "premium_peak": 10977.0
       },
       "Cornelia Diamond Golf Resort & SPA": {
         "history_max": 12800.0,
@@ -1431,7 +1457,7 @@
         "premium_peak": null
       },
       "Castival (ex. La Grande Resort & Spa)": {
-        "history_max": 6089.0,
+        "history_max": 6244.0,
         "premium_peak": null
       },
       "Calista Luxury Resort": {

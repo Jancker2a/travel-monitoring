@@ -1625,10 +1625,49 @@
       "created_at": "2026-11-25T00:48:56.743915+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Kapetanios Aqua Resort (ex. Aqua Sol Holiday Village)_2026-11-25_00-48_zone_out_gone"
+    },
+    {
+      "hotel_name": "Grand Resort (Limassol)",
+      "duration_bucket": "",
+      "old_price": 13476.0,
+      "new_price": 12327.0,
+      "price_change": -1149.0,
+      "price_change_pct": -8.52626892252894,
+      "timestamp": "2026-11-25 09:58:49.254357+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-25T09:59:02.931643+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Grand Resort (Limassol)_2026-11-25_09-58_-8.5"
+    },
+    {
+      "hotel_name": "Aktea Beach Village",
+      "duration_bucket": "",
+      "old_price": 8937.0,
+      "new_price": 8937.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-25 09:58:49.254357+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-25T09:59:02.931676+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Aktea Beach Village_2026-11-25_09-58_zone_out_gone"
+    },
+    {
+      "hotel_name": "Asterias Beach (Ayia Napa)",
+      "duration_bucket": "",
+      "old_price": 9487.0,
+      "new_price": 9487.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-25 09:58:49.254357+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-25T09:59:02.931682+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Asterias Beach (Ayia Napa)_2026-11-25_09-58_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-25T00:48:35.817048+00:00",
+    "last_processed_run": "2026-11-25T09:58:49.254357+00:00",
     "premium_state": {
       "Acapulco Resort": {
         "history_max": 5827.0,
@@ -1771,7 +1810,7 @@
         "premium_peak": null
       },
       "Limak Cyprus Deluxe": {
-        "history_max": 9607.0,
+        "history_max": 9677.0,
         "premium_peak": null
       },
       "Lord's Palace": {
@@ -1819,7 +1858,7 @@
         "premium_peak": null
       },
       "Tasia Maris Sands": {
-        "history_max": 12177.0,
+        "history_max": 12237.0,
         "premium_peak": null
       },
       "The Arkin Iskele": {
@@ -1967,7 +2006,7 @@
         "premium_peak": null
       },
       "Concorde Luxury Resort (Vokolida)": {
-        "history_max": 9767.0,
+        "history_max": 9877.0,
         "premium_peak": null
       },
       "Concorde Aria": {
