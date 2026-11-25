@@ -19,6 +19,26 @@
       "hotel_count": 13,
       "hotel_delta": -8,
       "hot_score": 58
+    },
+    {
+      "event_time": "2026-11-25T20:03:57+0000",
+      "departure_key": "egipt|sharm-el-sheikh|2026-11-29|2026-12-12|13|Katowice|",
+      "event_type": "late_price_dump",
+      "severity": "high",
+      "country": "egipt",
+      "region": "sharm-el-sheikh",
+      "departure_date": "2026-11-29",
+      "return_date": "2026-12-12",
+      "nights": 13,
+      "days_to_departure": 4,
+      "old_min_price": "",
+      "new_min_price": 5956.0,
+      "min_drop_pct": -8.99,
+      "p10_drop_pct": -4.42,
+      "median_drop_pct": -4.61,
+      "hotel_count": 38,
+      "hotel_delta": 6,
+      "hot_score": 40
     }
   ]
 }

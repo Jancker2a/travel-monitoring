@@ -312,10 +312,101 @@
       "created_at": "2026-11-25T09:57:28.556086+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Dreams Beach (Marsa Alam)_2026-11-25_09-57_zone_out_gone"
+    },
+    {
+      "hotel_name": "Regency Plaza Aqua Park Spa",
+      "duration_bucket": "",
+      "old_price": 10497.0,
+      "new_price": 9503.0,
+      "price_change": -994.0,
+      "price_change_pct": -9.469372201581404,
+      "timestamp": "2026-11-25 20:01:25.820284+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-25T20:01:45.699010+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Regency Plaza Aqua Park Spa_2026-11-25_20-01_-9.5"
+    },
+    {
+      "hotel_name": "Xperience Kiroseiz Parkland",
+      "duration_bucket": "",
+      "old_price": 10067.0,
+      "new_price": 9221.0,
+      "price_change": -846.0,
+      "price_change_pct": -8.403695241879408,
+      "timestamp": "2026-11-25 20:01:25.820284+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-25T20:01:45.699044+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xperience Kiroseiz Parkland_2026-11-25_20-01_-8.4"
+    },
+    {
+      "hotel_name": "AMC Royal Hotel & Spa (ex. AMC Azur Resort)",
+      "duration_bucket": "",
+      "old_price": 10703.0,
+      "new_price": 9743.0,
+      "price_change": -960.0,
+      "price_change_pct": -8.969447818368682,
+      "timestamp": "2026-11-25 20:01:25.820284+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-25T20:01:45.699061+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort)_2026-11-25_20-01_-9.0"
+    },
+    {
+      "hotel_name": "V Grand Beach Resort Sahl Hasheesh",
+      "duration_bucket": "",
+      "old_price": 10372.0,
+      "new_price": 9412.0,
+      "price_change": -960.0,
+      "price_change_pct": -9.255688391824142,
+      "timestamp": "2026-11-25 20:01:25.820284+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-25T20:01:45.699074+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "V Grand Beach Resort Sahl Hasheesh_2026-11-25_20-01_-9.3"
+    },
+    {
+      "hotel_name": "Fantazia Resort",
+      "duration_bucket": "",
+      "old_price": 10463.0,
+      "new_price": 10463.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-25 20:01:25.820284+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-25T20:01:45.699099+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Fantazia Resort_2026-11-25_20-01_zone_out_gone"
+    },
+    {
+      "hotel_name": "Jaz Aquaviva",
+      "duration_bucket": "",
+      "old_price": 10910.0,
+      "new_price": 10910.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-25 20:01:25.820284+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-25T20:01:45.699112+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Aquaviva_2026-11-25_20-01_zone_out_gone"
+    },
+    {
+      "hotel_name": "Serenity Alpha Beach (ex. Serenity Makadi Beach)",
+      "duration_bucket": "",
+      "old_price": 10062.0,
+      "new_price": 10062.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-25 20:01:25.820284+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-25T20:01:45.699124+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Serenity Alpha Beach (ex. Serenity Makadi Beach)_2026-11-25_20-01_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-25T09:57:10.700177+00:00",
+    "last_processed_run": "2026-11-25T20:01:25.820284+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 10719.0,
@@ -346,7 +437,7 @@
         "premium_peak": null
       },
       "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort)": {
-        "history_max": 10869.0,
+        "history_max": 10929.0,
         "premium_peak": null
       },
       "Parrotel Lagoon Resort": {
@@ -431,6 +522,14 @@
       },
       "Jaz Aquaviva": {
         "history_max": 10910.0,
+        "premium_peak": null
+      },
+      "Xanadu Club Makadi Bay": {
+        "history_max": 10524.0,
+        "premium_peak": null
+      },
+      "Sunrise Alora Aqua Park Resort": {
+        "history_max": 10137.0,
         "premium_peak": null
       }
     }
