@@ -260,10 +260,75 @@
       "created_at": "2026-11-24T16:05:22.182496+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Royal Taj Mahal_2026-11-24_16-03_comeback_10.4"
+    },
+    {
+      "hotel_name": "The Sense Deluxe",
+      "duration_bucket": "",
+      "old_price": 8129.0,
+      "new_price": 9056.0,
+      "price_change": 927.0,
+      "price_change_pct": 11.403616681018576,
+      "timestamp": "2026-11-25 00:47:09.124956+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-25T00:47:50.256378+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "The Sense Deluxe_2026-11-25_00-47_+11.4"
+    },
+    {
+      "hotel_name": "Kamelya Selin",
+      "duration_bucket": "",
+      "old_price": 8908.0,
+      "new_price": 9693.0,
+      "price_change": 785.0,
+      "price_change_pct": 8.812303547373148,
+      "timestamp": "2026-11-25 00:47:09.124956+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-25T00:47:50.256407+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Kamelya Selin_2026-11-25_00-47_+8.8"
+    },
+    {
+      "hotel_name": "Miracle Resort",
+      "duration_bucket": "",
+      "old_price": 9941.0,
+      "new_price": 10353.0,
+      "price_change": 412.0,
+      "price_change_pct": 4.144452268383462,
+      "timestamp": "2026-11-25 00:47:09.124956+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-25T00:47:50.256429+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Miracle Resort_2026-11-25_00-47_zone_out_+4.1"
+    },
+    {
+      "hotel_name": "Orange Palace",
+      "duration_bucket": "",
+      "old_price": 9236.0,
+      "new_price": 10142.0,
+      "price_change": 906.0,
+      "price_change_pct": 9.809441316587266,
+      "timestamp": "2026-11-25 00:47:09.124956+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-25T00:47:50.256440+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Orange Palace_2026-11-25_00-47_zone_out_+9.8"
+    },
+    {
+      "hotel_name": "Royal Taj Mahal",
+      "duration_bucket": "",
+      "old_price": 9916.0,
+      "new_price": 11014.0,
+      "price_change": 1098.0,
+      "price_change_pct": 11.073013311819283,
+      "timestamp": "2026-11-25 00:47:09.124956+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-25T00:47:50.256449+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Royal Taj Mahal_2026-11-25_00-47_zone_out_+11.1"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-24T16:03:48.050357+00:00",
+    "last_processed_run": "2026-11-25T00:47:09.124956+00:00",
     "premium_state": {
       "Acanthus & Cennet Barut Collection": {
         "history_max": 14862.0,
@@ -302,8 +367,8 @@
         "premium_peak": 10459.0
       },
       "Orange Palace": {
-        "history_max": 9922.0,
-        "premium_peak": null
+        "history_max": 10142.0,
+        "premium_peak": 10142.0
       },
       "Orange County Belek": {
         "history_max": 8270.0,
@@ -386,19 +451,19 @@
         "premium_peak": 11067.0
       },
       "Royal Wings": {
-        "history_max": 11028.0,
-        "premium_peak": 11028.0
+        "history_max": 12098.0,
+        "premium_peak": 12098.0
       },
       "Voyage Kundu": {
         "history_max": 15162.0,
         "premium_peak": 15162.0
       },
       "Voyage Belek Golf & Spa": {
-        "history_max": 14791.0,
-        "premium_peak": 14791.0
+        "history_max": 14854.0,
+        "premium_peak": 14854.0
       },
       "Villa Side Residence": {
-        "history_max": 8883.0,
+        "history_max": 9072.0,
         "premium_peak": null
       },
       "Trendy Perge Resort & Suites": {
@@ -410,7 +475,7 @@
         "premium_peak": 10580.0
       },
       "Trendy Aspendos Beach": {
-        "history_max": 9369.0,
+        "history_max": 9558.0,
         "premium_peak": null
       },
       "Titanic Luxury Collection Belek": {
@@ -422,7 +487,7 @@
         "premium_peak": 12729.0
       },
       "The Sense Deluxe": {
-        "history_max": 8661.0,
+        "history_max": 9056.0,
         "premium_peak": null
       },
       "The Land Of Legends Nickelodeon": {
@@ -482,7 +547,7 @@
         "premium_peak": 10057.0
       },
       "Seher Sun Palace Resort & Spa": {
-        "history_max": 7828.0,
+        "history_max": 8028.0,
         "premium_peak": null
       },
       "Seashell Resort & Spa": {
@@ -510,7 +575,7 @@
         "premium_peak": 11039.0
       },
       "Alba Queen": {
-        "history_max": 7178.0,
+        "history_max": 7275.0,
         "premium_peak": null
       },
       "Delphin Imperial Lara": {
@@ -526,8 +591,8 @@
         "premium_peak": 10511.0
       },
       "Ducale Lara": {
-        "history_max": 12169.0,
-        "premium_peak": 12169.0
+        "history_max": 12358.0,
+        "premium_peak": 12358.0
       },
       "Akra Kemer (ex. Kemer Barut Collection)": {
         "history_max": 12486.0,
@@ -538,7 +603,7 @@
         "premium_peak": 14419.0
       },
       "Aydinbey Queens Palace & Spa": {
-        "history_max": 9223.0,
+        "history_max": 9412.0,
         "premium_peak": null
       },
       "Aydinbey Kings Palace": {
@@ -578,7 +643,7 @@
         "premium_peak": 12307.0
       },
       "Eftalia Ocean (Alanya)": {
-        "history_max": 7543.0,
+        "history_max": 7663.0,
         "premium_peak": null
       },
       "Grand Seker": {
@@ -594,8 +659,8 @@
         "premium_peak": 10265.0
       },
       "Bayou Lara": {
-        "history_max": 18359.0,
-        "premium_peak": 18359.0
+        "history_max": 18548.0,
+        "premium_peak": 18548.0
       },
       "Fame Residence Lara (Antalya)": {
         "history_max": 12095.0,

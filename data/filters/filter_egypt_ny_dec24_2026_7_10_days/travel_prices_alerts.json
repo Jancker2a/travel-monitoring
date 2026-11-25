@@ -234,13 +234,39 @@
       "created_at": "2026-11-23T20:17:52.581262+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Titanic Pearl_2026-11-23_20-17_zone_out_gone"
+    },
+    {
+      "hotel_name": "AMC Royal Hotel & Spa (ex. AMC Azur Resort)",
+      "duration_bucket": "",
+      "old_price": 9845.0,
+      "new_price": 10719.0,
+      "price_change": 874.0,
+      "price_change_pct": 8.87760284408329,
+      "timestamp": "2026-11-25 00:46:15.752714+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-25T00:46:35.602077+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "AMC Royal Hotel & Spa (ex. AMC Azur Resort)_2026-11-25_00-46_+8.9"
+    },
+    {
+      "hotel_name": "Desert Rose Resort",
+      "duration_bucket": "",
+      "old_price": 10708.0,
+      "new_price": 10708.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-25 00:46:15.752714+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-25T00:46:35.602125+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Desert Rose Resort_2026-11-25_00-46_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-24T16:02:46.814519+00:00",
+    "last_processed_run": "2026-11-25T00:46:15.752714+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
-        "history_max": 10165.0,
+        "history_max": 10719.0,
         "premium_peak": null
       },
       "Rewaya Luxury Resort": {
@@ -276,7 +302,7 @@
         "premium_peak": null
       },
       "Swisstouch Oriental Resort (ex. Hotelux Oriental Coast)": {
-        "history_max": 10438.0,
+        "history_max": 10585.0,
         "premium_peak": null
       },
       "Rewaya Majestic Resort": {
@@ -300,7 +326,7 @@
         "premium_peak": null
       },
       "Amarina Queen Resort": {
-        "history_max": 10823.0,
+        "history_max": 10961.0,
         "premium_peak": null
       },
       "Novotel Marsa Alam": {
@@ -320,7 +346,7 @@
         "premium_peak": null
       },
       "Stella Beach Resort & Spa": {
-        "history_max": 10951.0,
+        "history_max": 10952.0,
         "premium_peak": null
       },
       "Serenity Sky Arc": {
@@ -332,7 +358,7 @@
         "premium_peak": null
       },
       "Movenpick Waterpark Resort & Spa Soma Bay": {
-        "history_max": 10714.0,
+        "history_max": 10719.0,
         "premium_peak": null
       },
       "Albatros Makadi Resort (ex Royal Pharaohs Makadi)": {
@@ -340,7 +366,7 @@
         "premium_peak": null
       },
       "Serenity Alpha Beach (ex. Serenity Makadi Beach)": {
-        "history_max": 10641.0,
+        "history_max": 10838.0,
         "premium_peak": null
       },
       "Desert Rose Resort": {
