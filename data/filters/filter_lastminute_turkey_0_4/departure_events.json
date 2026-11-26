@@ -1,3 +1,24 @@
 {
-  "events": []
+  "events": [
+    {
+      "event_time": "2026-11-26T22:27:59+0000",
+      "departure_key": "turcja|side|2026-11-28|2026-12-05|7|Warszawa|",
+      "event_type": "late_price_dump",
+      "severity": "high",
+      "country": "turcja",
+      "region": "side",
+      "departure_date": "2026-11-28",
+      "return_date": "2026-12-05",
+      "nights": 7,
+      "days_to_departure": 2,
+      "old_min_price": "",
+      "new_min_price": 5163.0,
+      "min_drop_pct": -4.32,
+      "p10_drop_pct": -3.87,
+      "median_drop_pct": -9.67,
+      "hotel_count": 9,
+      "hotel_delta": -14,
+      "hot_score": 76
+    }
+  ]
 }

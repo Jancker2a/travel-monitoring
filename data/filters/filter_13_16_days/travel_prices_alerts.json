@@ -351,10 +351,62 @@
       "created_at": "2026-11-26T12:30:27.434855+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sataya Resort (ex. Labranda Sataya Marsa Alam)_2026-11-26_12-29_zone_out_+5.4"
+    },
+    {
+      "hotel_name": "Creek Hotel and Residences",
+      "duration_bucket": "",
+      "old_price": 9978.0,
+      "new_price": 10081.0,
+      "price_change": 103.0,
+      "price_change_pct": 1.0322709961916217,
+      "timestamp": "2026-11-26 22:24:30.288168+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-26T22:25:22.021566+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Creek Hotel and Residences_2026-11-26_22-24_zone_out_+1.0"
+    },
+    {
+      "hotel_name": "Pickalbatros Vita Resort Portofino",
+      "duration_bucket": "",
+      "old_price": 9997.0,
+      "new_price": 10137.0,
+      "price_change": 140.0,
+      "price_change_pct": 1.4004201260378113,
+      "timestamp": "2026-11-26 22:24:30.288168+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-26T22:25:22.021592+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Vita Resort Portofino_2026-11-26_22-24_zone_out_+1.4"
+    },
+    {
+      "hotel_name": "Sataya Resort (ex. Labranda Sataya Marsa Alam)",
+      "duration_bucket": "",
+      "old_price": 10801.0,
+      "new_price": 9891.0,
+      "price_change": -910.0,
+      "price_change_pct": -8.425145819831497,
+      "timestamp": "2026-11-26 22:24:30.288168+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-11-26T22:25:22.021618+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sataya Resort (ex. Labranda Sataya Marsa Alam)_2026-11-26_22-24_comeback_8.4"
+    },
+    {
+      "hotel_name": "Stella Beach Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 11053.0,
+      "new_price": 9914.0,
+      "price_change": -1139.0,
+      "price_change_pct": -10.30489459875147,
+      "timestamp": "2026-11-26 22:24:30.288168+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-11-26T22:25:22.021631+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Stella Beach Resort & Spa_2026-11-26_22-24_comeback_10.3"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-26T12:29:48.022248+00:00",
+    "last_processed_run": "2026-11-26T22:24:30.288168+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 10514.0,
@@ -437,8 +489,8 @@
         "premium_peak": 11357.0
       },
       "Pickalbatros Royal Grand Resort Sharm": {
-        "history_max": 19732.0,
-        "premium_peak": 19732.0
+        "history_max": 19735.0,
+        "premium_peak": 19735.0
       },
       "Pickalbatros Royal Moderna": {
         "history_max": 11328.0,
@@ -449,12 +501,12 @@
         "premium_peak": 12729.0
       },
       "Pickalbatros Villaggio Resort Portofino": {
-        "history_max": 9797.0,
+        "history_max": 9857.0,
         "premium_peak": null
       },
       "Pickalbatros Vita Resort Portofino": {
-        "history_max": 10057.0,
-        "premium_peak": 10057.0
+        "history_max": 10137.0,
+        "premium_peak": 10137.0
       },
       "Pickalbatros Water Valley Resort Neverland": {
         "history_max": 13848.0,
@@ -465,8 +517,8 @@
         "premium_peak": 13023.0
       },
       "Pickalbatros Laguna Club Resort": {
-        "history_max": 11545.0,
-        "premium_peak": 11545.0
+        "history_max": 11646.0,
+        "premium_peak": 11646.0
       },
       "Naama Waves": {
         "history_max": 12857.0,
@@ -481,8 +533,8 @@
         "premium_peak": 16183.0
       },
       "Jaz Elite Maraya": {
-        "history_max": 14431.0,
-        "premium_peak": 14431.0
+        "history_max": 14491.0,
+        "premium_peak": 14491.0
       },
       "Jaz Elite Negma": {
         "history_max": 15417.0,
@@ -665,8 +717,8 @@
         "premium_peak": 11919.0
       },
       "Titanic Beach Spa & Aqua Park": {
-        "history_max": 10507.0,
-        "premium_peak": 10507.0
+        "history_max": 10723.0,
+        "premium_peak": 10723.0
       },
       "Titanic Palace Resort": {
         "history_max": 10752.0,
@@ -885,12 +937,12 @@
         "premium_peak": 11521.0
       },
       "Grand Rotana Resort & Spa": {
-        "history_max": 15178.0,
-        "premium_peak": 15178.0
+        "history_max": 15328.0,
+        "premium_peak": 15328.0
       },
       "Creek Hotel and Residences": {
-        "history_max": 9978.0,
-        "premium_peak": null
+        "history_max": 10081.0,
+        "premium_peak": 10081.0
       },
       "Amphoras Beach": {
         "history_max": 16937.0,
@@ -909,7 +961,7 @@
         "premium_peak": 13584.0
       },
       "Amwaj Oyoun Resort & Casino": {
-        "history_max": 9251.0,
+        "history_max": 9327.0,
         "premium_peak": null
       },
       "Amarina Queen Resort": {
@@ -961,8 +1013,8 @@
         "premium_peak": 14927.0
       },
       "Charmillion Club Aqua Park": {
-        "history_max": 10456.0,
-        "premium_peak": 10456.0
+        "history_max": 10458.0,
+        "premium_peak": 10458.0
       },
       "El Malikia Resort Abu Dabbab (ex.Sol Y Mar)": {
         "history_max": 10131.0,
@@ -1053,8 +1105,8 @@
         "premium_peak": 13410.0
       },
       "Jaz Aquamarine Resort": {
-        "history_max": 10307.0,
-        "premium_peak": 10307.0
+        "history_max": 10471.0,
+        "premium_peak": 10471.0
       },
       "Iberotel Makadi Beach": {
         "history_max": 14926.0,
@@ -1085,7 +1137,7 @@
         "premium_peak": 18207.0
       },
       "IL Mercato Splash Aqua Park": {
-        "history_max": 9797.0,
+        "history_max": 9799.0,
         "premium_peak": null
       },
       "Amarina Jannah Heights Resort & Aqua Park": {

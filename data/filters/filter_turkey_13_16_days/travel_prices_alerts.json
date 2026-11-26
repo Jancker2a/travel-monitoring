@@ -572,10 +572,75 @@
       "created_at": "2026-11-26T12:31:56.354620+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Spice_2026-11-26_12-31_zone_out_+2.8"
+    },
+    {
+      "hotel_name": "Limak Lara De Luxe",
+      "duration_bucket": "",
+      "old_price": 8302.0,
+      "new_price": 8972.0,
+      "price_change": 670.0,
+      "price_change_pct": 8.070344495302336,
+      "timestamp": "2026-11-26 22:25:52.074740+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-26T22:26:27.167382+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Limak Lara De Luxe_2026-11-26_22-25_+8.1"
+    },
+    {
+      "hotel_name": "Sealife Family Resort",
+      "duration_bucket": "",
+      "old_price": 7596.0,
+      "new_price": 8396.0,
+      "price_change": 800.0,
+      "price_change_pct": 10.5318588730911,
+      "timestamp": "2026-11-26 22:25:52.074740+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-26T22:26:27.167415+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sealife Family Resort_2026-11-26_22-25_+10.5"
+    },
+    {
+      "hotel_name": "Limak Atlantis",
+      "duration_bucket": "",
+      "old_price": 7566.0,
+      "new_price": 8227.0,
+      "price_change": 661.0,
+      "price_change_pct": 8.73645255088554,
+      "timestamp": "2026-11-26 22:25:52.074740+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-26T22:26:27.167430+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Limak Atlantis_2026-11-26_22-25_+8.7"
+    },
+    {
+      "hotel_name": "Villa Side Residence",
+      "duration_bucket": "",
+      "old_price": 8914.0,
+      "new_price": 8030.0,
+      "price_change": -884.0,
+      "price_change_pct": -9.916984518734575,
+      "timestamp": "2026-11-26 22:25:52.074740+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-26T22:26:27.167439+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Villa Side Residence_2026-11-26_22-25_-9.9"
+    },
+    {
+      "hotel_name": "Side Star Resort",
+      "duration_bucket": "",
+      "old_price": 9962.0,
+      "new_price": 10614.0,
+      "price_change": 652.0,
+      "price_change_pct": 6.544870507930134,
+      "timestamp": "2026-11-26 22:25:52.074740+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-26T22:26:27.167455+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Side Star Resort_2026-11-26_22-25_zone_out_+6.5"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-26T12:31:22.303284+00:00",
+    "last_processed_run": "2026-11-26T22:25:52.074740+00:00",
     "premium_state": {
       "Acanthus & Cennet Barut Collection": {
         "history_max": 14862.0,
@@ -794,7 +859,7 @@
         "premium_peak": 10057.0
       },
       "Seher Sun Palace Resort & Spa": {
-        "history_max": 8028.0,
+        "history_max": 8045.0,
         "premium_peak": null
       },
       "Seashell Resort & Spa": {

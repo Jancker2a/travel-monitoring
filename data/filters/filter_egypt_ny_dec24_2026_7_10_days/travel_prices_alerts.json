@@ -559,10 +559,62 @@
       "created_at": "2026-11-26T12:30:46.823705+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Xperience Kiroseiz Premier_2026-11-26_12-30_zone_out_gone"
+    },
+    {
+      "hotel_name": "Xperience Kiroseiz Parkland",
+      "duration_bucket": "",
+      "old_price": 10421.0,
+      "new_price": 9361.0,
+      "price_change": -1060.0,
+      "price_change_pct": -10.171768544285577,
+      "timestamp": "2026-11-26 22:25:01.302150+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-26T22:25:21.586282+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xperience Kiroseiz Parkland_2026-11-26_22-25_-10.2"
+    },
+    {
+      "hotel_name": "Regency Plaza Aqua Park Spa",
+      "duration_bucket": "",
+      "old_price": 10749.0,
+      "new_price": 9642.0,
+      "price_change": -1107.0,
+      "price_change_pct": -10.298632430923806,
+      "timestamp": "2026-11-26 22:25:01.302150+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-26T22:25:21.586318+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Regency Plaza Aqua Park Spa_2026-11-26_22-25_-10.3"
+    },
+    {
+      "hotel_name": "Fantazia Resort",
+      "duration_bucket": "",
+      "old_price": 10322.0,
+      "new_price": 10322.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-26 22:25:01.302150+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-26T22:25:21.586339+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Fantazia Resort_2026-11-26_22-25_zone_out_gone"
+    },
+    {
+      "hotel_name": "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort)",
+      "duration_bucket": "",
+      "old_price": 10929.0,
+      "new_price": 10929.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-26 22:25:01.302150+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-26T22:25:21.586351+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort)_2026-11-26_22-25_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-26T12:30:30.665377+00:00",
+    "last_processed_run": "2026-11-26T22:25:01.302150+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 10719.0,
@@ -685,7 +737,7 @@
         "premium_peak": null
       },
       "Sunrise Alora Aqua Park Resort": {
-        "history_max": 10137.0,
+        "history_max": 10139.0,
         "premium_peak": null
       }
     }
