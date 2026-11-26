@@ -533,10 +533,49 @@
       "created_at": "2026-11-25T20:03:09.392017+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Spice_2026-11-25_20-02_comeback_8.9"
+    },
+    {
+      "hotel_name": "Sealife Family Resort",
+      "duration_bucket": "",
+      "old_price": 8875.0,
+      "new_price": 7596.0,
+      "price_change": -1279.0,
+      "price_change_pct": -14.411267605633803,
+      "timestamp": "2026-11-26 12:31:22.303284+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-26T12:31:56.354572+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sealife Family Resort_2026-11-26_12-31_-14.4"
+    },
+    {
+      "hotel_name": "Paloma Oceana Resort (ex Paloma Beach)",
+      "duration_bucket": "",
+      "old_price": 9731.0,
+      "new_price": 10006.0,
+      "price_change": 275.0,
+      "price_change_pct": 2.826019936286096,
+      "timestamp": "2026-11-26 12:31:22.303284+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-26T12:31:56.354611+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Paloma Oceana Resort (ex Paloma Beach)_2026-11-26_12-31_zone_out_+2.8"
+    },
+    {
+      "hotel_name": "Spice",
+      "duration_bucket": "",
+      "old_price": 9844.0,
+      "new_price": 10119.0,
+      "price_change": 275.0,
+      "price_change_pct": 2.793579845591223,
+      "timestamp": "2026-11-26 12:31:22.303284+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-26T12:31:56.354620+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Spice_2026-11-26_12-31_zone_out_+2.8"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-25T20:02:18.026523+00:00",
+    "last_processed_run": "2026-11-26T12:31:22.303284+00:00",
     "premium_state": {
       "Acanthus & Cennet Barut Collection": {
         "history_max": 14862.0,

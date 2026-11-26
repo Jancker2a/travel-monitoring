@@ -1924,10 +1924,114 @@
       "created_at": "2026-11-25T20:03:39.390981+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Xanadu Resort_2026-11-25_20-02_zone_out_gone"
+    },
+    {
+      "hotel_name": "Sealife Family Resort",
+      "duration_bucket": "",
+      "old_price": 5610.0,
+      "new_price": 4499.0,
+      "price_change": -1111.0,
+      "price_change_pct": -19.80392156862745,
+      "timestamp": "2026-11-26 12:31:26.965527+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-26T12:31:58.146553+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sealife Family Resort_2026-11-26_12-31_-19.8"
+    },
+    {
+      "hotel_name": "Limak Atlantis",
+      "duration_bucket": "",
+      "old_price": 4819.0,
+      "new_price": 4304.0,
+      "price_change": -515.0,
+      "price_change_pct": -10.686864494708445,
+      "timestamp": "2026-11-26 12:31:26.965527+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-26T12:31:58.146581+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Limak Atlantis_2026-11-26_12-31_-10.7"
+    },
+    {
+      "hotel_name": "Titanic Luxury Collection Belek",
+      "duration_bucket": "",
+      "old_price": 10641.0,
+      "new_price": 9382.0,
+      "price_change": -1259.0,
+      "price_change_pct": -11.831594774927169,
+      "timestamp": "2026-11-26 12:31:26.965527+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-11-26T12:31:58.146605+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Titanic Luxury Collection Belek_2026-11-26_12-31_comeback_11.8"
+    },
+    {
+      "hotel_name": "Gloria Verde Resort",
+      "duration_bucket": "",
+      "old_price": 10294.0,
+      "new_price": 9333.0,
+      "price_change": -961.0,
+      "price_change_pct": -9.335535263260152,
+      "timestamp": "2026-11-26 12:31:26.965527+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-11-26T12:31:58.146628+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Gloria Verde Resort_2026-11-26_12-31_comeback_9.3"
+    },
+    {
+      "hotel_name": "Ela Excellence Resort (ex. Ela Quality Resort)",
+      "duration_bucket": "",
+      "old_price": 11051.0,
+      "new_price": 9834.0,
+      "price_change": -1217.0,
+      "price_change_pct": -11.012578047235543,
+      "timestamp": "2026-11-26 12:31:26.965527+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-11-26T12:31:58.146636+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Ela Excellence Resort (ex. Ela Quality Resort)_2026-11-26_12-31_comeback_11.0"
+    },
+    {
+      "hotel_name": "The Land Of Legends Nickelodeon",
+      "duration_bucket": "",
+      "old_price": 10529.0,
+      "new_price": 9293.0,
+      "price_change": -1236.0,
+      "price_change_pct": -11.7390065533289,
+      "timestamp": "2026-11-26 12:31:26.965527+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-11-26T12:31:58.146656+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "The Land Of Legends Nickelodeon_2026-11-26_12-31_comeback_11.7"
+    },
+    {
+      "hotel_name": "Sueno Golf Belek",
+      "duration_bucket": "",
+      "old_price": 10497.0,
+      "new_price": 9536.0,
+      "price_change": -961.0,
+      "price_change_pct": -9.154996665714012,
+      "timestamp": "2026-11-26 12:31:26.965527+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-11-26T12:31:58.146662+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sueno Golf Belek_2026-11-26_12-31_comeback_9.2"
+    },
+    {
+      "hotel_name": "Sueno Deluxe Belek",
+      "duration_bucket": "",
+      "old_price": 10567.0,
+      "new_price": 9332.0,
+      "price_change": -1235.0,
+      "price_change_pct": -11.687328475442415,
+      "timestamp": "2026-11-26 12:31:26.965527+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-11-26T12:31:58.146669+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sueno Deluxe Belek_2026-11-26_12-31_comeback_11.7"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-25T20:02:50.074961+00:00",
+    "last_processed_run": "2026-11-26T12:31:26.965527+00:00",
     "premium_state": {
       "Acanthus & Cennet Barut Collection": {
         "history_max": 9021.0,
@@ -2094,7 +2198,7 @@
         "premium_peak": 19916.0
       },
       "Rixos Downtown (Antalya)": {
-        "history_max": 9659.0,
+        "history_max": 9674.0,
         "premium_peak": null
       },
       "Spice": {
@@ -2134,7 +2238,7 @@
         "premium_peak": 10641.0
       },
       "Trendy Aspendos Beach": {
-        "history_max": 6295.0,
+        "history_max": 6484.0,
         "premium_peak": null
       },
       "Trendy Lara": {
@@ -2182,8 +2286,8 @@
         "premium_peak": null
       },
       "Rixos Premium (Belek)": {
-        "history_max": 16959.0,
-        "premium_peak": 16959.0
+        "history_max": 16974.0,
+        "premium_peak": 16974.0
       },
       "Rixos Tersane Istanbul": {
         "history_max": 15445.0,
@@ -2226,15 +2330,15 @@
         "premium_peak": null
       },
       "Sheraton Istanbul City Center": {
-        "history_max": 10977.0,
-        "premium_peak": 10977.0
+        "history_max": 12607.0,
+        "premium_peak": 12607.0
       },
       "Sherwood Exclusive Lara (ex Sherwood Breezes)": {
         "history_max": 6639.0,
         "premium_peak": null
       },
       "Side Crown Palace (Side)": {
-        "history_max": 5989.0,
+        "history_max": 6000.0,
         "premium_peak": null
       },
       "Side Moon Palace": {
@@ -2270,8 +2374,8 @@
         "premium_peak": null
       },
       "Ducale Lara": {
-        "history_max": 8270.0,
-        "premium_peak": null
+        "history_max": 10462.0,
+        "premium_peak": 10462.0
       },
       "Aska Just in Beach": {
         "history_max": 5425.0,
@@ -2302,7 +2406,7 @@
         "premium_peak": null
       },
       "Aydinbey Queens Palace & Spa": {
-        "history_max": 6375.0,
+        "history_max": 6410.0,
         "premium_peak": null
       },
       "Delphin Imperial Lara": {
@@ -2402,7 +2506,7 @@
         "premium_peak": null
       },
       "Fame Residence Lara (Antalya)": {
-        "history_max": 7620.0,
+        "history_max": 7710.0,
         "premium_peak": null
       },
       "Akra Hotel (ex. Barut Akra)": {
@@ -2410,7 +2514,7 @@
         "premium_peak": null
       },
       "Grand Okan": {
-        "history_max": 5989.0,
+        "history_max": 6000.0,
         "premium_peak": null
       },
       "Ethno Belek": {

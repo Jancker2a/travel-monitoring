@@ -299,38 +299,90 @@
       "created_at": "2026-11-25T20:01:43.566583+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Titanic Pearl_2026-11-25_20-00_zone_out_+8.8"
+    },
+    {
+      "hotel_name": "Concorde Moreen Beach Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 8442.0,
+      "new_price": 9857.0,
+      "price_change": 1415.0,
+      "price_change_pct": 16.76143094053542,
+      "timestamp": "2026-11-26 12:29:48.022248+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-26T12:30:27.434786+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Concorde Moreen Beach Resort & Spa_2026-11-26_12-29_+16.8"
+    },
+    {
+      "hotel_name": "Jaz Aquamarine Resort",
+      "duration_bucket": "",
+      "old_price": 9939.0,
+      "new_price": 10307.0,
+      "price_change": 368.0,
+      "price_change_pct": 3.7025857732166214,
+      "timestamp": "2026-11-26 12:29:48.022248+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-26T12:30:27.434838+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Aquamarine Resort_2026-11-26_12-29_zone_out_+3.7"
+    },
+    {
+      "hotel_name": "Royal Regency Club",
+      "duration_bucket": "",
+      "old_price": 9980.0,
+      "new_price": 10452.0,
+      "price_change": 472.0,
+      "price_change_pct": 4.729458917835672,
+      "timestamp": "2026-11-26 12:29:48.022248+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-26T12:30:27.434848+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Royal Regency Club_2026-11-26_12-29_zone_out_+4.7"
+    },
+    {
+      "hotel_name": "Sataya Resort (ex. Labranda Sataya Marsa Alam)",
+      "duration_bucket": "",
+      "old_price": 9919.0,
+      "new_price": 10451.0,
+      "price_change": 532.0,
+      "price_change_pct": 5.363443895553988,
+      "timestamp": "2026-11-26 12:29:48.022248+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-26T12:30:27.434855+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sataya Resort (ex. Labranda Sataya Marsa Alam)_2026-11-26_12-29_zone_out_+5.4"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-25T20:00:41.995761+00:00",
+    "last_processed_run": "2026-11-26T12:29:48.022248+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 10514.0,
         "premium_peak": 10514.0
       },
       "Nubian Island": {
-        "history_max": 12810.0,
-        "premium_peak": 12810.0
+        "history_max": 12811.0,
+        "premium_peak": 12811.0
       },
       "Nubian Village": {
-        "history_max": 12810.0,
-        "premium_peak": 12810.0
+        "history_max": 12811.0,
+        "premium_peak": 12811.0
       },
       "Old Palace Resort": {
-        "history_max": 10754.0,
-        "premium_peak": 10754.0
+        "history_max": 10795.0,
+        "premium_peak": 10795.0
       },
       "Palm Royale Soma Bay": {
-        "history_max": 14842.0,
-        "premium_peak": 14842.0
+        "history_max": 14913.0,
+        "premium_peak": 14913.0
       },
       "Park Regency Resort (ex. Hyatt)": {
-        "history_max": 14690.0,
-        "premium_peak": 14690.0
+        "history_max": 14693.0,
+        "premium_peak": 14693.0
       },
       "Parrotel Beach Resort (ex. Radisson Blu)": {
-        "history_max": 10916.0,
-        "premium_peak": 10916.0
+        "history_max": 11017.0,
+        "premium_peak": 11017.0
       },
       "Parrotel Lagoon Resort": {
         "history_max": 8403.0,
@@ -345,32 +397,32 @@
         "premium_peak": 14834.0
       },
       "Pickalbatros Aqua Park Resort (Sharm El Sheikh)": {
-        "history_max": 13549.0,
-        "premium_peak": 13549.0
+        "history_max": 13867.0,
+        "premium_peak": 13867.0
       },
       "Pickalbatros Citadel Sahl Hasheesh (ex. Citadel Azur Resort)": {
-        "history_max": 11997.0,
-        "premium_peak": 11997.0
+        "history_max": 12406.0,
+        "premium_peak": 12406.0
       },
       "Pickalbatros Dana Beach Resort": {
-        "history_max": 11933.0,
-        "premium_peak": 11933.0
+        "history_max": 12437.0,
+        "premium_peak": 12437.0
       },
       "Novotel Marsa Alam": {
         "history_max": 8577.0,
         "premium_peak": null
       },
       "Pickalbatros Golf Beach Resort": {
-        "history_max": 11987.0,
-        "premium_peak": 11987.0
+        "history_max": 12107.0,
+        "premium_peak": 12107.0
       },
       "Pickalbatros Laguna Vista Beach": {
-        "history_max": 11749.0,
-        "premium_peak": 11749.0
+        "history_max": 12010.0,
+        "premium_peak": 12010.0
       },
       "Pickalbatros Luxury Suites": {
-        "history_max": 11987.0,
-        "premium_peak": 11987.0
+        "history_max": 12010.0,
+        "premium_peak": 12010.0
       },
       "Pickalbatros Oasis Port Ghalib (ex. Red Sea Port Ghalib Resort)": {
         "history_max": 12766.0,
@@ -385,8 +437,8 @@
         "premium_peak": 11357.0
       },
       "Pickalbatros Royal Grand Resort Sharm": {
-        "history_max": 19730.0,
-        "premium_peak": 19730.0
+        "history_max": 19732.0,
+        "premium_peak": 19732.0
       },
       "Pickalbatros Royal Moderna": {
         "history_max": 11328.0,
@@ -457,8 +509,8 @@
         "premium_peak": 10737.0
       },
       "Jaz Makadi Saraya (ex Iberotel)": {
-        "history_max": 12107.0,
-        "premium_peak": 12107.0
+        "history_max": 12906.0,
+        "premium_peak": 12906.0
       },
       "Jaz Makadi Star & Spa": {
         "history_max": 16665.0,
@@ -489,16 +541,16 @@
         "premium_peak": 10637.0
       },
       "Jaz Sharm Dreams Resort": {
-        "history_max": 10797.0,
-        "premium_peak": 10797.0
+        "history_max": 12312.0,
+        "premium_peak": 12312.0
       },
       "Jaz Solaya Resort (ex Sol Y Mar Solaya)": {
         "history_max": 12231.0,
         "premium_peak": 12231.0
       },
       "Jolie Ville Resort and Casino": {
-        "history_max": 18523.0,
-        "premium_peak": 18523.0
+        "history_max": 19023.0,
+        "premium_peak": 19023.0
       },
       "Lazuli (Marsa Alam)": {
         "history_max": 11057.0,
@@ -517,8 +569,8 @@
         "premium_peak": 14991.0
       },
       "Movenpick Resort & Spa El Gouna": {
-        "history_max": 15099.0,
-        "premium_peak": 15099.0
+        "history_max": 15437.0,
+        "premium_peak": 15437.0
       },
       "Movenpick Resort El Quseir": {
         "history_max": 16311.0,
@@ -561,8 +613,8 @@
         "premium_peak": 14235.0
       },
       "Sunrise Holidays Resort": {
-        "history_max": 14729.0,
-        "premium_peak": 14729.0
+        "history_max": 16707.0,
+        "premium_peak": 16707.0
       },
       "Sunrise Montemare Resort": {
         "history_max": 16711.0,
@@ -593,8 +645,8 @@
         "premium_peak": 11966.0
       },
       "Swissotel Sharm El Sheikh": {
-        "history_max": 18961.0,
-        "premium_peak": 18961.0
+        "history_max": 19163.0,
+        "premium_peak": 19163.0
       },
       "Swisstouch Oriental Resort (ex. Hotelux Oriental Coast)": {
         "history_max": 7683.0,
@@ -605,8 +657,8 @@
         "premium_peak": 13378.0
       },
       "The V Luxury Resort": {
-        "history_max": 12166.0,
-        "premium_peak": 12166.0
+        "history_max": 12203.0,
+        "premium_peak": 12203.0
       },
       "Three Corners Fayrouz Plaza Beach Resort": {
         "history_max": 11919.0,
@@ -629,8 +681,8 @@
         "premium_peak": 12418.0
       },
       "Tropitel Sahl Hasheesh": {
-        "history_max": 11494.0,
-        "premium_peak": 11494.0
+        "history_max": 11509.0,
+        "premium_peak": 11509.0
       },
       "True Beach Resort": {
         "history_max": 11145.0,
@@ -653,7 +705,7 @@
         "premium_peak": 15737.0
       },
       "Xperience Kiroseiz Parkland": {
-        "history_max": 9693.0,
+        "history_max": 9895.0,
         "premium_peak": null
       },
       "Xperience Kiroseiz Premier": {
@@ -661,12 +713,12 @@
         "premium_peak": null
       },
       "Stella Gardens Resort & Spa (ex Stella Di Mare Gardens)": {
-        "history_max": 19592.0,
-        "premium_peak": 19592.0
+        "history_max": 19878.0,
+        "premium_peak": 19878.0
       },
       "Jaz Elite Casa Del Mar Beach": {
-        "history_max": 14408.0,
-        "premium_peak": 14408.0
+        "history_max": 14467.0,
+        "premium_peak": 14467.0
       },
       "Stella Di Mare Beach & Spa": {
         "history_max": 19239.0,
@@ -693,11 +745,11 @@
         "premium_peak": 17288.0
       },
       "Rewaya Luxury Resort": {
-        "history_max": 9302.0,
+        "history_max": 9347.0,
         "premium_peak": null
       },
       "Rewaya Majestic Resort": {
-        "history_max": 9694.0,
+        "history_max": 9753.0,
         "premium_peak": null
       },
       "Royal Brayka Beach Resort (ex Zee Brayka)": {
@@ -729,8 +781,8 @@
         "premium_peak": 13158.0
       },
       "Sentido Naga Bay": {
-        "history_max": 12997.0,
-        "premium_peak": 12997.0
+        "history_max": 16139.0,
+        "premium_peak": 16139.0
       },
       "Serenity Alma Heights (ex. Serenity Fun City)": {
         "history_max": 10866.0,
@@ -757,8 +809,8 @@
         "premium_peak": 18010.0
       },
       "Sheraton Sharm Resort Villas & Spa": {
-        "history_max": 11556.0,
-        "premium_peak": 11556.0
+        "history_max": 11559.0,
+        "premium_peak": 11559.0
       },
       "Sheraton Soma Bay": {
         "history_max": 18787.0,
@@ -789,8 +841,8 @@
         "premium_peak": 11053.0
       },
       "Jaz Elite Asteria (Hurghada)": {
-        "history_max": 15753.0,
-        "premium_peak": 15753.0
+        "history_max": 15774.0,
+        "premium_peak": 15774.0
       },
       "Naama Bay Promenade Mountain Resort": {
         "history_max": 11256.0,
@@ -825,8 +877,8 @@
         "premium_peak": 13608.0
       },
       "Domina Coral Bay Bella Vista": {
-        "history_max": 12026.0,
-        "premium_peak": 12026.0
+        "history_max": 12377.0,
+        "premium_peak": 12377.0
       },
       "Gorgonia Beach": {
         "history_max": 11521.0,
@@ -845,8 +897,8 @@
         "premium_peak": 16937.0
       },
       "Cleopatra Luxury Resort": {
-        "history_max": 12527.0,
-        "premium_peak": 12527.0
+        "history_max": 12625.0,
+        "premium_peak": 12625.0
       },
       "Coral Sea Water World Resort": {
         "history_max": 17600.0,
@@ -857,7 +909,7 @@
         "premium_peak": 13584.0
       },
       "Amwaj Oyoun Resort & Casino": {
-        "history_max": 9022.0,
+        "history_max": 9251.0,
         "premium_peak": null
       },
       "Amarina Queen Resort": {
@@ -881,8 +933,8 @@
         "premium_peak": null
       },
       "Dreams Beach Sharm Resort (Sharm El Sheikh)": {
-        "history_max": 10385.0,
-        "premium_peak": 10385.0
+        "history_max": 13216.0,
+        "premium_peak": 13216.0
       },
       "Dream Lagoon & Aqua Park Resort (ex. Floriana Dream Lagoon)": {
         "history_max": 7971.0,
@@ -905,20 +957,20 @@
         "premium_peak": 16587.0
       },
       "Baron Resort (Sharm El Sheikh)": {
-        "history_max": 14827.0,
-        "premium_peak": 14827.0
+        "history_max": 14927.0,
+        "premium_peak": 14927.0
       },
       "Charmillion Club Aqua Park": {
-        "history_max": 10355.0,
-        "premium_peak": 10355.0
+        "history_max": 10456.0,
+        "premium_peak": 10456.0
       },
       "El Malikia Resort Abu Dabbab (ex.Sol Y Mar)": {
         "history_max": 10131.0,
         "premium_peak": 10131.0
       },
       "Baron Palms": {
-        "history_max": 18800.0,
-        "premium_peak": 18800.0
+        "history_max": 18802.0,
+        "premium_peak": 18802.0
       },
       "Domina Coral Bay Sultan": {
         "history_max": 12827.0,
@@ -945,12 +997,12 @@
         "premium_peak": 11657.0
       },
       "Cleopatra Luxury Resort Sharm Adults Only": {
-        "history_max": 16857.0,
-        "premium_peak": 16857.0
+        "history_max": 16977.0,
+        "premium_peak": 16977.0
       },
       "Invidia Coral Beach Tiran": {
-        "history_max": 14589.0,
-        "premium_peak": 14589.0
+        "history_max": 16461.0,
+        "premium_peak": 16461.0
       },
       "Cleopatra Luxury Resort (Makadi Bay)": {
         "history_max": 12807.0,
@@ -977,32 +1029,32 @@
         "premium_peak": 12684.0
       },
       "Albatros Makadi Resort (ex Royal Pharaohs Makadi)": {
-        "history_max": 10162.0,
-        "premium_peak": 10162.0
+        "history_max": 10597.0,
+        "premium_peak": 10597.0
       },
       "Jaz Aquaviva": {
-        "history_max": 10923.0,
-        "premium_peak": 10923.0
+        "history_max": 11177.0,
+        "premium_peak": 11177.0
       },
       "Akassia Swiss Resort (ex. Calimera Club Akassia Swiss Resort)": {
         "history_max": 9937.0,
         "premium_peak": null
       },
       "Concorde Moreen Beach Resort & Spa": {
-        "history_max": 8456.0,
+        "history_max": 9857.0,
         "premium_peak": null
       },
       "Jaz Belvedere": {
-        "history_max": 12559.0,
-        "premium_peak": 12559.0
+        "history_max": 12712.0,
+        "premium_peak": 12712.0
       },
       "Concorde El Salam Front Area": {
         "history_max": 13410.0,
         "premium_peak": 13410.0
       },
       "Jaz Aquamarine Resort": {
-        "history_max": 10197.0,
-        "premium_peak": 10197.0
+        "history_max": 10307.0,
+        "premium_peak": 10307.0
       },
       "Iberotel Makadi Beach": {
         "history_max": 14926.0,
@@ -1033,7 +1085,7 @@
         "premium_peak": 18207.0
       },
       "IL Mercato Splash Aqua Park": {
-        "history_max": 9796.0,
+        "history_max": 9797.0,
         "premium_peak": null
       },
       "Amarina Jannah Heights Resort & Aqua Park": {
@@ -1045,8 +1097,8 @@
         "premium_peak": 19925.0
       },
       "V Grand Beach Resort Sahl Hasheesh": {
-        "history_max": 10484.0,
-        "premium_peak": 10484.0
+        "history_max": 10527.0,
+        "premium_peak": 10527.0
       },
       "Bellagio Beach Resort & Spa (ex. Panorama Bungalows Hurghada)": {
         "history_max": 19589.0,

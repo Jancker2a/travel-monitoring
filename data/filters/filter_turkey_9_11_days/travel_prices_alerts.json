@@ -325,10 +325,62 @@
       "created_at": "2026-11-25T20:03:52.049559+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Eftalia Ocean (Alanya)_2026-11-25_20-03_-8.9"
+    },
+    {
+      "hotel_name": "Club Sera",
+      "duration_bucket": "",
+      "old_price": 9617.0,
+      "new_price": 8552.0,
+      "price_change": -1065.0,
+      "price_change_pct": -11.074139544556514,
+      "timestamp": "2026-11-26 12:31:59.121104+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-26T12:32:24.412240+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Club Sera_2026-11-26_12-31_-11.1"
+    },
+    {
+      "hotel_name": "Side Royal Style (ex. Side Royal Luxury)",
+      "duration_bucket": "",
+      "old_price": 8027.0,
+      "new_price": 7272.0,
+      "price_change": -755.0,
+      "price_change_pct": -9.405755574934597,
+      "timestamp": "2026-11-26 12:31:59.121104+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-26T12:32:24.412270+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Side Royal Style (ex. Side Royal Luxury)_2026-11-26_12-31_-9.4"
+    },
+    {
+      "hotel_name": "Adalya Elite Lara",
+      "duration_bucket": "",
+      "old_price": 10124.0,
+      "new_price": 8878.0,
+      "price_change": -1246.0,
+      "price_change_pct": -12.30738838403793,
+      "timestamp": "2026-11-26 12:31:59.121104+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-11-26T12:32:24.412294+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Adalya Elite Lara_2026-11-26_12-31_comeback_12.3"
+    },
+    {
+      "hotel_name": "Akra Kemer (ex. Kemer Barut Collection)",
+      "duration_bucket": "",
+      "old_price": 10607.0,
+      "new_price": 9670.0,
+      "price_change": -937.0,
+      "price_change_pct": -8.833789007259357,
+      "timestamp": "2026-11-26 12:31:59.121104+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-11-26T12:32:24.412303+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Akra Kemer (ex. Kemer Barut Collection)_2026-11-26_12-31_comeback_8.8"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-25T20:03:13.709534+00:00",
+    "last_processed_run": "2026-11-26T12:31:59.121104+00:00",
     "premium_state": {
       "Acanthus & Cennet Barut Collection": {
         "history_max": 12337.0,
@@ -487,8 +539,8 @@
         "premium_peak": null
       },
       "Bellis Deluxe": {
-        "history_max": 10746.0,
-        "premium_peak": 10746.0
+        "history_max": 10902.0,
+        "premium_peak": 10902.0
       },
       "Titanic Deluxe Lara (ex. Titanic Beach Lara)": {
         "history_max": 10797.0,

@@ -4641,10 +4641,114 @@
       "created_at": "2026-11-25T20:05:18.100305+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sueno Deluxe Belek_2026-11-25_20-04_zone_out_gone"
+    },
+    {
+      "hotel_name": "Side Royal Style (ex. Side Royal Luxury)",
+      "duration_bucket": "",
+      "old_price": 6562.0,
+      "new_price": 7148.0,
+      "price_change": 586.0,
+      "price_change_pct": 8.930204206034746,
+      "timestamp": "2026-11-26 12:33:03.308342+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-26T12:33:28.082702+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Side Royal Style (ex. Side Royal Luxury)_2026-11-26_12-33_+8.9"
+    },
+    {
+      "hotel_name": "Villa Side Residence",
+      "duration_bucket": "",
+      "old_price": 6516.0,
+      "new_price": 7102.0,
+      "price_change": 586.0,
+      "price_change_pct": 8.993247391037446,
+      "timestamp": "2026-11-26 12:33:03.308342+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-26T12:33:28.082740+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Villa Side Residence_2026-11-26_12-33_+9.0"
+    },
+    {
+      "hotel_name": "Grand Seker",
+      "duration_bucket": "",
+      "old_price": 5396.0,
+      "new_price": 6013.0,
+      "price_change": 617.0,
+      "price_change_pct": 11.434395848776873,
+      "timestamp": "2026-11-26 12:33:03.308342+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-26T12:33:28.082754+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Grand Seker_2026-11-26_12-33_+11.4"
+    },
+    {
+      "hotel_name": "Aydinbey Queens Palace & Spa",
+      "duration_bucket": "",
+      "old_price": 6538.0,
+      "new_price": 7124.0,
+      "price_change": 586.0,
+      "price_change_pct": 8.96298562251453,
+      "timestamp": "2026-11-26 12:33:03.308342+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-26T12:33:28.082763+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Aydinbey Queens Palace & Spa_2026-11-26_12-33_+9.0"
+    },
+    {
+      "hotel_name": "Royal Wings",
+      "duration_bucket": "",
+      "old_price": 6412.0,
+      "new_price": 8399.0,
+      "price_change": 1987.0,
+      "price_change_pct": 30.98877105427324,
+      "timestamp": "2026-11-26 12:33:03.308342+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-26T12:33:28.082771+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Royal Wings_2026-11-26_12-33_+31.0"
+    },
+    {
+      "hotel_name": "Megasaray WestBeach Antalya (ex. Harrington Park Resort)",
+      "duration_bucket": "",
+      "old_price": 6365.0,
+      "new_price": 9800.0,
+      "price_change": 3435.0,
+      "price_change_pct": 53.967007069913585,
+      "timestamp": "2026-11-26 12:33:03.308342+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-26T12:33:28.082779+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Megasaray WestBeach Antalya (ex. Harrington Park Resort)_2026-11-26_12-33_+54.0"
+    },
+    {
+      "hotel_name": "Side Royal Palace",
+      "duration_bucket": "",
+      "old_price": 7839.0,
+      "new_price": 7206.0,
+      "price_change": -633.0,
+      "price_change_pct": -8.075009567546882,
+      "timestamp": "2026-11-26 12:33:03.308342+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-26T12:33:28.082787+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Side Royal Palace_2026-11-26_12-33_-8.1"
+    },
+    {
+      "hotel_name": "Kaya (Belek)",
+      "duration_bucket": "",
+      "old_price": 9554.0,
+      "new_price": 9554.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-26 12:33:03.308342+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-26T12:33:28.082809+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Kaya (Belek)_2026-11-26_12-33_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-25T20:04:31.782607+00:00",
+    "last_processed_run": "2026-11-26T12:33:03.308342+00:00",
     "premium_state": {
       "A Good Life Utopia Family Resort (ex. Water Planet & Aquapark)": {
         "history_max": 5679.0,
@@ -4859,7 +4963,7 @@
         "premium_peak": null
       },
       "Grand Seker": {
-        "history_max": 5396.0,
+        "history_max": 6013.0,
         "premium_peak": null
       },
       "Grand Park Lara": {
@@ -4891,7 +4995,7 @@
         "premium_peak": null
       },
       "Gardenia (Alanya)": {
-        "history_max": 6401.0,
+        "history_max": 6859.0,
         "premium_peak": null
       },
       "Galaxy Beach": {
@@ -5251,7 +5355,7 @@
         "premium_peak": null
       },
       "Royal Taj Mahal": {
-        "history_max": 7711.0,
+        "history_max": 7973.0,
         "premium_peak": null
       },
       "Royal Asarlik Beach": {
@@ -6091,7 +6195,7 @@
         "premium_peak": null
       },
       "Megasaray WestBeach Antalya (ex. Harrington Park Resort)": {
-        "history_max": 6365.0,
+        "history_max": 9800.0,
         "premium_peak": null
       },
       "Cornelia Diamond Golf Resort & SPA": {

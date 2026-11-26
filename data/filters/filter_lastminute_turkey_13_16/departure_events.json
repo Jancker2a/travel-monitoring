@@ -1,3 +1,24 @@
 {
-  "events": []
+  "events": [
+    {
+      "event_time": "2026-11-26T12:33:07+0000",
+      "departure_key": "turcja|alanya|2026-11-28|2026-12-12|14|Katowice|",
+      "event_type": "late_price_dump",
+      "severity": "high",
+      "country": "turcja",
+      "region": "alanya",
+      "departure_date": "2026-11-28",
+      "return_date": "2026-12-12",
+      "nights": 14,
+      "days_to_departure": 2,
+      "old_min_price": "",
+      "new_min_price": 5833.0,
+      "min_drop_pct": -15.01,
+      "p10_drop_pct": -9.85,
+      "median_drop_pct": -4.14,
+      "hotel_count": 26,
+      "hotel_delta": 16,
+      "hot_score": 62
+    }
+  ]
 }
