@@ -21,6 +21,26 @@
       "hot_score": 62
     },
     {
+      "event_time": "2026-11-27T23:34:15+0000",
+      "departure_key": "egipt|hurghada|2026-12-01|2026-12-07|6|Katowice|",
+      "event_type": "late_price_dump",
+      "severity": "high",
+      "country": "egipt",
+      "region": "hurghada",
+      "departure_date": "2026-12-01",
+      "return_date": "2026-12-07",
+      "nights": 6.0,
+      "days_to_departure": 4,
+      "old_min_price": "",
+      "new_min_price": 2797.0,
+      "min_drop_pct": -15.17,
+      "p10_drop_pct": -14.57,
+      "median_drop_pct": -7.95,
+      "hotel_count": 58,
+      "hotel_delta": 3,
+      "hot_score": 78
+    },
+    {
       "event_time": "2026-11-27T05:12:43+0000",
       "departure_key": "egipt|marsa-alam|2026-11-28|2026-12-05|8|Katowice|",
       "event_type": "late_price_dump",
@@ -58,6 +78,26 @@
       "median_drop_pct": -26.64,
       "hotel_count": 20,
       "hotel_delta": 7,
+      "hot_score": 100
+    },
+    {
+      "event_time": "2026-11-27T23:34:15+0000",
+      "departure_key": "egipt|marsa-alam|2026-11-28|2026-12-05|8|Katowice|",
+      "event_type": "late_price_dump",
+      "severity": "high",
+      "country": "egipt",
+      "region": "marsa-alam",
+      "departure_date": "2026-11-28",
+      "return_date": "2026-12-05",
+      "nights": 8.0,
+      "days_to_departure": 1,
+      "old_min_price": "",
+      "new_min_price": 3303.0,
+      "min_drop_pct": -11.99,
+      "p10_drop_pct": -11.95,
+      "median_drop_pct": -13.76,
+      "hotel_count": 17,
+      "hotel_delta": 0,
       "hot_score": 100
     },
     {
@@ -99,6 +139,26 @@
       "hotel_count": 18,
       "hotel_delta": 1,
       "hot_score": 100
+    },
+    {
+      "event_time": "2026-11-27T23:34:15+0000",
+      "departure_key": "egipt|marsa-alam|2026-11-30|2026-12-07|7|Katowice|",
+      "event_type": "late_price_dump",
+      "severity": "high",
+      "country": "egipt",
+      "region": "marsa-alam",
+      "departure_date": "2026-11-30",
+      "return_date": "2026-12-07",
+      "nights": 7.0,
+      "days_to_departure": 3,
+      "old_min_price": "",
+      "new_min_price": 3280.0,
+      "min_drop_pct": -18.1,
+      "p10_drop_pct": -17.4,
+      "median_drop_pct": -13.11,
+      "hotel_count": 19,
+      "hotel_delta": 2,
+      "hot_score": 91
     },
     {
       "event_time": "2026-11-26T22:27:05+0000",
@@ -159,6 +219,26 @@
       "hotel_count": 33,
       "hotel_delta": -15,
       "hot_score": 91
+    },
+    {
+      "event_time": "2026-11-27T23:34:15+0000",
+      "departure_key": "egipt|sharm-el-sheikh|2026-11-28|2026-12-05|7|Katowice|",
+      "event_type": "late_price_dump",
+      "severity": "high",
+      "country": "egipt",
+      "region": "sharm-el-sheikh",
+      "departure_date": "2026-11-28",
+      "return_date": "2026-12-05",
+      "nights": 7.0,
+      "days_to_departure": 1,
+      "old_min_price": "",
+      "new_min_price": 3647.0,
+      "min_drop_pct": -18.03,
+      "p10_drop_pct": -16.69,
+      "median_drop_pct": -6.89,
+      "hotel_count": 25,
+      "hotel_delta": -5,
+      "hot_score": 93
     }
   ]
 }

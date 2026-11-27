@@ -2405,10 +2405,101 @@
       "created_at": "2026-11-27T15:08:33.345863+00:00",
       "threshold_percent": 8.0,
       "unique_key": "The Sense Deluxe_2026-11-27_15-07_-8.9"
+    },
+    {
+      "hotel_name": "Acanthus & Cennet Barut Collection",
+      "duration_bucket": "",
+      "old_price": 7785.0,
+      "new_price": 8431.0,
+      "price_change": 646.0,
+      "price_change_pct": 8.29800899165061,
+      "timestamp": "2026-11-27 23:33:36.092930+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-27T23:34:05.478956+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Acanthus & Cennet Barut Collection_2026-11-27_23-33_+8.3"
+    },
+    {
+      "hotel_name": "Fame Residence Lara (Antalya)",
+      "duration_bucket": "",
+      "old_price": 7848.0,
+      "new_price": 6908.0,
+      "price_change": -940.0,
+      "price_change_pct": -11.977573904179408,
+      "timestamp": "2026-11-27 23:33:36.092930+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-27T23:34:05.478988+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Fame Residence Lara (Antalya)_2026-11-27_23-33_-12.0"
+    },
+    {
+      "hotel_name": "Side Royal Palace",
+      "duration_bucket": "",
+      "old_price": 6470.0,
+      "new_price": 5530.0,
+      "price_change": -940.0,
+      "price_change_pct": -14.528593508500773,
+      "timestamp": "2026-11-27 23:33:36.092930+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-27T23:34:05.479011+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Side Royal Palace_2026-11-27_23-33_-14.5"
+    },
+    {
+      "hotel_name": "Side Royal Style (ex. Side Royal Luxury)",
+      "duration_bucket": "",
+      "old_price": 6414.0,
+      "new_price": 5474.0,
+      "price_change": -940.0,
+      "price_change_pct": -14.655441222326163,
+      "timestamp": "2026-11-27 23:33:36.092930+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-27T23:34:05.479017+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Side Royal Style (ex. Side Royal Luxury)_2026-11-27_23-33_-14.7"
+    },
+    {
+      "hotel_name": "Aydinbey Queens Palace & Spa",
+      "duration_bucket": "",
+      "old_price": 6410.0,
+      "new_price": 5470.0,
+      "price_change": -940.0,
+      "price_change_pct": -14.664586583463338,
+      "timestamp": "2026-11-27 23:33:36.092930+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-27T23:34:05.479025+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Aydinbey Queens Palace & Spa_2026-11-27_23-33_-14.7"
+    },
+    {
+      "hotel_name": "Villa Side Residence",
+      "duration_bucket": "",
+      "old_price": 6240.0,
+      "new_price": 5300.0,
+      "price_change": -940.0,
+      "price_change_pct": -15.064102564102564,
+      "timestamp": "2026-11-27 23:33:36.092930+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-27T23:34:05.479033+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Villa Side Residence_2026-11-27_23-33_-15.1"
+    },
+    {
+      "hotel_name": "The Sense Deluxe",
+      "duration_bucket": "",
+      "old_price": 5709.0,
+      "new_price": 6547.0,
+      "price_change": 838.0,
+      "price_change_pct": 14.678577684358032,
+      "timestamp": "2026-11-27 23:33:36.092930+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-27T23:34:05.479039+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "The Sense Deluxe_2026-11-27_23-33_+14.7"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-27T15:07:38.314723+00:00",
+    "last_processed_run": "2026-11-27T23:33:36.092930+00:00",
     "premium_state": {
       "Acanthus & Cennet Barut Collection": {
         "history_max": 9021.0,
@@ -2603,7 +2694,7 @@
         "premium_peak": 10529.0
       },
       "The Sense Deluxe": {
-        "history_max": 6414.0,
+        "history_max": 6547.0,
         "premium_peak": null
       },
       "Titanic Deluxe Lara (ex. Titanic Beach Lara)": {
@@ -2615,7 +2706,7 @@
         "premium_peak": 10641.0
       },
       "Trendy Aspendos Beach": {
-        "history_max": 6484.0,
+        "history_max": 6638.0,
         "premium_peak": null
       },
       "Trendy Lara": {
@@ -2667,8 +2758,8 @@
         "premium_peak": 19859.0
       },
       "Rixos Tersane Istanbul": {
-        "history_max": 15646.0,
-        "premium_peak": 15646.0
+        "history_max": 15732.0,
+        "premium_peak": 15732.0
       },
       "Royal Dragon": {
         "history_max": 7065.0,
@@ -2715,7 +2806,7 @@
         "premium_peak": null
       },
       "Side Crown Palace (Side)": {
-        "history_max": 6189.0,
+        "history_max": 6214.0,
         "premium_peak": null
       },
       "Side Moon Palace": {

@@ -1,3 +1,24 @@
 {
-  "events": []
+  "events": [
+    {
+      "event_time": "2026-11-27T23:30:46+0000",
+      "departure_key": "egipt|sharm-el-sheikh|2027-10-12|2027-10-19|7|Warszawa - Modlin|",
+      "event_type": "mass_price_drop",
+      "severity": "medium",
+      "country": "egipt",
+      "region": "sharm-el-sheikh",
+      "departure_date": "2027-10-12",
+      "return_date": "2027-10-19",
+      "nights": 7,
+      "days_to_departure": 319,
+      "old_min_price": "",
+      "new_min_price": 8315.0,
+      "min_drop_pct": -9.18,
+      "p10_drop_pct": -8.81,
+      "median_drop_pct": -6.66,
+      "hotel_count": 13,
+      "hotel_delta": 4,
+      "hot_score": 0
+    }
+  ]
 }

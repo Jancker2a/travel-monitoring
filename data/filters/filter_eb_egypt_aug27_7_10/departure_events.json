@@ -1,3 +1,24 @@
 {
-  "events": []
+  "events": [
+    {
+      "event_time": "2026-11-27T23:30:26+0000",
+      "departure_key": "egipt|marsa-alam|2027-08-06|2027-08-13|7|Warszawa - Modlin|",
+      "event_type": "mass_price_drop",
+      "severity": "medium",
+      "country": "egipt",
+      "region": "marsa-alam",
+      "departure_date": "2027-08-06",
+      "return_date": "2027-08-13",
+      "nights": 7,
+      "days_to_departure": 252,
+      "old_min_price": "",
+      "new_min_price": 6873.0,
+      "min_drop_pct": -9.65,
+      "p10_drop_pct": -7.21,
+      "median_drop_pct": -3.54,
+      "hotel_count": 17,
+      "hotel_delta": -3,
+      "hot_score": 0
+    }
+  ]
 }

@@ -689,18 +689,122 @@
       "created_at": "2026-11-26T12:28:23.972003+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Concorde El Salam_2026-11-26_12-27_+8.6"
+    },
+    {
+      "hotel_name": "Amarina Jannah Heights Resort & Aqua Park",
+      "duration_bucket": "",
+      "old_price": 7993.0,
+      "new_price": 7257.0,
+      "price_change": -736.0,
+      "price_change_pct": -9.20805704991868,
+      "timestamp": "2026-11-27 23:30:26.782534+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-27T23:31:04.774395+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amarina Jannah Heights Resort & Aqua Park_2026-11-27_23-30_-9.2"
+    },
+    {
+      "hotel_name": "Amarina Queen Resort",
+      "duration_bucket": "",
+      "old_price": 7607.0,
+      "new_price": 6873.0,
+      "price_change": -734.0,
+      "price_change_pct": -9.649007493098463,
+      "timestamp": "2026-11-27 23:30:26.782534+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-27T23:31:04.774421+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amarina Queen Resort_2026-11-27_23-30_-9.6"
+    },
+    {
+      "hotel_name": "Sataya Resort (ex. Labranda Sataya Marsa Alam)",
+      "duration_bucket": "",
+      "old_price": 8779.0,
+      "new_price": 8041.0,
+      "price_change": -738.0,
+      "price_change_pct": -8.406424421915935,
+      "timestamp": "2026-11-27 23:30:26.782534+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-27T23:31:04.774430+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sataya Resort (ex. Labranda Sataya Marsa Alam)_2026-11-27_23-30_-8.4"
+    },
+    {
+      "hotel_name": "Jaz Grand Marsa (ex Resta Grand Resort)",
+      "duration_bucket": "",
+      "old_price": 8145.0,
+      "new_price": 7393.0,
+      "price_change": -752.0,
+      "price_change_pct": -9.232658072437077,
+      "timestamp": "2026-11-27 23:30:26.782534+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-27T23:31:04.774441+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Grand Marsa (ex Resta Grand Resort)_2026-11-27_23-30_-9.2"
+    },
+    {
+      "hotel_name": "Three Corners Fayrouz Plaza Beach Resort",
+      "duration_bucket": "",
+      "old_price": 8733.0,
+      "new_price": 7995.0,
+      "price_change": -738.0,
+      "price_change_pct": -8.450704225352112,
+      "timestamp": "2026-11-27 23:30:26.782534+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-27T23:31:04.774450+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Three Corners Fayrouz Plaza Beach Resort_2026-11-27_23-30_-8.5"
+    },
+    {
+      "hotel_name": "Novotel Marsa Alam",
+      "duration_bucket": "",
+      "old_price": 9257.0,
+      "new_price": 8415.0,
+      "price_change": -842.0,
+      "price_change_pct": -9.095819379928702,
+      "timestamp": "2026-11-27 23:30:26.782534+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-27T23:31:04.774461+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Novotel Marsa Alam_2026-11-27_23-30_-9.1"
+    },
+    {
+      "hotel_name": "Amwaj Oyoun Resort & Casino",
+      "duration_bucket": "",
+      "old_price": 7171.0,
+      "new_price": 8316.0,
+      "price_change": 1145.0,
+      "price_change_pct": 15.96708966671315,
+      "timestamp": "2026-11-27 23:30:26.782534+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-27T23:31:04.774468+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amwaj Oyoun Resort & Casino_2026-11-27_23-30_+16.0"
+    },
+    {
+      "hotel_name": "Nubian Village",
+      "duration_bucket": "",
+      "old_price": 11991.0,
+      "new_price": 17625.0,
+      "price_change": 5634.0,
+      "price_change_pct": 46.985238929196896,
+      "timestamp": "2026-11-27 23:30:26.782534+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-27T23:31:04.774496+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Nubian Village_2026-11-27_23-30_zone_out_+47.0"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-27T05:05:46.659213+00:00",
+    "last_processed_run": "2026-11-27T23:30:26.782534+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 8446.0,
         "premium_peak": null
       },
       "Nubian Village": {
-        "history_max": 11991.0,
-        "premium_peak": null
+        "history_max": 17625.0,
+        "premium_peak": 17625.0
       },
       "Old Palace Resort": {
         "history_max": 9941.0,
@@ -1071,7 +1175,7 @@
         "premium_peak": null
       },
       "Stella Beach Resort & Spa": {
-        "history_max": 9635.0,
+        "history_max": 9849.0,
         "premium_peak": null
       },
       "V Grand Beach Resort Sahl Hasheesh": {
@@ -1111,8 +1215,8 @@
         "premium_peak": 17887.0
       },
       "Steigenberger Golf Resort": {
-        "history_max": 14814.0,
-        "premium_peak": 14814.0
+        "history_max": 15143.0,
+        "premium_peak": 15143.0
       },
       "Steigenberger Coraya Beach": {
         "history_max": 19917.0,
@@ -1127,7 +1231,7 @@
         "premium_peak": null
       },
       "Sentido Akassia Beach (ex. LTI Akassia Beach)": {
-        "history_max": 9009.0,
+        "history_max": 9209.0,
         "premium_peak": null
       },
       "Sea Star Beau Rivage": {
@@ -1323,7 +1427,7 @@
         "premium_peak": null
       },
       "Invidia Coral Beach Tiran": {
-        "history_max": 10357.0,
+        "history_max": 10699.0,
         "premium_peak": null
       },
       "Amarina Queen Resort": {
@@ -1383,7 +1487,7 @@
         "premium_peak": 12992.0
       },
       "Dreams Beach (Marsa Alam)": {
-        "history_max": 9887.0,
+        "history_max": 10106.0,
         "premium_peak": null
       },
       "Gemma Resort (ex. Labranda Gemma Premium Resort)": {
@@ -1403,11 +1507,11 @@
         "premium_peak": null
       },
       "Dream Lagoon & Aqua Park Resort (ex. Floriana Dream Lagoon)": {
-        "history_max": 8082.0,
+        "history_max": 8262.0,
         "premium_peak": null
       },
       "Gorgonia Beach": {
-        "history_max": 9703.0,
+        "history_max": 10455.0,
         "premium_peak": null
       },
       "Charmillion Club Resort": {
