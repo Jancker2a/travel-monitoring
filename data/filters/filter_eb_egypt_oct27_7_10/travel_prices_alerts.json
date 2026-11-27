@@ -1898,10 +1898,62 @@
       "created_at": "2026-11-26T12:29:08.609621+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Steigenberger Al Dau Beach_2026-11-26_12-28_zone_out_+4.3"
+    },
+    {
+      "hotel_name": "Jaz Belvedere",
+      "duration_bucket": "",
+      "old_price": 9597.0,
+      "new_price": 10447.0,
+      "price_change": 850.0,
+      "price_change_pct": 8.856934458685007,
+      "timestamp": "2026-11-27 05:06:24.897391+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-27T05:07:29.843133+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Belvedere_2026-11-27_05-06_+8.9"
+    },
+    {
+      "hotel_name": "Pickalbatros Golf Beach Resort",
+      "duration_bucket": "",
+      "old_price": 10147.0,
+      "new_price": 10987.0,
+      "price_change": 840.0,
+      "price_change_pct": 8.278308859761506,
+      "timestamp": "2026-11-27 05:06:24.897391+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-27T05:07:29.843189+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Golf Beach Resort_2026-11-27_05-06_+8.3"
+    },
+    {
+      "hotel_name": "Jaz Mirabel Beach Resort",
+      "duration_bucket": "",
+      "old_price": 9157.0,
+      "new_price": 10027.0,
+      "price_change": 870.0,
+      "price_change_pct": 9.50092825161079,
+      "timestamp": "2026-11-27 05:06:24.897391+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-27T05:07:29.843224+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Mirabel Beach Resort_2026-11-27_05-06_+9.5"
+    },
+    {
+      "hotel_name": "Jaz Elite Asteria (Hurghada)",
+      "duration_bucket": "",
+      "old_price": 11971.0,
+      "new_price": 12567.0,
+      "price_change": 596.0,
+      "price_change_pct": 4.978698521426781,
+      "timestamp": "2026-11-27 05:06:24.897391+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-27T05:07:29.843266+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Elite Asteria (Hurghada)_2026-11-27_05-06_zone_out_+5.0"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-26T12:28:26.611597+00:00",
+    "last_processed_run": "2026-11-27T05:06:24.897391+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 8248.0,
@@ -2016,7 +2068,7 @@
         "premium_peak": null
       },
       "Jaz Mirabel Beach Resort": {
-        "history_max": 9597.0,
+        "history_max": 10027.0,
         "premium_peak": null
       },
       "Sirena Beach Resort & Spa": {
@@ -2040,7 +2092,7 @@
         "premium_peak": null
       },
       "Jaz Belvedere": {
-        "history_max": 9597.0,
+        "history_max": 10447.0,
         "premium_peak": null
       },
       "Stella Beach Resort & Spa": {
@@ -2052,15 +2104,15 @@
         "premium_peak": 15517.0
       },
       "Jaz Elite Asteria (Hurghada)": {
-        "history_max": 12527.0,
-        "premium_peak": 12527.0
+        "history_max": 12567.0,
+        "premium_peak": 12567.0
       },
       "Steigenberger Ras Soma": {
         "history_max": 19127.0,
         "premium_peak": 19127.0
       },
       "Jaz Elite Casa Del Mar Beach": {
-        "history_max": 11837.0,
+        "history_max": 11877.0,
         "premium_peak": null
       },
       "Jaz Elite Crystal": {
@@ -2204,8 +2256,8 @@
         "premium_peak": 14776.0
       },
       "Reef Oasis Blue Bay Resort": {
-        "history_max": 13466.0,
-        "premium_peak": 13466.0
+        "history_max": 13807.0,
+        "premium_peak": 13807.0
       },
       "Reef Oasis Suakin Resort": {
         "history_max": 11537.0,
@@ -2252,7 +2304,7 @@
         "premium_peak": null
       },
       "Pickalbatros Laguna Vista Beach": {
-        "history_max": 10407.0,
+        "history_max": 10427.0,
         "premium_peak": null
       },
       "Sataya Resort (ex. Labranda Sataya Marsa Alam)": {
@@ -2300,7 +2352,7 @@
         "premium_peak": 12304.0
       },
       "Old Palace Resort": {
-        "history_max": 9950.0,
+        "history_max": 9963.0,
         "premium_peak": null
       },
       "Sentido Naga Bay": {
@@ -2356,7 +2408,7 @@
         "premium_peak": 15066.0
       },
       "Pickalbatros Golf Beach Resort": {
-        "history_max": 10147.0,
+        "history_max": 10987.0,
         "premium_peak": null
       },
       "Pickalbatros Laguna Club Resort": {
@@ -2424,7 +2476,7 @@
         "premium_peak": 12183.0
       },
       "Charmillion Club Aqua Park": {
-        "history_max": 10054.0,
+        "history_max": 10619.0,
         "premium_peak": null
       },
       "Concorde El Salam": {
@@ -2492,7 +2544,7 @@
         "premium_peak": null
       },
       "Akassia Swiss Resort (ex. Calimera Club Akassia Swiss Resort)": {
-        "history_max": 9885.0,
+        "history_max": 9900.0,
         "premium_peak": null
       },
       "Xperience Kiroseiz Premier": {

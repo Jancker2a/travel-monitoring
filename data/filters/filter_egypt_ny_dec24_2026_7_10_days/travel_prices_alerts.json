@@ -611,10 +611,62 @@
       "created_at": "2026-11-26T22:25:21.586351+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Swiss Inn Resort Hurghada (ex. Hilton Hurghada Resort)_2026-11-26_22-25_zone_out_gone"
+    },
+    {
+      "hotel_name": "Regency Plaza Aqua Park Spa",
+      "duration_bucket": "",
+      "old_price": 9642.0,
+      "new_price": 10702.0,
+      "price_change": 1060.0,
+      "price_change_pct": 10.99356979879693,
+      "timestamp": "2026-11-27 05:09:39.633732+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-27T05:10:00.376692+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Regency Plaza Aqua Park Spa_2026-11-27_05-09_+11.0"
+    },
+    {
+      "hotel_name": "Xperience Kiroseiz Parkland",
+      "duration_bucket": "",
+      "old_price": 9361.0,
+      "new_price": 10421.0,
+      "price_change": 1060.0,
+      "price_change_pct": 11.323576540967846,
+      "timestamp": "2026-11-27 05:09:39.633732+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-27T05:10:00.376740+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xperience Kiroseiz Parkland_2026-11-27_05-09_+11.3"
+    },
+    {
+      "hotel_name": "Pickalbatros Laguna Club Resort",
+      "duration_bucket": "",
+      "old_price": 10847.0,
+      "new_price": 10847.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-27 05:09:39.633732+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-27T05:10:00.376769+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Laguna Club Resort_2026-11-27_05-09_zone_out_gone"
+    },
+    {
+      "hotel_name": "Xperience Kiroseiz Premier",
+      "duration_bucket": "",
+      "old_price": 9021.0,
+      "new_price": 9021.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-27 05:09:39.633732+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-27T05:10:00.376785+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Xperience Kiroseiz Premier_2026-11-27_05-09_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-26T22:25:01.302150+00:00",
+    "last_processed_run": "2026-11-27T05:09:39.633732+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 10719.0,
@@ -649,7 +701,7 @@
         "premium_peak": null
       },
       "Parrotel Lagoon Resort": {
-        "history_max": 10442.0,
+        "history_max": 10693.0,
         "premium_peak": null
       },
       "Swisstouch Oriental Resort (ex. Hotelux Oriental Coast)": {

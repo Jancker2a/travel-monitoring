@@ -3679,10 +3679,114 @@
       "created_at": "2026-11-26T22:25:33.264286+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Rewaya Inn Resort (ex. Hawaii Paradise Aqua Park Resort)_2026-11-26_22-24_zone_out_gone"
+    },
+    {
+      "hotel_name": "Hilton Marsa Alam Nubian Resort",
+      "duration_bucket": "",
+      "old_price": 6973.0,
+      "new_price": 7533.0,
+      "price_change": 560.0,
+      "price_change_pct": 8.030976624121612,
+      "timestamp": "2026-11-27 05:09:27.290875+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-27T05:10:40.407250+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Hilton Marsa Alam Nubian Resort_2026-11-27_05-09_+8.0"
+    },
+    {
+      "hotel_name": "Novotel Marsa Alam",
+      "duration_bucket": "",
+      "old_price": 5433.0,
+      "new_price": 5993.0,
+      "price_change": 560.0,
+      "price_change_pct": 10.307380820909257,
+      "timestamp": "2026-11-27 05:09:27.290875+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-27T05:10:40.407286+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Novotel Marsa Alam_2026-11-27_05-09_+10.3"
+    },
+    {
+      "hotel_name": "Sataya Resort (ex. Labranda Sataya Marsa Alam)",
+      "duration_bucket": "",
+      "old_price": 6325.0,
+      "new_price": 6857.0,
+      "price_change": 532.0,
+      "price_change_pct": 8.411067193675889,
+      "timestamp": "2026-11-27 05:09:27.290875+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-27T05:10:40.407301+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sataya Resort (ex. Labranda Sataya Marsa Alam)_2026-11-27_05-09_+8.4"
+    },
+    {
+      "hotel_name": "Amarina Jannah Resort Aquapark",
+      "duration_bucket": "",
+      "old_price": 5589.0,
+      "new_price": 6112.0,
+      "price_change": 523.0,
+      "price_change_pct": 9.35766684558955,
+      "timestamp": "2026-11-27 05:09:27.290875+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-27T05:10:40.407311+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amarina Jannah Resort Aquapark_2026-11-27_05-09_+9.4"
+    },
+    {
+      "hotel_name": "Gemma Resort (ex. Labranda Gemma Premium Resort)",
+      "duration_bucket": "",
+      "old_price": 5643.0,
+      "new_price": 6203.0,
+      "price_change": 560.0,
+      "price_change_pct": 9.923799397483608,
+      "timestamp": "2026-11-27 05:09:27.290875+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-27T05:10:40.407321+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Gemma Resort (ex. Labranda Gemma Premium Resort)_2026-11-27_05-09_+9.9"
+    },
+    {
+      "hotel_name": "Amarina Queen Resort",
+      "duration_bucket": "",
+      "old_price": 4977.0,
+      "new_price": 5537.0,
+      "price_change": 560.0,
+      "price_change_pct": 11.251758087201125,
+      "timestamp": "2026-11-27 05:09:27.290875+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-27T05:10:40.407330+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amarina Queen Resort_2026-11-27_05-09_+11.3"
+    },
+    {
+      "hotel_name": "Regency Plaza Aqua Park Spa",
+      "duration_bucket": "",
+      "old_price": 5382.0,
+      "new_price": 5882.0,
+      "price_change": 500.0,
+      "price_change_pct": 9.29022668153103,
+      "timestamp": "2026-11-27 05:09:27.290875+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-27T05:10:40.407339+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Regency Plaza Aqua Park Spa_2026-11-27_05-09_+9.3"
+    },
+    {
+      "hotel_name": "Naama Waves",
+      "duration_bucket": "",
+      "old_price": 7285.0,
+      "new_price": 7885.0,
+      "price_change": 600.0,
+      "price_change_pct": 8.236101578586135,
+      "timestamp": "2026-11-27 05:09:27.290875+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-27T05:10:40.407352+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Naama Waves_2026-11-27_05-09_+8.2"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-26T22:24:31.846217+00:00",
+    "last_processed_run": "2026-11-27T05:09:27.290875+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 5117.0,
@@ -3765,7 +3869,7 @@
         "premium_peak": null
       },
       "Movenpick Resort & Spa El Gouna": {
-        "history_max": 8135.0,
+        "history_max": 8139.0,
         "premium_peak": null
       },
       "Movenpick Resort El Quseir": {
@@ -4065,7 +4169,7 @@
         "premium_peak": null
       },
       "Novotel Marsa Alam": {
-        "history_max": 5907.0,
+        "history_max": 5993.0,
         "premium_peak": null
       },
       "Novotel Sharm Palm": {
@@ -4169,7 +4273,7 @@
         "premium_peak": 11707.0
       },
       "Pickalbatros Laguna Vista Beach": {
-        "history_max": 7441.0,
+        "history_max": 7510.0,
         "premium_peak": null
       },
       "Pickalbatros Luxury Suites": {
@@ -4305,7 +4409,7 @@
         "premium_peak": null
       },
       "Charmillion Club Aqua Park": {
-        "history_max": 6765.0,
+        "history_max": 6828.0,
         "premium_peak": null
       },
       "Titanic Royal": {
@@ -4449,7 +4553,7 @@
         "premium_peak": null
       },
       "Sunrise Holidays Resort": {
-        "history_max": 8993.0,
+        "history_max": 9021.0,
         "premium_peak": null
       },
       "Golf Villas And Suites Sharm": {
@@ -4517,7 +4621,7 @@
         "premium_peak": null
       },
       "Dream Lagoon & Aqua Park Resort (ex. Floriana Dream Lagoon)": {
-        "history_max": 5117.0,
+        "history_max": 5230.0,
         "premium_peak": null
       },
       "Xanadu Makadi Bay": {
@@ -4553,7 +4657,7 @@
         "premium_peak": null
       },
       "Amarina Jannah Resort Aquapark": {
-        "history_max": 5765.0,
+        "history_max": 6112.0,
         "premium_peak": null
       },
       "Albatros Makadi Resort (ex Royal Pharaohs Makadi)": {
@@ -4573,7 +4677,7 @@
         "premium_peak": null
       },
       "Caves Beach Resort": {
-        "history_max": 8072.0,
+        "history_max": 8088.0,
         "premium_peak": null
       },
       "Rehana Royal Beach Resort & Spa": {
