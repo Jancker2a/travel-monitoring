@@ -41,6 +41,26 @@
       "hot_score": 100
     },
     {
+      "event_time": "2026-11-27T15:08:55+0000",
+      "departure_key": "egipt|marsa-alam|2026-11-28|2026-12-05|8|Katowice|",
+      "event_type": "late_price_dump",
+      "severity": "high",
+      "country": "egipt",
+      "region": "marsa-alam",
+      "departure_date": "2026-11-28",
+      "return_date": "2026-12-05",
+      "nights": 8.0,
+      "days_to_departure": 1,
+      "old_min_price": "",
+      "new_min_price": 3303.0,
+      "min_drop_pct": -29.01,
+      "p10_drop_pct": -28.52,
+      "median_drop_pct": -26.64,
+      "hotel_count": 20,
+      "hotel_delta": 7,
+      "hot_score": 100
+    },
+    {
       "event_time": "2026-11-27T05:12:43+0000",
       "departure_key": "egipt|marsa-alam|2026-11-30|2026-12-07|7|Katowice|",
       "event_type": "late_price_dump",
@@ -59,6 +79,26 @@
       "hotel_count": 13,
       "hotel_delta": -4,
       "hot_score": 51
+    },
+    {
+      "event_time": "2026-11-27T15:08:55+0000",
+      "departure_key": "egipt|marsa-alam|2026-11-30|2026-12-07|7|Katowice|",
+      "event_type": "late_price_dump",
+      "severity": "high",
+      "country": "egipt",
+      "region": "marsa-alam",
+      "departure_date": "2026-11-30",
+      "return_date": "2026-12-07",
+      "nights": 7.0,
+      "days_to_departure": 3,
+      "old_min_price": "",
+      "new_min_price": 3280.0,
+      "min_drop_pct": -22.95,
+      "p10_drop_pct": -22.11,
+      "median_drop_pct": -18.16,
+      "hotel_count": 18,
+      "hotel_delta": 1,
+      "hot_score": 100
     },
     {
       "event_time": "2026-11-26T22:27:05+0000",
@@ -99,6 +139,26 @@
       "hotel_count": 32,
       "hotel_delta": -16,
       "hot_score": 57
+    },
+    {
+      "event_time": "2026-11-27T15:08:55+0000",
+      "departure_key": "egipt|sharm-el-sheikh|2026-11-28|2026-12-05|7|Katowice|",
+      "event_type": "late_price_dump",
+      "severity": "high",
+      "country": "egipt",
+      "region": "sharm-el-sheikh",
+      "departure_date": "2026-11-28",
+      "return_date": "2026-12-05",
+      "nights": 7.0,
+      "days_to_departure": 1,
+      "old_min_price": "",
+      "new_min_price": 3924.0,
+      "min_drop_pct": -9.02,
+      "p10_drop_pct": -12.2,
+      "median_drop_pct": -12.21,
+      "hotel_count": 33,
+      "hotel_delta": -15,
+      "hot_score": 91
     }
   ]
 }
