@@ -1807,10 +1807,49 @@
       "created_at": "2026-11-28T07:45:58.006223+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Protels Beach Club & SPA_2026-11-28_07-45_+12.9"
+    },
+    {
+      "hotel_name": "Flamenco Beach & Resort",
+      "duration_bucket": "",
+      "old_price": 5786.0,
+      "new_price": 5139.0,
+      "price_change": -647.0,
+      "price_change_pct": -11.182163843760803,
+      "timestamp": "2026-11-28 16:54:59.333429+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-28T16:55:58.266603+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Flamenco Beach & Resort_2026-11-28_16-54_-11.2"
+    },
+    {
+      "hotel_name": "Amarina Jannah Resort Aquapark",
+      "duration_bucket": "",
+      "old_price": 5179.0,
+      "new_price": 5689.0,
+      "price_change": 510.0,
+      "price_change_pct": 9.847460899787604,
+      "timestamp": "2026-11-28 16:54:59.333429+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-28T16:55:58.266625+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amarina Jannah Resort Aquapark_2026-11-28_16-54_+9.8"
+    },
+    {
+      "hotel_name": "Cataract Resort",
+      "duration_bucket": "",
+      "old_price": 7340.0,
+      "new_price": 7340.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-28 16:54:59.333429+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-28T16:55:58.266661+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Cataract Resort_2026-11-28_16-54_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-28T07:45:03.273150+00:00",
+    "last_processed_run": "2026-11-28T16:54:59.333429+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 4899.0,
@@ -1945,7 +1984,7 @@
         "premium_peak": null
       },
       "Sharm Grand Plaza Resort": {
-        "history_max": 5539.0,
+        "history_max": 5569.0,
         "premium_peak": null
       },
       "Marina Sharm (ex. Helnan Marina)": {
@@ -2149,7 +2188,7 @@
         "premium_peak": null
       },
       "Pickalbatros Royal Grand Resort Sharm": {
-        "history_max": 9529.0,
+        "history_max": 9559.0,
         "premium_peak": null
       },
       "Rewaya Luxury Resort": {
@@ -2205,7 +2244,7 @@
         "premium_peak": null
       },
       "Pickalbatros Golf Beach Resort": {
-        "history_max": 8299.0,
+        "history_max": 8319.0,
         "premium_peak": null
       },
       "Pickalbatros Dana Beach Resort": {
@@ -2497,7 +2536,7 @@
         "premium_peak": null
       },
       "Cleopatra Luxury Resort Sharm Adults Only": {
-        "history_max": 8049.0,
+        "history_max": 8069.0,
         "premium_peak": null
       },
       "V Grand Beach Resort Sahl Hasheesh": {
@@ -2541,7 +2580,7 @@
         "premium_peak": null
       },
       "Cleopatra Luxury Resort": {
-        "history_max": 8049.0,
+        "history_max": 8069.0,
         "premium_peak": null
       },
       "Concorde Moreen Beach Resort & Spa": {
@@ -2589,7 +2628,7 @@
         "premium_peak": null
       },
       "Barcelo Tiran Sharm": {
-        "history_max": 6729.0,
+        "history_max": 6759.0,
         "premium_peak": null
       },
       "Coral Sea Sensatori (ex Coral Sea Imperial)": {
@@ -2637,7 +2676,7 @@
         "premium_peak": null
       },
       "Aurora Oriental Resort": {
-        "history_max": 5709.0,
+        "history_max": 5799.0,
         "premium_peak": null
       },
       "True Beach Resort": {
@@ -2709,7 +2748,7 @@
         "premium_peak": null
       },
       "Charmillion Club Aqua Park": {
-        "history_max": 6549.0,
+        "history_max": 6569.0,
         "premium_peak": null
       },
       "Amarina Jannah Resort Aquapark": {
@@ -2809,7 +2848,7 @@
         "premium_peak": null
       },
       "Aladdin Beach Resort": {
-        "history_max": 6459.0,
+        "history_max": 6479.0,
         "premium_peak": null
       },
       "Xperience Sea Breeze Resort": {
@@ -3005,7 +3044,7 @@
         "premium_peak": null
       },
       "DoubleTree by Hilton Sharm El Sheikh - Sharm Bay": {
-        "history_max": 7239.0,
+        "history_max": 7259.0,
         "premium_peak": null
       },
       "Jaz Makadi Star & Spa": {

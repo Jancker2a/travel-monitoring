@@ -2600,10 +2600,62 @@
       "created_at": "2026-11-28T07:47:40.157136+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Ducale Lara_2026-11-28_07-47_comeback_8.5"
+    },
+    {
+      "hotel_name": "Ducale Lara",
+      "duration_bucket": "",
+      "old_price": 9721.0,
+      "new_price": 8662.0,
+      "price_change": -1059.0,
+      "price_change_pct": -10.893940952576896,
+      "timestamp": "2026-11-28 16:59:49.573721+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-28T17:00:20.745485+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Ducale Lara_2026-11-28_16-59_-10.9"
+    },
+    {
+      "hotel_name": "Sirene Belek",
+      "duration_bucket": "",
+      "old_price": 8356.0,
+      "new_price": 8356.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-28 16:59:49.573721+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-28T17:00:20.745522+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sirene Belek_2026-11-28_16-59_zone_out_gone"
+    },
+    {
+      "hotel_name": "VONResort Golden Beach",
+      "duration_bucket": "",
+      "old_price": 6419.0,
+      "new_price": 6419.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-28 16:59:49.573721+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-28T17:00:20.745528+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "VONResort Golden Beach_2026-11-28_16-59_zone_out_gone"
+    },
+    {
+      "hotel_name": "Voyage Belek Golf & Spa",
+      "duration_bucket": "",
+      "old_price": 8117.0,
+      "new_price": 10622.0,
+      "price_change": 2505.0,
+      "price_change_pct": 30.861155599359368,
+      "timestamp": "2026-11-28 16:59:49.573721+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-28T17:00:20.745533+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Voyage Belek Golf & Spa_2026-11-28_16-59_zone_out_+30.9"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-28T07:47:11.639154+00:00",
+    "last_processed_run": "2026-11-28T16:59:49.573721+00:00",
     "premium_state": {
       "Acanthus & Cennet Barut Collection": {
         "history_max": 9021.0,
@@ -2754,7 +2806,7 @@
         "premium_peak": 15716.0
       },
       "Mediterra Art": {
-        "history_max": 5829.0,
+        "history_max": 5974.0,
         "premium_peak": null
       },
       "Ramada Resort Lara": {
@@ -2762,8 +2814,8 @@
         "premium_peak": null
       },
       "Regnum Carya Golf & Spa Resort": {
-        "history_max": 16117.0,
-        "premium_peak": 16117.0
+        "history_max": 16727.0,
+        "premium_peak": 16727.0
       },
       "Regnum The Crown": {
         "history_max": 19916.0,
@@ -2786,7 +2838,7 @@
         "premium_peak": 10497.0
       },
       "Sural Resort": {
-        "history_max": 5429.0,
+        "history_max": 5459.0,
         "premium_peak": null
       },
       "Susesi Luxury Resort": {
@@ -2798,7 +2850,7 @@
         "premium_peak": 10529.0
       },
       "The Sense Deluxe": {
-        "history_max": 6547.0,
+        "history_max": 6914.0,
         "premium_peak": null
       },
       "Titanic Deluxe Lara (ex. Titanic Beach Lara)": {
@@ -2830,8 +2882,8 @@
         "premium_peak": null
       },
       "Voyage Belek Golf & Spa": {
-        "history_max": 8985.0,
-        "premium_peak": null
+        "history_max": 10622.0,
+        "premium_peak": 10622.0
       },
       "Voyage Kundu": {
         "history_max": 9272.0,
@@ -3086,7 +3138,7 @@
         "premium_peak": null
       },
       "Grand Okan": {
-        "history_max": 6344.0,
+        "history_max": 6500.0,
         "premium_peak": null
       },
       "Ethno Belek": {

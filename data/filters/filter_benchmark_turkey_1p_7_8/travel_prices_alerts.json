@@ -1196,10 +1196,62 @@
       "created_at": "2026-11-28T07:46:15.707784+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Gloria Verde Resort_2026-11-28_07-45_+16.9"
+    },
+    {
+      "hotel_name": "Royal Dragon",
+      "duration_bucket": "",
+      "old_price": 3450.0,
+      "new_price": 3046.0,
+      "price_change": -404.0,
+      "price_change_pct": -11.71014492753623,
+      "timestamp": "2026-11-28 16:55:59.485433+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-28T16:56:22.912283+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Royal Dragon_2026-11-28_16-55_-11.7"
+    },
+    {
+      "hotel_name": "Melas Lara",
+      "duration_bucket": "",
+      "old_price": 4421.0,
+      "new_price": 5326.0,
+      "price_change": 905.0,
+      "price_change_pct": 20.4704817914499,
+      "timestamp": "2026-11-28 16:55:59.485433+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-28T16:56:22.912326+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Melas Lara_2026-11-28_16-55_+20.5"
+    },
+    {
+      "hotel_name": "The Sense Deluxe",
+      "duration_bucket": "",
+      "old_price": 3065.0,
+      "new_price": 3559.0,
+      "price_change": 494.0,
+      "price_change_pct": 16.11745513866232,
+      "timestamp": "2026-11-28 16:55:59.485433+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-28T16:56:22.912337+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "The Sense Deluxe_2026-11-28_16-55_+16.1"
+    },
+    {
+      "hotel_name": "Limak Lara De Luxe",
+      "duration_bucket": "",
+      "old_price": 2557.0,
+      "new_price": 2307.0,
+      "price_change": -250.0,
+      "price_change_pct": -9.777082518576456,
+      "timestamp": "2026-11-28 16:55:59.485433+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-28T16:56:22.912353+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Limak Lara De Luxe_2026-11-28_16-55_-9.8"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-28T07:45:55.810437+00:00",
+    "last_processed_run": "2026-11-28T16:55:59.485433+00:00",
     "premium_state": {
       "Acanthus & Cennet Barut Collection": {
         "history_max": 5191.0,
@@ -1230,11 +1282,11 @@
         "premium_peak": null
       },
       "Side Crown Palace (Side)": {
-        "history_max": 2914.0,
+        "history_max": 2974.0,
         "premium_peak": null
       },
       "Kleopatra Atlas": {
-        "history_max": 2429.0,
+        "history_max": 2474.0,
         "premium_peak": null
       },
       "Kempinski The Dome Belek": {
@@ -1382,7 +1434,7 @@
         "premium_peak": null
       },
       "Rixos Downtown (Antalya)": {
-        "history_max": 6259.0,
+        "history_max": 6289.0,
         "premium_peak": null
       },
       "Ramada Plaza Antalya": {
@@ -1498,7 +1550,7 @@
         "premium_peak": null
       },
       "Castival (ex. La Grande Resort & Spa)": {
-        "history_max": 2744.0,
+        "history_max": 2789.0,
         "premium_peak": null
       },
       "Titanic Deluxe Lara (ex. Titanic Beach Lara)": {
@@ -1538,7 +1590,7 @@
         "premium_peak": null
       },
       "The Sense Deluxe": {
-        "history_max": 3369.0,
+        "history_max": 3559.0,
         "premium_peak": null
       },
       "Trendy Aspendos Beach": {
@@ -1586,7 +1638,7 @@
         "premium_peak": null
       },
       "Avena Resort & Spa": {
-        "history_max": 2944.0,
+        "history_max": 2974.0,
         "premium_peak": null
       },
       "VONResort Golden Beach": {
@@ -1654,7 +1706,7 @@
         "premium_peak": null
       },
       "Sural Resort": {
-        "history_max": 2829.0,
+        "history_max": 2878.0,
         "premium_peak": null
       },
       "Cullinan Belek": {
@@ -1700,6 +1752,10 @@
       "Regnum Carya Golf & Spa Resort": {
         "history_max": 9356.0,
         "premium_peak": 9356.0
+      },
+      "Swandor Topkapi Palace (ex WOW)": {
+        "history_max": 5064.0,
+        "premium_peak": null
       }
     }
   }

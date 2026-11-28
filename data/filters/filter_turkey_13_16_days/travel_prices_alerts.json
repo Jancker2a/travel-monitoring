@@ -975,10 +975,23 @@
       "created_at": "2026-11-28T07:47:22.238512+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Villa Side Residence_2026-11-28_07-47_+12.1"
+    },
+    {
+      "hotel_name": "The Sense Deluxe",
+      "duration_bucket": "",
+      "old_price": 8735.0,
+      "new_price": 10689.0,
+      "price_change": 1954.0,
+      "price_change_pct": 22.369776760160278,
+      "timestamp": "2026-11-28 16:59:39.100519+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-28T17:00:11.550596+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "The Sense Deluxe_2026-11-28_16-59_zone_out_+22.4"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-28T07:47:00.207967+00:00",
+    "last_processed_run": "2026-11-28T16:59:39.100519+00:00",
     "premium_state": {
       "Acanthus & Cennet Barut Collection": {
         "history_max": 14862.0,
@@ -1137,8 +1150,8 @@
         "premium_peak": 12729.0
       },
       "The Sense Deluxe": {
-        "history_max": 9056.0,
-        "premium_peak": null
+        "history_max": 10689.0,
+        "premium_peak": 10689.0
       },
       "The Land Of Legends Nickelodeon": {
         "history_max": 17861.0,
@@ -1197,7 +1210,7 @@
         "premium_peak": 10057.0
       },
       "Seher Sun Palace Resort & Spa": {
-        "history_max": 8345.0,
+        "history_max": 8495.0,
         "premium_peak": null
       },
       "Seashell Resort & Spa": {
