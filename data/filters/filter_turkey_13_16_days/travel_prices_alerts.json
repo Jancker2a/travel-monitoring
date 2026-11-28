@@ -936,10 +936,49 @@
       "created_at": "2026-11-27T15:08:07.021769+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Xanadu Resort_2026-11-27_15-07_comeback_24.8"
+    },
+    {
+      "hotel_name": "Side Royal Palace",
+      "duration_bucket": "",
+      "old_price": 8496.0,
+      "new_price": 9486.0,
+      "price_change": 990.0,
+      "price_change_pct": 11.652542372881355,
+      "timestamp": "2026-11-28 07:47:00.207967+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-28T07:47:22.238472+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Side Royal Palace_2026-11-28_07-47_+11.7"
+    },
+    {
+      "hotel_name": "Aydinbey Queens Palace & Spa",
+      "duration_bucket": "",
+      "old_price": 8356.0,
+      "new_price": 9346.0,
+      "price_change": 990.0,
+      "price_change_pct": 11.847774054571564,
+      "timestamp": "2026-11-28 07:47:00.207967+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-28T07:47:22.238503+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Aydinbey Queens Palace & Spa_2026-11-28_07-47_+11.8"
+    },
+    {
+      "hotel_name": "Villa Side Residence",
+      "duration_bucket": "",
+      "old_price": 8164.0,
+      "new_price": 9154.0,
+      "price_change": 990.0,
+      "price_change_pct": 12.12640862322391,
+      "timestamp": "2026-11-28 07:47:00.207967+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-28T07:47:22.238512+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Villa Side Residence_2026-11-28_07-47_+12.1"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-27T23:33:19.609403+00:00",
+    "last_processed_run": "2026-11-28T07:47:00.207967+00:00",
     "premium_state": {
       "Acanthus & Cennet Barut Collection": {
         "history_max": 14862.0,
@@ -1074,7 +1113,7 @@
         "premium_peak": 14854.0
       },
       "Villa Side Residence": {
-        "history_max": 9072.0,
+        "history_max": 9154.0,
         "premium_peak": null
       },
       "Trendy Perge Resort & Suites": {
@@ -1314,7 +1353,7 @@
         "premium_peak": 16689.0
       },
       "Side Crown Palace (Side)": {
-        "history_max": 9289.0,
+        "history_max": 9300.0,
         "premium_peak": null
       }
     }

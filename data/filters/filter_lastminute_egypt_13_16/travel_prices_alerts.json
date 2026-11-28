@@ -8671,10 +8671,634 @@
       "created_at": "2026-11-27T23:35:00.328013+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Sheraton Miramar Resort (El Gouna)_2026-11-27_23-34_zone_out_+7.5"
+    },
+    {
+      "hotel_name": "El Faraana Heights",
+      "duration_bucket": "",
+      "old_price": 8391.0,
+      "new_price": 12512.0,
+      "price_change": 4121.0,
+      "price_change_pct": 49.112143963770706,
+      "timestamp": "2026-11-28 07:47:55.487943+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-28T07:48:34.639102+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "El Faraana Heights_2026-11-28_07-47_+49.1"
+    },
+    {
+      "hotel_name": "Ecotel Dahab Bay View Resort",
+      "duration_bucket": "",
+      "old_price": 8301.0,
+      "new_price": 12576.0,
+      "price_change": 4275.0,
+      "price_change_pct": 51.49981929887966,
+      "timestamp": "2026-11-28 07:47:55.487943+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-28T07:48:34.639123+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Ecotel Dahab Bay View Resort_2026-11-28_07-47_+51.5"
+    },
+    {
+      "hotel_name": "Arena Beach Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 12618.0,
+      "new_price": 11311.0,
+      "price_change": -1307.0,
+      "price_change_pct": -10.358218418132827,
+      "timestamp": "2026-11-28 07:47:55.487943+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-28T07:48:34.639130+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Arena Beach Resort & Spa_2026-11-28_07-47_-10.4"
+    },
+    {
+      "hotel_name": "Palm Beach Resort (Hurghada)",
+      "duration_bucket": "",
+      "old_price": 14058.0,
+      "new_price": 12576.0,
+      "price_change": -1482.0,
+      "price_change_pct": -10.54204011950491,
+      "timestamp": "2026-11-28 07:47:55.487943+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-28T07:48:34.639135+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Palm Beach Resort (Hurghada)_2026-11-28_07-47_-10.5"
+    },
+    {
+      "hotel_name": "Onatti Beach Resort",
+      "duration_bucket": "",
+      "old_price": 5908.0,
+      "new_price": 6423.0,
+      "price_change": 515.0,
+      "price_change_pct": 8.716993906567366,
+      "timestamp": "2026-11-28 07:47:55.487943+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-28T07:48:34.639140+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Onatti Beach Resort_2026-11-28_07-47_+8.7"
+    },
+    {
+      "hotel_name": "Jaz Solaya Resort (ex Sol Y Mar Solaya)",
+      "duration_bucket": "",
+      "old_price": 16346.0,
+      "new_price": 11951.0,
+      "price_change": -4395.0,
+      "price_change_pct": -26.887311880582406,
+      "timestamp": "2026-11-28 07:47:55.487943+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-28T07:48:34.639144+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Solaya Resort (ex Sol Y Mar Solaya)_2026-11-28_07-47_-26.9"
+    },
+    {
+      "hotel_name": "Pickalbatros Citadel Sahl Hasheesh (ex. Citadel Azur Resort)",
+      "duration_bucket": "",
+      "old_price": 17977.0,
+      "new_price": 16210.0,
+      "price_change": -1767.0,
+      "price_change_pct": -9.82922623352061,
+      "timestamp": "2026-11-28 07:47:55.487943+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-28T07:48:34.639148+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Citadel Sahl Hasheesh (ex. Citadel Azur Resort)_2026-11-28_07-47_-9.8"
+    },
+    {
+      "hotel_name": "Jaz Elite Maraya",
+      "duration_bucket": "",
+      "old_price": 15745.0,
+      "new_price": 14311.0,
+      "price_change": -1434.0,
+      "price_change_pct": -9.107653223245475,
+      "timestamp": "2026-11-28 07:47:55.487943+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-28T07:48:34.639154+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Elite Maraya_2026-11-28_07-47_-9.1"
+    },
+    {
+      "hotel_name": "Shams Alam Beach Resort",
+      "duration_bucket": "",
+      "old_price": 8730.0,
+      "new_price": 7981.0,
+      "price_change": -749.0,
+      "price_change_pct": -8.579610538373425,
+      "timestamp": "2026-11-28 07:47:55.487943+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-28T07:48:34.639159+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Shams Alam Beach Resort_2026-11-28_07-47_-8.6"
+    },
+    {
+      "hotel_name": "Beach Safari Nubian Resort",
+      "duration_bucket": "",
+      "old_price": 6241.0,
+      "new_price": 5548.0,
+      "price_change": -693.0,
+      "price_change_pct": -11.103989745233136,
+      "timestamp": "2026-11-28 07:47:55.487943+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-28T07:48:34.639164+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Beach Safari Nubian Resort_2026-11-28_07-47_-11.1"
+    },
+    {
+      "hotel_name": "Renaissance Golden View Beach Resort by Marriott",
+      "duration_bucket": "",
+      "old_price": 13517.0,
+      "new_price": 17696.0,
+      "price_change": 4179.0,
+      "price_change_pct": 30.916623511134127,
+      "timestamp": "2026-11-28 07:47:55.487943+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-28T07:48:34.639168+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Renaissance Golden View Beach Resort by Marriott_2026-11-28_07-47_+30.9"
+    },
+    {
+      "hotel_name": "Dreams Beach (Marsa Alam)",
+      "duration_bucket": "",
+      "old_price": 13292.0,
+      "new_price": 7398.0,
+      "price_change": -5894.0,
+      "price_change_pct": -44.342461631056274,
+      "timestamp": "2026-11-28 07:47:55.487943+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-28T07:48:34.639172+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Dreams Beach (Marsa Alam)_2026-11-28_07-47_-44.3"
+    },
+    {
+      "hotel_name": "Amarina Queen Resort",
+      "duration_bucket": "",
+      "old_price": 7112.0,
+      "new_price": 7715.0,
+      "price_change": 603.0,
+      "price_change_pct": 8.478627671541057,
+      "timestamp": "2026-11-28 07:47:55.487943+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-28T07:48:34.639176+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amarina Queen Resort_2026-11-28_07-47_+8.5"
+    },
+    {
+      "hotel_name": "Charmillion Garden Aqua Park",
+      "duration_bucket": "",
+      "old_price": 10442.0,
+      "new_price": 11447.0,
+      "price_change": 1005.0,
+      "price_change_pct": 9.624592989848688,
+      "timestamp": "2026-11-28 07:47:55.487943+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-28T07:48:34.639181+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Charmillion Garden Aqua Park_2026-11-28_07-47_+9.6"
+    },
+    {
+      "hotel_name": "The Three Corners Equinox Beach Resort",
+      "duration_bucket": "",
+      "old_price": 9551.0,
+      "new_price": 7730.0,
+      "price_change": -1821.0,
+      "price_change_pct": -19.06606638048372,
+      "timestamp": "2026-11-28 07:47:55.487943+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-28T07:48:34.639187+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "The Three Corners Equinox Beach Resort_2026-11-28_07-47_-19.1"
+    },
+    {
+      "hotel_name": "IL Mercato Splash Aqua Park",
+      "duration_bucket": "",
+      "old_price": 8547.0,
+      "new_price": 13657.0,
+      "price_change": 5110.0,
+      "price_change_pct": 59.78705978705978,
+      "timestamp": "2026-11-28 07:47:55.487943+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-28T07:48:34.639192+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "IL Mercato Splash Aqua Park_2026-11-28_07-47_+59.8"
+    },
+    {
+      "hotel_name": "Dream Lagoon & Aqua Park Resort (ex. Floriana Dream Lagoon)",
+      "duration_bucket": "",
+      "old_price": 6510.0,
+      "new_price": 7051.0,
+      "price_change": 541.0,
+      "price_change_pct": 8.310291858678957,
+      "timestamp": "2026-11-28 07:47:55.487943+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-28T07:48:34.639196+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Dream Lagoon & Aqua Park Resort (ex. Floriana Dream Lagoon)_2026-11-28_07-47_+8.3"
+    },
+    {
+      "hotel_name": "Parrotel Aqua Park Resort (ex. Park Inn)",
+      "duration_bucket": "",
+      "old_price": 7751.0,
+      "new_price": 11574.0,
+      "price_change": 3823.0,
+      "price_change_pct": 49.322668042833186,
+      "timestamp": "2026-11-28 07:47:55.487943+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-28T07:48:34.639199+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Parrotel Aqua Park Resort (ex. Park Inn)_2026-11-28_07-47_+49.3"
+    },
+    {
+      "hotel_name": "Swisstouch Oriental Resort (ex. Hotelux Oriental Coast)",
+      "duration_bucket": "",
+      "old_price": 6330.0,
+      "new_price": 6879.0,
+      "price_change": 549.0,
+      "price_change_pct": 8.672985781990521,
+      "timestamp": "2026-11-28 07:47:55.487943+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-28T07:48:34.639203+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Swisstouch Oriental Resort (ex. Hotelux Oriental Coast)_2026-11-28_07-47_+8.7"
+    },
+    {
+      "hotel_name": "Charmillion Sea Life Resort",
+      "duration_bucket": "",
+      "old_price": 9416.0,
+      "new_price": 12017.0,
+      "price_change": 2601.0,
+      "price_change_pct": 27.6231945624469,
+      "timestamp": "2026-11-28 07:47:55.487943+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-28T07:48:34.639207+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Charmillion Sea Life Resort_2026-11-28_07-47_+27.6"
+    },
+    {
+      "hotel_name": "Golden Beach Resort (ex Movie Gate)",
+      "duration_bucket": "",
+      "old_price": 17085.0,
+      "new_price": 15428.0,
+      "price_change": -1657.0,
+      "price_change_pct": -9.698565993561603,
+      "timestamp": "2026-11-28 07:47:55.487943+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-28T07:48:34.639211+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Golden Beach Resort (ex Movie Gate)_2026-11-28_07-47_-9.7"
+    },
+    {
+      "hotel_name": "Rewaya Inn Resort (ex. Hawaii Paradise Aqua Park Resort)",
+      "duration_bucket": "",
+      "old_price": 6831.0,
+      "new_price": 7663.0,
+      "price_change": 832.0,
+      "price_change_pct": 12.179768701507832,
+      "timestamp": "2026-11-28 07:47:55.487943+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-28T07:48:34.639215+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Inn Resort (ex. Hawaii Paradise Aqua Park Resort)_2026-11-28_07-47_+12.2"
+    },
+    {
+      "hotel_name": "Sunny Days El Palacio Resort & SPA",
+      "duration_bucket": "",
+      "old_price": 8227.0,
+      "new_price": 9865.0,
+      "price_change": 1638.0,
+      "price_change_pct": 19.910052266925977,
+      "timestamp": "2026-11-28 07:47:55.487943+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-28T07:48:34.639219+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sunny Days El Palacio Resort & SPA_2026-11-28_07-47_+19.9"
+    },
+    {
+      "hotel_name": "Tamra Beach Sharm",
+      "duration_bucket": "",
+      "old_price": 10734.0,
+      "new_price": 15714.0,
+      "price_change": 4980.0,
+      "price_change_pct": 46.39463387367244,
+      "timestamp": "2026-11-28 07:47:55.487943+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-28T07:48:34.639223+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Tamra Beach Sharm_2026-11-28_07-47_+46.4"
+    },
+    {
+      "hotel_name": "Aladdin Beach Resort",
+      "duration_bucket": "",
+      "old_price": 12179.0,
+      "new_price": 14633.0,
+      "price_change": 2454.0,
+      "price_change_pct": 20.149437556449627,
+      "timestamp": "2026-11-28 07:47:55.487943+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-28T07:48:34.639227+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Aladdin Beach Resort_2026-11-28_07-47_+20.1"
+    },
+    {
+      "hotel_name": "Coral Sun Beach",
+      "duration_bucket": "",
+      "old_price": 15208.0,
+      "new_price": 13694.0,
+      "price_change": -1514.0,
+      "price_change_pct": -9.95528669121515,
+      "timestamp": "2026-11-28 07:47:55.487943+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-28T07:48:34.639231+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Coral Sun Beach_2026-11-28_07-47_-10.0"
+    },
+    {
+      "hotel_name": "Ivy Cyrene Island Resort",
+      "duration_bucket": "",
+      "old_price": 10236.0,
+      "new_price": 13759.0,
+      "price_change": 3523.0,
+      "price_change_pct": 34.41774130519734,
+      "timestamp": "2026-11-28 07:47:55.487943+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-28T07:48:34.639235+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Ivy Cyrene Island Resort_2026-11-28_07-47_+34.4"
+    },
+    {
+      "hotel_name": "Utopia Blue Resort",
+      "duration_bucket": "",
+      "old_price": 9883.0,
+      "new_price": 8791.0,
+      "price_change": -1092.0,
+      "price_change_pct": -11.04927653546494,
+      "timestamp": "2026-11-28 07:47:55.487943+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-28T07:48:34.639238+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Utopia Blue Resort_2026-11-28_07-47_-11.0"
+    },
+    {
+      "hotel_name": "Swiss Inn Resort Dahab",
+      "duration_bucket": "",
+      "old_price": 12273.0,
+      "new_price": 16772.0,
+      "price_change": 4499.0,
+      "price_change_pct": 36.65770390287623,
+      "timestamp": "2026-11-28 07:47:55.487943+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-28T07:48:34.639242+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Swiss Inn Resort Dahab_2026-11-28_07-47_+36.7"
+    },
+    {
+      "hotel_name": "Nubian Island",
+      "duration_bucket": "",
+      "old_price": 12431.0,
+      "new_price": 17747.0,
+      "price_change": 5316.0,
+      "price_change_pct": 42.76405759794063,
+      "timestamp": "2026-11-28 07:47:55.487943+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-28T07:48:34.639247+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Nubian Island_2026-11-28_07-47_+42.8"
+    },
+    {
+      "hotel_name": "Naama Bay Promenade Beach Resort",
+      "duration_bucket": "",
+      "old_price": 15029.0,
+      "new_price": 17926.0,
+      "price_change": 2897.0,
+      "price_change_pct": 19.276066271874377,
+      "timestamp": "2026-11-28 07:47:55.487943+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-28T07:48:34.639251+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Naama Bay Promenade Beach Resort_2026-11-28_07-47_+19.3"
+    },
+    {
+      "hotel_name": "Safir Dahab Resort",
+      "duration_bucket": "",
+      "old_price": 13042.0,
+      "new_price": 17457.0,
+      "price_change": 4415.0,
+      "price_change_pct": 33.85216991259009,
+      "timestamp": "2026-11-28 07:47:55.487943+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-28T07:48:34.639255+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Safir Dahab Resort_2026-11-28_07-47_+33.9"
+    },
+    {
+      "hotel_name": "Tropitel Dahab Oasis",
+      "duration_bucket": "",
+      "old_price": 9326.0,
+      "new_price": 13800.0,
+      "price_change": 4474.0,
+      "price_change_pct": 47.97340767746086,
+      "timestamp": "2026-11-28 07:47:55.487943+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-28T07:48:34.639259+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Tropitel Dahab Oasis_2026-11-28_07-47_+48.0"
+    },
+    {
+      "hotel_name": "Sheraton Sharm Resort Villas & Spa",
+      "duration_bucket": "",
+      "old_price": 13361.0,
+      "new_price": 15484.0,
+      "price_change": 2123.0,
+      "price_change_pct": 15.889529226854277,
+      "timestamp": "2026-11-28 07:47:55.487943+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-28T07:48:34.639263+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Sheraton Sharm Resort Villas & Spa_2026-11-28_07-47_+15.9"
+    },
+    {
+      "hotel_name": "Dreams Vacation Sharm Resort",
+      "duration_bucket": "",
+      "old_price": 12117.0,
+      "new_price": 16450.0,
+      "price_change": 4333.0,
+      "price_change_pct": 35.75967648757943,
+      "timestamp": "2026-11-28 07:47:55.487943+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-28T07:48:34.639267+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Dreams Vacation Sharm Resort_2026-11-28_07-47_+35.8"
+    },
+    {
+      "hotel_name": "Jaz Dahabeya (ex Iberotel Dahabeya)",
+      "duration_bucket": "",
+      "old_price": 12273.0,
+      "new_price": 17738.0,
+      "price_change": 5465.0,
+      "price_change_pct": 44.52864010429398,
+      "timestamp": "2026-11-28 07:47:55.487943+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-28T07:48:34.639271+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Dahabeya (ex Iberotel Dahabeya)_2026-11-28_07-47_+44.5"
+    },
+    {
+      "hotel_name": "Amphoras Beach",
+      "duration_bucket": "",
+      "old_price": 16629.0,
+      "new_price": 11505.0,
+      "price_change": -5124.0,
+      "price_change_pct": -30.813638823741655,
+      "timestamp": "2026-11-28 07:47:55.487943+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-28T07:48:34.639274+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Amphoras Beach_2026-11-28_07-47_-30.8"
+    },
+    {
+      "hotel_name": "Regency Plaza Aqua Park Spa",
+      "duration_bucket": "",
+      "old_price": 11210.0,
+      "new_price": 13809.0,
+      "price_change": 2599.0,
+      "price_change_pct": 23.18465655664585,
+      "timestamp": "2026-11-28 07:47:55.487943+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-28T07:48:34.639277+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Regency Plaza Aqua Park Spa_2026-11-28_07-47_+23.2"
+    },
+    {
+      "hotel_name": "Novotel Marsa Alam",
+      "duration_bucket": "",
+      "old_price": 8034.0,
+      "new_price": 8715.0,
+      "price_change": 681.0,
+      "price_change_pct": 8.47647498132935,
+      "timestamp": "2026-11-28 07:47:55.487943+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-28T07:48:34.639281+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Novotel Marsa Alam_2026-11-28_07-47_+8.5"
+    },
+    {
+      "hotel_name": "Royal Regency Club",
+      "duration_bucket": "",
+      "old_price": 11210.0,
+      "new_price": 15410.0,
+      "price_change": 4200.0,
+      "price_change_pct": 37.46654772524532,
+      "timestamp": "2026-11-28 07:47:55.487943+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-28T07:48:34.639286+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Royal Regency Club_2026-11-28_07-47_+37.5"
+    },
+    {
+      "hotel_name": "Jaz Lamaya Resort (ex Iberotel)",
+      "duration_bucket": "",
+      "old_price": 13507.0,
+      "new_price": 11851.0,
+      "price_change": -1656.0,
+      "price_change_pct": -12.260309469164136,
+      "timestamp": "2026-11-28 07:47:55.487943+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-28T07:48:34.639290+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jaz Lamaya Resort (ex Iberotel)_2026-11-28_07-47_-12.3"
+    },
+    {
+      "hotel_name": "Nubian Village",
+      "duration_bucket": "",
+      "old_price": 12431.0,
+      "new_price": 17747.0,
+      "price_change": 5316.0,
+      "price_change_pct": 42.76405759794063,
+      "timestamp": "2026-11-28 07:47:55.487943+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-28T07:48:34.639294+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Nubian Village_2026-11-28_07-47_+42.8"
+    },
+    {
+      "hotel_name": "Gemma Resort (ex. Labranda Gemma Premium Resort)",
+      "duration_bucket": "",
+      "old_price": 10011.0,
+      "new_price": 8831.0,
+      "price_change": -1180.0,
+      "price_change_pct": -11.787034262311458,
+      "timestamp": "2026-11-28 07:47:55.487943+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-28T07:48:34.639297+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Gemma Resort (ex. Labranda Gemma Premium Resort)_2026-11-28_07-47_-11.8"
+    },
+    {
+      "hotel_name": "Dreams Beach Sharm Resort (Sharm El Sheikh)",
+      "duration_bucket": "",
+      "old_price": 10835.0,
+      "new_price": 14697.0,
+      "price_change": 3862.0,
+      "price_change_pct": 35.64374711582833,
+      "timestamp": "2026-11-28 07:47:55.487943+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-28T07:48:34.639301+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Dreams Beach Sharm Resort (Sharm El Sheikh)_2026-11-28_07-47_+35.6"
+    },
+    {
+      "hotel_name": "Jasmine Palace",
+      "duration_bucket": "",
+      "old_price": 14600.0,
+      "new_price": 13151.0,
+      "price_change": -1449.0,
+      "price_change_pct": -9.924657534246576,
+      "timestamp": "2026-11-28 07:47:55.487943+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-28T07:48:34.639304+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Jasmine Palace_2026-11-28_07-47_-9.9"
+    },
+    {
+      "hotel_name": "Rewaya Luxury Resort",
+      "duration_bucket": "",
+      "old_price": 10151.0,
+      "new_price": 8807.0,
+      "price_change": -1344.0,
+      "price_change_pct": -13.24007486947099,
+      "timestamp": "2026-11-28 07:47:55.487943+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-28T07:48:34.639308+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Rewaya Luxury Resort_2026-11-28_07-47_-13.2"
+    },
+    {
+      "hotel_name": "Concorde El Salam Front Area",
+      "duration_bucket": "",
+      "old_price": 15210.0,
+      "new_price": 18078.0,
+      "price_change": 2868.0,
+      "price_change_pct": 18.8560157790927,
+      "timestamp": "2026-11-28 07:47:55.487943+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-28T07:48:34.639326+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Concorde El Salam Front Area_2026-11-28_07-47_zone_out_+18.9"
+    },
+    {
+      "hotel_name": "Pickalbatros Royal Grand Resort Sharm",
+      "duration_bucket": "",
+      "old_price": 19827.0,
+      "new_price": 17937.0,
+      "price_change": -1890.0,
+      "price_change_pct": -9.532455742169768,
+      "timestamp": "2026-11-28 07:47:55.487943+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-11-28T07:48:34.639345+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Pickalbatros Royal Grand Resort Sharm_2026-11-28_07-47_comeback_9.5"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-27T23:34:18.443567+00:00",
+    "last_processed_run": "2026-11-28T07:47:55.487943+00:00",
     "premium_state": {
       "AMC Royal Hotel & Spa (ex. AMC Azur Resort)": {
         "history_max": 8251.0,
@@ -8749,7 +9373,7 @@
         "premium_peak": null
       },
       "Sheraton Sharm Resort Villas & Spa": {
-        "history_max": 14261.0,
+        "history_max": 15484.0,
         "premium_peak": null
       },
       "Life Resorts Coral Hills": {
@@ -8913,7 +9537,7 @@
         "premium_peak": null
       },
       "IL Mercato Splash Aqua Park": {
-        "history_max": 9447.0,
+        "history_max": 13657.0,
         "premium_peak": null
       },
       "Moreno Horizon Spa & Resort": {
@@ -8925,7 +9549,7 @@
         "premium_peak": null
       },
       "Sunny Days El Palacio Resort & SPA": {
-        "history_max": 8483.0,
+        "history_max": 9865.0,
         "premium_peak": null
       },
       "Jaz Makadi Saraya (ex Iberotel)": {
@@ -8993,7 +9617,7 @@
         "premium_peak": null
       },
       "Ivy Cyrene Island Resort": {
-        "history_max": 11136.0,
+        "history_max": 13759.0,
         "premium_peak": null
       },
       "Invidia Coral Beach Tiran": {
@@ -9125,7 +9749,7 @@
         "premium_peak": null
       },
       "Regency Plaza Aqua Park Spa": {
-        "history_max": 12110.0,
+        "history_max": 13809.0,
         "premium_peak": null
       },
       "Radisson Individuals Marina Port Ghalib (ex. Sunrise Marina Resort)": {
@@ -9201,11 +9825,11 @@
         "premium_peak": null
       },
       "Nubian Village": {
-        "history_max": 13331.0,
+        "history_max": 17747.0,
         "premium_peak": null
       },
       "Nubian Island": {
-        "history_max": 13331.0,
+        "history_max": 17747.0,
         "premium_peak": null
       },
       "Serenity Sky Arc": {
@@ -9237,7 +9861,7 @@
         "premium_peak": null
       },
       "Naama Bay Promenade Beach Resort": {
-        "history_max": 15929.0,
+        "history_max": 17926.0,
         "premium_peak": null
       },
       "Shams Alam Beach Resort": {
@@ -9253,7 +9877,7 @@
         "premium_peak": null
       },
       "Royal Regency Club": {
-        "history_max": 12110.0,
+        "history_max": 15410.0,
         "premium_peak": null
       },
       "Oriental Rivoli & Spa (Sharm El Sheikh)": {
@@ -9301,7 +9925,7 @@
         "premium_peak": null
       },
       "Parrotel Aqua Park Resort (ex. Park Inn)": {
-        "history_max": 9383.0,
+        "history_max": 11574.0,
         "premium_peak": null
       },
       "Sea Star Beau Rivage": {
@@ -9349,7 +9973,7 @@
         "premium_peak": null
       },
       "Charmillion Garden Aqua Park": {
-        "history_max": 11342.0,
+        "history_max": 11447.0,
         "premium_peak": null
       },
       "Titanic Resort & Aquapark (ex. Dessole)": {
@@ -9377,7 +10001,7 @@
         "premium_peak": null
       },
       "Charmillion Sea Life Resort": {
-        "history_max": 11048.0,
+        "history_max": 12017.0,
         "premium_peak": null
       },
       "Tivoli & Aqua Park": {
@@ -9389,7 +10013,7 @@
         "premium_peak": null
       },
       "Tropitel Dahab Oasis": {
-        "history_max": 10958.0,
+        "history_max": 13800.0,
         "premium_peak": null
       },
       "Cardina Resort by Sunrise": {
@@ -9689,7 +10313,7 @@
         "premium_peak": null
       },
       "Sunrise Royal Makadi Aqua Resort": {
-        "history_max": 12817.0,
+        "history_max": 17632.0,
         "premium_peak": null
       },
       "El Khan Sharm": {
@@ -9701,7 +10325,7 @@
         "premium_peak": null
       },
       "Tamra Beach Sharm": {
-        "history_max": 11634.0,
+        "history_max": 15714.0,
         "premium_peak": null
       },
       "Empire Hotel Aqua Park (ex. Triton Empire Hotel Hurghada)": {
@@ -9717,7 +10341,7 @@
         "premium_peak": null
       },
       "Ecotel Dahab Bay View Resort": {
-        "history_max": 9933.0,
+        "history_max": 12576.0,
         "premium_peak": null
       },
       "Empire Beach Aqua Park (ex. Triton Empire Beach Resort Hurghada)": {
@@ -9725,7 +10349,7 @@
         "premium_peak": null
       },
       "Dreams Beach Sharm Resort (Sharm El Sheikh)": {
-        "history_max": 11735.0,
+        "history_max": 14697.0,
         "premium_peak": null
       },
       "Sunrise Select Garden Beach Resort & Spa": {
@@ -9741,7 +10365,7 @@
         "premium_peak": null
       },
       "Dreams Vacation Sharm Resort": {
-        "history_max": 13017.0,
+        "history_max": 16450.0,
         "premium_peak": null
       },
       "Elysees Hurghada (ex. Elysees Dream Beach)": {
@@ -9837,7 +10461,7 @@
         "premium_peak": null
       },
       "El Faraana Heights": {
-        "history_max": 10023.0,
+        "history_max": 12512.0,
         "premium_peak": null
       },
       "Sunrise Juman Beach Resort (ex. Coral Beach Resort)": {
@@ -9853,7 +10477,7 @@
         "premium_peak": null
       },
       "Jaz Elite Casa Del Mar Beach": {
-        "history_max": 16171.0,
+        "history_max": 16792.0,
         "premium_peak": null
       },
       "Hilton Plaza (Hurghada)": {
@@ -9885,11 +10509,11 @@
         "premium_peak": 18357.0
       },
       "Swiss Inn Resort Dahab": {
-        "history_max": 13173.0,
+        "history_max": 16772.0,
         "premium_peak": null
       },
       "Jaz Dahabeya (ex Iberotel Dahabeya)": {
-        "history_max": 14583.0,
+        "history_max": 17738.0,
         "premium_peak": null
       },
       "Iberotel Makadi Beach": {
@@ -9921,7 +10545,7 @@
         "premium_peak": null
       },
       "Safir Dahab Resort": {
-        "history_max": 13942.0,
+        "history_max": 17457.0,
         "premium_peak": null
       },
       "Aurora Cyrene Resort": {
@@ -9933,7 +10557,7 @@
         "premium_peak": 19827.0
       },
       "Renaissance Golden View Beach Resort by Marriott": {
-        "history_max": 14417.0,
+        "history_max": 17696.0,
         "premium_peak": null
       },
       "Serry Beach Resort": {
@@ -9949,8 +10573,8 @@
         "premium_peak": null
       },
       "Concorde El Salam Front Area": {
-        "history_max": 16110.0,
-        "premium_peak": null
+        "history_max": 18078.0,
+        "premium_peak": 18078.0
       },
       "Jaz Makadina": {
         "history_max": 16391.0,

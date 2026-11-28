@@ -4225,10 +4225,49 @@
       "created_at": "2026-11-27T23:35:10.558968+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Evita Asty Hotel_2026-11-27_23-35_zone_out_gone"
+    },
+    {
+      "hotel_name": "Marina Athens Hotel",
+      "duration_bucket": "",
+      "old_price": 5585.0,
+      "new_price": 6130.0,
+      "price_change": 545.0,
+      "price_change_pct": 9.758281110116384,
+      "timestamp": "2026-11-28 07:48:37.687160+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-28T07:48:49.078026+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Marina Athens Hotel_2026-11-28_07-48_+9.8"
+    },
+    {
+      "hotel_name": "Stalis Hotel Athens",
+      "duration_bucket": "",
+      "old_price": 5157.0,
+      "new_price": 5917.0,
+      "price_change": 760.0,
+      "price_change_pct": 14.737250339344579,
+      "timestamp": "2026-11-28 07:48:37.687160+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-28T07:48:49.078051+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Stalis Hotel Athens_2026-11-28_07-48_+14.7"
+    },
+    {
+      "hotel_name": "Arion Athens Hotel",
+      "duration_bucket": "",
+      "old_price": 6864.0,
+      "new_price": 6864.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-28 07:48:37.687160+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-28T07:48:49.078062+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Arion Athens Hotel_2026-11-28_07-48_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-27T23:35:02.470423+00:00",
+    "last_processed_run": "2026-11-28T07:48:37.687160+00:00",
     "premium_state": {
       "Acharavi Mare by Wyndham (ex. Beis Beach)": {
         "history_max": 9057.0,
@@ -5439,7 +5478,7 @@
         "premium_peak": null
       },
       "The Alassia Hotel": {
-        "history_max": 6477.0,
+        "history_max": 6874.0,
         "premium_peak": null
       },
       "ATHENS TIARE": {
@@ -5463,7 +5502,7 @@
         "premium_peak": null
       },
       "Airotel Parthenon": {
-        "history_max": 7037.0,
+        "history_max": 7457.0,
         "premium_peak": null
       }
     }

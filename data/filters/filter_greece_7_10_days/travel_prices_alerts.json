@@ -208,10 +208,23 @@
       "created_at": "2026-11-26T12:31:24.807784+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Stalis Hotel Athens_2026-11-26_12-31_zone_out_gone"
+    },
+    {
+      "hotel_name": "NLH Fix",
+      "duration_bucket": "",
+      "old_price": 7327.0,
+      "new_price": 7327.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-28 07:46:51.467109+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-28T07:47:09.473435+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "NLH Fix_2026-11-28_07-46_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-27T23:33:18.079825+00:00",
+    "last_processed_run": "2026-11-28T07:46:51.467109+00:00",
     "premium_state": {
       "Electra Palace Athens": {
         "history_max": 14569.0,
@@ -254,7 +267,7 @@
         "premium_peak": null
       },
       "Marina Athens Hotel": {
-        "history_max": 5177.0,
+        "history_max": 5207.0,
         "premium_peak": null
       },
       "Stalis Hotel Athens": {

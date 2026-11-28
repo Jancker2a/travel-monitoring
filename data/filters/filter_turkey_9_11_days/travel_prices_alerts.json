@@ -546,10 +546,88 @@
       "created_at": "2026-11-27T23:34:13.623793+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Limak Limra_2026-11-27_23-33_-8.9"
+    },
+    {
+      "hotel_name": "Villa Side Residence",
+      "duration_bucket": "",
+      "old_price": 6754.0,
+      "new_price": 7472.0,
+      "price_change": 718.0,
+      "price_change_pct": 10.630737340835061,
+      "timestamp": "2026-11-28 07:47:23.536265+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-28T07:47:46.800498+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Villa Side Residence_2026-11-28_07-47_+10.6"
+    },
+    {
+      "hotel_name": "Aska Lara Resort & Spa",
+      "duration_bucket": "",
+      "old_price": 7259.0,
+      "new_price": 7917.0,
+      "price_change": 658.0,
+      "price_change_pct": 9.064609450337512,
+      "timestamp": "2026-11-28 07:47:23.536265+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-28T07:47:46.800522+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Aska Lara Resort & Spa_2026-11-28_07-47_+9.1"
+    },
+    {
+      "hotel_name": "Royal Dragon",
+      "duration_bucket": "",
+      "old_price": 9446.0,
+      "new_price": 8594.0,
+      "price_change": -852.0,
+      "price_change_pct": -9.01969087444421,
+      "timestamp": "2026-11-28 07:47:23.536265+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-28T07:47:46.800531+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Royal Dragon_2026-11-28_07-47_-9.0"
+    },
+    {
+      "hotel_name": "Aydinbey Kings Palace",
+      "duration_bucket": "",
+      "old_price": 6794.0,
+      "new_price": 7426.0,
+      "price_change": 632.0,
+      "price_change_pct": 9.30232558139535,
+      "timestamp": "2026-11-28 07:47:23.536265+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-28T07:47:46.800538+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Aydinbey Kings Palace_2026-11-28_07-47_+9.3"
+    },
+    {
+      "hotel_name": "Limak Arcadia Sport Resort",
+      "duration_bucket": "",
+      "old_price": 6598.0,
+      "new_price": 7126.0,
+      "price_change": 528.0,
+      "price_change_pct": 8.00242497726584,
+      "timestamp": "2026-11-28 07:47:23.536265+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-28T07:47:46.800544+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Limak Arcadia Sport Resort_2026-11-28_07-47_+8.0"
+    },
+    {
+      "hotel_name": "Limak Limra",
+      "duration_bucket": "",
+      "old_price": 6184.0,
+      "new_price": 6788.0,
+      "price_change": 604.0,
+      "price_change_pct": 9.767141009055628,
+      "timestamp": "2026-11-28 07:47:23.536265+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-28T07:47:46.800550+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Limak Limra_2026-11-28_07-47_+9.8"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-27T23:33:50.778592+00:00",
+    "last_processed_run": "2026-11-28T07:47:23.536265+00:00",
     "premium_state": {
       "Acanthus & Cennet Barut Collection": {
         "history_max": 12487.0,
@@ -704,8 +782,8 @@
         "premium_peak": null
       },
       "Ducale Lara": {
-        "history_max": 9613.0,
-        "premium_peak": null
+        "history_max": 13725.0,
+        "premium_peak": 13725.0
       },
       "Bellis Deluxe": {
         "history_max": 10902.0,
@@ -764,7 +842,7 @@
         "premium_peak": 10124.0
       },
       "Aska Lara Resort & Spa": {
-        "history_max": 7409.0,
+        "history_max": 7917.0,
         "premium_peak": null
       },
       "The Sense Deluxe": {

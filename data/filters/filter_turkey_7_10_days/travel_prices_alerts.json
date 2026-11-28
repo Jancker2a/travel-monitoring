@@ -2496,10 +2496,114 @@
       "created_at": "2026-11-27T23:34:05.479039+00:00",
       "threshold_percent": 8.0,
       "unique_key": "The Sense Deluxe_2026-11-27_23-33_+14.7"
+    },
+    {
+      "hotel_name": "Villa Side Residence",
+      "duration_bucket": "",
+      "old_price": 5300.0,
+      "new_price": 6273.0,
+      "price_change": 973.0,
+      "price_change_pct": 18.358490566037737,
+      "timestamp": "2026-11-28 07:47:11.639154+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-28T07:47:40.157054+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Villa Side Residence_2026-11-28_07-47_+18.4"
+    },
+    {
+      "hotel_name": "Side Royal Palace",
+      "duration_bucket": "",
+      "old_price": 5530.0,
+      "new_price": 6624.0,
+      "price_change": 1094.0,
+      "price_change_pct": 19.783001808318264,
+      "timestamp": "2026-11-28 07:47:11.639154+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-28T07:47:40.157077+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Side Royal Palace_2026-11-28_07-47_+19.8"
+    },
+    {
+      "hotel_name": "Side Royal Style (ex. Side Royal Luxury)",
+      "duration_bucket": "",
+      "old_price": 5474.0,
+      "new_price": 6568.0,
+      "price_change": 1094.0,
+      "price_change_pct": 19.985385458531237,
+      "timestamp": "2026-11-28 07:47:11.639154+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-28T07:47:40.157084+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Side Royal Style (ex. Side Royal Luxury)_2026-11-28_07-47_+20.0"
+    },
+    {
+      "hotel_name": "Limak Limra",
+      "duration_bucket": "",
+      "old_price": 4006.0,
+      "new_price": 4328.0,
+      "price_change": 322.0,
+      "price_change_pct": 8.037943085371941,
+      "timestamp": "2026-11-28 07:47:11.639154+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-28T07:47:40.157089+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Limak Limra_2026-11-28_07-47_+8.0"
+    },
+    {
+      "hotel_name": "Aydinbey Queens Palace & Spa",
+      "duration_bucket": "",
+      "old_price": 5470.0,
+      "new_price": 6564.0,
+      "price_change": 1094.0,
+      "price_change_pct": 20.0,
+      "timestamp": "2026-11-28 07:47:11.639154+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-28T07:47:40.157100+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Aydinbey Queens Palace & Spa_2026-11-28_07-47_+20.0"
+    },
+    {
+      "hotel_name": "Fame Residence Lara (Antalya)",
+      "duration_bucket": "",
+      "old_price": 6908.0,
+      "new_price": 7963.0,
+      "price_change": 1055.0,
+      "price_change_pct": 15.272148233931674,
+      "timestamp": "2026-11-28 07:47:11.639154+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-28T07:47:40.157105+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Fame Residence Lara (Antalya)_2026-11-28_07-47_+15.3"
+    },
+    {
+      "hotel_name": "Gloria Verde Resort",
+      "duration_bucket": "",
+      "old_price": 8859.0,
+      "new_price": 11206.0,
+      "price_change": 2347.0,
+      "price_change_pct": 26.49283214809798,
+      "timestamp": "2026-11-28 07:47:11.639154+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-28T07:47:40.157118+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Gloria Verde Resort_2026-11-28_07-47_zone_out_+26.5"
+    },
+    {
+      "hotel_name": "Ducale Lara",
+      "duration_bucket": "",
+      "old_price": 10629.0,
+      "new_price": 9721.0,
+      "price_change": -908.0,
+      "price_change_pct": -8.542666290337756,
+      "timestamp": "2026-11-28 07:47:11.639154+00:00",
+      "alert_type": "premium_comeback",
+      "created_at": "2026-11-28T07:47:40.157136+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Ducale Lara_2026-11-28_07-47_comeback_8.5"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-27T23:33:36.092930+00:00",
+    "last_processed_run": "2026-11-28T07:47:11.639154+00:00",
     "premium_state": {
       "Acanthus & Cennet Barut Collection": {
         "history_max": 9021.0,
@@ -2682,7 +2786,7 @@
         "premium_peak": 10497.0
       },
       "Sural Resort": {
-        "history_max": 5314.0,
+        "history_max": 5429.0,
         "premium_peak": null
       },
       "Susesi Luxury Resort": {
@@ -2874,7 +2978,7 @@
         "premium_peak": null
       },
       "Aydinbey Queens Palace & Spa": {
-        "history_max": 6410.0,
+        "history_max": 6564.0,
         "premium_peak": null
       },
       "Delphin Imperial Lara": {
@@ -2902,8 +3006,8 @@
         "premium_peak": null
       },
       "Barcelo Istanbul": {
-        "history_max": 10977.0,
-        "premium_peak": 10977.0
+        "history_max": 11067.0,
+        "premium_peak": 11067.0
       },
       "Cornelia Diamond Golf Resort & SPA": {
         "history_max": 12800.0,
@@ -2946,8 +3050,8 @@
         "premium_peak": null
       },
       "Gloria Verde Resort": {
-        "history_max": 10294.0,
-        "premium_peak": 10294.0
+        "history_max": 11206.0,
+        "premium_peak": 11206.0
       },
       "Akra Kemer (ex. Kemer Barut Collection)": {
         "history_max": 7635.0,
@@ -2974,7 +3078,7 @@
         "premium_peak": null
       },
       "Fame Residence Lara (Antalya)": {
-        "history_max": 7848.0,
+        "history_max": 7963.0,
         "premium_peak": null
       },
       "Akra Hotel (ex. Barut Akra)": {
@@ -2991,6 +3095,10 @@
       },
       "Grand Seker": {
         "history_max": 5296.0,
+        "premium_peak": null
+      },
+      "Sirene Belek": {
+        "history_max": 8356.0,
         "premium_peak": null
       }
     }

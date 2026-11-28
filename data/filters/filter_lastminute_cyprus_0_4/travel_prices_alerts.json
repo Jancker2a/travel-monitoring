@@ -1742,13 +1742,78 @@
       "created_at": "2026-11-27T23:34:17.276634+00:00",
       "threshold_percent": 8.0,
       "unique_key": "Mayfair_2026-11-27_23-34_+22.3"
+    },
+    {
+      "hotel_name": "Chrysomare",
+      "duration_bucket": "",
+      "old_price": 7723.0,
+      "new_price": 7066.0,
+      "price_change": -657.0,
+      "price_change_pct": -8.50705684319565,
+      "timestamp": "2026-11-28 07:47:44.245915+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-28T07:47:53.850996+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Chrysomare_2026-11-28_07-47_-8.5"
+    },
+    {
+      "hotel_name": "Mayfair",
+      "duration_bucket": "",
+      "old_price": 6268.0,
+      "new_price": 5517.0,
+      "price_change": -751.0,
+      "price_change_pct": -11.981493299298021,
+      "timestamp": "2026-11-28 07:47:44.245915+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-28T07:47:53.851025+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Mayfair_2026-11-28_07-47_-12.0"
+    },
+    {
+      "hotel_name": "Leonardo Cypria Bay (ex Sentido)",
+      "duration_bucket": "",
+      "old_price": 5879.0,
+      "new_price": 6362.0,
+      "price_change": 483.0,
+      "price_change_pct": 8.215682939275387,
+      "timestamp": "2026-11-28 07:47:44.245915+00:00",
+      "alert_type": "price_increase",
+      "created_at": "2026-11-28T07:47:53.851040+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Leonardo Cypria Bay (ex Sentido)_2026-11-28_07-47_+8.2"
+    },
+    {
+      "hotel_name": "Melpo Antia",
+      "duration_bucket": "",
+      "old_price": 7963.0,
+      "new_price": 7162.0,
+      "price_change": -801.0,
+      "price_change_pct": -10.059022981288459,
+      "timestamp": "2026-11-28 07:47:44.245915+00:00",
+      "alert_type": "price_drop",
+      "created_at": "2026-11-28T07:47:53.851048+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Melpo Antia_2026-11-28_07-47_-10.1"
+    },
+    {
+      "hotel_name": "Tasia Maris Sands",
+      "duration_bucket": "",
+      "old_price": 13077.0,
+      "new_price": 13077.0,
+      "price_change": 0.0,
+      "price_change_pct": 0.0,
+      "timestamp": "2026-11-28 07:47:44.245915+00:00",
+      "alert_type": "zone_exit",
+      "created_at": "2026-11-28T07:47:53.851062+00:00",
+      "threshold_percent": 8.0,
+      "unique_key": "Tasia Maris Sands_2026-11-28_07-47_zone_out_gone"
     }
   ],
   "meta": {
-    "last_processed_run": "2026-11-27T23:34:08.316082+00:00",
+    "last_processed_run": "2026-11-28T07:47:44.245915+00:00",
     "premium_state": {
       "Acapulco Resort": {
-        "history_max": 5827.0,
+        "history_max": 6967.0,
         "premium_peak": null
       },
       "Malama Beach Holiday Village": {
@@ -1884,7 +1949,7 @@
         "premium_peak": null
       },
       "Leonardo Cypria Bay (ex Sentido)": {
-        "history_max": 6255.0,
+        "history_max": 6362.0,
         "premium_peak": null
       },
       "Limak Cyprus Deluxe": {
@@ -1948,7 +2013,7 @@
         "premium_peak": null
       },
       "Theo Sunset Bay Holiday Village (Pafos)": {
-        "history_max": 6827.0,
+        "history_max": 6967.0,
         "premium_peak": null
       },
       "Toxotis": {
@@ -2236,7 +2301,7 @@
         "premium_peak": null
       },
       "Eleni Resort (ex. Eleni Holiday Village)": {
-        "history_max": 7198.0,
+        "history_max": 7317.0,
         "premium_peak": null
       },
       "Grecian Sands": {
